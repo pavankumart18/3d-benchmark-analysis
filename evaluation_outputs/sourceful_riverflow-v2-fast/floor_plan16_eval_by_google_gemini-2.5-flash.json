@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Balcony appears to be slightly shifted. Wall alignment generally good. Door placement for the main entrance is missing in the 3D render, and the bathroom door is incorrectly oriented. Window placement is missing and not represented accurately. Room proportions are mostly preserved but the Balcony depth appears distorted (E4, E1, E3)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in some areas, especially around the Kitchen and Utility. The main entrance door is missing entirely (E1). The balcony railing is completely different in design and placement compared to the floor plan (E2, E3). Adjacency relationships are mostly correct, but the utility wall is slightly misaligned. No missing or hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate, though the Bedroom-1 bed is oriented differently in the 3D render compared to the 2D plan, and a wardrobe is missing (E3, E1). Furniture scale seems consistent."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are good. Lighting quality is decent. Geometry is generally clean but the inconsistent wall thicknesses and distorted balcony railing affect clean geometry (E6). Visual clarity and composition are good."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing main entrance door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wardrobe in Bedroom-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows on external walls."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony railing design and placement inconsistent with floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door orientation incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Balcony depth appears distorted."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom-1 bed orientation incorrect."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thicknesses around Kitchen and Utility."
+        },
+        {
+            "code": "E2",
+            "description": "Slight misalignment of the utility wall."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony shifted slightly."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan16.avif"
+}

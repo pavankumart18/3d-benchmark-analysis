@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room 'Chandler & Jooy's Apartment' is entirely missing. The closet room next to the kitchen is severely distorted in shape and proportion, causing wall misalignment. The bathroom near Rachel's bedroom has incorrect door placement. The main entrance door is missing. The living room window's proportion is significantly distorted. 'Monica's Bedroom' door placement is incorrect."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Walls in the kitchen/dining area and next to the main bathroom are not consistent in thickness. The door embedding for several doors is incorrect (e.g., Monica's bedroom, main entrance). The adjacency between the main apartment and 'Chandler & Jooy's Apartment' is completely missing. The 'Chandler and Jooy's Apartment' room is missing. The closet room next to the kitchen is heavily hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Many furniture pieces are scaled incorrectly, particularly the kitchen appliances. Some furniture, such as the living room TV and stand, and some bedroom furniture, are missing. The layout of the dining room table and chairs deviates from the plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and the projection appears mostly orthographic. Lighting is generally good. However, there are some clean geometry issues, particularly around the distorted closet/kitchen area. Visual clarity suffers due to missing and misplaced elements."
+    },
+    "total_score": 34,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Chandler & Jooy's Apartment'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing main entrance door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing TV and TV stand in the living room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet furniture in the 'COAT' room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for the bathroom near Rachel's bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrectly oriented door for 'Monica's Bedroom'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen appliances within the kitchen layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced dining table and chairs."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced furniture in Rachel's bedroom."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of main entrance door (if it were present)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the closet room next to the kitchen."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the large living room window."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the kitchen area and some appliances."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated shape and extent of the closet room next to the kitchen."
+        },
+        {
+            "code": "E6",
+            "description": "Wall misalignment and inconsistent wall thickness around the kitchen and main bathroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan.jpg"
+}

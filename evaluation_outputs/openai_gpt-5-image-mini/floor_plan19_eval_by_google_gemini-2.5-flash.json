@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 4,
+        "max": 40,
+        "notes": "Significant deviations in room placement and wall alignment. The overall layout is distorted. Many doors are completely missing, and windows are either missing or misplaced. Room proportions are not preserved, with several rooms appearing much smaller or larger than indicated on the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 2,
+        "max": 25,
+        "notes": "Multiple rooms are missing, including the Foyer, HO, TOI-2, Utility, Deck, and the exterior hallway. There are numerous alterations to the wall structures and adjacency relationships. Wall thickness is not consistently preserved."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Most furniture from the floor plan is missing or misplaced. Scale consistency of furniture in the render vs. the floor plan is poor, contributing to proportion distortion."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting quality is acceptable, and geometry is clean. However, the visual clarity and composition suffer due to the missing architectural elements and simplified furniture."
+    },
+    "total_score": 24,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Foyer room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing HO room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing TOI-2 room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Utility room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Deck areas (two distinct sections)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior hallway/corridor on the right side."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all doors from the floor plan except for one in TOI-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing most windows from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom (TOI-1) relative to BED-1. It is adjacent to BED-4 in the render, not BED-1."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom (CTOI) relative to BED-3 and BED-4."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in Living/Dining area, appearing much smaller than floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Kitchen, appearing smaller and shifted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in BED-1, BED-2, BED-3, BED-4, and all bathrooms."
+        },
+        {
+            "code": "E4",
+            "description": "Overall layout's aspect ratio and alignment significantly distorted compared to the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated large wall segment separating BED-3 and BED-4's new bathroom arrangement."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall structure on the upper right side, not matching the curved deck area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall splitting the original CTOI space."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan19.webp"
+}

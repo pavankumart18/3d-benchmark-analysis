@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant door orientation and placement errors. The three doors on the far left (Alcove area) are placed with incorrect swing directions and spacing. The entry door at the bottom-left shows a hallucinated double-door transition instead of the single flush door and adjacent wall segment shown in the plan. Window placement on the south wall is roughly correct but lacks the precision of the dimensioned plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The utility room wall contains a hallucinated opening/doorway leading directly into what should be the Kitchen/Pantry corridor. The pantry wall is missing, merging the kitchen cabinetry erroneously into the dining transition. The stairwell wall thickness and 'crawlspace access' door are structurally misrepresented/missing."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen cabinetry follows the general L-shape but the stove and sink positions are slightly shifted. The Utility room appliances (W/D/HVAC) are represented as generic blocks without clear distinction."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good lighting and shadows provide clear depth. Geometry is clean without mesh artifacts. The orthographic/isometric angle is well-maintained, though some wall caps show slight rendering inconsistencies."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Alcove doors on the left wall do not match the spacing and recessed structure of the architectural plan."
+        },
+        {
+            "code": "E3",
+            "description": "Utility room door and adjacent WC door swings are reversed or oriented incorrectly compared to the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated opening in the wall separating the Utility room/Kitchen from the Dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing interior wall for the Pantry enclosure; cabinets are floating against an open space."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Central Hall' are wider in the render than the tight dimensions specified in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan11.png"
+}

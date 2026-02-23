@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 3,
+        "max": 40,
+        "notes": "Major plan mismatch. The 2D plan is essentially a single open Kitchen/Dining/Living zone with one small central bathroom and a large stair block at bottom-left plus a single entrance at bottom-center. The 3D render shows a multi-room layout (bedroom(s), multiple enclosed rooms and corridors) that does not correspond to the 2D room arrangement. Wall lines and room locations do not align; door and window positions do not match the plan; overall proportions and the open-plan relationship are not preserved."
+    },
+    "structural_fidelity": {
+        "score": 1,
+        "max": 25,
+        "notes": "Structural relationships are incorrect. The stair core visible in the 2D plan is missing/not represented as a stair block in the 3D render. The single small bathroom in the center of the 2D plan is not faithfully reproduced (3D appears to contain multiple wet rooms/partitions). Adjacency is wrong (2D has large open Living/Dining to the right; 3D subdivides into separate rooms). Multiple hallucinated rooms appear and the primary open space is effectively missing."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "2D plan indicates kitchen fixtures and otherwise minimal furniture guidance; 3D includes a bed, desks/tables and other furnishings not supported by the 2D plan layout. Furniture scale is not verifiable against the 2D dimensions due to the fundamental room-layout mismatch."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "Isometric viewpoint is generally correct and the model reads as an isometric cutaway. However, the render is soft/blurry with low material definition; some geometry/edges appear muddy, reducing clarity. Lighting is acceptable but flat; composition is clean enough for viewing."
+    },
+    "total_score": 17,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing stair block: the large bottom-left stair element from the 2D plan is not present in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing open-plan Kitchen/Dining/Living configuration: 2D shows a largely open right-side Living/Dining and top-left Kitchen; 3D subdivides into multiple rooms."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom placement/layout incorrect: 2D has one small central bathroom core; 3D shows different bathroom(s) and partitioning not matching the central compact block."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance location incorrect: 2D entrance is centered on the bottom wall; 3D does not clearly show a matching bottom-center entry aligned to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: 2D indicates specific window groupings on right and bottom walls; 3D window count/positions do not correspond to those locations."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/placement mismatch: 2D shows specific door swings (kitchen top opening, bathroom doors, and main entrance); 3D door openings are in different walls/rooms and do not match swing locations."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: the 2D living room is a long 13' x 24' zone on the right; 3D replaces it with smaller rooms, destroying the intended proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom and additional rooms: 3D includes at least one bedroom and extra enclosed spaces/corridors not present in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture set (bed/office furniture) not supported by the 2D plan\u2019s room program."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering softness/blur reduces edge clarity, making wall/door details difficult to verify precisely."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan3.jpg"
+}

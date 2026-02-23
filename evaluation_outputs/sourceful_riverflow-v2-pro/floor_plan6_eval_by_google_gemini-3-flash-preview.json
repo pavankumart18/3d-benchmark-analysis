@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved, but window counts and placements on the bottom and right walls deviate from the source plan. Door orientations in the bathroom area are slightly inconsistent with the swing radii shown in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Adjacency is mostly correct. However, wall thickness is generalized and the stairs leading downward seem to terminate or transition abruptly compared to the 2D architectural representation."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement aligns well with the plan, including the kitchen island, dining set, and bedroom layout. Scale is appropriate for the room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High-quality isometric rendering with clean geometry, consistent lighting, and professional orthographic projection."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Windows on the bottom facade are merged or misplaced compared to the five distinct openings in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom and bedroom door swing directions/orientations do not perfectly match the specific arcs in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the balcony/terrace area on the left appear slightly narrower in 3D than the plan suggests."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but window placement on the front facade deviates from the plan. Door swings are mostly correct but some furniture blocks circulation paths."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Main walls are correctly aligned. The porch/balcony on the left has been enclosed into a room-like structure contrary to the open plan. Wall thickness is consistent."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the floor plan symbols. Scale of the kitchen island and dining chairs is slightly undersized compared to the 2D plan proportions."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering. Orthographic projection is consistent. Lighting is clear, though internal wall shadows are slightly exaggerated."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The balcony/patio on the left is represented as an enclosed hallway/entry room instead of an outdoor space as indicated by the plan lines."
+        },
+        {
+            "code": "E3",
+            "description": "The front windows (bottom right of image) do not match the single large window indicated in the 2D plan; instead, they are split into two smaller units."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen area; the gap between the island and the wall units is larger in the 3D render than the 2D plan's architectural scale."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucination of a solid brown door at the main entrance that does not reflect the double-swing arch style shown on the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan5.jpg"
+}

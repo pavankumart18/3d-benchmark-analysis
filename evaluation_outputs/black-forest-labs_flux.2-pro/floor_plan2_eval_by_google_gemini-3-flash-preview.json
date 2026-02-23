@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but significant door swing direction errors and incorrect window orientations are present. The fireplace/radiator elements are rotated 90 degrees compared to the source."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms are present and correctly adjacent. However, the exterior entryway wall thickness is inconsistent, and the transition between the living and dining area lacks the clear definition of the blueprint's half-walls."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Most furniture is correctly placed, but the orientation of the desk in the top-right bedroom is mirrored, and the kitchen counter configuration is simplified."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric rendering with clean geometry and soft, professional lighting. The composition is clear and aesthetically pleasing."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Door swing orientations in the bedrooms and bathroom do not match the blueprint's arc direction."
+        },
+        {
+            "code": "E3",
+            "description": "Radiation/heating units in bedrooms and living rooms are rotated 90 degrees compared to wall placement in 2D."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the primary bedroom (top right) is placed on the side wall instead of the rear wall."
+        },
+        {
+            "code": "E4",
+            "description": "Living room sofa set scale is slightly undersized compared to the floor space allocated in the schematic."
+        },
+        {
+            "code": "E6",
+            "description": "Door frames show floor-level 'ghosting' or lack of proper threshold definition."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan2.png"
+}

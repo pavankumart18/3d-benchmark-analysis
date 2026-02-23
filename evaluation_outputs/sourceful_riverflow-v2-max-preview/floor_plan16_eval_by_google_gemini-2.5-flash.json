@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room dimensions and shapes are not accurately preserved, leading to significant proportion distortion. Wall alignments are mostly correct but some are thicker in the render. Door and window placements are frequently incorrect or missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The balcony room is completely missing. Hallucinated walls are present in the 'LIVING & DINING' area separating it and creating a new room. Wall thickness is inconsistent. Doors are not correctly embedded; some are just openings."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate with many items either missing or misplaced. Scale consistency is poor for many furniture items relative to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, but the orthographic projection is very poor as the floor plan text is rendered in 3D. Lighting is inadequate, leading to flat visuals. Geometry is clean but visual clarity is hampered by the inaccurate details and text rendering."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony is entirely missing from the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs are misplaced closer to the kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Living area sofa and coffee table are misplaced and scaled incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom bed, side table, and wardrobe are misplaced and proportion distorted."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen elements (counter, sink, stove) are misplaced and reconfigured."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room appliances are misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet-1 fixtures are misplaced and scaled incorrectly."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation to Bedroom-1 is incorrect; it should open inwards."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Toilet-1 is missing from the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'LIVING & DINING' space, making it appears smaller and narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'KITCHEN' space."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'TOILET-1' space."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'BEDROOM-1' space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated walls within the 'LIVING & DINING' area separating it from the hallway to the Bedroom/Toilet."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window on the external wall near the 'LIVING & DINING' area where there should be a sliding door to the balcony."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window on the 'BEDROOM-1' exterior wall that is not present in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Floor plan text 'KITCHEN' and dimensions are rendered in 3D within the scene, creating a rendering artifact."
+        },
+        {
+            "code": "E6",
+            "description": "Floor plan text 'UTILITY' and dimensions are rendered in 3D within the scene, creating a rendering artifact."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan16.avif"
+}

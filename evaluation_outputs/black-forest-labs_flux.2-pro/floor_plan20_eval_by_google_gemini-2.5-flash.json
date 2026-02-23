@@ -1,0 +1,128 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the overall footprint of the structure is distorted with the rightmost bedroom and balcony being significantly pulled away from the main body. Wall alignment shows inconsistencies, particularly with exterior walls that are not straight or properly connected. Door and window placements are frequently incorrect or missing. Room proportions are significantly altered, especially for the right side of the plan."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly exterior walls appear too thin and internal walls vary. Door embedding is incorrect in several places, with doors not properly recessed into walls. Adjacency relationships are mostly preserved but distorted due to proportion issues. There are no missing rooms, but several elements like balconies are heavily altered in shape and connection. There are no hallucinated rooms, but hallucinated wall segments and features are present."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor, with many items shifted or rotated incorrectly (e.g., dining table, beds). Furniture scale is moderately consistent, but some items appear slightly oversized for the distorted rooms."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct. Orthographic projection accuracy is compromised due to distorted geometry. Lighting quality is acceptable but can be improved with more dynamic shadows. Geometry shows significant distortions and inaccuracies, particularly with exterior walls and balconies. Visual clarity is fair, but the composition is poor due to structural flaws and stretched elements."
+    },
+    "total_score": 28,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Overall floor plan footprint is distorted, especially the right section of the house, which is stretched and pulled away."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony attached to Bedroom-1 is significantly wider and shorter, and its relation to the room is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony attached to Bedroom-2 is displaced further from the main structure and appears distorted in shape."
+        },
+        {
+            "code": "E2",
+            "description": "Window position in Bedroom-1 is incorrect and appears taller than on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating Bedroom-1 and Bedroom-2 is misaligned and appears at an incorrect angle, creating a skewed room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom-1 and Bedroom-2 due to skewed walls and shifted overall layout."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between the Living & Dining area and the hallway leading to Toilet-1 and Bedroom-1."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Toilet-1 is misplaced further into the toilet room and its orientation is slightly off."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Toilet-2 is misplaced and its swing direction is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Bedroom-2 is missing a section of the wall beside it (E1 for wall segment), and the door itself is embedded incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "The partition wall in the Living & Dining area next to the kitchen entrance is incorrect, it should be a full wall, not a half wall with exposed shelving."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated half-wall/shelving unit in the Living & Dining area, not present in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen door is misplaced and its swing changes from internal to external."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room's entrance door is not correctly represented. It appears as an open archway before the door, which is not in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the Kitchen is not aligned correctly with the counter below it in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Toilet-3 is incorrectly placed and oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Toilet-4 is incorrectly placed and oriented, and the wall segment between it and the Home Office is distorted."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Home Office / Maid's Room is incorrectly placed and oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Rear balcony of Bedroom-3 is stretched in one direction."
+        },
+        {
+            "code": "E2",
+            "description": "Wall segment extending from Bedroom-3 into the balcony is incorrectly represented, making the balcony narrower on one side."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement for the sofa in the Living & Dining area is incorrect; one sofa is missing and the configuration is different."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs are not accurately placed or scaled."
+        },
+        {
+            "code": "E2",
+            "description": "Beds in all bedrooms are slightly misplaced or not perfectly integrated with walls/windows."
+        },
+        {
+            "code": "E2",
+            "description": "The 'DECK' area's boundary wall/railing appears distorted and has a different thickness than specified indirectly by the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the 'DECK' area, on the wall shared with living/dining, if it was intended to be an interior window/opening."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan20.avif"
+}

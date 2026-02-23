@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "General layout is recognizable, but significant door and window placement errors exist. The balcony wall is missing. The entryway orientation is swapped with the linen closet."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Major structural errors: Hallway door into Bedroom 1 is missing/replaced with a wall. Garage is rendered as an open tray rather than a structure. Several interior doors are rendered as solid wall blocks or arched openings without clear leaves."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen cabinetry and appliances are mostly accurate. Bathroom fixtures are placed correctly relative to the plan. Hallucinated block in the dining area."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent rendering quality, clean geometry, and consistent lighting. Accurate isometric camera angle and clear material differentiation."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing doorway from the hallway into Bedroom 1."
+        },
+        {
+            "code": "E2",
+            "description": "Linen closet and main entry door positions are flipped/misplaced."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated green block/furniture in the lounge/dining area not present in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Garage is flattened into a baseplate rather than an enclosed room as shown on the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing enclosure wall for the north-facing balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 2 window is rendered as a large full-height glass panel rather than a standard window centered on the wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan13.jpg"
+}

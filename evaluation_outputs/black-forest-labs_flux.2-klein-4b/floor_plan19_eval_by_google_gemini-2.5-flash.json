@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. BED-1 deck is distorted. Living/Dining room proportions altered. Kitchen layout and proportions are inaccurate. TOI-4 and TOI-3 are missing. Utility room proportions altered. Main deck proportions are wrong. Foyer is misrepresented. TOI-2 is missing an inner wall."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "TOI-4 and TOI-3 are completely missing. Internal wall in TOI-2 is missing. Hallucinated walls in various areas, especially the entrance. Wall thickness inconsistently represented. Door embeddings are often missing or incorrectly represented (e.g., in BED-1 deck)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally inaccurate or missing in several rooms (e.g., FOYER, BED-2, TOI-4, TOI-3). Scale consistency issues for individual items. Kitchen furniture is largely a hallucination. Many toilets and sinks are missing. The outdoor furniture on the decks is either missing or misplaced."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera angle is mostly correct, but orthographic projection has minor inconsistencies. Lighting is flat, lacking depth. Geometry is clean, but the overall composition is hindered by the numerous spatial and structural inaccuracies."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing room: TOI-4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing room: TOI-3."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal wall in TOI-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing doors for BED-1 deck, BED-2 balcony, TOI-4, TOI-3, and main entrance."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced outer wall near BED-4 and TOI-1."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for BED-2, opening in the wrong direction and at a different location."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows throughout the render, with different sizes and positions than the plan (e.g., BED-2, Living/Dining, BED-1)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced furniture in Living/Dining, Kitchen, BED-1, BED-2, BED-3, BED-4, Utility, and decks."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in BED-1 deck, making it smaller and oddly shaped."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Living/Dining area, appearingwider than depicted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Kitchen, with an altered footprint and internal layout."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Utility room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the main deck area, especially the curved section."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall sections near the entrance and in various minor areas around the perimeter."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island and counter configuration."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated plant in BED-1."
+        },
+        {
+            "code": "E6",
+            "description": "Some wall textures and floor patterns are inconsistent with common architectural rendering standards, suggesting rendering artifacts or low-fidelity textures."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan19.webp"
+}

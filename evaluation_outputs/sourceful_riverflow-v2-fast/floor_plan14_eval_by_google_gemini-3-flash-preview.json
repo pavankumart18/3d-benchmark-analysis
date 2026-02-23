@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "The overall layout follows the floor plan, but there are significant door and window placement errors. Most notably, the entry foyer door into the living room is missing, creating an open gap. Window apertures are represented by wall breaks rather than glass or frame elements."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Door embedding is inconsistent, with several door swings missing or replaced by open voids. The utility area wall thickness is inconsistent with the primary structure. Adjacency is preserved, but structural details like the duct/shaft areas are simplified or misinterpreted."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic furniture mapping is present, but the dining table (circular in 2D) is represented as a square block. Sofa orientation in Bed-2 is mirrored incorrectly. Scale for the BED-1 area appears slightly bloated compared to the floor plan's dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric perspective is well-executed with clean orthographic projection. Lighting is soft and professional. Textures are minimal but effective, though text labels are badly hallucinated into gibberish (e.g., 'RTONEN' instead of Kitchen)."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry door and internal door swings; missing specific kitchen layout and sink details."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated text on labels; floor markings substituted for gibberish character strings."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom fixtures and incorrect dining table geometry."
+        },
+        {
+            "code": "E4",
+            "description": "Utility room and secondary deck proportions are vertically stretched compared to the reference 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan14.webp"
+}

@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Overall room arrangement roughly matches (kitchen/dining left, living center/top, bedrooms on right, bath near center/bottom), but several plan-level mismatches remain. Hall area appears significantly smaller/narrower than the 2D plan (E4). Entry location/approach reads as shifted toward the left side in the 3D view compared to the bottom-center entry shown in plan (E2). Door positions are generally plausible but do not consistently match the exact wall segments/offsets indicated in the plan, especially around the hall/closet/laundry cluster (E2). Window distribution appears approximated rather than matching the exact count/spacing per exterior wall shown in the plan (E2)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Primary adjacencies are mostly preserved (kitchen\u2194dining\u2194living; hall feeding bath and bedrooms), but the left-side service core (laundry + closet(s)) does not clearly reproduce the plan\u2019s two distinct closet areas and their boundaries (likely merged/simplified) (E1/E2). Wall thickness is fairly consistent visually, but several internal partitions/door embeds read simplified compared to the plan\u2019s more orthogonal layout (minor E4). No clear hallucinated extra rooms, but some built-ins/partitioning appear invented/simplified versus plan (E5)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture groups are present in the correct rooms (dining set, living seating, beds, bath fixtures). However, several pieces differ from the plan\u2019s shown placement and type (e.g., added sideboard/extra casework and d\u00e9cor not indicated; living layout and some bedroom items appear rearranged) (E2/E5). Scale is generally believable, but circulation clearances differ from the plan due to hall/room proportion changes (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with good lighting and materials. However, camera is not truly orthographic/isometric (visible perspective convergence) (E6). Geometry is mostly clean, but some walls/door openings look slightly stylized/simplified compared to the plan\u2019s precise drafting, reducing technical clarity (E6). Overall composition is strong and visually clear."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallway proportion appears significantly reduced/narrowed relative to the 2D plan\u2019s large hall area, affecting circulation and room-to-room spacing."
+        },
+        {
+            "code": "E2",
+            "description": "Entry/threshold placement reads shifted toward the left side in the 3D render rather than the plan\u2019s bottom-center entry location."
+        },
+        {
+            "code": "E1",
+            "description": "Plan shows distinct closet spaces near the laundry/hall (including a separate closet), but the 3D render does not clearly preserve all closet boundaries/rooms as separate enclosed spaces."
+        },
+        {
+            "code": "E2",
+            "description": "Several interior door locations/offsets around the hall\u2013bath\u2013closet/laundry cluster do not match the exact wall segments indicated in the plan (generalized/simplified placement)."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window count/spacing appears approximated; several walls do not clearly match the plan\u2019s specific window placement distribution."
+        },
+        {
+            "code": "E5",
+            "description": "Additional d\u00e9cor/furnishings (e.g., lamps/sideboard-like casework and styling elements) appear that are not specified in the 2D plan furniture diagram."
+        },
+        {
+            "code": "E6",
+            "description": "Render uses perspective rather than strict orthographic/isometric projection, reducing technical comparability to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "notes": "Excellent spatial alignment. Room placement and wall orientation match the 2D source exactly. Minor loss of points for window detail visibility on the 'Activity' room wall."
+    },
+    "structural_fidelity": {
+        "score": 24,
+        "max": 25,
+        "notes": "Strong structural integrity. All rooms from the 2D plan (Bed 2, 3, 4, Bath, WC, Activity, Balcony) are present and correctly enclosed. Wall thickness is consistent with the blueprint style."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Most furniture matches the layout (beds, bathtub, robes). The sofa in the Activity room is slightly more elongated than the 2D icon, and the balcony includes a hallucinated central table not specifically detailed as a block in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Professional orthographic representation. Lighting is clear and shadows are soft, facilitating high legibility. Geometry is clean with no visible artifacts."
+    },
+    "total_score": 95,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "The L-shaped sofa proportions in the 'Activity' room are slightly distorted compared to the 2D floor plan block."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated central coffee table added to the balcony and 'Activity' room area not explicitly in the 2D block plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan12.png"
+}

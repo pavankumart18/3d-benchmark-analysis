@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are mostly correct but some walls are misaligned. Door placements are largely incorrect, and window placements are significantly different from the plan. Room proportions are distorted in several areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly for interior walls. Numerous rooms are missing, and many elements, such as the full central hall and window seats, are hallucinated or missing. Door embedding is incorrect."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is largely inaccurate. Many furniture items present in the floor plan are missing in the render, and some furniture appears to be hallucinated. Scale consistency is poor for rendered furniture."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting quality is poor with harsh shadows obscuring details. Geometry is clean for the most part, but visual clarity suffers from the lack of detail and poor lighting."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing WC room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Crawlspace Access' in the utility room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Alcove' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing pantry room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window seat in the dining room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the WC."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to a storage area near the central hall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows in various rooms including the central hall, utility room, kitchen, and dining room."
+        },
+        {
+            "code": "E2",
+            "description": "Misaligned walls for the central hall and kitchen."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of doors leading into the WC and utility room, as well as the main entrance door."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the central hall, appearing wider in the render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the utility room, appearing smaller and differently shaped."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the dining room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated door and wall segment at the bottom left of the render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated cabinets in the central hall area not indicated in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting leading to unclear areas and obscured details."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan11.png"
+}

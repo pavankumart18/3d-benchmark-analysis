@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall layout resembles the 2D plan (2 beds, central living/dining, decks at top-left and top-right), but multiple spatial deviations exist: living/dining footprint appears widened (labeled ~19' vs 15' in plan), kitchen/foyer zone is heavily distorted into an oversized corridor-like area, TOI-1 geometry differs from plan, and windows from the 2D plan are largely not represented. Door locations/orientations are not reliably consistent with the plan (entry/foyer door sequence especially)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent, but fidelity to the plan\u2019s partitioning is weak around the foyer/kitchen/utility and toilet cores. Adjacencies are partly maintained (Bed-1 near TOI-1 and right deck; Bed-2 near left side; living central), yet the plan\u2019s tight foyer is not preserved and becomes a large open hall. Several openings/doors are simplified and not embedded/placed as per the 2D drawing. Some spaces appear added/expanded beyond plan intent."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Bedrooms contain beds in plausible positions, and the living zone has seating, but the dining setup shown in the 2D plan (round dining table placement) is not faithfully mapped (appears missing/changed). Furniture scale is generally coherent, though the living/dining furnishing does not match the 2D arrangement."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric view is clear and stable with decent lighting and mostly clean geometry. However, it is not orthographically faithful to the 2D plan due to noticeable proportion drift (notably living/dining and foyer/kitchen corridor). Visual clarity is good but plan-to-render accuracy is the limiting factor."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Windows from the 2D plan (exterior windows/sliding openings at bedrooms, living/dining, utility, and decks) are largely missing/not modeled in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Living/Dining proportions are distorted: 3D label shows ~19' x 21'4\" whereas the 2D plan specifies 15' x 21'4\" (room widened)."
+        },
+        {
+            "code": "E4",
+            "description": "TOI-1 proportions/shape do not match the 2D plan (plan: 5' x 8'; 3D shows a much more compact toilet footprint)."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer/entry zone is not represented as a small distinct foyer as in the 2D plan; instead it becomes an enlarged open corridor area, changing the intended space boundaries."
+        },
+        {
+            "code": "E5",
+            "description": "Hall/circulation space at the bottom-right appears hallucinated/overextended relative to the 2D plan\u2019s compact foyer and short passage."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen/utility region dimensions appear inconsistent with the 2D plan (kitchen depth and the adjacent circulation/partitioning are compressed/reshaped)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation is not reliably preserved, especially around the entry/foyer-to-living connection and the toilet access; door swings/opening directions are simplified or inconsistent with the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Deck proportions differ from the 2D plan (left deck and right deck sizes/edges do not match the specified dimensions and wall alignment)."
+        },
+        {
+            "code": "E1",
+            "description": "Dining furniture arrangement from the 2D plan (round dining table in living/dining) is missing or replaced with different furniture in the 3D render."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan14.webp"
+}

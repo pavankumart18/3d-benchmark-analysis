@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is severely incorrect. The rendered image does not represent the floor plan at all. The kitchen, dining room, living room, and bathroom are all either missing or misplaced. The stairway is also incorrectly placed. Window placement is completely inaccurate. Room proportions are not preserved due to significant layout changes."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness appears somewhat consistent. Door embeddings are incorrect due to incorrect door placement. Adjacency relationships are completely wrong. All rooms from the floor plan are missing; instead, different and undefined spaces are rendered. There are many hallucinated rooms/spaces."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "None of the furniture from the floor plan is present in the render. All furniture in the render is hallucinated and not consistent with the original plan. Scale consistency cannot be assessed accurately due to the complete change in layout and furniture."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy seems good. Lighting quality is acceptable. Geometry is clean with no obvious distortions. Visual clarity and composition are generally good, despite the architectural inaccuracies."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Dining Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Living Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bathroom (as per floor plan specifications)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the staircase."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placements throughout the entire structure."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placements throughout the entire structure."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientations."
+        },
+        {
+            "code": "E4",
+            "description": "Significant room proportion distortion."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated rooms/spaces not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture and fixtures not present in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major structural deviations. The 3D render fails to replicate the L-shaped floor plan profile. The 'Lobby' entrance area and the specific corridor depth for the utility/kitchen zone are omitted or merged incorrectly. Individual room placements for the toilets and utility are completely missing, replaced by generic rectangular voids."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Critical failures: Missing 4/4 toilets and the utility room. The balcony at the top-right (Bedroom 2) is missing. The 'Home Office' wing is merged into the main block with incorrect proportions. Doors are generic and do not match the swing orientations of the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While beds and dining sets are present, they are placed in hallucinated room layouts. The kitchen cabinetry and stove placement from the 2D plan are entirely absent in the 3D render."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render is aesthetically pleasing with clean geometry, consistent orthographic projection, and soft, professional lighting. However, it functions as a generic apartment model rather than a representation of the provided plan."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing all four bathroom/toilet rooms and the utility room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing primary balcony attached to Bedroom 2."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen area lacks defining walls and appliances as per the original layout."
+        },
+        {
+            "code": "E4",
+            "description": "The overall footprint is converted to a simplified rectangle, ignoring the complex offsets of the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window placements on the left-wing walls that do not exist in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan20.avif"
+}

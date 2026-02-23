@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Laundry room and adjacent closet are missing. Wall alignment is generally good, but some interior walls are shifted. Door placements are largely incorrect, with several doors missing or open when they should be closed. Window placement has inaccuracies, specifically on the top-left and bottom-left walls. Room proportions are distorted for the Hall, Laundry, and Bathroom areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent. Door embedding is poor due to incorrect placement and orientation. Several adjacency relationships are incorrect, especially for the Laundry room and the closet near the entrance. The Laundry room and its adjacent closet are entirely missing, and no hallucinated rooms are present."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate for existing rooms, but some items are missing. Furniture scale consistency is acceptable for most items, but some pieces appear slightly off."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are good. Lighting quality is dull and lacks contrast. Geometry is clean with no major distortions. Visual clarity is good, but the overall composition feels uninspired due to flat lighting."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Laundry room is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Closet adjacent to Laundry room is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Closet near the entrance is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Some internal doors are missing (e.g., between Hall and Laundry, Hall and Bedroom 2)."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is misplaced and not depicted as a door."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bathroom is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bedroom 1 is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Kitchen/Dining from Hall is misplaced."
+        },
+        {
+            "code": "E3",
+            "description": "Many doors that should be closed are rendered open, creating incorrect flow."
+        },
+        {
+            "code": "E2",
+            "description": "Windows on the top-left wall (Kitchen/Dining) are incorrect in number and placement."
+        },
+        {
+            "code": "E2",
+            "description": "Window on the bottom-left wall (Laundry area in plan) is incorrect/missing."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall separating Kitchen/Dining from Hall is shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall separating Hall from Bathroom is shifted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Hall are distorted due to missing rooms and shifted walls."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Bathroom appear slightly larger than the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a small planter in the Kitchen/Dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing some Bathroom fixtures like the toilet roll holder."
+        },
+        {
+            "code": "E1",
+            "description": "Missing shelving in the Bedroom 2 closet."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan4.jpg"
+}

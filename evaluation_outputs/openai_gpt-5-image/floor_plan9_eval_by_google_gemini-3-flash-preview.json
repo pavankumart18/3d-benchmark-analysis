@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major failures in window and door placement. The living room fireplace is missing, replaced by standard walls. The front kitchen window is absent. Door orientations for Master Bedroom and Bedroom #3 are reversed or incorrectly placed."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The tray ceiling in the Master Bedroom is rendered as a weird floor-level indentation rather than a ceiling feature. Hallucinated a double-bay garage door instead of the single large door. The connection between the kitchen and dining room lacks the specified pantry and range alcove geometry."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island geometry is significantly distorted and simplified compared to the angled blueprint design. Scale of the island is undersized relative to the room."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean lighting and consistent wall thickness. Isometric camera angle is well-executed, though some minor geometry clipping occurs at wall intersections."
+    },
+    "total_score": 57,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Living room fireplace and chimney bump-out totally missing."
+        },
+        {
+            "code": "E2",
+            "description": "Garage door split into two segments unlike the blueprint's single large door."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen island and sink area proportions do not match the specific angled blueprint footprint."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated extra window in the Master Bath area and incorrect bathroom fixtures."
+        },
+        {
+            "code": "E3",
+            "description": "Master Bedroom door is placed on the wrong wall segment."
+        },
+        {
+            "code": "E6",
+            "description": "The Master Bedroom tray ceiling is rendered as a structural recessed floor pit."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan9.png"
+}

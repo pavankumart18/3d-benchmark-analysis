@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "General wall layout follows the plan, but significant errors exist in window placement and orientation. The window in the top-left bedroom is incorrectly placed on the top wall instead of the left wall. The door to the top-right bedroom is rotated incorrectly relative to the plan's swing."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Walls are thick and consistent. However, the living room partition wall is rendered as a standalone segment rather than an integrated structural element of the enclosure. The transition to the entrance area is slightly distorted in length."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Bedroom furniture is mostly present but scaled poorly (beds in top-left room are overcrowded). The L-shaped sofa in the living area is mirrored incorrectly compared to the floor plan's orientation."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "High quality clay-style render. Isometric camera angle is accurate and lighting is soft and professional. Clean geometry with minimal artifacts."
+    },
+    "total_score": 69,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Window in top-left bedroom moved from left exterior wall to top exterior wall."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing for the top-right bedroom is inverted/incorrectly oriented."
+        },
+        {
+            "code": "E3",
+            "description": "L-shaped sofa in the bottom-right living area is mirrored incorrectly."
+        },
+        {
+            "code": "E4",
+            "description": "Beds in the twin bedroom are compressed against the walls, losing the walking space shown in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Additional clutter/small blocks added to the bottom kitchen counter that were not in original schematic."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan2.png"
+}

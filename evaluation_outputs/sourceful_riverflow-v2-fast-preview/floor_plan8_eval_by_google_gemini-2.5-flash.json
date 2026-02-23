@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the W/C and closet area next to the stairs is significantly altered. Wall alignment has numerous inaccuracies and misalignments. Door placements are largely incorrect or missing. Windows are mostly missing from the render. Room proportions are distorted, particularly in the living room and kitchen areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker than others without clear reason. Doors are not correctly embedded; they are either missing or represented as solid wall sections. Adjacency relationships are disturbed due to missing doors and altered wall layouts. The W/C and top-left closet area are largely missing or fundamentally changed. No hallucinated rooms were detected."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; most furniture is either missing, misplaced, or simplified into ambiguous shapes. Furniture scale consistency is poor; many items, like kitchen counters and seating, appear disproportionate to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy struggles due to distorted geometry. Lighting quality is decent for a basic render, providing clear distinctions between surfaces. Geometry is not clean, showing distortions and lack of detail. Visual clarity is moderate, but inconsistencies detract from overall composition."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing numerous doors, particularly the main entrance, doors to playroom, W/C, and closets."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows throughout the structure."
+        },
+        {
+            "code": "E1",
+            "description": "The W/C and closet area next to the stairs are significantly altered and largely missing from the render."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior walls, especially around the utility/pantry area and the foyer."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced or entirely absent furniture."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of internal walls, for example, the wall separating living room and dining room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of rooms, particularly the living room, dining room, and kitchen. The overall footprint seems compressed."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness throughout the model."
+        },
+        {
+            "code": "E6",
+            "description": "Distorted geometry and lack of clean edges in various sections of the model, specifically visible along the exterior walls and corners."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan8.jpg"
+}

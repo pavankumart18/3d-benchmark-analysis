@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is maintained, but door orientations (especially the bathroom) are incorrect. The balcony window/door configuration is simplified and lacks the depth shown in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Significant structural deviations: The kitchen partition wall is too short; the utility room is combined with the foyer area incorrectly; the foyer entrance door is placed on the side rather than the bottom wall."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Bed, sofa, and dining table positions are accurate. The dining table changed from 2-chair to 4-chair, and the kitchen appliances are simplified."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Professional isometric render with consistent lighting and clean geometry. The orthographic projection is well-executed."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entrance door misplaced on the side wall rather than the bottom foyer wall."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door swings into the living area instead of into the bathroom as shown in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen-to-living room partition wall is significantly shorter than the plan indicates."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated full-height door leading to the utility area where only an opening/low wall was specified."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the specific wardrobe closet geometry in the bedroom corner."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan18.jpg"
+}

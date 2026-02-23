@@ -1,0 +1,112 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room dimensions and overall layout are significantly altered. Many walls are not aligned with the floor plan or have incorrect lengths. Door and window placements are incorrect or missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Numerous rooms from the floor plan are entirely missing in the 3D render, such as 'TOI-4', 'Foyer', 'TOI-2', 'HO', 'Utility', 'C.TOI', and 'TOI-1'. Hallucinated walls are present."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement often differs from the floor plan, and scaling appears inconsistent. Missing furniture in several areas."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera is mostly correct, but lighting is very flat. Geometry often appears thick and blocky, not accurately representing the floor plan's nuances. Text labels are present but detract from clarity as they are not on the floor plan."
+    },
+    "total_score": 27,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'TOI-4' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Foyer' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'TOI-2' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'HO' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Utility' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'C.TOI' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'TOI-1' room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrectly sized wall between 'Kitchen' and 'Living/Dining'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced outer wall of 'Living/Dining' area, creating an L-shape where it should be straight."
+        },
+        {
+            "code": "E2",
+            "description": "Inncorrect boundary and shape for 'Deck 25'6 x 9' and 'Deck 12 x 5'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door between 'Living/Dining' and 'BED-3'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door from 'BED-2' to exterior."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between 'Kitchen' and former 'Utility' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple interior doors (e.g., to missing bathrooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Bedroom-2'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportional distortion of 'Living/Dining' area, significantly larger than floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportional distortion of 'Kitchen', appearing smaller and narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Overall scaling of rooms appears inconsistent with the floor plan's dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated walls in areas where rooms are missing (e.g., where 'Foyer' and 'Utility' should be)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall structure around 'BED-4' and 'BED-1'."
+        },
+        {
+            "code": "E6",
+            "description": "Lack of visual clarity due to thick geometry and flat lighting."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan19.webp"
+}

@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Balcony is significantly distorted and its walls are misaligned. The external wall of the Bedroom-1 is also misaligned. Door placements to the Utility and Toilet-1 are incorrect, and the Bedroom-1 door is also incorrect. Window placement in Bedroom-1 is incorrect. Room proportions for the Balcony and Bedroom-1 are distorted."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly for the external walls and internal partition walls. Door embedding for Utility, Toilet-1, and Bedroom-1 is incorrect. Adjacency relationships are mostly maintained but inaccuracies in wall placement cause issues. No missing or hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, but some items like the washing machine in Utility and some decorative plants are missing. Furniture scale consistency is decent, but some items appear slightly off. Many small decorative elements are missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection appear reasonable. Lighting quality is flat and lacks dynamic range. Geometry is mostly clean but some wall junctions and the balcony structure show minor distortions. Visual clarity is good, but the overall composition feels somewhat sterile due to lack of detail and lighting."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Balcony proportion distortion and wall misalignment."
+        },
+        {
+            "code": "E2",
+            "description": "External wall of Bedroom-1 is misaligned."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for Utility is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for Toilet-1 is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for Bedroom-1 is incorrect; it appears to be a double door in the render, not a single door as in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and size in Bedroom-1 is incorrect. The window is shorter and placed on a different wall segment."
+        },
+        {
+            "code": "E1",
+            "description": "Missing washing machine in Utility."
+        },
+        {
+            "code": "E1",
+            "description": "Missing plants/decorative elements in Living & Dining and Balcony."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness throughout the model."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door frame/threshold details."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony railing seems to be completely missing and replaced with a solid wall for half its length, and the overall balcony proportions are significantly altered."
+        },
+        {
+            "code": "E1",
+            "description": "Missing railing on the balcony."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan16.avif"
+}

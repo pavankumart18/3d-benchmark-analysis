@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 13,
+        "max": 40,
+        "notes": "Overall footprint loosely resembles the plan (left activity zone + central wet area + two lower bedrooms), but the right/top-right zone does not match: Bed 4 is not represented as a bedroom. Balcony geometry is not modeled. Door locations/swings and window positions do not consistently match the 2D plan, and several built-in elements (robes/linen/recess) that affect room boundaries are omitted, altering perceived room sizes."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Some core walls are present, but key plan-defined partitions are missing/merged (separate WC vs bath, balcony boundary, robe/linen enclosures). Adjacencies are partially preserved (Bed 2/Bed 3 near hall; wet area near center), but the top-right room function and enclosure are incorrect. Multiple plan elements are omitted while new elements are introduced."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Bedroom furniture is partially present (beds in lower rooms), but Bed 4\u2019s bed is missing and replaced by a lounge setup (sofa/coffee table). Several plan-indicated built-ins (robes/linen) are not modeled; scale is generally plausible but mapping to the plan is inconsistent."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clean and readable with good lighting and generally coherent geometry. Camera is a proper isometric-like view, though still somewhat perspective. Visual quality is high even though architectural fidelity is low."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony is missing; the plan shows a defined BALCONY with balustrade and access from the activity room, but no exterior balcony space is modeled."
+        },
+        {
+            "code": "E1",
+            "description": "Separate WC room is missing/merged; plan has distinct BATH and WC compartments, but the render depicts only a single wet-room enclosure."
+        },
+        {
+            "code": "E1",
+            "description": "Robes (built-in wardrobes) shown for Bed 3 and Bed 4 are not modeled, removing plan-defined partitions along those walls."
+        },
+        {
+            "code": "E1",
+            "description": "LINEN cupboard shown off the hall near Bed 2 is not modeled."
+        },
+        {
+            "code": "E2",
+            "description": "Bed 4 space is misused/misrepresented: the top-right room reads as a living/lounge area rather than a bedroom as per the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated living-room furniture (sofa and coffee table) appears in the area corresponding to Bed 4, which is not indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement/orientation is inconsistent with the plan: the hall-to-wet-area and hall-to-bedroom door positions/swings do not clearly match the 2D door locations and arcs."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent: the plan implies multiple exterior windows distributed across bedrooms/activity walls, but the render shows a limited/shifted set (notably a large window on the right) that does not align with the plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted by omitted built-ins and missing balcony boundary; right-side rooms and central hall read wider/more open than the plan-defined compartmentalization."
+        },
+        {
+            "code": "E5",
+            "description": "Interior glass/guardrail element near the top-right area appears (a balcony-like railing), but no such interior guardrail is indicated in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan12.png"
+}

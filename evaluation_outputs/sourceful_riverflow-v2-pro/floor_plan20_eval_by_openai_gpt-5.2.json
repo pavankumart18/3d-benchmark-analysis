@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall layout roughly matches (central Living/Dining, Kitchen+Utility bottom-center, Bedroom-3 left, Bedroom-2 top-right, Bedroom-1 bottom-right), but multiple critical mismatches: one toilet room is missing/merged, toilet locations appear swapped vs plan, and balcony locations/orientations do not match the 2D plan. Several doors are absent or converted to generic openings/sliders, reducing plan-level door accuracy. Deck and key room proportions appear distorted (deck and/or Living/Dining depth/width not preserved)."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Wall massing is generally coherent and wall thickness looks consistent, but the plan\u2019s bathroom count and configuration are not faithfully reproduced (Toilet-4 near lobby is not clearly present as a distinct room). Adjacencies are partially preserved (Utility adjacent to Kitchen; Bedroom-1 adjacent to Toilet-1 zone), yet bathroom adjacency and labeling/placement diverge from plan. Several door embeds (swing locations) are not represented correctly, weakening structural fidelity."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is plausible and generally located in the expected zones (beds in bedrooms, dining table in Living/Dining, kitchen counters), but it does not strictly follow the 2D layout/clearances. Some items (sofa/table arrangement) appear arbitrarily placed relative to the plan\u2019s circulation and openings."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric presentation with good lighting and generally clean geometry. Minor projection/camera perspective drift from strict axonometric/orthographic feel, but composition remains clear. No major rendering artifacts observed."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/merged room: Toilet-4 shown in the 2D plan (near lobby/home office side) is not clearly present as a distinct separate toilet in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom placement mismatch: Toilet-2 (in plan near Bedroom-2/living right side) appears shifted/reassigned; the mid-left toilet in 3D does not match the plan\u2019s Toilet-2 position."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony placement mismatch: The 2D plan shows a balcony at the top of Bedroom-2 and another at the right of Bedroom-1, but the 3D render\u2019s balcony placements/orientations do not align with these exact positions."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/representation errors: Multiple swing doors from the plan (bedroom/bath entries and balcony/deck access) are missing, simplified, or represented as different opening types (e.g., sliders/voids) without matching hinge side and location."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: Deck and central Living/Dining proportions appear altered relative to the 2D dimensions, impacting perceived room sizes and circulation widths."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placement mismatch: Large exterior glazing/openings in the 3D render (especially along the deck/living boundary and exterior walls) do not consistently match the 2D plan\u2019s indicated openings."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated opening elements: Continuous/extra window bands and large openings appear in the 3D exterior walls that are not clearly specified in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan20.avif"
+}

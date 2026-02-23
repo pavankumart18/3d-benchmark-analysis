@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe deviations in layout. The central bathroom/storage block has been merged into a single room. Door swing orientations are ignored. Window placements do not align with the source floor plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "A major room (the small study/storage room next to the bathroom) is missing entirely. The L-shaped internal wall separating the living area is missing, resulting in a hallucinated open-plan configuration."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture count is roughly maintained but placement is approximated. The couch in the living area is oriented incorrectly compared to the plan's L-shaped sofa."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High visual quality. Clean low-poly geometry, consistent lighting, and accurate isometric projection."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing small room between the bathroom and the master bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom sink and shower placement shifted relative to walls."
+        },
+        {
+            "code": "E3",
+            "description": "Couch and dining table orientation deviates from 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-plan living room by omitting the L-shaped interior partition wall."
+        },
+        {
+            "code": "E4",
+            "description": "External window in the twin bedroom moved from the left-side wall to the top-side wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. The 'Covered Patio' near Bedroom #4 is incorrectly rendered as an indoor space. The 'Nook' is poorly defined. The overall spatial relationship, particularly of the kitchen, Nook, and Covered Patio, is not accurately replicated. Hallway entry to Bedroom #4 is wrong. Doors are completely missing in many locations. Windows are generalized and not placed according to the plan."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Many missing doors and some walls are misaligned. The 'Covered Patio' next to the 'Study' is completely missing. The '2 Car Garage' is missing its entrance. Wall thickness appears inconsistent in some areas. The adjacency of the kitchen to the nook and covered patio is incorrect. The 'Master Bath' layout is significantly altered."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is present but often not placed according to the plan or is represented generically without specific features. For example, kitchen appliances are generic blocks. The bed in Bedroom #4 is oriented incorrectly. The furniture in the living room is a generic block set, not reflecting the intended layout of the plan. Dining room tables are present, but their exact placement may vary slightly."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, but the rendering lacks detail and refinement. Lighting is flat, and there is no real sense of depth or texture. The overall composition is clear but very basic. Windows are represented with a simple slab of color, not reflecting any glass or frame detail. The absence of specific textures and materials diminishes the aesthetic quality."
+    },
+    "total_score": 29,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing the 'Covered Patio' adjacent to the 'Study'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing many interior doors, including those for bedrooms, bathrooms, and utility."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the '2 Car Garage'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and definition of the 'Nook' area."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Covered Patio' near Bedroom #4 is rendered as an enclosed indoor space, not an outdoor patio."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the kitchen, Nook, and Living Room areas."
+        },
+        {
+            "code": "E2",
+            "description": "Master Bath layout is significantly different from the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the bed in Bedroom #4."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the 'Nook' and 'Kitchen' areas."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated internal wall structure within the converted 'Covered Patio' area near Bedroom #4."
+        },
+        {
+            "code": "E6",
+            "description": "Generic representation of windows and appliances (rendering artifact)."
+        },
+        {
+            "code": "E1",
+            "description": "The small WC room off the master bedroom is missing its door completely in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The entrance to bedroom #4 from the hall is significantly different in placement and design."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan9.png"
+}

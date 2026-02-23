@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "General layout is recognizable. However, major door placement errors exist: the kitchen-to-living room opening is missing a wall segment, and the bedroom door is incorrectly placed on the perpendicular wall relative to the wash area entrance. Staircase orientation in the 3D model is simplified and lacks the landing turn shown in 2D."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is consistent, but there are hallucinated partitions. Specifically, unnecessary doors were added to the kitchen area. The adjacency between the bedroom and wash area is disrupted by incorrect door swings and wall lengths."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture types correctly correspond to the 2D labels (dining set, bed, sofa, toilet). Scales are consistent, but the TV unit in the bedroom is a hallucination not present in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High visual quality. Isometric camera and lighting are professional. The geometry is clean with excellent orthographic projection. Very few rendering artifacts."
+    },
+    "total_score": 69,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bedroom door is misplaced on the internal wall instead of the hallway-facing wall."
+        },
+        {
+            "code": "E3",
+            "description": "Staircase lacks the correct U-turn orientation and landing shown in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated doors in the kitchen entryway that do not exist in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated TV dresser in Bedroom 1."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door is missing its recessed niche/porch structure from the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan7.jpg"
+}

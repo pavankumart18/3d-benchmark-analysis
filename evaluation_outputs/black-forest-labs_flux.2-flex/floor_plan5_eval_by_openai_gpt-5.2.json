@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major plan-to-render deviations. The 2D plan is predominantly rectilinear, but the 3D model introduces multiple curved interior walls/openings that change circulation and room boundaries (E5/E4). The top-left space in the plan appears as a distinct non-bedroom room (shown with a table/chairs), but the 3D render shows a bedroom there (E2). Several interior door locations and swing orientations shown in the plan are not respected in the 3D (many are replaced by open arched/curved passages or appear shifted) (E2/E3). Window locations and sizes do not consistently match the plan\u2019s exterior wall openings; multiple large windows in the 3D appear repositioned/upsized relative to the 2D (E2/E4). Overall room proportions are distorted, especially the central living/dining zone vs. adjacent rooms (E4)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Wall geometry fidelity is poor: curved partitions and non-plan wall breaks are introduced (E5) and wall thickness/edge alignment is inconsistent with the 2D diagram (E4). Door embedding is frequently incorrect or omitted (arched openings where doors exist in plan) (E1/E2). Several adjacency relationships are altered by the curved/shifted partitions (e.g., hall/room interfaces on the right side and central zone) (E2). At least one planned distinct room/space (top-left dining/sunroom/secondary room) is effectively replaced by a bedroom configuration (E1/E2). No clearly new fully enclosed extra rooms are added beyond the distorted partitions, but the added curved vestibules/alcoves behave like hallucinated structural elements (E5)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some high-level furniture intent matches (central dining table, living seating, multiple bedrooms), but at least one room\u2019s furniture/function is mismapped (top-left becomes a bed instead of the plan\u2019s table/chairs room) (E2). Furniture scales and clearances are inconsistent with the plan\u2019s tighter rectilinear layout; the 3D suggests widened circulation due to distorted wall geometry (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Visually clean render with good lighting and material consistency. Camera is a plausible isometric-like view, but projection is not strictly orthographic/isometric (perspective depth is evident) (E6). Geometry is mostly clean, though the structural distortions (curved walls/arched openings) reduce clarity as a faithful architectural translation (E6/E5). Overall composition is clear and readable."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Top-left room function/layout mismatch: 2D shows a separate room with table/chairs, but 3D depicts a bedroom with a bed."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated curved interior walls/arched passages introduced throughout; 2D plan is predominantly straight/rectilinear."
+        },
+        {
+            "code": "E1",
+            "description": "Planned door leaves/swinging doors are missing in multiple locations; replaced by open passages in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Interior door locations appear shifted relative to the 2D plan (notably around central hall/room entries on the right side)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing intent from the 2D plan is not preserved (where doors exist, openings do not reflect shown swings)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/size does not consistently match the 2D plan; several 3D windows appear relocated or enlarged."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: central living/dining and adjoining circulation appear expanded/reshaped compared with the 2D layout."
+        },
+        {
+            "code": "E1",
+            "description": "Exterior appendage/porch/utility projections suggested by the 2D plan are not consistently represented in the 3D massing."
+        },
+        {
+            "code": "E6",
+            "description": "Projection is not strictly orthographic/isometric; perspective and stylized geometry reduce verification-grade fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan5.jpg"
+}

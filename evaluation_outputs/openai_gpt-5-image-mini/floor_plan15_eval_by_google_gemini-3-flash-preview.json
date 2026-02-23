@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Poor spatial mapping. The kitchen and utility areas are completely detached and fragmented. Door placements are largely missing or inconsistently placed compared to the original plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Severe errors in adjacency and enclosure. All three bathrooms (Toilets) from the original plan have been omitted or replaced with open-wall niches. The primary balcony is missing structural definition."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While beds are placed in the correct general bays, the dining and living sofa orientation is rotated, and the kitchen appliances are hallucinated outside the wall boundaries."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent rendering quality with consistent isometric projection, clean geometry, and soft, professional lighting. The visual style is high-quality despite the structural inaccuracies."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing all enclosed bathrooms (Toilets) as defined in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and Utility fixtures are misplaced outside of a defined room structure."
+        },
+        {
+            "code": "E3",
+            "description": "Dining table and chairs rotated 90 degrees from the original floor plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "Living room width is significantly compressed, affecting the passage areas."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated TV stand against a wall that should lead to Bedroom-1."
+        },
+        {
+            "code": "E6",
+            "description": "Lower wall segments appear cut off or incomplete rather than showing full room enclosures."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan15.webp"
+}

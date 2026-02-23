@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but door swings and certain wall lengths deviate from the CAD specifications. Window placement in Bed-2 appears compressed compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "The utility area partition and the connection to the kitchen show slight geometry merging. The foyer entrance wall thickness is inconsistent with the internal bedroom walls."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement aligns well with the plan, though the dining table chairs and the orientation of the living room rug have slight scale and position shifts."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric perspective and realistic materials. Lighting is consistent, and the shadows add depth without obscuring structural details."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Living room sofa is shifted slightly closer toward the center of the room compared to the rug in the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "The foyer/entry door swing is improperly represented as a semi-transparent arc that does to align with standard architectural swing symbols."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Utility' wall segments appear thinner than the primary load-bearing exterior walls shown in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Glass partitions in the bathrooms exhibit slight clipping and lack clear framing details found in the original schematic."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan14.webp"
+}

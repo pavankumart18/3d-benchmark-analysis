@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Major mismatch between 2D plan and 3D layout. The 2D plan shows distinct Central Hall, WC, Utility Room (with WH/HVAC), Kitchen, Pantry, Dining Room, and a right-side bay/window-seat condition; the 3D render depicts a largely open-plan space with only a couple of small back/left rooms. Wall runs/jogs and room boundaries do not align, door locations/opening directions are not represented correctly, window locations/count do not match the plan, and overall proportions (relative room sizes and corridor widths) are substantially distorted."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Multiple required rooms/partitions from the plan are missing or merged. Adjacency relationships are incorrect (e.g., WC/Utility/Hall relationships are not preserved). Doors are shown as generic openings without matching the plan\u2019s embedded door positions and swings. No clear representation of plan-specific wall thickness transitions; exterior footprint/jogs (alcove/breakfast/bay/window-seat geometry) are not faithfully modeled."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Kitchen casework is generic and not mapped to the plan\u2019s detailed kitchen/pantry configuration. A kitchen island and dining set are present but are not verifiably placed per the 2D plan (which emphasizes built-ins and specific areas like pantry/window seat). Furniture/appliance scale appears plausible but does not reflect the plan\u2019s exact layout constraints."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Clean, readable isometric render with acceptable lighting and generally tidy geometry. However, it is not a faithful architectural/isometric translation of the provided plan; projection feels more like a stylized cutaway than a strict plan-based model. Overall clarity is good, but accuracy-driven composition is weak."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing WC room and its fixtures (toilet/sink) shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Utility Room subdivision details (WH/HVAC/crawlspace access) shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry room/closet volume adjacent to the kitchen as labeled in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Room placement mismatch: Central Hall/Dining/Kitchen partitioning in 3D does not correspond to the 2D plan\u2019s wall layout."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: relative sizes of Dining Room vs Kitchen vs circulation zones do not match the plan dimensions/relationships."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior footprint mismatch: plan shows specific jogs/alcove/breakfast-side geometry and right-side bay/window-seat condition not reflected in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement errors: openings in 3D are not located to match the plan\u2019s door positions (e.g., hall-to-WC, hall/utility transitions, kitchen connections)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation error: 2D plan indicates specific door swings; 3D uses swing-less openings/incorrect implied orientations."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: 3D shows two windows on the right wall; the plan indicates different window arrangements including a bay/window-seat condition."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-plan configuration: 3D merges spaces that are clearly separated by walls in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island not indicated in the provided 2D plan segment."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan11.png"
+}

@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe deviations in layout. The central pantry is missing, replaced by an open island. The foyer/closet area at the top left is merged into a single generic room. Window and door placements do not match the specific counts and positions defined in the 2D blueprint, particularly in the living and dining areas."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Missing the W/C and closet rooms located at the top. The pantry room is completely hallucinated as an open space with furniture rather than a structural enclosure. Stairs are simplified and orientation is flipped compared to the 'UP' arrow in the plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is placed in the general vicinity of suggested rooms (Kitchen, Dining, Living) but fails to follow the specific built-in geometries of the plan, such as the fireplace in the living room or the refrigerator/counter alignment."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The rendering is visually high-quality with clean isometric projection, soft lighting, and consistent minimalist materials. Composition is clear and professional despite the structural inaccuracies."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing central Pantry room structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing W/C and top-center Closet rooms."
+        },
+        {
+            "code": "E2",
+            "description": "Door to the top-right playroom area is misplaced relative to the stairwell."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated sofa and coffee table where a fireplace and specific entry layout were indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Living room and Dining room proportions are flattened and merged, losing the distinct 'bump-out' geometry of the dining area."
+        },
+        {
+            "code": "E3",
+            "description": "Staircase directionality and landing structure do not match the 2D blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan8.jpg"
+}

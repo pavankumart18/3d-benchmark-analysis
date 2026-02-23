@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major wall alignment errors; the central corridor and bathroom placement are significantly warped compared to the technical floor plan. Door orientations are largely ignored or simplified."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Walls vary wildly in thickness. The balcony/closet area at the top left is replaced with a solid wall and a generic door. Adjacency for the primary bathroom is incorrect."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While the general spirit of the living room is captured, the kitchen island is missing, and furniture scale in the bedrooms is disproportionately small."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent 3D rendering quality with soft lighting and clean materials. The isometric camera angle is nearly perfect despite the structural failures."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen counter and sink are misplaced relative to the entryway and L-shape shown in plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the specific closet/balcony structure at the top-left of the living area."
+        },
+        {
+            "code": "E4",
+            "description": "The hallway/foyer area is significantly wider and more distorted than the blueprint dimensions allow."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is placed in a corner rather than the mid-section shown in the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom furniture orientation (beds) does not align with the perimeter walls as indicated in the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan.jpg"
+}

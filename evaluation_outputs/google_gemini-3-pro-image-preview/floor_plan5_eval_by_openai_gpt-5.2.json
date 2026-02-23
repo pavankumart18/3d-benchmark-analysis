@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Overall layout is recognizable (kitchen bottom-left, central living/dining, bedrooms on left and right, outdoor spaces at far left/far right), but several plan-to-render mismatches are present: top-center service core (bath/closet/hall partitions) does not align cleanly with the 2D plan (E2), multiple door locations/orientations are inconsistent or omitted (notably the main double-door entry and several interior door swings/positions) (E2/E3/E6), and many exterior window locations shown on the 2D plan are missing or simplified in the 3D (E1/E2). Room sizes appear distorted (left bedroom and left outdoor room appear oversized relative to the central area; some right-side rooms read compressed) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent and clean, but structural fidelity deviates in the top-center core where extra/misaligned partitions read as additional closet/bath segmentation not evidenced in the 2D plan (E5/E2). Door embedding is inconsistent: several openings lack door leaves and do not match the plan\u2019s door placements (E6/E2). Key adjacencies mostly hold (bedrooms remain on correct sides, kitchen connects to living zone), but the bathroom/utility adjacency relationships at the top band are not faithfully reproduced (E2). No major primary room appears fully omitted, but the plan\u2019s fenestration scheme is not preserved (E1)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture intent generally matches (beds in bedrooms, dining table central, kitchen island/counters, seating in living and outdoor areas), but several items are not placed as indicated in the 2D plan (e.g., living seating groupings and bedroom ancillary furniture) (E2). Furniture scale is broadly plausible and consistent, with no extreme sizing issues detected."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric/top-down presentation is clear with good lighting and generally clean geometry. However, fidelity-related rendering choices reduce technical clarity: several doorways appear as open voids without modeled doors, and window cutouts are inconsistent with the plan (E6). Composition and readability are good overall."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Top-center service core (bath/closet/hall partitions) is arranged/aligned differently than the 2D plan, altering wall layout and circulation."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple interior door locations do not match the 2D plan (openings placed on different wall segments or shifted along the same wall)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing logic from the 2D plan is not preserved; several openings do not reflect the planned door direction/handing."
+        },
+        {
+            "code": "E6",
+            "description": "Several planned doors are rendered as empty openings without door leaves/frames, reducing verification of correct door placement."
+        },
+        {
+            "code": "E1",
+            "description": "Exterior windows shown across several perimeter walls in the 2D plan are missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count is simplified and does not correspond to the 2D plan\u2019s window distribution on key exterior walls."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortions: left bedroom/left outdoor room appear oversized relative to the central living/dining area compared with the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Apparent extra/misaligned partitioning in the top-center zone reads as additional closet/bath segmentation not clearly present in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan5.jpg"
+}

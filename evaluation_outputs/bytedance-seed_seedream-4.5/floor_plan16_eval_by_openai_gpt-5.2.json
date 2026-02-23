@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Major deviations from the 2D plan: the Utility room (top-right in plan) is not modeled as a separate enclosed space and its partitioning is missing (E1/E2). Balcony placement/extent appears shifted relative to the plan footprint (plan: bottom-left balcony; render: balcony reads as bottom/front and not clearly matching the left-offset position) (E2/E4). Additional interior partition/half-wall near the living seating area appears in the render but is not present in the plan (E5). Door set is incomplete due to missing utility access; other doors are roughly in expected zones but not strictly aligned to the plan locations (E2/E3). Window sizes/locations are not strictly preserved; exterior glazing in the render is larger/different than typical plan window markers (E2/E4)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness and door insertion look consistent in the render, but key structural fidelity issues remain: the Utility enclosure/walls are missing, breaking the intended adjacency (Kitchen\u2194Utility) and reducing the room count (E1). The balcony footprint/relationship to the living room does not reliably match the plan (E2/E4). A hallucinated interior partition changes circulation in the living area (E5). No clear hallucinated additional rooms beyond that, but the missing utility is a major structural failure."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Living/dining furniture (round dining table; sofa/coffee table grouping) generally matches the plan intent, and the bedroom contains a bed in the expected room. However, placements are not tightly aligned to the 2D layout (notably living seating arrangement and added partition affecting furniture zoning) (E2). Furniture scale appears broadly consistent."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good overall isometric presentation with clean materials and readable rooms. Minor issues: slight perspective/scale feel rather than strict plan-accurate orthographic/isometric; window/door proportions look stylized (E6/E4). Lighting is pleasant and geometry is mostly clean."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Utility room (3'6\" x 7'0\") is missing as a separate enclosed space; washer is placed in the kitchen without the dedicated utility enclosure."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony location/extent does not match the 2D plan footprint (plan shows balcony at bottom-left; render reads as a different front/bottom placement)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partition/half-wall near the living seating area that is not present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door set is incomplete/inaccurate relative to plan due to missing utility access door and imperfect alignment of interior door positions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements/sizes are not strictly preserved; exterior glazing in render differs from the plan-indicated openings (notably oversized/relocated window areas)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: bathroom/utility zone proportions differ because the utility is not carved out and glazing/opening sizes alter perceived wall lengths."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan16.avif"
+}

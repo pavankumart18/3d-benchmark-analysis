@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall massing roughly matches (garage on right, main living to the right/center, kitchen central), but multiple plan-defined spaces are not clearly represented or are relocated. Alfresco placement/extent does not match the large top-right outdoor zone in the 2D plan. Several internal partitions (recesses, linen/WIR/WC separations) appear simplified/merged, affecting room boundaries and circulation."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Key adjacency relationships are partially correct (kitchen adjacent to living; garage adjacent to living zone), but several required rooms/areas are missing or not legibly separated (Bed 2, Study, Verandah/Portico/Entry definition, multiple WCs/WIRs). Door and window specification from the plan is not faithfully embedded\u2014many openings are absent or not placed per plan. Exterior articulation is heavily simplified compared with the 2D layout."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Living and dining furniture broadly aligns with an open-plan living/dining concept, and bedrooms have beds placed. However, furniture does not reliably map to named rooms (e.g., theatre seating vs. living, activity space definition), and scaling/fit-to-room is approximate due to missing/merged room partitions."
+    },
+    "aesthetic_quality": {
+        "score": 13,
+        "max": 25,
+        "notes": "Isometric viewpoint is acceptable, but the render is low clarity/blurred, reducing verifiability of doors/windows and fine partitions. Lighting is serviceable. Geometry appears mostly clean but simplified; the lack of visible windows/door details harms visual fidelity to architectural intent."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bed 2: the 2D plan shows a distinct Bed 2 left-middle; the 3D render does not clearly include a separate fourth bedroom beyond the two top bedrooms and the master."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear Study near Entry (bottom-center in plan): the 3D render does not show a clearly partitioned study in the specified location."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior areas: Verandah and Portico (bottom edge in plan) are not represented as defined outdoor/covered zones in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Alfresco is misplaced and/or undersized: plan shows a large alfresco at top-right adjacent to both Living and Activity; the 3D shows a much smaller terrace-like area that does not match the plan\u2019s footprint/connection."
+        },
+        {
+            "code": "E2",
+            "description": "Activity room definition is weakened/relocated: the plan has a distinct Activity space central-top; in the 3D it appears merged into circulation/open area without the same boundaries."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear Pantry: the plan shows a distinct pantry off the kitchen; the 3D does not clearly model it as a separate enclosed space."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear WIR + WC cluster near Entry (plan shows WC recess and WIR adjacent to entry zone): these spaces are not clearly separated/present in the 3D render."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation not verifiable and likely incorrect: multiple hinged doors shown in plan (bedrooms, WCs, entry, theatre, garage internal access) are missing or not modeled with correct swing/orientation."
+        },
+        {
+            "code": "E1",
+            "description": "Window placement largely missing: the 2D plan implies numerous perimeter windows; the 3D render shows mostly blank exterior walls with little/no window modeling."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of outdoor/edge spaces: the plan\u2019s strong top-right alfresco and bottom verandah/portico proportions are not preserved in the 3D massing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/ambiguous room at top-right: the small furnished nook/space appears as an internalized room/terrace not matching the plan\u2019s large alfresco configuration and boundaries."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact/low resolution blur reduces legibility of partitions, doors, and window openings, impacting verification."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan10.png"
+}

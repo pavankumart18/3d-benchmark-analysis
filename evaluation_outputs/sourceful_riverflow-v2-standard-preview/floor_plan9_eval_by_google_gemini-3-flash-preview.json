@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe deviations from the layout. The garage is missing entirely or replaced by an open patio/room. Door and window placements do not align with the 2D plan, especially in the living and bedroom areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "The 3D model presents a generic rectangular shell that ignores the complex footprint of the 2D plan. The 'bump-outs' for the master bedroom and study are flattened, and internal hallway adjacencies are broken."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is placed in approximate locations but scales are inconsistent, and many fixed elements like the fireplace and kitchen island are misrepresented or missing."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The render has good lighting and a clean isometric perspective, but the geometry is blurry/soft, and it fails as an architectural tool due to inaccuracy."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage and specific utility room partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Master bathroom and closet layout completely deviates from the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The entire floor plan footprint has been compressed into a standard rectangle, losing the stepped exterior wall profile."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window configurations on the left-side wall that do not exist in the 2D drawing."
+        },
+        {
+            "code": "E6",
+            "description": "Interior walls appear semi-transparent or disconnected in several thresholds."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan9.png"
+}

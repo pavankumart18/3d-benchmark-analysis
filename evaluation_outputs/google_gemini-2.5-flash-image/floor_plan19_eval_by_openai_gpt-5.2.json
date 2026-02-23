@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall room layout and adjacency largely match, but multiple proportional/dimensional inconsistencies are visible between plan and render. Notable size label changes suggest proportion distortion: main DECK changes (25'5\" x 8' in plan vs ~22'6\" x 8' in render) [E4]; BED-1 depth changes (12' x 16'8\" vs 12' x 18'9\") [E4]; TOI-4 label changes (5' x 8' vs 8' x 8') [E4]; FOYER label appears altered (5' x 8'6\" vs 8' x 8'6\") [E4]. Door locations/orientations appear mostly consistent at room entries (BED-2, BED-1, BED-4, toilets, foyer), with no clear major door misplacements detected from the provided resolution. Window placement cannot be reliably verified; openings along the deck/living fa\u00e7ade appear similar but are not distinct enough to score highly."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "No clearly missing rooms: Living/Dining, Kitchen, Utility, HO, multiple toilets (TOI-1/TOI-4/C.TOI/TOI), bedrooms (BED-1/2/3/4) and both decks are present [no E1]. Adjacency relationships remain consistent (e.g., Kitchen-Utility, Living/Dining central, bedrooms on perimeter). Wall thickness appears consistent within the render, but the render is essentially a re-drawn 2D plan rather than a true 3D translation, limiting verification of door embedding depth and structural details. No hallucinated rooms observed."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement generally matches the plan intent: living seating group, dining table, kitchen counters, beds in bedrooms, and deck furniture appear consistent. Minor scale/proportion concerns follow from the noted room dimension distortions (e.g., BED-1 and DECK) [E4]."
+    },
+    "aesthetic_quality": {
+        "score": 6,
+        "max": 25,
+        "notes": "The provided '3D isometric render' is not isometric/3D; it remains an overhead 2D plan view [E6]. Isometric camera correctness is not met, and there is no meaningful 3D geometry to evaluate. Orthographic accuracy is acceptable as a 2D plan, but lighting/shadowing and 3D depth cues are absent. Visual clarity is decent, but it fails the stated 3D isometric requirement."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E6",
+            "description": "Generated output is not a 3D isometric render; it is effectively a 2D top-down plan view without 3D projection/depth."
+        },
+        {
+            "code": "E4",
+            "description": "Main DECK proportion/length differs (plan shows ~25'5\" x 8'; render shows ~22'6\" x 8'), indicating scale/proportion distortion."
+        },
+        {
+            "code": "E4",
+            "description": "BED-1 proportion differs (plan 12' x 16'8\" vs render 12' x 18'9\"), indicating room depth distortion."
+        },
+        {
+            "code": "E4",
+            "description": "TOI-4 size labeling/proportion differs (plan 5' x 8' vs render 8' x 8'), indicating distortion or incorrect transcription."
+        },
+        {
+            "code": "E4",
+            "description": "FOYER size labeling appears altered (plan 5' x 8'6\" vs render ~8' x 8'6\"), indicating distortion or incorrect transcription."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan19.webp"
+}

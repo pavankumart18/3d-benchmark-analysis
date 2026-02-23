@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major spatial failures. The entry door and linen closet are completely missing. Window placement is sporadic and often incorrect. The L'dry/WM area is merged into the kitchen incorrectly."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Bath and WC have been merged into a single vague tile area with misplaced openings. The separation wall between the hallway and Bedroom 1 is structurally inaccurate compared to the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is representative but incorrectly scaled (dining set is oversized) and the L-shaped kitchen layout in 3D does not match the dimensions or placement of the fridge/wall in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent visual execution. Clean geometry, consistent orthographic camera, and soft, professional lighting. The rendering style is high-quality even if the data is inaccurate."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing front entry door and internal linen closet structure."
+        },
+        {
+            "code": "E2",
+            "description": "Refrigerator and kitchen counters misplaced relative to the 2D 'L-shape' footprint."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall separating the WC and Bathroom; merged into one room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall break/gap between the lounge and dining area not present in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions: The garage structure and car scale are too small relative to the house."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 1 door is missing or incorrectly placed within the hallway context."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan13.jpg"
+}

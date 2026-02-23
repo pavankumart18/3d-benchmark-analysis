@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but door swings in Bed 2 and Bed 3 conflict with the floor plan. Specifically, the entry to Bed 3 is orientation-flipped compared to the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thickness is consistent. However, there is a structural hallucination in the hallway/WC area where the entry to the toilet and the adjacent recess wall is simplified and missing the specific alcove detail for the 'linen' cupboard."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture scale is generally accurate. The balcony furniture differs from the specific layout shown in the 2D plan, and the 'Activity' area seating is simplified."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent rendering quality. Lighting and materials are clean. The isometric camera and orthographic projection are handled professionally with no major artifacts."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Bed 3 door swing orientation is incorrect; it should swing away from the hallway wall."
+        },
+        {
+            "code": "E1",
+            "description": "Linen closet partitioning and specific WC entry recess details are missing or merged."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony furniture placement does not match the symmetric layout planned in the 2D drawing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall thickness expansion in the vestibule area near the stairs."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan12.png"
+}

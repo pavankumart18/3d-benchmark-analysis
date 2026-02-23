@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 13,
+        "max": 40,
+        "notes": "Major layout mismatches between plan and 3D. Living/dining/kitchen zone is not faithfully arranged: the plan shows an L-shaped kitchen with a larger dining table placement; the 3D shows a small linear kitchenette and undersized dining setup (E2, E4). Several wall offsets/indentations on the left side (bath/coat/closet cluster) do not align to the plan\u2019s stepped wall geometry (E2). Door locations/orientations do not match the plan in multiple places (bedrooms/baths/entry) (E2, E3). Window placement only partially matches: the large living-room window exists but proportion/mullion count/extent do not match the plan\u2019s long run (E4). Room proportions are distorted: living area appears oversized while service rooms/circulation are compressed (E4)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Missing key program elements from the 2D plan: the upper-left bathroom/coat area is not correctly realized as a full bathroom suite (E1). Adjacency relationships differ: the plan\u2019s entry/foyer and its connections to the central bath and bedrooms are not preserved in the same configuration (E2). Multiple doors appear embedded into different walls than indicated, and several openings are simplified into generic doors (E2, E3). Hallucinated/incorrect fixtures appear (e.g., an exterior sink/vanity-like element placed outside the bathroom in the corridor area that is not shown in the plan) (E5). Overall wall thickness looks visually consistent, but the partition layout fidelity is low."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not map well to the plan: dining table size/seat count is incorrect (plan shows a larger table; 3D shows a small table with minimal seating) (E4, E2). Kitchen appliances/counters do not match the plan\u2019s layout (E2). Bedroom furniture is simplified and not positioned to match the plan\u2019s indicated arrangement (E2). Scale is inconsistent (living furniture appears oversized relative to dining/kitchen) (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean and readable with consistent materials and generally correct isometric-style presentation. Lighting is adequate and geometry is mostly artifact-free. However, the camera reads slightly perspective rather than strictly orthographic/isometric, and some elements look overly simplified (generic doors, minimal detailing) reducing architectural clarity."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Upper-left bathroom/coat/closet suite from the 2D plan is not fully or correctly represented as a complete bathroom layout in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout is incorrect: 2D shows an L-shaped kitchen/open arrangement; 3D shows a small linear kitchenette with different counter/appliance placement."
+        },
+        {
+            "code": "E4",
+            "description": "Dining area furniture scale is wrong: 2D indicates a larger dining table (more seats); 3D shows an undersized table with minimal seating."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple wall alignments/offsets on the left-side service core do not match the stepped wall geometry shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements do not match the 2D plan in several locations (bedroom entries/bath access/central circulation)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing/orientation cues from the plan are not followed; openings are simplified into generic hinged doors without matching handedness."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: living room appears enlarged while circulation/service rooms are compressed compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Living room window size/configuration does not match the plan\u2019s long window run (mullion count/extent differs)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/incorrect fixture: a sink/vanity-like element appears outside the bathroom area that is not indicated in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan.jpg"
+}

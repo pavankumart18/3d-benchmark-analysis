@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Major mismatch between the 2D plan (central Living & Dining with kitchen/utility to the right and two balconies) and the 3D render (appears dominated by bedroom-like rooms with no clear central living/dining core). Wall layout does not follow the long linear plan with defined passages; door and window locations do not correspond to the plan; key exterior breaks (balconies) are not represented. Overall proportions/room sizing appear altered (bedrooms expanded/reshuffled relative to plan)."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Some consistent wall thickness is present, but the structural program is not faithful: balconies are absent, kitchen/utility zone is not identifiable, and the toilet cluster arrangement does not match the four-toilet layout shown in 2D. Adjacency relationships (bedrooms-to-passages, living-to-balcony, kitchen-to-utility) are not preserved. The 3D render also suggests extra/reshaped room compartments not in the plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not map to the 2D plan: Living & Dining furniture (sofa/dining table) and kitchen cabinetry/appliances are missing or not recognizable. Multiple beds are shown, but their placement does not correspond to the three bedrooms defined in the plan. Furniture scaling appears somewhat consistent internally, but not aligned with room functions from the plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric presentation is generally correct and readable. Lighting is acceptable and geometry is mostly clean, but the large floating roof slab and simplified openings reduce clarity. The view is not orthographic; mild perspective and the roof occlusion reduce plan-verification usefulness."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing balcony elements: both the Living/Dining balcony (top center) and Master Bedroom balcony (left) are not represented in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear Kitchen and Utility spaces on the right side (bottom-right in plan); 3D render does not show a distinct kitchen layout or utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Room placement mismatch: the 2D plan\u2019s central Living & Dining space is not clearly present/centered in the 3D render; bedroom-like rooms occupy areas that should be living/dining and circulation."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet placement mismatch: the plan includes multiple toilets (including a powder/toilet near entrance and two near bedrooms); the 3D render\u2019s toilet compartments do not match those positions or counts."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: the plan indicates numerous exterior windows aligned along room outer walls; the 3D render shows fewer windows and in non-corresponding locations."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/placement errors: door openings and swing/entry positions in the 3D do not align with the plan\u2019s corridor-based access to bedrooms, toilets, and living/dining."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the long linear arrangement with defined wide passages is not preserved; several rooms appear resized/reshaped compared to the 2D plan proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra rooming: the 3D render suggests additional or subdivided bedroom-like areas not present as distinct rooms in the 3BHK plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact/obstruction: oversized floating roof slab obscures verification of walls/openings and is not a documented element of the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan15.webp"
+}

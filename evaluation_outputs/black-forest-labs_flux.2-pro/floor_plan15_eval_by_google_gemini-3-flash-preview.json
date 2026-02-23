@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe inversion of the floor plan layout (mirroring/reorientation). The relationship between the living room and master bedroom is completely altered. Door swings are inconsistent with the schematic and entrance placement is vague."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing the specific 'Utility' room adjacency to the kitchen. Hallucinated additional balcony-like structures on the left side. Wall thickness is variable and several internal partitions are misplaced or merged."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While furniture exists, it does not match the 2D layout. Hallucinated a second living area in what should be a bedroom. Dining table placement ignores the specified wide passage."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The render has high visual clarity, good clay-style lighting, and a clean isometric perspective, even if the architecture is inaccurate."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "The entire layout is mirrored or flipped compared to the North-oriented floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated seating areas and additional partitions in the primary living space."
+        },
+        {
+            "code": "E1",
+            "description": "The Utility room adjacent to the kitchen is missing or converted into an open exterior space."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions in the 'Wide Passage' area, making the core of the flat appear smaller than the bedrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door is not clearly defined in the correct structural position relative to the Powder Toilet."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan15.webp"
+}

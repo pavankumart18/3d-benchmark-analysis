@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct as per the floor plan. However, the 'Activity' room's internal wall is significantly distorted. There are multiple instances of incorrect door placements and orientations, particularly for Bed 2, Bed 3, and Bed 4. Window placements are also frequently incorrect, with some being missing and others in wrong locations."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness appears inconsistent in several areas, especially around the 'Activity' room and the bathroom/WC area. Many doors are not correctly embedded, showing gaps or being flush incorrectly. The adjacency relationship between the 'Activity' room and the balcony is inaccurate. The 'Recess' area is missing. The 'Linen' cupboard is missing."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally off. The beds are not placed as indicated on the floor plan, some are rotated differently. The sofa in the 'Activity' area is different and misplaced. The 'Robe' areas are missing. Bathroom fixtures are mostly present but their exact positions vary. The external balcony balustrade is present but the internal 'Linen' area and its associated furniture are missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle is suitable, and the orthographic projection is generally good. Lighting quality is acceptable, providing clear visibility of the interior. Geometry appears clean with no significant distortions, apart from the structural inaccuracies already noted. Visual clarity and composition are good."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "The internal wall of the 'Activity' room is significantly distorted, making the room narrower than suggested by the floor plan. The balcony's dimensions appear slightly off."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bed 2 is misplaced and its orientation is incorrect. Door to Bed 3 is misplaced and its orientation is incorrect. Door to Bed 4 is misplaced and its orientation is incorrect. Doors to WC and Bath are also not perfectly aligned as per the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in Bed 2, Bed 3, and Bed 4 are misplaced and, in some cases, missing (e.g., the window on the right side of Bed 3/4 rooms). Windows in the 'Activity' room are different."
+        },
+        {
+            "code": "E1",
+            "description": "The 'Recess' area next to the stairs is completely missing. The 'Linen' cupboard area is missing."
+        },
+        {
+            "code": "E1",
+            "description": "The Robe areas in Bed 3 and Bed 4 are not rendered as integrated robe closets; instead, they appear as open spaces or with freestanding furniture."
+        },
+        {
+            "code": "E3",
+            "description": "The orientation of the beds in Bed 2, Bed 3, and Bed 4 does not match the floor plan. The sofa in the 'Activity' room is oriented incorrectly based on the floor plan's representation."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement in all bedrooms and the 'Activity' room does not accurately reflect the floor plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "Some internal wall thicknesses appear inconsistent, especially around the bathroom/WC area and the stairwell/activity area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan12.png"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Overall layout matches (Living/Dining left, Kitchen top-center, Utility top-right, Toilet mid-right, Bedroom bottom-right, Balcony bottom-left). However, the right-side service/shaft zone is modeled differently than the plan (partitioning and widths don\u2019t align), several window spans (especially along the bottom/bedroom side and balcony glazing) appear longer/different than indicated, and balcony depth/room proportions read enlarged in the 3D compared to the stated 7'10\" x 3'5\" balcony and 10'0\" x 16'7\" living proportions. Some door swing/orientation details (notably the toilet entry) are not clearly consistent with the 2D swing depiction."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "Primary adjacencies are correct (Kitchen-Utility, Toilet near Bedroom, Balcony off Living). Wall thickness is generally consistent and doors are embedded plausibly. Main penalty is for the altered/misrepresented right-side shaft/closet/duct area (extra/shifted partitions vs the single marked shaft/void in plan), which introduces potential hallucinated subspaces and changes to wall alignment in that zone. No major room is missing."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Key furniture types match (sofa + coffee table + dining table in Living/Dining; bed in Bedroom; kitchen counters/appliances). Minor mismatches in exact placement/scale (e.g., sofa/table spacing and the bedroom furniture clearances) relative to the tighter 2D proportions."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Good isometric camera and clean presentation. Lighting is consistent and geometry is mostly clean with readable spaces. Slight penalties for mild proportional exaggeration (balcony/glazing spans) and minor clarity issues where doors/walls overlap in the service/toilet zone."
+    },
+    "total_score": 76,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Balcony and adjacent Living/Dining proportions appear exaggerated in 3D (balcony depth and glazing span read larger than the 2D dimensioned intent)."
+        },
+        {
+            "code": "E2",
+            "description": "Right-side service/shaft/duct region is spatially mis-modeled: partitions and widths do not align with the single marked shaft/void area shown to the right of the toilet in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Possible hallucinated additional sub-compartment/partitioning along the far-right exterior beyond what is explicitly defined in the 2D plan (extra segmented service space)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements/spans differ: bedroom-side and balcony-facing glazing lengths appear longer or redistributed compared to the 2D openings."
+        },
+        {
+            "code": "E3",
+            "description": "Toilet door swing/orientation is not clearly consistent with the 2D plan\u2019s door swing depiction (appears rotated/treated differently in 3D)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is correct. Door to Bedroom-1 is correctly placed but the door to the toilet has an orientation mismatch relative to the bathroom wall layout. Window placement in Bedroom-1 and Balcony is consistent."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "There are minor hallucinations in wall thickness near the Utility entrance. All rooms are present, and adjacencies are preserved."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture scale is largely consistent. The kitchen countertop layout is slightly simplified compared to the plan's L-shape detail."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean geometry. Lighting is soft and professional. Text overlays are clear but exhibit slight rendering artifacts in the font."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "The swing and orientation of the toilet door do not perfectly align with the internal wall partitioning shown in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural thickness/pillar in the corner of the Utility area not specified in the 2D floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Text labels for rooms show slight compression artifacts and orientation skew relative to the floor plane."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan16.avif"
+}

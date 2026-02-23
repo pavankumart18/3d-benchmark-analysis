@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "The general layout matches, but there are significant discrepancies in the proportions of the dining area and the alignment of the foyer/service room area. Window placements are partially correctly located but suffer from scale distortions."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses are inconsistent. The utility area shows incorrect wall termination. Several doors are failing to render properly with realistic frames, and the door to Bed Room 3 has been moved relative to the wall segment."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is remarkably high-fidelity, following the rug and seating arrangement of the living room and bed placements in all bedrooms accurately."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Solid isometric camera angle and soft lighting. However, there is persistent text hallucination ('WIOE' instead of 'WIDE', 'DRIBES', 'UITLITY') and some geometric artifacts around the kitchen island."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific interior partition wall for the foyer to kitchen connection."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door entry for Bed Room 3; significantly closer to the dining area than the floor plan indicates."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the dining room width and the service room dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated text/labels containing typos such as 'WIOE', 'DRIBES', and 'UITLITY'."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts in the kitchen countertop floating away from the wall structure."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan17.jpg"
+}

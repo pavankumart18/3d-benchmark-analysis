@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout roughly matches (living/dining left, kitchen top, utility top-right, toilet mid-right, bedroom bottom-right), but key spatial details diverge. The right-side service/duct area is greatly enlarged in the 3D compared to the narrow shaft shown on the plan (major boundary/proportion mismatch). Several doors/openings are missing or not expressed (main entry, toilet entry, balcony access), making circulation inaccurate. Window/opening positions are not reliably represented."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall massing is mostly coherent and thickness looks reasonably consistent, but door embedding is largely incorrect/absent. Adjacencies are partially preserved (kitchen adjacent to living, utility adjacent to kitchen, toilet near bedroom), yet the oversized/open right-side void changes the intended enclosure and exterior boundary. No major labeled room is entirely omitted, but an extra/expanded exterior/void space is introduced beyond the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Core furniture is present (sofa set, dining table, bed) and generally plausible in scale. However, placement does not tightly match the 2D arrangement (living seating layout/positioning differs), and built-in elements like the bedroom wardrobe shown on plan are not modeled."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric view is clear with decent lighting and readable room separation. Geometry is mostly clean with minimal artifacts. However, the render simplifies openings and details (doors/windows), reducing architectural clarity, and the large right-side opening/void harms perceived correctness."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Right-side duct/shaft area is disproportionately large in the 3D render compared to the narrow service/shaft indicated on the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/expanded exterior void on the right side (appears as a large open courtyard/shaft) not matching the small marked shaft in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Main entry door at the top-left shown in the 2D plan is not clearly modeled/visible in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Toilet door/opening shown on the 2D plan is missing or not clearly represented in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony access/opening from living area is not correctly depicted (balcony boundary/doorway/threshold is unclear compared to the 2D plan)."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom wardrobe/built-in storage shown along the bedroom wall in the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements/openings (notably living/bedroom exterior windows) are not consistently mapped to the 2D plan; some appear missing or relocated."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan16.avif"
+}

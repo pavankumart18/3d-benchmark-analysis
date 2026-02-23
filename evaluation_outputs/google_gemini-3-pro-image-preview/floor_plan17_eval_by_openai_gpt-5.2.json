@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall macro-zoning is similar (living/dining center-left, kitchen bottom-left, master top-center, three other bedrooms on right), but several plan-critical details deviate. Door locations and swing/orientation are not faithfully represented (many openings are generalized). Window placement from the 2D plan is largely absent/undefined in the 3D render (balcony openings exist, but typical exterior windows are not mapped). Some room proportions and circulation widths (hall/corridor and dining-to-bedroom distribution) appear simplified versus the 2D layout."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Primary adjacencies mostly hold (kitchen-utility, living-balcony, master-dress/baths, bedroom cluster to right). However, structural openings/doors are not embedded per plan (missing clear door frames and exact positions). There appears to be an added exterior terrace/balcony-like space at the bottom that does not clearly correspond to the 2D plan (utility is shown in 2D, but the rendered outdoor treatment/extent looks expanded). Wall thickness looks generally consistent, but several partitions are simplified compared to the 2D plan\u2019s tighter bathroom/closet segmentation."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living and dining furniture is broadly placed in the correct zones (sofa group in living, dining table central). Bedroom furniture is generally plausible but not tightly matched to the 2D plan (some seating/side tables and bed clearances differ). Furniture scale is mostly consistent, though some rooms read slightly under/over-furnished relative to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clean with readable room separation and decent lighting. However, the camera is closer to a top-down/axonometric view than a true isometric presentation, and orthographic accuracy is weakened by soft perspective/blur. Geometry is mostly clean, but the lack of explicit windows/door detailing reduces clarity as an architectural verification render."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Windows from the 2D plan (multiple exterior window runs) are largely missing/undefined in the 3D render; only balcony openings are clearly expressed."
+        },
+        {
+            "code": "E2",
+            "description": "Several door positions between hall/dining and bedroom/bathroom zones are generalized and do not match the specific placements shown on the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing logic is not preserved (openings are shown without correct swing/hinge orientation, impacting verification of entry directions)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportional relationships appear simplified: circulation widths and the dining-to-adjacent-room spacing do not closely match the 2D plan\u2019s tighter partitioning."
+        },
+        {
+            "code": "E5",
+            "description": "A bottom exterior terrace/balcony-like area with plants appears in the 3D render that is not clearly present as such in the 2D plan (utility is present in 2D, but the rendered exterior extent/treatment reads as an added element)."
+        },
+        {
+            "code": "E6",
+            "description": "Soft focus/blur and lack of crisp edge detailing reduce the ability to verify exact openings (minor rendering artifact affecting architectural clarity)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan17.jpg"
+}

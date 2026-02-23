@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General floor plan layout is preserved successfully with accurate room positioning. Minor discrepancies in door swing directions compared to the 2D schematic."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "All rooms are accounted for including balconies and wet areas. Wall thickness is consistent throughout. Adjacency logic is followed."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent mapping of furniture assets, specifically the kitchen island and bedroom configurations. A small TV stand was hallucinated in the living area which was not in the original plan."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "High-quality isometric projection with clean lighting and realistic material textures. Visual clarity is excellent."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Inner door swings in the living room and bedrooms do not perfectly match the 2D plan's arc directions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated TV stand and television against the kitchen partition wall not present in 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "The double entrance door at the bottom of the plan is rendered as two separate single doors with different framing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan5.jpg"
+}

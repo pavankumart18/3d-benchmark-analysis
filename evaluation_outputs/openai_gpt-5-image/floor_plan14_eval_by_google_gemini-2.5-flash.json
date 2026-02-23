@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions, and missing walls/doors. Living/Dining area is accurate, but surrounding rooms are not."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Multiple missing rooms (Utility, C.TOI), hallucinated rooms, inconsistent wall thickness, and incorrect adjacency relationships. Half-walls are used where full walls should be."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement and scale are highly inaccurate, with many items missing or misplaced entirely. Missing outdoor furniture and most kitchen appliances."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Visual clarity is good, and geometry is clean. Lighting is acceptable. Isometric camera and orthographic projection appear correct."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'UTILITY' room next to Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'C.TOI' (Common Toilet) room next to BED-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'FOYER' room, which is combined into the Living/Dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'DECK' from BED-2 and 'DECK' from BED-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal walls and doors for 'TOI-1' (Toilet 1)."
+        },
+        {
+            "code": "E2",
+            "description": "BED-2 is significantly smaller and its aspect ratio is distorted compared to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "BED-1 room dimensions and shape are altered, and its attached 'TOI-1' layout is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout is completely different; appliances and sink are not placed as per the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Walls between 'LIVING/DINING' and 'FOYER' are missing, creating an open space not present in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Doors for BED-2, C.TOI, and UTILITY are either missing or incorrectly placed/oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements are inconsistent with the floor plan, particularly for BED-2 and the decks."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of BED-2 and BED-1 are distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Overall floor plan shape has minor proportional distortions compared to the 2D plan, especially in the bottom left corner."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated half-walls where full walls should be, creating open-concept areas not depicted in the plan (e.g., between Living/Dining and the area where Foyer/Kitchen should be, and around the attached toilets)."
+        },
+        {
+            "code": "E5",
+            "description": "The area next to BED-1, where 'TOI-1' is, shows a hallucinated partition and door layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan14.webp"
+}

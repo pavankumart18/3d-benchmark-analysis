@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From 2D Canvas to 3D Reality | 3D Floor Plan Benchmark</title>
+
+    <!-- Google Fonts: NYT-style Serif (Merriweather) & Sans-Serif (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chomp&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --nyt-serif: 'Merriweather', serif;
+            --nyt-serif-heading: 'Playfair Display', serif;
+            --nyt-sans: 'Inter', sans-serif;
+            --nyt-text: #121212;
+            --nyt-light-bg: #fdfdfd;
+            --nyt-gray: #666;
+            --nyt-border: #e2e2e2;
+            --nyt-accent: #3b5998;
+        }
+
+        body {
+            font-family: var(--nyt-serif);
+            background-color: var(--nyt-light-bg);
+            color: var(--nyt-text);
+            line-height: 1.8;
+            font-size: 19px;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Top Nav */
+        .story-nav {
+            border-bottom: 1px solid var(--nyt-border);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--nyt-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            background: rgba(253, 253, 253, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+
+        .story-nav a {
+            color: var(--nyt-text);
+            text-decoration: none;
+        }
+
+        .story-nav .brand {
+            font-family: var(--nyt-serif-heading);
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 0;
+            text-transform: none;
+            font-style: italic;
+        }
+
+        /* Hero Header */
+        .story-header {
+            max-width: 800px;
+            margin: 4rem auto 3rem auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .kicker {
+            font-family: var(--nyt-sans);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #d32f2f;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .headline {
+            font-family: var(--nyt-serif-heading);
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .subheadline {
+            font-family: var(--nyt-serif);
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--nyt-gray);
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .byline {
+            font-family: var(--nyt-sans);
+            font-size: 0.9rem;
+            color: #111;
+            border-top: 1px solid var(--nyt-border);
+            border-bottom: 1px solid var(--nyt-border);
+            padding: 1rem 0;
+            margin: 0 auto;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .byline strong {
+            font-weight: 700;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 650px;
+            margin: 0 auto 5rem auto;
+            padding: 0 20px;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body p:first-of-type::first-letter {
+            float: left;
+            font-size: 4.5rem;
+            line-height: 0.8;
+            padding-right: 0.5rem;
+            font-family: var(--nyt-serif-heading);
+            font-weight: 900;
+        }
+
+        .article-body h2 {
+            font-family: var(--nyt-serif-heading);
+            font-weight: 700;
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem 0;
+            line-height: 1.2;
+            color: #000;
+        }
+
+        .article-body h3 {
+            font-family: var(--nyt-sans);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 2rem 0 1rem 0;
+            color: #333;
+        }
+
+        /* Full Width Media */
+        .media-full {
+            width: 100%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .media-full img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .media-caption {
+            font-family: var(--nyt-sans);
+            font-size: 0.85rem;
+            color: var(--nyt-gray);
+            margin-top: 0.8rem;
+            text-align: right;
+        }
+
+        /* Side-by-Side Comparison Container */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .comparison-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comparison-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--nyt-border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-label {
+            font-family: var(--nyt-sans);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            color: #555;
+            border-bottom: 2px solid #000;
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        /* Methodology Box */
+        .methodology-box {
+            background-color: #f7f7f7;
+            border: 1px solid var(--nyt-border);
+            padding: 2rem;
+            margin: 3rem 0;
+            font-family: var(--nyt-sans);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .methodology-box h4 {
+            margin-top: 0;
+            font-family: var(--nyt-serif-heading);
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--nyt-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Blockquote */
+        blockquote {
+            font-family: var(--nyt-serif-heading);
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 300;
+            color: #111;
+            text-align: center;
+            margin: 4rem 1rem;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: "“";
+            font-size: 4rem;
+            color: #ccc;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        /* Table */
+        .insight-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--nyt-sans);
+            font-size: 0.9rem;
+            margin: 2rem 0;
+        }
+
+        .insight-table th,
+        .insight-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--nyt-border);
+        }
+
+        .insight-table th {
+            font-weight: 700;
+            background-color: #fcfcfc;
+            border-bottom: 2px solid #111;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .insight-table td strong {
+            color: #000;
+        }
+
+        .interactive-link {
+            display: block;
+            text-align: center;
+            margin: 4rem 0;
+            font-family: var(--nyt-sans);
+        }
+
+        .interactive-link a {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background 0.2s;
+        }
+
+        .interactive-link a:hover {
+            background: #333;
+        }
+
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 2.2rem;
+            }
+
+            .subheadline {
+                font-size: 1.1rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .byline {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="story-nav">
+        <a href="#">Technology / Visual Computing</a>
+        <a href="index.html" class="brand">AntiGravity</a>
+        <a href="index.html">Interactive Dashboard →</a>
+    </nav>
+
+    <header class="story-header">
+        <span class="kicker">An In-Depth Investigation</span>
+        <h1 class="headline">The Architectural Turing Test: Can AI Truly See Space?</h1>
+        <p class="subheadline">For decades, software required humans to painstakingly extrude flat drawings into 3D
+            environments. We tested the newest generation of vision-language models to see if they could automate the
+            mind's eye.</p>
+
+        <div class="byline">
+            <span>By <strong>AntiGravity Labs</strong></span>
+            <span>Published Feb. 23, 2026</span>
+        </div>
+    </header>
+
+    <div class="media-full">
+        <!-- Using one of the best generated outputs as hero -->
+        <img src="batch_outputs/floor_plan3_black-forest-labs_flux.2-pro.png"
+            alt="A generated 3D isometric cutaway of an apartment">
+        <div class="media-caption">A 3D isometric cutaway generated entirely by Flux 2 Pro, interpreting a flat 2D
+            schematic. (Generated via OpenRouter API)</div>
+    </div>
+
+    <article class="article-body">
+        <p>The translation of two-dimensional blueprints into three-dimensional space is one of the foundational skills
+            of architectural training. It requires an innate understanding of spatial logic: recognizing that a thin
+            double-line represents a window, that an arc indicates a door's swing, and that adjacent rooms must share a
+            structurally sound wall.</p>
+
+        <p>For computer vision, this has historically been an impossible task without explicit, rigid programming. But
+            with the advent of multimodal AI models capable of processing imagery with the semantic reasoning of large
+            language models, a new question emerged: Can an AI look at a flat floor plan and instantly visualize the
+            entire physical structure?</p>
+
+        <p>To find out, we built a comprehensive benchmark pipeline, pitting 14 state-of-the-art vision models against a
+            corpus of architectural schematics. We weren't just looking for pretty pictures; we were looking for
+            structural truth.</p>
+
+        <h2>The Methodology: Forcing Strict Geometry</h2>
+
+        <p>The prompt design was the crucial first step. If left entirely to their own devices, modern image generators
+            tend to hallucinate lavish environments, prioritizing aesthetic realism over spatial accuracy. They might
+            invent a grand piano where a closet should be, or tear down a load-bearing wall to create a trendy
+            open-concept living room.</p>
+
+        <p>We wrote a notoriously rigid prompt targeting a "game-engine style" aesthetic: low-poly, flat shading,
+            isometric camera angles, and cutaway roofs. The directive was simple but brutal: <em>"Preserve exact layout,
+                wall placement, doors, and windows. Do NOT redesign or reinterpret."</em></p>
+
+        <div class="methodology-box">
+            <h4>The Pipeline Architecture</h4>
+            <p>Our automation framework, <code>batch_generate_3d.py</code>, orchestrates the entire process
+                asynchronously:</p>
+            <ol>
+                <li><strong>Ingestion:</strong> 17 distinct 2D floor plans (ranging from simple studios to complex
+                    multi-bedroom apartments) are encoded into base64 visual payloads.</li>
+                <li><strong>Generation:</strong> The payloads, alongside our strict stylistic prompt, are dispatched via
+                    the OpenRouter multimodal API to 14 different competitor models simultaneously.</li>
+                <li><strong>Evaluation:</strong> Rather than relying on human scoring, we utilized a panel of
+                    specialized LLMs (like GPT-4o and Claude 3.5 Sonnet) acting as "strict architectural verification
+                    engines." These evaluator LLMs were fed the original 2D image side-by-side with the new 3D generated
+                    image and tasked with scoring the outputs across four heavily weighted criteria.</li>
+            </ol>
+        </div>
+
+        <h2>How the Models Were Scored</h2>
+
+        <p>We realized quickly that a single "overall score" was inadequate. An image could look beautiful but be
+            architecturally flawed. Thus, we divided the judging rubric into four distinct pillars:</p>
+
+        <table class="insight-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Weight</th>
+                    <th>What the Evaluator Looked For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Spatial Accuracy</strong></td>
+                    <td>40%</td>
+                    <td>Are all rooms present? Are they correctly proportioned relative to each other?</td>
+                </tr>
+                <tr>
+                    <td><strong>Structural Fidelity</strong></td>
+                    <td>25%</td>
+                    <td>Did the model tear down walls? Are exterior limits respected? Are doors acting as actual
+                        thoroughfares?</td>
+                </tr>
+                <tr>
+                    <td><strong>Aesthetic Quality</strong></td>
+                    <td>25%</td>
+                    <td>Did the model follow the "low-poly, flat lighting" stylistic constraint, or did it hallucinate
+                        photorealistic textures?</td>
+                </tr>
+                <tr>
+                    <td><strong>Furniture Mapping</strong></td>
+                    <td>10%</td>
+                    <td>Are major fixtures (beds, sinks, tables) placed logically according to the 2D cues?</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>The Results: The Great Divide</h2>
+
+        <p>The outputs revealed a stark divide in the current landscape of AI capabilities. While almost all models
+            could generate an image that <em>looked</em> like an isometric 3D apartment, their adherence to the specific
+            2D source material varied wildly.</p>
+
+        <h3>The Standouts</h3>
+        <p>Models bearing the <strong>sourceful/riverflow</strong> and <strong>flux.2</strong> architectures
+            consistently demonstrated the highest structural fidelity. They treated the 2D plan not merely as
+            "inspiration," but as a strict scaffolding. Walls remained solid, room counts were exact, and spatial
+            proportions closely mirrored the source material.</p>
+
+    </article>
+
+    <!-- Side by Side Layout Example -->
+    <div class="comparison-grid">
+        <div class="comparison-item">
+            <span class="comparison-label">Original 2D Schematic</span>
+            <img src="input/floor_plan3.jpg" alt="Original flat floor plan schematic">
+        </div>
+        <div class="comparison-item">
+            <span class="comparison-label">Generated 3D Output (Flux.2 Pro)</span>
+            <img src="batch_outputs/floor_plan3_black-forest-labs_flux.2-pro.png" alt="Generated 3D render">
+        </div>
+    </div>
+
+    <article class="article-body">
+        <p>In the example above, notice how the model correctly identifies the complex corner geometry of the living
+            room, understands the separation of the bathroom, and places the bed exactly where indicated by the subtle
+            geometric shapes on the plan.</p>
+
+        <blockquote>"The models that fail don't fail at drawing; they fail at spatial continuity. They build walls that
+            lead nowhere and doors that open into voids."</blockquote>
+
+        <h3>The Hallucinators</h3>
+        <p>Conversely, many models struggled deeply with the <em>"Do not redesign"</em> instruction. The automated
+            evaluator notes frequently flagged issues like:</p>
+        <ul>
+            <li><em>"Wall thickness is inconsistent around the kitchen."</em></li>
+            <li><em>"Adjacency relationships are mostly correct but some rooms are missing, and a wardrobe has been
+                    hallucinated."</em></li>
+            <li><em>"The isometric camera angle is slightly misaligned, flattening the perspective."</em></li>
+        </ul>
+        <p>These models treated the 2D image as a mood board. If they saw a rectangle in a bedroom, they might render it
+            as a bed, a rug, or hallucinate an entirely new bathroom, disregarding structural logic in favor of creating
+            a "complete" looking scene.</p>
+
+        <h2>Conclusion</h2>
+        <p>The ability of AI to translate 2D spatial concepts into 3D environments is no longer science fiction. The
+            top-performing models in our benchmark proved that the connective tissue between flat schematics and
+            volumetric space can be inferred algorithmically.</p>
+
+        <p>However, the industry is not at the point of "one-click architecture." The heavy reliance on robust evaluator
+            rubrics highlights how easily these models can drift off-course, prioritizing aesthetic completion over
+            structural safety.</p>
+
+        <p>To explore the raw data, view the matrix comparisons, and read the granular judges' notes on every single
+            generated image, we have released the full interactive dashboard.</p>
+
+        <div class="interactive-link">
+            <a href="index.html">Explore the Interactive Benchmark Data</a>
+        </div>
+    </article>
+
+</body>
+
+</html>

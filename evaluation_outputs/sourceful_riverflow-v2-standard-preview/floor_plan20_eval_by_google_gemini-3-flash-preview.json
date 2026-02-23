@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is highly faithful to the plan. Room placements and wall alignments are largely accurate. Minor discrepancies in door swing representations (rendered as openings rather than swings) and slight window sizing differences."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "High fidelity to the floor plan logic. All major rooms (Kitchen, Utility, Toilets, 3 Bedrooms, Home Office) are present. Adjacency is preserved. Minor wall thickness variations in the lobby area."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent mapping of furniture layouts. Bedroom sets, sofa orientation, and dining table placement match the plan. The desk in the home office and bedroom-2 are correctly placed. Loss of points for slight scale differences in the dining chairs."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is soft and professional, geometry is clean. The orthographic feel is maintained throughout. Material differentiation is clear."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor misalignment of the main entry door relative to the lobby wall extension."
+        },
+        {
+            "code": "E4",
+            "description": "The dining chairs appear slightly overscaled compared to the table footprint in the original plan."
+        },
+        {
+            "code": "E6",
+            "description": "Door swings from the 2D plan are rendered as static open passageways or missing door leaves."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan20.avif"
+}

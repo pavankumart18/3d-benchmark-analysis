@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The overall room placement is mostly correct, but there are significant discrepancies. The Kitchen/Living room is heavily distorted, and the bedroom proportions are off. Door and window placements have numerous errors."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "There are missing walls and rooms are hallucinated. Wall thickness consistency is poor. Adjacency relationships are incorrect in several areas."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement in the kitchen is poor. The living room furniture is misrepresented and misplaced. Scale consistency is also an issue."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric and orthographic projection seems generally correct. The lighting is acceptable. However, there are some clean geometry issues and visual clarity is reduced due to structural inaccuracies."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Kitchen/Living room proportions are heavily distorted and significantly smaller than the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The kitchen island/counter is completely missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "The dining table and chairs in the Kitchen/Living area are missing."
+        },
+        {
+            "code": "E1",
+            "description": "Portion of the wall between the 'Kitchen/Living' and the bathroom/hallway area is missing, creating an open space not present in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The bathroom door is misplaced and its orientation is incorrect (E3). It opens into the hallway in the floor plan, but is shown as a sliding door system or completely open in the render in the wrong position."
+        },
+        {
+            "code": "E1",
+            "description": "The door leading to the Bedroom is missing in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The door leading to the toilet/shower area within the bathroom is misplaced."
+        },
+        {
+            "code": "E1",
+            "description": "The entire staircase structure and the wall next to it is missing in the 3D render. It is replaced by a window and an open space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated windows where the staircase and its adjacent wall should be."
+        },
+        {
+            "code": "E1",
+            "description": "The door at the entrance (below the staircase) is missing."
+        },
+        {
+            "code": "E2",
+            "description": "The window next to the sofa in the living area is misplaced; it is further to the right and proportionally smaller."
+        },
+        {
+            "code": "E2",
+            "description": "The windows on the left side (from the perspective of the 2D plan) of the Kitchen/Living area are misrepresented and misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "The windows in the master bedroom are misplaced and their number is incorrect. There are two windows in the render where the plan shows one."
+        },
+        {
+            "code": "E4",
+            "description": "The bed in the bedroom is smaller in proportion to the room than depicted in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The orientation of the refrigerator in the kitchen is incorrect. It's placed against the wall in the render, but shown perpendicular to the wall in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "The planter boxes and vegetation on the top left and bottom left external areas are only partially represented or missing."
+        },
+        {
+            "code": "E5",
+            "description": "The kitchen counter layout has been completely reinvented and does not match the floor plan. Hallucinated counter spaces."
+        },
+        {
+            "code": "E1",
+            "description": "The wall separating the bedroom from the bathroom is significantly shorter than in the floor plan, implying an open-concept connection (E5 - Hallucinated opening)."
+        },
+        {
+            "code": "E2",
+            "description": "The toilet is facing the wrong direction compared to the floor plan (E3)."
+        },
+        {
+            "code": "E1",
+            "description": "The shower unit is not clearly defined or is missing in the bathroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan6.jpg"
+}

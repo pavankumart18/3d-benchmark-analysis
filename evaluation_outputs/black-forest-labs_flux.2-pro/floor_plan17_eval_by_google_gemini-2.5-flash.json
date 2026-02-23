@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placements are generally correct, but several walls are misaligned or have incorrect lengths. Door placements are largely incorrect in terms of position and orientation, especially in bathrooms and bedrooms. Window placements are frequently incorrect or missing. Room proportions are distorted in several areas, particularly the living room, kitchen, and balconies."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout the render. Many doors are incorrectly embedded, appearing to float or having gaps. Adjacency relationships are mostly correct but compromised by wall misalignment. 'Foyer', 'Ser. Rm', and 'Toilet' near the Kitchen, and the 'Dress' room near the M. Bed Room are completely missing. Additionally, the 'Utility' room is largely missing, shown only as a small cutout. A small, inexplicable wall segment is added near the Living Room balcony entrance (E5)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate for major items, but many smaller fixtures (e.g., toilets, sinks, dressers) are misplaced or missing. Furniture scale consistency is acceptable, though some pieces appear slightly off. Many small tables and chairs are missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting is flat and lacks dynamic range, making the scene appear somewhat bland. Geometry is mostly clean but some areas show slight distortions or incomplete molding (e.g., around doors). Visual clarity is good, but the composition is busy due to the numerous subtle inaccuracies."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Foyer' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Ser. Rm' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Dress' room adjacent to M. Bed Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Toilet' near Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Significantly missing parts of 'Utility' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing several interior doors, especially for toilets and bedrooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in various locations, e.g., Balconies, M. Bed Rm, Bed Room 2 and 3."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture elements like several small tables, chairs, and bathroom fixtures."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced external wall of 'Living' room, causing proportion distortion."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'M. Bed Rm' bathroom, incorrectly shifted right."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Bed Room 2' toilet, incorrectly shifted right."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Bed Room 3' toilet, incorrectly shifted left."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entrance door to 'Bed Room 4' toilet, shifted right."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door connecting Living and Dining areas."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced walls in Kitchen and 'Utility' area, leading to incorrect room shapes."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced internal walls in various bathrooms, altering layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows throughout the model; many are not aligned with the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of door for 'M. Bed Rm' bathroom (swing direction)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of various internal doors within bedrooms and bathrooms."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Living' room, appearing narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Kitchen' layout, with reduced space."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'Balcony' next to Living Room, appears shorter."
+        },
+        {
+            "code": "E4",
+            "description": "Overall wall thickness inconsistent, leading to minor proportion changes for rooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small wall segment near the Living Room balcony entrance."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan17.jpg"
+}

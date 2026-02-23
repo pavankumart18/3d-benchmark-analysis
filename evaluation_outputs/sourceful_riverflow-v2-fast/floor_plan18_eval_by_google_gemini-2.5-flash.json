@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Balcony wall is offset. Walls are generally aligned, but some internal walls, especially around the Kitchen and Utility, show discrepancies. Door placement and orientation are incorrect for the majority of doors. Window placement is missing in several key areas. Room proportions, especially in the Living/Dining area and Balcony, appear distorted."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly noticeable with external walls. Door embedding is poor, with many doors incorrectly sized or missing frames. Adjacency relationships are mostly preserved, but the utility room connection to the kitchen is unclear. There are no completely missing or hallucinated rooms, but the Utility room's internal structure is poorly rendered."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally aligned but some items are missing. However, the sofa in the Living/Dining area is significantly different, and its orientation is incorrect. Other furniture items, like the wardrobe and study table in the bedroom, are missing. Scale consistency is acceptable for placed items, but not accurate to the floorplan due to many missing items."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is correct, and orthographic projection seems adequately maintained. Lighting quality is too flat and lacks depth, making details hard to distinguish. Geometry is mostly clean but lacks fine details for doors and windows. Visual clarity is moderate due to poor lighting and missing elements, and composition is passable."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Balcony wall offset and internal wall misalignments"
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and orientation for Living/Dining, Toilet, and Utility doors"
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Bedroom, Living/Dining, and Kitchen"
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Balcony and Living/Dining dimensions"
+        },
+        {
+            "code": "E2",
+            "description": "Inconsistent wall thickness, particularly exterior walls"
+        },
+        {
+            "code": "E1",
+            "description": "Missing wardrobe and study table in the Bedroom"
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated sofa design and orientation in Living/Dining area"
+        },
+        {
+            "code": "E1",
+            "description": "Missing dining chairs"
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting quality, leading to lack of depth and detail"
+        },
+        {
+            "code": "E1",
+            "description": "Missing door frames and window details"
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall layout is recognizable (living/dining left, kitchen+utility bottom/center, bedrooms to the right, master suite top), but multiple plan-to-render mismatches: (E4) several room dimensions/proportions do not match the labeled 2D sizes (notably kitchen, master, bed 2/3/4 appear resized/reshaped). (E2/E3) multiple door locations/swing orientations differ from the 2D plan, especially around the bedroom-zone corridor and the cluster of common/powder toilets near dining/bedroom 4. (E2) balcony sizing/labeling is inconsistent with the plan (2D indicates different balcony widths for living vs master; 3D shows both as the same). (E2/E1) window distribution does not match the 2D plan\u2019s implied openings\u2014several exterior walls that should have openings appear blank while large windows are emphasized on some facades without clear correspondence."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Primary room adjacencies are mostly preserved (kitchen next to utility, bedrooms grouped right, master with dress+toilets), but fidelity issues remain: (E4) wall runs and room outlines are simplified/shifted, impacting corridor definition and toilet block geometry. (E2/E3) door embedding and swing directions are not consistently aligned with the 2D plan, especially for small toilets. (E2) some exterior opening placements (windows/doors to balconies) do not consistently reflect the 2D layout. No clearly new/extra rooms are introduced, but the reconfiguration of service/toilet partitions reads as a partial plan rewrite rather than a faithful extrusion."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture intent generally matches room function (sofas in living, dining table centered, beds in bedrooms), but (E4) scaling is inconsistent with the 2D dimensions (some rooms appear too large/small relative to furniture), and (E2) several furniture placements do not reflect the 2D furniture/layout cues (e.g., living seating group proportions and placement relative to balcony edge differ)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, visually pleasing isometric-style render with good lighting and readable room zoning. Minor issues: (E6) slight perspective/foreshortening reduces orthographic accuracy, and some geometry feels simplified (especially tight toilet/corridor areas). Overall composition and clarity are strong."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Room proportions/dimensions in 3D do not match the 2D labeled sizes (kitchen and multiple bedrooms appear resized/reshaped)."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony sizing/labeling differs: 2D indicates different balcony widths (living vs master), while 3D depicts/labels them as the same."
+        },
+        {
+            "code": "E2",
+            "description": "Door positions around the bedroom corridor and toilet cluster differ from the 2D plan (openings appear shifted)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing orientations in 3D do not match the 2D plan, especially for small toilets."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/quantity on exterior walls does not consistently correspond to the 2D plan; some walls show large windows where the plan does not clearly indicate them, while other expected openings appear missing."
+        },
+        {
+            "code": "E6",
+            "description": "Render uses slight perspective rather than strict orthographic/isometric projection, reducing measurement fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan17.jpg"
+}

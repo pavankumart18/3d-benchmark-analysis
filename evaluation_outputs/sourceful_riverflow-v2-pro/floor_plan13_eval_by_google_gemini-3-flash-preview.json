@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct, but door orientations in the central hallway do not match the swing directions shown in the floor plan. Window placement in the lounge area is significantly different from the sliding door indicated."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The linen closet at the entry is missing. The wall thickness is consistent, but the transition between the kitchen and laundry area lacks the specific indentation shown in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is well-scaled but basic. The kitchen appliance layout is simplified compared to the specific stove and sink placements in the technical drawing."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean geometry. Lighting is soft and professional. Very few rendering artifacts."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Linen closet at the entry is missing from the 3D model."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom and WC door swing directions are inconsistent with the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The window in Bedroom 2 is placed on the side wall rather than the rear wall as indicated in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony area appears enclosed by a full-height wall rather than being an open external structure."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan13.jpg"
+}

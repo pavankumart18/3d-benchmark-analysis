@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major failure in staircase representation; the stairs are rendered as a room with a sofa. The central pantry island is significantly underscored in size and missing structural walls. Window apertures are missing or inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall terminal points on the dining room extension are missing depth. The 'Playroom' access door is missing. The W/C wall configuration is simplified and lost the closet partition."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "The kitchen island and counters are rendered as generic office-like furniture. Hallucinated sofas where the staircase should be. Scale of the central island is incorrect."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The rendering is clean with decent lighting and orthographic camera work, though geometry is over-simplified for architectural standards."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "The entire staircase assembly is missing and replaced with a living area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated sofa and office chair/desk elements not present in the 2D blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the pantry island in the center are too small and lack the thick wall structure shown in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room bay window is rendered as a flat wall without the specified indentation depth."
+        },
+        {
+            "code": "E6",
+            "description": "Curved wall artifact near the playroom area which does not exist in the rectilinear floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan8.jpg"
+}

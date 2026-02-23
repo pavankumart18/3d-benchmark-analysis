@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is maintained, but window placement is largely ignored in favor of solid walls. Internal door swings are vaguely represented by wall gaps rather than explicit door objects. Proportions of the Bed-1 area are slightly stretched compared to the kitchen/foyer zone."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The utility/kitchen area shows merged wall structures. The FOYER entry wall is partially missing or hallucinated as a floating partition. Wall thickness varies significantly between external and internal dividers."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent mapping of rugs, dining sets, and bed orientations. The scale of the living room sofa and dining set matches the floor plan tightly."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric render with consistent lighting and clean geometry. Soft shadows and material differentiation (wood vs tile) are visually appealing."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing windows in Bed-2 and Bed-1, replaced by solid gray walls."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen countertop is disconnected from the wall at the sink area."
+        },
+        {
+            "code": "E4",
+            "description": "The foyer area width is compressed compared to the 2D dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated white vertical pillar/wall section near the entrance to the living room not present in 2D layout."
+        },
+        {
+            "code": "E6",
+            "description": "The internal walls of the TOI-1 bathroom are rendered as semi-transparent or incomplete partitions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan14.webp"
+}

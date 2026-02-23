@@ -1,0 +1,50 @@
+{
+  "spatial_accuracy": {
+    "score": 13,
+    "max": 40,
+    "notes": "Major spatial deviations from the 2D plan. The most critical is that the 2-car garage (entire right-lower wing in the plan) is not represented correctly in the 3D; that area appears as interior living/bedroom space instead (E1/E5), breaking the overall footprint. Bedroom #2/#3 zone on the right side does not match the plan’s layout and relative sizing; the circulation from hall → bedrooms/utility/garage is not preserved (E2/E4). Door locations and swings differ in several places around the central hall and bedroom entries (E2/E3). Window placement/counts are inconsistent: the long living-room window band and several right-side bedroom/bath windows do not cleanly match the plan’s window distribution (E2). Room proportions are notably distorted, especially where the garage wing should be (E4)."
+  },
+  "structural_fidelity": {
+    "score": 7,
+    "max": 25,
+    "notes": "Structural fidelity is poor due to missing/incorrect major program elements. The garage is missing as a dedicated space (E1) and replaced by a large interior room/bedroom-like area (E5), breaking required adjacencies (hall/utility/garage relationship). Utility placement appears simplified and not clearly adjacent to the garage as in the plan (E2). Several wall runs and offsets on the right side (bedroom/garage block) do not follow the plan’s wall alignments, indicating footprint/partition hallucination (E2/E5). Wall thickness and door embedding are generally clean in the render, but correctness relative to the plan is not maintained."
+  },
+  "furniture_mapping": {
+    "score": 4,
+    "max": 10,
+    "notes": "Some furniture corresponds (kitchen peninsula with sink/DW, dining table, living seating), but furniture is mapped into spaces that do not match the plan due to the garage-wing error. A large bed is placed in the right-lower area where the plan specifies a 2-car garage (E5). Several rooms (bedrooms/hall) have generic furniture not reliably matching intended room identities/sizes from the 2D plan (E2/E4)."
+  },
+  "aesthetic_quality": {
+    "score": 20,
+    "max": 25,
+    "notes": "Render quality is strong: clean geometry, coherent materials, and readable room volumes. Camera is near-orthographic/top-down and legible. Lighting is consistent and not overly noisy. Minor issues: the view is closer to an orthographic top-down than a true isometric, and some edge/trim details read slightly simplified, but overall presentation is clear."
+  },
+  "total_score": 44,
+  "detected_errors": [
+    {
+      "code": "E1",
+      "description": "2-car garage from the 2D plan is missing/not represented as a garage volume in the 3D render."
+    },
+    {
+      "code": "E5",
+      "description": "Hallucinated large interior room/bedroom-like space occupies the area where the plan specifies the garage (right-lower wing)."
+    },
+    {
+      "code": "E2",
+      "description": "Right-side bedroom/utility/hall configuration does not match plan adjacency and placement (bedrooms #2/#3/utility relationship to hall/garage is incorrect)."
+    },
+    {
+      "code": "E4",
+      "description": "Overall footprint and room proportions are distorted, especially in the garage-wing region and the right-side bedroom block."
+    },
+    {
+      "code": "E2",
+      "description": "Multiple door placements around the central hall and bedroom entries do not align with the 2D plan locations."
+    },
+    {
+      "code": "E3",
+      "description": "Several door swing/orientation choices appear inconsistent with the 2D plan (open direction/hinge side differs)."
+    },
+    {
+      "code": "E2",
+      "description": "Window distribution/counts are inconsistent with

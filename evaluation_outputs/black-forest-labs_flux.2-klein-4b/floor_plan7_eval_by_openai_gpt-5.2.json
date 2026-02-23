@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout deviations vs plan. The large stair zone at the bottom-right of the 2D plan is not represented; instead a small corridor/space is modeled (E1/E5). The main entrance at the top-right (double door) is not placed there in the 3D render (E2/E3). Several internal wall runs/offsets near the kitchen/central corridor do not align to the rectilinear wall geometry in plan (E2). Door positions and swings for the wash/toilet zone do not match the 2D door locations/orientations (E2/E3). Window placement is inconsistent: dining/bedroom windows shown in plan are missing or moved, and extra/different windows appear in the 3D (E1/E2/E5). Overall room proportions are distorted (living/entry/stair region compressed and reconfigured) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Core adjacency relationships are broken by the missing staircase block (E1) and the altered entrance location (E2), changing circulation. The wash area and toilet appear effectively merged/reshaped into one bathroom volume rather than the two distinct spaces shown (E2/E4). A hallucinated narrow hall/room at the bottom-right replaces the stair footprint (E5). Wall thickness looks mostly consistent, but wall embedding around doors/openings is inconsistent with the plan\u2019s openings (E2/E3)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Dining table/chairs, bedroom bed, and living seating roughly correspond to intended rooms, but kitchen cabinetry/counters shown in plan are largely absent/simplified (E1). Bathroom fixture layout does not match the separate wash/toilet arrangement (E2). Some furniture scale feels plausible, but mapping accuracy is limited due to room reshaping (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric-style view is generally correct and readable. Lighting is basic but acceptable; geometry is mostly clean with minimal visible artifacts. However, some wall intersections/offsets look awkward and non-orthogonal relative to the plan, reducing clarity of architectural intent (E6)."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Staircase room/zone (bottom-right in 2D plan) is missing from the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance location is incorrect: 2D shows entrance at top-right with double door; 3D does not place the entrance there."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing orientations/placements around the bathroom (wash/toilet) do not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Internal wall alignment near kitchen-to-hall area is shifted/reshaped compared to the rectilinear walls in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted, especially in the right-side circulation area where the stair footprint should dominate."
+        },
+        {
+            "code": "E1",
+            "description": "Windows shown on the 2D plan for dining/bedroom are missing or not represented in the same walls in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra narrow corridor/space at the bottom-right replaces the planned staircase area."
+        },
+        {
+            "code": "E5",
+            "description": "Window placements appear hallucinated/relocated (e.g., added/shifted windows on walls that do not match the 2D plan)."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen built-in counters/fixtures depicted in the 2D plan are largely missing/simplified in the 3D render."
+        },
+        {
+            "code": "E6",
+            "description": "Minor visual/geometry awkwardness at wall junctions and offsets reduces architectural clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan7.jpg"
+}

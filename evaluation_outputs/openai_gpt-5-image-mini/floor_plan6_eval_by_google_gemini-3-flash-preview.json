@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major spatial failures. The kitchen island from the floor plan is missing, replaced by a straight counter. The entire right-hand side of the plan, including the staircase and the secondary entrance/service area, has been omitted. Window and door placements do not match the source document."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Significant portions of the structural layout are missing (Staircase, Bathroom details, Storage). Adjacency between the bedroom and living area is loosely maintained but lacks the correct door swing and internal partitioning shown in the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture types are somewhat representative but poorly placed. The sofa and coffee table are incorrectly oriented compared to the floor plan, and the dining table is shifted toward the kitchen counter."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The render is aesthetically pleasing with clean geometry, consistent lighting, and a proper isometric perspective. However, it lacks architectural accuracy."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entire right wing: staircase and secondary rooms are absent."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen island/peninsula and sink placement is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa and coffee table orientation rotated 90 degrees from floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door on the left wall is missing or replaced with an open gap."
+        },
+        {
+            "code": "E4",
+            "description": "Living area proportions distorted due to removal of structural walls and island."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated upper kitchen cabinets not present in the 2D floor plan symbols."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan6.jpg"
+}

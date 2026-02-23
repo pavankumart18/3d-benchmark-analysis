@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 6,
+        "max": 40,
+        "notes": "Major layout mismatch. 2D plan is a simple rectangle with kitchen at top-left, dining at top-right, living on right, stairs bottom-left, and a small central bathroom near the entrance. 3D render shows a different partition scheme (multiple small rooms at the back), stairs relocated to the right side, and the main living area placed on the left. Entrance location and circulation do not match the 2D plan. Window and door positions do not correspond to the plan, and overall room proportions/footprints are not preserved."
+    },
+    "structural_fidelity": {
+        "score": 4,
+        "max": 25,
+        "notes": "Adjacency relationships are incorrect (kitchen/dining/living boundaries and the central bath core are not preserved). The bathroom is not a small enclosed central room as in plan; instead a large open bath zone appears on the right. Stairs are not in the bottom-left zone as specified. Multiple extra partitions/rooms appear that are not in the 2D plan. Several required openings (notably the bottom-center entrance and specific top-wall doors/windows) are not faithfully embedded."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture does not map to the 2D plan (the plan provides no bedroom; 3D includes two beds). Kitchen configuration differs (island vs. perimeter kitchen in 2D). Bathroom fixtures are oversized and placed in an open area rather than inside the small bath. Furniture scale is generally plausible visually, but it is inconsistent with the intended program."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clean with good lighting and readable geometry. Isometric-style camera is acceptable, though not a strict architectural axon/ortho match. Minor issues: some elements feel staged (beds + open bath) relative to the plan, reducing interpretability as a faithful plan translation."
+    },
+    "total_score": 29,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Stair location incorrect: 2D shows stairs in bottom-left; 3D places stairs on the right side."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/incorrect entrance: 2D indicates a bottom-center entrance door; 3D does not clearly show a corresponding entrance at that location."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen placement/configuration mismatch: 2D kitchen is top-left with perimeter counters; 3D shows an island kitchen in a different central position."
+        },
+        {
+            "code": "E2",
+            "description": "Living room placement incorrect: 2D living occupies the right side; 3D places primary seating/living on the left."
+        },
+        {
+            "code": "E2",
+            "description": "Dining area mismatch: 2D dining is top-right; 3D dining table appears near the bottom/center-left area."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: 2D bath is very small (3' x 2' noted) and central; 3D bath zone is large and occupies a substantial right-side area."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom enclosure/door placement incorrect: 2D shows a small enclosed bathroom with specific door openings; 3D does not match enclosure size or door positions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedrooms: 3D includes two beds/bedroom-like furniture; 2D plan contains no bedrooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated extra rooms/partitions: 3D shows multiple small rooms at the back/top area not present in the 2D plan (which is largely open except stairs and bath core)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement incorrect: 2D has specific window segments along top, bottom, and right walls; 3D window locations/count do not correspond (e.g., clustered windows on left wall and different right-wall window arrangement)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan3.jpg"
+}

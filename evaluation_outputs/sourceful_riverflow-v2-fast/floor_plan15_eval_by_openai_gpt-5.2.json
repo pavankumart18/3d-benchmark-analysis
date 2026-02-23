@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Major plan-to-model mismatches. (1) Balconies shown in the 2D plan (left master balcony and central living balcony) are not represented as exterior recess/terrace space in the 3D; exterior massing reads as a continuous wall line (E1/E2). (2) Circulation/wide passages in plan (two 1.10m wide passages and the entry approach into living/dining) are not preserved; the 3D reads as a different corridor geometry and room access pattern (E2/E4). (3) Kitchen/utility zone at bottom-right in plan is not clearly located/configured the same in 3D (counters appear shifted and the utility niche is not convincingly present) (E2/E1). (4) Door positions/orientations for bedroom/toilet entries are inconsistent with plan; several openings are placed differently relative to partitions (E2/E3). (5) Window/door-to-balcony placements do not match: plan has balcony doors and multiple fa\u00e7ade windows; 3D shows large windows but not aligned to the plan\u2019s openings, and lacks balcony door conditions (E2). Proportions of rooms appear compressed/squared versus the long linear plan (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness looks mostly uniform, but the structural layout fidelity is weak. (1) Missing balcony cutouts changes the outer wall footprint (E1). (2) Adjacency relationships are partially incorrect: living/dining-to-balcony connection and kitchen-to-utility relationship from plan are not preserved (E2). (3) Toilet count/layout appears inconsistent with the plan (plan includes multiple toilets including a powder toilet near entry; 3D does not clearly show the same number/placements) (E1/E2). (4) Door embedding/openings are not consistently located at the same partition segments as the 2D drawing (E2/E3). No clear evidence of additional fully hallucinated rooms beyond shifted partitions, but several partitions read as re-authored rather than translated (E2)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and only loosely corresponds to room types. Beds/sofas/tables exist but do not reliably match the 2D furnishing intent/positions; several rooms have mismatched layouts due to altered room geometry (E2). Scale feels somewhat inconsistent (e.g., seating/dining relative to room size) likely due to proportion changes (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Visually clean, readable isometric-like render with decent lighting and minimal artifacts. However, camera is perspective rather than true orthographic/isometric, and some geometry feels simplified (missing balcony recesses and simplified fa\u00e7ade openings) which reduces architectural clarity. Overall composition is good; minor softness/blur and low detail in openings (E6)."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Left-side master bedroom balcony shown in 2D plan is missing in 3D (no terrace/recess space)."
+        },
+        {
+            "code": "E1",
+            "description": "Central living/dining balcony shown in 2D plan is missing in 3D (no terrace/recess space)."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior wall footprint/massing does not reflect balcony indentations and openings from the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen location/configuration differs from plan; counters appear shifted and do not match bottom-right kitchen geometry."
+        },
+        {
+            "code": "E1",
+            "description": "Utility space adjacent to kitchen (per 2D plan) is not clearly represented as a distinct utility room/niche in 3D."
+        },
+        {
+            "code": "E1",
+            "description": "Powder toilet near the entrance/passage (per 2D plan) is not clearly present in the 3D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Circulation/wide passage geometry is altered; room access and corridor alignment do not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple interior door positions do not align with the 2D plan\u2019s partition segments (bedroom/toilet doors especially)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door orientations/swing directions appear inconsistent with the 2D plan (openings read reversed or relocated)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements on fa\u00e7ades do not align with the 2D plan; balcony door/window conditions are not preserved."
+        },
+        {
+            "code": "E4",
+            "description": "Overall proportions are distorted: the long linear plan reads more compact/squared in the 3D, affecting relative room sizes."
+        },
+        {
+            "code": "E6",
+            "description": "Render is slightly soft/low-detail in openings and edges, reducing precision for verifying exact door/window placement."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan15.webp"
+}

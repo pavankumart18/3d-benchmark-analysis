@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Several critical spatial and structural errors observed. The 'Wash Area' and 'Toilet' are entirely missing. The 'Entrance to the House' is not accurately represented, and its connection to the kitchen is incorrect. The staircase is present but its specific 'UP' direction and integration with the lower floor are not clear from the render. The door placements for Bedroom 1, Kitchen, and Living Room are incorrect or missing. Window placements are also incorrect for most rooms."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "The 'Wash Area' and 'Toilet' are entirely missing, along with their separating wall. The external wall structure for the entrance is missing. The internal wall separating the toilet area from the living room is missing. Several doors from the floor plan are missing in the render. Adjacency relationships are therefore incorrect due to missing elements."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture is present for Dining, Bedroom 1, Kitchen, and Living Room. However, the wash area and toilet fixtures are absent. The proportions of the furniture generally seem consistent within the rendered rooms, but the absence of several key items negatively impacts placement accuracy."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera correctness and orthographic projection appear good. Lighting is adequate to define forms. Geometry is generally clean, though the overall composition is marred by the structural inaccuracies."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Wash Area'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Toilet' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'Bedroom 1'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between 'Kitchen' and 'Entrance to the House'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall separating the 'Wash Area' and 'Toilet' from the other rooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing external wall structure for 'Entrance to the House'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the door for 'Living Room'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Bedroom 1'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Dining'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Kitchen'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Living Room'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Entrance to the House' area, which is significantly altered by the missing walls and door."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan7.jpg"
+}

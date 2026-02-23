@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout deviations from the 2D plan. The balcony is repositioned (render shows it centered/bottom with broad glazing access, whereas plan places balcony bottom-left off the Activity room). The stair/recess zone at the top-left of the plan is not represented, altering the entire left-side volume. Bath/WC configuration does not match the plan\u2019s two distinct rooms. Multiple window/slider locations and lengths do not align with the plan, and room proportions (especially Activity vs. balcony relationship and bedroom openings) appear distorted."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Key programmed elements are missing (stair/recess, linen, built-in robes) and the wet-area partitioning differs from plan intent (separate Bath and WC not faithfully modeled). Adjacencies are partially preserved (three bedrooms generally on the right and wet core near center), but the balcony adjacency and left-side massing are incorrect. No clear additional full rooms beyond the plan, but significant openings/glazing and wall runs appear invented or over-extended relative to the 2D drawing."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Bedroom bed placement is broadly plausible but not reliably aligned to the plan. The Activity room is furnished as a living/lounge with a sofa rather than reflecting the plan\u2019s intended activity space configuration. Balcony furniture shown in plan is not represented. Some furniture scaling feels generic relative to room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with good lighting and generally clean geometry. However, the camera appears more perspective than strict axonometric/orthographic, and some wall/opening intersections look simplified, contributing to perceived plan mismatch."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Stair and 'RECESS' zone at the top-left of the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony is misplaced: plan shows balcony bottom-left connected to Activity; render shows balcony/deck centered along the bottom edge with different adjacencies."
+        },
+        {
+            "code": "E4",
+            "description": "Balcony proportions/extent are distorted relative to the plan (rendered deck width and relationship to surrounding walls/openings do not match)."
+        },
+        {
+            "code": "E1",
+            "description": "Linen closet (labeled 'LINEN' near Bed 2 in plan) is missing or not identifiable in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Built-in robe/wardrobe elements (labeled 'ROBE' in Bed 3 and Bed 4) are missing or not modeled as in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bath and WC are not faithfully separated/configured as two distinct rooms as shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements/orientations in the central hall/wet core differ from the 2D plan (door swing positions and openings do not match the drawing)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and sizes do not match the plan: the render uses extensive full-height glazing/slider runs where the plan shows more limited window segments."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/overstated glazing elements: continuous floor-to-ceiling window walls appear that are not supported by the 2D plan window layout."
+        },
+        {
+            "code": "E1",
+            "description": "Activity room\u2019s '13c HIGH CAPPED WALL' feature is not represented in the 3D render."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan12.png"
+}

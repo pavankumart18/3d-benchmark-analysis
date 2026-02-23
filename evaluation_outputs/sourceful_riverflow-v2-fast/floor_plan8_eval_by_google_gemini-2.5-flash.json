@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room layouts are mostly recognizable but several walls are misaligned or missing, and proportions are heavily distorted. The pantry in the living room area is completely missing. The foyer area is significantly changed. The stairs are incorrectly rendered."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors and windows are poorly integrated or missing. Adjacency relationships are poor due to incorrect walls. The pantry room is missing, and the two closets near the bathroom are missing. The small W/C room has been merged with the main bathroom area. The wall between the kitchen and playroom is severely altered."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Most furniture is present but poorly placed or scaled. Some elements like the island in the kitchen are completely different. The furniture in the foyer is also completely different. There is a kitchen island and seating where the pantry should be. The living room furniture is poorly laid out. The bathroom fixture layout is completely different."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting is simplistic but clear. Geometry is mostly clean but there are several distortions due to structural inaccuracies. The overall composition is passable, but clarity is hampered by structural deviations."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing pantry room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet near the bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet in the master bedroom area on the top left."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced walls in the foyer area, changing its layout significantly."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrectly rendered stairs."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment between the kitchen and playroom."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the bathroom/W/C area."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in the playroom area."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the bathroom fixtures."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the living room and dining room."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions for the bathroom and W/C area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island and seating where the pantry should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall where the pantry should be open to the living room."
+        },
+        {
+            "code": "E6",
+            "description": "Poor rendering of wall thickness and door/window embeddings."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan8.jpg"
+}

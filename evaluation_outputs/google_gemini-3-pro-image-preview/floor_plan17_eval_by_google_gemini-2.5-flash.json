@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the utility area and service room are distorted. Wall alignment is mostly accurate with some minor discrepancies, especially around the Kitchen/Utility/SR area. Door placements are generally good, but some orientations are incorrect (e.g., service room, Bedroom 3 bathroom). Window placements are largely missing. Room proportions are significantly distorted in several areas, particularly the utility, service room, and the balcony off the master bedroom."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in some areas, particularly in the lower left part of the plan (Kitchen, Utility, SR). Door embedding is inconsistent, with some doors appearing to float or having gaps. Adjacency relationships are mostly correct, but the proportional distortions impact the perception of these. There are no missing rooms, but significant proportional changes make some rooms almost unrecognizable. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate though simplified. Furniture scale is fairly consistent for individual pieces but some pieces (e.g., dining table) appear slightly undersized relative to the room in 3D compared to 2D."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair, but perspective hints are present. Lighting quality is decent but lacks depth and highlights. Geometry is mostly clean with some minor distortions visible, particularly where walls meet the floor or ceiling plane. Visual clarity and composition are good, but the lack of windows and exterior wall details reduces realism."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Utility area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Service Room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the balcony off the Master Bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is missing or incorrect for almost all exterior walls."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the Service Room's entrance."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the bathroom of Bedroom 3."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness leading to visual irregularities in the kitchen/utility/service room area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows on the balcony walls."
+        },
+        {
+            "code": "E4",
+            "description": "The 'DRESS' area appears proportionally smaller/shorter than the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The small balcony off the living room has furniture placed that does not match its configuration, and the railing is not clearly defined."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating 'DRESS' and 'M. BED RM' appears to be shifted slightly in 3D, creating a smaller dressing area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan17.jpg"
+}

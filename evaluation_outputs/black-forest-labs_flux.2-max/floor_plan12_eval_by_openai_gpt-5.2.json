@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall layout resembles the plan (Activity at left, Balcony bottom-left, bedrooms to the right), but several spatial mismatches are evident: Bath/WC zone appears simplified/merged and does not clearly match the two-room arrangement; central hall geometry and door openings do not align cleanly with the plan; exterior window locations are generalized into continuous ribbon windows rather than matching the plan\u2019s specific window spans; room proportions appear distorted (Activity zone and corridor sizing vs bedrooms)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Primary adjacencies are mostly preserved (hall to bedrooms; balcony off Activity), but key plan-defined elements are not faithfully constructed: WC as a distinct room is not clearly present; linen storage is not clearly represented as a dedicated closet in the same location; several door embeddings and swings do not correspond to the plan; some built-ins (robes) are simplified and their exact placement differs. No clear extra full room is added, but several partitions/built-ins appear hallucinated or relocated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Beds are placed in the expected rooms, but furniture is largely generic and not mapped to the 2D symbols accurately (Activity room furniture arrangement differs; balcony furniture differs). Several items appear scaled inconsistently relative to room sizes (seating/table vs circulation)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean isometric presentation with coherent lighting and readable geometry. However, the camera appears slightly perspective rather than true orthographic/isometric; window modeling is repetitive and reduces plan-specific clarity; some door/wall intersections read ambiguous due to simplified detailing."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Separate WC room from the plan is not clearly represented as an independent enclosed space with its own correct doorway."
+        },
+        {
+            "code": "E2",
+            "description": "Bath/WC partitioning and placement do not match the plan\u2019s two distinct rooms (Bath and WC) and their corridor-facing openings."
+        },
+        {
+            "code": "E2",
+            "description": "Linen closet is not clearly placed/formed as shown on the plan (location and enclosure differ/unclear)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom door placements (notably to Bed 3/Bed 4) appear shifted relative to the plan\u2019s hinge-side locations and corridor geometry."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door swing orientations do not correspond to the 2D plan (swing direction/hinge side inconsistent)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is generalized into continuous ribbon windows and does not match the plan\u2019s specific window spans per room (Activity/Bed 2/Bed 3/Bed 4)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: Activity/corridor scale relationship vs bedrooms differs from the plan, altering perceived room sizes and circulation width."
+        },
+        {
+            "code": "E5",
+            "description": "Hallway/built-in details near the stair/recess area include simplified or extra partitioning not evidenced in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan12.png"
+}

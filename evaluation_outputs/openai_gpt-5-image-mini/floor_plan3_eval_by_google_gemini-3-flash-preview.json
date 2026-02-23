@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major structural deviations. The central bathroom has been relocated and merged with the kitchen wall, fundamentally changing the flow. Door and window counts do not align with the 2D plan; several windows are hallucinated while the specific placement of exits is incorrect."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The stairs are truncated and lead into a wall. The bathroom is missing its enclosure, resulting in a toilet sitting in the open living room. Wall intersections have been modified from the plan's rectangular footprint."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture generally reflects the room labels (dining set, sofa, kitchen counter), but the bathroom fixtures are misplaced outside of a room context."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render is aesthetically pleasing with consistent soft lighting, clean isometric perspective, and a professional minimalist palette."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing enclosed bathroom walls; the toilet is placed in the open living area."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter is moved to the rear wall, and stairs are displaced."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Entrance' area and the niche for the sofa do not exist in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window on the bottom right wall and an extra partition wall in the kitchen area."
+        },
+        {
+            "code": "E6",
+            "description": "Stairs terminate into a solid wall with no clearance for second-story access."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan3.jpg"
+}

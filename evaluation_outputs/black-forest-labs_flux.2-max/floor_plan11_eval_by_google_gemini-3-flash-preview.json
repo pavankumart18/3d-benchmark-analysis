@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant failure in wall alignment and room proportions. The central staircase/utility block is vertically elongated, crushing the dining area. Door swings are inconsistent and windows show incorrect spacing relative to the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Major structural errors include the hallucination of a low partition wall in the dining area not present in plans. The bay window geometry is distorted, and the adjacency between the WC and the utility entrance is blurred."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen stove and island elements are roughly placed but kitchen counters lack the specified 'L' shape and appliance orientation (Refrigerator/REF placement is incorrect)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Strong isometric projection and clean clay-style rendering. Lighting and shadows are consistent, though some geometry clipping occurs near the stairs."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion of the central corridor and staircase block."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partition wall/counter in the dining room area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen appliances (Stove and Sink orientation flipped vs plan)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door leaf orientation and missing swing paths in the central hall."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact/distortion on the bay window geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan11.png"
+}

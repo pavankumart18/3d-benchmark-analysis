@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 31,
+        "max": 40,
+        "notes": "Overall room layout matches the 2D plan (Activity left, Balcony bottom-left, Bath/WC center-top, Bed 2 bottom-center, Bed 3 bottom-right, Bed 4 top-right). Wall outlines and recess/stair zone are largely consistent. However, door set-outs are not fully faithful (WC door appears missing; Bed 2 door is unclear/absent; balcony access is shown as an opening without a defined door assembly). Window placement/extent appears simplified versus the plan (not all long window runs are clearly represented), and there are minor proportion shifts in the central hall/door clearances."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Wall thickness treatment is broadly consistent and room adjacencies are correct (Bath adjacent to WC; corridor serving Beds 2/3/4; Balcony connected to Activity). Main issue is architectural element fidelity at openings: at least one internal door is missing (WC) and another is not clearly embedded (Bed 2). No clear evidence of extra/hallucinated rooms; all programmed spaces appear present."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture is generally plausible and aligned with room functions (sofa in Activity, beds in bedrooms, balcony seating). Scales look consistent and do not obviously contradict room sizes, though exact placements are not a reliable match to the 2D symbols (treated as approximate)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean and readable with decent lighting and minimal geometric distortion. However, it is not a true isometric view (more top-down/orthographic with mild depth cues), reducing isometric-camera compliance. Composition is clear, and geometry is largely artifact-free."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "WC door is missing/not represented: 2D plan shows a hinged door into WC from the corridor; 3D render shows no clear door leaf/arc at the WC entry."
+        },
+        {
+            "code": "E1",
+            "description": "Bed 2 door is missing or not clearly embedded: 2D plan indicates a hinged door from corridor into Bed 2; 3D render does not clearly show the corresponding door."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony access opening lacks correct door depiction: plan implies a defined opening/doorway (likely slider) from Activity to Balcony; render shows an open passage without a clear door/window assembly."
+        },
+        {
+            "code": "E2",
+            "description": "Window runs appear simplified/unclear: several long window segments indicated on the 2D plan (notably along exterior bedroom walls) are not consistently or clearly represented with matching extents in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion in circulation/clearances: corridor width and door-clearance spacing appear slightly altered versus the 2D plan, affecting perceived room-to-hall proportions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan12.png"
+}

@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major layout mismatch. The 2D plan has a clearly separated BEDROOM (top-left), LIVING/DINING (center-left), KITCHEN (right), TOILET (top-right), UTILITY (far right), FOYER (bottom-right), and BALCONY (bottom-left). The 3D render shows mostly one large open space with only a small toilet area and a partial kitchen corner; bedroom, foyer, utility, and balcony are not represented as distinct enclosed spaces. Several walls are angled/curved in 3D while the 2D plan is predominantly rectilinear, indicating wall alignment errors. Door locations/orientations do not match the plan (arched openings without correct door leaf positions). Window placement/count does not match (3D shows limited windows compared to multiple openings in 2D). Room proportions are not preserved (living area dominates; bedroom proportion/shape missing)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Adjacency relationships are partially incorrect: in 2D the foyer connects entry to living and kitchen; in 3D there is no clear foyer separation. Utility space is not separated from kitchen as in 2D. Balcony volume/connection from living is not modeled. Wall thickness appears somewhat consistent, but interior partitions are missing/merged, and several openings are not embedded as true doors. No clear evidence of extra (new) rooms, but there are hallucinated geometric features (curved/angled partitions) not present in the plan."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Key furniture from the 2D plan is missing or incorrect: no bed in the bedroom zone (bedroom itself not properly modeled). Living/dining furniture is generic and not placed according to the 2D layout (sofa/dining position/orientation differ). Kitchen fixtures are simplified and do not reflect the L-shaped counter + utility arrangement. Scale is inconsistent (oversized open area relative to fixtures)."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Render is visually clean with simple lighting and readable volumes. However, camera is perspective rather than a strict isometric/orthographic look, reducing technical clarity. Geometry includes non-plan-consistent curved/angled walls (distortion relative to the source), and openings are stylized (arched) rather than matching plan conventions. Overall composition is acceptable but not technically faithful."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing distinct BEDROOM enclosure and bed placement; bedroom is not represented as a separate room as in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing FOYER as a separate space at the entry (bottom-right in 2D); entry-to-living transition is not modeled correctly."
+        },
+        {
+            "code": "E1",
+            "description": "Missing UTILITY room as a separate area adjacent to the kitchen (far right in 2D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing BALCONY volume and its correct connection from the living area (bottom-left in 2D)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen location/shape is simplified and does not match the 2D kitchen boundary and adjacency to utility/foyer."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet area placement/shape does not match the compact 4'9\"x8'0\" rectangle shown in 2D; appears re-proportioned and re-shaped in 3D."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation is incorrect: 2D shows specific hinged door swings (bedroom/toilet/entry), while 3D uses arched openings and lacks correct door leaf positioning."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: 2D indicates multiple exterior openings (bedroom/living/utility), while 3D shows only a large window and a small narrow window not clearly matching plan locations."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions distorted: living/dining appears oversized and absorbs spaces that should be partitioned (bedroom/foyer), violating the 2D dimensions and separations."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated non-rectilinear geometry (curved/angled interior/exterior wall segments) not present in the rectilinear 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan18.jpg"
+}

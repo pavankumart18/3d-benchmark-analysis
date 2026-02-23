@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Overall zoning only loosely matches (living/dining generally to the left, bedrooms generally to the right), but multiple key plan-driven spatial relationships are not preserved. Balcony is not modeled as an exterior space. Wet-area core (Bath + separate WC) and the small service spaces (Laundry, Robe, Linen) are not clearly represented in correct positions. Several interior door openings do not align with the 2D plan\u2019s door locations/orientations, and window locations/counts do not match the plan\u2019s exterior openings. Room proportions appear more square/normalized than the plan\u2019s indicated dimensions (notably lounge/dining and bedroom footprints)."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major elements from the plan are missing (garage and balcony) and several small labeled spaces (Laundry, Robe, Linen, separate WC) are not faithfully constructed as distinct rooms. Adjacencies are partially incorrect: the plan\u2019s central corridor/service core arrangement is not cleanly reproduced, and the bathroom/WC configuration appears merged/ambiguous. Evidence of hallucinated or re-partitioned spaces (extra open area/duplicate dining setup) reduces fidelity. Wall thickness looks mostly consistent, but door embeddings/openings are not reliably placed per plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Beds and general living/dining furniture appear, but furniture does not reliably map to the plan\u2019s functional rooms (kitchen fit-out and laundry equipment are not clearly present where expected; bath/WC fixtures are unclear). Apparent duplicate dining table/extra seating suggests inaccurate interior mapping. Scale feels inconsistent (furniture-to-room clearances do not reflect the tighter plan proportions)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric viewpoint is generally correct and readable. However, it is not strictly orthographic/architectural (noticeable perspective feel and soft/blurred rendering). Lighting is flat with low contrast, and visual clarity is reduced by haze/low-detail materials. Geometry is mostly clean, but some partitions/door openings look indistinct, reducing interpretability."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony (2.7 x 1.5) missing as an exterior appended space off the lounge."
+        },
+        {
+            "code": "E1",
+            "description": "Garage (separate block shown on the right of the plan) is not present in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Laundry (L'dry) and associated service niche are not clearly modeled as a distinct room in the correct location adjacent to kitchen/bedroom zone."
+        },
+        {
+            "code": "E1",
+            "description": "Robe (wardrobe) space shown near the laundry/bedroom area is missing or not represented as a distinct element."
+        },
+        {
+            "code": "E1",
+            "description": "Entry-side Linen closet is missing or not represented at the plan-indicated position."
+        },
+        {
+            "code": "E2",
+            "description": "Bath + separate WC core appears misplaced/merged; the plan\u2019s distinct Bath and WC rooms and their positions off the central hall are not faithfully reproduced."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior door placements/orientations do not match the 2D plan (door leaves/openings are not aligned with the plan\u2019s bath/WC/bedroom/hall openings)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count on exterior walls does not correspond to the 2D plan (openings appear added/shifted, including on facades where the plan indicates different fenestration)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted versus the plan dimensions (lounge/dining and bedroom footprints appear re-proportioned toward more uniform rectangles)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra interior setup suggested by duplicate dining table/open-area arrangement not supported by the 2D plan layout."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering haze/blur reduces edge definition, making door/window geometry and small-room partitions ambiguous."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General room placement is correct, but door swings and specific alignments differ from the source. The kitchen window placement is significantly altered compared to the original floor plan template."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Walls are thick and consistent. However, there are discrepancies in door embedding and the secondary bedroom's entrance orientation."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Most furniture matches the layout (twin beds, dining set, L-couch), but the twin beds in the left room are simplified into one bed and a larger dresser."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering with clean lighting and consistent materials. The composition is professional and clear."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Second twin bed in the left bedroom is missing; replaced by a larger storage unit."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen window has been moved from the bottom wall to the right wall side."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of several door swings (bathroom and main bedrooms) does not match the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The L-shaped couch in the living area has been rotated 180 degrees compared to the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan2.png"
+}

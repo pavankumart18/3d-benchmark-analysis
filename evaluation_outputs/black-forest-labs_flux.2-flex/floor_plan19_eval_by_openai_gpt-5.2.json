@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 13,
+        "max": 40,
+        "notes": "Major plan-to-render mismatches. The 2D plan shows 4 bedrooms (BED-1/2/3/4) plus two distinct decks; the 3D render appears to show only 3 bedrooms and lacks the long, angled top deck geometry. Overall footprint is more rectangular in 3D, losing the plan\u2019s top-side angle and deck offsets. Several room adjacencies (right-side bedroom/bath cluster and deck connections) do not match the 2D layout. Door and window positions are broadly plausible but do not correspond to the specific openings shown in plan."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Missing room(s) and exterior spaces indicate low structural fidelity. The plan\u2019s right-side BED-4 + nearby common toilet arrangement is not faithfully reproduced (BED-4 appears missing/merged). The two-deck configuration (large central deck and smaller deck off BED-1) is not preserved. Wall layout is simplified, losing key offsets/angled segment. Some internal partitions/bathroom placements appear reinterpreted rather than matched. A likely hallucinated small room/area (with bicycle) appears that is not present on the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Living/dining and kitchen furniture roughly aligns with the general concept (sofa group, dining table, linear kitchen), but bedroom count mismatch makes overall furniture mapping incorrect. Several rooms\u2019 contents (storage/extra area) do not correspond to labeled spaces in the plan. Scale looks internally consistent, but it is not consistent with the specific room dimensions/proportions shown on the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render quality is strong: clean materials, good lighting, and clear composition. Camera is isometric-like but shows perspective (not true orthographic/isometric). Geometry is mostly clean with few visible artifacts. Visual clarity is good, but architectural correctness is not."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing BED-4 (2D plan has 4 bedrooms; 3D render appears to show only 3)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/incorrect deck system: 2D has a long, angled top deck plus a smaller deck near BED-1; 3D shows different/simplified balcony placement and geometry."
+        },
+        {
+            "code": "E4",
+            "description": "Overall footprint proportion/shape distortion: 2D includes an angled top edge and stepped exterior walls; 3D is more rectilinear and loses these offsets."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced exterior openings: sliding doors/windows to decks do not align with the 2D plan\u2019s top-side deck openings and their distribution."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom cluster mismatch on the right side: the 2D plan\u2019s TOI-1 + common toilet (C.TOI) adjacency to BED-1/BED-4 corridor is not faithfully reproduced."
+        },
+        {
+            "code": "E1",
+            "description": "FOYER/entry zoning shown in 2D is not clearly represented as a distinct space in 3D (entry sequence appears reinterpreted)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated element/space: a small dedicated area with a bicycle (or similar extra niche/room) appears in 3D but is not indicated on the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/placement inconsistencies: several interior doors (bedrooms/baths) do not match the hinge-side/orientation implied by the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan19.webp"
+}

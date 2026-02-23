@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major plan-to-render mismatch. Living/dining/kitchen cluster is only loosely similar; right-side bedroom wing layout does not follow the 2D partitioning. Balcony locations are wrong (render shows a bottom-left terrace/balcony, while plan balconies are at top near Living and Master). Multiple internal walls and corridors are reconfigured, so door openings and circulation do not match. Bedroom and toilet sizes/proportions appear heavily altered vs labeled dimensions."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Missing or collapsed key program elements from the plan (e.g., Master 'Dress' area not represented as a distinct room; Utility/Servant room arrangement at bottom-left not preserved; toilet block adjacencies differ). Render appears to introduce an extra bedroom-like room count on the right side relative to the 2D (hallucinated room). Several adjacency relationships (bedrooms-to-toilets, dining-to-bedroom corridors) do not match the plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and does not map to the 2D layout: dining table shape/placement differs (round vs rectangular and different position), kitchen counters/island do not match, bedroom furniture placement is not consistent with plan door/window sides. Scale feels plausible but not faithful to the plan's proportions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with coherent lighting and generally good geometry. However, camera feels slightly perspective rather than strict orthographic/isometric. Some wall/edge intersections look simplified and not dimensionally rigorous."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Balcony placement mismatch: 2D shows balconies at the top (Living and Master), but render shows a balcony/terrace at the bottom-left."
+        },
+        {
+            "code": "E1",
+            "description": "Missing distinct Master 'Dress' room/zone shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom wing partitioning on the right side is reconfigured; room boundaries do not align with the 2D plan (Bedrooms 2/3/4 arrangement not preserved)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional bedroom-like room: render appears to show more sleeping rooms than the 2D plan specifies."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet locations/adjoining relationships differ from the 2D plan (bathrooms are not placed/paired with the same bedrooms and corridor positions)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout mismatch: counters/island/wet area configuration does not follow the 2D kitchen + utility adjacency."
+        },
+        {
+            "code": "E1",
+            "description": "Utility/Servant room configuration at the bottom-left of the plan is not faithfully represented as separate rooms with correct boundaries."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement/orientation mismatch across multiple rooms (entrance/foyer transitions and interior bedroom/toilet doors do not match 2D swing/opening positions)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: render places large windows on bedroom walls that do not correspond to the 2D window locations and exterior wall segments."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: relative room sizes (Living vs Dining vs Bedrooms and corridor widths) do not match the labeled dimensions and spacing implied in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan17.jpg"
+}

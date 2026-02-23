@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the front balcony is missing. Wall alignment has several inaccuracies, particularly in the living and dining area, kitchen, and the secondary bedroom. Door placements are frequently incorrect in terms of exact position and orientation. Window placements are also largely inaccurate or missing. Room proportions show significant distortions, especially in the living/dining and secondary bedrooms."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing much thicker or thinner than others. Door embedding is frequently incorrect, with doors not properly recessed or extending beyond the wall. The main entrance area shows incorrect adjacency relationships with a hallway that doesn't exist in the plan. The front balcony is missing (E1). No hallucinated rooms were detected, but one balcony was."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally approximated but with numerous inaccuracies and missing items. For instance, the furniture in the main bedroom and rear balcony is different. The dining table is correctly placed. Furniture scale consistency is poor, with some items appearing oversized or undersized for the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera angle is good, and orthographic projection is generally accurate. Lighting quality is decent, but some areas appear underlit. Geometry generally looks clean from a distance, but closer inspection reveals some distortions in wall intersections and window frames. Visual clarity is acceptable, but composition misses some details from the floor plan."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing front balcony and associated door. The small entry hallway before living/dining has also been significantly altered."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom door in the main bedroom; it is on an interior wall rather than the exterior as per the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom-1; it is positioned differently along the wall and has a different swing in the render."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the door to Toilet 1.52x2.45 is incorrect. It should swing inwards."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in M.Bedroom; it is positioned on the wall facing the balcony, not on the side wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom-2; it is positioned centrally on the wall rather than offset to the left."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bedroom-2; it is on the side wall, but the plan shows it on the wall adjacent to the balcony."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the 'LIVING & DINING' area, appearing shorter and wider than the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Bedroom-2', appearing wider and shorter."
+        },
+        {
+            "code": "E1",
+            "description": "Several windows indicated in the original plan are missing from the 3D render (e.g., in Bedroom-1 and Kitchen)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the partition between the Kitchen and 'LIVING & DINING' area. Also the entry point to the kitchen differs."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small hallway/extension near the main entrance that does not exist in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and design of kitchen counters, sink, and utility area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Balcony' next to Bedroom-1, it appears much smaller and its shape is different."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall between 'M.BEDROOM' and 'TOILET 1.52x2.45', shifting the toilet entry."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan15.webp"
+}

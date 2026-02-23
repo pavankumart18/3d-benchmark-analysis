@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Door placements are largely correct but orientation of the master bedroom door is reversed. Window placements are approximated but not perfectly aligned with the technical drawing."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The living room partition wall is significantly shortened compared to the source. The hallway/niche area near the bathroom has incorrect wall terminations."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Most furniture matches the layout well, though the L-shaped sofa and kitchen counter depth show minor scale inconsistencies."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with clean geometry and consistent lighting. Isometric perspective is accurate."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Master bedroom door swings outward/incorrectly compared to the inward swing in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Living room internal partition wall is too short, failing to create the defined hall path seen in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The sink in the master bedroom area is shifted away from the corner compared to the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Corner window artifacting in the bottom left living area where the wall meets the entry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan2.png"
+}

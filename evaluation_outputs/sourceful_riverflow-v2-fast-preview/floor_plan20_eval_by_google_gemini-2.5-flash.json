@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is broadly incorrect, failing to replicate the floor plan layout. Wall alignment accuracy is poor, with many walls either missing or misaligned relative to the floor plan. Door placement and orientation are incorrect throughout, with many doors missing. Window placement is completely incorrect, with windows either missing or placed in locations where they shouldn't be. Room proportions are not preserved, leading to significant dimensional deviations."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Wall thickness consistency is not maintained. Door embedding is incorrect; doors are either missing or not properly integrated into walls. Adjacency relationships are completely broken due to the overall incorrect layout. Many rooms are missing (e.g., Maid's Room, multiple toilets, balconies, utility, deck, kitchen, living/dining). The generated render does not hallucinate new rooms, but the existing ones are severely distorted."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement accuracy is extremely poor; almost no furniture from the floor plan is placed correctly in the render. Furniture scale consistency is also poor, with items appearing disproportionate and not matching the expected sizes from the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and orthographic projection accuracy seems reasonable for what is rendered. Lighting quality is poor and flat, lacking detail. Geometry appears clean despite being heavily erroneous. Visual clarity and composition are poor due to the drastic structural errors and missing elements."
+    },
+    "total_score": 20,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple rooms: Maid's Room, Toilet-3, Toilet-4, Utility, Kitchen, Living & Dining, Deck, Toilet-2, Toilet-1, Balcony (Bedroom-2), Balcony (Bedroom-1)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all doors as depicted in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing many windows as depicted in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect overall spatial layout and room arrangement."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior walls, not corresponding to the floor plan divisions."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows; those present do not align with floor plan locations."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion of all remaining rooms, not matching the floor plan dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion of external walls, not maintaining the overall footprint."
+        },
+        {
+            "code": "E1",
+            "description": "Missing nearly all furniture and fixtures from the original floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced external walls, particularly around the areas where balconies should be."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan20.avif"
+}

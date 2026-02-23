@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall layout loosely matches (3 bedrooms, central living/dining, kitchen core, multiple toilets), but several plan-critical spatial relationships drift. Living & dining zone appears wider/more square in 3D than the narrow rectangular proportion in 2D (E4). Top exterior space reads as a long continuous terrace in 3D, while 2D specifies a distinct DECK plus a separate Bedroom-2 balcony (E2/E4). Right-side balcony for Bedroom-1 is present but its footprint/edge alignment appears simplified versus 2D (E4). Multiple door locations/orientations appear approximated (notably around the toilet cluster and corridor near kitchen/utility) (E2/E3). Window placements/openings are not clearly mapped to the 2D locations (E2)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Adjacency is partially correct (kitchen near living, Bedroom-1 on right, Bedroom-3 on left), but corridor/lobby geometry is altered with extra angled/stepped wall segments not shown in 2D (E5/E2). Wall thickness is fairly consistent, but door embedding/orientation is inconsistent with the 2D swing logic and some openings appear shifted along walls (E2/E3). Bedroom-2 balcony is not convincingly separated from the main deck as in the plan (counts as misplaced/missing distinct element) (E1/E2). No clear extra full rooms beyond plan, but there are several hallucinated partitions/shape changes that modify circulation (E5)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Primary furniture types are present (beds, sofa set, dining table), but placement does not tightly follow the 2D arrangement (living seating orientation and dining placement appear reinterpreted) (E2). Kitchen includes a peninsula/island-like massing not indicated in the 2D plan (E5). Furniture scale is generally plausible but influenced by the altered room proportions (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera is correct and readable. Lighting is clean and consistent. Geometry is mostly clean, but several walls/doors feel mis-registered relative to a plan-faithful model and exterior openings/balconies are visually simplified (E6). Orthographic fidelity to the 2D plan is weakened by proportion/circulation changes."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Living & Dining room proportions in 3D appear significantly more square/wider than the narrow rectangle specified in 2D."
+        },
+        {
+            "code": "E2",
+            "description": "Top exterior area (DECK) in 3D reads as a continuous terrace; 2D shows a distinct DECK plus a separate Bedroom-2 balcony, causing boundary/placement mismatch."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom-2 dedicated balcony (as a distinct separate element) is not clearly present as specified in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom-1 balcony footprint/edge alignment appears simplified/reshaped compared to the 2D balcony dimensions and placement."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swings/orientations around the bathroom cluster and corridor near kitchen/utility do not match the 2D door orientation logic."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple door positions appear shifted along walls compared to the 2D plan (notably around toilets and corridor connections)."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placement is not faithfully mapped to the 2D plan; several exterior walls lack clearly corresponding windows/doors to deck/balconies."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra angled partitions and stepped wall geometry near lobby/circulation that are not present in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Kitchen includes an island/peninsula-like element not indicated in the 2D floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Exterior openings/balconies lack clear railing/threshold definition, reducing clarity of balcony vs. interior boundary."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan20.avif"
+}

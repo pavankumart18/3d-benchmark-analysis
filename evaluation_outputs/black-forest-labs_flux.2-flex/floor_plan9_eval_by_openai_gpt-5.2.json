@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Major footprint mismatch: the 3D model does not reproduce the full plan outline (notably the large right-side garage mass and the two covered patio protrusions). Bedroom wing and central hall are only loosely similar; several walls are simplified/straightened vs. the plan\u2019s jogs/angles (e.g., master entry/closet-bath geometry and living room boundary conditions). Door locations appear heavily approximated with multiple swings not matching plan junctions. Window placement is significantly reduced and not aligned to the plan\u2019s exterior window runs (e.g., living room top wall clerestory/series not replicated). Room proportions are distorted (living room and bedroom sizes/ratios do not track the annotated plan; hall width and adjacent room depths appear inconsistent)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Wall thickness looks visually uniform, but the model omits or collapses key structural zones from the plan (garage and covered patios). Several adjacency relationships are not faithfully maintained (garage-to-utility connection absent; patio-to-living/nook openings not clearly represented). Door embedding is inconsistent (doors appear placed where plan shows wall continuations or different openings). Some plan-defined subspaces (pantry/closets) are unclear or merged, reducing fidelity. No strong evidence of entirely new major rooms, but there are ambiguous partitions that do not correspond cleanly to the 2D layout."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generic and only roughly mapped to room functions. Several rooms have bed/sofa placements that do not correspond to the 2D plan\u2019s implied clearances and door paths, suggesting scale/clearance inconsistencies. Kitchen casework/island shape is approximated and does not tightly match the plan\u2019s counters/angles."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and composition is clear. Lighting is clean and readable with minimal noise. Geometry is generally clean, but some wall intersections/door placements read as simplified rather than plan-true. Projection is not truly orthographic (perspective/isometric hybrid feel), but overall visual presentation quality is good."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "2-car garage from the 2D plan is missing in the 3D render (entire right-side volume not modeled)."
+        },
+        {
+            "code": "E1",
+            "description": "Covered patios (top-left and bottom-center) shown in the 2D plan are missing or not represented as defined exterior spaces in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Overall building footprint/outer wall outline does not match the 2D plan (major massing omitted and perimeter jogs simplified)."
+        },
+        {
+            "code": "E2",
+            "description": "Central hall and bedroom-wing partition layout is shifted/simplified relative to the plan, altering room-to-room placement."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door swings/positions do not match the 2D plan (notably around the hall/bath/bedroom cluster where openings appear approximated)."
+        },
+        {
+            "code": "E2",
+            "description": "Utility/garage adjacency is not preserved (plan shows utility tied to garage zone; 3D lacks the garage connection entirely)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is incorrect/incomplete: long exterior window runs indicated in 2D (e.g., living room top wall series) are not replicated in 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted compared to the plan (relative sizes of living room vs. adjacent spaces and bedroom depths/widths do not appear preserved)."
+        },
+        {
+            "code": "E1",
+            "description": "Plan-defined storage/subspaces (e.g., pantry/closets) are not clearly modeled as distinct enclosed areas, suggesting omission or merging."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan9.png"
+}

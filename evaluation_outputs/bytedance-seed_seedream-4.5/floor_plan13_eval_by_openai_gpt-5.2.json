@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Primary layout (lounge/dining left, kitchen central, bedrooms right, bath/WC center-bottom) is broadly similar, but there are major deviations: the balcony is not represented at the correct size/shape (appears as a much larger exterior void/terrace) (E2/E4), and the garage is modeled as attached to the unit rather than a separate standalone structure as shown on the plan (E2/E5). Dining room dimensions are also inconsistent (plan 3.3x3.1 vs render label 3.8x3.1) indicating proportion distortion (E4). Door positions are mostly consistent for internal rooms, but the balcony connection/opening placement is not faithful to the small balcony shown in plan (E2). Window placement cannot be reconciled cleanly with the plan\u2019s implied openings; multiple facade windows appear added/shifted (E2)."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Interior partitions are generally coherent and doors are embedded plausibly, but adjacency relationships are violated by the garage being integrated into the main envelope (plan shows garage separated) (E2/E5). The balcony element is effectively missing as a correctly bounded room/space and replaced by a larger exterior void (E1/E2/E4). Additional architectural elements not indicated in plan (e.g., small steps/platform near kitchen) reduce fidelity (E5). Wall thicknesses are visually consistent within the render but do not compensate for the plan-to-model structural mismatches."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen counters, bath fixtures, WC, laundry appliances are present and roughly consistent with the plan\u2019s service locations, but detailed furniture (living/dining) is not mapped. Scales look generally plausible; however, the enlarged dining area labeling/dimensions undermine confidence in scale fidelity (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Good isometric presentation with clear room labeling, clean materials, and decent lighting. Geometry is mostly clean, though heavy wall outlines and the large open exterior void reduce architectural readability. Camera isometric is acceptable; projection is slightly stylized rather than strictly architectural/orthographic."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Garage is modeled as attached to the dwelling; the 2D plan shows the garage as a separate standalone structure to the right."
+        },
+        {
+            "code": "E5",
+            "description": "Garage integration into the main building envelope effectively hallucinates a different building massing/adjacency than the plan indicates."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony as a distinct 2.7x1.5 space is not accurately present; it is not bounded/represented as shown in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Balcony area is proportionally distorted (render shows a much larger exterior opening/terrace-like void than the small balcony in the plan)."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room proportion/dimension mismatch: plan indicates 3.3x3.1 while render label shows 3.8x3.1 (scale/proportion distortion)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior element: steps/platform near the kitchen area are not shown on the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement appears inconsistent with the plan\u2019s implied exterior openings; multiple facade windows are added/shifted relative to the 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony access/opening is not placed/defined in a way that matches the plan\u2019s small balcony connection from the lounge."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan13.jpg"
+}

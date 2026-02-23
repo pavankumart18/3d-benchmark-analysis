@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, however, the garage is entirely missing. Wall alignment has numerous errors, especially in the kitchen/laundry area and the bathroom/WC. Door placements and orientations are largely incorrect. Window placement is poor, many missing or misplaced. Room proportions are distorted in multiple areas, especially the kitchen, laundry, and bathroom."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly noticeable in the kitchen and bathroom areas. Door embedding is incorrect, with many doors appearing as open passages or wrongly oriented. Adjacency relationships are incorrect for the kitchen, laundry, and bathroom/WC. The garage is a significant missing room. No hallucinated rooms, but internal structures are heavily altered."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; some furniture items are missing (e.g., in bedrooms, lounge). Scale consistency of furniture is questionable. The Kitchen layout and appliances are not accurately represented. There is a table in the lounge, but its scale is off."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair. Lighting quality is poor, making details difficult to discern. Geometry has distortions and appears simplified. Visual clarity is low due to poor lighting and simplified geometry."
+    },
+    "total_score": 27,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Garage."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Linen' cupboard near entry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Lounge/Dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in WC."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Robe' in Bedroom 1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'L'dry' from Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to WC."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 1 (should open into the room, not be an open archway)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 2 (should open into the room)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom door (orientation and position are incorrect)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door between Lounge/Dining and Entry."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bedroom 1 (position and size incorrect)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bathroom (position and size incorrect)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bedroom 2 (position and size incorrect)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of doors to Bedroom 1, Bedroom 2, Bathroom, and Entry."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Kitchen and Laundry areas."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Bathroom and WC areas."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Lounge/Dining area, especially the length relative to width."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment near Entry, not present in floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated windows on exterior walls (many windows are either added or placed incorrectly)."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting quality impacting visual clarity."
+        },
+        {
+            "code": "E6",
+            "description": "Simplified and distorted geometry, making walls appear uneven."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan13.jpg"
+}

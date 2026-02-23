@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is maintained, but window placement is largely ignored in the render. Door openings are represented as gaps without frames or correct swing clearances. The entrance hallway transition is interpreted as a simple opening."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Internal wall thicknesses are somewhat inconsistent compared to the outer shell. The bathroom layout is significantly altered (E2), and the kitchen sink is misplaced relative to the stovetop (E2)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Most furniture successfully matches the 2D blueprint, including the specific corner desk and dining set. However, the dresser in the left bedroom is oddly scaled and stacked (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and lighting. The geometry is clean and the 'toy-box' aesthetic is consistent. Some minor depth artifacts in the dresser scaling."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing windows on the left and bottom exterior walls."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom fixtures (sink and toilet) swapped positions compared to 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom dresser on the left has distorted vertical scaling/stacking."
+        },
+        {
+            "code": "E3",
+            "description": "Kitchen counter orientation near the stovetop does not follow the L-shape indicated in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated shelving/partition in the laundry/utility nook next to the bathroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan2.png"
+}

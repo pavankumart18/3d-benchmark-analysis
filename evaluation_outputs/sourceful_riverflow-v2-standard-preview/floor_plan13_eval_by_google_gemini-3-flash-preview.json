@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major spatial failures. The layout is mirrored/inverted compared to the plan. The primary entrance and lounge transition is completely lost. Window and door placements do not align with the architectural drawing."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The garage is missing entirely. Adjacency relationships between the kitchen, laundry, and bathroom are failed. The interior corridor logic is fundamentally broken, creating impossible room transitions."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is placed in rooms that do not exist on the plan (hallucinated third bedroom). Scale is inconsistent with room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good isometric camera angle and soft lighting. Geometry is clean despite being architecturally incorrect. Text rendering is distorted."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Garage and specific Laundry/WC partitioning from the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom and Kitchen swapped or misplaced relative to the entryway."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated third bedroom; the plan only specifies two bedrooms."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the lounge/dining area is severely compressed compared to the bedrooms."
+        },
+        {
+            "code": "E6",
+            "description": "Text labels from the 2D plan are rendered as distorted artifacts on the 3D floor."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan13.jpg"
+}

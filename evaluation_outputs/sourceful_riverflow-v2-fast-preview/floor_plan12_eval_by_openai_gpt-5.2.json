@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatches between plan and render. Activity/living area and balcony are roughly in the correct left-side zone, but the stair location/zone does not match the plan (plan shows stairs within/adjacent to Activity at upper-left; render shows stair volume at upper-center/right). Wet-area core differs: plan has separate BATH and separate WC; render appears to combine/blur these into a single bathroom zone. Bedroom placement is inconsistent: the render shows an additional bedroom-like room at the lower-left with an exterior window, which is not present in the plan, and the right-side bedroom arrangement does not cleanly match BED 3 vs BED 4 positions. Several door openings do not align with the plan\u2019s central hall door positions and swing logic. Window runs are also inconsistent (e.g., long clerestory-style window bands in the render don\u2019t match the plan\u2019s window locations/lengths). Overall room proportions/footprint not preserved (notches/recesses and corridor widths differ)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness looks fairly consistent in the render, but core architectural relationships deviate: the plan\u2019s separate WC room is missing/merged, and built-in elements (ROBEs/linen/recess/AC zones) are largely absent or not represented correctly. Adjacency is partially correct (activity next to balcony; bedrooms generally on right/bottom), but the render introduces an extra enclosed room and shifts the stair core. Outer wall shape and internal partitions do not faithfully follow the 2D wall alignment, indicating structural re-interpretation rather than translation."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and does not map to the plan\u2019s bedroom labeling and built-in storage (robes) or linen. Beds appear in rooms that do not correspond cleanly to BED2/BED3/BED4 positions. Scale is plausible, but because rooms are incorrect/misaligned, furniture placement accuracy is low."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Render is visually clean with coherent materials, lighting, and readable geometry. Camera is a standard isometric-like view (slight perspective). Orthographic/isometric accuracy is decent but not strict. Overall presentation is clear with minimal artifacts."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Stair location does not match plan (plan: upper-left within/adjacent to Activity; render: stair volume placed upper-center/right zone)."
+        },
+        {
+            "code": "E1",
+            "description": "Separate WC room from the plan is missing as a distinct enclosed room (render appears to merge WC into main bathroom zone)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional bedroom/room at lower-left with exterior window; the 2D plan does not show a bedroom there (left side is Activity + balcony)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom arrangement on the right side does not match BED 3 vs BED 4 placement and boundaries shown in the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement and swing/orientation in the central hall/bedroom entries do not align with the plan\u2019s door locations and arcs."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/lengths differ from the plan (render uses long horizontal window bands that do not correspond to the plan\u2019s window positions)."
+        },
+        {
+            "code": "E1",
+            "description": "Built-in storage and service elements indicated in plan (ROBEs/linen/recess/AC zones) are missing or not represented accurately."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions and footprint geometry are distorted relative to the plan (corridor widths, room sizes, and exterior wall notches/recesses do not match)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan12.png"
+}

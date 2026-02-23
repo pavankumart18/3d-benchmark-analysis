@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the overall layout is significantly distorted. Wall alignment has major inaccuracies, particularly in the living room and adjacent bedroom walls. Door placement and orientation are incorrect for several doors. Windows are missing or misplaced. Room proportions are not preserved, with many rooms appearing stretched or compressed."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in various parts of the structure. Door embedding is incorrect, often appearing as simple cutouts instead of properly integrated elements. Adjacency relationships are mostly maintained at a high level but distorted spatially. No hallucinated rooms were detected, but some rooms are heavily distorted, making them barely recognizable. There are no missing rooms, but their structural integrity is compromised."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is mostly incorrect, with many items either missing or randomly arranged. Furniture scale is inconsistent, with some items appearing oversized or undersized relative to the room and other furniture."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair. Lighting quality is poor; the interior is underexposed, making it difficult to discern details. There are significant geometry distortions, particularly visible in the walls and corners. Visual clarity and composition are hampered by poor lighting and geometry issues."
+    },
+    "total_score": 27,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in all rooms, especially living room and adjacent bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the living room and bedroom walls, creating a hallway where there previously was a connected room."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the bathroom is misplaced and poorly embedded."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation to the main bedroom is incorrect; it opens into a wall."
+        },
+        {
+            "code": "E1",
+            "description": "Windows are missing from both bedrooms and the living area."
+        },
+        {
+            "code": "E2",
+            "description": "Dishwasher is missing and the kitchen countertop layout is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement in all rooms is inaccurate; many items are misplaced or rearranged."
+        },
+        {
+            "code": "E1",
+            "description": "Many furniture elements are missing, such as chairs in dining, some beds, wardrobes, and desk components."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness throughout the render."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting quality, leading to underexposed interior and lack of detail."
+        },
+        {
+            "code": "E6",
+            "description": "Distorted geometry and unclean lines in various structural elements."
+        },
+        {
+            "code": "E2",
+            "description": "The layout of the bathroom elements (toilet, shower, sink) is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "The L-shaped couch in the living room is replaced with a different sofa configuration."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion and scale of furniture are inconsistent with the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wall between the living room and the adjacent bedroom is significantly misplaced and distorted, creating an unnecessary hallway section."
+        },
+        {
+            "code": "E1",
+            "description": "The built-in shelving unit in the main bedroom is missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan2.png"
+}

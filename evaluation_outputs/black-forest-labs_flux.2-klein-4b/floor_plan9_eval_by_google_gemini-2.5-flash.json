@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 4,
+        "max": 40,
+        "notes": "Significant deviations in room placement and wall alignment. The entire layout has been severely distorted. Door and window placement are largely incorrect."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Numerous missing rooms (Nook, Living Room, Dining Room, Study, Hall, Utility, Bedroom #2, Covered Patio, 2 Car Garage, WC, Master Bath). Hallucinated rooms are present (between kitchen and a bedroom, and a small room adjacent to bedroom #3). Wall thickness varies. Door embeddings are inconsistent."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is largely inaccurate due to missing/misplaced rooms and scale inconsistencies. Many rooms have no furniture despite being designated as bedrooms or living areas."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection is generally good. Lighting quality is decent, but some geometry appears distorted (e.g., kitchen island area). Visual clarity is reasonable for what is rendered."
+    },
+    "total_score": 16,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Nook room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Living Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Dining Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Study room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Hallway."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Utility room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bedroom #2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Covered Patio (both instances)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 2 Car Garage."
+        },
+        {
+            "code": "E1",
+            "description": "Missing WC in Master Bedroom area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Master Bath."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the relocated kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Master Bedroom is severely misplaced and disproportionate."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom #3 is misplaced and has incorrect proportions."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom #4 is misplaced and has incorrect proportions."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen is drastically misplaced and resized."
+        },
+        {
+            "code": "E2",
+            "description": "Bath is significantly misplaced and resized."
+        },
+        {
+            "code": "E2",
+            "description": "Front door is missing/misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Numerous internal doors are missing or incorrectly placed/oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Windows are largely misplaced and do not match the floor plan count or locations."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the entire structure is inconsistent with the floor plan's implied front/back."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion of all remaining rooms (Master Bedroom, Bedroom #3, Bedroom #4, Kitchen, Bath)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated room between the kitchen and a bedroom, not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small room adjacent to Bedroom #3."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan9.png"
+}

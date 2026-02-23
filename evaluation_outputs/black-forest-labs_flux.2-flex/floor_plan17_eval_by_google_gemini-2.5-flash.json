@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Several rooms are significantly misplaced or missing walls, leading to incorrect adjacencies. Door and window placements are frequently inaccurate."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Multiple missing walls and rooms, particularly the 'Dress', 'Balcony (5-0 Wide)', and 'Toilet (8-0x5-0)' adjacent to 'M. Bed Rm', and 'Toilet (8-0x5-0)' adjacent to 'Bedroom 2'. Hallucinated walls in various areas. Wall thickness is inconsistent."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally inaccurate or missing. Scale consistency is poor for some items."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera and orthographic projection are good. Lighting is acceptable. Geometry is mostly clean but lacks fine details. Composition is decent."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'DRESS' room adjacent to 'M. BED RM'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'TOILET (8'0\"X5'0\")' adjacent to 'M. BED RM'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'BALCONY (5'0\" WIDE)' adjacent to 'DRESS' and 'M. BED RM'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'TOILET (8'0\"X5'0\")' adjacent to 'BED ROOM 2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'SER. RM' and 'UTILITY' rooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'TOILET (8'0\"X5'0\")' adjacent to 'BED ROOM 4'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for 'M. BED RM', should open into the room, not be a sliding door on the outer wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect-type doors for 'TOILET (8'0\"X5'0\")' next to 'BED ROOM 2'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect-type doors for 'TOILET (8'0\"X5'0\")' next to 'BED ROOM 3'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect-type doors for 'TOILET (8'0\"X5'0\")' next to 'BED ROOM 4'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and absence of walls defining the 'Kitchen' and 'Toilet' area near 'Foyer'."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'LIVING' area are severely misplaced and of incorrect size/quantity."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'M. BED RM' are misplaced and of incorrect size."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'BED ROOM 2', 'BED ROOM 3', and 'BED ROOM 4' are often misplaced or have incorrect sizing/quantity."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation errors for multiple internal doors, e.g., 'M. BED RM'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportional distortions in 'LIVING' and 'KITCHEN' areas."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions for 'FOYER' and the adjacent 'KITCHEN' and 'TOILET' areas are severely distorted."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment between 'LIVING' and 'DINING'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated external wall segment forming a small balcony near 'M. BED RM' that does not match any plan features."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall forming an enclosure instead of an open balcony in the upper left."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan17.jpg"
+}

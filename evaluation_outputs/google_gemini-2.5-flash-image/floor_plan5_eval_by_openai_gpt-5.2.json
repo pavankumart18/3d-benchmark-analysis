@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "Overall room layout matches the 2D plan: central living/dining, kitchen at lower-left, two baths along the top-center band, left bedroom, two right-side bedrooms, and small side sunrooms/porches. However, several openings do not align precisely: kitchen entry position appears shifted and/or widened, and multiple interior door swing/orientation choices do not match the 2D plan. Window placement/count is approximated rather than exact (notably in the left sunroom and along some exterior walls). Some proportion drift is visible (kitchen zone and right-side bedroom widths look slightly rebalanced compared to the 2D)."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "Primary walls and adjacencies are mostly faithful (no major room swaps). Wall thickness is broadly consistent and doors are generally embedded in walls, but several doors are not placed/hinged as in the plan. The model introduces furniture-driven layout changes (e.g., kitchen island/table) that imply altered circulation clearances vs the 2D. No clearly new rooms are added, but some built-in elements implied by the 2D (continuous kitchen counters/fixtures) are not faithfully represented."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture does not consistently follow the 2D symbols: the kitchen includes a prominent island/table not shown in the plan, and the left sunroom contains living-room seating not indicated in the 2D. Several room furniture arrangements appear generic rather than mapped (scale/placement deviates from the plan\u2019s intended layouts)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable top-down/isometric-style render with good lighting and legible room separation. Geometry is mostly clean with minimal artifacts. However, the camera is closer to orthographic top-down than a true isometric, and some elements (doors/windows) appear standardized rather than precisely modeled from the 2D, reducing technical clarity for verification."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen-to-living doorway appears shifted in position/width compared to the 2D plan\u2019s opening location."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior door swings/orientations (notably around the central hall/bathroom zone) do not match the 2D plan\u2019s swing directions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count is approximated rather than exact; the left sunroom and some exterior runs show mismatches versus the 2D window indications."
+        },
+        {
+            "code": "E4",
+            "description": "Noticeable proportion drift in the kitchen zone and adjacent central space (kitchen feels rebalanced to accommodate different furniture/circulation than the 2D)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture/layout elements: a large kitchen island/table and additional lounge seating in the left sunroom not shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/underrepresented built-in kitchen counter run details implied by the 2D plan (render simplifies/changes the fixture layout)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan5.jpg"
+}

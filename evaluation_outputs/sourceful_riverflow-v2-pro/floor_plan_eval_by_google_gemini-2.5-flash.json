@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "notes": "Room placements are generally correct. Wall alignments show minor deviations. Door placement varies in correctness with some missing and some misplaced. Window placement is mostly incorrect. Room proportions are largely maintained, but some areas show slight distortion."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent but some interior walls appear thinner in the render. Door embedding is incorrect for several doors (missing or just showing openings). Adjacency relationships are mostly correct. No missing rooms observed. No hallucinated rooms observed, but a wall between the kitchen and living room is missing."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement accuracy is fair; many items are present but their exact positions are off. Furniture scale is mostly consistent, although some items appear slightly larger or smaller."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness seems good. Orthographic projection accuracy is mostly upheld. Lighting quality is good, providing clear distinctions. Geometry is clean with minimal distortions. Visual clarity and composition are good."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall between kitchen and living room is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Door to coat closet is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Door to Bathroom in Monica's Bedroom suite is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Door to master bathroom from hallway is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Door to Rachel's bedroom is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Door to Monica's bedroom is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the main living area are incorrectly represented; the rendered version merges two windows into one large bay window structure which is not accurate to the floor plan's distinct windows."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Rachel's bedroom is wider than depicted in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bathroom of Monica's Bedroom suite is incorrectly placed/sized."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the kitchen is misplaced and incorrectly sized."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony/patio area outside the main living room appears proportionally distorted, smaller than the floor plan suggests."
+        },
+        {
+            "code": "E2",
+            "description": "Interior walls around the coat closet and main bathroom appear slightly misaligned/proportioned."
+        },
+        {
+            "code": "E2",
+            "description": "The refrigerator's position is inconsistent with the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The sink in the master bathroom is misplaced from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The layout of the bathroom elements in Monica's suite is altered."
+        },
+        {
+            "code": "E2",
+            "description": "The closet doors in both bedrooms are missing or incorrectly rendered as open spaces."
+        },
+        {
+            "code": "E2",
+            "description": "The position of the dining table and chairs is slightly off."
+        },
+        {
+            "code": "E2",
+            "description": "The coffee table in the living room is not accurately placed or scaled."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan.jpg"
+}

@@ -1,0 +1,112 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the central hall is significantly distorted. Wall alignment has major discrepancies, particularly around the central hall, utility room, kitchen, and bathroom. Door placements are largely incorrect or missing. Window placements are frequently incorrect or missing. Room proportions are very poorly preserved, with significant distortion in the central hall, kitchen, and utility room areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout the render. Many doors are missing. Adjacency relationships are frequently incorrect due to missing or misplaced walls and the absence of specific rooms like the 'Breakfast Nook'. There are multiple missing rooms (Breakfast Nook, Pantry, Alcove). No hallucinated rooms were detected."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally inaccurate compared to the floor plan. Furniture scale is inconsistent, with some items appearing oversized relative to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable. Orthographic projection seems generally accurate. Lighting quality is dull and lacks contrast. Geometry is generally clean but lacks detail. Visual clarity and composition are hampered by the bland presentation."
+    },
+    "total_score": 34,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'WC' room and its associated elements."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Pantry' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Breakfast Nook' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Alcove' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'WC' from 'Central Hall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'Utility Room'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'Kitchen' from 'Dining Room'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing various interior doors."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect wall layout for 'Central Hall'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect wall layout for 'Utility Room'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect wall layout for 'Kitchen'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door between 'Central Hall' and main living area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the outside from 'Central Hall'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows throughout the structure, some are missing, others are in incorrect locations."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the stairs in the 'Central Hall'."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion of the 'Central Hall' making it appear much wider and shorter."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Utility Room', appearing smaller than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Kitchen' area, especially regarding the 'Pantry' location which is missing."
+        },
+        {
+            "code": "E4",
+            "description": "General inconsistency in wall thickness."
+        },
+        {
+            "code": "E4",
+            "description": "Furniture scale inconsistencies."
+        },
+        {
+            "code": "E6",
+            "description": "Dull lighting and lack of visual interest in the rendering."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan11.png"
+}

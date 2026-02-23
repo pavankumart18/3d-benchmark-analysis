@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall zoning (living/dining to the right, bedrooms along the bottom band, kitchen near the top-center) is roughly similar, but multiple critical layout mismatches exist: the large living-room window is placed on the wrong exterior wall; the right-side exterior connection/door location does not match; several interior partitions and openings in the central hall/bath/closet area do not align with the 2D plan; and room proportions (living vs kitchen enclosure and hall widths) appear distorted."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Adjacencies are partially preserved (kitchen adjacent to dining/living; two bathrooms present; two bedrooms present), but structural fidelity is undermined by hallucinated stepped/platform elements, incorrect exterior opening placement on the right wall, and inconsistent interior wall/door embedding compared to the plan. At least one closet/utility partitioning near the entry/coat area does not match the 2D layout."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is plausible but not plan-faithful: kitchen casework shape differs from the L-shaped plan; living seating arrangement and rug placement do not match the 2D configuration; bedroom furniture placement/orientation is simplified and does not clearly follow the plan\u2019s bed/wall relationships. Scale appears generally consistent, but some circulation clearances are unrealistic compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Render is clean and readable with good lighting and generally consistent isometric presentation. Minor issues: slight perspective/orthographic ambiguity (reads as perspective isometric rather than strict axonometric), and some geometry (doors/wall junctions) looks stylized rather than architecturally exact."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Living-room large window wall is incorrect: 2D plan shows the long window on the top/north wall of the living area; 3D places the dominant window on the right/east exterior wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/incorrect exterior door to Chandler & Joey\u2019s apartment: the 2D plan indicates an exterior door on the right wall near the living room; the 3D does not clearly show this door in the correct location/orientation."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated stepped/platform element in the left-side interior (tiered steps/raised structure) that is not present anywhere in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Central hall/entry partitioning deviates: interior wall runs and room openings around the entry/closet/bath core do not align with the 2D plan\u2019s geometry."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing/orientations are inconsistent with the plan (notably around the central hall and bathroom entries), reducing functional fidelity."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: kitchen appears more enclosed and reshaped (U/peninsula feel) versus the plan\u2019s L-shaped counters and openness; hall widths and room aspect ratios differ from the 2D proportions."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom window placement appears inconsistent with the 2D plan (plan indicates bedroom windows along the bottom/south exterior wall; 3D shows differing window positions/visibility)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan.jpg"
+}

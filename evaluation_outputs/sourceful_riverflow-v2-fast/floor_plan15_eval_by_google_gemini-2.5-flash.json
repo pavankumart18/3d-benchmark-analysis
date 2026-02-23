@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Door placement is incorrect for several rooms. The placement of the entrance door for Bedroom-1 and Bedroom-2 is incorrect, creating a small hallway inside the room. The door to the M.Bedroom toilet is also misplaced. Window placement is mostly incorrect, with windows appearing on walls that do not have them in the floor plan or being different sizes/numbers. Room proportions are mostly maintained, but some wall alignments are slightly off, particularly in the living and dining area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "There are missing walls on the left balcony, making it open to the exterior. The entrance to `Bedroom-1` is incorrectly modeled, reducing the size of the balcony. The wall separating the living area from the left-most balcony is missing partially. The wall between the balcony and 'M.Bedroom' has a missing part. Some door embeddings are not correct, as they open into the middle of a wall rather than creating a proper entryway. No missing or hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, but some items are rendered with incorrect scale or slightly different orientations than indicated in the 2D plan. Specifically, the bed in Bedroom-1 is smaller. The dining table and chairs are not fully rendered. The outdoor seating on the left balcony is missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are well-executed. Lighting quality is good, providing clear visibility of the interior. Geometry is generally clean with few distortions. Visual clarity is good."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the entrance door for Bedroom-1."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the entrance door for Bedroom-2."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the M.Bedroom toilet door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the M.Bedroom toilet, the main toilet and the utility area."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement and size in M.Bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in Bedroom-1. There is a single large window instead of two smaller ones."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in Bedroom-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing outer walls of the left balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Partial missing wall between the living area and the left-most balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall between the balcony and 'M.Bedroom' creating an open space."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom-1's entrance area due to incorrect door placement, significantly reducing balcony access."
+        },
+        {
+            "code": "E4",
+            "description": "Bed in Bedroom-1 is rendered at an incorrect smaller scale."
+        },
+        {
+            "code": "E1",
+            "description": "Dining table and chairs are partially rendered, with chairs being completely absent."
+        },
+        {
+            "code": "E1",
+            "description": "Missing outdoor seating furniture on the left balcony."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan15.webp"
+}

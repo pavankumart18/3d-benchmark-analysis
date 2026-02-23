@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the garage is detached. Wall alignment shows some inconsistencies, notably at the entrance and kitchen area. Door placements are largely incorrect in orientation and position for many rooms. Window placement is significantly different from the floor plan, often missing or misplaced. Room proportions are generally preserved but some areas show distortion."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas, particularly around the kitchen and bathroom. Door embedding is sometimes incorrect (e.g., doors cutting into walls). The adjacency relationship between the main building and the garage is incorrect as the garage is detached. No rooms are missing, but the laundry area is not clearly delineated as a separate room with a door."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate for major items like beds and sofas, but specific item counts (e.g. bathroom fixtures) are often incorrect or absent. Furniture scale is generally consistent with the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are very good. Lighting quality is decent. Geometry is clean with no major distortions. Visual clarity and composition are good, making the layout easy to understand."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Garage is detached from the main structure."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance door orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Bedroom 1 is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Bedroom 2 is misplaced."
+        },
+        {
+            "code": "E1",
+            "description": "No door/entry for the 'L'dry' area near the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the kitchen area as per floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in Bedroom 1 is different (one large window vs. two smaller ones in the 2D plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in Bedroom 2 is different (one large window vs. two smaller ones in the 2D plan)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the 'WC' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the 'Bath' area."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen layout is significantly different, with a window and sink placement variation."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness around the kitchen/laundry area appears inconsistent and wider than other walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture/fixture in the 'Bath' (bathtub/shower)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'LINEN' cupboard near the entrance."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment inconsistencies near the entrance and around the laundry/kitchen area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Generally strong alignment with the blueprint. Major rooms are correctly positioned. However, the window in the Wash Area is misplaced relative to the plan, and the bedroom entrance door is distorted."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Wall thicknesses are remarkably consistent. Adjacency is preserved including the complex wash/toilet partition. The staircase geometry includes the 'UP' arrow but the actual tread count and landing logic are slightly simplified compared to the vector plan."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent one-to-one mapping of the dining set, kitchen appliances, and living room arrangement. Scale is appropriate to the floor area."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Very clean orthographic-style projection with professional soft lighting. Minimal artifacts other than standard AI line blurring on the stairs."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The window in the bedroom's top wall is shifted horizontally compared to the floor plan alignment."
+        },
+        {
+            "code": "E3",
+            "description": "The door swinging into Bedroom 1 from the hallway has a curved rendering artifact that obscures the actual threshold."
+        },
+        {
+            "code": "E6",
+            "description": "Visual artifacts in the staircase area where lines merge into the floor surface incorrectly."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan7.jpg"
+}

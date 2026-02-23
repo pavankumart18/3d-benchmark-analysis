@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (open kitchen/living on left, bedroom top-right, service core center-right, stair zone right), but multiple plan-to-render mismatches exist: several plan doors are missing or converted to open passages (E1/E2), the small room with two single beds shown in the 2D plan is not present as a defined room in 3D (E1), bedroom window count/locations do not match (extra bedroom window in 3D) (E5/E2), and internal proportions around the central corridor/service core appear expanded in 3D, shifting dining placement and circulation widths (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Adjacency is partially correct (kitchen adjacent to living; bedroom adjacent to corridor; stair zone on right), but fidelity is reduced by: missing enclosed room (two-bed room) from the plan (E1), missing door leaves/incorrect door embedding at key connections (living\u2194bedroom, corridor\u2194bath, main entry) (E1/E2), and an added/hallucinated bedroom window not indicated on the 2D plan (E5). Wall thickness looks generally consistent, but several openings do not correspond to the plan\u2019s door positions."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen layout (L-shape + island) is broadly similar, but dining and living furniture do not match plan placement (dining appears shifted toward the service core; sofa/coffee table placement differs) (E2). Some furniture scale/proportion is plausible, but room size shifts make furnishings read inconsistently relative to the plan (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with decent lighting and tidy geometry. However, it appears to use perspective rather than a strict orthographic/isometric projection (minor camera/projection deviation) (E6). Overall visual clarity is good."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing enclosed room shown in 2D plan with two single beds (bottom-center area); 3D does not depict it as a separate bedroom/room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door leaves/defined doors for multiple plan-indicated doorways (e.g., living\u2194bedroom and corridor\u2194bath appear as open passages in 3D rather than doors)."
+        },
+        {
+            "code": "E2",
+            "description": "Main entry door at bottom-right of the 2D plan is not clearly represented/embedded as a door element in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra bedroom window in 3D (bedroom shows two windows), while the 2D plan indicates fewer/different bedroom window placement."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count along exterior walls does not consistently match the 2D plan (some openings appear shifted or added/removed)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the central corridor/service core area: widths/room sizes appear altered, affecting circulation and furniture fit compared with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Dining/living furniture placement differs from the 2D plan (dining table location and living seating arrangement shifted)."
+        },
+        {
+            "code": "E6",
+            "description": "Render is not strictly orthographic/isometric; perspective is present, reducing projection accuracy."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan6.jpg"
+}

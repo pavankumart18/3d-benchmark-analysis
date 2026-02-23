@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Severe structural failure. The room arrangement does not match the floor plan. The central staircase is missing entirely, replaced by a utility-style room. Door and window counts do not align with the blueprint (e.g., the bay window/window seat is missing)."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Major architectural components such as the Central Hall and technical shafts are ignored. Wall topology is hallucinated, creating a generic office/dormitory layout instead of the specific residential layout shown in the 2D file."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Kitchen appliances (REF, Range) and bathroom fixtures (WC) shown in 2D are either missing or replaced with generic brown blocks that do not match the designated zones."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Rendering quality is high with good orthographic projection and soft lighting, but it fails as a verification model because it represents the wrong structure."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing central staircase and window seat alcove."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partitions that do not exist in the source blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom and kitchen utility zones."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the dining room versus utility areas are heavily distorted."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan11.png"
+}

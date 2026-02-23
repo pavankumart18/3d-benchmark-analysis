@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is generally correct, but several significant wall misalignments are present, particularly around the entryway, living room, and kitchen. Doors are missing or incorrectly placed/oriented. Windows are entirely missing. Room proportions are distorted in several areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in many places. Several doors are entirely missing. Adjacency relationships are mostly correct but compromised by missing doors and wall deviations. Several rooms are missing or heavily altered (e.g., closet next to W/C, and the pantry), and there are hallucinated structures/walls."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is partially accurate but some items are missing or misplaced (e.g., dining room table, kitchen island). Scale consistency is poor for some furniture items and built-ins."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and orthographic projection is generally maintained. Lighting is basic and lacks detail but provides basic visibility. Geometry generally clean. Visual clarity and composition are good for basic spatial understanding, though detail is lacking."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing all windows."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to W/C."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to closet next to W/C."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to playroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to pantry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet next to Foyer."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior walls in the foyer and living room area, particularly near the entrance."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen island and built-in elements along the kitchen wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced pantry walls, it's significantly larger and shaped differently."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase placement and structure are simplified and appear misaligned with the surrounding walls."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the main entrance door is incorrect (implied by the opening)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the foyer and adjacent living room area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the W/C and surrounding closets."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Pantry room, it's significantly larger and differently shaped."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the dining room walls, particularly the curved sections."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent throughout the model."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural elements/walls in the living room-dining room transition area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated walls/structure within the pantry area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan8.jpg"
+}

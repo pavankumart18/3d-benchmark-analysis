@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall topology resembles the 2BHK (2 beds + living/dining + kitchen + 2 toilets + 2 decks + utility), but several spatial mismatches exist. The foyer zone shown on the plan (separate small entry pocket) is not clearly formed in the 3D; entry appears to open more directly into the living/dining (E1/E2). Kitchen/utility compartmentalization differs: the utility enclosure/door relationship to the kitchen is unclear/shifted (E2/E3). Bathroom placements appear offset: the Toilet-1 near the top-center (between living and Bed-1) does not match the plan\u2019s tight position and access pattern as rendered (E2). Room proportions are not preserved: living/dining reads more compact/square than the plan\u2019s elongated 15' x 21'4\"; decks/baths also read proportionally different (E4)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall network is broadly similar but fidelity is inconsistent. Several internal partitions (notably around the foyer/kitchen/utility junction) do not match the plan\u2019s wall breaks and door-defined separations (E2). Adjacency is partially correct (beds flank living; toilets near living/kitchen), but the exact adjacency/access of Toilet-1 and the foyer-to-living transition appear altered (E2/E3). At least one element in the living area resembles an extra partition/column-like mass not indicated in the 2D plan (possible hallucinated partition) (E5). No completely new major rooms are added, but the plan-defined foyer as a distinct space is effectively missing (E1)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are mapped plausibly (beds in each bedroom; sofa/coffee table/rug in living; dining set near center; kitchen counters present). However, some placements/scales deviate from the plan: dining and living grouping encroach/shift relative to the plan\u2019s clear central zoning; built-ins/wardrobe runs and bath fixtures do not consistently reflect the 2D arrangement (E2/E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clean with coherent materials and readable room separation. Camera is isometric-like but includes noticeable perspective (not true orthographic) (E6). Lighting is acceptable but slightly flat; geometry is mostly clean with minor thickness/edge inconsistencies. Overall composition is clear, though some walls/doors read ambiguously due to angle and occlusion."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer space shown in the 2D plan (distinct small entry pocket) is not clearly present/defined in the 3D; entry appears to open directly into living/dining."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen\u2013utility relationship differs from plan: utility enclosure/partitioning and its connection to the kitchen appear shifted/unclear compared to the 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet-1 location/access (top-center between living and Bed-1 in the plan) appears repositioned/offset in the 3D, altering the intended circulation."
+        },
+        {
+            "code": "E3",
+            "description": "Several door placements/orientations are inconsistent with the plan-defined separations (notably around the kitchen/utility and foyer/living transitions), reducing correspondence of intended thresholds."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining appears less elongated than the plan\u2019s 15' x 21'4\"; decks/bath volumes also read differently in size ratio."
+        },
+        {
+            "code": "E5",
+            "description": "Possible hallucinated internal mass/partition in the living zone (column-like/standalone wall element) not indicated on the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "View is not strictly orthographic/isometric; perspective and occlusion make door/window verification ambiguous and reduce projection fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan14.webp"
+}

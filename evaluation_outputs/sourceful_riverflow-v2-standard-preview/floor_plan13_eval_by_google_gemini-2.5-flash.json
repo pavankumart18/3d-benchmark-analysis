@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room 'Lounge' is missing from the 3D render. The 'Kitchen' layout is significantly different. The 'Entry' area is not correctly represented. The 'Balcony' is missing. The 'WC' room and all its internal walls and door are missing. The 'Linen' closet is missing. The proportions of 'Dining' and 'Living' appear distorted. Window placements are incorrect or missing. Door placements are largely incorrect."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Multiple missing rooms (Balcony, WC, Linen). The 'Lounge' room is completely absent from the living area, instead replaced with a combined Dining/Living space. Walls defining 'WC' are missing. Significant wall alignment issues and incorrect adjacency for Kitchen/Laundry/Bedroom 1 area. Door embeddings are incorrect due to wall discrepancies."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture in 'Bedroom 1' and 'Bedroom 2' is placed, but the 'Bath' furniture is missing. Kitchen appliances are included but the layout is different. The 'Lounge' furniture is absent as the room is missing. 'Laundry' appliances are missing. Furniture for 'Dining' is present but scaled incorrectly for a combined 'Dining/Living' space."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection seems accurate. Lighting is basic but clear. Geometry is generally clean but with structural inaccuracies. Visual clarity is good in terms of rendering quality, but composition is hindered by missing and misplaced elements according to the floor plan."
+    },
+    "total_score": 28,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing room: Balcony"
+        },
+        {
+            "code": "E1",
+            "description": "Missing room: WC"
+        },
+        {
+            "code": "E1",
+            "description": "Missing room: Lounge"
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet: Linen"
+        },
+        {
+            "code": "E1",
+            "description": "Missing elements: Most furniture from Bath and Laundry rooms"
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door: Door to Bedroom 1 is shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door: Door to Bedroom 2 is shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door: Door to Bath is shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window: Bedroom 1 and Bedroom 2 windows are in different locations and/or orientations."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: The combined Dining/Living area does not reflect the individual Dining and Lounge dimensions/layout."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: Rooms like Kitchen and Bath seem to have altered proportions in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated elements: The open dining/living area with a large island in the kitchen area is not present in the floor plan. The small table next to Bedroom 2 is not indicated on the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated elements: The configuration of walls around the Kitchen/Laundry and Bedroom 1 area is significantly different and appears to be a hallucination."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated elements: The wall defining the Kitchen and Bath/WC area is extended to create a different internal layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan13.jpg"
+}

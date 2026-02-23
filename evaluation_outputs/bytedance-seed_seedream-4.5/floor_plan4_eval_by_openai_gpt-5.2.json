@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall room layout roughly matches (Kitchen/Dining left, Living central, Bedroom 1 top/right, Hall central, Laundry bottom-left, main Bathroom bottom-center/right). However, the right-side secondary room is represented/labeled as a bathroom instead of Bedroom 2, and the living room appears shrunk vs the 2D plan (area shown 228 vs 245). Several exterior window locations/sizes do not match the 2D plan (render uses large floor-to-ceiling/window groupings where the plan indicates smaller/standard windows). Entry/porch massing alters the perceived entry-door location."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Wall thickness and general enclosure are consistent, and most doors appear embedded in walls. Core adjacencies mostly hold (Hall connects to Laundry/Closets/Bath/Bedroom 1). Major fidelity failure: Bedroom 2 is not correctly realized; a second bathroom is introduced/indicated instead. This counts as both a missing-room and hallucinated-room issue under strict verification."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen, dining table, and living seating generally correspond to the plan. Bathroom fixtures are present. Secondary right-side room furniture does not clearly match the intended Bedroom 2 program due to the bathroom/bedroom mismatch, reducing mapping accuracy. Furniture scale is mostly consistent but simplified."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric presentation with good lighting and readable composition. Minor issues: not strictly orthographic/isometric (visible perspective), and some geometry/window extrusions feel stylized rather than plan-faithful."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Bedroom 2 (bottom-right in 2D plan) is not correctly represented as a bedroom in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "A second bathroom is introduced/indicated on the right side (labeled 'Bathroom 2 126 sq ft'), which does not exist in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Living Room proportions/area appear reduced in the 3D (render shows 228 sq ft vs 245 sq ft in the 2D plan), indicating room-size distortion."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/scale is inconsistent: the 3D uses large floor-to-ceiling window groups (notably on the right and lower exterior walls) that do not match the smaller/standard window pattern shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Entry massing/vestibule in the 3D alters the apparent location/geometry of the main entry compared to the simple 2D threshold, affecting door placement fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan4.jpg"
+}

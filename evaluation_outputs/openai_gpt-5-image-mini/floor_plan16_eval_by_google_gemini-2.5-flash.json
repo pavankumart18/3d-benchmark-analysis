@@ -1,0 +1,120 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. The balcony is entirely missing. The kitchen layout is incorrect. The living and dining areas are merged but the overall shape is off. Bedroom proportions are heavily distorted. Door and window placements are largely incorrect, with missing elements and misplacements."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing the 'UTILITY' room, 'BALCONY', and a portion of the kitchen. Hallucinated a second window in the living area where there should be the balcony access. Wall thickness is inconsistent around the bathroom/bedroom partition and the exterior wall of the kitchen. Door embeddings are incorrect, and several doors are missing entirely. Adjacency relationships are incorrect due to missing rooms and altered layouts."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Numerous furniture elements are missing (e.g., all objects in 'UTILITY', most kitchen appliances, some living room furniture, and a desk in the bedroom). Placed furniture often does not match the 2D plan's item (e.g., coffee table, bedside table, dining chairs). Scale consistency is poor for some items, like the kitchen appliances shown."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct. Orthographic projection appears satisfactory. Lighting is adequate but basic. Geometry is clean with no obvious distortions. Visual clarity is good for what is rendered, but the missing and incorrect elements significantly detract from overall composition."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'BALCONY'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'UTILITY' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing main entrance door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'BEDROOM-1'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'TOILET-1'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in 'BEDROOM-1'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all appliances and sink in the 'UTILITY' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing refrigerator and cooking range in 'KITCHEN'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing accent chair, side table, and small plant in 'LIVING & DINING'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing desk and chair in 'BEDROOM-1'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen sink and cabinet layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the kitchen (not present in 3D). The plan shows an open archway."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the kitchen area, covering the space where the 'UTILITY' room should be."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the 'LIVING & DINING' area. The 2D plan shows access to the balcony, not a window."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of kitchen counter and walls near the 'UTILITY' area."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the 'TOILET-1' door."
+        },
+        {
+            "code": "E4",
+            "description": "Incorrect proportion of the 'KITCHEN' area. It appears much wider in the render."
+        },
+        {
+            "code": "E4",
+            "description": "Incorrect proportion of 'TOILET-1'. It appears significantly larger and its entrance shifted."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions of 'BEDROOM-1', it appears shorter and wider."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions of 'LIVING & DINING' area, particularly its width."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, especially around the 'TOILET-1' and 'BEDROOM-1' partition wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a window in the living area where there should be a balcony access."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated an exterior wall and window in place of the 'UTILITY' room and its exterior wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan16.avif"
+}

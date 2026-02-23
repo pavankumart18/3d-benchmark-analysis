@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. The Bedroom 1 and Dining areas are heavily distorted and not aligned correctly. The 'Entrance to the House' area is completely different. Window placements are largely incorrect, and door orientations are sometimes wrong."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing the 'Wash Area' and the full 'Toilet' section as distinct rooms. The structure representing 'Entrance to the House' is entirely hallucinated. Wall thickness is inconsistent in some areas. Staircase is incomplete."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture scale is generally consistent. However, the Kitchen layout and furniture for Bedroom 1 do not match the floor plan. The general placement of items like beds and dining tables is correct but specific configurations are not."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle is good, and overall rendering quality is high with clean geometry and good lighting. Visual clarity is good once structural issues are disregarded."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'Dining' room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion and incorrect wall alignment of 'Bedroom 1'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the door between 'Kitchen' and 'Dining'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placements in 'Kitchen', 'Dining', 'Bedroom 1', and 'Living Room'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Wash Area' as a distinct room."
+        },
+        {
+            "code": "E1",
+            "description": "Part of the 'Toilet' room, specifically the sink and toilet placement, is missing/incorrectly represented as part of the wash area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall and structure in the area of 'Entrance to the House'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect kitchen counter and appliance layout."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect bedside table and wardrobe placement in 'Bedroom 1'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect TV/media console placement in 'Bedroom 1'."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet and sink in the 'Toilet' room are completely different in layout and orientation."
+        },
+        {
+            "code": "E1",
+            "description": "Missing part of the staircase structure (lower steps and railing are absent or reconfigured)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of door leading to staircase from the 'Living Room'."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door from 'Living Room' to staircase."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan7.jpg"
+}

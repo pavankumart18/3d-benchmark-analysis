@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "The 3D render fails to capture the complex 'L' and 'Z' shaped footprint of the 2D plan, opting for a generic rectangular extrusion. Room placements are largely hallucinated with no adherence to the specific sequence of the original layout (e.g., Living/Dining adjacency to the Deck is lost)."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Major structural deviations: the exterior balconies/decks are completely missing. The wall thickness is generic and does not represent the load-bearing vs. partition variations seen in the plan. Interior adjacency for the utility and toilet clusters is ignored."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Beds and tables are placed arbitrarily. There is no mapping between the specific 2D furniture symbols (like the 6-seater dining table or the L-shaped sofa) and their 3D counterparts."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The rendering is clean with a consistent isometric perspective and soft lighting. However, the lack of architectural detail and the floating base diminish its professional utility."
+    },
+    "total_score": 31,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing major structural elements including the Deck, Balconies, and Utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplacement of primary bedrooms; 3D layout does not match the 2D spatial arrangement."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the overall floor footprint, reducing a complex shape to a simple rectangle."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall placements that do not exist in the source architectural drawing."
+        },
+        {
+            "code": "E6",
+            "description": "Ghosting/Transparency artifacts on some interior partitions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan20.avif"
+}

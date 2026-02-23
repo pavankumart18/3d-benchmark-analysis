@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe discrepancies in room alignment and layout. The open-plan Kitchen/Dining/Living area from the 2D plan has been broken into fragmented rooms by hallucinated walls. Door and window counts do not match the source."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major structural deviations: internal walls were added where none exist in the plan. The staircase orientation is reversed compared to the floor plan's landing. The central bathroom pod is rendered as a standalone walled block that disrupts the floor flow incorrectly."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture scale is generally acceptable, but placement is illogical due to the structural changes. A dining table is placed in a newly created room that does not exist in the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The render features clean geometry, consistent lighting, and a proper isometric camera angle. However, the visual labels are floating and intersect with the geometry."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated internal walls creating separate rooms across the middle and top right sections."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase direction and landing orientation are inverted relative to the entrance."
+        },
+        {
+            "code": "E3",
+            "description": "Windows and doors are placed on walls that should be open transitions according to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The central laundry/bathroom block is significantly larger than the '3x2' dimensions specified, causing spatial cramping."
+        },
+        {
+            "code": "E1",
+            "description": "The open-concept flow between Kitchen and Dining is entirely missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan3.jpg"
+}

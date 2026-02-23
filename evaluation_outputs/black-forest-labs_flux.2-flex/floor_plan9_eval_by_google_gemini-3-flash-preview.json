@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant spatial drift and mirroring. The garage area (bottom right) has been hallucinated into a living/bedroom space. Door and window placement lacks correspondence with the architectural plan, particularly in the living room and kitchen transition."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The 2-car garage is fundamentally missing, replaced by habitable rooms. The central hallway structure is overly complex and does not match the 2D layout. Wall thicknesses vary inconsistently across the render."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is used to fill hallucinated spaces. Kitchen island shape roughly follows the plan, but scale is distorted. Bedroom logic contradicts the original specified room types."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and texture work. The isometric perspective is consistent, though some geometry clipping occurs at the corners."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage unit; replaced with living space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior windows on the left side of the study/dining area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom fixtures; the central bath layout is flipped compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Master Bedroom and Master Bath transition."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error: Several doors swing in directions that obstruct the narrow hallways created in the render."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan9.png"
+}

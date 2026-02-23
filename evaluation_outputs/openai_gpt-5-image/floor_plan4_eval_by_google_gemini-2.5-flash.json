@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but wall alignment has minor inaccuracies. Door placements are largely incorrect in terms of position and orientation. Window placements are also incorrect, with many missing. Room proportions are generally preserved but some distortions are present."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas. Door embedding is incorrect, with many doors represented as open cut-outs rather than properly embedded. Adjacency relationships are mostly correct due to similar room layouts. There are no missing rooms, but some structural elements are missing (e.g., closet doors). There are no hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement mostly matches the 2D plan, but several items are missing or misplaced (e.g., in the laundry room and bathroom). Furniture scale is generally consistent but some items seem slightly off."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting is basic but acceptable. Geometry has some minor distortions, particularly around doors. Visual clarity is good, but the overall composition is monotonous due to lack of textures and detailed modeling."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Laundry room door is a regular swing door in 3D, but it's a sliding door in 2D. It is also misplaced relative to the wall opening."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door is shown as a swing door in 3D without the correct orientation from the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Hall closet door is missing and shown as an open cut-out in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door is a regular swing door in 3D, but it's a sliding door in 2D."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 1 door is a regular swing door in 3D, but it's a sliding door in 2D."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 2 door is a regular swing door in 3D, but it's a sliding door in 2D."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 2 closet door is missing (sliding door) and shown as an open cut-out in 3D."
+        },
+        {
+            "code": "E1",
+            "description": "Window in the Kitchen/Dining room is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Window in the Laundry room is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Window in Bathroom is missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in Living Room are incorrectly placed; one is missing and the other two are inaccurately positioned compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bedroom 1 is inaccurately sized and positioned. Another window on the adjacent wall is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in Bedroom 2 are incorrectly placed and sized. One window is missing and the existing one is shifted."
+        },
+        {
+            "code": "E4",
+            "description": "Some wall thicknesses are inconsistent, particularly around doors and corners."
+        },
+        {
+            "code": "E1",
+            "description": "Washing machine and dryer are integrated into a single unit in the 2D plan, but shown as two separate units in 3D. Also, the sink next to them is missing in 3D."
+        },
+        {
+            "code": "E1",
+            "description": "Toilet paper holder and towel rack are missing in the Bathroom in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "The vanity unit in the Bathroom is simpler and different from the one in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Small side table and lamp next to the bed in Bedroom 1 are missing in 3D."
+        },
+        {
+            "code": "E1",
+            "description": "Chest of drawers in Bedroom 2 is missing in 3D."
+        },
+        {
+            "code": "E1",
+            "description": "The outdoor steps at the main entrance are simplified and differ from the 2D plan's implied entrance area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan4.jpg"
+}

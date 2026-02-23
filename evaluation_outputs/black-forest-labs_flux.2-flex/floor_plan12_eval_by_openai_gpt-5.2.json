@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Major plan-to-render layout mismatch. (E2/E5) The top-right zone in the render reads as a kitchen/built-in cabinetry area, but the 2D plan specifies BED 4 + robe there. (E1) The BATH and separate WC shown centrally on the plan are not clearly present as correct rooms with fixtures in the render. (E2/E4) Central corridor geometry is changed (render uses curved/rounded corridor walls and different junctions) vs the plan\u2019s rectilinear hall. (E2/E3) Door locations and swing/orientation do not match the plan (arched openings/offset doors vs specified door positions). (E2/E5) Window placements/counts differ notably (extra/moved windows in bedrooms/living areas vs plan). Room sizes/proportions and balcony relationship appear altered."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Structural relationships do not follow the plan. (E1) Missing BATH and WC as distinct correctly detailed rooms. (E5) Hallucinated program elements (kitchen/appliance wall) where a bedroom should be. (E2) Bedroom/robe/linen adjacencies are inconsistent with the plan (robes/linen not located as shown). (E2/E3) Door embeddings/openings are not placed/formed as in plan (arched portals instead of standard door openings; mispositioned entries). Wall thickness looks generally consistent but overall wall layout fidelity is low."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some beds are present, but they do not map cleanly to BED 2/BED 3/BED 4 locations from the plan. (E2) Furniture suggests a living room and kitchen area that are not specified in the plan\u2019s upstairs (Activity room + bedrooms + bath/WC). (E4) Furniture scale appears plausible, but placement is not plan-accurate."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clean with coherent lighting and readable spaces. Isometric-style view is acceptable, though not strictly orthographic (perspective present). Geometry is generally clean; however, the curved hall/doors introduce stylistic deviations that reduce plan-faithful clarity."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "BATH room (with tub/vanity) from the 2D plan is missing or not correctly represented in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Separate WC room from the 2D plan is missing or not correctly represented in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen/cabinetry/appliance zone appears in the 3D render where the 2D plan specifies BED 4."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom placement does not match the 2D plan (BED 4/BED 3 arrangement and their adjacency to the hall are altered)."
+        },
+        {
+            "code": "E2",
+            "description": "Robe/closet and linen locations do not match the 2D plan layout."
+        },
+        {
+            "code": "E2",
+            "description": "Window positions/counts differ from the 2D plan (extra/moved windows across rooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations are offset versus the 2D plan; several openings do not align with specified wall segments."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing logic is inconsistent with the 2D plan (arched/open portals replace standard door leaves and swings)."
+        },
+        {
+            "code": "E4",
+            "description": "Corridor and room proportions are distorted relative to the 2D plan (curved hall geometry and resized room extents)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan12.png"
+}

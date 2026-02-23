@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placements are generally correct. However, the outer walls around Bed-2 and the utility area deviate significantly from the floor plan's shape. The kitchen wall facing the foyer is absent in the 3D model. Door placements are largely correct, but there are some discrepancies and missing doors. Window placements are frequently incorrect or missing. Room proportions are distorted in several areas, particularly the utility and common toilet adjacent to Bed-2, and the foyer area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness consistency is poor in several areas, with walls having varying thicknesses, especially around the exterior and interior sections. Door embedding is mostly correct where doors exist, but some are missing. Adjacency relationships are mostly maintained, but the missing wall between the kitchen and foyer is a major structural alteration. There are missing rooms (e.g., the deck off Bed-2, and the utility room in size specified) and hallucinated elements (e.g., a wall added near the main entrance that isn't on the floor plan)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate for major items but smaller items are often missing or slightly misplaced. Scale consistency is fair, though some furniture items appear slightly disproportionate to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are good. Lighting quality is acceptable, providing clear visibility of the interior. Geometry is generally clean with few noticeable distortions. Visual clarity and composition are good, making the layout easy to understand."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Outer wall shape around Bed-2 and Utility area is heavily distorted relative to the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall between Kitchen and Foyer."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and size of common toilet (C.TOI) and utility room adjacent to Bed-2, leading to significant proportion distortion."
+        },
+        {
+            "code": "E1",
+            "description": "Missing deck off Bed-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Bed-2, Living/Dining, and Bed-1, as indicated by the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the window in the Foyer area/main entrance."
+        },
+        {
+            "code": "E4",
+            "description": "Foyer area proportions are distorted, appearing smaller and less defined than in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall near the main entrance/foyer that is not present on the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for UTILITY room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the common toilet (C.TOI)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for both decks is incorrect; they are represented as open spaces rather than defined rooms with doors."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilet and basin sink in the Common Bathroom (C.TOI)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement/orientation of the main door for the apartment."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Kitchen area; appears slightly wider than indicated."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan14.webp"
+}

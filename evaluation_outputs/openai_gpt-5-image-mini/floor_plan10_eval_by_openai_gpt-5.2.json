@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Overall layout only loosely resembles the 2D plan. The 2D plan includes a clear right-side Living + Alfresco + Garage massing and a left-side Theatre/bedroom wing; the 3D render compresses/rearranges these zones into a more generic rectangular footprint (E2/E4). Door locations and orientations do not match the plan\u2019s numerous hinged doors (notably around Entry/Study/WIR/Ensuite/Laundry cluster) and several openings appear placed arbitrarily (E2/E3). Window placement count/positions do not correspond to the plan\u2019s exterior elevations (e.g., long Living/Alfresco glazing is not reflected) (E2). Room proportions (Living, Garage, Theatre, Master suite) are not preserved; spaces are normalized to similar sizes (E4)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is visually consistent in the render, but the structural program fidelity is poor. Multiple rooms from the 2D plan are missing entirely (Garage, Alfresco, Portico, Verandah, Pantry, WIL, multiple WCs, Ensuite, WIRs) (E1). Adjacency relationships are incorrect: e.g., Garage should connect near Entry; Alfresco should adjoin Living; Master suite suite/ensuite/WIR cluster should be bottom-left; these relationships are not represented (E2). Several rendered rooms/openings appear as generic partitions not traceable to the plan (hallucinated/extra rooms or reshaped circulation) (E5)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is mostly generic and does not map to key programmed spaces: Theatre seating layout is not represented; Alfresco outdoor setting is absent; bedroom counts/placements do not align with Bed 2/3/4 + Master arrangement (E2/E1). Furniture scale is broadly consistent within the render, but it is not faithful to plan-specific placement (E2)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric with consistent materials and mostly artifact-free geometry. Camera is appropriate for an isometric-style view and composition is clear. Lighting is flat/simple and lacks definition but does not obscure geometry. Minor issues: openings/doors are simplified and some cutouts look inconsistent, reducing architectural clarity."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Garage (bottom-right in plan) is missing from the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Alfresco outdoor area (top-right in plan) is missing from the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Portico and Verandah (front exterior elements in plan) are missing from the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Master suite support spaces (Ensuite, WC, WIR) are not correctly modeled/identifiable as in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Laundry + WIL + Bath/WC cluster (left upper-middle in plan) is not faithfully represented; wet-area subdivision is missing/oversimplified."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry (adjacent to Kitchen in plan) is not clearly present as a distinct room."
+        },
+        {
+            "code": "E2",
+            "description": "Overall building footprint/massing deviates: plan has pronounced right-side projections/indentations (Living/Alfresco/Garage), while render is a simplified rectangle-like perimeter."
+        },
+        {
+            "code": "E2",
+            "description": "Room placement does not match: Theatre (left-middle in plan) is not identifiable in the corresponding location and appears replaced by generic rooms."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement and swing/orientation do not match the plan; many plan doors (Entry, Study, WIR/Ensuite/WC, Laundry/Bath/WC) are missing or repositioned."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count does not align with plan exterior openings (notably Living/Alfresco-side glazing vs. rendered window distribution)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: major spaces (Living, Garage, Theatre, Master suite) are not sized/weighted as indicated in the plan dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Additional generic partitions/rooms appear that are not clearly derivable from the 2D plan\u2019s labeled program."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan10.png"
+}

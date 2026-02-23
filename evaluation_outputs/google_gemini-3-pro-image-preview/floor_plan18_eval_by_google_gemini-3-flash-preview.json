@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but there are critical errors in door orientation and wall alignment. The balcony access window/door is misplaced, and the entrance foyer transition lacks definition compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Bathroom and utility room adjacency is preserved. However, wall thickness is inconsistent, particularly around the kitchen and foyer. The entry door is missing structural definition, and the balcony railing does not match the plan's wall enclosure."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen appliances and bedroom furniture are accurately scaled. The dining table has been expanded to a 6-seater despite the plan showing a smaller footprint, and the living room sofa orientation is slightly shifted from the plan's corner placement."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality orthographic rendering. Shadows are consistent, materials are clearly distinguishable (wood, tile, paint), and the geometry is clean with zero visible artifacts or mesh tearing."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Bedroom and Bathroom doors are shown as open/gaps rather than following the swing orientation specified in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony door/window is shifted towards the corner, altering the wall segment shown in the technical drawing."
+        },
+        {
+            "code": "E4",
+            "description": "The dining table is significantly larger (proportions) than the scale indicated in the 10'0\" x 13'0\" living area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated blue floor tiling in the bathroom and utility areas which is not specified in the architectural plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific cabinet details in the bedroom (bottom wall) which were indicated as built-in units in the original plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan18.jpg"
+}

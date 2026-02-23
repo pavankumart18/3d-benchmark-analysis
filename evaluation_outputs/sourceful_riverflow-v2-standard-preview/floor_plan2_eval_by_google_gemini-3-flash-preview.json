@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe errors in door and window placement. The entrance door is missing entirely. Internal doors are added to the hallway for rooms that should be open. Windows are hallucinated on walls that were solid in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "While the general layout of the rooms is present, the wall between the kitchen and the living area is missing an opening present in the plan. All doors are rendered as solid wood instead of swinging arches, obscuring orientation."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture mostly aligns with the 2D plan, though the kitchen appliances are consolidated and somewhat simplified. The sofa in the living room is oriented incorrectly."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering. The isometric perspective is consistent, lighting is clean, and the geometry is sharp despite the logical inaccuracies."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "The main entrance door on the left-central wall is missing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated windows added to the right-side wall of the master bedroom and left-side wall of the twin bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "The door to the office (top room, second from right) is moved from the bottom wall to the left wall."
+        },
+        {
+            "code": "E3",
+            "description": "The L-shaped sofa in the living area is rotated 90 degrees compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen sink and stove units are compressed together rather than spaced as per the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan2.png"
+}

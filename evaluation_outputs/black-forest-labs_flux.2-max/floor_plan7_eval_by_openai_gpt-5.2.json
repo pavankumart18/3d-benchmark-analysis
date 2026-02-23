@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "Overall layout (Dining top-left, Kitchen top-center, Living top-right, Bedroom bottom-left, Stairs bottom-right) matches the 2D plan well. Major spatial deviation occurs in the central wet-area core: the 2D plan indicates a distinct Wash Area and a separate Toilet compartment, but the 3D render appears to merge/blur these into a single bathroom zone with fixture layout not matching the two-space intent (E1/E2). Door locations in the central corridor/wet-area zone do not match the plan\u2019s separations and implied doorways (E2/E3). Windows are mostly aligned with the plan, with minor dimensional/position differences (E2). Proportions are slightly off (kitchen/circulation widths and wet-core sizing feel enlarged/shifted vs plan) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Exterior wall loop and primary adjacencies (Dining\u2194Hall, Hall\u2194Kitchen, Hall\u2194Living, Hall\u2194Bedroom, Living/Hall\u2194Stairs) are largely preserved. However, the plan\u2019s separation between Wash Area and Toilet (and the associated internal partition/door logic) is not faithfully constructed in 3D (E1/E2/E3). Wall thickness is generally consistent, and there are no clear hallucinated extra rooms; the issue is primarily loss/merging of the wet-area subdivision."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Dining set, bedroom bed placement, and living room seating cluster are broadly consistent with the plan. Bathroom/wash fixtures do not reflect the plan\u2019s compartmentalization (wash vs toilet) and appear reinterpreted (E2). Furniture scale looks generally consistent, with small proportional inconsistencies in the living area and wet core."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Clean, readable isometric/top-down render with good lighting and clear object separation. Slight perspective/foreshortening reduces strict orthographic fidelity (E6 minor). Geometry is clean with minimal artifacts and strong composition."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Wash Area and Toilet are not clearly represented as two distinct rooms/compartments as indicated in the 2D plan (merged/omitted subdivision)."
+        },
+        {
+            "code": "E2",
+            "description": "Wet-area fixture layout (sinks/toilet placement) is reinterpreted and does not match the 2D plan\u2019s wash/toilet arrangement."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation in the central wet-area/corridor zone does not match the 2D plan\u2019s intended separation and door logic between wash area and toilet."
+        },
+        {
+            "code": "E4",
+            "description": "Minor proportion distortions: kitchen/circulation and wet-core dimensions appear shifted/enlarged relative to surrounding rooms compared with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Minor window placement/size discrepancies (some openings appear resized or slightly shifted relative to the 2D plan)."
+        },
+        {
+            "code": "E6",
+            "description": "Render uses mild perspective rather than strict orthographic isometric projection, slightly affecting dimensional verification."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan7.jpg"
+}

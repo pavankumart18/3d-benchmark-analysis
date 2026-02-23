@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is generally correct, but several walls are misaligned. Door placements are largely incorrect, and window placements are significantly different from the floor plan. Room proportions show some distortion."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas. Door embedding is incorrect; some doors are missing entirely or are represented incorrectly as open archways. Adjacency relationships are mostly correct. No missing rooms, but a section of the Utility room is hallucinated into an outdoor space."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate for items that are rendered, but several pieces of furniture are missing. Furniture scale consistency is acceptable for present items."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection are good. Lighting quality is flat. Geometry is relatively clean, but some elements are clunky. Visual clarity is moderate, but composition is simple."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced door between foyer and living/dining area. Render shows an open archway, floor plan shows a door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the Toilet."
+        },
+        {
+            "code": "E2",
+            "description": "Door to the Bedroom is misplaced relative to the wall alignment."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in the Bedroom is different in location and size compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the Living/Dining area is represented differently (two windows vs. one large opening) and is slightly misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the Toilet is misplaced and its proportions are distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Utility room, specifically the depth of the space adjacent to the kitchen, and its external extent."
+        },
+        {
+            "code": "E1",
+            "description": "Missing refrigerator from the Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wash basin from the Utility area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing washing machine from the Utility area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior space/cutout in the Utility area where the floor plan shows an enclosed utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Wall misalignment between the Living/Dining area and the Bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Wall misalignment between the Foyer and the Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing cupboard/storage unit in the bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing side table next to the sofa in the living area."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony wall structure is simplified and does not match the floor plan's railing detail."
+        },
+        {
+            "code": "E4",
+            "description": "General room proportions feel slightly stretched or compressed in specific areas, particularly the Toilet and Utility."
+        },
+        {
+            "code": "E2",
+            "description": "There is a structural element (possibly a beam or partial wall) above the kitchen sink, which is not indicated in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The entrance to the Utility from the Kitchen is depicted as an open doorway rather than a possibly enclosed space with a door."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan18.jpg"
+}

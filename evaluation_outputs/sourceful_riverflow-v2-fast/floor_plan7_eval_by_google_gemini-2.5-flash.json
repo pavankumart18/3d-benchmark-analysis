@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are generally correct, but several walls are misaligned. Door placements are largely incorrect or missing. Window placements are entirely missing. Room proportions are distorted in multiple areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are either missing or incorrectly embedded. Adjacency relationships are heavily disturbed due to missing doors and altered layouts. The 'Entrance to the House' room is completely missing. Many elements from 'Wash Area' and 'Toilet' are either missing or altered."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in 'Dining' and 'Kitchen' and completely missing in 'Bedroom 1'. Furniture scale is inconsistent, particularly with the dining table and chairs."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection is generally maintained. Lighting is flat and lacks definition. Geometry is clean but simplistic. Visual clarity is good."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Entrance to the House' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows."
+        },
+        {
+            "code": "E1",
+            "description": "Missing most doors throughout the structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Living Room' furniture."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Wash Area' and 'Toilet' sanitary fittings."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Bedroom 1' furniture except for the bed."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Kitchen' appliances like refrigerator and cooker hood."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced 'Dining' room wall, reducing its size."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall between 'Dining' and 'Kitchen'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall of 'Kitchen' leading to the missing 'Entrance to the House'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall of 'Wash Area' and 'Toilet' block relative to 'Bedroom 1' and 'Living Room'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bed in 'Bedroom 1'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced dining table and chairs in 'Dining'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen counter and sink."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door from 'Kitchen' to the outside."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions of 'Dining' room, appears smaller."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions of 'Bedroom 1', appears slightly larger or differently shaped."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions of 'Wash Area' and 'Toilet' block, especially the 'Toilet' area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'UP' text on the dining table, and 'Wash reen' / 'Bedroom 1' texts are incorrect/hallucinated."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall splitting the 'Wash Area' in two near the stairs."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan7.jpg"
+}

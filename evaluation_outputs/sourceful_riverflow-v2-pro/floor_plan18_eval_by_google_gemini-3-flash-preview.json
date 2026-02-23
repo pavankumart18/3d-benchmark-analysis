@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct, but door orientations and specific window sizes vary from the source. The kitchen window is notably missing its relationship to the utility area."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "All rooms are accounted for. Wall thickness is consistent. However, the connection between the kitchen and utility (ducting area) is structurally simplified compared to the plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture presence is good, but the dining table changed from a round 2-seater to a rectangular 4-seater, altering the sense of space in the living/dining area."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Good isometric projection and clean geometry. Lighting and shadows are clear. Texture is basic but professional."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen sink and counter layout mirrored or misplaced compared to the technical sink indicator in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door swings outward in 3D while the 2D plan indicates an inward swing."
+        },
+        {
+            "code": "E4",
+            "description": "Dining table scale and type mismatch (2-seat circular vs 4-seat rectangular)."
+        },
+        {
+            "code": "E6",
+            "description": "The balcony sliding door track/boundary is rendered as a simple wall opening."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan18.jpg"
+}

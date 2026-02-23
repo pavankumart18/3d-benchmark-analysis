@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (kitchen/dining left, living central, bedrooms right, laundry bottom-left, bath center-right), but several layout details diverge. Hall/entry circulation reads narrower/reshaped versus the large hall shown on plan (E4). Interior partition alignment around the hall\u2013closet\u2013bath cluster does not cleanly match the 2D wall breaks (E2). Multiple interior door locations/swing directions are not faithfully represented (several openings appear as doorless voids and/or shifted) (E2/E3). Window/door fenestration does not consistently match the plan\u2014some openings appear enlarged or relocated compared to the 2D window pattern (E2/E5)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness looks mostly consistent, but door embedding is unreliable: several planned hinged doors (bedroom/bath/closet/laundry) are missing as actual door elements or are placed ambiguously (E1/E2). Adjacency relationships are mostly correct (no major room swaps), yet the closet network is not faithfully realized: at least one closet from the plan is unclear/absent or merged into the hall/bath partitioning (E1/E2). No strong evidence of an entirely new room, but at least one exterior opening reads like a full-height door where the plan indicates standard windows (E5)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Kitchen/dining and living room furniture generally aligns (dining table, sofa/coffee table grouping). Bedroom 1 contains a bed as expected. Bedroom 2 furniture does not match the plan intent (appears staged as an office with no bed), indicating a missing/incorrect primary furniture element (E1/E2). Furniture scale is broadly plausible, though the altered staging affects perceived room use and proportion."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera is generally correct and readable. Lighting is clean and even, with minimal noise. Geometry is mostly clean (no major mesh distortions), and composition is clear. However, some openings/frames read inconsistent (door/window treatment varies), reducing orthographic-like clarity and fidelity (E6)."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hall/entry circulation proportions appear compressed/reshaped compared with the large hall footprint shown on the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Partition alignment around the hall\u2013closet\u2013bath core does not match the 2D wall break locations, suggesting shifted interior walls."
+        },
+        {
+            "code": "E1",
+            "description": "Planned interior doors are not consistently modeled (several door elements are missing; openings appear as doorless voids)."
+        },
+        {
+            "code": "E3",
+            "description": "Where doors are implied, swing/orientation does not consistently match the 2D plan\u2019s hinged door directions."
+        },
+        {
+            "code": "E1",
+            "description": "At least one closet shown on the 2D plan is unclear/absent or merged into adjacent space in the 3D layout."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom 2 is missing its primary bed furniture as indicated by the 2D plan (rendered instead as an office-like setup)."
+        },
+        {
+            "code": "E5",
+            "description": "One or more exterior openings appear as full-height door-like glazing where the 2D plan indicates standard window openings (fenestration hallucination/overstatement)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/size pattern does not consistently match the 2D plan (some windows appear relocated or resized)."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent door/window frame treatment reduces clarity (some openings lack consistent framing/door panels)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout inversion and misplacement. The 3D render has mirrored several sections of the flat compared to the blueprint. Bedroom-1 and Bedroom-2 are swapped or incorrectly labeled. Door and window positions do not align with the technical drawing."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Major structural errors. The master bedroom balcony is missing top-left, and the living room balcony has been replaced with a simple window. Kitchen and utility room boundaries have been merged or altered significantly."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture scale is largely inconsistent (e.g., dining table size relative to walls). Placement of the sofa in the living area ignores the balcony access point defined in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Clean geometry and soft lighting are present, but the orthographic projection has slight perspective distortion. Text labels are floating and intersect with 3D geometry."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing main balcony and master balcony; replaced with small windows."
+        },
+        {
+            "code": "E2",
+            "description": "Misplacement of Bedroom-1 and Bedroom-2 labels and locations relative to the entrance."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of toilet fixtures in the master bath does not match the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen area; utility space is not correctly partitioned."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated floating text '1.05 8TT' and incorrect room labeling."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan15.webp"
+}

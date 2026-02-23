@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe errors in layout logic. The primary entrance door to the apartment (to Chandler & Joey's) is completely missing. The entrance to Rachel's bedroom has been flipped to the wrong corridor wall. The alignment of the kitchen island vs the dining table does not match the floor plan's orientation."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing the balcony/closet area at the top. The entrance hallway configuration is structurally incorrect compared to the plan's L-shape. Wall thickness is reasonably consistent but room adjacencies are compromised."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Most furniture pieces are present, but the rug in the living area is rotated incorrectly, and the kitchen scale is slightly oversized compared to the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with clean orthographic/isometric perspective. Lighting and color palette are consistent and professional, though there is minor clipping on some door frames."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing apartment entrance door leading toward Chandler & Joey's apartment."
+        },
+        {
+            "code": "E1",
+            "description": "Missing outdoor balcony/closet space adjacent to the kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Rachel's bedroom door is misplaced on the center wall instead of the side hallway."
+        },
+        {
+            "code": "E3",
+            "description": "The living room rug and seating orientation is rotated 90 degrees contrary to plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the central hallway are widened significantly, distorting the footprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan.jpg"
+}

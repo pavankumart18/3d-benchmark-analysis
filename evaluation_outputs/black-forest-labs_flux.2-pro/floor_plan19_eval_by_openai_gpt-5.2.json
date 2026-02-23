@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall layout (4 bedrooms around a central living/dining with kitchen + utility below) is broadly consistent, but several plan-specific placements drift in the 3D. The bottom service band (H.O + small toilet + adjacent walls) does not read as the same arrangement as the 2D plan (E1/E2/E4). Some internal wall alignments around the kitchen/utility and the small central toilets appear shifted, changing corridor widths and room shapes (E2/E4). Door locations for multiple rooms appear re-centered/simplified versus the plan\u2019s corner/offset placements (E2/E3). Window/opening extents along the outer fa\u00e7ade are exaggerated into large continuous openings/railings compared to the more segmented window runs in plan (E2/E4)."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Wall thickness is visually consistent, but several door embeddings/clear openings do not match the plan locations (E2/E3). Adjacencies are mostly preserved (bedrooms connect to living/dining/corridors; toilets near respective zones), yet the exact service-core partitioning at the bottom (H.O/toilet cluster) is not faithfully reproduced (E1/E2). No clearly new major rooms are added, but the fa\u00e7ade opening treatment and some built-in elements behave like hallucinated architectural modifications rather than plan-driven details (E5)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture intent matches (beds in each bedroom, sofa grouping in living, dining table centered, kitchen counters), but several pieces are placed/rotated to suit the render rather than the exact plan layout (E2/E3). Some furniture scale (notably dining set clearance and cabinetry depth) appears inconsistent with the tighter plan proportions around kitchen/utility (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and composition is clear. Projection is not strictly orthographic (perspective present), reducing plan-to-model verification reliability. Lighting is clean and materials are coherent. Geometry is mostly clean, though some openings/rails read as over-smoothed or generalized compared to plan (E6/E4)."
+    },
+    "total_score": 70,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Bottom-center H.O (6'9\"x7') space from the 2D plan is not clearly present as a distinct room in the 3D; the service area reads reconfigured/merged."
+        },
+        {
+            "code": "E2",
+            "description": "Service-core partitions around the kitchen/utility and adjacent small toilets are shifted compared to the 2D plan, altering corridor alignment and room boundaries."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door placements/orientations appear simplified or re-centered in 3D versus the plan\u2019s offset/corner door positions (notably bedroom and small toilet entries)."
+        },
+        {
+            "code": "E4",
+            "description": "Room and opening proportions deviate: fa\u00e7ade openings/balconies are rendered as larger, more continuous spans than indicated by the segmented window lines in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Balcony/railing and exterior opening treatments appear embellished beyond the plan, functioning as quasi-hallucinated architectural elements rather than exact plan-derived window/door extents."
+        },
+        {
+            "code": "E6",
+            "description": "Non-orthographic (perspective) rendering and generalized opening geometry reduce precision for strict plan fidelity verification."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan19.webp"
+}

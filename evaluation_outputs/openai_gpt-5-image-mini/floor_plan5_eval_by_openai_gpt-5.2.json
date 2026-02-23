@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatches between plan and render. (E2/E4) Right-side bedroom/bath cluster and central-right hallway do not match the 2D partitioning; several interior walls are shifted/shortened, changing circulation. (E3) Multiple door locations/orientations from the plan (notably the bottom-center main entry and several right-hall doors) are not represented correctly; render uses generic openings that don\u2019t align to the plan. (E2) Window locations/counts do not match the plan (missing several exterior windows and mispositioned openings). (E4) Room proportions are distorted: the central living/dining area reads oversized relative to adjacent rooms, and some side rooms are undersized compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness appears mostly consistent, but structural fidelity to the plan is weak. (E1) Exterior annex/balcony spaces shown on the 2D plan (left-side outdoor dining/terrace and right-side small balcony/box) are missing. (E1/E2) Bathrooms/wet areas shown on the 2D plan are not faithfully built (rooms present but fixtures/organization absent or incorrect). (E2) Adjacency relationships on the right side (bedroom-to-bath/hall connections) are altered due to different wall/door layout. (E5) Some internal partitioning creates ambiguous extra/altered room shapes not present in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "(E1) Furniture set is incomplete vs plan (missing/incorrect bathroom fixtures and missing/incorrect bedroom furnishing count/locations). (E2) Living/dining furniture is only loosely aligned to the plan; kitchen furnishing/counters do not clearly match the 2D kitchen layout. (E4) Scale feels inconsistent: central furniture appears small relative to the enlarged living zone."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with coherent materials. Camera is acceptable isometric/axonometric and composition is clear. Minor issues: openings/doors look simplified and some geometry feels overly generic (E6), reducing architectural clarity, but lighting and overall cleanliness are good."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Left-side exterior terrace/outdoor dining area shown in the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Right-side small exterior balcony/box shown in the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Bathrooms/wet-room fixtures (toilet, shower, vanity) shown in the 2D plan are missing or not modeled; rooms appear empty/incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall alignment on the right side (hall/room partitions) does not match the 2D plan, altering room shapes and connections."
+        },
+        {
+            "code": "E3",
+            "description": "Bottom-center main entry door (double door in the 2D plan) is not correctly represented/placed in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple interior door placements (especially along the central-right hall) do not correspond to the 2D plan; rendered as generic openings in different positions."
+        },
+        {
+            "code": "E2",
+            "description": "Window count/placement does not match the 2D plan; several exterior windows are missing and/or shifted."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: central living/dining area appears oversized relative to adjacent rooms compared to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Some internal partitions create altered/ambiguous room areas not clearly present in the 2D plan (hall/room segmentation differs)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering uses simplified door/opening geometry (no door leaves/swing fidelity), reducing verification of door orientation and embedding."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan5.jpg"
+}

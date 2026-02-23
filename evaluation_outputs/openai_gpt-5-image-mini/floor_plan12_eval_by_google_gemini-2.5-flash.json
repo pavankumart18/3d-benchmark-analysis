@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "The 3D render bears no resemblance to the 2D floor plan. All room placements, wall alignments, door and window placements, and room proportions are completely incorrect. It depicts a totally different house layout."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "There is a complete lack of structural fidelity. The layout in the 3D render is entirely different from the 2D plan, resulting in missing rooms (all rooms from the 2D plan are missing in 3D) and hallucinated rooms (all rooms in 3D are not present in 2D). Wall thickness consistency and door embedding are irrelevant given the total structural discrepancy."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "There is no correct furniture mapping. Furniture present in the 2D plan (beds, robes, bath fixtures) are missing in the 3D render. The furniture present in the 3D render (sofa, dining set, kitchen counter, car) is entirely hallucinated and does not correspond to the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera correctness and orthographic projection accuracy are generally good for what is rendered. Lighting quality is decent, and geometry appears clean. However, the visual clarity and composition are hampered by the complete lack of correspondence to the source material, making it aesthetically poor as a representation of the floor plan."
+    },
+    "total_score": 15,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "All rooms from the 2D floor plan (Activity, Bath, WC, Bed 4, Bed 2, Bed 3, Balcony) are missing in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "The 3D render hallucinates an entirely different house layout including a living room, dining room, kitchen, and a garage with cars, none of which are present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "All wall placements are incorrect as the 3D render depicts a completely different structure."
+        },
+        {
+            "code": "E2",
+            "description": "All door placements are incorrect as the 3D render depicts a completely different structure and door configuration."
+        },
+        {
+            "code": "E2",
+            "description": "All window placements are incorrect or missing compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "No room proportions from the 2D plan are preserved, as the 3D render is a different structure."
+        },
+        {
+            "code": "E1",
+            "description": "All furniture from the 2D floor plan (beds, bath fixtures, robes, linen cupboard) is missing in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture and elements (sofa, dining table, chairs, kitchen counters, island, cars, garage structure) are present in the 3D render, but not in the 2D floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan12.png"
+}

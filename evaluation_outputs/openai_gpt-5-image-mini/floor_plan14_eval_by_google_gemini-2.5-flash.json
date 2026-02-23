@@ -1,0 +1,120 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are generally correct, but several walls are misaligned. Door and window placements are significantly incorrect, and room proportions are distorted."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not correctly embedded. Missing multiple rooms from the floor plan, specifically 'Deck' to the left of Bed-2, 'C.Toi', 'Utility', the Deck to the right of Bed-1, and 'Toi-1'. There are also some hallucinated elements, such as the wall separating the Kitchen from the Utility area in the floor plan, which is absent."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate with many elements missing or misplaced. Scale consistency is also poor."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera correctness and orthographic projection accuracy are good. Lighting quality is acceptable, and geometry is clean, though the overall composition suffers from the many structural inaccuracies."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Deck' left of Bed-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'C.Toi' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Utility' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Deck' right of Bed-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Toi-1' room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for Bed-2."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for Bed-1."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced primary entrance door from Foyer."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in Bed-2."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in Bed-1."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in Living/Dining area."
+        },
+        {
+            "code": "E4",
+            "description": "Distortion of room proportions throughout the model, particularly in the living/dining, kitchen, and bathroom areas."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall dividing the kitchen and living area, which should be open."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment inaccuracies, especially near the Foyer and Kitchen, and along the exterior walls."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for Bed-2 and Bed-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal doors for toilets and utility."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness in various sections."
+        },
+        {
+            "code": "E5",
+            "description": "Created a single large bathroom where two separate 'C.Toi' and 'Toi-1' rooms were indicated, representing a hallucination of the internal structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all utility fixtures indicated in 'Toi-1' and 'C.Toi'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen sink/countertop against the wall next to the stove. Only a counter island is present."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect furniture layout in Living/Dining area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect furniture layout in Bed-1."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect furniture layout in Bed-2."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan14.webp"
+}

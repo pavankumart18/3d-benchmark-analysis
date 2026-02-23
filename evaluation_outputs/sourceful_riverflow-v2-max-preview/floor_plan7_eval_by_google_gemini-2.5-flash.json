@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Door to 'Entrance to the House' is missing. Door from Kitchen to 'Entrance to the House' is missing. Door to 'Wash Area' is missing. Door to 'Toilet' is missing. Door from Dining to an unclear space is missing. Window in Bedroom 1 is misplaced and its size is distorted. Window in Kitchen above sink is missing. Windows in 'Entrance to the House' are missing. Room proportions for 'Entrance to the House' are distorted. The corner of the Living Room by the stairs is not accurately represented."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Many doors are not embedded correctly; they are missing entirely. The room labeled 'Entrance to the House' has incorrect adjacency to the exterior and interior, with walls appearing where doors should be. The 'Wash Area' and 'Toilet' rooms appear to be walled off without access. Dining room shows a door that is not present in the render. A portion of the wall between 'Bedroom 1' and the adjacent space is missing. Hallucinated walls are present where doors should be for 'Wash Area' and 'Toilet'. Hallucinated wall and room geometry between Living Room and 'Entrance to the House'. Missing external wall for 'Entrance to the House'."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture in 'Bedroom 1' is missing a wall for the headboard. Furniture in 'Kitchen' is placed correctly but the style differs. Furniture in 'Dining' room is placed correctly. Furniture in the 'Living Room' is generally correct but the armchair from the floor plan is not present. The sink in the 'Kitchen' is not present. Toilet and sink in 'Toilet' are present but the sink in 'Wash Area' is missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection appear correct. Lighting is basic but acceptable. Geometry is clean, but there are structural inaccuracies. The visual clarity is good, but the composition is compromised by the structural deviations."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door to 'Entrance to the House'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door from Kitchen to 'Entrance to the House'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'Wash Area'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'Toilet'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in Kitchen above sink."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in 'Entrance to the House'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sink in 'Wash Area'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bedroom 1."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect 'Entrance to the House' wall and door orientation."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect wall orientation between Living Room and 'Entrance to the House' where a door should be."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Entrance to the House' area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the window in Bedroom 1."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the wall in Living Room adjacent to the stairs."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated walls where doors should be for 'Wash Area' and 'Toilet'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall and room geometry between Living Room and 'Entrance to the House', closing off the entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a section of the wall between 'Bedroom 1' and the adjacent area."
+        },
+        {
+            "code": "E1",
+            "description": "The door from Dining room shown in the floor plan is missing in the render."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall massing loosely resembles the 2D plan (living left, dining central, bedroom wing right), but several key spatial elements diverge. (E1) Both balconies shown in the 2D plan (living balcony 6' wide and master balcony 5' wide) are not represented as distinct exterior balcony spaces in the 3D. (E2/E4) The left-side service zone (foyer/kitchen/utility/servant room cluster) is reshaped and proportionally distorted versus the plan; the kitchen/utility boundary and footprints do not match the 2D layout. (E2/E3) Multiple internal door locations/orientations differ: several openings in the 3D appear centered or widened compared to the plan\u2019s hinged-door placements, altering circulation and room entry positions. (E1) Window placement is essentially absent/non-verifiable in the 3D (no clear windows/balcony doors on exterior walls), while the 2D plan indicates many exterior openings. Room proportions between dining vs. adjacent bedrooms/toilets also appear altered (E4)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Some adjacencies are preserved (living adjacent to dining; bedrooms grouped on the right), but fidelity is reduced by missing/merged exterior features and wet-area placement drift. (E1) Balconies are missing as structural exterior spaces. (E2) Toilet blocks on the right wing do not clearly match the 2D\u2019s arrangement (master dress + two toilets cluster and the shared/adjacent toilets near Bed 4/Bed 3 show different partitioning/locations). Wall thickness looks generally consistent but simplified; several doors appear as generic openings rather than correctly embedded hinged doors (E2/E3). No clearly hallucinated extra rooms, but some spaces read as reconfigured/merged compared to the plan (service/utility zone)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living seating and central dining table are present and roughly placed correctly. Bedroom furniture exists in the right locations (4 bedrooms), but scales and exact placements do not strictly follow the 2D indications (E4). Kitchen fixtures/layout are not clearly mapped to the 2D kitchen configuration (E1/E2)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Camera is a reasonable isometric-style top-down view, but appears slightly perspective rather than true orthographic (minor deduction). Lighting is soft and coherent. Geometry is mostly clean, though the render is somewhat blurry/low-detail, reducing visual clarity of openings/windows and fine partitions (E6). Composition is acceptable but lacks the exterior/balcony articulation shown in the plan."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Living room balcony (6' wide) shown on the 2D plan is not represented as a distinct balcony space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Master bedroom balcony (5' wide) shown on the 2D plan is not represented as a distinct balcony space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Window/exterior opening placements indicated throughout the 2D plan are largely missing or not depicted in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Service/core layout (foyer\u2013kitchen\u2013utility\u2013servant room cluster) does not match the 2D plan\u2019s wall layout and room boundaries."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/bath partitioning and placement in the right wing (including master dress/toilets cluster and toilets near Bed 4/Bed 3) differs from the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior doors are represented as generic openings and do not match the 2D plan\u2019s hinged door positions and swing orientations."
+        },
+        {
+            "code": "E4",
+            "description": "Room and corridor proportions (notably the left-side service zone and portions of the central circulation) appear stretched/reshaped relative to the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Render blur/low detail reduces verifiability of fine elements (windows, exact door embeddings, small partitions)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan17.jpg"
+}

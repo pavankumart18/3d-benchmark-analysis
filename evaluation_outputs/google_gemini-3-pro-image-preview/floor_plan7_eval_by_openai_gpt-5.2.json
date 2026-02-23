@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Room placement is only partially consistent: dining (left), kitchen (upper-left/upper-center), living (upper-right), bedroom (lower-left) broadly match, but the right-side circulation/entrance zone is reshaped and oversized (E4). The 2D plan shows a distinct 'Entrance to the House' vestibule with double doors at the top-right; the 3D render does not show this entry space/door and instead presents a long enclosed right-side zone (E1, E5). Wet areas: the 2D plan has a separate Wash Area and Toilet; the 3D render appears to combine/alter these into a single bathroom-like room and the partitioning/placement does not match (E1, E2). Door placement/orientation is not faithfully represented: several plan doors (bedroom, wash, toilet, entrance) are missing or replaced by generic openings without correct positions (E2, E3). Window placements/counts do not consistently match the plan (notably along the living/right exterior and bedroom edges) (E2). Overall proportions deviate, especially around stairs/right wing and kitchen-dining relationship (E4)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness is visually consistent and clean in the render (minor credit). However, key structural program fidelity is broken: the Entrance vestibule/door is missing (E1) and the Wash Area is not represented as a separate room from the Toilet (E1). Adjacency relationships are altered around the core (wash/toilet/hall) and the right-side zone near the stairs (E2). A large additional enclosed space on the far right is not clearly present in the 2D plan as a separate room and reads as a hallucinated room/volume rather than the labeled stair zone (E5). Doors are not embedded/placed per plan; several are absent entirely (E2, E3)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture types are present (dining table, living seating, bed, kitchen counters), but mapping is not plan-accurate: the 3D kitchen includes a table/dining set inside the kitchen area while the 2D plan places dining in a separate room (E5/E2). Kitchen counter geometry differs from the plan\u2019s U-shaped arrangement (E2). Furniture scale is generally consistent and believable."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is clear and coherent with good overall composition. Projection reads mostly orthographic/isometric (minor perspective feel but acceptable). Lighting is clean and even; materials are consistent. Geometry is generally clean with no major visible mesh distortions; openings are crisp, though the lack of door elements reduces architectural clarity (E6/minor)."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Entrance to the House' vestibule/double-door shown at the top-right of the 2D plan; 3D render does not depict this entry element."
+        },
+        {
+            "code": "E1",
+            "description": "Missing separate Wash Area room; 3D render appears to merge/replace Wash Area + Toilet into a different bathroom configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Wet-area partitioning and placement (wash/toilet walls) do not match the 2D plan\u2019s layout and wall breaks."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout differs from plan (plan shows a more continuous U-shape; 3D shows an L-shaped setup with different fixture placement)."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple door locations are incorrect or not represented at the plan-specified positions (bedroom door, wash/toilet doors, entrance door)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing and explicit door elements are not faithfully represented; openings substitute for doors, losing correct orientation information."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements/counts on exterior walls (notably living/right side and bedroom edges) do not consistently match the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: right-side zone near stairs is oversized/reshaped relative to the 2D plan; overall room-to-circulation proportions differ."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional enclosed room/volume on the far right that is not clearly present as a distinct room in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated dining table/seating inside the kitchen area, conflicting with the 2D plan where dining is a separate room."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan7.jpg"
+}

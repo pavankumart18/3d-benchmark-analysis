@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but door orientations in the master bedroom and bedroom 2 are mirrored or incorrectly swung compared to source. Window placement on the right-hand wall for bedroom 3 is missing."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Most rooms are present, but the 'Utility' balcony behind the kitchen is partially truncated/rendered as a solid wall. Service room walls are simplified."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "High correlation in furniture layout, particularly the dining area and master bedroom. Some scale issues with the armchairs in the living area."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric lighting and clean geometry. Soft shadows provide good depth, though some wall intersections have minor artifacts."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Master bedroom door swing orientation is clockwise in 3D but counter-clockwise in 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window on the east wall of Bedroom 3."
+        },
+        {
+            "code": "E4",
+            "description": "Utility area proportions are distorted, losing the depth indicated in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact at the foyer entrance where wall thickness appears inconsistent with internal partitions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan17.jpg"
+}

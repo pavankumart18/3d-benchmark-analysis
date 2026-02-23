@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall footprint roughly resembles the 2D plan (3 bedrooms + central living/dining + kitchen zone), but multiple spatial mismatches are present. Major outdoor space mismatch: the long DECK along the top side of the living/dining (and access from Bedroom-3) is not represented correctly in the 3D. Balcony placements/sizes are unclear/inconsistent vs plan (Bedroom-2 top balcony and Bedroom-1 right balcony). Several door locations/openings do not match the 2D (hall-to-bedroom/toilet/kitchen access points appear shifted or simplified). External window placements from the plan are largely not modeled (most exterior walls are blank). Room proportions appear distorted (living/dining and right-side bedrooms/circulation widths do not preserve the plan\u2019s relative sizing)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Adjacency is partially correct (bedrooms generally on left/top/right; kitchen near center-bottom), but the wet-area cluster on the left (Toilet-3 + Toilet-4 near Bedroom-3 and lobby) is not faithfully reproduced; the 3D appears to merge/simplify these bathrooms and their corridors. Door embedding is inconsistent (several planned swing doors are missing or represented as open gaps without correct location/orientation). Outdoor connections (deck/balconies) do not match plan, indicating missing/incorrect boundary walls and openings. No clear evidence of correct count/placement of all four toilets from the 2D."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are present (beds in three rooms, dining table, sofa seating, kitchen counters), but placement does not precisely correspond to the 2D layout (notably the living/dining-to-deck relationship and bedroom/bathroom entry clearances). Furniture scaling is generally plausible but some pieces look undersized relative to room widths and circulation."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric view is generally correct and readable. Lighting is soft and consistent, and geometry is mostly clean. However, the render lacks key architectural detail (notably windows and accurate exterior openings), reducing clarity for verification. Some areas look simplified/low-detail, making door/window verification difficult."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/incorrect representation of the long DECK along the top side of the Living & Dining as shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony layout mismatch: Bedroom-2 top balcony and Bedroom-1 right balcony are not clearly placed/sized as in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Bathroom count/layout inconsistency: the left-side Toilet-3 and Toilet-4 arrangement near Bedroom-3/lobby appears missing or merged/simplified in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet-2 position (between Living/Dining and Bedroom-2) appears spatially shifted/simplified relative to the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation errors: multiple planned swing doors (bedrooms/toilets/kitchen/utility) are not located or oriented as shown in the 2D plan (often replaced by generic openings)."
+        },
+        {
+            "code": "E1",
+            "description": "Window placement missing: exterior window locations indicated in the 2D plan are largely not modeled in the 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: relative sizes of Living & Dining, right-side circulation, and Bedroom-1/Bedroom-2 zones do not preserve the 2D plan\u2019s proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallway/wall segments appear added/simplified in ways not supported by the 2D plan (extra/altered partitions around the central corridor/kitchen zone)."
+        },
+        {
+            "code": "E6",
+            "description": "Verification-limiting render simplification: lack of modeled window/door frames and low-detail openings reduce architectural fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan20.avif"
+}

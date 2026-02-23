@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Overall room layout matches the 2D plan (open kitchen/dining at left, living center, two bedrooms right, laundry left-bottom, bath center-bottom). However, several openings do not match: extra/mismatched windows appear on the bottom exterior wall (hall/bath zone) not indicated in the 2D plan (E5/E2). Door placement/orientation around the hall-to-bath/closet area appears simplified and not fully consistent with the plan\u2019s closet/bath doorway geometry (E2/E3). Some proportional drift is visible: the central hall/closet/bath partitioning is less tight/accurate than the 2D plan suggests (E4)."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Primary adjacencies are preserved (hall connects to laundry, bath, bedroom wing; bedrooms adjacent as in plan). Wall thickness looks consistent, but the hall/bath/closet micro-layout is not faithfully reproduced (closet segmentation/doorway treatment appears altered) (E2/E1). At least one hallucinated exterior window on the bottom wall reduces fidelity (E5). No clearly hallucinated rooms, but some partitions/closet definition looks incomplete compared to the 2D plan (E1/E2)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture is present in the correct rooms (dining table, living sofa/coffee table, beds, laundry machines, main bath fixtures). Kitchen casework/appliances are simplified versus the 2D plan (L-shaped counter/sink placement not fully represented) and some bedroom furnishings from the plan appear omitted or replaced with generic blocks (E1/E2). Scale is generally consistent but schematic."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with coherent lighting and mostly tidy geometry. Camera is slightly perspective rather than strict axonometric/orthographic, but still clear. Minor geometric simplification and some door/window modeling inconsistencies reduce technical clarity (E6)."
+    },
+    "total_score": 71,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated/mismatched windows on the bottom exterior wall (hall/bath area) that are not present/indicated in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count inconsistencies: bottom-wall glazing placement does not match the 2D plan\u2019s window distribution."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement around the central hall\u2013bath\u2013closet cluster differs from the 2D plan (partition/door positions simplified or shifted)."
+        },
+        {
+            "code": "E3",
+            "description": "Some door swing/orientation cues in the 3D model do not clearly match the 2D door swing directions (notably near the hall/bath/closet junction)."
+        },
+        {
+            "code": "E1",
+            "description": "Closet definition/doorway treatment near the bathroom/hall appears missing or incomplete compared to the clearly defined closet in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the central core: the hall/closet/bath partition sizes and offsets appear less accurate than in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen interior details (full L-shaped counter/sink run shown in 2D) are not fully represented in the 3D render."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan4.jpg"
+}

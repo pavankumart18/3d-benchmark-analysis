@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout deviations from the 2D plan: an extra enclosed room/corridor zone appears at the top-middle/right (not in plan) (E5). The right-side open Living/Dining area is re-partitioned and labeled incorrectly (Living Room missing; 'LINING ROOM' shown) (E1/E2). Entrance location is inconsistent: 2D entrance is centered on the bottom wall; 3D shows an exterior door opening near the bottom-right wall segment (E2). Several interior doors are added/relocated (not matching plan\u2019s single bathroom door and limited interior openings) (E2/E5). Room proportions differ: bathroom and circulation areas are enlarged/reshaped relative to the compact central WC in plan (E4)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Adjacency relationships are inconsistent: the plan shows a largely open right side (Dining above Living) with minimal partitioning; 3D introduces extra separating walls/rooms in the top-middle area (E5) affecting adjacency (E2). Missing room labeling/function: Living Room not represented as such (E1). Hallucinated/incorrectly embedded doors: multiple red doors appear along the central spine that do not correspond to the 2D door count/locations (E5/E2). Window pattern around perimeter does not match the 2D window distribution (E2). Wall thickness appears visually consistent, but the added partitions significantly reduce fidelity."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Dining table/chairs are present in the right area (reasonable), but the 2D plan does not specify furniture; more importantly, the Living Room is not furnished/identified where expected (E1). Scale is generally plausible, but furniture placement cannot be validated against the sparse 2D furnishing cues."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric view is coherent and lighting is clean with good material readability. Geometry is mostly crisp. However, there are clarity issues due to incorrect/overlaid text labeling (e.g., 'LINING ROOM', large 'BATHROOM' text on floor) (E6) and the scene\u2019s architectural changes reduce interpretability as a faithful isometric of the given plan."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated enclosed room/partition at the top-middle/right (with windows) not present in the 2D plan\u2019s open Dining/Living layout."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Living Room as a correctly labeled/defined space; 3D shows incorrect labeling ('LINING ROOM') and does not match the plan\u2019s Dining + Living zoning."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance/exterior door placement mismatch: plan entrance is bottom-center; 3D shows an exterior door opening near the bottom-right wall segment."
+        },
+        {
+            "code": "E2",
+            "description": "Interior door placement/count mismatch: 3D includes multiple doors along central circulation that do not correspond to the 2D plan\u2019s door locations/orientations."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: 3D window distribution (notably large left wall window and top-middle windows) does not match the 2D plan\u2019s perimeter window positions."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: bathroom/circulation geometry differs from the compact central bathroom shown in the 2D plan, altering room sizes and shapes."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/label artifact: incorrect/oversized text on floors/walls (e.g., 'LINING ROOM', large 'BATHROOM' label) reduces clarity and implies mismapped rooms."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan3.jpg"
+}

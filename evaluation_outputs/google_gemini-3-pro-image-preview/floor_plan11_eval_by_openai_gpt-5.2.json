@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatch between 2D and 3D. The 2D plan shows a clearly defined CENTRAL HALL (left), a WC near the top center, a UTILITY ROOM/HVAC core near center, KITCHEN+PANTRY at top-right, and a large DINING ROOM with a labeled WINDOW SEAT bay on the right. In the 3D render, the circulation core and room boundaries do not align: the stair/hall arrangement is different, the central service block is reorganized, and the dining room perimeter (including the bay/window-seat zone) is not faithfully reproduced. Door locations are mostly represented as generic openings without matching the 2D door positions/swings. Exterior window openings do not correspond to the plan\u2019s indicated window/feature locations (notably around the dining/window-seat wall). Room proportions (kitchen vs dining vs hall widths) appear substantially altered."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Adjacency relationships are not preserved: in 2D the WC/utility/HVAC cluster sits between hall and kitchen/dining, while the 3D shows a different grouping/partitioning that reads like additional bath/service spaces. Several walls in 3D do not match the 2D wall runs (especially around the core near the stairs and the right-side angled/bay area). Multiple openings are not embedded where the 2D indicates doors (loss of door-specific placement and swing). At least one space on the right is modeled as a large attached room/porch volume that does not read as the correctly bounded BREAKFAST(SCREENED)/deck condition shown on plan (scale and connection differ). Overall, both missing and hallucinated partitions are present."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Only partial kitchen casework/appliances are included; the 2D plan does not specify a full 3D furniture layout, but key interior elements implied by the plan (e.g., defined utility fixtures/placements and dining furnishing zones) are not mapped. Cabinet/appliance scale appears plausible, but their exact alignment to the 2D kitchen layout (including pantry boundary) is not clearly faithful."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Camera isometric view is acceptable and the model is generally clean. However, openings read inconsistent (some look like missing doors rather than modeled doors), and several wall junctions/returns look simplified versus plan complexity (notably around the angled/bay facade). Lighting is flat but serviceable; geometry is mostly clean with minor visual ambiguity in small-room partitions."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Room placement mismatch: CENTRAL HALL and the main circulation geometry do not align with the 2D plan (hall/stair core reorganized)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear room identity: The 2D-labeled UTILITY ROOM/HVAC core is not clearly present as a single correctly sized/located room in the 3D (appears re-partitioned)."
+        },
+        {
+            "code": "E2",
+            "description": "WC location/layout mismatch: 2D WC at top-center is not represented in the same position/configuration in the 3D."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation error: 2D shows specific door swings/hinges; 3D uses generic openings and does not preserve door orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement mismatch: Several interior door openings (around WC/utility/kitchen transitions) are not in the same wall segments as the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: Exterior window openings in 3D do not correspond to the 2D\u2019s indicated fenestration/feature wall conditions, especially near the dining/window-seat side."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: DINING ROOM vs adjacent spaces appears significantly resized relative to the 2D dimensions/ratios."
+        },
+        {
+            "code": "E2",
+            "description": "Bay/window-seat geometry mismatch: The 2D WINDOW SEAT/bay condition on the right side is not faithfully reproduced in 3D (shape and opening pattern differ)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partitions/rooms: 3D contains extra small compartments/bath-like partitions near the core that are not supported by the shown 2D plan segment."
+        },
+        {
+            "code": "E4",
+            "description": "Screened breakfast/attached exterior volume scale/connection distortion: The right-side appended room/porch volume in 3D does not match the plan\u2019s implied screened/breakfast/deck boundary and connection proportions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan11.png"
+}

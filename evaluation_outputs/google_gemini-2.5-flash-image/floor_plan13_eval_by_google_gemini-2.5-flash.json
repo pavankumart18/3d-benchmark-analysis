@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placements are mostly correct, but the Kitchen/L'dry/Bedroom 1 area has significant layout and size discrepancies that affect wall alignment. Doors are frequently misplaced or incorrectly oriented. Windows are added where none are indicated on the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly around the kitchen and laundry. Many doors are not correctly embedded, appearing as openings rather than structures. The adjacency relationships are skewed due to proportion distortions. The balcony is missing from the render. Hallucinated windows are present."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate for bedrooms and lounge, but Kitchen lacks detail. Scale of some furniture items appears slightly off, example: beds are disproportionately small for the rooms' perceived size based on the floor plan dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally good. Lighting is adequate, but geometry is not entirely clean with some walls appearing thin or misaligned. The overall clarity is fair, but structural inaccuracies detract from the composition."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Kitchen dimensions are significantly distorted, appearing much larger and differently shaped in the render than on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wall between the Kitchen and Bedroom 1 is misaligned and protrudes into Bedroom 1, shortening its width."
+        },
+        {
+            "code": "E2",
+            "description": "The 'L'dry' area in the render is much larger and different in layout compared to the compact 'L'dry' indicated on the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony is missing from the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Windows are hallucinated in the Lounge, Dining, Bedrooms, and Balcony walls where no windows are shown on the floor plan. The window proportions also seem inconsistent between rooms."
+        },
+        {
+            "code": "E3",
+            "description": "The door to Bedroom 1 is oriented outwards towards the hallway in the floor plan but inwards in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The wall dividing the Kitchen from the Bedroom 1/L'dry passage is severely misplaced and misaligned."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Bedroom 1 and Bedroom 2 due to incorrect wall placements and varying wall thicknesses."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bathroom is shifted more towards the WC in the render than indicated in the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "The entrance door orientation is unclear or possibly incorrect in the render based on the floor plan arrow."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness throughout the model, particularly noticeable around the kitchen/laundry area."
+        },
+        {
+            "code": "E2",
+            "description": "The 'ROBE' in Bedroom 1 is not flush with the wall as indicated in the floor plan and appears as an external structure."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan13.jpg"
+}

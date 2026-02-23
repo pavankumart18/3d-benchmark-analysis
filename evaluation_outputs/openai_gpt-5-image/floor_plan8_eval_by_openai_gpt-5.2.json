@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatches vs plan: (E2/E4) Dining Room is not clearly separated in the 3D (plan shows a distinct dining space with a curved/angled boundary and exterior window run). (E2/E4) Kitchen footprint and perimeter wall breaks do not match the plan\u2019s stepped right-side exterior and the kitchen/playroom separation line. (E2/E3) Several interior door locations/orientations don\u2019t correspond to the 2D door swings (notably the kitchen\u2013dining connection and the small service spaces near foyer/WC). (E2) Window positions and counts differ on multiple exterior walls (large multi-panel windows in 3D do not align with the plan\u2019s segmented window layout)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Adjacency and enclosure fidelity issues: (E1) Pantry shown in plan (center) is not clearly represented as an enclosed room with correct access. (E2) Foyer/closet/WC cluster geometry is simplified and does not preserve the plan\u2019s wall jogs and closet layout. (E5) Extra/unsupported exterior door configuration appears in 3D (prominent double-door on right/front side is not clearly indicated in the plan). Wall thickness is generally consistent, but several walls are shifted/straightened relative to the plan\u2019s offsets."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "(E2/E4) Kitchen cabinetry/island arrangement is generic and does not follow the plan\u2019s exact counter runs and sink placements. (E1) Dining furniture is missing despite dining room being a key defined space in plan. (E2) Fireplace element is present in 3D but is not indicated on the provided 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric render with coherent lighting and generally good geometry. Minor issues: some openings (doors/windows) look inconsistently sized and the camera feels slightly more perspective than strict orthographic isometric."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Pantry (center of plan) is not clearly modeled as a dedicated enclosed room with a matching doorway."
+        },
+        {
+            "code": "E1",
+            "description": "Dining room as a distinct enclosed/defined space is effectively missing/merged into the open area in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/playroom boundary and right-side exterior wall stepping do not match the 2D plan\u2019s wall breaks and room limits."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer/closet/WC suite geometry and placements are simplified and do not match the plan\u2019s wall alignment and closet configuration."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door placements/orientations (swing/hinge side and position) differ from the 2D plan, especially around kitchen\u2013dining and the small service rooms."
+        },
+        {
+            "code": "E2",
+            "description": "Window positions and groupings are inconsistent with the 2D plan (notably large multi-panel windows in the 3D that do not align to the plan\u2019s segmented window layout)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are altered: the dining zone and central open area appear enlarged/reshaped relative to the plan\u2019s more articulated boundaries."
+        },
+        {
+            "code": "E5",
+            "description": "Prominent double exterior door on the right/front side appears unsupported by the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Fireplace element appears in the 3D but is not indicated on the provided 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major mismatches between the 2D plan and 3D: exterior wall geometry is heavily altered (angled/chamfered perimeter instead of the plan\u2019s mostly orthogonal outline), causing room shapes and alignments to drift. The main living/dining/kitchen zone is roughly in the correct general area, but wall runs (especially the long interior partition separating entry/hall from living) do not align cleanly with the 2D layout. Several door locations/orientations are inconsistent (entry and internal door swings/positions not matching). Window placement is notably wrong: the render places two large windows on the left exterior wall that do not match the plan\u2019s indicated window positions, and the bedroom window placement appears inconsistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Adjacency relationships are only partially preserved (living room roughly adjacent to kitchen/dining; bedrooms generally in lower zones), but the corridor/foyer/bath cluster is simplified and re-partitioned. Wall thickness is somewhat consistent in the render, but door embedding and exact openings are not faithful to the plan. At least one planned exterior opening set (bedroom window placements) is not respected. No clear evidence of all closets/utility partitions as shown in plan (closet/coat areas appear reduced/omitted). No clear added full rooms, but perimeter reshaping creates effectively hallucinated wall facets/alcoves not present in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Living/dining furniture is present and broadly plausible (sofa/coffee table/dining table), but placement does not precisely correspond to the 2D layout (e.g., dining and seating zones shift with the altered wall geometry). Furniture scale looks generally consistent, though simplified and missing several plan-implied items/storage elements."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and the scene is readable. However, the render behaves more like a stylized massing than a faithful architectural reconstruction: perimeter faceting/rounding and softened geometry reduce orthographic fidelity. Lighting is soft and clean, with minimal rendering artifacts. Overall clarity is decent, but deviations from plan reduce technical quality."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Exterior perimeter is significantly distorted (angled/chamfered outer walls) compared to the 2D plan\u2019s mostly rectilinear boundary, altering room shapes and wall alignments."
+        },
+        {
+            "code": "E2",
+            "description": "Left-side exterior windows in the 3D render (two large windows) are placed where the 2D plan does not show corresponding window openings."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom window placements do not match the plan (e.g., Rachel\u2019s bedroom window is indicated on the bottom wall in plan but appears on a different fa\u00e7ade in the render; Monica\u2019s bedroom right-side opening is unclear/mismatched)."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple interior wall segments (notably the long partition separating entry/hall from living space) do not align with the 2D plan\u2019s wall runs, changing circulation geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement/orientation is inconsistent with the floor plan for key transitions (entry/foyer and internal doors around the hall/bath/bedrooms)."
+        },
+        {
+            "code": "E1",
+            "description": "Closet/coat-storage partitions shown in the 2D plan are not clearly represented as distinct enclosed elements in the 3D render (appear omitted or merged)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallway/edge facets and small alcove-like perimeter segments appear in the 3D that are not present in the 2D plan, likely introduced by stylized perimeter modeling."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan.jpg"
+}

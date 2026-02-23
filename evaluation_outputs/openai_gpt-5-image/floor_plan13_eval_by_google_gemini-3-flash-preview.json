@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is correct. However, doors for Bedroom 1 and 2 are rendered with curved planar artifacts rather than standard door swings. Window in Bedroom 2 is missing from the right-side wall."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Garage detached status correctly interpreted. The 'Linen' closet at entry is incorrectly rendered as a protruding external structure. The 'L'dry' (Laundry) and 'WC' areas are merged or simplified into single wall cavities without proper enclosure."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen cabinetry is simplified; the appliances (stove, fridge) are lumped into generic white blocks. Bathroom fixtures (toilet, vanity) are missing or represented by generic cubes."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric light and shadow work. Clean geometry with consistent wall thickness. Material choice is cohesive."
+    },
+    "total_score": 74,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing window on the east-facing wall of Bedroom 2."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the entry closet (Linen) is externalized rather than internal."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts on internal doors appearing as curved solid planes."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the sink/laundry area; the L'dry nook is lacks the depth shown in plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,120 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Room placements are generally correct relative to each other, but the proportions are significantly distorted. Wall alignment is very poor, with many walls being misaligned or missing entirely. Door placements and orientations are frequently incorrect or missing. Window placements are also incorrect or missing. Room proportions are not preserved."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness consistency is poor. Many doors are missing or incorrectly embedded. Adjacency relationships are mostly preserved but with significant alterations to the structure. Several rooms are missing, and parts of rooms/walls are hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in many rooms, with elements missing or moved. Scale consistency is poor for some furniture items relative to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera and orthographic projection appear correct. Lighting quality is decent. Geometry has some distortions, particularly with walls and openings. Visual clarity is good despite the inaccuracies, but composition is compromised by structural errors."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entire bathroom section including shower, toilet, and sink. Missing door to the bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing inner wall separating the two beds in the top-left room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the top-left room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall segment between the kitchen and the dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door leading from the living area to the bottom-left bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing main entrance door and the wall segment next to it."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating the two rooms on the top-right is severely misplaced and shortened, creating an open-plan area where there should be two distinct rooms."
+        },
+        {
+            "code": "E2",
+            "description": "The door to the top-right room is completely misplaced on an external wall, and its orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "The window placements on the top-right external wall are incorrect. There should only be one window in the bedroom area, but two are shown. The office area on the floor plan has no windows, but one is present in the render."
+        },
+        {
+            "code": "E3",
+            "description": "The door to what appears to be the bathroom (top-middle) is oriented incorrectly, opening outwards instead of inwards."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion across almost all rooms, making them appear wider or narrower than in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The 'L' shaped counter/wall in the dining area is significantly thinner and differently shaped compared to the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated low wall/divider between the living room and the main hallway."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small counter/island in the kitchen area, not present in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wardrobe in the top-left bedroom is misplaced and scaled incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "The beds in the top-left room are single beds when the floor plan indicates two. The orientation is also implied to be different given the missing wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing cabinet next to the desk in the top-middle office area."
+        },
+        {
+            "code": "E2",
+            "description": "Desk and chair in the top-right room are misplaced and oriented incorrectly. The bed in this room is also misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wardrobe in the top-right room."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa arrangement in the living room is different, and the additional armchairs are misplaced or missing."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen elements such as the stove, oven, and refrigerator in their specified locations. Only a sink is vaguely present."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs are scaled down and positioned differently relative to the space."
+        },
+        {
+            "code": "E2",
+            "description": "The window in the bottom-left room is misplaced; it should be on the external wall next to the bed, but it is absent or incorrectly located elsewhere."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan2.png"
+}

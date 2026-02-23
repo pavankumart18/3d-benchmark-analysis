@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. The 'Utility Room' is completely lost, and the 'Alcove' is altered significantly. The 'Dining Room' and 'Kitchen' relative positions are correct but their individual sizes are distorted."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing several rooms and containing hallucinated walls. Wall thicknesses are inconsistent, and door embedding is not always correct."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture is entirely hallucinated and does not match the floor plan's implied spaces for furniture like the built-in breakfast area or the specific plumbing fixtures shown."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera is acceptable, but orthographic projection seems off due to perspective issues on some walls. Lighting is bland, and geometry is clean but simplistic. Visual clarity is good for the simple render, but accuracy is poor."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Central Hall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Utility Room'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing staircase."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Breakfast Nook'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Pantry'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect door placement for WC."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the room that replaces the 'Utility Room' area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows throughout the structure; no direct correlation between plan and render."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the room replacing the 'Utility Room' area and the WC."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Alcove', 'Kitchen', and 'Dining Room' sizes."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated walls where the 'Central Hall' and 'Utility Room' should be, creating new, undefined spaces."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture not present on the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated WC layout including shower, not indicated in plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated entry bench in the 'Alcove' area."
+        },
+        {
+            "code": "E2",
+            "description": "Wall at the lower left part of the dining room area is misaligned, creating a different shape than the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "General room proportions are significantly altered, particularly noticeable in the bathroom area and the room where the 'Alcove' is."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan11.png"
+}

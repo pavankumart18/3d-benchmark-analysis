@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "The 3D render completely fails to match the floor plan layout. Room placement is incorrect; the 3D model shows a garage and kitchen which do not exist in the 2D plan. Door and window placements are non-compliant with the original architectural intent."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Severe structural deviations. Significant rooms such as the three bedrooms (BED 2, 3, 4) and the specialized bathroom/WC cluster are missing. A garage and kitchen have been hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "The furniture does not correspond to the rooms indicated in the plan. The sofa placement ignores the 'Activity' area layout, and a dining set and kitchen island are added despite not being in the reference."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The aesthetic quality is high with clean geometry, consistent lighting, and a correct isometric camera. However, it is an aesthetically pleasing render of an entirely different building."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bed 2, Bed 3, Bed 4, Bath, and WC rooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated garage with vehicles and a full kitchen/dining area not present in source."
+        },
+        {
+            "code": "E2",
+            "description": "Window and door placement does not align with the Activity area or Balcony access points."
+        },
+        {
+            "code": "E4",
+            "description": "The overall footprint and internal wall proportions do not match the square/rectangular ratio of the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan12.png"
+}

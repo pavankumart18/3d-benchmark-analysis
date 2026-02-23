@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placements are generally correct. Wall alignment shows some discrepancies, particularly in the kitchen/utility area. Door placements are largely correct, but one door in the living area is missing an opening. The balcony wall on the left side is missing. Window placements are assumed to be non-existent based on the floor plan. Room proportions are mostly maintained, but some scaling differences are visible."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is not consistent across all walls, some appear thicker in the render. Door embedding is mostly correct, but the door near the balcony in the living area is not properly rendered as an opening. Adjacency relationships are mostly correct, but the rendered kitchen countertop extends further than indicated. No missing or hallucinated rooms were identified."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate, but the orientation of the sofa in the living room is incorrect. The balcony plants are different in number and arrangement. The kitchen counters are different. The scale of some furniture items, like the bedroom nightstands, appears slightly off."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are well-executed. Lighting quality is good, providing clear visibility of all areas. Geometry is mostly clean, however, the absence of an opening for the living room door and the incorrect wall in the balcony area are distortions. Overall visual clarity and composition are good."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing opening for the door from living/dining to the balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall on the left side of the balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment discrepancy in the kitchen/utility area."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the sofa in the living area."
+        },
+        {
+            "code": "E4",
+            "description": "Slight proportion distortion for nightstands in the bedroom."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness inconsistency."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated blue feature in Toilet-1, not indicated in floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated plant next to the TV unit in the living room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall extension for the kitchen counter."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan16.avif"
+}

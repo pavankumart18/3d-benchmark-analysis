@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe spatial failures. The layout is mirrored incorrectly compared to the plan (Entrance and Living are swapped with Bedroom wings). Wall alignment is broken as the software attempted to tile modules rather than follow the specific 3BHK footprint."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major structural deviations: Utility area and kitchen adjacencies are incorrect. Multiple hallucinated door openings found. The balcony depth and structural columns do not match the original plan's load-bearing layout."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generic and scaled inconsistently. The dining table placement deviates from the open-plan dining area indicated in the 2D schematic."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good isometric camera angle and consistent lighting. Clean geometry, although the assets used are highly generic and do not reflect the architectural style of the plan."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated multiple small partition walls in the hallway areas that are not present in the 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entrance: The main entry point in the render does not align with the structural opening defined next to the kitchen."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: Master bedroom dimensions are squashed while the secondary bathrooms are oversized relative to the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error: The entire layout has been interpreted with a different flow, placing bedrooms where the living/balcony zone should be."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan15.webp"
+}

@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. The dining room is completely missing and replaced by an extended living room area. The 'Pantry' from the 2D plan is labelled 'Kantry' and significantly larger, effectively becoming a new room. The 'W/C' from the 2D plan is labelled 'Powder Room' and incorrectly placed, occupying space meant for the living room and staircase. The dimensions of the Foyer, Living Room, and Playroom are distorted. Wall alignments are frequently incorrect compared to the plan. Many windows are missing or misplaced. One door is missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing the entire Dining Room. Hallucinated a 'Powder Room' in an incorrect location. 'Pantry' is hallucinated into a larger 'Kantry' structure. Wall thicknesses appear inconsistent in several areas. Door embedding is incorrect, specifically for the main entry door, which appears to be a wall with a window."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Overall furniture placement is inaccurate, with many items missing and others added. The kitchen layout is significantly different. The living room furniture is sparse and not reflective of the plan. The 'Pantry' area furniture is completely different."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera is correct. Orthographic projection appears generally accurate. Lighting quality is good, providing clear illumination. Geometry is generally clean with few noticeable distortions. Visual clarity and composition are good despite the structural inaccuracies."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Dining Room is missing."
+        },
+        {
+            "code": "E2",
+            "description": "W/C (Powder Room) is misplaced, occupying part of the living room and staircase area."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen sink and counter layout is significantly different and misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase placement and configuration are incorrect relative to adjacent spaces (W/C/Powder Room)."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the main entry door in the Foyer is incorrect; rendered as a window in a wall."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Living Room are distorted due to the absence of the Dining Room and misplaced Powder Room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Foyer and Playroom appear altered."
+        },
+        {
+            "code": "E4",
+            "description": "The Pantry from the 2D plan is significantly distorted in proportion and labelled as 'Kantry'."
+        },
+        {
+            "code": "E5",
+            "description": "A 'Powder Room' is hallucinated in a location different from the W/C on the plan and with different dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "The 'Kantry' structure is a hallucinated alteration of the original 'Pantry' with different dimensions and function."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a window in the Foyer."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple windows in the Living Room and Dining Room area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows in the Playroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the closet in the Foyer."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the W/C (Powder Room)."
+        },
+        {
+            "code": "E2",
+            "description": "Internal wall alignment between Living Room and Kitchen/Pantry is incorrect."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Several wall alignments are incorrect, especially perimeter walls showing varying thickness. Doors and windows are largely missing or incorrectly placed/oriented. Room proportions are distorted in multiple areas, notably the top-left area and the main living space."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly exterior walls. Many doors are missing or not correctly embedded. The adjacency between the top-right bedroom and the bathroom is incorrect. Multiple rooms are missing entirely, and elements appear hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in several rooms (e.g., top-left room, bottom-left kitchen, main living area). Scale consistency is poor for many furniture items."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct, as is the orthographic projection. Lighting is basic and lacks realism. Geometry is clean with no obvious distortions. Visual clarity is good, but the composition is impacted by structural errors."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing a significant number of doors throughout the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows depicted in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple small rooms/alcoves seen in the plan, such as the entry nook at the bottom."
+        },
+        {
+            "code": "E2",
+            "description": "Top-left room's exterior wall is misaligned."
+        },
+        {
+            "code": "E2",
+            "description": "The bathroom adjacency to the top-right bedroom is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement in the top-left dining area is incorrect, missing some chairs."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen cabinetry and appliance layout at the bottom-left are significantly different and misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Doors in bathrooms and bedrooms that are present are often misplaced."
+        },
+        {
+            "code": "E3",
+            "description": "The bed in the top-left bedroom is rotated compared to the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'master' bedroom (top-left) appear narrower than in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The main central living area appears to have distorted proportions."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness variations indicate proportion distortion."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall sections and changes in wall thickness, especially exterior walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior division in the top-right bathroom/toilet area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated door type/style for existing doors."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated cabinet/furniture elements in some rooms, especially bathrooms and kitchen."
+        },
+        {
+            "code": "E6",
+            "description": "Basic rendering quality with flat lighting, lacking detail and realism."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan5.jpg"
+}

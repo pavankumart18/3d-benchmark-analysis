@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 4,
+        "max": 40,
+        "notes": "Major mismatch between the 2D plan (kitchen/pantry/dining/utility/WC/central hall with bay window seat) and the 3D render (appears to depict a multi-bedroom residential layout with a long corridor). Room placement does not correspond; walls and circulation are not aligned to the 2D layout. Door and window locations in the render do not match the plan\u2019s indicated openings (notably the dining room bay/window seat zone and kitchen-side openings). Strong proportion drift: the 3D render\u2019s room sizes and overall footprint do not preserve the plan\u2019s geometry."
+    },
+    "structural_fidelity": {
+        "score": 3,
+        "max": 25,
+        "notes": "Adjacency relationships from the plan are not respected (kitchen\u2013pantry\u2013dining\u2013utility\u2013WC cluster is not reproduced). Multiple plan rooms are missing and replaced by hallucinated bedrooms/corridor spaces. Door embeddings/openings do not correspond to the plan\u2019s door swings/locations. Wall thicknesses are stylized and inconsistent relative to the plan\u2019s clearly defined wall structure."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture in the 3D render (beds, bedroom furniture) does not map to the 2D plan\u2019s program (dining room, kitchen work zones, utility/HVAC, WC). Scale and placement therefore cannot be considered accurate relative to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Isometric view is generally acceptable and readable, but the model is blurry/low-detail with muddy textures and indistinct room boundaries (visual clarity issue). Lighting is soft but flat. Geometry appears mostly clean, though details (doors/windows) are simplified and inconsistent."
+    },
+    "total_score": 22,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Kitchen (2D plan shows a defined kitchen with counters/appliances; 3D render does not depict a corresponding kitchen space/layout)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Dining Room and the associated large open rectangular space shown in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry (explicit in plan adjacent to kitchen)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Utility Room/HVAC/WH zone (plan shows dedicated utility with labeled equipment areas)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing WC (plan shows a WC near the central hall)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Central Hall/Alcove configuration (plan shows central hall and alcove elements not reflected in 3D)."
+        },
+        {
+            "code": "E2",
+            "description": "Overall room placement is inconsistent with the plan; 3D layout appears reorganized into bedroom-focused arrangement rather than the plan\u2019s service/core + dining/kitchen arrangement."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: plan indicates a prominent dining-room window seat/bay condition; 3D render shows generic windows not aligned to that feature."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation mismatch: plan has specific door swings/locations (e.g., utility/WC/hall connections) that are not reproduced in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the footprint and relative room dimensions in the 3D render do not preserve the plan\u2019s measured rectangular dining room and adjacent kitchen/service proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedrooms and bedroom furniture: the 3D render includes multiple bed rooms/spaces not present in the provided 2D plan segment."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact/low fidelity: interior elements are blurry and indistinct, reducing verifiability of openings and partitions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan11.png"
+}

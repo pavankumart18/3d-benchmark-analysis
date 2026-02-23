@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall massing roughly matches (garage right, living/kitchen left-center, bedroom wing right), but several spatial mismatches: (1) both covered patios from the 2D plan are not represented as exterior spaces in the 3D (E1). (2) The nook/patio angled corner condition is simplified/unclear and does not read as the same geometry as the plan (E2/E4). (3) Bedroom/bath corridor geometry is simplified; the master entry vestibule/angled wall and master bath/WIC shapes do not match the plan\u2019s angular/stepped layout (E2/E4). (4) Door locations are represented as generic openings and several appear shifted or missing vs. plan (E2/E1). (5) Window count/spacing along the living room exterior wall does not match the plan\u2019s longer run of multiple windows (E2). Proportions of several rooms (dining/study/hall) appear inflated relative to the plan (E4)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Adjacency is partially correct (garage adjacent to utility/hall zone; bedrooms grouped on right), but multiple plan-specific structural cues are lost: covered patios are missing entirely (E1). Wall thickness is visually uniform but does not reflect plan hierarchy (exterior vs interior) and several walls/returns in the bedroom wing are simplified (E4). Door embedding is inconsistent: many doors are omitted or converted into open cased openings, reducing fidelity to the plan (E1/E2). Some closet/bath partitions (master bath/WIC and hall bath zone) do not match the plan\u2019s exact stepped/angled boundaries (E2/E4)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Major furniture zones are plausible (living seating, kitchen island, beds in bedrooms), but mapping is not faithful to the plan\u2019s implied fixtures: kitchen work triangle/pantry/appliance placement is approximate and some rooms show furniture that is not indicated by the 2D plan (extra/duplicated dining seating arrangements) (E5). Several furniture items appear oversized relative to room widths (notably dining tables and some bedroom clearances) (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Clean, readable isometric-style presentation with consistent materials. However, projection is more perspective than strict orthographic isometric (E6). Lighting is flat/ambient with limited shadow definition. Some geometry appears blocky with simplified openings and clipped wall details, reducing architectural clarity (E6). Overall composition is clear but lacks accurate exterior boundary/context (patios) which also hurts visual completeness."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing both covered patio areas shown in the 2D plan (top-left off nook and bottom-center off bedroom #4/living-side)."
+        },
+        {
+            "code": "E2",
+            "description": "Living-room exterior window run: count/spacing and overall placement do not match the multiple-window sequence in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Nook/covered-patio angled corner and the exterior door relationship are not modeled to match the 2D plan geometry."
+        },
+        {
+            "code": "E1",
+            "description": "Several interior doors from the 2D plan are not represented as doors (swing/leaf) and appear as open passages instead (e.g., multiple hall/bed/bath connections)."
+        },
+        {
+            "code": "E2",
+            "description": "Master suite internal layout (entry vestibule/angled wall + master bath/WIC partitioning) is simplified and does not follow the 2D plan\u2019s stepped/angled boundaries."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: dining/study/hall zones appear larger/wider than indicated relative to adjacent spaces in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/unsupported interior elements: extra or duplicated dining-table seating setups beyond what the 2D plan specifies."
+        },
+        {
+            "code": "E6",
+            "description": "Camera/projection is not strict isometric/orthographic; mild perspective and simplified/clipped opening geometry reduce technical accuracy."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan9.png"
+}

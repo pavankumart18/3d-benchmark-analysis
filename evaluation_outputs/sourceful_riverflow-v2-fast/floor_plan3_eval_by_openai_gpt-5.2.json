@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (kitchen left, stairs left, open living/dining right, bathroom near center), but multiple plan-to-render mismatches occur: several exterior/interior doors from the 2D plan are missing or relocated, window locations/counts do not match, and the central bathroom/vestibule region proportions and wall runs differ (extra/shifted partitions and altered corridor geometry)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness appears generally consistent and geometry is coherent, but fidelity to the 2D structure is reduced by missing/changed openings, an apparent omission of the small 3'x2' space below the bathroom, altered adjacency at the kitchen-hall interface (door replaced by open passage/shifted wall), and hallucinated exterior openings on the left wall."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "The 2D plan does not specify furniture, so exact mapping cannot be verified. Furniture in the render is plausible for the living/dining area, but scale and placement cannot be confirmed against the plan; some circulation clearances appear tight around the dining set and central partitions."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric view is clear and readable; lighting is soft and consistent; geometry is mostly clean. Minor issues: some shapes (stairs/inner partitions) look simplified/blocky relative to architectural detail; projection is perspective-isometric rather than strict orthographic isometric."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing exterior double-door/opening on the top wall in the dining room area shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior door on the left wall into/near the kitchen as shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door placement does not match the 2D plan (plan shows centered on bottom wall; render places it noticeably right of center)."
+        },
+        {
+            "code": "E3",
+            "description": "Interior door between kitchen and adjacent hall/living zone in the 2D plan is not represented as a door in the render (appears as an open passage/changed opening condition)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the small 3' x 2' room/vestibule space beneath the bathroom indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch on the right and bottom facades versus the 2D plan (render shows fewer/different-sized windows than the plan indicates)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated narrow vertical windows on the left exterior wall (present in render but not indicated in the 2D plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Central partition/wall alignment differs around the bathroom and adjacent corridor (extra/shifted walls relative to the 2D plan)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the central core: bathroom and adjacent circulation/partition sizes do not preserve the compact dimensions implied by the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan3.jpg"
+}

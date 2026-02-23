@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant failure in exterior wall logic. The render halluncinates a solid perimeter wall at the bottom right where there should be an open foyer entry. Door swings are mostly missing or genericized. Window placements on the facade do not align with the large glazing seen in the plan's decks."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Major structural deviations: the kitchen and entry foyer area is completely reorganized into a different room shape (E5). The utility deck area is rendered as an enclosed room with small windows rather than an open balcony. Wall thicknesses are inconsistent."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living room and dining furniture matches the general layout well. However, the kitchen appliances are incorrectly oriented and simplified compared to the plan's L-shape configuration."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render is of high visual quality with clean textures, soft lighting, and a consistent isometric camera angle. It is an excellent piece of CG art, though a poor architectural replica."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior walls enclosing the Foyer and Utility areas which should be open/accessible."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counters are misplaced and do not follow the L-shape plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of Bed-1 compared to the Living area is distorted, making the room appear smaller than the plan dimensions."
+        },
+        {
+            "code": "E1",
+            "description": "Missing large sliding glass door transitions for both the main Deck and Bed-1 Deck."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the toilet fixtures in C.TOI is rotated 90 degrees from the architectural plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact on the right facade where windows appear floating/unaligned with internal floor heights."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan14.webp"
+}

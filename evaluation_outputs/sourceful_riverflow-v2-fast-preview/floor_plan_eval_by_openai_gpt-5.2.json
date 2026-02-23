@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall layout roughly matches (living/dining/kitchen at top, two bedrooms bottom corners, baths on left and center-bottom), but several plan-to-3D mismatches remain: interior corridor/door junctions around the entry + center-bottom bath/closet zone are reconfigured, some door swings/orientations do not match the 2D arcs, and room proportions (hall widths vs. room sizes, especially the center circulation zone) appear altered."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Main adjacency relationships are mostly preserved (kitchen open to dining/living; bedrooms off the central hall; left bath near hall), but the entry/\"DEN\"/closet region is not faithfully represented (reads as a small usable room in 3D rather than primarily closets), indicating structural reinterpretation. Wall thickness looks generally consistent but openings/embeddings are simplified; some internal partitions appear shifted, changing circulation geometry."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living/dining furniture (sofa/coffee table/dining table) is placed in the correct zone and generally plausible, but several items are generic/simplified vs. the plan and the center-bottom area includes furniture (chair/desk-like setup) that does not correspond cleanly to the 2D plan\u2019s closet/den labeling. Some scale feels off (oversized hall clearances relative to door widths)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with decent lighting and minimal artifacts. However, it is more of a perspective/isometric hybrid than a strict orthographic isometric; some geometry reads slightly softened/blurred, and door/window detailing is simplified which reduces clarity for verification."
+    },
+    "total_score": 68,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Entry/center-bottom circulation zone (around the main entrance and adjacent closets/\"DEN\") is spatially rearranged compared to the 2D plan, altering hall geometry and partition locations."
+        },
+        {
+            "code": "E5",
+            "description": "Center-bottom area appears as a small usable room with furniture (chair/desk-like element), whereas the 2D plan indicates a closet/\"DEN\" storage area rather than a furnished room."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior door swing/orientation mismatches vs. the 2D plan arcs, especially around the hall junctions near the left bath and the center-bottom bath/closet doors."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: corridor widths and the relative size of the central hall/entry zone vs. adjacent rooms differ from the 2D plan (circulation reads enlarged and some rooms slightly compressed)."
+        },
+        {
+            "code": "E2",
+            "description": "Some openings appear shifted along their walls (notably around the central hall junctions), changing exact door positions relative to neighboring walls/closets."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan.jpg"
+}

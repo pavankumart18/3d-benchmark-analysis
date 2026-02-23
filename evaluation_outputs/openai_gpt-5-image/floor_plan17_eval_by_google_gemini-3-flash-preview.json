@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant failure in room orientation and balcony placement. The large balcony adjacent to the living area is completely missing, while a balcony appears at the utility area in the bottom center. Window placements do not correlate with the plan's openings."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Missing major rooms (Master Bed Balcony) and dressing area. Wall adjacencies in the wet areas (bathrooms/toilets) are simplified or merged incorrectly compared to the technical drawing."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Hallucinated furniture items were added (extra dining tables in bedrooms). Sofa arrangement in living room is roughly similar but lacks the scale and count of the original plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality isometric render with clean lighting and consistent materials. Orthographic projection is handled well despite the structural inaccuracies."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 6'0\" wide main balcony and 5'0\" wide master balcony."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated dining-style circular tables placed inside bedroom and service areas."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of windows and entrance foyer door swing."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen and utility proportions are distorted, losing the defined L-shape flow."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of several beds does not match the wall-facing layout of the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan17.jpg"
+}

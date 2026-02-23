@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall massing resembles the 2D plan (bedroom top-left, living/dining center-left, kitchen/utility to the right, toilet near top-center/right, balcony bottom-left), but key spatial/entry sequencing is wrong. The foyer shown in plan at the bottom-right is not clearly modeled as a distinct space; the main entry appears to open more directly into the living area. Several door locations/orientations do not match the plan, and some exterior window placements (notably kitchen/utility side) are missing or unclear. Room proportions appear altered (living vs bedroom and right-side service zone widths)."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Walls are generally coherent and consistent in thickness, and major adjacencies (living-to-kitchen, kitchen-to-utility, bedroom-to-living, toilet near corridor) mostly match. However, the foyer as a defined enclosed/partitioned entry zone is effectively absent/merged, and at least one interior doorway/threshold is replaced with an open passage. No extra (hallucinated) rooms are introduced."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture types broadly match expected usage (bed in bedroom, sofa in living, dining table in living/dining, kitchen counters, toilet fixtures). Placement is approximate but not faithful to the plan\u2019s indicated layout (e.g., living seating/dining positions and circulation clearances differ). Furniture scale is generally consistent."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-like view with simple lighting and mostly distortion-free geometry. Projection is not strictly architectural orthographic/isometric (perspective is present). Materials are minimal but clarity is acceptable; no major rendering artifacts observed."
+    },
+    "total_score": 68,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer (bottom-right, 4'6\"x3'10\") is not clearly present as a distinct room/zone; entry sequence appears merged into living area."
+        },
+        {
+            "code": "E2",
+            "description": "Main entry door is misplaced relative to the 2D plan (plan: bottom-right into foyer; render: entry appears closer to bottom-center and into main space)."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen separation/doorway condition from foyer/living is incorrect (plan shows a defined kitchen entry; render uses a more open passage with missing/altered door)."
+        },
+        {
+            "code": "E1",
+            "description": "Exterior windows on the right-side service wall (kitchen/utility) are missing or not represented as in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions appear distorted: living/dining vs bedroom sizing and/or the right-side (kitchen/utility/toilet) widths do not preserve the 2D plan\u2019s relative dimensions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan18.jpg"
+}

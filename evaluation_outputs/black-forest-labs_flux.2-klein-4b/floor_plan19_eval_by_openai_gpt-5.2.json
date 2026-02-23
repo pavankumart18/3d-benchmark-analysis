@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (central living/dining, kitchen bottom-center, bedrooms at left/top/right, decks at top), but several plan-defined subspaces are not faithfully represented. Entry/foyer sequence at bottom-left is not clearly formed as in plan, and the small HO room near the entry appears absent/merged. Some internal wall lines around the corridor/toilet cluster on the right-middle deviate, creating ambiguous room boundaries. Room proportions appear altered: living/dining reads oversized relative to the plan, while the bottom service/entry zone reads compressed. Door locations/orientations are only partially consistent\u2014several doors are present but do not clearly match the exact plan positions (notably around the central-right corridor and bottom entry/service area). Window placement cannot be verified well in the 3D (few/unclear openings compared to the plan\u2019s multiple exterior window runs), suggesting omissions or under-modeled windows."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Primary adjacencies are mostly maintained (Bed-1 with attached toilet; utility adjacent to kitchen; Bed-2 near a toilet; two decks along the top edge), but the plan\u2019s finer partitioning is not preserved. The HO room appears missing (merged into adjacent space), and the foyer/entry vestibule configuration is not clearly modeled as a distinct enclosed zone. The right-middle toilet cluster (common toilet/C.TOI area) appears simplified/reshaped relative to the plan\u2019s exact walling. No clear hallucinated extra rooms, but the reconfiguration of partitions effectively changes the intended room graph. Wall thickness looks mostly consistent, though some short partition stubs and junctions look simplified vs plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture intent is broadly aligned (sofa seating in living, dining table in living/dining, beds in bedrooms, basic kitchen counters). However, bedroom-specific layouts do not consistently match the plan (e.g., Bed-3 shows twin beds rather than a single larger bed arrangement as depicted in 2D; some wardrobe/bed placements are approximated). Scale is generally plausible but the dining set and open living area feel oversized relative to adjacent circulation widths."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric-style view is clear and readable, but it is not strictly orthographic/isometric (noticeable perspective/foreshortening). Lighting is adequate but somewhat flat; material contrast is limited. Geometry is mostly clean, though some wall junctions/door openings look blocky and simplified. Overall composition is understandable and reasonably polished."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "HO (small room near the entry in the 2D plan) appears missing in the 3D or merged into adjacent space."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer/entry vestibule area at the bottom-left is not modeled as a distinct sequence matching the 2D plan\u2019s enclosure and boundaries."
+        },
+        {
+            "code": "E2",
+            "description": "Central-right corridor/toilet partitioning (including the common toilet/C.TOI zone) is reshaped/simplified, altering wall alignment compared to the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Several door placements/orientations around the central-right corridor and bottom service/entry zone do not clearly match the 2D plan\u2019s exact door locations and swings."
+        },
+        {
+            "code": "E1",
+            "description": "Window placement is under-specified/unclear in the 3D relative to the 2D plan\u2019s multiple exterior window runs (likely missing or not modeled)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions appear distorted: living/dining reads larger than in plan relative to adjacent rooms; entry/service zone reads compressed."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan19.webp"
+}

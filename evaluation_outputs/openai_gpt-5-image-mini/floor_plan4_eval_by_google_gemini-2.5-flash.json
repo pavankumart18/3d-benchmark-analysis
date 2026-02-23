@@ -1,0 +1,112 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "There are significant discrepancies in room placement and door/window placements, leading to a low score. The Hall is completely absent. The bathroom is entirely gone, as are the closets in the entry hall and bedroom 2. The Kitchen/Dining area is mostly accurate, though the dining table is not aligned correctly with the kitchen counter. The Laundry room is in the correct general position but its internal structure differs greatly. Bedroom 1 and 2 are swapped in comparison to the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Multiple rooms are missing entirely (Bathroom, Hall, Closets), and internal walls are significantly altered. Hallucinated walls are present. Incorrect adjacency relationships are widespread due to missing and misplaced rooms and walls."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor, with many items either missing (e.g., dining chairs, bedroom 1 furniture, hall closet items) or misplaced (e.g., Bedroom 1 bed is in Bedroom 2's location, and Bedroom 2's bed is in Bedroom 1's location). The Laundry room's interior layout is completely different. Couch and tables in Living Room are generally correct in terms of type but not precise placement. Most furniture is present but not correctly mapped to their rooms/locations."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and the projection appears orthographic. Lighting is flat but consistent. Geometry is clean with no obvious distortions. Visual clarity is good; however, the lack of realistic materials or textures and the overall simplified aesthetic result in an average score."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Hallway."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet near the entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet in Bedroom 2's original position."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the Laundry room corresponding to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 1 and Bedroom 2 are swapped compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table in Kitchen/Dining is not positioned accurately near the kitchen counter."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is shifted inwards from the blueprint position."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Laundry room is misplaced and oriented differently."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bedroom 1 (originally Bedroom 2) is misplaced and oriented differently."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Living Room is misplaced and oriented differently."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bathroom (originally Bedroom 1) is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "All window placements are incorrect or missing (e.g., living room windows are shifted, bedroom windows are in different locations/rooms)."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door orientation is incorrect; it opens into a non-existent hall area."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Laundry room has incorrect orientation."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Bedroom 1 (originally Bedroom 2) has incorrect orientation."
+        },
+        {
+            "code": "E4",
+            "description": "The Laundry room's internal proportions are distorted relative to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The overall shape of the house deviates slightly, especially with the corner where the Laundry room and Kitchen/Dining meet."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment where the original Hall and Bathroom were located, creating a new, undefined space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment to enclose the Laundry room, which is different from the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated internal wall fragment in the 'new' Bedroom 1 (original Bedroom 2 position)."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan4.jpg"
+}

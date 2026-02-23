@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Overall layout is only partially consistent with the 2D plan. The living/dining is generally central, but multiple walls/room boundaries around the right-side bedroom cluster (Bed-1/Bed-4/C.Toi/Toi-1/utility) are rearranged. The two distinct decks in the plan (long main deck + smaller deck at Bed-1) are not clearly reproduced as two separate, correctly shaped exterior spaces. Several interior openings/doors do not match the plan\u2019s positions and swing/orientation, and window placement is substantially simplified compared to the plan. Room proportions (notably living/dining and kitchen/utility widths) appear distorted."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is visually consistent, but adjacency fidelity is weak in the right half: the bathroom cluster and bedroom connections do not cleanly match the plan\u2019s arrangement. Some rooms/bathrooms appear merged or re-partitioned compared to the 2D plan. Doors are often represented as open portals without correct embedding/swing representation, reducing fidelity. No clear evidence of an exact foyer/HQ segmentation as shown in plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is plausible but does not closely follow the 2D plan: kitchen is rendered as an island/peninsula arrangement rather than the plan\u2019s galley/L-counter feel; dining set size/layout differs; bedroom furniture placement is generic and not aligned to the plan\u2019s indicated bed/wardrobe locations. Scale is inconsistent (dining table/chair spacing appears oversized relative to circulation)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with generally good lighting and minimal geometry artifacts. However, the projection is not strictly orthographic/isometric accurate (perspective feel), and some wall intersections/openings read ambiguous, reducing clarity for verification."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Right-side bedroom/bath cluster mispartitioned: Bed-1/Bed-4/C.Toi/Toi-1 arrangement does not match the 2D plan\u2019s wall layout and adjacency."
+        },
+        {
+            "code": "E1",
+            "description": "Second distinct deck (the smaller deck attached to Bed-1 in the plan) is not clearly present as a separate, correctly bounded exterior space."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining and kitchen/utility proportions appear inconsistent with the plan (living/dining reads reduced; kitchen reads widened with island)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement deviations: multiple internal door locations do not match the plan (notably around bathrooms and the corridor connections on the right side)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing not represented to plan; several planned hinged doors are rendered as open apertures, losing correct orientation information."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement simplified/misaligned: plan shows extensive window runs (especially along living/deck edges and bedroom exteriors) but the 3D includes fewer/shorter window openings."
+        },
+        {
+            "code": "E1",
+            "description": "Foyer/HQ segmentation from the plan is not clearly reproduced as distinct spaces with matching boundaries."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen configuration: a prominent island/peninsula layout appears that is not indicated in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/altered openings: additional or enlarged wall openings between spaces (compared to the plan) create different circulation paths."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan19.webp"
+}

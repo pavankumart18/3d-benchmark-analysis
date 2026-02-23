@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout mismatches between plan and 3D. (E2) Central Hall on the left side of the plan is not represented as a defined hallway volume; the 3D reads as a largely open space with no clear hall boundaries. (E2) W.C. location/shape differs: in plan it is a compact room at the top-center off the hall; in 3D the bathroom cluster appears shifted to the top-left with different wall geometry. (E2/E3) Door placement/orientation is largely inconsistent: plan shows multiple hinged doors (W.C., Utility, crawlspace/HVAC access) with specific swings; 3D shows wide openings/arches and lacks matching hinged-door locations/swings. (E2) Window placement does not follow the plan\u2019s specific fenestration (notably the dining-room window seat zone on the right wall); 3D distributes large windows/doors around the perimeter without matching the plan\u2019s callouts. (E4) Proportions of the Dining/Kitchen/Utility relationship appear distorted: dining room footprint and the utility core do not preserve the plan\u2019s tighter central-service block and defined dining rectangle."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Structural relationships deviate substantially. (E2) Adjacencies are incorrect: in plan, Utility/WC/Hall form a specific cluster with the Utility opening to the hall and kitchen/dining along the right/bottom; 3D collapses/opens these boundaries and reorders the service-core feel. (E1) Multiple plan-defined service elements are missing/not legible in the 3D: crawlspace access and HVAC/W.H. compartmentation inside the utility room are not modeled as distinct sub-areas. (E5) Hallucinated spatial elements/openings appear (arched openings and large open circulation) that are not indicated in the plan. Wall thickness looks generally uniform in 3D, but door embedding is mostly not faithful because many plan doors are absent or replaced by open passages."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "(E5) Furniture is largely invented relative to the architectural plan snippet: a bed is placed inside/adjacent to the labeled Utility Room, which is not plausible per plan intent. (E2/E4) Kitchen cabinetry/appliance layout is not mapped to the plan\u2019s specific kitchen/pantry geometry (e.g., pantry location on the right side of kitchen); dining table placement is generic and not aligned to the plan\u2019s dining-room bounds. Overall furniture scale feels plausible visually, but it does not correspond to the plan\u2019s room functions/boundaries."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Render is visually clean and readable, with decent lighting and consistent materials. However, (E6) the camera is more perspective than strict isometric/orthographic, reducing measurement fidelity. Geometry is mostly clean, but several openings (arches/large window modules) look template-driven rather than plan-derived, harming architectural clarity."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Central Hall (left side in plan) is not modeled as a distinct hallway; 3D shows an open area instead of the plan\u2019s defined circulation spine."
+        },
+        {
+            "code": "E2",
+            "description": "W.C. placement/geometry differs: plan shows W.C. top-center off the hall; 3D bathroom appears shifted toward the top-left with different boundaries."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room internal service elements (HVAC/W.H./crawlspace access compartmentation) shown in plan are not distinctly represented in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements and swing orientations from the plan (W.C., Utility, service/access doors) are missing or replaced by open passages in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Window/door placement along the perimeter does not match plan intent (notably the dining-room right-side window seat zone and specific fenestration locations)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion relationships (Dining/Kitchen/Utility core) appear distorted; the 3D does not preserve the plan\u2019s tighter central-service block and defined dining rectangle."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture/room use: a bed appears in/near the Utility Room, which conflicts with the plan\u2019s utility/service function."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated architectural elements: arched openings and generalized open-plan transitions not indicated in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Camera/projection is not strictly isometric/orthographic; perspective distortion reduces fidelity to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan11.png"
+}

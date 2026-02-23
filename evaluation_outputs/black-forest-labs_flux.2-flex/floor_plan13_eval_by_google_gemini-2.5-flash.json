@@ -1,0 +1,112 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Laundry has been significantly altered. Wall alignments are generally off, especially around the Bathroom/WC area and the Kitchen/Laundry/Bedroom 1 partition. Door placements are largely incorrect, and orientations are frequently wrong. Window placements are highly inaccurate, with many missing or misplaced. Room proportions are significantly distorted throughout, especially in the Living/Dining area, Bathroom, and Laundry."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker or thinner than others. Door embeddings are incorrect, with some doors appearing to float or not properly integrated into walls. Adjacency relationships are mostly maintained but proportions and wall structures between rooms are incorrect. The 'Linen' closet is missing. The 'L'dry' room has been significantly altered in structure and purpose (E5). Hallucinated wall structures are present, particularly around the Laundry and the external wall of Bedroom 1."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement within the Kitchen and Bathroom is somewhat accurate but scaled inconsistently. Missing furniture in Lounge, Dining, and Bedrooms. Scaling of bathroom fixtures is inconsistent. The washing machine and sink in the 'L'dry' area are inaccurate in terms of type and placement."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting quality is acceptable. Geometry has some distortions, and several elements appear to float (e.g., toilet in WC, shower in Bath). Visual clarity is decent, but compositional elements are weakened by incorrect structural details."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Linen' closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a window in the Lounge/Dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a window in Bedroom 2."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bathroom and WC, and incorrect separation."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced common wall between Laundry/Bedroom 1 and Kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bedroom 1 is misplaced and appears too large."
+        },
+        {
+            "code": "E2",
+            "description": "The window/opening between the Dining and Kitchen is absent/misplaced as a wall."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the main entry door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the Bathroom door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the WC door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for Bedroom 2 door."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Lounge/Dining area, appearing larger and differently shaped."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bathroom, appearing larger and different layout."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Laundry, significantly altered."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom 1, appearing wider than indicated."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall separating 'L'dry' from Kitchen and Bedroom 1."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segmentation in Bathroom and WC area."
+        },
+        {
+            "code": "E5",
+            "description": "The 'L'dry' area has been completely reconfigured, appearing as an extended part of the kitchen or a different room entirely, rather than a dedicated laundry space with a washing machine and sink as depicted in the floorplan."
+        },
+        {
+            "code": "E6",
+            "description": "Bedroom 2 door appears to float from the wall."
+        },
+        {
+            "code": "E6",
+            "description": "Toilet in WC appears to float from the wall."
+        },
+        {
+            "code": "E6",
+            "description": "Shower in Bath appears to float."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan13.jpg"
+}

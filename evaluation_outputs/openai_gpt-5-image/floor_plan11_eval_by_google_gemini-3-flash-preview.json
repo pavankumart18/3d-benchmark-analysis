@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major failures in room layout and orientation. The dining area is flipped with the living/alcove section. Window counts and door swings do not match the blueprint. The window seat bump-out is missing its correct geometry."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The utility room and WC/bathroom are completely missing or integrated into a generic hallway. Stairs are incorrectly oriented compared to the 'UP' arrow on the plan. Hallucinated openings between the kitchen and dining area."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The kitchen island is a total hallucination not present in the floor plan. The dining table is in a room that should be empty or contain closets/alcoves based on the plan's left-side configuration."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and material consistency. Isometric perspective is well-maintained despite the structural inaccuracies. Text rendering on the floor is distorted ('KITIHCH', 'TACAL')."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing WC (Bathroom) and Utility Room enclosures."
+        },
+        {
+            "code": "E2",
+            "description": "Dining furniture placed in the wrong room; stairs oriented 180 degrees incorrectly."
+        },
+        {
+            "code": "E3",
+            "description": "Window seat bay window geometry is missing its faceted 45-degree angles."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen sink and counter proportions do not match the specific kitchen detail plan dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated central island in the kitchen and extra interior doorways."
+        },
+        {
+            "code": "E6",
+            "description": "Garbled text rendering on the floor and wall labels."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan11.png"
+}

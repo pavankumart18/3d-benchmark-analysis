@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the rendered image introduces an additional room 'hallucinated' from the closet space on the floor plan. Wall alignment is inconsistent, particularly with interior walls. Many doors are misplaced and incorrectly oriented. Windows are misplaced and some are missing. Room proportions are distorted, particularly in the living area and the newly created room."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly between exterior and interior walls, and within interior walls. Door embedding is incorrect for several doors, appearing as standalone rectangles. Adjacency relationships are mostly preserved, but a new room is hallucinated. One room is missing (part of the kitchen/living area is cut off), and a new room is hallucinated where a closet should be."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor; objects are moved, added, and removed. Furniture scale is inconsistent, with some items appearing oversized relative to the space (e.g., the bed in the 'new' room) and others undersized (e.g., bathroom fixtures)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair, but perspective seems slightly off in some areas. Lighting quality illuminates the space clearly. Geometry has some distortions, noticeable in wall thicknesses and door frames. Visual clarity is good, but composition is flawed due to the structural and spatial inaccuracies."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated a new room from a closet area next to the stairs, complete with a bed and a door."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door at the bottom right of the floor plan is completely missing in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The door leading to the bathroom is rotated 90 degrees and misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen/living area in the render suggests a portion is missing or cut off compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The bedroom door is misplaced and its orientation is incorrect."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple windows are missing from the exterior walls of the Kitchen/Living area."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements are incorrect on the main bedroom wall and the right exterior wall, where windows are shown but not present on the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The overall proportions of the living/kitchen area seem to be compressed, and the 'new' room is disproportionately large for what was a closet."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thicknesses throughout the render, some walls appear thicker than others without reason."
+        },
+        {
+            "code": "E2",
+            "description": "The door for the kitchen is missing, and the opening is smaller than indicated on the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "The bed in the main bedroom is rotated 90 degrees compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The sofa and square table in the living area are misplaced and oriented differently."
+        },
+        {
+            "code": "E1",
+            "description": "The kitchen island/peninsula from the floor plan is missing, replaced by a counter extending from the wall."
+        },
+        {
+            "code": "E2",
+            "description": "Hallway leading to the stairs is significantly wider in the render."
+        },
+        {
+            "code": "E4",
+            "description": "The bathroom fixtures appear small relative to the bathroom space."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan6.jpg"
+}

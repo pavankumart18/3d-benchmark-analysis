@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but door swings in the 3D render are inconsistent with the 2D plan. The transition from the Living area to the long deck/balcony is poorly defined."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The primary balcony/deck at the top is missing its outer railing/wall structure, appearing as a closed room. The small balconies for Bedroom 1 and 2 are incorrectly rendered as interior floor space extensions."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement corresponds well to the plan, though the bed in Bedroom 2 has been split into two singles instead of a single queen/king as implied by the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent orthographic projection and clean volumetric lighting. Materials are clear and geometry is sharp."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing horizontal balcony/deck railings and exterior defining walls at the top of the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom 2 bed orientation and type changed from single queen to twin singles."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing direction for the main entrance and internal rooms (e.g., Toilet 2) deviates from the architectural plan."
+        },
+        {
+            "code": "E4",
+            "description": "The Utility/Kitchen wall proportions feel slightly compressed compared to the Living/Dining expanse."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan20.avif"
+}

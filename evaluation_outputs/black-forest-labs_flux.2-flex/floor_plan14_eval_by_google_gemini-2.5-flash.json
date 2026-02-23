@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some walls are misaligned. Door placements are largely incorrect, and window placements deviate significantly from the floor plan. Room proportions are somewhat distorted, particularly in the kitchen and living/dining areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some internal walls appearing thicker than others. Door embedding is incorrect, often showing doors opening into walls or with incorrect swing directions. Adjacency relationships are mostly correct, but the utility room connection to the deck is missing. There are no missing or hallucinated rooms, but the utility room is depicted incorrectly as a separate enclosed space not directly accessible from the kitchen as shown in the floor plan."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, but some items (e.g., dining table, beds, sofa) are slightly off position. Furniture scale consistency is acceptable."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are good. Lighting quality is decent. Geometry is clean with no significant distortions. Visual clarity and composition are good, allowing for clear identification of spaces."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall misalignment between kitchen and living/dining area, and around Bedroom 2 and Utility."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and orientation for Foyer, F.TOI, C.TOI, and Utility. The bedroom 1 and bedroom 2 doors are also incorrect in placement and/or swing."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing direction incorrect for multiple doors (e.g., Foyer entrance, F.TOI, C.TOI, Utility, Bedroom 1, Bedroom 2)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement incorrect on multiple external walls, especially the absence of windows on the left side of the living/dining area and the incorrect placement on the front facade."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Kitchen, making it appear smaller and differently shaped than depicted in the floor plan. The Foyer also appears proportionally different."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall segment between the deck of BED-2 and the utility area, which should have a direct access/door for the utility room."
+        },
+        {
+            "code": "E2",
+            "description": "The utility room is depicted as an enclosed space, but the floor plan shows it as open to the deck via a washing area, or has a different access point."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated railing on the left side of the 'BED-2' deck, not indicated on the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Some rendering artifacts include slightly uneven wall textures or inconsistent material appearance."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan14.webp"
+}

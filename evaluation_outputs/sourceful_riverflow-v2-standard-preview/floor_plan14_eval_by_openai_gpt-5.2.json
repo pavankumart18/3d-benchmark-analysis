@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Overall layout is only partially aligned: the two-bedroom + central living/dining concept is present, but key spaces from the 2D plan are not represented correctly. The 2D plan has two distinct decks/balconies (large deck off Living/Dining and small deck off Bed-1); the 3D render does not clearly model these as separate, correctly located exterior spaces. The Utility (5' x 7'8\") connected to the Kitchen is not clearly present as a separate room. Bathroom locations/entry orientations appear simplified and do not match the plan\u2019s exact placements. Window/opening placement is largely inconsistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness appears visually consistent, but the plan\u2019s structural program is not faithfully preserved: missing decks and missing/merged utility substantially reduce fidelity. Adjacencies are partially correct (bedrooms connect to living zone), but the plan-specific relationships (Living-to-deck, Kitchen-to-utility, toilet placements) are not reliably reproduced. Doors are embedded as openings, but their exact positions and swing/orientation information from the 2D plan is not preserved."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is plausible but does not map tightly to the 2D layout: kitchen fit-out differs (appears more open/peninsula-like than the enclosed L-shaped kitchen), and living/dining furniture arrangement is generic versus the plan. Furniture scaling is generally consistent and not severely distorted."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clean and readable with decent lighting and consistent geometry. Isometric-style view is appropriate, though it is not strictly orthographic (perspective/foreshortening present). Overall presentation quality is good despite plan mismatches."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing large deck/balcony connected to Living/Dining (13'9\" x 5') as shown on the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing or not clearly represented small deck/balcony connected to Bed-1 (5'8\" x 4'5\") in the correct location."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room (5' x 7'8\") adjacent to Kitchen is missing or merged into another space in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen enclosure and counter geometry do not match the 2D plan\u2019s enclosed L-shaped kitchen; 3D depicts a more open kitchen configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom placement appears simplified/misaligned relative to the plan (Toi-1 and C.Toi positions and their relationship to adjacent rooms are not clearly preserved)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation (swing and exact doorway locations for bedrooms/bathrooms/foyer connections) does not match the 2D plan details."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placement is largely inconsistent with the 2D plan; several exterior-window runs shown in plan are not represented or are reduced to plain walls."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion relationships appear distorted (living/dining-to-bedroom and foyer/passage sizing not consistent with labeled dimensions in the 2D plan)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/unsupported interior elements: kitchen peninsula/island-like massing and some generic furnishing layouts not supported by the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan14.webp"
+}

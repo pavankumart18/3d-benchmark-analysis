@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Severe deviations in spatial logic. The 3D render adds unnecessary internal walls that segment the open-plan Kitchen/Dining/Living area. Window and door placements do not match the orange markers in the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "The stairs are transformed into a generic room block. The central bathroom is misplaced and its orientation is rotated. Massive hallucinations of internal partitioning walls not present in the original layout."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is scattered semi-randomly rather than following the kitchen counter or living room zones indicated. Scale is inconsistent with room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "Isometric view is achieved but the geometry is blurry and 'dream-like' with non-manifold edges. Lighting is muddy and lacks clear definition."
+    },
+    "total_score": 28,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated internal walls dividing the Kitchen from the Dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing staircase structural details; replaced by a solid room/void."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door is shifted off-center compared to the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom orientation rotated 90 degrees compared to the vertical 3'x2' block."
+        },
+        {
+            "code": "E4",
+            "description": "The open-plan living/dining aspect (13'x24') is compressed into fragmented zones."
+        },
+        {
+            "code": "E6",
+            "description": "Smearing and ghosting artifacts on the internal walls and furniture geometries."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan3.jpg"
+}

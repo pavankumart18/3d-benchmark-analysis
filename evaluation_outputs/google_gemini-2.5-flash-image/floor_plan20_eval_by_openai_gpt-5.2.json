@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 33,
+        "max": 40,
+        "notes": "Overall room layout and adjacencies largely match the 2D plan (Bedroom-3 left, Living/Dining center, Kitchen/Utility bottom center, Bedrooms 1&2 right, Toilets in same clusters). However, notable proportion/dimension changes are present: Living & Dining is reduced from 23'10\" x 12'11\" to 20'10\" x 12'11\" (E4), and Bedroom-1 changes from 16'5\" x 14'6\" to 13'6\" x 14'8\" (E4). Minor dimension drift also appears (e.g., Utility 4'5\" x 8'7\" to 4'6\" x 8'7\"). Door and window locations appear mostly consistent with the original, with no major relocations detected from the provided images."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "No rooms appear missing and no extra rooms are introduced; adjacency relationships (e.g., Kitchen\u2194Living/Dining, Bedroom-2\u2194Toilet-2, Bedroom-1\u2194Toilet-1, Bedroom-3\u2194Toilet-3/4, balconies/deck access) remain consistent. Wall thickness styling differs and some wall/shaft blocks appear visually heavier/darker, which slightly impacts fidelity but does not clearly break the plan. Doors appear embedded plausibly, though exact swing/orientation fidelity cannot be fully verified due to the render being essentially another 2D plan rather than a 3D model."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Major furniture placements broadly match (beds in bedrooms, dining table in Living/Dining, sofa grouping, kitchen counters). Scale appears generally consistent, though the proportion changes in Living/Dining and Bedroom-1 imply furniture-to-room scaling may be indirectly distorted relative to the original dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 11,
+        "max": 25,
+        "notes": "The second image is not a 3D isometric render; it is a 2D top-down plan-style graphic. As a result, isometric camera correctness is not met and orthographic/isometric projection criteria are largely failed. Visual clarity is acceptable and geometry is clean for a 2D plan, but lighting/shading is minimal and not representative of a 3D isometric scene."
+    },
+    "total_score": 74,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Living & Dining proportions/dimensions differ: 23'10\" x 12'11\" (original) vs 20'10\" x 12'11\" (generated)."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom-1 proportions/dimensions differ: 16'5\" x 14'6\" (original) vs 13'6\" x 14'8\" (generated)."
+        },
+        {
+            "code": "E4",
+            "description": "Minor dimension drift: Utility shown as 4'5\" x 8'7\" (original) vs 4'6\" x 8'7\" (generated)."
+        },
+        {
+            "code": "E6",
+            "description": "Provided '3D isometric render' is not isometric/3D; it appears to be a re-styled 2D plan view (rendering/output type mismatch)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan20.avif"
+}

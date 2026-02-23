@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct. Wall alignment is generally good, but some internal walls show inconsistencies (e.g., between kitchen and utility). Door placement and orientation have inaccuracies, particularly the main entrance and bedroom door. Window placement is mostly missing. Room proportions are somewhat preserved but some minor scaling issues are apparent, especially in the utility and toilet."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is not entirely consistent, especially visible in the balcony and between the kitchen/utility. Door embedding is incorrect for the main entrance and the bedroom door, where the swing direction is reversed or the door type is different. Adjacency relationships are mostly correct. No missing rooms, but the hallway leading to the bedroom/toilet from the living area is not explicitly defined in the render. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, but some items are slightly offset or have different arrangements (e.g., in the living room, balcony). Furniture scales are mostly consistent but some items appear slightly larger or smaller than expected (e.g., TV console, balcony chairs)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair, with some perspective distortion. Lighting quality is basic and uniform, lacking realistic shadows and highlights. Geometry is mostly clean, but some minor distortions are visible in wall junctions and object edges. Visual clarity and composition are moderate, and could be improved with better lighting and material definition."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entrance door is misplaced and has incorrect orientation."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom door orientation is reversed."
+        },
+        {
+            "code": "E1",
+            "description": "Most windows indicated in the 2D plan are missing in the 3D render, particularly in the bedroom and living/dining area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the utility room and toilet, they appear slightly narrower or wider than suggested by the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, especially noticeable in the external walls of the balcony and internal partitions."
+        },
+        {
+            "code": "E2",
+            "description": "The internal wall defining the transition area between living/dining and bedroom/toilet is not clearly defined as a separate hallway in the 3D render and is somewhat merged with the living area."
+        },
+        {
+            "code": "E2",
+            "description": "Some furniture items in the living room (e.g., side table) and balcony (chairs) are placed differently or have different configurations."
+        },
+        {
+            "code": "E6",
+            "description": "Basic uniform lighting, lacking realistic shadows and material reflections."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering artifacts/distortions in some wall junctions and object edges."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan16.avif"
+}

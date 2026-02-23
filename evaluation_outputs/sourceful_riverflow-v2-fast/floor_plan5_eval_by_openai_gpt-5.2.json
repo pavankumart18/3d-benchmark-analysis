@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatches between 2D and 3D. Kitchen appears relocated (2D shows kitchen on left-middle with island; 3D shows a kitchen run at the top/upper zone) (E2). Several rooms in the left side read as bedrooms in 3D where 2D indicates kitchen/living adjacency (E2). Interior door locations along the central living/hall junction on the right side do not match the 2D plan\u2019s door distribution/swing directions (E2/E3). Exterior window groupings on the right and top edges do not align with the 2D window positions/count (E2). Overall wing depths/room sizes on the right side appear stretched compared to the 2D proportions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Adjacency relationships are inconsistent: 2D indicates kitchen directly adjacent to left living zone; 3D places kitchen elsewhere, breaking expected adjacencies (E2). At least one small ancillary space/bathroom cluster from the 2D (top-center and top-right wet areas) is not clearly preserved as two distinct bathrooms in 3D (E1/E2). A bedroom count/partitioning appears higher in 3D than the 2D plan suggests (possible extra bedroom/space) (E5). Wall thicknesses are visually uniform but do not reflect any plan-based variation; several doors appear embedded in locations that do not match the plan\u2019s wall openings (E2)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture does not reliably map to the 2D: kitchen fixtures/island placement differs from the plan (E2). Some bedrooms/furnishings appear added or moved relative to the 2D (E2/E5). Furniture scale is generally consistent, but room-fit suggests mismatched room dimensions versus the 2D (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric view with generally good lighting and coherent materials. Camera is a standard isometric-like perspective, but not a strict orthographic/isometric match (minor perspective feel) (E6). Geometry is mostly clean; however, openings/windows/doors look simplified and contribute to plan mismatch rather than detailed fidelity."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen placement does not match the 2D plan (2D kitchen on left-middle; 3D kitchen appears in upper zone)."
+        },
+        {
+            "code": "E2",
+            "description": "Several room placements on the left side appear swapped (spaces reading as bedrooms in 3D where 2D indicates kitchen/living-related rooms)."
+        },
+        {
+            "code": "E1",
+            "description": "At least one of the 2D plan\u2019s small wet-area rooms/bathroom partitions (top-center/top-right cluster) is not clearly preserved as distinct rooms in the 3D."
+        },
+        {
+            "code": "E5",
+            "description": "3D render appears to include an extra bedroom/room partitioning not supported by the 2D plan (bed count/room count likely inflated)."
+        },
+        {
+            "code": "E2",
+            "description": "Interior door positions along the central living and right-side hall do not align with the 2D door openings."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door swing/orientation indications differ from the 2D plan (door leaves appear reversed or simplified)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count on the right and upper exterior walls does not match the 2D plan\u2019s window locations."
+        },
+        {
+            "code": "E4",
+            "description": "Room/wing proportions are distorted, especially the right-side wing depth and bedroom sizing compared to the 2D."
+        },
+        {
+            "code": "E6",
+            "description": "Non-orthographic/perspective-like isometric and simplified opening geometry reduce verification fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan5.jpg"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout roughly resembles a 3-bedroom plan with central living/dining and a central kitchen, but multiple key spatial placements diverge from the 2D plan. Major mismatch: the 2D plan\u2019s DECK is located along the top edge of the living/dining, whereas the 3D render shows an extended balcony/terrace running along the left side of the unit (E2/E5). Bedroom/bath cluster geometry on the left (Bedroom-3 with Toilet-3/Toilet-4 and the lobby connection) does not align cleanly; corridor/lobby offsets appear altered (E2). Door positions for several rooms (notably around toilets and bedroom entries) do not match the plan\u2019s door locations/swing relationships (E2/E3). Window/balcony openings are inconsistent: balcony door placements and long glazing runs do not correspond to the plan\u2019s openings (E2). Room proportions appear distorted: living/dining depth vs. width and bedroom sizes do not preserve the stated plan proportions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Some adjacency relationships are preserved at a high level (kitchen near living/dining; bedrooms on both ends), but the left-side service/toilet grouping and balcony/deck relationships are not faithful (E2). At least one of the four toilets from the plan is not clearly represented as a distinct room in the 3D (E1). A large exterior balcony/terrace element appears that is not present in the 2D plan footprint as drawn (E5). Door embeddings are inconsistent: several doors appear placed where the plan shows wall or different openings, and some toilet/room entries appear re-routed (E2/E3). Wall thickness looks broadly consistent but intersections show occasional misalignment/clipping at junctions (E6)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture is plausible but not mapped accurately to the 2D plan\u2019s arrangement. Living/dining furniture placement differs (sofa/TV/dining table orientation and position), and bedroom furniture layouts (bed orientation/side furniture) do not consistently follow the plan (E2/E3). Several furniture items appear scaled generically rather than reflecting room dimensions implied by the plan (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clean with coherent materials and readable spaces. Camera is a reasonable isometric-like view, though it shows mild perspective rather than strict orthographic isometric (minor deduction). Lighting is acceptable and geometry is mostly clean, but there are some awkward wall junctions/door collisions and overly uniform glazing runs that reduce clarity (E6). Overall composition is clear."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Deck/balcony spatial placement mismatch: 2D plan shows DECK along the top of living/dining; 3D shows a long balcony/terrace running along the left side of the unit."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior element: extended continuous left-side balcony/glazing band not represented in the 2D plan footprint as drawn."
+        },
+        {
+            "code": "E1",
+            "description": "Missing room/element: the 2D plan contains four toilets (Toilet-1/2/3/4); the 3D render does not clearly show all four as distinct, correctly placed rooms."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced doors: multiple room/toilet entry doors appear shifted relative to the 2D plan\u2019s wall openings, especially around the central corridor and right-side bath cluster."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing inconsistencies: several hinged doors in 3D do not match the 2D plan\u2019s implied swing/orientation and entry direction (notably bathrooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Window/balcony opening placement mismatch: balcony doors and long glazing runs do not match the 2D plan\u2019s window/opening locations (notably along the long exterior edge and bedroom balcony interfaces)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: living/dining and some bedroom dimensions appear altered (depth/width balance) relative to the 2D plan\u2019s stated room proportions."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering/geometry artifacts: occasional wall junction misalignment/clipping and door-to-wall collisions reduce structural clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan20.avif"
+}

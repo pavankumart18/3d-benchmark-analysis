@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe errors in wall alignment and room connectivity. The render fails to raise the walls of the core living spaces, instead projecting them as flat 2D decals on the floor. Hallucinated a 3D bathroom/utility area in the background that does not exist in the source floor plan."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Most walls are rendered as flat lines on a 2D surface rather than 3D geometry. Massive structural hallucination at the rear where an entirely new room structure with archways and windows was created. Doorways in the flat plan are not physically realized."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture footprints mostly follow the plan, but their conversion to 3D occurs only for a few items while others remain flat or distorted. Scale is inconsistent."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The rendering style is clean with soft lighting and a good isometric camera angle. However, the conceptual failure to distinguish between 2D floor lines and 3D walls ruins the architectural utility."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated an entire back-row room structure with vertical white walls, windows, and sinks not present in the original design."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact where the primary floor plan walls are rendered flat on the floor plane instead of being extruded vertically."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement on the hallucinated rear wall does not correspond to any exterior openings in the source document."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the central 'living' area is skewed to accommodate the fictitious rear additions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan2.png"
+}

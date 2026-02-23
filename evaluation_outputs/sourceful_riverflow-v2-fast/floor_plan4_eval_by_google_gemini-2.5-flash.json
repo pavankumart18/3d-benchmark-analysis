@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Laundry room is significantly distorted. Wall alignment has several discrepancies, particularly around the Hall, Laundry, and Kitchen/Dining areas. Door placements are largely incorrect or missing. Window placements are frequently incorrect or missing. Room proportions are distorted in several areas, notably the Laundry room and the Bathroom."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas. Door embedding is incorrect, with many doors missing or simplified to openings. Adjacency relationships are mostly preserved but complicated by incorrect wall alignments and missing doors. One room is missing (Lobby/Porch area at the entrance). No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate for Bedroom 1, Living Room, and Kitchen/Dining, but the Bathroom, Laundry, and Bedroom 2 have inaccuracies. Furniture scale is inconsistent for some items (e.g., bathroom fixtures, laundry appliances)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle is correct. Orthographic projection appears accurate. Lighting quality is good. Geometry is mostly clean, but there are some minor distortions. Visual clarity and composition are good."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Laundry room proportions are significantly distorted, making it appear much wider and shorter than in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Numerous wall misalignment issues, especially the wall between the Laundry and Hall/Bathroom, and the wall separating the Kitchen/Dining from the Living Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the entrance to the Laundry room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the Bedroom 2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the Bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the main entrance. The door in the render is a simple opening/recess, not a hinged door as indicated by the swing in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in the Kitchen/Dining area. The render shows a single large window, while the floor plan indicates two distinct windows."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in the Laundry room. The render shows a small, high window, whereas the floor plan shows a larger, lower window."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in Bedroom 2. The render shows two smaller windows close together, while the floor plan shows one larger window."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the Bathroom."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Bathroom, appears slightly wider and shorter."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet in the Hall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing distinct Closet room next to the Laundry in the 2D plan, replaced by an open storage area in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced toilet and sink in the Bathroom."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the sofa in the Living Room; it appears elongated."
+        },
+        {
+            "code": "E1",
+            "description": "The outdoor porch/entrance area with steps is missing in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "The entrance door seems to be represented as an open archway rather than a functional door with a swing."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is recognizable, but several door swings are inverted or incorrectly placed (e.g., Bathroom and Hall). Many windows present in the plan are missing in the 3D render (Bedroom 1 and 2 side windows). Kitchen sink/counter window is also missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Significant corridor wall deviation; the door for Bedroom 1 is misplaced and the internal wall geometry between the hall and bathroom is distorted. The laundry room entrance transition is clumsy."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Proportions for kitchen table and sofa are generally good, though the dining table orientation is slightly rotated compared to the plan's alignment. Bed placement in Bedroom 1 is rotated 90 degrees."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution with clean lighting and consistent material choice. The rendering is clear and visually professional."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple windows in Bedroom 1, Bedroom 2, and the Kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 1 door is moved further down the hallway compared to the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom 1 bed is oriented horizontally instead of vertically as shown in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom/Hallway wall ratios are distorted, making the hall appear narrower."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated extra door/geometry at the entrance of the bathroom hallway."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 3,
+        "max": 40,
+        "notes": "Overall layout does not match the 2D plan. The 2D plan is a bedroom-focused level (Beds 2/3/4, Activity, Balcony, Bath, WC, linen/robes, stair/recess). The 3D render depicts an open-plan living/dining/kitchen with a corridor and a large garage-like room, which is not present in the plan. Room placements, wall lines, door locations, and window placements are largely unrelated to the 2D drawing, and proportions/footprint are significantly different."
+    },
+    "structural_fidelity": {
+        "score": 2,
+        "max": 25,
+        "notes": "Major structural mismatch: multiple required rooms from the plan are missing, and multiple unplanned spaces are added. Adjacency relationships (e.g., Bath/WC between Activity and Bed 4; Beds 2/3/4 around the central hall; Balcony attached to Activity; linen between hall and Bed 2) are not preserved. Door embedding/orientation and wall segmentation do not correspond to the plan."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture does not map to the plan: the plan shows three bedrooms with beds, robes, and an activity room plus balcony. The 3D render instead includes a sectional sofa, dining table, kitchen island/cabinets, and a car/garage. Furniture types and placement are largely hallucinated relative to the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Render is visually coherent: isometric camera is acceptable, lighting is clean, and geometry appears mostly free of severe distortions. However, architectural readability suffers (few explicit doors/windows, simplified wall detailing), and it does not communicate the intended plan, reducing clarity/composition for verification purposes."
+    },
+    "total_score": 20,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing rooms: BED 2, BED 3, BED 4 are not represented in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing spaces: ACTIVITY room and BALCONY are not represented in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing plan elements: LINEN closet and multiple ROBE/closet recesses shown in plan are not present in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bath/WC core is not located/partitioned as in the plan (plan has Bath + separate WC adjacent to Bed 4 and Activity; 3D shows a different small bathroom arrangement and different wall segmentation)."
+        },
+        {
+            "code": "E2",
+            "description": "Central hall and door relationships are not preserved (plan has a central hall serving Beds 2/3/4 and Bath/WC; 3D circulation and openings do not match)."
+        },
+        {
+            "code": "E1",
+            "description": "Stair/recess region indicated near Activity (with 'DN' and recess) is not represented in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count does not match: plan shows windows along Activity, bedrooms, and balcony; 3D shows different window locations and large openings not aligned to plan walls."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement/orientation does not match: plan has specific hinged door swings into Bed 2/3/4, Bath, WC; 3D lacks corresponding door placements and swing orientations."
+        },
+        {
+            "code": "E4",
+            "description": "Overall footprint/proportions are distorted relative to the plan (major changes in room sizing and exterior wall outline)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated garage-like room with a car is present in the 3D render but not in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-plan living/dining/kitchen (sectional sofa, dining table, kitchen island/counters) is present in the 3D render but not in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan12.png"
+}

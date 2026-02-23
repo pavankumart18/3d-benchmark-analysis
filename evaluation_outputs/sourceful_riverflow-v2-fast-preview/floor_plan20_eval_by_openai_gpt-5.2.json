@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 6,
+        "max": 40,
+        "notes": "Major mismatch between the 2D plan\u2019s articulated footprint (multiple recesses for balconies/deck and service core) and the 3D model\u2019s near-rectangular perimeter (E4). The 2D plan has a central Living & Dining with deck along the top edge and a kitchen+utility band at bottom center; the 3D render shows a simplified open central area with bedrooms arranged differently and without the deck/balcony geometry (E2/E4). Doors are largely missing/undefined in the 3D (no clear swings/orientation) versus many specific door locations in 2D (E1/E2/E3). Windows appear distributed uniformly on exterior walls in 3D and do not correspond to the plan\u2019s specific openings and balcony interfaces (E2). Room proportions are not preserved (bath/utility/lobby zones effectively collapsed), distorting the plan\u2019s intended widths and separations (E4)."
+    },
+    "structural_fidelity": {
+        "score": 4,
+        "max": 25,
+        "notes": "Wall layout and adjacency relationships do not match the plan: the 2D plan includes 4 toilets, a lobby, kitchen, utility, deck, and two balconies with specific connections; these are absent or merged into generic space in 3D (E1). The 3D model effectively hallucinates a simplified apartment shell with fewer internal partitions and a different circulation pattern (E5). Door embedding correctness cannot be verified because most interior doors are not modeled or are indistinct (E1). No evidence of consistent wall thickness changes is visible, but the primary penalty is the missing/incorrect partition network and room count (E1/E5)."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not map to the 2D plan\u2019s layout: the plan specifies living seating + dining near the deck, kitchen counters, multiple bathrooms with fixtures, and bedroom placements; the 3D contains generic beds/sofa/table without matching the plan\u2019s exact room boundaries and service areas (E2). Furniture scale appears broadly plausible, but because rooms are incorrect/missing, scale-to-room consistency is unreliable (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and the render is clean/simple, but it reads more like a conceptual block model than a faithful architectural translation (E6). Projection is not strictly orthographic (mild perspective), lighting is flat but serviceable, and geometry is mostly clean with minimal artifacts. Visual clarity is decent, yet the lack of modeled doors/bath fixtures/balconies reduces interpretability."
+    },
+    "total_score": 26,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Deck along the top side (23'10\" x 4'5\") is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Both balconies (near Bedroom-2 and Bedroom-1) are missing; exterior recesses/terrace boundaries are not modeled."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple bathrooms/toilets (Toilet-1/2/3/4) shown in 2D are missing or not represented as separate rooms in 3D."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen and utility rooms (with their partitioned zone at bottom center in 2D) are missing/merged into open space in 3D."
+        },
+        {
+            "code": "E1",
+            "description": "Lobby/entry zone and Home Office/Maid's Room area on the lower-left of the 2D plan are missing as defined rooms in 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Overall footprint is distorted: 2D plan has a complex outline with projections/recesses; 3D model uses an almost rectangular perimeter."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom placement and adjacency do not follow the 2D plan (e.g., Bedroom-1/Bedroom-2 right-side arrangement and their balcony relationships are not preserved)."
+        },
+        {
+            "code": "E1",
+            "description": "Interior doors are largely absent/unclear in 3D; the 2D plan has many specific door locations and swings."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing information from the 2D plan is not carried into the 3D (where doors are missing or not operable)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement does not match the 2D plan; 3D shows evenly spaced windows on multiple sides without respecting balcony/opening locations."
+        },
+        {
+            "code": "E5",
+            "description": "3D hallucinates a simplified open-plan interior with fewer partitions/rooms than the 2D plan specifies."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan20.avif"
+}

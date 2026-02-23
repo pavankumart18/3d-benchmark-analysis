@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Overall macro-zoning roughly matches (garage right, living/kitchen central-right, alfresco top-right, bedroom wing left/top-left), but many plan-critical details deviate. Several internal partitions/closet recesses from the 2D plan are not modeled, door locations are simplified/shifted, and window placement does not follow the plan\u2019s distributed openings. Room proportions also drift (notably the entry/porch zone and some service-room depths), reducing plan-to-render traceability."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness and embedded openings are inconsistently represented (many plan doors appear as open passages; closets/recesses largely omitted). Adjacencies are mostly plausible at a high level, but the plan\u2019s finer-grain structure (robes, WIL/linen, recesses, WC separations) is not faithfully preserved, creating functional layout mismatches despite a similar outer footprint."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is placed in the general intended zones (beds in bedrooms, couches in living/activity/theatre areas, dining near kitchen, outdoor furniture in alfresco), but it does not reliably map to the specific rooms/uses in the 2D plan (e.g., theatre vs activity furnishing ambiguity). Scale is broadly believable, though several rooms read as under/over-furnished relative to their plan sizes."
+    },
+    "aesthetic_quality": {
+        "score": 21,
+        "max": 25,
+        "notes": "Clean, readable isometric render with good lighting and coherent materials. Camera is consistent with an isometric-like viewpoint (slight perspective). Geometry is mostly clean with minimal artifacts. However, the render prioritizes visual staging over plan-accurate architectural detailing (doors/windows/closet carcasses), reducing orthographic fidelity."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Multiple door locations do not match the 2D plan; several planned hinged doors are shown as open passages or shifted openings (notably around the central hall/entry transitions)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing fidelity is not preserved; the 3D render largely omits swing behavior and replaces it with non-door openings in several locations."
+        },
+        {
+            "code": "E2",
+            "description": "Entry/portico interface is simplified; the plan\u2019s defined ENTRY/PORTICO geometry and thresholds are not represented with the same boundaries/opening placement."
+        },
+        {
+            "code": "E1",
+            "description": "Built-in storage elements from the plan (multiple ROBE recesses, WIL, and LINEN) are largely missing as distinct enclosed compartments."
+        },
+        {
+            "code": "E2",
+            "description": "Service core layout (BATH/WC/LAUNDRY cluster) is not partitioned/door-defined as clearly as in the plan; separations appear reduced or reconfigured."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement around the perimeter does not match the plan\u2019s specific window segments; several elevations show continuous or differently positioned openings compared to the 2D layout."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion drift: the entry/hall and some adjacent rooms read with altered depth/width compared to the plan, affecting circulation proportions."
+        },
+        {
+            "code": "E2",
+            "description": "Theatre vs Activity definition is ambiguous in the 3D render; furnishing and partition cues do not cleanly match the plan\u2019s distinct THEATRE and ACTIVITY rooms."
+        },
+        {
+            "code": "E1",
+            "description": "Verandah is not clearly modeled as a distinct front outdoor zone matching the plan\u2019s labeled VERANDAH footprint (appears reduced/merged with generic front slab)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior staging elements (e.g., some freestanding consoles/islands/bench-like pieces) appear where the 2D plan indicates recesses/doors/closets rather than open furniture placements."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan10.png"
+}

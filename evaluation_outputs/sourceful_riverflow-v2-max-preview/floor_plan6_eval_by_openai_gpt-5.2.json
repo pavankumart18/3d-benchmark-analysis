@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall zoning is roughly correct (open Kitchen/Living on the left, Bedroom on upper-right, stair zone on far right), but multiple interior partitions do not match the 2D plan. The 3D introduces curved corridor walls and reshapes the central core, causing misalignment of walls and incorrect circulation. Several door locations/openings between Living\u2194hall/bedroom and within the bathroom/closet core do not correspond to the plan. Window layout is significantly simplified compared to the plan, and room proportions (especially the central service core vs. surrounding spaces) appear distorted."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The 2D plan has a rectilinear service core (bathroom + adjacent small rooms/closets) with specific adjacencies; the 3D reconfigures this area and adds non-plan geometry (curved walls), reducing fidelity. Door embeddings are inconsistent (several plan doors are missing or replaced by open passages). Some required small rooms/closet-like spaces appear merged/altered, and the external wall/window pattern is not preserved. No clear evidence of all plan-indicated openings and partitions being maintained."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is broadly plausible (sofa/coffee table in living, bed in bedroom), but it does not closely follow the plan\u2019s placements and built-in kitchen layout. Kitchen elements (counters/island) are simplified and not clearly matching the plan\u2019s exact L-shape/fixtures. Scale is generally consistent, but mapping accuracy to the 2D symbols is low."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Lighting is clean and the model is visually coherent with mostly clean geometry. However, the camera is not a strict architectural/isometric verification view (more perspective than true orthographic/isometric), reducing measurability. Some geometry choices (curved walls) read as design artifacts relative to the plan, and the lack of window/door detail reduces clarity for verification."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Curved corridor/partition walls are introduced in the 3D render, while the 2D plan\u2019s interior walls in that area are predominantly straight/rectilinear."
+        },
+        {
+            "code": "E2",
+            "description": "Central service core (bathroom + adjacent closet/utility rooms) is reconfigured: wall positions and room boundaries do not align with the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Several plan-indicated hinged doors (with specific swing/leaf positions) are missing or not represented as doors in the 3D (replaced by open passages or absent)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement/orientation between the Living area and the Bedroom/hall does not match the 2D plan\u2019s door locations and swings."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple exterior windows shown in the 2D plan (notably along the long bottom wall of the Living area and other perimeter segments) are missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom window configuration differs: the 3D shows a simplified set/spacing of windows compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the central rooms/corridor appear distorted relative to the 2D plan (service core footprint vs. surrounding circulation and living space)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout/fixture placement is simplified and does not clearly preserve the 2D plan\u2019s counter/working triangle arrangement."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan6.jpg"
+}

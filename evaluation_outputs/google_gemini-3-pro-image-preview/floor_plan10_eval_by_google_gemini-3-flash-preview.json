@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but door swings are inconsistently modeled and the Alfresco/Living connection shows misalignment. Window placements on the Master Suite and Bed 3/4 vary from the technical plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The garage is distorted; the plan shows a 2-car space width but the render fits 1.5 cars with incorrect wall depth. Several internal wall gaps for Robes/Pantries are simplified or merged incorrectly."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement matches specialized room functions (Kitchen island, Theatre sofa, Master Suite bed) well, though the scale of the cars in the garage is slightly undersized relative to floor area."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High quality voxel-style rendering. Lighting is consistent and shadows provide depth. Camera is a true isometric/orthographic projection with clean geometry."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The entry door to the Master Suite is misplaced relative to the WIR/Ensuite corridor."
+        },
+        {
+            "code": "E4",
+            "description": "Garage width and depth proportions are distorted, making the two-car capacity unrealistic compared to the plan's dimensions."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation and swing directions in the Bed 3/Bed 4 hallway do not match the architectural plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior pillar/wall segment near the garage entrance not present in the 2D footprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan10.png"
+}

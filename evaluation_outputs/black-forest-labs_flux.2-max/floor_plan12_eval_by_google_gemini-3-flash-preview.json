@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but window partitions are significantly more complex than the plan. Bedroom 3 proportions appear elongated compared to the footprint."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly near the balcony. The hallway/door cluster has been modified with extra glass partition-like artifacts not present in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "The activity area sofa and table are roughly correct, but bedroom furniture lacks the 'robe' cabinetry correctly integrated into walls, and some scale issues exist in the balcony furniture."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric rendering and material uniformity. Lighting is clean and helps define the volumes well, though some geometry clipping occurs near door frames."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Hallway doors and partitions are clustered incorrectly compared to the clean openings in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony balustrade and window mullions are overly subdivided and distorted in scale."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated glass-like dividers where only single swing doors should be."
+        },
+        {
+            "code": "E6",
+            "description": "Staircase geometry in the top-left corner is messy and does not clearly show the 'DN' direction or specific step count."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan12.png"
+}

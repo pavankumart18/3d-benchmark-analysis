@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 4,
+        "max": 40,
+        "notes": "Major mismatch between 2D plan and 3D render. The 2D shows Central Hall, WC, Utility Room (with W/D and HVAC), Kitchen + Pantry, Dining Room, Breakfast/Window Seat/Alcove areas, and stair/UP zone. The 3D render instead depicts a different layout resembling a small apartment with a bedroom, living/dining open area, and a different bathroom/kitchen arrangement. Wall locations, room placement, and adjacencies do not correspond (E2/E5). Door locations and swings in 3D do not match the plan\u2019s door positions (e.g., Utility/Kitchen/Dining connections) (E2/E3). Window placements/counts do not match the plan (plan indicates specific windows incl. window seat area; 3D uses generic evenly spaced windows) (E2). Room proportions are not preserved (Dining room in plan is large central-right; 3D has no equivalent sized space) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 2,
+        "max": 25,
+        "notes": "Structural layout does not follow the source plan: multiple required rooms/zones are absent (Central Hall, WC, Utility Room configuration, Pantry, Breakfast area, Window Seat, Alcove, Crawlspace access, HVAC closet) (E1). The 3D introduces rooms not present in the shown plan segment (e.g., bedroom) (E5). Adjacency relationships are incorrect (plan: Kitchen adjacent to Pantry + Utility + Dining; 3D adjacency differs) (E2). Door embedding/orientation cannot be validated as correct because most corresponding walls/doors are not present (E2/E3). Wall thickness looks consistent internally in the render but is not faithful to the plan\u2019s wall layout (E2)."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture does not map to the 2D plan. The plan segment primarily specifies functional spaces (kitchen fixtures, W/D, HVAC, etc.), while the 3D includes a bedroom set and living/dining furniture not indicated (E5). Kitchen fixture layout (range/sink/refrigerator/pantry relationship) does not match the plan (E2). Furniture scale appears plausible within the 3D scene but is not verifiably consistent with the plan\u2019s dimensions due to the layout mismatch (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Render is visually clean with coherent lighting and generally good geometry (minor edge/trim simplifications). Camera is isometric-like but not a strict architectural axonometric/orthographic representation (perspective is present) (E6). Composition is clear and readable; materials are minimal but consistent."
+    },
+    "total_score": 23,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Central Hall area shown in 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing WC (small toilet room) shown near Central Hall in 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/incorrect Utility Room layout (W/D + HVAC + crawlspace access) from 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry adjacent to Kitchen as shown in 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Breakfast/Window Seat/Alcove features indicated on the right side of the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen location and adjacency do not match: 2D shows Kitchen directly tied to Pantry/Utility/Dining; 3D kitchen arrangement is different."
+        },
+        {
+            "code": "E2",
+            "description": "Dining Room (large central-right in 2D) is not represented with correct size/location in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements and swing orientations do not align with the 2D plan\u2019s door locations between hall/utility/kitchen/dining."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements/counts are generic in 3D and do not match the specific window locations implied by the 2D plan (including window seat area)."
+        },
+        {
+            "code": "E4",
+            "description": "Overall room proportions are distorted relative to the plan (major size/shape differences, especially for dining/kitchen zone)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom and associated furniture not present in the provided 2D plan segment."
+        },
+        {
+            "code": "E6",
+            "description": "View is not strictly orthographic/isometric (perspective present), reducing architectural projection fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan11.png"
+}

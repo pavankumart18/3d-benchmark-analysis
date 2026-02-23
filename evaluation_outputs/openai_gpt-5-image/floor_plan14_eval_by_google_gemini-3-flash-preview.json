@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe deviations in layout. Two additional bedrooms have been hallucinated in the lower-right and bottom-center areas where the Foyer and Kitchen should be. The primary orientation is rotated, and the bathroom placements do not match the plumbing stacks in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Missing the specific Deck areas. The kitchen and utility areas are completely replaced by extra bedrooms. Adjacency relationships are broken, and wall thicknesses are inconsistent with the original structural layout."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While individual furniture models look clean, they are placed in incorrect rooms. The dining table is in a generic corridor space rather than the dining area defined by the plan, and beds are placed in rooms that do not exist in the source file."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render is visually clean with consistent isometric projection and soft lighting. Geometry is well-defined, and the overall composition is high-quality, despite the lack of architectural accuracy."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucination of two extra bedrooms in the lower half of the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the Kitchen and Utility rooms as defined in the 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplacement of the main entry foyer and dining area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the living room significantly reduced to accommodate hallucinated rooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing private decks attached to Bed-1 and the Living area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan14.webp"
+}

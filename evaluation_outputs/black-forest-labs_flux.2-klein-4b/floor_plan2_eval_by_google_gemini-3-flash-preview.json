@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant deviations in spatial logic. Doors are misplaced or missing (notably the main entrance and bathroom access). Window placements on the exterior walls do not match the floor plan's openings. Layout orientation for the living area is rotated relative to the plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Wall partitions are inconsistently closed or opened compared to the plan (E2, E3). The kitchen/dining wall boundary is structuraly altered, and the entry vestibule area is completely hallucinated or merged improperly."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "While furniture types (beds, sofa, dining table) are present, their specific positions and orientations fluctuate. The master bedroom layout is reversed, and the office/second bedroom lacks the desk configuration."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Lighting is soft and professional. Isometric perspective is consistent. Geometry is clean and render quality is high despite the architectural inaccuracies."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen cabinetry and stove top as indicated in the bottom right of the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bedroom; in the 3D render, it's shifted along the partition wall."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error in the living room; the seating arrangement is facing the wrong wall compared to the 2D blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the bathroom and central hallway area, creating excessive open space not present in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior windows on walls that should be solid or lack identified openings in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Door for the bedroom is missing in the render. Window placements are neglected or replaced with solid walls. General layout and room adjacency are correctly interpreted."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The utility room wall configuration is simplified. The bedroom entrance does not feature a proper door opening (E1). Toilet duct/shaft area is incorrectly modeled."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent mapping of furniture items including the round dining table, grey sofas, and specific bedding colors. Only minor orientation shifts in kitchen fixtures."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Clean isometric projection with soft lighting. Textures are simplified but effective for a 3D conceptualization. Geometry is clean without mesh artifacts."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing bedroom door and balcony entrance door frames."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen sink and stove elements relative to the L-shaped counter."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the washing machine in the utility space."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions of the bathroom/toilet interior wall dividing the fixture zones."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan16.avif"
+}

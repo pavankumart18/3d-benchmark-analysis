@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Major window and door placement errors. The 3D render misses several windows indicated in the 2D plan, particularly in the kitchen and living area. The entrance door orientation is incorrect."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Bedroom 1 is incorrectly labeled as 'Living Room 1'. The staircase structure is fragmented and lacks the landing details of the original plan. The 'Wash Area' and 'Toilet' partition walls are slightly misaligned compared to the CAD source."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture represents the plan well, though the Living Room seating arrangement is simplified and slightly scaled down relative to the wall dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "High visual clarity and excellent isometric projection. Lighting is consistent and the geometry is clean, despite the structural inaccuracies."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing windows in the Kitchen and the rear wall of the Dining area."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door is rendered as an arched opening rather than the double-swing door shown in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Labeling error: Bedroom 1 is labeled as 'Living Room 1' in the 3D render."
+        },
+        {
+            "code": "E3",
+            "description": "The staircase 'UP' direction and landing geometry do not match the U-shaped return shown in the architectural plan."
+        },
+        {
+            "code": "E4",
+            "description": "The toilet fixture and wash area partition are disproportionately small compared to the 2D dimensions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan7.jpg"
+}

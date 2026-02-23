@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions, and inconsistent door/window placements."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing entire rooms and walls, incorrect adjacency, and hallucinated elements."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is mostly inaccurate, and some items are missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good isometric view, orthographic projection, and clean geometry, but lighting could be improved."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Bedroom 1' area, replaced by 'Living Room 1'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entire 'Bedroom 1' from the 3D render. The area is labeled 'Living Room 1' and appears to be only a bed, without enclosed walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Entrance to the House' area. The 3D render shows a door but no defined room/area for entrance."
+        },
+        {
+            "code": "E2",
+            "description": "The area labeled 'Living Room 1' in the 3D render is located where 'Bedroom 1' is on the 2D plan. The 2D 'Living Room' is now unlabeled and appears to be integrated into the 'Kitchen' area."
+        },
+        {
+            "code": "E2",
+            "description": "The door for the original 'Living Room' and kitchen in the 2D plan is incorrect. The generated 3D render adds an arched doorway that closes off the original living room from the kitchen."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Dining' area in the 3D render shows a significantly larger room with more width compared to the 2D plan, making the room proportions distorted."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Wash Area' and 'Toilet' are shown in the 3D render as an open connection from the 'Living Room 1', whereas the 2D plan shows them as enclosed rooms accessible from a small 'Hallway' next to an 'UP' staircase."
+        },
+        {
+            "code": "E5",
+            "description": "A new wall is hallucinated between the 'Living Room' and the 'Kitchen' area that is not present in the 2D floor plan. This creates an arched entrance that restricts movement between the two rooms where the 2D plan shows an open plan."
+        },
+        {
+            "code": "E5",
+            "description": "The 3D render shows an 'UP' staircase, but it appears to be free-standing with no enclosure, unlike the 2D plan that shows walls around the staircase."
+        },
+        {
+            "code": "E3",
+            "description": "Door leading into the Kitchen is rotated 90 degrees compared to door on 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement on the exterior wall of the 'Dining' area is incorrect. The 2D plan shows two windows, whereas the 3D render shows only one large window."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement on the exterior wall of the area labeled 'Living Room 1' (which should be Bedroom 1) is incorrect. The 2D plan shows two windows, whereas the 3D render shows only one large window."
+        },
+        {
+            "code": "E2",
+            "description": "The window in the 'Kitchen' area in the 3D render is placed on a different wall than indicated in the 2D floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The interior wall separating 'Wash Area' and 'Toilet' is missing, making it an open plan in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "The door for the 'Toilet' is incorrectly positioned and opens to the inside of the 'Wash Area' instead of an external hallway as indicated by the 2D plan. The door also closes the 'Toilet' from the 'Wash Area' when in the 2D plan they appear to share the same enclosed room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the 'Entrance to the House' specific area shown outside the original Living Room in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Living Room' area from the 2D plan appears much smaller in the 3D render or is merged with the kitchen due to the addition of a new wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan7.jpg"
+}

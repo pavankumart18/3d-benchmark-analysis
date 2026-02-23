@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the overall aspect ratio of the structure appears slightly stretched in the 3D render. Wall alignments are generally accurate, but some internal walls, especially around the BATH and WI areas, seem to have minor misalignments or thickness issues. Door placements are largely correct, but some doors, such as the one leading from the HALL to BED 3/4 area, are not clearly depicted or appear as openings. Window placements are represented but some appear oversized compared to the plan. Room proportions show minor distortions, making some rooms appear wider or longer than indicated by the dimensions."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in certain areas, particularly internal walls. Some internal door embeddings are not clearly defined, looking more like openings than recessed doors. The adjacency relationships are mostly correct. No missing rooms observed. No hallucinated rooms observed. However, several windows are hallucinated next to the PORTICO and at the back of the Study."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is largely accurate according to the floor plan for most rooms. However, the exact configuration of some furniture items in the 3D render varies slightly from the 2D plan, for example, the seating arrangement in the Living area and the bed in the Master Suite. Furniture scale consistency is mostly maintained, but some items, like the study desk and chair, seem slightly disproportionate to the room size."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle is correct, providing a good overview. Orthographic projection appears accurate. Lighting quality is generally good, showcasing the structure with soft shadows. Geometry is clean with no major distortions, although some wall intersections could be sharper. Visual clarity and composition are good, making it easy to identify rooms and features."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Overall proportion distortion of the house footprint; it appears slightly stretched horizontally."
+        },
+        {
+            "code": "E2",
+            "description": "Minor wall alignment inaccuracies, especially around the BATH and WC areas' internal walls."
+        },
+        {
+            "code": "E1",
+            "description": "Some internal doors, particularly leading to BED 3/4 hallway, are ambiguously represented as openings rather than distinct doors (Missing definition)."
+        },
+        {
+            "code": "E4",
+            "description": "Some windows appear oversized compared to the floor plan's indication."
+        },
+        {
+            "code": "E4",
+            "description": "Minor room proportion distortions, e.g., Living room appears slightly wider than represented by dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, noticeably in internal walls and around doorways."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated windows present next to the Portico on the exterior wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated windows present at the back of the Study unit."
+        },
+        {
+            "code": "E2",
+            "description": "Slight variations in furniture arrangement in the Living area and Master Suite compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Chair in the Study appears disproportionately large relative to the desk."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan10.png"
+}

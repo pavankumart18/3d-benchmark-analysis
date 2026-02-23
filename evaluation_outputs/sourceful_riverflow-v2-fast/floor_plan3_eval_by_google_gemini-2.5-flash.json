@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct as per labeled rooms. Wall alignment has numerous inaccuracies, particularly around the kitchen/stairwell area and bathroom. Door placement and orientation issues are present, especially for the main entrance and bathroom. Window placements are incorrect when compared to the floor plan. Room proportions are distorted in several areas, notably the kitchen and living/dining rooms."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, some walls appear thicker than others without reason. Door embedding is incorrect for the main entrance and bathroom. Adjacency relationships are mostly correct for rooms but flawed for elements like windows and doors. There are no missing rooms, but the kitchen/stairwell area in the render doesn't fully correspond to the floorplan's clear definition."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally aligned with the functions of the rooms but not exactly as indicated by implied spaces in the floor plan (e.g., kitchen appliances are roughly placed). Furniture scale consistency is acceptable for most items, but the bathroom fixtures seem oversized for the small space."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection appear correct. Lighting quality is decent, but could be improved for better visual separation of spaces. Geometry is mostly clean, but some areas like the stairwell and wall intersections show minor imperfections. Visual clarity and composition are adequate."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entrance door is shifted significantly to the right from its indicated position on the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door's swing orientation is reversed in the 3D render compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door is significantly misplaced and appears to open into the wall in the 3D render, rather than into the corridor."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door's swing orientation is incorrect; it should swing into the bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "All window placements are incorrect or missing compared to the floor plan. The two windows on the long wall of the living/dining area are shifted downwards. The kitchen windows are completely missing from the render. The single window on the left side of the kitchen is also missing."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the kitchen area (left and top walls) based on the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen area's total dimensions and shape are significantly distorted, especially the portion with the range and sink. The stairwell area also appears structurally different and more enclosed than implied by the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The bathroom dimensions appear to be slightly wider than indicated (3' x 2'), leading to proportion distortion of the fixtures within."
+        },
+        {
+            "code": "E4",
+            "description": "The overall rectangular shape of the house, while maintained, has subtle proportion distortions in the length-to-width ratio."
+        },
+        {
+            "code": "E2",
+            "description": "The wall dividing the Kitchen and Dining Room is significantly misplaced and shortened in the render."
+        },
+        {
+            "code": "E2",
+            "description": "Several internal wall alignments, especially around the kitchen/stairwell block, are inaccurate."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan3.jpg"
+}

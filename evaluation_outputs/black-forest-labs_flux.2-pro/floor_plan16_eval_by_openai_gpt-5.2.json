@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall layout roughly matches (Living/Dining left, Kitchen top-left, Bedroom bottom-right, Toilet center-right, Utility top-right, Balcony bottom-left). However, the 3D introduces an additional enclosed space at far right that is not present in the 2D plan, altering wall layout and spatial reading. Door placements/orientations are not fully faithful: the bathroom/bedroom doors appear shifted and their swing/orientation does not clearly match the plan. Window/opening placement is inconsistent: the long slit windows and their positions do not clearly correspond to the 2D window locations; balcony opening/door detailing is unclear. Room proportions appear somewhat distorted (toilet/utility/right-side zone depth and bedroom wall lengths do not preserve the plan\u2019s proportions)."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent and doors are embedded plausibly, but adjacency relationships are compromised by a hallucinated extra room/partition on the right side (not in plan), which changes the toilet/utility boundary condition. Core rooms are present (no obvious missing named rooms), yet the added space counts as a structural hallucination and reduces fidelity. Some internal partitions (near toilet/utility) do not match the 2D plan\u2019s clean rectangular enclosure."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Major furniture generally aligns with the plan intent: sofa + coffee table in Living, round dining table near kitchen, bed in Bedroom, sanitary fixtures in Toilet, washer in Utility. Minor mismatches in exact positioning and clearances (e.g., seating and table offsets; bedroom desk/chair placement not clearly indicated in 2D) but overall scale is reasonably consistent."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric-style view is clear and readable, though closer to a perspective isometric than strict orthographic. Lighting is acceptable and geometry is mostly clean with good material separation. Minor clarity issues: openings/windows are stylized and do not precisely communicate plan-accurate fenestration; some edges/partitions look simplified versus the plan."
+    },
+    "total_score": 68,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated additional enclosed space/room at the far right (blue area) that is not present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom/toilet partitioning and right-side wall layout differ from the 2D plan (extra/shifted partition lines around the toilet/utility zone)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements between Living\u2194Bedroom and Living\u2194Toilet appear shifted from the 2D plan locations."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation is not clearly consistent with the 2D plan (notably the toilet/bedroom door swing directions)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/lengths are not clearly faithful to the 2D plan (long slit windows and their positions do not match the plan\u2019s fenestration cues)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the right-side service core (toilet/utility and adjacent depth) appear distorted compared to the 2D plan dimensions, affecting room scale relationships."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan16.avif"
+}

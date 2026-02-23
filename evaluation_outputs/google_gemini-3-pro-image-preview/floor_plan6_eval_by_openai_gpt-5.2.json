@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall zoning is partially correct (Kitchen/Living on left, main Bedroom on right), but several major layout mismatches exist. The 2D plan shows a distinct right-side stair core and a separate small room with two beds at the bottom-center/right; the 3D render instead expands the living area and places a stair run adjacent to/inside the bedroom zone (E2/E4). Bathroom placement is roughly central but internal partitioning and fixtures do not match (tub vs shower, wall/door locations) (E2). Most interior door locations/orientations from the plan (swing doors to bedroom/bath/entry) are not represented accurately (E2/E3). Window distribution is simplified and does not match the plan\u2019s multiple bottom-edge windows and left-side openings (E2). Room proportions are notably distorted, largely because a whole room/corridor mass is reallocated to living space (E4)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Wall thickness appears generally consistent in the render, but the plan\u2019s key adjacency and separation relationships are violated: the staircase core (right edge) is not preserved as a dedicated, separated zone with correct access (E2). The small two-bed room shown in the plan is missing (E1), which also changes circulation. Several planned door embeddings/openings are absent or converted to open passages without matching positions (E2). No clearly additional fully new rooms are added, but circulation/stair geometry behaves like a hallucinated structural reinterpretation relative to the plan (E5)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some furniture aligns conceptually with the plan (kitchen cabinetry + island, sofa/coffee table, dining table, main bed) but placement does not reliably follow the 2D symbols (E2). The plan\u2019s secondary room with two beds is missing entirely (E1). Added elements not indicated on the plan (e.g., prominent TV/media console, bedroom desk) (E5). Scale is mostly plausible, but mapping fidelity to the plan is weak."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with good lighting and generally coherent geometry. Camera is a reasonable axonometric/isometric presentation (minor perspective feel) and composition is clear. No major rendering artifacts; geometry is mostly crisp, though the simplified openings/doors reduce architectural clarity compared to the plan."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing the bottom-center/right room shown in the 2D plan (depicted with two beds), which alters overall program and circulation."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase location/configuration does not match the 2D plan (plan shows a dedicated right-edge stair core; 3D places stairs adjacent to/within the bedroom-side space)."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom internal layout and fixture set differ from plan (plan indicates tub arrangement; 3D shows a different shower/toilet/sink partitioning and wall layout)."
+        },
+        {
+            "code": "E2",
+            "description": "Interior door placements/opening locations are not faithfully represented (planned swing doors to bedroom/bath/entry are missing or relocated)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count is simplified and does not match the plan (notably the multiple bottom-wall windows and left-side openings)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions distorted: living area is enlarged and circulation/adjacent room area is reduced/removed compared to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/unsupported furniture elements relative to the 2D plan (e.g., prominent TV/media console and bedroom desk not indicated)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan6.jpg"
+}

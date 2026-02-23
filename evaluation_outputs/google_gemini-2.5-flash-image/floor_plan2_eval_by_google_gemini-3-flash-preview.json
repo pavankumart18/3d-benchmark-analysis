@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is highly accurate. Door placements match the 2D plan precisely. Minor misalignment in the living room's southern wall thickness relative to the entry foyer."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent structural fidelity with no missing or hallucinated rooms. Wall adjacency is preserved perfectly across the central hallway."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is mostly accurate. The living room sofa was replaced with individual armchairs and a coffee table (E5), deviating from the L-shaped sectional in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality orthographic/top-down render. Lighting is soft and consistent. Material textures are clean but slightly muted."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated armchairs and coffee table in living area instead of designated L-shaped sectional sofa."
+        },
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion in the thickness of the internal walls surrounding the primary bedroom (right)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact in the door swing arcs which appear as solid semi-transparent shapes rather than line work."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan2.png"
+}

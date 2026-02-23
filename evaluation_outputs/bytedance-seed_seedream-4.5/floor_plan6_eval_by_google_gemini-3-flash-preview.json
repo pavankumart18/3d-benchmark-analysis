@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but there are clear window placement errors on the North and West walls compared to the 2D source. The double windows in the kitchen/bedroom areas do not match the segmented framing in the plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms are present and correctly adjacent. Internal wall thicknesses are mostly consistent, though the bathroom partition door swing is rendered as a static archway/curved wall fragment rather than a functional door."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Strong correlation between 2D icons and 3D assets. The dining table and kitchen island orientation is correct. Small scale issues on the patio plants."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting and shadows are consistent. Clean geometry with no major artifacts, although the text labeling is baked into the floor texture."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Windows on the North wall are merged into double-panes, deviating from the 2D plan's segmented window units."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door and bedroom entrance door show incorrect swing representation/curved wall segments."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated floor text labels ('Bedroom', 'Kitchen/Living') rendered directly onto the 3D floor surface."
+        },
+        {
+            "code": "E6",
+            "description": "The balcony railing/wall is partially transparent or missing a top cap in the lower-left foreground section."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan6.jpg"
+}

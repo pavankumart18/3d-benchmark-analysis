@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall layout is loosely similar (dining left, kitchen top, living right, bedroom bottom-left), but key plan-defined spaces and openings do not match. Wash Area + Toilet are not represented as two distinct rooms (merged/altered). Entrance/stair zone at bottom-right does not match the plan\u2019s stair footprint/location. Multiple plan windows are missing or relocated (living and bedroom especially). Room proportions/corridor widths are notably altered versus the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Interior partitions do not preserve the plan\u2019s defined subdivision (Wash Area vs Toilet). Adjacencies deviate around the central wet-area core and the stair/entry region. Doors are largely absent/not embedded as per plan (no clear swing/orientation). An extra/altered entry volume with steps appears, while the plan\u2019s stair run/landing is not faithfully modeled."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are present (dining set, sofa set, bed, kitchen cabinetry) and roughly placed in expected rooms, but exact mapping is unreliable due to altered room boundaries (wet-area core and entry/stair region). Scale appears generally consistent, though some circulation clearances differ from the plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric-style presentation with coherent lighting and readable composition. Geometry is mostly clean with consistent materials. However, the view is more perspective/isometric than strict orthographic, and some architectural elements (openings/doors/windows) are simplified/omitted, reducing clarity for verification."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing distinct Wash Area room (plan shows Wash Area separate from Toilet; render shows a single combined/ambiguous wet room)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing distinct Toilet room subdivision (separate compartment not modeled as per plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Stair/UP area placement and footprint do not match the plan; render shows a small entry with steps rather than the plan\u2019s stair run/landing geometry at bottom-right."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear internal doors and door swing orientations (plan-defined door positions for Bedroom/Wash/Toilet and main entrance are not faithfully represented)."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance opening/door placement is inconsistent with the plan\u2019s 'Entrance to the House' location and configuration."
+        },
+        {
+            "code": "E1",
+            "description": "Missing living room window(s) shown on the plan\u2019s exterior wall (rendered living room lacks the corresponding exterior window placement)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bedroom exterior window(s) indicated on the plan (rendered bedroom shows no clear exterior window where expected)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen window placement appears inconsistent (render shows a window on a different wall/position than implied by the plan)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in central circulation/wet-core: corridor and partition lengths do not preserve the plan\u2019s relative dimensions (wet core appears compressed/reshaped)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/altered entry volume: an additional enclosed corner/vestibule-like mass at bottom-right is shown that does not correspond cleanly to a labeled room in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,132 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions, especially in the bottom-left and central areas. Wall alignment is inconsistent in many places. Window and door placements are generally incorrect or missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing several rooms including 'THEATRE', 'PANTRY', 'WIR' (Master Suite), 'ENSUITE', 'VERANDAH', 'PORTICO', 'ACTIVITY', and more. Hallucinated walls are present, altering room layouts. Wall thickness is not consistently preserved."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in many rooms, with elements missing or incorrectly scaled/positioned. For example, the kitchen layout is entirely different, and the 'LIVING' room furniture is reversed and altered."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and geometry is relatively clean. Lighting is decent. However, the orthographic projection is not fully accurate due to the perspective of the isometric view, and the overall composition lacks clarity due to many missing architectural elements."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'THEATRE' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'PANTRY' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'ENSUITE' room for Master Suite."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WIR' (Walk-in Robe) for Master Suite."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'VERANDAH'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'PORTICO'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'ACTIVITY' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'LAUNDRY' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WC' next to 'LAUNDRY'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'BATH' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WC' next to 'BATH'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows throughout the structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing several interior doors."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for 'GARAGE' entrance into 'ENTRY'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for 'STUDY'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for 'MASTER SUITE'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen island and entire kitchen layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced furniture in 'LIVING' area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bed and furniture in 'MASTER SUITE'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced beds in 'BED 2', 'BED 3', and 'BED 4'."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of doors that are present."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'MASTER SUITE', 'STUDY', 'KITCHEN', 'LIVING', and 'BED 2', 'BED 3', 'BED 4' rooms."
+        },
+        {
+            "code": "E4",
+            "description": "Overall floor plan dimensions appear distorted, particularly the width of the main living area and the length of the bedroom wing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall dividing the area where 'THEATRE' was supposed to be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall structure in the area of 'ACTIVITY' and 'ALFRESCO'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated walls for the 'KITCHEN' and 'LIVING' area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan10.png"
+}

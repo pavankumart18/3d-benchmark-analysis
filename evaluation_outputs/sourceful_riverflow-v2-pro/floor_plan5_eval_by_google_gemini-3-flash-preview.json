@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Generally high accuracy in room layout and wall alignment. Door placements follow the plan closely, though some minor window shifts occur in the kitchen area."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Wall thickness is consistent. All rooms are accounted for and no hallucinated chambers exist. Adjacency relationships are strictly maintained."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is remarkably accurate to the floor plan's suggested layout, including the kitchen island stools and bedroom configurations."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Clean isometric projection with soft, legible lighting. Geometry is mathematically sound with no visible artifacts or clipping."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The kitchen window and entry porch window positions deviate slightly from the specific centerline of the 2D layout."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony on the left shows slight proportion distortion compared to the original rectangular dimensions in the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan5.jpg"
+}

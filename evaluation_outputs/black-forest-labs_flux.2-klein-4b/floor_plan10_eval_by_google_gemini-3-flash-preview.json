@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Severe failure in spatial translation. The floor plan describes a large, elongated multi-room residence with a garage and alfresco. The 3D render represents a small, condensed square-format apartment layout. Room placement does not correlate with the reference."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Major structural errors. Missing the entire Garage, Alfresco, Laundry, and Master Suite wing. Adjacency relationships are completely rewritten, creating a centralized corridor not present in the original plan."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture is hallucinated to fit the incorrect room layouts. Scale is inconsistent between rooms, and specifically the Kitchen island/pantry layout is entirely absent."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While structurally incorrect, the rendering quality is high. Lighting is soft and consistent, and the isometric camera angle is generally correct."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing major structural components: Garage, Portico, Master Suite, and Alfresco area are entirely absent."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen and living area have been moved from the right-hand side to a central/left configuration."
+        },
+        {
+            "code": "E4",
+            "description": "The aspect ratio of the entire building footprint has been changed from a long rectangle to a roughly square layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated central hallway and door placements that do not exist in the 2D architectural drawing."
+        },
+        {
+            "code": "E6",
+            "description": "Walls terminate abruptly or merge into non-existent rooms compared to the reference source."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan10.png"
+}

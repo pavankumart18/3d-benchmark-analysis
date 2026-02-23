@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Foyer space is largely eliminated. Wall alignment is generally good. There are significant errors in door placement and orientation, particularly for the bathroom and bedroom. Window placement is partially correct but some are missing or incorrectly scaled. Room proportions are generally maintained, except for the Foyer area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent but varies, especially around the Foyer. Door embedding is incorrect, with several doors missing or improperly integrated into walls. Adjacency relationships are mostly correct for major rooms. The Foyer room is effectively missing/hallucinated into an open space. No hallucinated rooms were detected."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate for major items, though some smaller items are missing. Furniture scale is generally consistent."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection appears accurate. Lighting quality is acceptable but a bit flat. Geometry is mostly clean with minor issues. Visual clarity is good, and composition is reasonable."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door for the bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the toilet."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the utility room (should be swinging inwards)."
+        },
+        {
+            "code": "E4",
+            "description": "Foyer area is significantly distorted and merged into the living/dining space, losing its defined boundaries."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small partition wall between the Kitchen and Foyer area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the bedroom on the left wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the Kitchen is too small and not placed accurately compared to the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small cabinet/unit next to the stove in the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small wall extension near the entrance to the Living/Dining area next to the balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the 'Balc' area on the right side."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small elements like shelves and racks in the bathroom/toilet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between the Living/Dining and the area leading to the Bedroom/Toilet."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan18.jpg"
+}

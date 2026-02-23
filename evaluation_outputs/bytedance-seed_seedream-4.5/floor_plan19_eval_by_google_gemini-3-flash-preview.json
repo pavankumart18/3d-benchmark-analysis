@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major disorientation and mislabeling. Bed-1 in the render corresponds to Bed-2 in the plan, and Bed-2 in the render corresponds to Bed-1 in the plan. Door swings are inconsistent with the 2D source, and the orientation of the en-suite bathrooms has been flipped or shifted."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Severe hallucination of a secondary balcony and staircase near the foyer entrance which is not present in the original plan. The top deck area is poorly defined and lacks the floor-to-ceiling glass interface shown in the schematic."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture layout generally follows the plan though text overlays for room dimensions are distorted or overlapping. The dining table scale is slightly exaggerated."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good lighting and shadows. Clean wall geometry and identifiable materials. Orthographic projection is well-executed despite architectural inaccuracies."
+    },
+    "total_score": 57,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bed-1 and Bed-2 labels and placements are swapped compared to the source 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wooden deck/staircase structure added to the bottom left entrance area near the foyer."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing for the Foyer and Bed-3 are oriented incorrectly relative to the wall junctions in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Text labels for room dimensions are distorted (e.g., 'IDNING' instead of 'DINING' and '13'9' becoming '13\"')."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific utility wall dividers and accurate window apertures in the top deck zone."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan19.webp"
+}

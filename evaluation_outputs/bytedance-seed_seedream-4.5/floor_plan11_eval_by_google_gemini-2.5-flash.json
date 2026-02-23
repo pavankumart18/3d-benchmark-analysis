@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the WC and Utility Room are swapped and the 'Central Hall' area is significantly altered. Wall alignment is fair but not precise. Door placements are largely incorrect, and window placements also show major deviations. Room proportions are distorted in several areas, particularly the kitchen and dining room."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly around the kitchen and staircase. Door embedding is poor, with some doors missing entirely or incorrectly rendered. Adjacency relationships are incorrect in the WC/Utility area and the staircase. Multiple rooms are missing (Alcove, Central Hall), and rooms are hallucinated (e.g., the bathroom at the top left is not well-defined in the floor plan)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is largely inaccurate, with many items either missing (e.g., 'WH', 'REF' moved, pantry contents) or misplaced (kitchen layout, dining room table position). Furniture scale consistency is poor, especially for the staircase and kitchen appliances."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable, but orthographic projection accuracy is compromised by the inaccurate geometry. Lighting quality is basic. Geometry is not clean, with noticeable distortions and lack of detail, especially for wall junctions and structural elements. Visual clarity and composition are hindered by the structural and spatial inaccuracies."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "WC and Utility Room areas are swapped and significantly altered in layout."
+        },
+        {
+            "code": "E1",
+            "description": "The 'Alcove' room is completely missing."
+        },
+        {
+            "code": "E1",
+            "description": "The 'Central Hall' area is missing, replaced by an open space."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen layout, including appliance and sink placement, is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from kitchen to 'BREAKFAST' area is missing. What appears to be the breakfast area in the 3D model is undefined on the 2D plan and appears to be an error."
+        },
+        {
+            "code": "E5",
+            "description": "A wall is hallucinated next to the 'BREAKFAST' area, not indicated on the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The window placement in several rooms (e.g., Dining Room, Kitchen, top-left bathroom) significantly deviates from the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations for the WC and Utility Room are incorrect, and some doors are missing or replaced by openings."
+        },
+        {
+            "code": "E4",
+            "description": "Dining Room proportions are distorted, appearing wider and shorter than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen proportions are distorted, appearing narrower due to the misplaced walls."
+        },
+        {
+            "code": "E6",
+            "description": "Poor wall junctions and geometry around the staircase and kitchen area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing pantry within the kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase design and placement are inaccurately rendered."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the 'Utility Room' / 'WH'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the 'WC'."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan11.png"
+}

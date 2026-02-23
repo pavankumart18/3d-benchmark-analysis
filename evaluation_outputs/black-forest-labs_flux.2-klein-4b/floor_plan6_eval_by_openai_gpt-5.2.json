@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout is only partially consistent. The main Kitchen/Living zone and the Bedroom are in roughly the correct halves of the plan, but multiple wall runs and openings do not match the 2D drawing. Door locations are largely represented as open curved passages rather than the specific hinged door positions shown in plan. Window positions/counts do not match the plan (notably the long run of bottom-wall glazing is absent). Bedroom and central service-core proportions appear distorted (bedroom reads oversized relative to living area vs plan)."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent and rooms remain broadly adjacent in the expected relationships (living adjacent to bedroom and bath core). However, the door implementation is structurally unfaithful (arched/curved openings instead of the plan\u2019s door leaves and swings). At least one service/closet/utility subdivision in the central core is not clearly preserved, and the stair enclosure/right-side corridor structure does not match the crisp rectilinear partitioning and openings indicated in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture types are present (bed, sofa, dining table, kitchen island), but placement/orientation deviates from plan (bed not aligned as drawn; living furniture arrangement differs). Scale is mostly plausible, though room size distortions make some pieces (bedroom vs living) feel mismatched to the 2D proportions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clean with decent lighting and a clear isometric viewpoint. However, geometry includes non-plan-like curved wall cutouts/openings that reduce architectural clarity, and the presentation reads more stylized than a faithful orthographic/isometric translation of the 2D plan."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Windows: the 2D plan shows multiple windows along the long bottom exterior wall; the 3D render does not reproduce this window run (missing/mismatched count and locations)."
+        },
+        {
+            "code": "E2",
+            "description": "Windows: the left-side exterior openings (as indicated on the irregular left facade in plan) are not placed/represented consistently in the 3D render."
+        },
+        {
+            "code": "E3",
+            "description": "Doors: interior door behavior is incorrect\u2014plan shows hinged doors with specific swing directions into bedroom/bath/core, but 3D uses open curved passages and does not preserve door orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Doors: the main entry at the bottom-right (shown with a clear door swing in plan) is not clearly modeled as a door in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions: bedroom-to-living area proportion appears distorted (bedroom reads too large and/or the service-core too compressed compared to the 2D plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment: several interior wall runs in the central core (bath/closet/hall partitions) do not align to the rectilinear plan geometry."
+        },
+        {
+            "code": "E1",
+            "description": "Room/subdivision: at least one of the small central service/closet/utility partitions indicated in the 2D plan is not clearly present as a distinct enclosed space in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated geometry: curved/arched wall cutouts and rounded passage shapes appear that are not indicated in the 2D plan (plan shows straight walls and standard door openings)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan6.jpg"
+}

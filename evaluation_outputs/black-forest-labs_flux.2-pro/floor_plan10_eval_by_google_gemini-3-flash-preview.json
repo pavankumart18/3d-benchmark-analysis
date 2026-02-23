@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major spatial failures: Bed 3 and Bed 4 are merged into a single room. The Alfresco area and Bed 2 are completely missing. The Kitchen footprint is severely shortened, losing the L-shaped pantry/recess transition. Living area proportions are squashed."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Missing several critical rooms (Bed 2, Alfresco). Hallucinated structural elements including a wall dividing the garage entrance and floating furniture in non-designated zones. Door pathways do not align with the original floor plan swing directions."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Table in Theater is incorrect (should be a sofa/media setup). Bed placements in the rear are rotated incorrectly (E3). Kitchen island is rendered as a generic counter without proper scaling relative to the living area."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Lighting and materials are clean. Perspective is a true orthographic isometric view. However, there are significant rendering artifacts (E6) where walls meet the floor and floating geometry."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bed 2 and Alfresco outdoor area."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and Living room layout is compressed and misaligned with the entrance axis."
+        },
+        {
+            "code": "E3",
+            "description": "Master Bed and Rear Bed orientation rotated 90 degrees from plan."
+        },
+        {
+            "code": "E4",
+            "description": "Garage and Study proportions are significantly narrowed compared to the plan's aspect ratio."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partition wall in the living/entry transition not present in 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan10.png"
+}

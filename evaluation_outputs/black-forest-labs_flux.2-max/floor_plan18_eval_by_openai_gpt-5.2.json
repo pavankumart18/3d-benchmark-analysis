@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall layout resembles the 2D plan (bedroom top-left, living/dining central-left, kitchen to the right, toilet near top-center/right), but several spatial mismatches exist: the foyer zone at the entry is not clearly modeled (entry appears to open directly into living area), the entry door position shifts from bottom-right (2D) to near bottom-center (3D), and the utility/duct cluster around the toilet does not match the 2D plan\u2019s right-side arrangement. Some internal wall/partition alignments between living\u2013foyer\u2013kitchen differ, causing proportion and circulation deviations."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Key structural partitioning is inconsistent with the plan: the foyer separation and its bounding walls are effectively missing/merged into the living area; the toilet/utility/duct adjacency on the right side appears altered (utility placement and/or the narrow shaft/closet geometry does not cleanly correspond to the 2D duct + utility layout). Door embeddings exist but some are in the wrong wall segment due to shifted partitions. No major additional full rooms are added, but a narrow extra enclosure/shaft-like space is present beyond what is clearly defined in the plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types generally match (bedroom bed, living sofa, dining table, kitchen counters). However, placement does not fully reflect the 2D symbols (living/dining arrangement and balcony edge condition are simplified), and some built-ins (wardrobe/cabinet locations) differ. Scale is generally plausible, but the merged foyer/living area makes the living furniture read oversized relative to the intended entry zone."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric presentation with good lighting and generally clean geometry. Minor issues: some openings/windows are hard to read clearly, and a few elements (small shaft/extra enclosure, bottom-wall opening) reduce orthographic faithfulness. Camera and overall composition are solid."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer space (4'6\"x3'10\") is not properly represented as a distinct area; entry appears to open directly into living/dining."
+        },
+        {
+            "code": "E2",
+            "description": "Main entry door location is shifted: 2D shows it at the bottom-right into the foyer; 3D places it closer to the bottom-center and into the main space."
+        },
+        {
+            "code": "E2",
+            "description": "Utility/duct cluster placement around the toilet is inconsistent with the 2D plan (utility expected to the right of kitchen with clear duct adjacency; 3D reads as rearranged near/above the toilet)."
+        },
+        {
+            "code": "E5",
+            "description": "A narrow extra enclosed/shaft-like space on the far right appears more room-like in 3D than the 2D plan\u2019s simple duct indication."
+        },
+        {
+            "code": "E4",
+            "description": "Living/dining to entry/foyer proportions are distorted due to missing foyer partitioning, making the main space read larger and circulation different than the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Some internal wall alignments between living\u2013kitchen\u2013toilet corridor do not match the 2D wall segments, shifting door embeddings and passage geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placement is unclear/inconsistent: a bottom-wall opening/window appears in 3D that is not clearly indicated in the 2D plan at that location."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan18.jpg"
+}

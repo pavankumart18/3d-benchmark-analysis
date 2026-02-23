@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 6,
+        "max": 40,
+        "notes": "Major layout mismatch between the 2D plan and 3D render. The 2D shows a large DINING ROOM along the bottom, KITCHEN with PANTRY/REF zone at upper-right, a small WC near the top center, and a defined CENTRAL HALL/UTILITY/HVAC cluster near the middle-left. The 3D render instead shows a dominant central stair core with surrounding rooms that do not correspond in placement/shape to the dining/kitchen/utility/WC arrangement. Door and window positions do not align with the plan\u2019s exterior openings (e.g., the long dining-room window band along the bottom edge is not represented correctly). Room proportions and overall footprint appear altered."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Adjacency relationships are inconsistent with the plan: the 2D kitchen should directly relate to pantry/ref and open to dining/breakfast zones, while the 3D breaks this into different room boundaries. Several plan-defined small service spaces (UTILITY/HVAC/CRAWLSPACE access) are not faithfully modeled. Multiple additional rooms/partitions appear that are not indicated on the provided plan segment. Wall thickness/door embedding look visually consistent internally, but they are not consistent with the plan\u2019s wall lines and openings."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not map to the 2D plan\u2019s program: the plan segment indicates kitchen fixtures, pantry/ref, and dining area, but the 3D includes furniture/fixtures suggesting other rooms (e.g., bed-like element and larger bath/vanity setups) not present in the plan. Scales are plausible visually, but placement is not plan-accurate."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is visually clean with coherent materials and lighting. Isometric camera is acceptable and geometry is mostly tidy. However, some openings/trim alignment and a few wall/door junctions read simplified, and the scene composition prioritizes appearance over plan-faithful orthographic/isometric correctness."
+    },
+    "total_score": 30,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/unclearly represented DINING ROOM as defined in the 2D plan (large bottom space with long exterior window run)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclearly represented BREAKFAST area shown at the upper-right of the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "UTILITY ROOM / HVAC / crawlspace-access cluster from the 2D plan is not faithfully present as a matching set of rooms/closets."
+        },
+        {
+            "code": "E2",
+            "description": "KITCHEN location/shape does not match the 2D plan (plan shows kitchen at upper-right with specific pantry/ref adjacency; 3D partitions and footprint differ)."
+        },
+        {
+            "code": "E2",
+            "description": "WC placement does not match the small WC shown near the top center of the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placements do not align with the 2D plan\u2019s openings (notably the long dining-room glazing along the bottom edge and right-side window/seat condition)."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations and swing/orientation are inconsistent with the 2D plan, especially around the central hall/service core."
+        },
+        {
+            "code": "E4",
+            "description": "Overall proportions/footprint appear distorted relative to the 2D plan (room widths and wall run lengths do not preserve plan dimensions)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated rooms/uses: 3D includes bedroom-like and larger bathroom/vanity-like spaces not indicated in the provided 2D plan segment."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan11.png"
+}

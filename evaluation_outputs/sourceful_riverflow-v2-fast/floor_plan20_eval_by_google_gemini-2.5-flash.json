@@ -1,0 +1,116 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some walls are misaligned. Several doors and windows are missing or incorrectly placed/oriented. Room proportions appear distorted in some areas."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is somewhat inconsistent. Door embedding is incorrect in several instances. Adjacency relationships are mostly maintained, but there are missing rooms (e.g., Home Office / Maid's Room, Toilet-3, Toilet-4). No hallucinated rooms observed."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally followed, but specific items are missing or moved. Furniture scale appears inconsistent in some rooms."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera and orthographic projection are generally correct. Lighting quality is decent. Geometry is mostly clean, but some minor distortions are present. Visual clarity is good."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Home Office / Maid's Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Toilet-3."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Toilet-4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony adjacent to Bedroom-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Deck adjacent to Living & Dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony adjacent to Bedroom-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing doors for Toilet-3, Toilet-4, and the Home Office / Maid's Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple windows throughout the structure."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for Bedroom-3 (opens inward from a different wall)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall separating Toilet-2 and Bedroom-2, resulting in Bedroom-2 being smaller and Toilet-2 being larger than in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall for the Kitchen entrance changing its dimensions."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior wall for Toilet-1, changing its internal layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced external wall for Bedroom-1's bathroom, altering the room's shape."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced external wall near the Lobby, altering the overall footprint."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to Bedroom-3."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to Toilet-2."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to Toilet-1."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom-2, appears wider than specified."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Toilet-2, appears larger than specified."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Kitchen, internal layout appears wider."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom-1, its bathroom area is altered."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Living & Dining area due to missing deck."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan20.avif"
+}

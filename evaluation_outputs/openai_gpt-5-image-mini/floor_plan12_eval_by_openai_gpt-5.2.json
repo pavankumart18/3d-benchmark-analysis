@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 1,
+        "max": 40,
+        "notes": "3D render does not match the 2D plan layout. The 2D plan is an upper-floor arrangement with Activity room, Balcony, Beds 2/3/4, Bath, WC, Linen, Robes, and stair/landing recess; the 3D depicts a different program (kitchen/dining/living + garage). Room placement, wall alignment, door locations/orientations, windows, and proportions are fundamentally inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 1,
+        "max": 25,
+        "notes": "Major structural mismatch: most planned rooms are missing and several unplanned spaces are introduced. Adjacencies in the 2D plan (Beds around central hall, Bath/WC cluster, Balcony off Activity, stairs/landing) are not represented. Walls/doors/windows are not embedded per the plan; only generic wall thickness appears somewhat consistent internally."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture in 3D (kitchen island, cabinets, dining set, sofas, cars) does not correspond to the 2D plan\u2019s bedroom/bath fixtures and balcony layout. No accurate mapping of beds, robes/linen storage, bath fixtures, or balcony elements."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is visually clean with coherent lighting and readable geometry. Camera is broadly isometric-like, though not a strict architectural orthographic/isometric match to the plan. Some elements (cars/garage opening) are modeled clearly, but composition is unrelated to the provided floor plan."
+    },
+    "total_score": 19,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Activity room as defined in plan (including its correct placement and boundaries)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony and balustrade/low wall conditions shown on plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bed 2, Bed 3, and Bed 4 rooms (and their intended arrangement around the hall)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bath and separate WC rooms (including bathtub/toilet placement per plan)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Linen storage and Robe/closet elements located in/near bedrooms on plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing stair/landing recess and associated wall geometry indicated at the top-left of the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Overall room placement and circulation/hallway structure do not align with the 2D plan (central hall and door cluster not present)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement is incorrect: plan shows multiple hinged doors from hall into Bath/WC/Beds; 3D uses different openings and locations."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations/swing logic from the plan (hinge side and swing arcs) are not represented in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is incorrect: plan window locations on external walls (bedroom/activity/balcony sides) do not match the sparse windowing in 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions are not preserved: the 3D massing suggests a different footprint and room sizes than the dimensioned bedrooms/activity/balcony proportions in plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated garage/carport space not present in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen and dining area (cabinets, island, dining table) not present in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated living room/lounge setup (sofa/coffee table) not present in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan12.png"
+}

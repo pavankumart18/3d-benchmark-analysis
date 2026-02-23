@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (beds at top, living/alfresco right, garage bottom-right, master suite bottom-left), but multiple plan-specific geometries are not preserved. Several openings/doors are not placed or oriented per the 2D plan, and exterior window locations/counts do not match. Some spaces (alfresco/living recesses, pantry niche areas) appear simplified, affecting proportions and edge alignment."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "Most adjacency relationships are preserved (kitchen-pantry-living, master-ensuite, bed zone near bath/laundry). However, many doors are not properly embedded (often represented as open passages without door leaves), and several plan-defined recesses/robes are simplified or missing, reducing fidelity. No clear hallucinated rooms detected."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture is generic and does not reliably follow the 2D plan layouts (e.g., theatre seating arrangement, living furniture grouping, alfresco set). Scale is broadly plausible but not clearly mapped to the plan\u2019s intended placements/recesses."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Render is clean with decent lighting and legible room volumes, but it is closer to a top-down/orthographic view than a true isometric camera. Geometry is mostly clean, though several architectural details (doors/windows/recesses) are simplified which reduces architectural clarity."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/omitted door leaves in multiple locations; several plan swing doors are shown as open passages in the 3D render (door embedding not faithfully represented)."
+        },
+        {
+            "code": "E2",
+            "description": "Alfresco access openings appear simplified/misplaced relative to the 2D plan (plan shows specific large openings from living/activity; 3D does not clearly match exact positions/widths)."
+        },
+        {
+            "code": "E1",
+            "description": "Plan-defined recesses/fixtures are missing or not clearly modeled (e.g., desk recesses for Bed 3/Bed 4 and the labeled 'RECESS' on the living room\u2019s right side are not clearly represented as in-plan geometry)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count on exterior walls is inconsistent with the 2D plan (3D shows fewer/different window locations, notably along the top bedroom walls and key exterior edges such as living/theatre/master)."
+        },
+        {
+            "code": "E4",
+            "description": "Local proportion distortions in secondary spaces (pantry/kitchen niche areas and alfresco boundary) where the 3D simplifies wall jogs and room-edge offsets shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Fridge recess/pantry detailing from the 2D plan is not faithfully represented (pantry appears as a simplified box without the plan\u2019s recess articulation)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door orientations (swing direction/hinge side) from the 2D plan are not preserved or are indeterminable in 3D due to missing door geometry."
+        },
+        {
+            "code": "E6",
+            "description": "Camera is not truly isometric; view is near top-down, reducing compliance with an isometric render requirement."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan10.png"
+}

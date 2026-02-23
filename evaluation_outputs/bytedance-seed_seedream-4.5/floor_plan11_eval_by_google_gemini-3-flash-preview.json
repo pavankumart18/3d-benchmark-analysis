@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Major failure in spatial arrangement. The kitchen has been mirrored and displaced. The central staircase is hallucinated as a central bed-like structure. Windows are generic and do not match the specified bay window (window seat) or specific counts on the southern wall."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Significant structural deviations. The utility room and WC partitioning are ignored. Internal wall thickness is inconsistent with the blueprint. Hallucinated rooms are present (extra bedroom/dining area) that do not exist in the source 2D floor plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture scale is drastically incorrect. The layout incorporates a dining table and beds where there should be clear thoroughfares and utility space. Stove and sink placements do not follow the 'Kitchen Detail Plan'."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "High visual clarity and clean rendering. Lighting and orthographic projection are well-executed, though the model fails completely as an architectural representation of the specific plan."
+    },
+    "total_score": 34,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucined furniture and room partitions not present in the 2D blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and dining components are misplaced relative to the entrance hall and utility core."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific architectural features: window seat (bay window), exact pantry enclosure, and utility shelving."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Central Hall' are severely distorted to accommodate hallucinated furniture."
+        },
+        {
+            "code": "E3",
+            "description": "Staircase orientation is completely incorrect, replaced by a non-functional geometric mass."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan11.png"
+}

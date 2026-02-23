@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained. However, the main entrance door by the living room is missing. Window placement in the living area and bedrooms is roughly accurate but the secondary window in the living room is omitted."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall partitions are mostly correct. Major structural error: the external terrace/closet area is rendered with an open-arch wall rather than the specified enclosed closet with a door. Central hallway doors are also simplified or missing."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "High correlation in furniture placement including rug orientation, sofa sets, and kitchen island. Scale is consistent with the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric rendering. Lighting and clean geometry are high quality, though some text elements on the floor are rendered as garbled artifacts."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Main entrance door to Chandler & Joey's apartment is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Inner door for the top closet area is missing, replaced by an open wall segment."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom fixtures in the central bathroom are slightly rearranged compared to blueprinted orientation."
+        },
+        {
+            "code": "E6",
+            "description": "Text labels from the floor plan are rendered as unreadable visual artifacts on the 3D floor."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan.jpg"
+}

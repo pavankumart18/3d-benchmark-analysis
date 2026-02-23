@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "The spatial layout of the 3D render significantly deviates from the 2D floor plan. Rooms are incorrectly sized and placed. The kitchen and dining room areas are merged for '15 x 14' labeled room, losing individual identity. The bathroom is completely missing. The living room is reconfigured with additional internal walls not present in the floor plan. Window and door placements are also highly inaccurate."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "There are significant structural fidelity issues. The bathroom is entirely missing (E1). The staircase area is also completely missing (E1). New internal walls are hallucinated in the living room area (E5). Adjacency relationships are completely altered due to missing rooms and new walls. Door embedding is incorrect as the generated doors do not align with the plan's door locations."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement and scale are highly inaccurate. The kitchen appliances are not recognizable or scaled correctly. The bed in the reconfigured 'living room' area is not consistent with the floor plan. The dining room furniture is missing. Bathroom fixtures are missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The overall isometric camera correctness and orthographic projection accuracy are decent. Lighting quality is acceptable. Geometry appears clean without major distortions. However, visual clarity and composition suffer due to the numerous structural and spatial inaccuracies, making it difficult to recognize the original floor plan."
+    },
+    "total_score": 15,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bathroom"
+        },
+        {
+            "code": "E1",
+            "description": "Missing Staircase"
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced Kitchen and Dining Room layout"
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect Living Room configuration"
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation and placement for all doors"
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement for all windows"
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of rooms; sizes are not preserved."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated internal walls in the living room area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated room division and content for the combined '15 x 14' area."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect furniture placement for kitchen appliances and bed."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dining room furniture."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan3.jpg"
+}

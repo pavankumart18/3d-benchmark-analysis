@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placements are mostly correct, but wall alignments have significant discrepancies leading to proportion distortions. Door and window placements are incorrect or missing. The balcony structure is also incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not correctly embedded, and some are missing. Adjacency relationships are broadly maintained but distorted. There are missing and hallucinated structural elements."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Many furniture pieces are placed incorrectly or are missing. Some furniture is scaled inconsistently with the room proportions. For example, the dining table is round in the plan but rendered rectangular, and the sofa in the living area changed orientation and scale."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera is acceptable. Lighting quality is decent. Geometry is clean. However, the overall composition and clarity suffer due to structural inaccuracies and missing details."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "The balcony's width and depth are significantly distorted in the render compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door at the top left is missing in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen door is missing in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The utility room door is missing in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The toilet door placement and orientation are incorrect; it should open inwards to the toilet and is positioned differently."
+        },
+        {
+            "code": "E2",
+            "description": "The bedroom door placement and orientation are incorrect; it should open inwards to the bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "The window in the bedroom is missing."
+        },
+        {
+            "code": "E1",
+            "description": "The window in the toilet is missing."
+        },
+        {
+            "code": "E4",
+            "description": "The 'UTILITY' room appears significantly smaller and its wall alignment is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "The 'TOILET-1' room proportions are distorted, particularly its length."
+        },
+        {
+            "code": "E4",
+            "description": "The 'BEDROOM-1' room proportions are distorted, making it appear wider and shorter than indicated."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating the 'LIVING & DINING' and 'BEDROOM-1' is not aligned with the toilet wall in the render, causing a misalignment and proportional change."
+        },
+        {
+            "code": "E4",
+            "description": "The 'KITCHEN' dimensions are distorted; it appears shorter along the counter side in the render."
+        },
+        {
+            "code": "E5",
+            "description": "A new wall partition/shelf is hallucinated in the living area, separating the dining table from the sofa."
+        },
+        {
+            "code": "E5",
+            "description": "A hallucinated element of an unknown room or structure appears behind the bedroom, not present in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The dining table shape is round in the plan but rendered rectangular."
+        },
+        {
+            "code": "E3",
+            "description": "The living room sofa's orientation is incorrect in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The TV unit in the living area is not accurately placed or represented."
+        },
+        {
+            "code": "E1",
+            "description": "The closet in the bedroom is completely missing from the render."
+        },
+        {
+            "code": "E2",
+            "description": "The bed in the bedroom is placed against the wrong wall."
+        },
+        {
+            "code": "E1",
+            "description": "Small planted elements on the balcony are missing in the render."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen counter elements (sink, stove) are missing their detailed representation."
+        },
+        {
+            "code": "E1",
+            "description": "The washing machine in the utility is largely missing/obscured."
+        },
+        {
+            "code": "E1",
+            "description": "The toilet and sink in the toilet room are missing details and proportions are off."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan16.avif"
+}

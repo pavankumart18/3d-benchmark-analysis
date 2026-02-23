@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "notes": "Overall layout matches the 2D plan (kitchen/living left, main bedroom top-right, bath/closet core, stairs on right). However, multiple openings deviate: top-wall window configuration is not consistent with the plan, and several interior door positions/swings appear incorrect or missing. Some proportion drift is visible (bedroom and central circulation feel expanded relative to the living zone; window bay spacing on the long bottom wall does not precisely match the 2D rhythm)."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Primary wall network and adjacencies are mostly preserved (stairs adjacent to entry/hall; bath/closet cluster between living and bedrooms). Wall thickness is generally consistent. Fidelity drops due to interior door embedding/definition issues (some door leaves/frames are absent or represented as open portals) and incorrect/misaligned exterior window set on the top wall compared to the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen counters and island placement broadly match (L-shaped run + island with sink). Living furniture (sofa/coffee table) and dining table are present but not tightly aligned to the 2D positions and clearances. Bedroom furniture is plausible but not a strict match to the 2D drawing arrangement."
+    },
+    "aesthetic_quality": {
+        "score": 21,
+        "max": 25,
+        "notes": "Clean, readable isometric render with good lighting and generally crisp geometry. Camera is consistent with an isometric/axonometric look. Minor issues: window/door modeling simplifications reduce architectural clarity (openings not consistently framed), and some elements look slightly stylized rather than strictly orthographic-faithful."
+    },
+    "total_score": 71,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Top (north) exterior windows in the 3D render are placed/configured differently than the 2D plan (render shows large window set(s) spanning the top wall; the plan\u2019s top-wall openings do not match this extent/spacing)."
+        },
+        {
+            "code": "E2",
+            "description": "Bottom (south) exterior window spacing/segment proportions along the long living-room wall do not precisely match the 2D plan\u2019s window rhythm."
+        },
+        {
+            "code": "E1",
+            "description": "One or more interior doors shown in the 2D core (hall-to-bath and/or hall-to-closet/secondary room) are not clearly modeled as doors in 3D (appear as open passages or lack a door leaf/frame)."
+        },
+        {
+            "code": "E3",
+            "description": "Entry door swing/orientation at the bottom-right appears inconsistent with the 2D plan\u2019s swing direction/hinge side."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion drift: the main bedroom and central circulation/core read larger in the 3D model relative to the living/kitchen area compared to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan6.jpg"
+}

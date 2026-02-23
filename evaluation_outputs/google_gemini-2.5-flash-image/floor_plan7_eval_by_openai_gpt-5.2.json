@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall layout (Dining top-left, Kitchen top-center, Living right, Bedroom bottom-left, Stairs bottom-right) generally matches the 2D plan. However, the central wet-area block deviates: the 2D shows a distinct Wash Area above the Toilet with its own enclosure and circulation, but the 3D reads as a simplified/merged space with different internal partitioning. Several door positions appear slightly shifted (notably Bedroom 1 entry and the wet-area entry), and window placement/count does not consistently match the plan (some openings appear omitted or relocated). Minor proportion differences are visible in the corridor/wet-area widths versus adjacent rooms."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Primary adjacency relationships mostly hold (Bedroom\u2013corridor, Living\u2013entry, Kitchen\u2013open hall, Stairs adjacent to Living), but the Wash Area/Toilet subdivision and access logic differs from the 2D plan, indicating altered internal walls/door embedding. Wall thickness is mostly consistent but varies at a few junctions. No clear extra (hallucinated) rooms, but at least one functional room (Wash Area) is not faithfully represented as a separate enclosed room as drawn."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Dining table/chairs, bedroom bed, and living seating are present and roughly in the correct rooms. However, kitchen/utility fixtures do not closely follow the 2D layout (counter/appliance layout simplified), and bathroom/wash fixtures appear rearranged relative to the planned wash/toilet separation. Some furniture scaling looks slightly off (seating and circulation clearance in Living)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean and readable with consistent materials and acceptable lighting. Camera is more top-down orthographic-like than a true isometric; perspective/angle is mild and not strongly isometric. Geometry is mostly clean with no major artifacts, though opening details (windows/doors) lack precision relative to the plan, reducing clarity of architectural intent."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Wash Area not faithfully represented as a distinct enclosed room above the Toilet as shown in the 2D plan (appears merged/simplified in 3D)."
+        },
+        {
+            "code": "E2",
+            "description": "Wet-area internal partitioning differs: the wall/partition between Wash Area and Toilet does not match the 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/Wash access path differs from the 2D plan (door embedding/entry location appears changed)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 1 door position appears shifted relative to the 2D plan placement along the corridor wall."
+        },
+        {
+            "code": "E1",
+            "description": "Window placement/count mismatches: at least one window/opening shown in the 2D plan appears missing or relocated in the 3D render (notably along exterior walls of main rooms)."
+        },
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion in the central corridor/wet-area block (widths and clearances do not preserve the 2D proportions precisely)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan7.jpg"
+}

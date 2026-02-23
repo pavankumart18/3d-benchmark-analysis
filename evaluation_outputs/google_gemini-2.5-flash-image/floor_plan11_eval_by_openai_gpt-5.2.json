@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 7,
+        "max": 40,
+        "notes": "Overall layout does not match the 2D plan. The 2D plan\u2019s key organizing spine (central hall + stair core + utility/service block) is not represented in the 3D. Kitchen/dining are presented as a simple open plan, but the 2D plan has a clearly bounded dining room with adjacent kitchen/pantry and a distinct window-seat/breakfast condition. Multiple walls/openings shown in plan are missing or relocated, producing incorrect room placement and circulation. Window and door locations do not correspond to the plan and room proportions appear heavily altered (3D appears near-square while the plan is more elongated with specific dimensioned bays)."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Adjacencies and service-room structure are incorrect: WC/utility/pantry/stair/crawlspace relationships from the plan are not preserved. Several plan-defined rooms are missing, and several partitions/openings in the 3D appear invented or simplified. Wall thickness is uniform and generic rather than reflecting plan conditions. Doorways are not embedded where the plan indicates (notably around the service core and hall)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and not mapped to the plan-specific program elements (no window seat, no indicated built-ins/utility appliances/WH-HVAC placement). Dining set and kitchen line exist but do not reflect the plan\u2019s detailed kitchen/pantry layout. Scale appears plausible, but placement does not correspond to the 2D drawing."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric view is coherent and readable with clean geometry and acceptable composition. Lighting/materials are very flat and schematic. Openings and interior details are simplified, but there are no major rendering artifacts; overall presentation is clean though not highly informative for plan verification."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing stair/UP run and stair core shown near the center-left of the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dedicated Utility Room with WH/HVAC zones as defined in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry room/closet adjacent to the Kitchen as shown on the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Central Hall configuration; circulation spine in 3D does not replicate the plan\u2019s hall layout."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Window Seat/breakfast-related bay/condition shown on the right side of the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom/WC placement does not match the 2D plan\u2019s WC location and its adjacency to the hall/service core."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen placement and boundaries are simplified/shifted; the 2D plan\u2019s kitchen geometry and openings are not preserved."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations between rooms (hall-to-WC, hall-to-utility, and other internal doors) do not align with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placement and sizing do not correspond to the 2D plan\u2019s window locations/bays (notably along the dining/right-side fa\u00e7ade)."
+        },
+        {
+            "code": "E4",
+            "description": "Overall proportions are distorted: the 3D footprint and room dimensions appear re-proportioned compared to the dimensioned 2D plan (plan is more segmented/elongated with specific bays)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallway/partition arrangement on the left side of the 3D appears invented relative to the 2D plan (extra/altered small rooms and openings not indicated)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan11.png"
+}

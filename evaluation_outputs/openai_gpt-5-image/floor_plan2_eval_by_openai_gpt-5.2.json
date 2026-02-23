@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall room zoning is roughly similar (left bedroom, central hall/bath/utility, right bedroom, open living/dining/kitchen), but multiple spatial mismatches: interior wall runs and offsets don\u2019t match the 2D plan (notably the hall-to-living boundary and the left-side entry corridor shape). Several door locations/orientations are incorrect or simplified, and most exterior windows shown on the 2D plan are missing in the 3D. Room proportions are noticeably distorted: the central open area is enlarged while the top rooms (bath/office) and left bedroom appear resized/reshaped."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent, but adjacency and openings are not faithfully embedded: doors appear as generic panels and do not consistently correspond to the plan\u2019s swing positions. Adjacency is partially preserved (bath and office along the top-middle, bedrooms at left/right), but key partition geometry (living-area enclosure/partial wall) deviates. No clear extra rooms, but several planned architectural elements (windows, some partitions) are omitted, reducing fidelity."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is only loosely mapped. Left bedroom in the plan has two single beds; the 3D shows only one (missing one bed) and simplified storage. Right bedroom desk/workstation shown in plan is missing/simplified. Living room arrangement differs (plan shows sectional + chair + TV placement within a defined nook; 3D places seating more openly with different partition context). Kitchen layout is simplified and not placed/arranged to match the 2D counters/appliances."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clean with consistent materials, decent lighting, and readable composition. Camera is isometric-like but not strictly orthographic (perspective/foreshortening present). Geometry is mostly clean with minimal artifacts; however, architectural simplifications (missing windows/doors details) reduce clarity relative to a verification-grade model."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Interior wall alignment mismatch: the hall/living boundary and the left-side corridor/entry partitioning do not match the 2D plan\u2019s wall offsets and shapes."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation errors: multiple doors do not match the 2D plan\u2019s exact positions and swing orientations (bath/office/right-bedroom openings appear simplified or shifted)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows: several exterior windows visible in the 2D plan (top wall segments and right-bedroom/kitchen-side openings) are absent in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: central open living/dining area is oversized relative to the plan, while top-middle rooms (bath/office) and the left bedroom appear resized/reshaped."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture element: the left bedroom shows only one bed in 3D, while the 2D plan clearly shows two single beds."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/incorrect furniture element: right-bedroom desk/work area shown in the 2D plan is not represented accurately in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen fixture placement mismatch: 3D kitchen counters/appliances are simplified and do not align with the 2D plan\u2019s counter run and sink placement along the bottom-right."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan2.png"
+}

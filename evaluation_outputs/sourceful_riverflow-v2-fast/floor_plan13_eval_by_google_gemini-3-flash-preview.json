@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Significant door placement issues in the central hallway; the kitchen entrance is incorrectly modeled. Window placement on the southern wall of the bathrooms/bedrooms is inconsistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Garage is detached incorrectly or lacks a proper connecting context. Hallucinated balcony/railing elements added to the entry area. Internal wall partitions for the laundry/wardrobe area are merged incorrectly."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen cabinetry follows the general layout, but bathroom fixtures are simplified or misplaced compared to the technical drawings."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good isometric perspective and clean rendering. Lighting is diffuse but effective for a schematic view, though geometry on the garage door is slightly distorted."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated balcony railing at the front entrance/entry area not present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The garage is positioned as a separate floating volume rather than maintaining its spatial relationship shown on the diagram."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bedroom 2 is misplaced or missing its clear opening from the hallway."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific closet (Robe) partition detail between the Kitchen/Laundry and Bedroom 1."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance door orientation and linen closet niche are structurally misinterpreted in the 3D extrusion."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (bedroom left, living/dining center, kitchen right, toilet near top-center/right), but several plan-defined spaces are not represented correctly. Balcony at bottom-left is not modeled as an open/attached exterior space and appears replaced by interior wall/window treatment (E1/E2). Utility (3'9\" wide) to the far right of kitchen is missing/merged (E1). Foyer (4'6\"x3'10\") at bottom-right is not clearly defined; entry seems to open into the main space without the plan\u2019s small foyer separation (E2/E4). Door positions do not match the plan\u2019s swing locations (bedroom/toilet/entry relationships are approximate but not aligned). Window locations/counts differ notably (extra/shifted glazing on exterior walls vs plan). Room proportions appear distorted: living space is over-enlarged relative to kitchen/foyer, and the toilet volume reads larger than 4'9\"x8'0\"."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness looks visually consistent in the render, but several structural/adjacency constraints from the plan are violated. Missing rooms: balcony and utility are not separately present (E1). Foyer separation is not respected (E2/E4). Toilet duct/shaft shown in plan is not represented (E1). Some partitions near the kitchen/toilet area appear reconfigured, creating a different circulation/partition layout than the plan (E2). No clear hallucinated additional full room, but interior partitions/corners not in the plan are introduced (E5, minor)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Key furniture types are present (bed, sofa, dining table, TV, kitchen counters), but placement does not follow the 2D layout closely (e.g., living seating arrangement and TV wall do not correspond to the plan\u2019s indicated placement). No balcony furniture/usable balcony zone because balcony is missing (E1). Furniture scale is generally plausible, though dining/living clearances appear inconsistent with the tighter plan proportions (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera is clean and readable with good composition. Not truly orthographic (mild perspective feel), but acceptable. Lighting is soft and consistent. Geometry is mostly clean with no major mesh artifacts; however, some openings/frames look simplified and not plan-accurate (clarity good, fidelity not)."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony (4' wide) shown at bottom-left in the 2D plan is missing as an exterior/open balcony space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Utility space (3'9\" wide) to the right of the kitchen is missing/merged into the kitchen massing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer (4'6\"x3'10\") at the main entry is not clearly separated; entry sequence is reconfigured compared to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall alignment/partitioning around kitchen/toilet differs from the plan, producing a different circulation and room boundary geometry."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements and swing/orientation do not match the plan precisely (notably bedroom entry, toilet entry, and main entry/foyer transitions)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count differs from the floor plan; several large windows appear added or shifted relative to plan-indicated openings."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining reads oversized relative to kitchen/foyer, and toilet reads larger than the plan dimension (4'9\"x8'0\")."
+        },
+        {
+            "code": "E1",
+            "description": "Toilet duct/shaft indicated in the 2D plan is not represented in the 3D model."
+        },
+        {
+            "code": "E5",
+            "description": "Additional/altered partition segments near the kitchen/toilet area appear that are not present in the 2D plan, effectively hallucinating wall geometry."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan18.jpg"
+}

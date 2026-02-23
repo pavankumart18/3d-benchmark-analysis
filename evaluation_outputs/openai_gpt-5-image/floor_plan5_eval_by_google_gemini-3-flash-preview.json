@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major structural deviations identified: the large outdoor terrace on the left and the smaller balcony on the right are entirely missing. The central living/dining area has incorrect door orientations and window counts. Wall alignment for bathrooms is significantly simplified compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing rooms (E1) include the primary exterior terrace and secondary balcony. Several doors are rendered as solid walls or moved. Hallucinates arched doorways not present in the technical drawing."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The kitchen layout (bottom left) is simplified and missing the island. The dining table in the central room is placed but the secondary seating area shown in the plan is replaced with a mismatched sofa set."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality 3D rendering with consistent lighting, clean geometry, and a professional isometric orthographic perspective."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Large exterior terrace on the left side of the floor plan is completely missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Right-side balcony is missing; the wall is solid instead of containing a doorway/opening."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island from the floor plan is missing/misplaced, and the appliances are moved to the perimeter wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucination of arched entrance at the bottom center which is shown as standard double doors in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom proportions and wall jogs are simplified, losing the specific niches shown in the 2D layout."
+        },
+        {
+            "code": "E3",
+            "description": "The swing of several internal doors is inverted or converted to simple wall gaps."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan5.jpg"
+}

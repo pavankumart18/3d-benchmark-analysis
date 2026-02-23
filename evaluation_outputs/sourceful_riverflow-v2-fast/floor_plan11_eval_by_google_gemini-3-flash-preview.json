@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe misalignment of internal partitions. The central hall and staircase logic is completely lost. Window placements on the right-hand bay (window seat) are simplified and inaccurate. Door openings do not follow the plan's swing directions or specific locations."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major structural deviations: the Utility Room and WC area are mangled into a single distorted space. The staircase (Crawlspace Access area) is rendered as a flat hallway. Adjacency between the Kitchen and Dining Room is loosely interpreted rather than architecturally mapped."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Hallucinated kitchen island that does not exist in the 2D plan. The appliances (range, sink) are placed roughly in the correct zone but lack the specified L-shape and pantry configuration."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good isometric camera angle and consistent lighting. Geometry is clean and free of noise, though the simplicity sacrifices the detail required for architectural verification."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase/crawlspace access transition and detailed WC partitioning."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen fixtures misaligned with the L-shaped layout provided in blueprints."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the Dining Room relative to the Central Hall is compressed."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucination of a central kitchen island and extra wall openings not present in original plan."
+        },
+        {
+            "code": "E6",
+            "description": "Window seat bay geometry is simplified into a basic block, losing the angled structural detail."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan11.png"
+}

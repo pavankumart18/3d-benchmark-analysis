@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 13,
+        "max": 40,
+        "notes": "Overall massing loosely resembles the 2D plan (garage at lower-right; central kitchen zone; living zone on right; bedroom cluster on left), but multiple rooms are repositioned/merged and several circulation/entry spaces are not represented. The master suite is not clearly located at the bottom-left as in plan (a bedroom appears closer to bottom-center). The theatre room location/identity is inconsistent (render shows a generic lounge at bottom-left). Kitchen/pantry geometry is simplified and does not match the plan\u2019s pantry placement. Door locations/orientations are largely not modeled (open wall gaps instead), preventing verification and implying incorrect placements. Window distribution does not match the plan (extra/missing openings and different sizes/locations). Room proportions are noticeably altered (right-side living/dining area enlarged; left-side service/amenity rooms compressed)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Several labeled plan spaces are missing or collapsed into generic rooms/voids (alfresco, verandah, portico, pantry detail, linen/robes, WIR/ensuite composition). Adjacencies are partially correct at a macro level (kitchen near living; garage adjacent to entry side), but key relationships are wrong/unclear (master suite vs theatre vs study placement; service core of bath/wc/laundry). Many doors are not embedded (render uses open passages), so true door-wall integration and swing/orientation fidelity is not achieved. Wall thickness appears uniform but simplified; internal partitions do not consistently follow the plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not reliably map to the plan\u2019s room functions: the theatre is not furnished/identified as a theatre, the activity space is ambiguously furnished, and dining/living furniture appears duplicated/relocated relative to the plan. Scale is generally plausible, but placements imply different room boundaries than the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is clean with coherent lighting and readable geometry. However, camera is more top-down perspective than a true isometric, and it does not communicate exterior elements (alfresco/verandah/portico) that are essential to the plan. Visual clarity is good, but architectural correctness is undermined by missing doors and oversimplified openings."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Alfresco area shown on the 2D plan (top-right) is missing/not modeled as a distinct outdoor space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Verandah and portico (bottom edge/entry frontage in the 2D plan) are missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry is not represented as a distinct enclosed room with correct placement adjacent to the kitchen as in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Linen/robe storage elements (e.g., LINEN, multiple ROBE locations, recesses) are largely missing or not modeled as per plan."
+        },
+        {
+            "code": "E2",
+            "description": "Master suite location and composition (master + ensuite + WIR cluster at bottom-left in plan) does not match the 3D render; bedroom appears repositioned and the suite layout is not preserved."
+        },
+        {
+            "code": "E2",
+            "description": "Theatre room (bottom-left in plan) is not clearly placed/defined in the 3D render; shown as a generic lounge with different boundaries."
+        },
+        {
+            "code": "E2",
+            "description": "Study placement near the entry (bottom-center in plan) is inconsistent/unclear in the 3D render (a desk appears in a different left-side room)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement and orientation cannot match the plan because most door leaves/swings are not modeled; openings are used instead, implying incorrect door implementation."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement differs substantially: the 3D render shows a series of high horizontal windows along the top wall and large sliders at the bottom-left that do not correspond to the plan\u2019s specific window/door locations."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the right-side living/dining zone appears oversized relative to the plan, while left-side service spaces (bath/wc/laundry) appear compressed/simplified."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra generic open spaces and duplicated living/dining furniture groupings appear that do not correspond to distinct labeled rooms in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan10.png"
+}

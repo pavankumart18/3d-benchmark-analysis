@@ -1,0 +1,112 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Balcony is completely missing. Wall alignment has some inaccuracies, particularly around the kitchen/foyer and living/dining area, and the utility area is misrepresented. Door placement and orientation are incorrect for several doors. Window placement is generally incorrect in position and number. Room proportions show some distortion, notably in the bedroom and living/dining area."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas, with some walls appearing thinner than others without logical reason. Door embedding is sometimes incorrect (e.g., utility door). Adjacency relationships are mostly maintained but become incorrect due to missing elements. The Balcony room is completely missing. A utility/balcony partition wall is hallucinated next to the kitchen."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is mostly inaccurate in the bedroom relative to the floor plan (e.g., wardrobe, bedside tables). In the living/dining, the sofa is placed on a different wall than the plan indicates, and the dining table orientation is different. Furniture scale general consistency is acceptable, but some items like the TV console are not represented correctly."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is good, and orthographic projection is generally accurate. Lighting quality is acceptable and provides clear visibility. Geometry is mostly clean, but there are some minor distortions. Visual clarity is good due to the simple aesthetic, but the overall composition is marred by the structural and spatial inaccuracies."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony room is entirely missing."
+        },
+        {
+            "code": "E1",
+            "description": "The wall separating the utility and balcony is missing, replaced by a half-wall."
+        },
+        {
+            "code": "E1",
+            "description": "Ventilator/small window in the Toilet is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom windows are misplaced vertically and in number. The floor plan shows one large window; render shows two smaller windows placed higher."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet door is misplaced; it is shown further into the toilet rather than at the entrance from the passage."
+        },
+        {
+            "code": "E2",
+            "description": "Utility door is misplaced and incorrectly appears outside the utility area rather than within the opening."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the Living/Dining area is misplaced and appears on a different wall segment."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen window is misplaced; render shows a single window on a different wall segment than indicated on the floor plan which shows two separate window sections."
+        },
+        {
+            "code": "E3",
+            "description": "Toilet door orientation is incorrect; it opens in the opposite direction."
+        },
+        {
+            "code": "E3",
+            "description": "Utility door orientation is incorrect; it opens in the opposite direction from the floor plan indication."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Bedroom appear distorted; it looks wider than indicated from the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Living/Dining area appear narrower and longer than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Foyer appear distorted, looking smaller."
+        },
+        {
+            "code": "E5",
+            "description": "Half-wall hallucinated around the Balcony/Utility area."
+        },
+        {
+            "code": "E5",
+            "description": "A wall behind the TV console in the Living/Dining area appears longer without reason, creating an extended niche."
+        },
+        {
+            "code": "E5",
+            "description": "A niche/recess in the wall between the Living/Dining and the passage to the toilet/bedroom is hallucinated in the render."
+        },
+        {
+            "code": "E2",
+            "description": "Wardrobe, TV unit, and bedside tables in the bedroom are incorrectly placed relative to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa placement in the Living/Dining area is on a different wall than shown on the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Dining table orientation is different from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter layout and sink placement are different from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing refrigerator placement and dedicated space from the Kitchen."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the entire right side of the plan (BED-1, TOI-1, part of BED-4 and the utility room outdoor space) is shifted and compressed. Wall alignment is inconsistent, especially on the top right deck area and the left bedroom. Door placement and orientation are incorrect for several rooms, notably TOI-4, TOI-2, and the main entrance from the foyer. Window placement is missing in several rooms, and scale is inconsistent. Room proportions are distorted for BED-1, TOI-1, and the overall shape of the right deck."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout the render. Door embedding is incorrect, with many doors appearing as simple openings or misaligned. Adjacency relationships are heavily compromised in the top-right deck area and for BED-1/TOI-1 where rooms are merged or have incorrect access. Several rooms, particularly the outdoor deck areas from the original plan, are missing or significantly altered. The large window on the far right of the render is a hallucinated element, and the external structure of the building is simplified."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate within the existing rooms. However, some furniture on the far right deck is missing. Furniture scale is mostly consistent, but some chairs may appear slightly small for the dining table."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct. Orthographic projection seems to have some minor deviations, especially with the rendering of specific walls. Lighting quality is decent, providing clear visibility. Geometry shows some distortions, particularly in wall thickness and wall intersections. Visual clarity and composition are good despite the structural errors."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Entire right side of the floor plan (BED-1, TOI-1, part of BED-4, and adjacent deck) is shifted and compressed relative to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of BED-1 (Original: 12' x 16'8\", Render: 22' x 14' - likely a mislabeling in the render, but visually distorted and merged with TOI-1)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of TOI-1 (Original: 8' x 9', Render: 5' x 9' - visually looks much smaller and merged with BED-1)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the deck areas, especially the top right, which is significantly smaller and has an altered shape."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the top right deck, which is straightened and reduced in size."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the left side of BED-2, causing a different external building shape."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entire deck area next to BED-1 (top right corner of the floor plan)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing deck area in front of the utility room (bottom right of the plan)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation error for the main entrance from the foyer."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation error for TOI-4."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation error for TOI-2."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement error for the door between BED-1 and TOI-1; the rooms appear merged without a clear separation based on the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in several rooms, including BED-2, BED-3, BED-4, and the living/dining area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated large window on the far right external wall, not present in the 2D floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness throughout the model, some walls are thinner than others."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door embedding; many doors appear as simple openings through walls without proper frames or depth."
+        },
+        {
+            "code": "E1",
+            "description": "Missing external stairs/platform indicated near the Utility room in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture on the significantly altered top-right deck."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion for the room dimensions shown in the render's labels (e.g., BED-1 22'x14', BED-2 12'x16'5'), which do not match the original floor plan's labels (BED-1 12'x16'8', BED-2 13'5\"x14')."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan19.webp"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall circulation roughly matches (living/dining central, kitchen below, utility to the right, bedrooms around perimeter), but there are major spatial mismatches: the top-right bedroom in the plan (BED-1 with attached TOI-1 and a small deck) is rendered as BED-2, while the left bedroom (plan BED-2) is rendered as BED-1 (E2). Both plan decks (large deck off living/dining and small deck off BED-1) are not represented (E1), causing incorrect exterior openings. Door locations are partially consistent internally, but exterior/terrace door logic deviates due to missing decks and an added balcony. Window placement is substantially different, especially the omission of the long top-side openings and the introduction of a large right-side glazed wall."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thicknesses and most internal partitions read consistently, and key adjacencies (kitchen-utility, living-dining to bedroom corridor, bed4 near common toilet) are mostly preserved. However, two outdoor decks shown in the 2D plan are missing entirely (E1). A new large balcony/terrace with railing/steps at the bottom-right is introduced and is not present in the 2D plan (E5). Several door-to-exterior conditions are therefore structurally incorrect (missing deck access, added balcony access)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Living/dining furniture (sofa grouping and dining table) is broadly plausible relative to the plan. Bedroom furniture is less faithful: BED-3 appears to contain two single beds in the render versus a different intended arrangement in the plan (E2), though overall scale is mostly consistent and not severely distorted."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera is clear and consistent; lighting is clean and readable; geometry is mostly crisp with good material separation. Some visual clarity is reduced by the exaggerated/introduced right-side glazing and the added terrace/steps which visually redefines the building envelope compared to the plan."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bedroom placement/identity mismatch: plan BED-1 (top-right) is rendered as BED-2, and plan BED-2 (left) is rendered as BED-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing large deck off the living/dining area shown on the top-left of the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small deck off plan BED-1 (top-right) shown as 'DECK 12 x 5' in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bottom-right balcony/terrace with railing/steps not present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement/envelope: large right-side glazed wall is introduced, while plan-indicated openings along the top exterior (serving living/dining/decks) are not faithfully represented."
+        },
+        {
+            "code": "E4",
+            "description": "Utility proportions differ: plan indicates UTILITY 5' x 11', but the render shows a much wider utility (labeled 9' x 11')."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior door logic deviates: deck access doors/openings implied by the plan are absent, and new exterior access is implied by the added terrace."
+        },
+        {
+            "code": "E2",
+            "description": "BED-3 furniture layout differs from plan intent (render shows twin beds rather than the plan\u2019s single-bed arrangement)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan19.webp"
+}

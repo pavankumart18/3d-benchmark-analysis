@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Main room structure is preserved, but bedroom window and balcony door show alignment issues. The kitchen/utility area lacks the distinct partitioning shown in the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Missing utility wall partition. Hallucinated a second sink/toilet fixture in the master bath area. Door into the bedroom is missing entirely."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living room sofa configuration changed from L-shape/multi-piece to a single sofa. Dining chairs increased from 3 to 4. Bed orientation is correct but desk is missing."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality isometric rendering, consistent lighting, and clean geometry. Materials are well-represented."
+    },
+    "total_score": 71,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Inner door for Bedroom-1 is missing from the rendering."
+        },
+        {
+            "code": "E2",
+            "description": "Utility wall partition between kitchen and laundry area is removed, merging the spaces."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated an extra bathroom vanity unit/cabinet in the shower area of Toilet-1."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony sliding door is disproportionately narrow compared to the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Entry door swing direction is slightly offset from the plan's 90-degree corner placement."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,120 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions, especially for Study, Dining Room, and Covered Patio. Door and window placements are frequently incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing the 'Nook' area near the kitchen. Hallucinated a second Covered Patio where Bedroom #4 was, and drastically altered the original Covered Patio. Wall thickness is not consistently preserved. Adjacency relationships are incorrect in several areas."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some furniture is present but placement and scale are inconsistent with the floor plan's indications. Many fixture details (sinks, toilets, appliances) are not accurately replicated."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Overall good rendering quality, clear geometry, and decent lighting. However, the isometric camera and orthographic projection lead to some perspective distortions, making it challenging to precisely verify room depths."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Nook' area adjacent to the kitchen, replaced by an extended covered patio in the render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated an entirely new 'Covered Patio' where Bedroom #4 should be, including an outdoor staircase."
+        },
+        {
+            "code": "E2",
+            "description": "The original 'Covered Patio' has been significantly reduced in size and altered in shape."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Study' room is significantly smaller and its wall alignment is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Dining Room' proportions are distorted; it appears smaller and its entrance is altered."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from 'Dining Room' to the exterior is missing. Replaced by a window."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and size in 'Study' are incorrect compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door between 'Hall' and 'Living Room' is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door into 'Master Bedroom' is incorrectly placed and oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door to 'WC' in Master Bath is missing. Replaced by an open doorway."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Bedroom #3' door is placed on a different wall than indicated on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Bedroom #2' door is placed on a different wall than indicated on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The window in 'Bedroom #3' is missing."
+        },
+        {
+            "code": "E2",
+            "description": "The window in 'Utility' is missing."
+        },
+        {
+            "code": "E2",
+            "description": "The door separating '2 Car Garage' from the interior is missing."
+        },
+        {
+            "code": "E4",
+            "description": "Overall boundary and shape of the house are distorted, particularly on the left side where the Study, Dining, and Nook are located."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Kitchen' wall layout and cabinet arrangement are simplified and differ from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'DW' (Dishwasher) is not clearly represented in the render."
+        },
+        {
+            "code": "E1",
+            "description": "The 'PAN.' (Pantry) area is simplified and not clearly defined as a separate room."
+        },
+        {
+            "code": "E3",
+            "description": "The 'Master Bath' layout, particularly the bath and shower area, is an approximation and deviates from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Windows indicated in the 'Living Room' and 'Master Bedroom' with a dashed line are missing."
+        },
+        {
+            "code": "E2",
+            "description": "The exterior door in 'Nook' is missing. The entire Nook area is replaced by a balcony type structure."
+        },
+        {
+            "code": "E4",
+            "description": "The '2 Car Garage' seems narrower than indicated in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan9.png"
+}

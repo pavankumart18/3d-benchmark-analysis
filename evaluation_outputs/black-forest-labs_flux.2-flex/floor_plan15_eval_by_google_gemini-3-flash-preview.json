@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved. However, window placements in the master bedroom and bedroom 2 deviate from the plan (rendered as smaller punched openings rather than large architectural glass units). The entrance door area shows slight scale distortion."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Structural integrity is mostly maintained, but the utility area adjacent to the kitchen is merged into a vague room structure. Several closets indicated in the 2D plan are missing or rendered as open voids."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen counters and dining table are correctly placed. Living room sofa orientation is slightly altered from the plan. Bathroom fixtures are largely missing or simplified."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering with clean lighting and consistent materials. Geometry is sharp and professional with good contrast."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing utility wall separation from the kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in peripheral bedrooms do not match the architectural span indicated in the 2D floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness appears inconsistent between internal partitions and external load-bearing walls."
+        },
+        {
+            "code": "E3",
+            "description": "Living room furniture grouping is rotated relative to the wall placement shown in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan15.webp"
+}

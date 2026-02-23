@@ -1,0 +1,116 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some walls are misaligned. Door placements are largely incorrect in terms of position and orientation. Window placements are frequently inaccurate. Room proportions are distorted in several areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not embedded correctly, often floating or misaligned with walls. Adjacency relationships are generally maintained, but specific openings are incorrect. One small room/area from the floor plan (bottom left, small porch/balcony) is missing. No hallucinated rooms, but some structural elements are hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is mostly incorrect, with items placed in different rooms or different positions within rooms. Furniture scale is inconsistent, with some items appearing oversized or undersized relative to the room."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection is reasonable. Lighting quality is dull and uniform, lacking depth. Geometry is generally clean with few major distortions. Visual clarity is good, but composition is uninspired."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bedroom on the far left. It should be on the right side of the wall."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error for the door to the bedroom on the far left. It should open inwards from the right."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced doorway to the kitchen/dining area on the left. It should be a wider opening."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen area, the island and adjacent space appear squashed."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the upper left bedroom. The floor plan shows two windows, the render shows one and it's on a different wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the far left dining area. The floor plan shows one window, the render shows none on that wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small porch/balcony area at the very bottom left of the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced doors for the two bathrooms in the upper middle section. They are not in the exact positions shown on the floor plan and orientations are incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error for multiple bathroom doors."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced doors for the two bedrooms on the right side. Positions and orientations are incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error for multiple bedroom doors on the right."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the top right bedroom. The window is on a different wall/position than in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the bottom right bedroom (only one shown, floor plan shows two)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the bottom right bedroom (render shows it on a different wall)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entrance door on the bottom wall, shifted to the left."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural element: a small protrusion/extension at the bottom left entrance area not present in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the rectangular balcony/porch at the far right. It is shown wider and shorter in the render than the plan suggests."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement incorrect in almost all rooms (e.g., dining table, living room sofas, beds, kitchen layout)."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent furniture scale, for example, the beds appear too large for the bedrooms, or the kitchen island is out of proportion."
+        },
+        {
+            "code": "E2",
+            "description": "Many internal wall alignments are slightly off or curved when they should be straight."
+        },
+        {
+            "code": "E6",
+            "description": "Lack of proper door frames impacting realism and structural embedding."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated outer wall segment creating an unnecessary jog near the top left corner of the structure on the exterior."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan5.jpg"
+}

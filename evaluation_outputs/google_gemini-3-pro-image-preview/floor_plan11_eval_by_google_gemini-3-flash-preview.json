@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct, but door opening directions (E3) and exact window spacing on the bottom wall deviate from the technical blueprint."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Adjacency is preserved and all major rooms (Utility, WC, Kitchen) are present. The wall thickness is consistent, though some door thresholds are modeled as simple gaps (E2)."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of appliances in Utility and Kitchen. The stove and sink placement perfectly match the detailing on the plan."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Very clean orthographic projection and clear geometry. Minimal artifacts. The lighting provides good depth perception."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Internal doors lack specific swing orientation shown in the floor plan (rendered as open gaps)."
+        },
+        {
+            "code": "E2",
+            "description": "The window seat geometry is slightly simplified compared to the multi-faceted bay window detail in the blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "The pantry/storage wall next to the kitchen appears slightly narrower in the 3D render than the dimensioned 2'-9\" on the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan11.png"
+}

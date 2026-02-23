@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major deviations from the 2D plan. Overall footprint/jogs do not match (plan has multiple offsets around dining/kitchen; render simplifies the perimeter). Room layout only loosely resembles living/dining/kitchen adjacency; the top-right space is modeled as a bedroom-like room instead of the labeled playroom. Interior partitions around foyer/closets/WC/pantry are largely incorrect or absent. Door locations/orientations are mostly not represented (openings are generic). Window placements and counts do not match the plan."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Wall thickness appears visually consistent, but structural layout fidelity is low: several plan-defined rooms are missing (pantry, WC, closets/foyer organization), and at least one hallucinated room function/element appears (bedroom). Adjacency relationships are wrong in the entry/service core (foyer-closet-WC-stair/pantry cluster). Door embedding is simplified; many plan doors are not modeled as doors."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture does not map to the plan intent: the plan indicates a playroom, but the render includes a bed (not in plan). Kitchen fixtures (sink/cooktop placements) do not clearly match the plan\u2019s counters/appliance layout. Living/dining furniture is plausible but not plan-accurate. Scale is generally consistent, but placement accuracy is weak."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean isometric-style render with readable geometry and decent lighting. However, it is not a strict orthographic/isometric technical match to the plan (camera/projection feels more perspective than true axonometric). Composition is clear, with minimal artifacts."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Exterior footprint/proportions distorted: plan\u2019s multiple perimeter jogs (notably around dining bump-out and kitchen/right-side offsets) are simplified/incorrect in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing pantry room (center area in plan labeled PANTRY is not present as an enclosed space in the 3D render)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing W/C (small toilet room near the stair/closet zone in plan is not represented)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/incorrect closet/foyer partitioning: the plan\u2019s foyer and two closet areas are not modeled with correct walls/doors."
+        },
+        {
+            "code": "E2",
+            "description": "Top-right room is misplaced/misdefined: plan shows a PLAYROOM, but the 3D render models a bedroom-like space in that location."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated element: a bed appears in the 3D render despite no bedroom shown in the provided 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall alignment errors in the entry/service core (around stairs/closets/WC/pantry): partition layout does not follow the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Incorrect/missing door placements: multiple plan doors (foyer entry door, WC door, closet doors, pantry door, and indicated openings) are not shown or are represented as generic openings without correct location/orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: the number and positions of windows on exterior walls do not correspond to the plan\u2019s window locations (living/playroom/kitchen sides differ)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout mismatch: counters/appliance placements (sink/cooktop runs and openings) do not align with the plan\u2019s kitchen counter configuration."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan8.jpg"
+}

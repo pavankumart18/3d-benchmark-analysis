@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Kitchen and Dining Room are swapped. Dining room proportions are distorted. Many windows are missing or misplaced. The Bathroom door opens inward in the 3D render, but outward in the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially around the stairs and bathroom. The stairs are significantly distorted from the floor plan. The adjacency relationship between the kitchen and dining room is swapped. The bathroom is much larger than indicated, creating a hallucinated space. A wall is missing to separate the kitchen from the stairs area."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement in the kitchen is altered. The bathroom sink is on a different wall. The sofa in the living room is a different style and location. Dining table and chairs are present at different scale and position. The bathtub is missing from the bathroom."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is correct. Lighting is basic and lacks realism. Geometry is clean for the most part, but there are some inconsistencies in wall thickness. Visual clarity is good, but the composition and details are lacking compared to the plan."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen and Dining Room swapped positions."
+        },
+        {
+            "code": "E4",
+            "description": "Dining Room proportions are distorted."
+        },
+        {
+            "code": "E1",
+            "description": "Several windows are missing from the Dining Room, Living Room, and Kitchen walls."
+        },
+        {
+            "code": "E2",
+            "description": "Some windows are misplaced on external walls."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door swing orientation is incorrect (opens inward instead of outward)."
+        },
+        {
+            "code": "E4",
+            "description": "Stairs significantly distorted in form and scale."
+        },
+        {
+            "code": "E5",
+            "description": "Bathroom size is significantly enlarged (hallucinated space)."
+        },
+        {
+            "code": "E1",
+            "description": "Wall separating the kitchen/laundry area from stairs is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen furniture placement is altered (stove and sink location changed)."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom sink is on a different wall."
+        },
+        {
+            "code": "E1",
+            "description": "Bathtub is missing from the bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "Living Room sofa is different and located on a different wall."
+        },
+        {
+            "code": "E4",
+            "description": "Dining furniture (table and chairs) are at a different scale and position."
+        },
+        {
+            "code": "E4",
+            "description": "Staircase details and proportions are incorrectly rendered."
+        },
+        {
+            "code": "E5",
+            "description": "Added '16' x 24'' to the Living Room in an artistic render that is not present in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "General wall thickness inconsistency across the model."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan3.jpg"
+}

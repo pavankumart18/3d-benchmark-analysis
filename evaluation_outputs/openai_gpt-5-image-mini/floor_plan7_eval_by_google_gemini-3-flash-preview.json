@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant door and window placement errors. The entrance to the house is missing, replaced by a closed wall. Interior doors are largely missing. Window in the bedroom is non-existent where it should be on the bottom wall. The dining room features a hallucinated large open void/window on the left wall not present in the plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The stairs are incorrectly oriented (perpendicular to original) and placed outside the main envelope. The Wash Area and Toilet adjacency is merged into a single ambiguous space. The wall separating the Kitchen and Living room is elongated incorrectly."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen cabinets and stove are placed on the rear wall instead of the right/top walls. Dining table orientation is correct, but kitchen layout is structurally mirrored/rotated."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is soft and professional. Geometry is clean despite the architectural inaccuracies."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing main entrance door and interior bedroom door."
+        },
+        {
+            "code": "E3",
+            "description": "Staircase orientation is rotated 90 degrees and starts from the exterior."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen appliances moved from right-side wall to back wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated large window opening in the dining room left wall."
+        },
+        {
+            "code": "E4",
+            "description": "Toilet/Wash area merged and proportions distorted compared to the longitudinal plan layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan7.jpg"
+}

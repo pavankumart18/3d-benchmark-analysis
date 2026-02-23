@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the overall shape of the render deviates from the floor plan significantly, especially the bottom-left corner and the right side's 'Deck' area. Wall alignment is inconsistent with the plan, particularly in Foyer/Kitchen area and the outer perimeter. Several doors are misplaced or incorrectly oriented. Windows are generally missing or incorrectly sized/placed. Room proportions are distorted across the entire render."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker than others without reason. Door embedding is incorrect in several places, e.g., the door to C.TOI. Correct adjacency relationships are not fully maintained due to significant shape deviations. No missing rooms, but several areas like 'Deck' are significantly altered, causing structural deviations. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly inaccurate, many items are misplaced or oriented incorrectly compared to the floor plan. Furniture scale is inconsistent in some instances, e.g., living room rug and bed in BED-2."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair, but perspective seems slightly off. Lighting quality is decent, but uninspired. Geometry is relatively clean, however, several distortions are apparent, especially in wall thickness and room shapes. Visual clarity is good, but composition is affected by the inaccuracies."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Outer wall alignment on the bottom-left of the Kitchen/Utility area is incorrect, creating a different external shape."
+        },
+        {
+            "code": "E2",
+            "description": "Outer wall alignment on the right side where 'Deck' is located is significantly altered from the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door to C.TOI is incorrectly placed and oriented; it should open inwards to the right, but is shown as a sliding door or an incorrectly placed swing door."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Utility is missing or replaced by an open archway."
+        },
+        {
+            "code": "E1",
+            "description": "Most windows indicated on the floor plan are missing in the render, especially on the 'Deck' areas and external walls."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Deck' areas are significantly distorted compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The Foyer and Kitchen area's external wall forms a different angle and proportion."
+        },
+        {
+            "code": "E2",
+            "description": "The wall between 'LIVING/DINING' and 'BED-1' has an incorrect jog/indentation. The TV unit is floating."
+        },
+        {
+            "code": "E2",
+            "description": "Door for TOI-1 is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door for BED-1 is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door for BED-2 is shown, but its placement relative to the wall seems slightly off."
+        },
+        {
+            "code": "E1",
+            "description": "The external balcony railing on the top-left (BED-2 side) is not fully represented or is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout and appliance placement (sink/stove) are different."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs are positioned differently and appear smaller than in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Living room furniture (sofa, rug, table) is arranged differently."
+        },
+        {
+            "code": "E2",
+            "description": "Bed and bedside tables in BED-1 are placed differently."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet fixtures in C.TOI and TOI-1 are arranged differently."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan14.webp"
+}

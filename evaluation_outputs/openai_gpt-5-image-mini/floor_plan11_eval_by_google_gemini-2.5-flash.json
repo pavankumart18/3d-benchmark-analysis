@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is generally correct, but several walls are misaligned. Door placements are largely incorrect, and window placements are also off. Room proportions are distorted significantly."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not correctly embedded, appearing as openings. Adjacency relationships are mostly preserved, but the 'Central Hall' area is significantly altered. There are no missing rooms, but a 'WC' room and a 'Pantry' room are heavily altered or partially missing."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate compared to the floor plan. Furniture scale is inconsistent and not representative of the plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection is reasonably accurate. Lighting quality is basic but uniform. Geometry is clean with no obvious distortions. Visual clarity is good, but composition is restricted by the inaccuracies."
+    },
+    "total_score": 30,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced walls and significant wall alignment inaccuracies, especially in the Central Hall, WC, and Pantry areas."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placements for almost all doors (e.g., WC, Utility Room, Central Hall entrance to dining, Pantry)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientations for all doors; they are rendered as simple openings without swing."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placements in the kitchen and dining room."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in Central Hall, Utility Room, WC, and Pantry. Kitchen and Dining room also show minor distortions."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall dividing 'WC' and the area labeled 'PLAN: 5/A4.0'. The WC is not fully enclosed as per the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing significant structural elements of the 'Pantry' room; it appears as recessed cabinetry rather than a distinct room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a portion of the wall between 'Central Hall' and the main entrance area / stairs access."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated low wall/bench in the 'Central Hall' area where the floor plan shows an open space/alcove with stairs."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated low wall/bench in the 'Dining Room' window seat area that does not fully match the plan and suggests a solid bench rather than a seated area with windows."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Alcove' area and related walls/door on the left side of the Central Hall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Breakfast' area and its associated walls and windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan11.png"
+}

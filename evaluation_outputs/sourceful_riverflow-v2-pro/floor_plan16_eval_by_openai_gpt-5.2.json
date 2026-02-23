@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall layout resembles the 2D plan (living/dining left with balcony, kitchen/utility top, toilet top-right zone, bedroom right), but key spatial deviations exist. The 3D introduces a larger corridor/transition zone between living and bedroom/toilet than the 2D suggests, altering internal circulation. Toilet/bath area is reconfigured (extra wash/vanity zone outside the toilet), and several internal partitions do not align with the 2D wall breaks. Door locations/orientations are not faithfully represented (notably the main entry and toilet access). Window placements are broadly in the expected exterior walls, but sizes/extent differ from the plan."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Wall thickness looks generally consistent, but the internal partitioning around the toilet/utility zone does not match the 2D. Adjacencies are partially correct (kitchen adjacent to utility; bedroom adjacent to living), but the added wash/vanity area changes the toilet adjacency and effectively creates an extra functional sub-room. No primary rooms are missing (living/dining, kitchen, utility, toilet, bedroom, balcony are present), but an additional space/fixture zone is hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Living room sofa/coffee table and dining table placement are broadly consistent with the 2D intent, and the bed is in the correct room with roughly plausible scale. However, the bedroom built-ins/wardrobe shown in 2D are not represented, and kitchen/bath fixture layouts differ from the plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric presentation with good lighting and readable composition. Geometry is mostly clean with no major rendering artifacts. However, the model behaves more like a loosely interpreted 3D layout than a precise orthographic translation of the 2D plan (partition/door fidelity issues reduce technical accuracy)."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated additional wash/vanity area (separate sink zone) outside the toilet; the 2D shows the basin within Toilet-1, not as a separate space."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/bath spatial configuration is misplaced relative to the 2D (internal partitions around Toilet-1/adjacent area do not align with the plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Circulation space/hallway between living and bedroom/toilet is expanded/introduced compared to the 2D, changing the intended open connection from living to the bedroom/toilet doors."
+        },
+        {
+            "code": "E3",
+            "description": "Door representation/orientation mismatches: the main entry door at the top-left is not clearly modeled as a hinged door per plan, and toilet access appears differently placed/oriented than the 2D door swing."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: interior area allocation shifts toward a larger central passage/foyer zone, reducing fidelity to the 2D room proportions (notably living vs. circulation and the toilet zone)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing built-in/wardrobe element along the bedroom wall as indicated in the 2D plan (long storage run is not modeled)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan16.avif"
+}

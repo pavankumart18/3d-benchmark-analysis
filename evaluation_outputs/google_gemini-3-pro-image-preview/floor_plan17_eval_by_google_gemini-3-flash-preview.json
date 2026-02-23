@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is highly accurate. Major rooms and walls align well with the 2D source. Door swings are mostly missing or simplified into open thresholds. Windows are represented by wall gaps rather than glass framing."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Structural integrity is strong. All rooms (Living, Kitchen, 4 Bedrooms, Utility) are present. Minor issues with bathroom layouts where interior partitions are slightly simplified or moved."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent correspondence between 2D furniture icons and 3D models. Dining table, sofas, and bed placements are precise. Scale is consistent throughout."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Clean isometric projection with soft, realistic lighting. Geometry is sharp with no visible artifacting or mesh distortion. High visual clarity."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door leaf geometry and swing indicators present in 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Slight shift in the placement of plumbing fixtures in the primary attached bathrooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated plant pots added to the balcony and utility corners not specified in the original plan."
+        },
+        {
+            "code": "E3",
+            "description": "The orientation of the desk in Bedroom 2 is slightly rotated compared to the 2D layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan17.jpg"
+}

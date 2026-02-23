@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall room layout matches the 2D plan (left twin bedroom, central bath + small office, right master bedroom, bottom living room, bottom-right kitchen/dining). However, several openings deviate: multiple windows appear on the top exterior wall in the 3D render that are not indicated in the 2D plan, and window sizing/locations do not align with the plan\u2019s limited window indications. Some door positions/clearances (notably bathroom/office doors along the top corridor) appear slightly shifted and door swing/orientation is not consistently represented. Circulation space (main hall) looks wider than implied in 2D, indicating mild proportion drift."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Primary wall network and adjacencies are preserved (all rooms connect in the expected sequence off the main hall; kitchen/dining and living room are in correct zones). Wall thickness is mostly consistent and doors are embedded into walls. No rooms appear to be missing or newly invented, but the render introduces extra exterior openings (windows) not present in the plan, which is a structural deviation at the envelope/opening level."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Major furniture corresponds well: twin beds + wardrobe in left bedroom, bathroom fixtures, office desk, master bed + desk, dining table, L-shaped kitchen, living room seating and TV. Minor mismatches in exact positioning and spacing relative to walls/doors (clearances look different from 2D), but overall mapping is consistent. Scale appears broadly plausible with slight drift in corridor/room spaciousness affecting perceived furniture scale."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style presentation with coherent lighting and mostly clean geometry. Projection is not strictly orthographic/isometric (visible perspective/foreshortening), and some elements (notably windows) feel generically placed rather than plan-driven. Composition is clear and uncluttered."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated windows along the top exterior wall (multiple window openings in 3D not indicated in the 2D floor plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement/sizing: kitchen window location/scale does not clearly match the single bottom-wall window indication in the 2D plan, and other window positions do not correspond to plan markings."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing is not faithfully represented (2D shows explicit swings; 3D doors appear with ambiguous/altered swing behavior, especially for bathroom/office doors on the top corridor)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: main hall/circulation area appears wider and room-to-corridor ratios are slightly inflated compared to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan2.png"
+}

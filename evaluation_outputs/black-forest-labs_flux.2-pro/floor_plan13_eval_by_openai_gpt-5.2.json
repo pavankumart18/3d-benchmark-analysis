@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Major plan-to-model deviations. (1) Room placement: overall zoning is roughly similar (living/dining left, bedrooms right, wet areas central), but the entry sequence and internal circulation are substantially altered (E2/E5). (2) Wall alignment: multiple interior walls do not follow the 2D plan; several walls are curved/rounded where the plan is rectilinear (E2/E5). (3) Doors: the main entry door is not clearly present; several internal door positions and swings do not match the plan\u2019s hallway-to-rooms placements (E2/E3). (4) Windows: balcony opening/door is not represented; window counts/locations on exterior walls differ from the plan (E1/E2). (5) Proportions: lounge/dining and corridor proportions appear distorted relative to the labeled dimensions; bedroom and wet-area sizing/spacing is inconsistent with the plan (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Structural correspondence is weak. Wall thickness looks mostly consistent visually, but the plan\u2019s adjacency relationships are altered by the curved hall partitions and shifted openings (E2/E5). The plan indicates a separate Bath and separate WC; the 3D appears to change wet-area partitioning/fixture placement and/or merges functions inconsistently (E2/E1). Missing elements include the balcony and the entry/linen definition (E1). No clear additional full rooms are added, but several non-plan partitions/features are introduced (hallucinated geometry) (E5)."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "The 2D plan provides limited furniture, but expected functional fixtures/placements are not mapped faithfully: bathroom/WC fixture layout differs (E2), and extra/altered fixtures or cabinetry elements appear (E5). Scale reads plausible, but correspondence to plan is low."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Visually clean and readable with decent lighting and materials. However, the camera is more perspective than strict isometric/orthographic (minor distortion) (E6). Geometry quality is generally clean, but the introduced curved partitions create a mismatch with the rectilinear source (conceptual artifact vs. plan) (E5). Composition is clear; garage render is neat."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony shown on the 2D plan (off the lounge) is missing/not modeled in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Entry and linen/closet area at the bottom-left of the plan is not clearly represented as a defined space in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall layout differs from the plan: multiple partitions are shifted, changing the hallway/circulation geometry and room boundaries."
+        },
+        {
+            "code": "E5",
+            "description": "Curved/rounded hall partitions are introduced in the 3D render, whereas the 2D plan is rectilinear (hallucinated geometry)."
+        },
+        {
+            "code": "E2",
+            "description": "Bath/WC partitioning and fixture placement do not match the plan\u2019s separate Bath and separate WC arrangement."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations between hall and adjacent rooms (bedrooms/bath/WC) appear shifted from the plan\u2019s openings."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing/orientation indications do not match the 2D plan (inferred from differing door leaf positions and curved foyer layout)."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony-side opening (likely a door or large opening from lounge to balcony) is not present as depicted in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placements/counts differ from the plan (notably in lounge/bedroom facades)."
+        },
+        {
+            "code": "E4",
+            "description": "Room and corridor proportions appear inconsistent with the plan\u2019s labeled dimensions (living/dining zone and central circulation sizing)."
+        },
+        {
+            "code": "E2",
+            "description": "Detached garage positioning/spacing relative to the dwelling appears inconsistent with the plan\u2019s site relationship (render places it very close/aligned differently)."
+        },
+        {
+            "code": "E6",
+            "description": "Render uses perspective rather than strict isometric/orthographic projection, causing mild visual distortion vs. plan reading."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan13.jpg"
+}

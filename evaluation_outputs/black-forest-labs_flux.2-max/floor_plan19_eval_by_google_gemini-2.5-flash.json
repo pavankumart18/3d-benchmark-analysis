@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some walls are not accurately aligned. Door placement and orientation have inaccuracies. Window placements are largely missing or incorrect. Room proportions are somewhat preserved but some areas show distortion."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent but not perfectly. Door embedding is incorrect in several places, particularly for sliding doors which appear as regular doors or are missing. Adjacency relationships are mostly maintained but some internal structures are altered. There is one missing room (HO) and several hallucinated elements."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement has several inaccuracies. Many furniture pieces are either missing or misplaced. The scale of furniture is inconsistent in some areas, particularly in bathrooms and the kitchen."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are good. Lighting quality is acceptable. Geometry is mostly clean with minor distortions. Visual clarity and composition are good."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing windows in most rooms including LIVING/DINING, BED-1, BED-2, BED-3, BED-4, KITCHEN."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for TOI-1 next to BED-1. Missing door for C.TOI. Missing door for TOI under HO. Missing door for TOI-4 next to BED-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'HO' room (6'9\" X 7')."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and type of furniture in KITCHEN, specifically the island and countertops."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and type of sanitary fixtures in TOI-1 (left of BED-1), C.TOI, and TOI-4."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to BED-1 and BED-3 are incorrectly placed and oriented (should be sliding doors)."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Foyer from BED-2 is misplaced and orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "The wall between BED-3 and LIVING/DINING has an incorrect opening type; it should be a sliding door but is rendered as an open archway."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the main entrance door into the Foyer."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the BATHROOMS (TOI-1, C.TOI), appearing slightly larger."
+        },
+        {
+            "code": "E4",
+            "description": "Distortion in the shape and size of Deck 1 and Deck 2."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall section and steps in the KITCHEN area where the 'HO' room should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall or structure adjacent to BED-4."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small enclosure in the utility area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan19.webp"
+}

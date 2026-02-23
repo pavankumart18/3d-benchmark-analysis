@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "The 3D render fails to replicate the L-shaped central hallway and open-plan lounge/dining area. Room placement is significantly altered with arbitrary wall insertions."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The detached garage and balcony are missing entirely. Adjacency between the kitchen and laundry is ignored, and the WC is merged or relocated. Many wall partitions are hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture such as dining tables and beds are placed randomly in rooms that do not correspond to the functions intended by the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model has clean geometry and consistent lighting, though the camera lacks a true orthographic projection and some interior walls appear semitransparent."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing detached garage and balcony area."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and entry area layouts do not match the staggered wall configuration of the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partitions and extra rooms not present in the original design."
+        },
+        {
+            "code": "E4",
+            "description": "Incorrect proportions of the central living space, which is fragmented in the render."
+        },
+        {
+            "code": "E6",
+            "description": "Wall transparency and ghosting artifacts on the left-hand side of the render."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan13.jpg"
+}

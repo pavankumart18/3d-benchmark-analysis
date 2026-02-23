@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Room placement is generally correct, but several walls are misaligned. Door placements are incorrect, and windows are largely missing or misplaced. Room proportions show significant deviations."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly for curved walls which are hallucinated. Door embedding is incorrect, and adjacency relationships are altered due to wall changes. No missing or hallucinated rooms, but internal structural elements are significantly altered."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Many furniture pieces are missing or misplaced. Scale consistency is poor for remaining furniture."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection is reasonable. Lighting quality is fair but could be improved. Geometry is clean for what is rendered, but visual clarity and composition are hampered by structural deviations."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen/Living room wall on the right side is curved in the render but straight in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom wall between toilet and sink is curved and extended in the render, but straight and shorter in the plan. Shower area wall is also curved."
+        },
+        {
+            "code": "E1",
+            "description": "All external doors are missing."
+        },
+        {
+            "code": "E1",
+            "description": "Many windows are missing (e.g., in the kitchen, living room, and bedroom)."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the bedroom is misplaced and shrunken compared to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Internal door to the bedroom is shifted and has an incorrect orientation (missing swing indication)."
+        },
+        {
+            "code": "E2",
+            "description": "Internal door to the bathroom is shifted and has an incorrect orientation (missing swing indication)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the kitchen island are distorted (too thin and long)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the bathroom fixtures (toilet, sink) appear distorted."
+        },
+        {
+            "code": "E1",
+            "description": "Appliances in the kitchen (oven, stove) are missing."
+        },
+        {
+            "code": "E1",
+            "description": "Small table/cabinet next to the kitchen island is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Sofa and coffee table in the living area are missing, replaced by a single armchair."
+        },
+        {
+            "code": "E1",
+            "description": "Dining table and chairs in the Kitchen/Living area are missing, only one chair is present."
+        },
+        {
+            "code": "E1",
+            "description": "Wardrobe/cabinets in the hallway/laundry area are missing."
+        },
+        {
+            "code": "E1",
+            "description": "Staircase is missing its railing and the landing area is slightly altered."
+        },
+        {
+            "code": "E2",
+            "description": "Planters on the exterior are misplaced and have incorrect proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated curved walls in the kitchen/living area and bathroom."
+        },
+        {
+            "code": "E4",
+            "description": "Overall room proportions are not perfectly preserved, especially the length of the kitchen/living area."
+        },
+        {
+            "code": "E1",
+            "description": "Small window in the bathroom near the toilet is missing."
+        },
+        {
+            "code": "E1",
+            "description": "The sink in the bathroom is replaced by a different style and location."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan6.jpg"
+}

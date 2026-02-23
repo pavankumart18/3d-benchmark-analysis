@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "The 3D render fails significantly in room placement and door orientation. The stairs/central hall configuration from the floor plan is completely missing or replaced with a generic hallway. Window placements do not align with the CAD specified locations, particularly the bay-style window seat area which is rendered as a flat wall."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major structural deviations. The complex partitioning of the WC, Utility, and Kitchen area has been simplified into generic rooms. The utility room's specific internal layout and the crawlspace access area are deleted. Wall thicknesses are uniform and do not reflect the load-bearing vs. partition logic of the plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and does not match the specific kitchen island, pantry, or appliance layout specified in the CAD. Scaling is inconsistent; the stove area and kitchen cabinets do not follow the 'Kitchen Detail Plan'."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While architecturally inaccurate, the render possesses clean lighting and a consistent isometric perspective. The geometry is clean despite being incorrect to the source material."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing central staircase and crawlspace access partition."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen islands and appliances misplaced relative to the detailed kitchen plan."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room and central hall proportions are distorted into a square-like footprint."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall partitions in the bottom-left quadrant that do not exist on the CAD plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bay window/window seat assembly on the right-side wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan11.png"
+}

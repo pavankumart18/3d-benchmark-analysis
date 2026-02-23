@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but there are significant issues with wall alignment and proportions. The Bedroom-2 and its balcony are shifted. The Kitchen and Utility room walls show significant discrepancies. Door and window placements are frequently incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly around the kitchen and bathrooms. Door embedding is poor, with some doors appearing as simple openings. Adjacency relationships are mostly maintained but distorted due to wall and proportion issues. No missing or hallucinated rooms, but the hallway leading to HOME OFFICE is largely absent."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally followed, but specific items are often misplaced or simplified. Scale consistency is poor for several items, especially beds and tables, which appear either too large or too small relative to the rooms. The L-shaped couch in Living room is misrepresented, and the dining table is squashed. The Bedroom-1 bed is facing the wrong direction."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting quality is acceptable but flat. Geometry is mostly clean with minor distortions. Visual clarity and composition are decent, but the inaccuracies in structure and furniture detract from the overall quality."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bedroom-2 and its adjacent balcony are shifted leftwards, reducing the size of the intervening wall to Bathroom-2."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom-2, making it appear wider and shorter than indicated."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bathroom-2 is misplaced; it should be on the wall shared with Bedroom-2 but is shown on an internal wall."
+        },
+        {
+            "code": "E1",
+            "description": "Hallway leading to HOME OFFICE / MAID'S ROOM and TOILET-3 is largely missing, creating a direct opening."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen walls are significantly misaligned; the L-shaped counter detail is not accurately represented, particularly the wall separating it from Utility."
+        },
+        {
+            "code": "E4",
+            "description": "The Utility room's proportion is distorted, appearing wider than in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Toilet-1 is misplaced; it is shown on the south wall, but should be on the west wall."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in Bedroom-1 is incorrect; it is shown on the wall with the bed, but should be on the adjacent wall."
+        },
+        {
+            "code": "E3",
+            "description": "Bed in Bedroom-1 is oriented incorrectly; it is rotated 90 degrees compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Living/Dining area proportions are distorted, particularly the width of the living space."
+        },
+        {
+            "code": "E2",
+            "description": "The L-shaped sofa in the Living room is not accurately represented and is misplaced relative to the TV."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table is too large and placed incorrectly, clashing with the living room furniture."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bedroom-2 is shown as an open archway, not a complete door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a section of the wall between BALCONY and BEDROOM-2."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is shown incorrectly as a solid wall with an open arch, lacking proper door embedding and orientation."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the balcony connected to Bedroom-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the window on the external wall of Bedroom-3."
+        },
+        {
+            "code": "E2",
+            "description": "The door to Toilet-4 is misplaced, appearing on the wrong side relative to the Home Office."
+        },
+        {
+            "code": "E2",
+            "description": "The door to Maid's Room (Home Office) is incorrectly placed and represented as an open archway."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan20.avif"
+}

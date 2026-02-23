@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Major layout divergence. The 2D plan\u2019s left side is a single bedroom with two twin beds, but the 3D render shows two separate small bedrooms (extra partition), changing room placement and circulation (E5/E2). The 2D plan has a clearly enclosed living room zone at the bottom-middle with a defining interior wall; the 3D render presents a more open living/dining arrangement and the interior wall geometry does not match (E2). Bathroom geometry and fixture placement differ: 2D shows a shower stall, toilet, and sink arrangement; 3D shows a bathtub-like fixture and altered layout (E1/E2). Several doors do not align with the 2D positions/swing orientations, especially around the central hall and bedroom entries (E2/E3). Windows are placed/counts/sizes differ substantially; 3D adds multiple large windows not reflected in 2D and misses the small/narrow openings shown in 2D (E2/E5). Room proportions (hall width and room sizes) appear distorted relative to the plan (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Adjacency relationships are partially preserved (kitchen/dining near bottom-right, right bedroom generally on right), but the left-side partitioning creates an additional room not present in the 2D plan (E5) and alters adjacency/circulation (E2). At least one required space is effectively missing in its intended form: the two-twin-bed bedroom is not represented as a single room (E1). Bathroom elements are substituted (shower->tub) (E1). Door embedding is inconsistent with the plan (multiple interior doors shifted) (E2/E3). Wall thickness is visually consistent within the render, but does not compensate for incorrect wall placement."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not match the 2D layout: the two single beds in one room become separate rooms with different furniture arrangements (E2/E5). Living room furniture placement differs from the enclosed living room shown in 2D (E2). Bathroom fixtures are mismapped (E1/E2). Scales are plausible in isolation but inconsistent with the 2D-defined room sizes due to proportion/layout changes (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric camera is correct and readable (good cutaway). Lighting is clean and consistent; geometry is generally crisp with minimal artifacts. However, it is not orthographic/plan-faithful (noticeable perspective/isometric stylization is fine, but fidelity to the floor plan is low). Composition is clear, but the incorrect structural layout reduces functional clarity relative to the source plan."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated extra bedroom/partition on the left/top-left: 2D shows one bedroom with two twin beds, 3D shows two separate single-bed rooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing intended two-twin-bed bedroom as a single room (replaced by two rooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Living room enclosure/partition wall does not match: 2D shows a more defined enclosed living area; 3D presents a different open/shifted interior wall arrangement."
+        },
+        {
+            "code": "E1",
+            "description": "Bathroom shower stall from 2D plan is missing; 3D substitutes a bathtub-like fixture."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom fixture placement/layout differs from 2D (toilet/sink/shower positions not preserved)."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple interior doors are misplaced relative to the 2D plan (notably around the central hall and bedroom entries)."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation inconsistencies vs the 2D plan (hinge/swing direction not preserved in several locations)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count/size does not match: 3D adds large windows and omits/changes the small/narrow windows indicated on the 2D exterior walls."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions and circulation widths (hall and room sizes) appear distorted compared to the 2D plan due to altered partitions and wall alignment."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall envelope roughly resembles the plan (large living area left, kitchen/playroom massing right), but multiple internal room boundaries and openings do not match. Dining room is not correctly defined/enclosed per the 2D plan (E1/E2), and the foyer/closet zone at upper-left is not clearly partitioned as shown (E2). Stair block exists but its surrounding walls/landing configuration does not match the plan layout (E2/E3). Door locations are largely not represented with correct positions/swings (E1/E2). Window runs are generalized and do not match the plan\u2019s specific window placement/counts on the perimeter, especially along the right/kitchen and playroom walls (E2). Room proportions are noticeably distorted (living area oversized; dining/pantry/foyer zone compressed) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Several key plan elements are missing or mis-modeled: the small W/C near the stairs is not correctly present (E1), pantry appears as a generic central box with incorrect footprint/placement (E2/E4), and the dining room partitioning/angled wall conditions are not faithfully built (E1/E2). Adjacencies are weakened (kitchen/playroom separation and doorway condition not clearly matching plan) (E2/E3). A small enclosed room/partition at the bottom-right of the render does not correspond to any labeled room/partition in the 2D plan (E5). Wall thickness looks fairly consistent, but many door openings are either absent or not embedded where the plan indicates (E1/E2)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Kitchen casework/island is present but does not clearly match the plan\u2019s fixture placement (sink/cooktop/counter runs appear approximated) (E2). Living/dining furniture shown in the plan is largely missing or not placed (E1). Scale is hard to validate due to missing reference furniture; counters appear plausible but overall furnishing is incomplete."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric-style camera is acceptable and the model is visually readable. Lighting is soft and consistent. Geometry is generally clean, but the render relies on simplified masses and repeated window cutouts that reduce clarity/faithfulness (E6). Projection is not strictly orthographic/isometric (minor perspective feel), and some edges/openings look generalized rather than precisely modeled."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "W/C (toilet room) near the stairs shown in the 2D plan is missing or not correctly modeled in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Dining room enclosure/definition per the 2D plan (including boundary walls/shape) is missing; the area reads as open space rather than a distinct room."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer + adjacent closet partitioning at the upper-left does not match the 2D plan; walls/room boundaries appear simplified/shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Pantry location/footprint is incorrect; rendered as a generic central box not matching the plan\u2019s pantry placement and proportions."
+        },
+        {
+            "code": "E3",
+            "description": "Stair/landing enclosure and access orientation do not clearly follow the plan\u2019s stair configuration (UP/DN layout and adjacent openings)."
+        },
+        {
+            "code": "E1",
+            "description": "Door placements and swing indications from the 2D plan are largely absent; multiple planned doorways are not represented at correct locations."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/counts do not match the 2D plan; the 3D model uses generalized repeated window cutouts along exterior walls (notably bottom/left) and does not clearly match right-side kitchen/playroom window positions."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: living room reads oversized while dining/foyer/pantry zone appears compressed relative to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "A small enclosed room/partition at the bottom-right of the 3D render is not present in the 2D plan (hallucinated element)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/modeling uses simplified masses and repeated opening patterns, reducing precision and introducing ambiguity in openings and partitions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan8.jpg"
+}

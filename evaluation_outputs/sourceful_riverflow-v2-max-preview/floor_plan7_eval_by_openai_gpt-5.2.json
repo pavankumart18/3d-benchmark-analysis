@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Dining, kitchen, living, and bedroom are generally in the correct quadrants, but several key spatial relationships deviate from the 2D plan. The stair zone is not placed/enclosed as a distinct bottom-right annex like the plan, and the central circulation reads differently (hall/corridor geometry is altered). The bathroom core does not clearly preserve the plan\u2019s split Wash Area vs Toilet layout and their exact positions. Entrance placement/transition into the living area does not match the plan\u2019s top-right entry configuration. Window locations/quantity differ noticeably around multiple exterior walls. Overall room sizes/ratios appear shifted (kitchen and central open area oversized relative to bedroom/bath core)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent, but internal partitioning differs around the wash/toilet core and stair enclosure. Door embedding exists but several doors are not where the plan indicates (notably entry and service/core doors). Adjacencies are partially preserved (dining near kitchen; living near entry), but the stair annex relationship to the living/circulation is structurally altered. The plan\u2019s distinct Wash Area is not faithfully represented as a separate room. Additional/exaggerated exterior access/landing elements appear that are not in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are present in the expected rooms (dining table in dining, L-kitchen counters, sofa set in living, bed in bedroom). However, furniture positioning does not strictly follow the 2D symbols (living seating arrangement/orientation differs; bathroom fixtures arrangement doesn\u2019t clearly match the split wash/toilet depiction). Some scale relationships feel off due to enlarged circulation/kitchen areas."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean with coherent materials, good lighting, and clear room readability. Camera is isometric-like but not strictly orthographic (visible perspective). Geometry is mostly clean with no major mesh distortions, though some openings/edges read simplified compared to the plan."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Staircase location/enclosure deviates: 2D shows a distinct bottom-right stair annex; 3D places/frames stairs differently within the plan footprint."
+        },
+        {
+            "code": "E1",
+            "description": "Missing distinct Wash Area as a clearly separate room from the Toilet as shown in the 2D plan (3D reads as merged/ambiguous partitioning)."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance zone mismatch: 2D entry is top-right with a specific vestibule/door condition; 3D entry/transition into living appears relocated/reconfigured."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing and exact door positions in the central core (bed/bath/circulation) do not match the 2D plan door placements."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/quantity is incorrect: multiple exterior windows in 3D do not correspond to the 2D plan\u2019s window locations and extents."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: kitchen and central circulation/open area appear oversized relative to bedroom and the wash/toilet core compared to 2D proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior access elements (steps/landing treatment) not represented in the 2D floor plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,176 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but wall alignment is poor in several areas. Door placements are largely incorrect, and window placements are frequently missing or misplaced. Room proportions are not perfectly preserved."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is not consistent. Door embedding is incorrect, with many doors missing or simplified. Adjacency relationships are mostly maintained but some rooms are missing, and non-existent structural elements are hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally approximated, but many items are missing, misplaced, or scaled incorrectly. Several pieces of furniture are hallucinated."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera and orthographic projection are generally correct. Lighting is flat, and some geometry is not clean, particularly around doors and windows. Visual clarity is good, but composition is uninspired."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing toilet in BED-1's toilet (TOI-1)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sink in BED-1's toilet (TOI-1)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilet in BED-2's toilet (TOI-4)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sink in BED-2's toilet (TOI-4)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilet in BED-3's common toilet (C.TOI)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sink in BED-3's common toilet (C.TOI)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilet in HO's toilet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sink in HO's toilet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing shower cubicles in all toilets."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen sink."
+        },
+        {
+            "code": "E1",
+            "description": "Missing stove/cooktop in the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing refrigerator in the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing washing machine in the utility room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dryer in the utility room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows as depicted on the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to TOI-1 from BED-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to TOI-2 from BED-3."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to C.TOI from the hallway."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to UTILITY."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to HO's toilet."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to BED-3. It should open into the living area, not a small corridor."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to BED-4. It should open into the living area, not a small corridor."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to KITCHEN. It is shifted from its original position."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to FOYER. It is shifted from its original position."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for TOI-3 leading from BED-4."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the width of the main living/dining area, appearing narrower than implied by the floor plan dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the depth of BED-1 and BED-4, appearing shorter than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the size of the DECK areas."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of several pieces of furniture, appearing either too large or too small."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural wall segment between LIVING/DINING and BED-3, creating an unnecessary corridor."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural wall segment between LIVING/DINING and BED-4, creating an unnecessary corridor."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall dividing the kitchen counter space where none exists on the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated cabinet unit in the KITCHEN, obstructing counter access."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small stool or furniture piece in the FOYER."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small piece of furniture next to the HO door."
+        },
+        {
+            "code": "E6",
+            "description": "Poor rendering of door frames and thresholds, lacking definition and realism."
+        },
+        {
+            "code": "E6",
+            "description": "Geometric distortions around wall junctions and corners near doors and windows, indicating inaccurate modeling."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan19.webp"
+}

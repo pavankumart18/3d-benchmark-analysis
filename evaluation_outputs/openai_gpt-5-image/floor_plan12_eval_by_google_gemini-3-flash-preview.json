@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "The 3D render bears almost no resemblance to the provided 2D floor plan. Room layouts, door positions, and window placements are entirely different. The 2D plan depicts a multi-bedroom upper floor with a balcony and central stairs, while the 3D render shows a ground-floor living area with a garage and kitchen island."
+    },
+    "structural_fidelity": {
+        "score": 2,
+        "max": 25,
+        "notes": "Critical failures in structural mapping. The stairs were moved from the top-left to the bottom-right. The three bedrooms (Bed 2, 3, 4) and the central bathroom area are missing entirely."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture in the 3D render is hallucinated and does not match the 2D layout. The 2D plan's specific bedroom sets and activity lounge are replaced with a dining table, kitchen, and a car."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While the 3D model is visually clean, uses a correct isometric perspective, and has decent lighting, it fails as an architectural visualization because it depicts the wrong floor plan."
+    },
+    "total_score": 25,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing all three bedrooms (Bed 2, 3, 4) and the balcony shown in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase misplaced from top-left alcove to bottom-right entrance."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a garage with a car, a dining table, and a kitchen island not present in the 2D source."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Activity' area are distorted to include a kitchen and dining zone."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door and internal bathroom doors are incorrectly placed or missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan12.png"
+}

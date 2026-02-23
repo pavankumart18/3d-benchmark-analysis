@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall massing resembles the plan (4 bedrooms around a central living/dining + kitchen), but several spaces are simplified or shifted. (E2/E4) Top-side decks are not represented with correct segmentation/shape: the plan has two distinct decks (large deck along living side + smaller deck off Bed-1), while the 3D shows a single continuous/ambiguous balcony strip. (E2/E4) The bottom service core (HQ + two small toilets) is not clearly preserved as separate rooms; the bottom zone reads as a simplified corridor/void. (E1/E2) Door placement/orientation cannot be verified accurately because openings are either missing or not placed where the plan indicates multiple hinged doors (foyer entry, bedroom doors, toilet doors). (E2/E3) Window placement is inconsistent: long continuous openings at the top edge do not match the plan\u2019s discrete window/door openings to the decks and room windows. (E2) Proportions are distorted in multiple rooms/circulation widths (e.g., living/dining depth vs. kitchen/foyer band), with corridors appearing widened and some rooms appearing more square than in plan. (E4)"
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness is rendered fairly consistently, but interior partitions are simplified, especially in the bottom (foyer/HQ/toilets) and right-side wet areas. (E4) Door embedding correctness is weak: several expected door openings (to toilets, foyer, utility) are not clearly cut/located as per plan. (E2/E3) Adjacencies are partially correct (kitchen adjacent to dining; bedrooms grouped), but the plan\u2019s specific service adjacency (utility + common toilet cluster near center-right; HQ/toilet cluster at bottom) is not faithfully maintained. (E2) At least one room cluster appears missing/merged (HQ and the two small toilets at bottom). (E1) No clear evidence of additional fully new rooms, but the balcony/deck configuration reads as a hallucinated merge of two decks into one continuous element. (E5)"
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Living/dining furniture is broadly plausible (sofa grouping + dining table), and beds are placed in each bedroom, but the plan\u2019s deck furniture and several bathroom/kitchen fixtures are absent or not mapped to the labeled spaces. (E1/E2) Furniture scale is inconsistent in places (oversimplified blocks; some beds and dining set appear disproportionate to room sizes). (E4)"
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Camera is closer to a top-down/isometric but lacks clear true isometric read (weak depth cues, minimal perspective). Lighting is flat with low contrast, reducing readability of walls/doors/windows. Geometry is generally clean, but the render is blurry/low-detail, making openings and partitions hard to verify (rendering clarity issue). (E6)"
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Deck configuration is incorrect: plan has two distinct decks (large along living + smaller off Bed-1) but 3D shows a single continuous/ambiguous top balcony strip."
+        },
+        {
+            "code": "E4",
+            "description": "Top exterior edge shape and deck segmentation are proportionally simplified; the characteristic angled/stepped outline is not faithfully preserved."
+        },
+        {
+            "code": "E1",
+            "description": "Bottom service rooms (HQ 6'9\"x7' and the two small toilets at the bottom band) are missing or merged into an undefined corridor/space."
+        },
+        {
+            "code": "E2",
+            "description": "Utility/common-wet-area partitioning near the center-right does not match the plan\u2019s distinct utility and toilet layout."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations for toilets/foyer/utility and several bedroom entries are not shown where the plan indicates; openings are unclear or absent."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation (hinge/swing direction) cannot be matched; the 3D does not preserve the plan\u2019s door-swing logic."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent: long continuous top openings do not correspond to the plan\u2019s discrete windows/door-to-deck openings per room."
+        },
+        {
+            "code": "E4",
+            "description": "Room and corridor proportions differ from plan (circulation appears widened; some bedrooms/living areas appear reshaped toward more uniform rectangles)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/merged exterior element: the two-deck scheme is effectively replaced by a single continuous balcony feature."
+        },
+        {
+            "code": "E6",
+            "description": "Render blur/low detail reduces verifiability of openings and partitions (visual clarity artifact)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan19.webp"
+}

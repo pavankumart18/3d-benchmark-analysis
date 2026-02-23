@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but the deck/balcony structure along the top edge is fused with the interior, losing the recessed character of the 2d plan. Window voids are poorly defined."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Bathroom/Toilet partitions are simplified. The utility area door and internal partitions between the kitchen and main hall have misaligned thicknesses."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is high fidelity. The dining table, sofas, and bed orientations match the floor plan accurately with appropriate scaling."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric camera angle and soft lighting. Geometry is clean, though some wall-to-floor junctions exhibit slight light leaks."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Outer deck/balcony boundaries are misplaced or merged into the primary structural walls."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing indications are missing in the 3D render, replaced by simple wall breaks."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Lobby' entrance width appears slightly narrower than the 4'11\" dimensioned in the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact observed at the bottom-left corner near the Home Office where walls do not meet the floor perfectly."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan20.avif"
+}

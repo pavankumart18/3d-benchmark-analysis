@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major structural deviations discovered. The kitchen island is completely hallucinated and oriented incorrectly compared to the linear 2D layout. The foyer and home office area (bottom left) has been transformed into a bedroom. Door orientations inBed-3 and the living area do not match the swing path of the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Severe E5 (Hallucination) errors. The bottom left quadrant completely ignores the 'Foyer' and 'HO' (Home Office) designations, replacing them with a bedroom layout. Utility and toilet adjacencies in the center-right are distorted. Wall thicknesses are inconsistent near the kitchen."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Significant E2 (Misplaced Element) errors. The dining table is oversized for the space. The kitchen cabinets are replaced by an island not present in the plan. The rug in the living area is missing."
+    },
+    "aesthetic_quality": {
+        "score": 21,
+        "max": 25,
+        "notes": "The render possesses high visual quality, clean geometry, and a professional orthographic/isometric perspective. Lighting and material application are excellent, despite the architectural inaccuracies."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island replacing linear cabinet layout."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer and Home Office areas merged and re-purposed into a bedroom."
+        },
+        {
+            "code": "E3",
+            "description": "Internal door swings in Bed-1 and Bed-3 do not match the 2D architectural indicators."
+        },
+        {
+            "code": "E4",
+            "description": "Dining area proportions are distorted, leaving insufficient clearance for circulation compared to the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific cabinetry and utility fixtures in the southern 'Utility' room."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan19.webp"
+}

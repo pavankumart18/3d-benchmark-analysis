@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Overall layout is only loosely similar: living/dining at top and two bedrooms at bottom corners are roughly placed, but key plan-defined subspaces (closets/coat/den/2nd bath) are not represented. Wall alignments and offsets do not match the stepped perimeter and interior jogs shown in the 2D plan (E2/E4). Door locations/orientations are largely absent or incorrect (no clear entry door on right wall; no correct swings for bedrooms/baths/closets) (E1/E2/E3). Window layout does not match: the plan shows prominent living-room glazing and bedroom windows, while the render omits bedroom windows and simplifies/relocates living/dining windows (E1/E2). Room proportions are noticeably distorted (kitchen/bathroom/hall widths simplified) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Wall thickness appears mostly consistent in the render, but major plan elements are missing: closet at top-left, coat/entry storage zone, den/hall configuration, and one of the bathrooms (E1). Adjacency relationships are incorrect because missing rooms collapse circulation (e.g., entry-to-den/hall/baths not preserved) (E2). Several partitions are invented/simplified (kitchen nook/partial walls) relative to the plan (E5). Door embedding is not faithful (doors largely not modeled as embedded openings with correct placement/swing) (E1/E2/E3)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some broad furniture intent is present (sofa/coffee table/dining table/beds), but it does not match the plan\u2019s specific living-room arrangement (e.g., missing sectional/secondary seating and key placement relative to walls/windows) (E2/E1). Furniture scale is generally plausible but simplified; kitchen fixtures (L-shape vs linear + separate stove nook) diverge from plan-based layout (E2/E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with coherent lighting and minimal geometry artifacts. Camera is broadly isometric but shows mild perspective. Visual clarity is good; however, the simplification reduces architectural legibility versus the detailed plan."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing top-left closet shown on the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing coat/entry closet area and associated partitioning shown near the left-side bath/entry zone."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the second bathroom (plan indicates an additional bath zone separate from the center bath)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/undefined den and the plan\u2019s hallway/circulation space configuration (labeled den area not represented)."
+        },
+        {
+            "code": "E1",
+            "description": "Entry door on the right exterior wall (to corridor/Chandler & Joey direction) is not correctly modeled/placed."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall alignments and offsets do not match the stepped/jogged perimeter and interior partitions from the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout is incorrect: plan\u2019s L-shaped kitchen and sink/cooktop positions are not preserved (render shows a simplified linear run plus separate stove nook)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations/swings and embedded openings for bedrooms/bathrooms/closets are not modeled to match the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom windows are missing in the 3D render despite being present on the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Living/dining window placement and scale do not match the plan\u2019s prominent living-room glazing configuration."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: bathroom/circulation widths and kitchen-to-living boundaries appear compressed/simplified relative to the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hall/partition elements are hallucinated/simplified into partial walls that do not correspond to plan-defined rooms and openings."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan.jpg"
+}

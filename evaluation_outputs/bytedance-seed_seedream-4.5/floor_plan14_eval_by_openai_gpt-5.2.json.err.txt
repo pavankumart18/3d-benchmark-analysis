@@ -1,0 +1,29 @@
+{
+  "spatial_accuracy": {
+    "score": 23,
+    "max": 40,
+    "notes": "Overall room layout roughly matches (Living/Dining central, Bed-2 left, Bed-1 right, Kitchen/Utility bottom, two toilets), but there are notable deviations. The 3D adds a large exterior balcony/terrace at the bottom-left that is not present in the 2D plan (major spatial mismatch). TOI-1 size is incorrect (render shows ~3'x8' vs plan 5'x8'), and the Bed-1 deck dimensions are also altered. Several openings (especially large exterior glazing) appear oversized and/or not aligned with the 2D window/door intent. Door swing/orientation appears inconsistent in a few locations compared to the plan."
+  },
+  "structural_fidelity": {
+    "score": 18,
+    "max": 25,
+    "notes": "Adjacency relationships are mostly preserved (Kitchen adjacent to Utility; both toilets placed near the center; decks attached to bedrooms). Wall thickness looks generally consistent and doors are mostly embedded into walls. However, the model introduces a significant hallucinated exterior balcony/extension at the bottom-left, altering the building envelope. Dimensional fidelity is weak for TOI-1 and the right deck, indicating structural/proportional drift even where rooms exist."
+  },
+  "furniture_mapping": {
+    "score": 7,
+    "max": 10,
+    "notes": "Furniture types and general placement are broadly consistent (beds in bedrooms, sofa/coffee table in living, dining table centered, kitchen counters/appliances). Exact arrangement does not precisely match the 2D plan’s furniture layout, but scales appear mostly plausible."
+  },
+  "aesthetic_quality": {
+    "score": 18,
+    "max": 25,
+    "notes": "Render is visually clean with good lighting and readable room labeling. Camera is close to isometric but shows mild perspective. Geometry is generally clean, though the oversized exterior glazing and added balcony/terrace reduce architectural credibility relative to the source plan."
+  },
+  "total_score": 66,
+  "detected_errors": [
+    {
+      "code": "E5",
+      "description": "Hallucinated large exterior balcony/terrace at bottom-left with large glazing/doors; not present in the 2D floor plan."
+    },
+    {
+      "code": "E4

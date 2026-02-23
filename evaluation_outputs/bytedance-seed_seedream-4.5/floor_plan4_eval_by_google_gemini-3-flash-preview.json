@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but several window and door inconsistencies exist. The bathroom door from the hallway is incorrectly swung. Window counts and sizes on the exterior walls deviate from the 2D plan, specifically in 'Bedroom 2' and 'Laundry'."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms from the floor plan are present. Adjacency relationships are mostly correct. However, some wall segments, particularly near the entrance hall and 'Bedroom 2' closet, have inconsistent thicknesses or unnecessary breaks."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the original plan. Scale of the dining table and living room set is consistent with the architectural space."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is used effectively to highlight room boundaries. The orthographic projection is consistent, and the text labeling integrated into the 3D floor is clean."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The door for Bedroom 2 and the adjacent closet are shifted/misaligned compared to the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bathroom door swing contradicts the architectural drawing."
+        },
+        {
+            "code": "E4",
+            "description": "Exterior window sizes in Bedroom 2 and Living Room are vertically elongated compared to the implied 2D scale."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter orientation near the window wall lacks the specific cabinetry divisions shown in the original diagram."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan4.jpg"
+}

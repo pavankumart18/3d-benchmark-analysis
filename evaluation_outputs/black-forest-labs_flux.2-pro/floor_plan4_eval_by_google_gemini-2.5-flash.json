@@ -1,0 +1,128 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placements are mostly correct, but the 'Laundry' and 'Closet' area on the left seem merged or reconfigured. The main entrance hallway area is poorly defined in the 3D model. Door placements are largely incorrect, and many windows are either missing or misplaced."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly for internal walls. Many doors are incorrectly embedded or missing. The 'Laundry' room appears to be partially merged/hallucinated with a closet, leading to incorrect adjacency. The closet to the right of the main entrance is missing. The wall between 'Laundry' and 'Kitchen/Dining' is missing a portion, creating an open-plan area not in the floor plan."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor, especially for the dining area and laundry/closet. Furniture scale is generally consistent but some items are poorly rendered or generic replacements."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera is mostly correct. Orthographic projection seems off, particularly for taller elements like walls. Lighting is basic and lacks realism. Geometry is clean, but some elements like doors and specific furniture are simplified. Visual clarity is good due to clean lines, but details are lacking."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom door. Opens inward into the hall instead of outward into the hall as depicted in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 2. Opens inward instead of outward."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet to the right of the main entrance. Replaced with an open space."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for the Hall closet next to the main entrance. Opens into the hall instead of into the closet from the hall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between Hall and Living Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the Laundry room. The area now appears open to the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the closet in the Laundry area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated or reconfigured Laundry/Closet area on the left side, not matching the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows on the lower wall of the Living Room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bedroom 1 (on the right wall instead of the back wall)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing second window in Bedroom 1 (on the back wall)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in Bedroom 2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the Bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing main entrance door."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the main entrance Hallway, appearing wider and shorter than indicated by the floor plan and adjacency to other rooms."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Laundry room, it appears smaller and merged with the closet, making it disproportionate to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced or reoriented dining table in Kitchen/Dining area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced sofa/seating arrangement in Living Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small side table next to the sofa in the Living Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the Kitchen/Dining area (on the left wall)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing double window in the Kitchen/Dining area (on the front wall)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the Laundry room (on the left wall)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the wall separating Bathroom and Hall; it extends further than it should towards Bedroom 2."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the wall separating Laundry and Kitchen/Dining; the opening is not consistent with the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bed in Bedroom 1 is incorrect (rotated 90 degrees compared to the floor plan)."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan4.jpg"
+}

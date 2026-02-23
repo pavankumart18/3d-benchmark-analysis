@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General room layout matches the floor plan. However, door swings and specific orientations for Bed 3 and Bed 4 are simplified or slightly shifted. Window counts on the right side of Bed 3/4 are merged."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Bathroom/WC internal partition wall is missing (merged into one space). The laundry 'recess' is simplified. Wall gaps for doors lack specific frame and threshold detail."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the plan, including the specific sofa in the Activity area and the beds in all bedrooms. Scale is consistent."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric rendering with clean geometry and soft, realistic lighting. Visual clarity is high, though some minor wall-capping artifacts exist at junctions."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing partition wall between Bath and WC upstairs."
+        },
+        {
+            "code": "E2",
+            "description": "Bed 4 desk/chair misplaced relative to the plan's robe corner."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation into Bed 2 is simplified compared to the angled entry on the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact on the wall junction near the Bed 3 entrance."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan12.png"
+}

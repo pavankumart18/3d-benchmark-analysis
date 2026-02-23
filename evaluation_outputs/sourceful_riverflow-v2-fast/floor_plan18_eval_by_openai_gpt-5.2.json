@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (bedroom left, toilet near center/top, kitchen+utility right, living/dining front), but several plan-defined openings and exterior breaks are not respected. Balcony area is not clearly modeled as an exterior balcony volume; living-to-balcony connection appears as a window/opening instead of a door. Door locations are generalized/shifted (many openings shown as undetailed archways), and window positions/counts do not consistently match the 2D plan. Room proportions appear drifted: the living/dining reads larger and more open than the plan suggests, while the foyer separation is unclear."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall network broadly resembles the plan footprint, but key adjacency/threshold definitions are weakened: doors are not embedded as hinged doors with correct swing/orientation, and several transitions are represented as open arches. Balcony is effectively missing as a distinct room/outdoor space. Utility/kitchen boundary and the small passage/door logic around toilet/bedroom do not read as faithfully partitioned as in the plan. No clear evidence of extra full rooms, but multiple openings/partitions look invented or simplified."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Bedroom bed placement is plausible, but living/dining furniture does not match the 2D arrangement (sofa/dining table locations and scale are inconsistent). Kitchen fixtures/counters are simplified and do not clearly follow the L-shape/counter placement from plan. Several furniture pieces appear as generic blobs with ambiguous function/scale."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric view is generally correct and readable. Lighting is clean and neutral; geometry is mostly clean. However, many openings are stylized as arches and details are overly smoothed, reducing orthographic/plan-faithful clarity. Some elements look soft/underdetailed, which hurts verification-grade legibility."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony (4' wide) is not modeled as a distinct exterior balcony space; the left-bottom projection reads as a wall opening/window instead of an accessible balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Living/Dining to Balcony access is incorrect: plan shows a door to the balcony; render does not show a clear door/threshold into a balcony area."
+        },
+        {
+            "code": "E3",
+            "description": "Door representation/orientation error: multiple plan doors (bedroom, toilet, entry/foyer transitions) are rendered as generic open archways without correct hinged placement and swing/orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer definition is unclear/misplaced: plan has a distinct foyer zone at the entry; render reads as a more continuous open living space with weakened foyer separation."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: bedroom/living/kitchen window locations in the render do not clearly match the specific wall positions shown in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: living/dining appears expanded and more open than the 10' x 13' plan proportion, and internal partitions (especially around foyer/toilet passage) appear compressed or shifted."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/stylized architectural elements: arched interior openings and softened partition forms not indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture layout mismatch: living/dining sofa and dining placement does not follow the 2D plan arrangement; furniture scale is inconsistent with room sizes."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan18.jpg"
+}

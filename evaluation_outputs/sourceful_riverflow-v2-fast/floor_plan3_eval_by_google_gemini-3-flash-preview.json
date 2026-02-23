@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major door and window discrepancies. The entrance is moved significantly to the right. The double doors at the top (dining) and the side exit (kitchen/stairs side) are missing or replaced with solid walls. Windows on the bottom wall do not match the count or position of the plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Bathroom is missing one of its two doors. The central wall partition for the bathroom is simplified. The staircase geometry is distorted and lacks the landing/closet structure shown in the 2D plan. Door swing orientations are not represented as openings are mostly empty voids."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen stove and countertops are mostly accurate to the plan. Living and Dining furniture are logically placed based on labels, though the specific dining table layout is more complex than suggested."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Strong isometric perspective and consistent lighting. Clean material representation and high visual clarity. Geometry is manifold even where it deviates from the plan."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing double doors in the dining room and secondary exit near the kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance shifted toward the right corner instead of being centered on the living area wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the second door of the bathroom unit."
+        },
+        {
+            "code": "E4",
+            "description": "Staircase proportions and geometry are distorted, failing to match the U-turn layout clearly."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated windows on the bottom wall that do not correspond to the floor plan layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan3.jpg"
+}

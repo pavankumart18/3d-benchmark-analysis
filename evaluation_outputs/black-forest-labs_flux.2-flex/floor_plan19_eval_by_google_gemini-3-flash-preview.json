@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but window placement in Bed-2 and Bed-4 deviates from the plan. Entrance foyer area shows slight wall alignment drifting compared to the kitchen boundary."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "While all primary rooms are present, door embeddings are inconsistent; some doors appear as simple openings while others are modeled as thick slabs. The balcony/deck railing geometry in the top-right corner is simplified and loses the specific angled notch shown in the plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Dining table scale is slightly oversized, crowding the circulation path. Bed orientations match the plan correctly. Rug placement in the living area is accurate to the 2D reference."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent lighting and clean geometry. The orthographic projection is well-executed with professional-grade material rendering. Visual clarity of the internal separators is high."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Window in Bed-2 is shifted toward the corner compared to the central placement in the original floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Dining area furniture group is disproportionately large, reducing the visible 'hallway' space shown in the 2D layout."
+        },
+        {
+            "code": "E6",
+            "description": "Wall artifacts and thickness inconsistencies at the intersection of the Foyer and the Kitchen wall."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance door orientation is ambiguous; the 3D model shows an open void rather than the specific swing direction indicated in the schematic."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan19.webp"
+}

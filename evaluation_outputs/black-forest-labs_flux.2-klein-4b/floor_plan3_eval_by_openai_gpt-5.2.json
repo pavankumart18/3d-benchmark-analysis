@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 3,
+        "max": 40,
+        "notes": "3D layout does not match the 2D plan\u2019s single open-plan Kitchen/Dining/Living arrangement. 3D shows multiple enclosed rooms (bedroom-like spaces) instead of the large open right-side Living/Dining and top-left Kitchen. Central bathroom location/shape and access do not match. Stair core on left side from 2D is not present. Exterior window/door positions do not correspond to the 2D perimeter openings, and overall room proportions are fundamentally different."
+    },
+    "structural_fidelity": {
+        "score": 1,
+        "max": 25,
+        "notes": "Major structural deviations: missing stair block entirely, added/hallucinated partition walls creating extra rooms, and incorrect adjacency relationships (2D has open Kitchen-Dining-Living connectivity; 3D partitions them into separate rooms). Entrance location and interior door network do not match the plan. Multiple hallucinated spaces appear that are not on the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture is not mapped to the 2D program: 3D includes beds and bedroom furniture not indicated on the plan, and does not clearly represent the kitchen fixtures (counters/appliances) shown in 2D. Scales appear plausible internally, but they correspond to a different layout than the plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clean with coherent materials, lighting, and a consistent isometric-style camera. However, it is slightly perspective rather than strict orthographic/isometric, and some elements (walls/openings) read simplified. Overall clarity is good despite plan mismatch."
+    },
+    "total_score": 23,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase block on the left side that is clearly present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen area placement/program does not match: 2D shows kitchen at top-left with counters/appliances; 3D does not depict this configuration in that location."
+        },
+        {
+            "code": "E2",
+            "description": "Dining/Living open-plan on the right side (2D) is instead divided into multiple smaller rooms in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom position/shape and its door access do not match the central small bathroom shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Main entrance at bottom-center in the 2D plan is not clearly present/placed correctly in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placements do not correspond to the 2D plan\u2019s perimeter openings (top wall, bottom wall, and right wall window locations differ)."
+        },
+        {
+            "code": "E3",
+            "description": "Interior door orientations/swing logic are inconsistent with the 2D plan due to different wall/room arrangement."
+        },
+        {
+            "code": "E4",
+            "description": "Overall proportions are distorted: the 2D plan indicates a large continuous right-side Living/Dining zone; 3D compresses/reshapes this into smaller compartments."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated rooms: 3D includes bedroom-like rooms (beds, wardrobes) not shown anywhere on the 2D floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partitions/walls that are not present in the 2D plan, fundamentally changing circulation and adjacency."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan3.jpg"
+}

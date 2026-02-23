@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "General layout is loosely followed but wall alignment is severely distorted. The entrance foyer area shows significant proportion deviation and incorrect door orientation compared to the 2D plan. Window placements are largely ignored or simplified."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Critical failure in room adjacencies on the right-hand side; Bed Room 2 and 3 are merged/confused. The service room and powder room areas are unrecognizable. Wall thicknesses are inconsistent and geometry transitions are organic rather than architectural."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Living and Dining furniture is mapped well in terms of count and placement, however, furniture scale in the bedrooms is inconsistent with the wall dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The render has good lighting and a consistent clay-style finish. However, the camera is perspective-heavy rather than true orthographic-isometric, and several wall segments exhibit 'melting' or warped geometry."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific partition walls and separate enclosures for Master Toilet and Dressing area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen entrance and utility access."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion in the foyer and bottom-left service wing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall curvatures and merged room volumes in the bedroom wing."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts where wall tops meet, creating non-manifold geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan17.jpg"
+}

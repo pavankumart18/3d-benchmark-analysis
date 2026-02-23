@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major layout mismatches. The 2D plan has a defined foyer/entry zone at bottom-right leading into living/dining; the 3D render shows large exterior glazing/doors on the bottom edge and no recognizable foyer. Kitchen + utility zone (bottom-left in 2D) is not present as a distinct room in 3D. Decks/balconies (top side in 2D: one large near living/bed-2, one small near bed-1) are not represented in the correct locations; instead an exterior opening/balcony-like element appears on the bottom edge. Door and window placement does not match the 2D perimeter openings, and room proportions appear altered (living area shape/size and circulation paths differ)."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Some basic apartment envelope walls exist, but core architectural program is inconsistent with the plan. Adjacencies are wrong: in 2D the kitchen/utility adjoins living and sits near the common toilet; in 3D this block is missing/converted. The two toilets shown in 2D (C.TOI and TOI-1) are not faithfully recreated; the 3D top-left wet area appears mis-modeled (contains multiple WC fixtures and lacks the clear two-bath layout/placement). Decks are missing/relocated. Several openings appear placed without matching the 2D wall segments."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Beds, sofa and dining set exist, but do not map cleanly to the 2D furniture layout (notably the living seating configuration and lack of kitchen cabinetry/appliances and utility fixtures). Furniture scale appears generally plausible, but the absence of kitchen/utility furniture is a major mismatch."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is clear and visually readable. Lighting is soft and consistent, geometry is mostly clean with minimal visible artifacts. However, some openings/doors look simplified and the model reads more like a generic 2-bed layout than a precise reconstruction."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Kitchen room (11' x 7'6\") present in 2D plan is missing/not modeled as a distinct space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room (5' x 7'8\") attached to kitchen in 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Foyer/entry space (4'6\" x 3'8\") and its circulation from main door are not represented correctly in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Decks/balconies (13'9\" x 5' and 5'8\" x 4'5\") shown at the top side of the 2D plan are missing or not modeled in the correct locations in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom/toilet placement does not match: the 2D plan has two separate toilets (C.TOI and TOI-1) in specific locations, while the 3D render shows a mislocated/misconfigured wet area (appears to contain multiple WC fixtures and lacks the correct two-bath arrangement)."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door placement/orientation is incorrect: 2D plan entry is at bottom-right into a foyer; 3D emphasizes large bottom-edge exterior doors/openings instead."
+        },
+        {
+            "code": "E2",
+            "description": "Window/exterior opening placement is inconsistent with the 2D perimeter (notably large glazing/doors on the bottom edge not indicated as such in the 2D plan)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions/circulation are distorted: the living/dining footprint and connecting passages do not preserve the 2D plan geometry (angular/central space reshaped, relationships to adjacent rooms altered)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior opening/balcony-like element on the bottom edge of the 3D model that does not correspond to the 2D plan\u2019s deck locations."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan14.webp"
+}

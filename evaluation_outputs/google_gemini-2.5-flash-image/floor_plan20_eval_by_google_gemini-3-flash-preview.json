@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "notes": "Excellent spatial translation. Room placements and wall alignments are precise. Door swings are correctly maintained. Subtle text modification noted in Bedroom-1 dimensions."
+    },
+    "structural_fidelity": {
+        "score": 24,
+        "max": 25,
+        "notes": "Highly consistent wall thickness and adjacency mapping. All rooms, including toilets and utility areas, are correctly represented. Minor visual merging in the utility/toilet-1 shaft area."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "notes": "Furniture placement and scaling are identical to the source 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Clean 2.5D top-down render. High visual clarity and consistent lighting. Effectively differentiates wall heights and floor textures."
+    },
+    "total_score": 95,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Text labels for Bedroom-1 dimensions changed from 16'5' x 14'6' to 13'6' x 14'8' despite geometry remaining largely accurate."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering artifacts in the plumbing shaft/ventilation voids where textures appear significantly darker/filled compared to the open 2D representation."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall layout roughly matches (two bedrooms at top corners, central hall, living bottom-center, kitchen/dining bottom-right), but several plan-to-render mismatches: (1) The small top-center rooms (bath + office) have incorrect internal layout/fixture placement relative to the 2D plan (bath fixtures and the adjacent office desk/radiator arrangement do not match). (2) Entry/foyer geometry at lower-left is distorted (the stepped/angled wall configuration and corridor alignment differ). (3) Multiple door positions/swing orientations deviate (notably the doors serving the bathroom/office zone and the left bedroom). (4) Window locations do not consistently match the 2D plan (notably added/shifted openings on outer walls). Room proportions are also altered: living room enclosure/opening size and the hall width appear changed versus the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness appears visually consistent, but fidelity issues remain: adjacency is mostly correct (bath/office between bedrooms), yet the bathroom/office partitioning and doorway embedding do not match the plan precisely. The living-room partial enclosure wall and its opening geometry differ from the 2D plan. No clearly \"new\" extra rooms, but several structural elements (doors/windows and some partitions) appear hallucinated or relocated relative to the 2D drawing."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture zones are present (twin beds room, master bed + desk, living seating + TV, dining table, kitchen counters). However, bathroom/office furniture-fixtures do not map cleanly to the 2D plan (desk/radiator/fixtures arrangement differs). Some furniture scaling/proportion (living seating vs room footprint) appears inconsistent with the tighter 2D living-room enclosure."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Render is clean with good lighting, readable geometry, and a coherent isometric camera. Minor issues: openings and door leaves look somewhat oversized and the projection is slightly perspective-like rather than strictly orthographic isometric. Overall visual clarity is strong."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom fixture layout mismatched: the 2D plan shows a distinct shower at the top-left of the bathroom and specific sink/toilet positions; the 3D bathroom arrangement does not align to those exact placements."
+        },
+        {
+            "code": "E2",
+            "description": "Top-center small room (office) contents/fit-out misplaced: the 2D shows a desk/computer along the top wall and a radiator on the right; the 3D room layout does not match this arrangement."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation errors in the bathroom/office zone: several door leaves appear to swing differently than indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Lower-left entry/foyer wall geometry is altered: the stepped partition and corridor alignment differ from the 2D plan footprint."
+        },
+        {
+            "code": "E4",
+            "description": "Living room enclosure/opening proportions distorted: the partial interior wall and the opening to the main space do not preserve the 2D plan\u2019s proportions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatches: the 3D render includes/relocates exterior openings that are not in the same positions as the 2D plan\u2019s indicated windows (notably along outer walls near the left bedroom and kitchen)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra openings: at least one exterior window/opening appears added or shifted relative to the 2D plan, changing facade opening layout."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Living room and kitchen door placements are incorrect. The door to the wash area/toilet is missing. The entire 'Entrance to the House' area is missing. Several windows are missing. Room proportions are distorted, particularly the dining area and Bedroom 1."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is somewhat inconsistent. The 'Entrance to the House' room is completely missing. The wash area and toilet are combined and misrepresented. Adjacency relationships are incorrect due to missing rooms and misplaced doors."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture is present in some rooms but scales are inconsistent and some elements like the wash area sink/toilet are poorly represented in comparison to the plan. The kitchen layout does not match the plan in terms of appliances."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera is correct. Lighting is acceptable. Geometry is clean. Visual clarity is good, but the composition is lacking due to missing external structures and windows. The top railing in the 3D model is a hallucinated element."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Entrance to the House' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the wash area/toilet."
+        },
+        {
+            "code": "E1",
+            "description": "Several windows are missing from the exterior walls, for example, in the Dining, Kitchen, and Living Room areas."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the Kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the Living Room."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the toilet and wash area is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room proportions are distorted, it appears smaller and less elongated."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom 1 proportions are distorted, the room appears wider and shorter."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Wash Area' and 'Toilet' from the plan are combined and their internal layout is significantly distorted."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated railing elements on the exterior walls, especially prominent around the dining area, bedroom, and kitchen."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen appliance configuration vs. plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placements are generally correct, but several walls are misaligned. Door placements are largely incorrect in terms of position and orientation. Window placements are completely missing. Room proportions show significant distortions, particularly in the living/dining and deck areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in various areas. Door embedding is incorrect, often showing partial embedding or incorrect opening directions for several doors. Adjacency relationships are mostly maintained but some internal structures are altered. There are no missing or hallucinated rooms, but the 'HO' and 'TOI' areas near the kitchen are significantly altered."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally approximated but often not precise. Furniture scale consistency is poor; many items appear too small or too large relative to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair, but some angles seem off. Lighting quality is poor, resulting in a flat, undifferentiated look. Geometry has distortions and lacks clean edges in many places, especially walls and countertops. Visual clarity is moderate, but the lack of detail and poor lighting detract from the composition."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced walls in Living/Dining area, Kitchen, and various bathrooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows from the exterior walls shown in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Numerous incorrect door placements for all rooms including bedrooms, bathrooms, foyer, and kitchen. Many doors are offset from their floor plan positions."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientations/opening directions for almost all doors."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Living/Dining room, making it appear wider and shorter. Kitchen and Foyer also show distortions."
+        },
+        {
+            "code": "E4",
+            "description": "Deck dimensions and shape are significantly distorted, especially the curved portion and the corner deck."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting quality contributing to a flat render without depth."
+        },
+        {
+            "code": "E6",
+            "description": "Jagged or unclear geometry for wall edges and some furniture elements."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement inaccuracies throughout the entire plan, e.g., living room sofa, dining table, kitchen appliances, and bedroom beds are not precisely matching."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent furniture scale, with some items appearing oversized (e.g., kitchen counter) and others undersized (e.g., bedroom nightstands)."
+        },
+        {
+            "code": "E2",
+            "description": "The areas labeled 'HO' and the 'TOI' beside it are completely different in the 3D render compared to the floor plan, appearing as a modified single room instead of two distinct spaces."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan19.webp"
+}

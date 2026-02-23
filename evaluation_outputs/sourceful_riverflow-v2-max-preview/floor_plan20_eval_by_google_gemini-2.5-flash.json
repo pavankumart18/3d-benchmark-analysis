@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. Balconies in Bedroom-1 and Bedroom-2 are completely missing. The Balcony for Deck is missing. Doors for Bedroom-3, Maid's Room, and some toilets appear to be missing or incorrectly placed/oriented. Window placements are largely incorrect or missing."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Multiple missing rooms/areas (balconies). Wall thickness consistency is poor in several areas, particularly where balconies should be. Adjacency relationships are incorrect due to missing elements."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in several rooms, especially Bedroom-1, Bedroom-2, and Maid's room. Furniture scale varies and is not always consistent with the floor plan. Hallucinated furniture in Kitchen."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally acceptable. Lighting is somewhat flat. Geometry is clean but lacks detail. Visual clarity is good, but composition is affected by the missing elements."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony adjacent to Bedroom-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony adjacent to Bedroom-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony adjacent to Living & Dining area (Deck balcony is missing walls)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the bed in Bedroom-1."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of furniture in Bedroom-2."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the bed in Bedroom-3."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement/absence of door for Toilet-3."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement/absence of door for Toilet-4."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement/absence of door for Home Office/Maid's Room."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement/absence of door for Bedroom-3."
+        },
+        {
+            "code": "E1",
+            "description": "Missing external windows in Bedroom-3."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Utility."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in various toilets."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Kitchen, appears narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Home Office/Maid's Room, appears narrower."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated counter/furniture in the Kitchen along an interior wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Toilet-2."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for Bedroom-2."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan20.avif"
+}

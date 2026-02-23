@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major failures in room layout and logic. The rendering introduces a solid wall splitting the main open-plan area. The window in the kitchen is misplaced on the left exterior wall instead of being a small wall segment. Entrance location is shifted."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Critical structural deviations. A hallway has been hallucinated between the kitchen and dining area. The staircase transitions from a 2D floor texture to a 3D volume incorrectly. Adjacency between kitchen and bathroom is broken by an unnecessary corridor."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen counters are represented as flat textures rather than 3D geometry. Dining table is hallucinated as there is no furniture on the source plan. Bathroom fixtures are presented as 2D decals on the floor."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Strong visual presentation. Isometric angle is consistent and lighting is well-balanced. The geometry is clean despite being architecturally inaccurate."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated wall dividing the kitchen/dining area from the living space."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen window on the left side wall instead of the back wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 3D volume for bathroom fixtures (rendered as floor texture only)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the entrance area creating a narrow corridor not present in plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact where the 'Bathroom' label is duplicated on the floor outside the actual room."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,77 @@
+{
+    "spatial_accuracy": {
+        "score": 4,
+        "max": 40,
+        "notes": "Room placement is severely incorrect; the entire layout is significantly altered. Wall alignment is highly inaccurate with walls missing or repositioned. Doorways are missing or incorrectly placed. Window placements are incorrect or missing. Room proportions are not preserved.",
+        "sub_scores": {
+            "room_placement_correctness": 0,
+            "wall_alignment_accuracy": 0,
+            "door_placement_orientation": 0,
+            "window_placement": 2,
+            "room_proportions_preserved": 2
+        }
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Wall thickness shows some inconsistencies. Doors are not correctly embedded; many are missing. Adjacency relationships are completely broken. There are multiple missing rooms and hallucinated rooms.",
+        "sub_scores": {
+            "wall_thickness_consistency": 2,
+            "door_embedding_correctness": 0,
+            "adjacency_relationships": 0,
+            "no_missing_rooms": 0,
+            "no_hallucinated_rooms": 0
+        }
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement bears no resemblance to the floor plan. Furniture scale is inconsistent in places and, where present, does not match the original intent.",
+        "sub_scores": {
+            "furniture_placement_accuracy": 0,
+            "furniture_scale_consistency": 0
+        }
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera is correct, and orthographic projection appears accurate. Lighting quality is good and geometry is clean without distortions. Visual clarity and composition are good despite the structural inaccuracies.",
+        "sub_scores": {
+            "isometric_camera_correctness": 5,
+            "orthographic_projection_accuracy": 5,
+            "lighting_quality": 5,
+            "clean_geometry": 5,
+            "visual_clarity_composition": 0
+        }
+    },
+    "total_score": 24,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing W/C and Closet near Foyer. Missing Pantry. Missing stairs in its original location."
+        },
+        {
+            "code": "E2",
+            "description": "Living Room, Dining Room, Kitchen, and Playroom are completely repositioned and reconfigured. A bedroom is placed where the Living Room should be. The stairs are moved. The Foyer has been significantly altered."
+        },
+        {
+            "code": "E3",
+            "description": "All external and internal doors are either missing or have incorrect orientations in their new, misplaced positions."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortions in all rooms, especially where rooms are merged or split (e.g., Living Room vs. new bedroom, Kitchen and dining area)."
+        },
+        {
+            "code": "E5",
+            "description": "A 'bedroom' with a bed, nightstands, and dressing table is hallucinated in place of the living room. An additional bathroom fixture (a toilet) is hallucinated."
+        },
+        {
+            "code": "E1",
+            "description": "Many windows from the floor plan are missing in the render."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan8.jpg"
+}

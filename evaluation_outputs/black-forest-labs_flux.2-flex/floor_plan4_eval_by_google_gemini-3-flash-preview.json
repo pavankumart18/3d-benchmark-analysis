@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is maintained, but door swings are inconsistent with the plan. The kitchen and dining area features an extra window not present in the 2D draft. Door orientation in the hall and bathroom differs from original specs."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Walls are rendered with consistent thickness. A significant hallucination is present in the laundry/entry area where doors become complex and over-detailed compared to the source. The closet in Bedroom 2 is merged incorrectly into the room space."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture generally reflects the suggested plan, though the living room configuration is rotated and simplified. Kitchen cabinetry mapping follows the general U-shape well."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent lighting and material definition. Isometric camera is accurate and geometry is clean throughout. High visual clarity."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom door and closet doors in the hallway are misplaced/reoriented compared to the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Living room seating arrangement is rotated 90 degrees relative to the TV/Wall unit."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional window in the dining area wall."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom 2 closet area lacks the internal partitioning shown in the architectural plan."
+        },
+        {
+            "code": "E6",
+            "description": "Door swing artifacts near the laundry room where two doors overlap unnaturally."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan4.jpg"
+}

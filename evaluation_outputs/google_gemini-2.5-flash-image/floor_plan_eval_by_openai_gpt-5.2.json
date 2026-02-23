@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Living/dining/kitchen are generally located in the correct top half, and bedrooms/bathrooms in the lower half, but several layout specifics deviate: kitchen geometry is changed (peninsula/island-like form vs the plan\u2019s tighter L/galley with defined counter runs), the left-side stepped/notched perimeter and small internal offsets are simplified/shifted, and the hall/entry/door relationships read more open than the plan. Window/door positions do not consistently match the 2D locations, and room proportions (especially living area depth and left wing width) appear distorted compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Primary adjacency is mostly preserved (living adjacent to kitchen/dining; bedrooms off the main hall), but fidelity breaks on exterior features and openings: a balcony/terrace is introduced on the living-room side that is not present in the 2D plan, and several wall offsets and thickness cues from the plan are not maintained. Door embedding/orientation is inconsistent with the plan\u2019s swing placements (notably around the hall/bath/bedroom thresholds), and some closet/utility partitioning appears merged or reinterpreted."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Major furniture beats are plausible (sofa grouping and dining table in the living zone; beds in both bedrooms), but placement does not tightly follow the plan (kitchen work triangle and dining alignment relative to counters/windows differs). Scale is generally consistent, though some circulation clearances look wider than the plan implies."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Camera is a reasonable isometric-like view but shows perspective rather than strict isometric/orthographic. Lighting is even but flat; geometry is mostly clean with minor softness/low-detail materials. Overall composition is clear, but opening details (doors/windows) are not crisply legible for verification."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated balcony/terrace with exterior railing adjacent to the living/dining area; this element is not shown in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout mis-modeled: counter/appliance run configuration differs from the plan\u2019s L-shaped/galley arrangement (peninsula/island-like massing and repositioned runs)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: living area depth/width relationship and the left wing width/read of the stepped perimeter do not match the plan\u2019s measured outline and notches."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior wall alignment errors: the plan\u2019s stepped/notched exterior geometry on the left side is simplified/shifted in the 3D model, changing room edge conditions."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement/orientation mismatches around the central hall/bath/bedroom thresholds; swings/opening positions do not consistently align with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement inconsistencies: fenestration appears added/shifted on some exterior walls relative to the plan\u2019s specific window locations (beyond the main living-room window wall)."
+        },
+        {
+            "code": "E1",
+            "description": "Closet/partition details appear missing or merged: the plan\u2019s smaller closet/coat storage separations are not clearly or consistently represented as distinct enclosed spaces."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan.jpg"
+}

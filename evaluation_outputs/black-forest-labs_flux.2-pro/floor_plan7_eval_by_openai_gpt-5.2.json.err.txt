@@ -1,0 +1,39 @@
+{
+  "spatial_accuracy": {
+    "score": 23,
+    "max": 40,
+    "notes": "Overall room zoning roughly matches (dining left, kitchen top-center, living right, bedroom bottom-left, stairs bottom-right), but several plan-to-render spatial mismatches occur. Interior wall layout around the central corridor is altered: the 3D introduces curved/arched corridor partitions where the 2D plan shows straight walls. Door locations and swing/orientation are not faithfully represented (many interior doors appear as open archways/curved openings rather than hinged doors at the plan-indicated positions). Window placement largely follows the perimeter concept but includes discrepancies (notably around the stair block/right side). Room proportions are not preserved well in the corridor/bath core (appears widened/reshaped vs the narrow vertical wash/toilet stack in plan)."
+  },
+  "structural_fidelity": {
+    "score": 17,
+    "max": 25,
+    "notes": "Wall thickness is mostly consistent and exterior footprint is broadly similar, but structural fidelity is reduced by replacing straight partitions with curved/rounded geometry (not in plan) and by incomplete/incorrect door embedding (missing door leaves, missing/changed door positions). Adjacency is mostly correct (spaces connect in expected general order), however the wash area/toilet stack reads as altered/merged/re-partitioned compared to the 2D (separation and access logic differs). No major extra rooms are added, but several non-plan architectural elements (arched openings/curved walls) function as structural hallucinations."
+  },
+  "furniture_mapping": {
+    "score": 8,
+    "max": 10,
+    "notes": "Furniture intent matches the plan at a high level (dining table set in dining, sofa set in living, bed in bedroom, kitchen counters/fixtures present). Minor scale/proportion mismatches exist (some furniture appears oversized relative to circulation, especially around the central corridor/bath access)."
+  },
+  "aesthetic_quality": {
+    "score": 20,
+    "max": 25,
+    "notes": "Isometric view is clear and well-composed. Lighting and materials are clean and readable. Geometry is mostly clean, but the use of curved/organic wall forms introduces a stylized look that conflicts with the rectilinear plan. Overall visual clarity is good with minimal rendering artifacts."
+  },
+  "total_score": 68,
+  "detected_errors": [
+    {
+      "code": "E2",
+      "description": "Central corridor wall alignment differs: 3D uses curved/rounded partitions where the 2D plan shows straight walls."
+    },
+    {
+      "code": "E3",
+      "description": "Interior door representation/orientation is incorrect: multiple plan-indicated hinged doors are shown as open arched passages or are not placed with correct swing/orientation."
+    },
+    {
+      "code": "E1",
+      "description": "Wash Area / Toilet separation and access do not clearly match the 2D plan (distinct rooms/door logic appear missing or altered)."
+    },
+    {
+      "code": "E2",
+      "description": "Window placement mismatch on the right/stair-side perimeter: the 3D shows fenestration that does not align with the 2D window locations/count."
+   

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General wall layout is highly accurate. Door placements and orientations match the blueprint. Window count is overall preserved, though some minor scaling inconsistencies exist on the Activity room wall."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "All rooms (Bed 2, 3, 4, Bath, WC, Activity, Balcony) are present with correct adjacency. Wall thickness is consistent. Minor hallucination of text on the balcony wall exterior."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement follows the diagram closely, including bed orientations and robe locations. Scale is slightly off in 'Bed 3' compared to the 2D dimensions provided."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent orthographic projection and clean ivory-toned geometry. Lighting is soft and professional. Text labels are crisp, though some numbers in labels have been slightly altered from original values."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Activity room dimensions text changed from 3810x4770 to 3310x4700 in the render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'BACETRAY' text rendering on the outer balcony wall edge."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent text data mapping across room labels (Bed 2, 3, 4 dimensions do not perfectly match original source)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan12.png"
+}

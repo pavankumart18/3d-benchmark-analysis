@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 13,
+        "max": 40,
+        "notes": "Major plan-to-model mismatches. (E1) Balcony at bottom-left of plan is not modeled; exterior wall is closed off instead. (E2/E4) Overall massing/outline does not preserve the plan\u2019s stepped perimeter (especially the balcony recess and left-side indentation), causing proportion and footprint distortion. (E2) Central wet-area cluster (Bath + WC + A/C niche) appears reconfigured/shifted; partition locations and corridor geometry do not match the plan. (E2/E3) Several door openings are not placed/oriented per the plan (hall-to-bedroom and hall-to-bath/WC door positions are inconsistent and some appear absent). (E2) Window placements do not match: plan shows multiple fa\u00e7ade windows (e.g., along Bed 3 outer wall and Activity), but the render concentrates windows mainly on the right/top faces and omits others."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Structural layout fidelity is weak. (E1) Missing balcony space and its balustrade boundary. (E2) Adjacency relationships are altered: the Activity-to-balcony connection is lost, and the hall/wet-area arrangement is inconsistent with the plan. (E1/E2) Stair/recess zone at top-left of Activity (shown in plan) is not clearly represented as a stair opening/landing recess in the 3D. (E4) Wall runs and thicknesses are not consistently preserved; several partitions look simplified/merged. (E5) Some interior partitions/voids appear introduced that are not evidenced in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Basic bedroom furniture exists (beds), but mapping is not plan-accurate. (E2) Bed placements/orientations do not clearly follow the indicated layouts in Bed 2/3/4. (E1) Key built-ins and fixtures are missing or not represented (robes/linen storage, bath fixtures, WC layout). (E4) Furniture scale is inconsistent relative to room sizes due to distorted room proportions."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Render is clean and readable but simplified. Isometric camera is acceptable, though not tightly matched to an architectural axonometric. Lighting is soft and consistent. (E6) Some geometry looks blobby/low-detail at door/window reveals and partition joins, reducing clarity. Orthographic/isometric correctness is moderate; composition is fine but lacks plan-accurate detail."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony space (bottom-left in plan) is missing in the 3D render; exterior wall is closed where an open balcony should be."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior footprint/perimeter walls do not match the stepped outline of the 2D plan, especially around the balcony recess and left-side offsets."
+        },
+        {
+            "code": "E2",
+            "description": "Bath/WC/A.C. core partitions and corridor geometry are rearranged relative to the plan (wet-area cluster placement and wall alignment mismatch)."
+        },
+        {
+            "code": "E1",
+            "description": "Stair/recess area indicated at the top-left of the Activity room is not clearly modeled as a stair opening/landing recess."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations to bedrooms and wet areas do not correspond to the plan; several openings appear shifted or missing."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation information from the plan is not preserved in the 3D (openings are not modeled with correct handedness/swing behavior)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is incorrect/incomplete: multiple fa\u00e7ade windows shown in the plan (e.g., Bed 3 and Activity sides) are omitted or relocated."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted; the Activity and bedroom volumes do not retain the relative dimensions implied by the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Built-in storage elements (robes/linen) shown in the plan are largely missing or not accurately represented."
+        },
+        {
+            "code": "E5",
+            "description": "Some partition/void shapes in the central area appear invented/simplified beyond what the plan indicates."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/geometry artifacts: softened edges and indistinct door/window reveals reduce architectural legibility."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan12.png"
+}

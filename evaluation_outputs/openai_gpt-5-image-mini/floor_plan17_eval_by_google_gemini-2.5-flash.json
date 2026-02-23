@@ -1,0 +1,128 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is approximately correct, but proportions are significantly distorted. Wall alignment does not match the floor plan in multiple areas. Door and window placements are frequently incorrect or missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Many rooms are missing, significantly impacting functionality and structural integrity. Hallucinated walls and rooms are present. Wall thickness is not consistently represented."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; many pieces are missing or misplaced. Scale consistency is poor for rendered furniture."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera angle is decent, and projection is generally orthographic. Lighting is flat but consistent. Geometry appears clean. However, the overall composition is severely hindered by the structural inaccuracies and missing elements."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Foyer. (E1, Foyer)"
+        },
+        {
+            "code": "E1",
+            "description": "Missing all toilets. (E1, Toilets)"
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Dress' room adjacent to Master Bedroom. (E1, Dress room)"
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Utility' room. (E1, Utility)"
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Ser. Rm' and associated toilet. (E1, Ser. Rm)"
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balconies. (E1, Balconies)"
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and absence of walls forming the Foyer. (E2, Walls)"
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen walls are significantly altered and a door is misplaced. (E2, Kitchen Walls/Door)"
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from the main corridor to Bed Room 4 is missing and incorrectly positioned. (E2, Door, Bed Room 4)"
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Bed Room 3 is misplaced. (E2, Door, Bed Room 3)"
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Bed Room 2 from the main corridor is misplaced and orientation is incorrect. (E2, Door, Bed Room 2)"
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Master Bedroom is misplaced and orientation is incorrect. (E2, Door, Master Bedroom)"
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in the Master Bedroom is incorrect. (E2, Window, Master Bedroom)"
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in Bed Room 2 is incorrect. (E2, Window, Bed Room 2)"
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in Bed Room 3 is incorrect. (E2, Window, Bed Room 3)"
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in Bed Room 4 is incorrect/missing. (E2, Window, Bed Room 4)"
+        },
+        {
+            "code": "E2",
+            "description": "Many interior doors (especially for toilets and the Dress room) are missing. (E1, Interior Doors)"
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Living room and Dining room appear distorted, making them feel smaller than indicated. (E4, Living/Dining)"
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of Bed Room 4 appear significantly larger than the floor plan. (E4, Bed Room 4)"
+        },
+        {
+            "code": "E4",
+            "description": "Overall floor plan dimensions appear compressed on the Y-axis. (E4, Overall Dimensions)"
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment in the Living area, where a balcony should be. (E5, Wall)"
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall where the secondary balcony should be. (E5, Wall)"
+        },
+        {
+            "code": "E1",
+            "description": "Missing all cabinetry and fixtures in the Kitchen and Toilets. (E1, Kitchen/Toilet Fixtures)"
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement in Living, Dining, and Bedrooms is generic and does not match the floor plan. (E2, Furniture)"
+        },
+        {
+            "code": "E4",
+            "description": "Furniture scale is inconsistent with room sizes. (E4, Furniture Scale)"
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan17.jpg"
+}

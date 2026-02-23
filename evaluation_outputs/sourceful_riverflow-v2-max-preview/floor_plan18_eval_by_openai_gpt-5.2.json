@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall layout broadly resembles the 2D plan (bedroom left/top, living central-left, kitchen right, toilet near top-center), but several plan-defined subspaces and offsets are simplified. Wall jogs/indentations on the right/top (utility/duct region) are not faithfully reproduced, and key area proportions (foyer vs living vs kitchen) appear altered. Door and window positions partially match but not consistently."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Wall thickness and general wall/door construction are consistent in the render, but the plan\u2019s utility/duct organization is not preserved, breaking intended adjacencies (kitchen-to-utility relationship). Most rooms shown connect plausibly, yet at least one required room/zone is missing and some partitions appear reinterpreted."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture pieces align with room intent (bed/wardrobe in bedroom; dining table in living/dining; kitchen counters/appliances). However, placement does not closely follow the 2D layout (e.g., living seating/TV arrangement and balcony interface), and some item scales/clearances look idealized rather than plan-true."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric presentation with good readability and generally correct axonometric feel. Lighting and materials are coherent; geometry is mostly clean with minimal artifacts. Minor issues: some openings/frames look simplified and not strictly orthographic/plan-exact in proportions."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Utility area (3'9\" wide) shown in the 2D plan is not clearly present as a separate space in the 3D render; kitchen/utility separation appears removed."
+        },
+        {
+            "code": "E1",
+            "description": "Duct/shaft adjacent to the toilet (labeled 'DUCT' in plan) is not represented as a distinct enclosure in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer size/definition differs: the 2D plan shows a compact foyer (4'6\" x 3'10\"), while the 3D render depicts a larger/opener entry zone, shifting circulation area allocation."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: relative areas between living/dining, foyer, and kitchen appear rebalanced compared to the stated plan dimensions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/scale mismatch: the kitchen/top-right window appears larger/differently positioned than the plan suggests; some plan windows/openings are simplified."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation inconsistencies: several doors in the 3D render do not match the swing directions implied by the 2D plan (notably around toilet/bedroom/entry transitions)."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony interface differs: the balcony enclosure/entry framing in the 3D render does not clearly match the plan\u2019s balcony layout and opening proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/over-specified elements: added glazing/rail-like balcony treatment and some interior partition detailing that are not explicitly indicated in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan18.jpg"
+}

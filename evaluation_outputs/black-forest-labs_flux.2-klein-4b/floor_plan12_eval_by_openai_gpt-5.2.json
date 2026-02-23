@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Overall layout does not match the 2D plan. The plan\u2019s clear room zoning (Activity + Balcony on left, Bath/WC core, three separate bedrooms on right/bottom) is not preserved. Multiple interior partitions are reshaped into curved walls not present in plan (E5/E4). Bath/WC location and subdivision are not represented. Balcony area is not modeled as an exterior space. Door positions and swing/orientation do not correspond to the plan\u2019s hall-to-bedroom and hall-to-bath openings. Window locations/sizes do not align with the plan\u2019s exterior openings."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Several required rooms/functional areas from the plan are missing or merged. Adjacency relationships are incorrect (e.g., Bath+WC core between Activity and Bed 4 is not correctly formed). Numerous hallucinated curved partitions and non-plan wall segments reduce fidelity. Wall thickness appears visually consistent, but the overall wall topology diverges heavily from the floor plan."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not map to the plan\u2019s rooms reliably because room boundaries are incorrect. Bedrooms appear mis-modeled/merged; beds and side furniture are placed in spaces that do not correspond to Bed 2/Bed 3 separation. Missing/incorrect bathroom fixtures (bath, WC, vanity) compared to plan."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Render is clean and readable with a correct isometric-like camera and generally coherent lighting. However, geometric choices (curved walls, softened partitions) introduce distortions relative to architectural orthographic intent, and some elements read as stylized rather than plan-faithful."
+    },
+    "total_score": 32,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony (bottom-left in plan) is missing as a defined exterior balcony space with balustrade."
+        },
+        {
+            "code": "E1",
+            "description": "Stair/recess area (top-left of Activity room in plan, marked DN and RECESS) is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Bathroom and WC as two distinct rooms (center-top in plan) are missing/not modeled with correct partitions and fixtures."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom layout on the right/bottom does not match: Bed 2, Bed 3, and Bed 4 are not clearly separated/placed per plan geometry and adjacency."
+        },
+        {
+            "code": "E3",
+            "description": "Hallway-to-bedroom door placements/orientations do not match the plan\u2019s door positions and swing directions (notably the clustered doors near Bed 3/Bed 4 and bath core)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent with the plan (plan shows multiple specific exterior window runs; render shows different window sizes/locations including a large glazed opening not matching the balcony wall condition)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: the plan\u2019s rectilinear rooms and corridor are rendered with significantly altered shapes and relative sizes."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated curved interior walls/partitions appear in multiple locations where the plan specifies straight walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated large sliding-glass style opening/door composition on the left exterior wall that does not correspond to the plan\u2019s balcony boundary and opening arrangement."
+        },
+        {
+            "code": "E1",
+            "description": "Built-in storage/robe and linen placements from the plan are not clearly represented in the corresponding walls/locations."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan12.png"
+}

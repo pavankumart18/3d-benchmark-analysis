@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Balcony is significantly distorted. Wall alignment has several inaccuracies, particularly in the living/dining area and kitchen. Door placements are largely incorrect, and orientations are not always clear. Window placements are also incorrect or missing. Room proportions, especially for the living/dining and balcony, are distorted."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thinner than others. Door embedding is incorrect, with several doors missing or appearing as simple openings without proper frames. Adjacency relationships are mostly correct for rooms but flawed for furniture. No missing rooms. One hallucinated small wall/bar in the living room."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor, with many items misplaced or missing. Furniture scale consistency is also poor, with some items appearing disproportionately large or small."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are good. Lighting quality is acceptable. Geometry shows some clean surfaces but also some jagged edges (e.g., at wall tops). Visual clarity is good, but composition is hindered by structural inaccuracies."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Balcony wall and size is significantly misplaced and distorted."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door orientation is incorrect and missing a frame."
+        },
+        {
+            "code": "E1",
+            "description": "Door to the Bathroom from Utility is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bathroom from Bedroom is misplaced and poorly rendered."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen door is misplaced and poorly rendered, more like an open archway."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom furniture (bed) is misplaced; it's rotated incorrectly and not against the wall as in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Wardrobes in the bedroom are missing."
+        },
+        {
+            "code": "E2",
+            "description": "Living/Dining table and chairs are significantly different in style and proportion, and misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa in living room is displaced and scaled incorrectly."
+        },
+        {
+            "code": "E1",
+            "description": "TV unit in living room is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen appliances (sink, hob) are misplaced and scaled incorrectly; washing machine is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Bathroom fixtures (toilet, sink) are misplaced and scaled inconsistently; shower area is not clearly defined."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Living / Dining' area appear stretched on one axis compared to the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Balcony' are severely distorted, making it appear much smaller/narrower than in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Windows are either missing (e.g., in bedroom, kitchen, utility, balcony) or improperly rendered (e.g., in living room)."
+        },
+        {
+            "code": "E5",
+            "description": "A small bar-like structure or low wall is hallucinated between the living/dining and kitchen area that is not present in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts/jagged edges on top of some walls."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room appears to have a window or opening on the exterior wall that is not indicated in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wall alignment between the Toilet and Utility appears off, creating an unnecessary corner."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan18.jpg"
+}

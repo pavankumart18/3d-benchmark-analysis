@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The overall room placement is mostly correct, but there are significant issues with wall alignment, door placement and orientation, and window placement. The room proportions are also not perfectly maintained due to wall placement discrepancies."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not embedded correctly. Adjacency relationships are altered by misplaced walls and doors. There are no missing or hallucinated rooms, but the internal structure within rooms is significantly altered."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate, but the scale of some furniture items in relation to the rooms is distorted, particularly in the kitchen/living area."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera is mostly correct, and orthographic projection is good. Lighting quality is decent. Geometry is clean with no significant distortions. Visual clarity and composition are good despite the structural errors."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall separating Kitchen/Living from Bedroom is misplaced, creating a hallway and altering room sizes."
+        },
+        {
+            "code": "E2",
+            "description": "Wall in the bathroom separating toilet and shower/tub is completely different in placement and shape."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door is oriented incorrectly; it opens outwards instead of inwards as indicated by the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom door is misplaced and its orientation is incorrect (swings inward from the wrong side)."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door is misplaced and its orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Kitchen/Living area is completely different in size and placement. Original plan shows two large windows, render shows one smaller window."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the Bedroom is misplaced."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Kitchen/Living room due to the alteration of the separating wall."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Bathroom due to altered internal wall structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small wall segment to the left of the main entrance door."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase wall alignment is incorrect; the wall to the left of the staircase is not present in the 3D render as it is in the 2D plan, and the boundary of the staircase area is altered."
+        },
+        {
+            "code": "E5",
+            "description": "Additional wall segment created in the main entrance hallway, not present in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing countertop/shelving in the kitchen on the wall opposite the sink."
+        },
+        {
+            "code": "E1",
+            "description": "Missing shrubbery/plants outside the windows as indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter is elongated towards the door, consuming space that was part of the living area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan6.jpg"
+}

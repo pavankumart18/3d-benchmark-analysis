@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but door swings are rendered as semi-transparent arc hallucinations rather than structural openings. Window placement on the left facade is slightly offset from the plan's alignment."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Missing the defined balcony partition wall and door. The utility room entrance is vaguely defined. Toilet and kitchen adjacency is correct, but the entrance foyer lacks the distinct niche shown in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement for the bed, dining table, and sofa is highly accurate to the floor plan. Scale is consistent throughout."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean clay-style rendering. Lighting is soft and professional. Some minor ghosting/transparency on door representations."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing defined balcony railing and structural separation wall between balcony and living area."
+        },
+        {
+            "code": "E3",
+            "description": "Door swings are represented as floating curved planes rather than standard architectural door openings."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room entrance and kitchen counter layout simplified compared to detailed 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Transparency artifacts on the door swing visualizers."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan18.jpg"
+}

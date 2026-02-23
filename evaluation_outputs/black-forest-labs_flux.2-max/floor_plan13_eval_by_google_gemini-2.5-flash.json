@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placements are generally correct but there are significant discrepancies. The kitchen layout is dramatically altered. The entry area, linen closet, and balcony are distorted. Door placements are largely incorrect, and window placements are missing/incorrect. Room proportions are not preserved, especially in the kitchen, bath, and WC areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly around the kitchen and bathroom areas. Door embeddings are incorrect. The original balcony was an extension of the lounge, but in the render it's attached to the kitchen side. Adjacency relationships are mostly maintained but the details are flawed. Multiple rooms are missing. There are also hallucinated elements, such as the missing wall between lounge and dining, and the altered structure of the kitchen and laundry."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; the kitchen counter layout is entirely different, and the bathroom fixtures are dramatically changed. Furniture scale is inconsistent, especially for the kitchen layout and bathroom fixtures."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally good, rendering is clean with minimal distortions. However, lighting quality is flat, and visual clarity is reduced due to altered structural elements compared to the original plan."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing linen closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'L'dry'/'WM' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door from kitchen to bedroom hallway."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between Lounge and Dining, creating an open-plan area not present in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entry door and overall entry area structure."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bathroom, opens outwards instead of inwards and positioned differently."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to WC, opens outwards instead of inwards."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 1, incorrect swing and position."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 2, incorrect swing and position."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony is misplaced; it's shown extending from the kitchen side in the render, not the Lounge."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of all doors (most open outwards in render, inwards in plan)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Kitchen layout."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Bathroom and WC areas."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Balcony."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-plan layout between Lounge and Dining."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen counter configuration."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural changes to the 'L'dry'/'WM' area, making it an open recess rather than a closed-off utility space."
+        },
+        {
+            "code": "E5",
+            "description": "Absence of windows, implying structural changes or oversight."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partial wall/barrier in the Lounge area that is not in the original plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall thickness variations, particularly pronounced around kitchen and bathroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct. Wall alignment shows minor inaccuracies especially around the bathroom and Hall. Door and window placements have several discrepancies."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness appears consistent. Door embeddings are incorrect in several instances. Missing rooms are significant (most closets). Hallucinated elements are present."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, but scale consistency is not perfectly maintained. Some furniture pieces are simplified or missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection is reasonable. Lighting quality is basic. Geometry is clean. Visual clarity is good."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing closet in Laundry room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet near Hall/Bathroom entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet in Bedroom 2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bathtub in Bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilet in Bedroom 2 bathroom (appears to be a smaller secondary bed/bath area not fully rendered or inaccurate on floorplan)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Laundry room (swings outward instead of inward)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entry door (opens inward, but floorplan suggests out or pocket)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 1 (swing direction)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows in Laundry and Bathroom zones (different sizes/positions)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows in Living Room (size and number mismatch)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Kitchen/Dining area (missing a larger window on the wall)."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error for several doors regarding swing direction and pivot point."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small bed in Bedroom 2 where a desk or closet should be per the floor plan layout's intent."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated second toilet/sink setup in Bedroom 2 closet area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Laundry room and Bathroom, appearing slightly narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen/Dining area window proportions are distorted; actual window is larger than represented in 3D."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan4.jpg"
+}

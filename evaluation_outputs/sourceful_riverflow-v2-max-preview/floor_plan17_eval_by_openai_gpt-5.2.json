@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (living/dining central-left, bedrooms on right, kitchen/utility on left), but several spatial details deviate. Doors are generalized and do not match the 2D plan\u2019s exact positions/orientations (notably around dining-to-bedroom corridor and bathroom entries) (E2/E3). Window placement is largely absent/unsupported in the 3D (most exterior walls show no clear windows where the 2D plan indicates multiple window openings) (E2). Room proportions appear distorted: living/dining read as more open/merged than the plan\u2019s defined boundaries, and bedroom/bathroom sizes look normalized rather than matching the annotated dimensions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Adjacency is partially correct (bedrooms clustered right; kitchen/utility left), but service/toilet cluster fidelity is weak. The 2D plan contains multiple small toilets (powder/common and attached) and a dress + two-toilet master suite arrangement; the 3D does not clearly preserve the full count and separation of these small rooms (likely missing or merged) (E1/E4). Door embedding looks inconsistent (some openings read as wall gaps without clear frames/swing logic compared to the plan) (E6/E3). No strong evidence of hallucinated new rooms, but several plan-defined micro-spaces are not faithfully represented."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Living room furniture layout in 3D does not match the 2D arrangement (2D shows distinct sofa set/placement; 3D uses blocky seating islands and different orientation) (E2). Dining set appears present but scale and clearance do not reflect the tighter plan geometry, suggesting inconsistent scaling relative to rooms (E4). Bedrooms have beds placed, but positions/orientations do not consistently match the 2D bed locations."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and scene is readable. However, it is not strictly orthographic (perspective/foreshortening present) (E6). Lighting is clean but slightly washed/flat. Geometry is generally clean, though some walls/doors read simplified and lack crisp architectural detail, reducing clarity in small rooms (E6)."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Window placement is largely missing/unclear in the 3D render compared to multiple exterior windows indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Several door locations do not match the 2D plan (notably around the dining-to-bedroom corridor and bathroom entries)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations/swing logic are not preserved; multiple openings appear as generic gaps rather than plan-accurate doorways."
+        },
+        {
+            "code": "E1",
+            "description": "The full set of small toilets/powder room(s) shown in the 2D plan is not clearly represented as separate spaces in the 3D (some appear missing or merged)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: living/dining read more open/merged than in the 2D plan; several bedrooms/bathrooms appear normalized rather than dimension-faithful."
+        },
+        {
+            "code": "E2",
+            "description": "Living room furniture arrangement differs substantially from the 2D plan (sofa grouping/orientation not matching)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering simplifications: some doors/walls lack crisp architectural definition, making small-room boundaries ambiguous."
+        },
+        {
+            "code": "E6",
+            "description": "Projection is not strictly orthographic; mild perspective distortion affects perceived alignment and proportions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan17.jpg"
+}

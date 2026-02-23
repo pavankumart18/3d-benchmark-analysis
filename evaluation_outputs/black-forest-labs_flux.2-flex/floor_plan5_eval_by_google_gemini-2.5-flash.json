@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but several walls are misaligned. Door placements are frequently incorrect, and some windows are missing or misplaced. Room proportions are distorted in multiple areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not correctly embedded in many places, appearing as openings or misplaced. Adjacency relationships are mostly maintained but inaccuracies exist due to wall misalignment. Multiple windows and a small room are missing. There are no hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in several rooms (e.g., kitchen, bedrooms, living room). Furniture scale is inconsistent, with some items appearing oversized or undersized relative to the room."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera angle is good. Orthographic projection is generally acceptable. Lighting quality is decent. Geometry is mostly clean but some areas show minor distortions. Visual clarity is good."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall misalignment near the main entrance corridor and the bathroom next to the master bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Door to the top-right bathroom is misplaced and rotated incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door to the top-left bedroom is misplaced; it should be shifted to the right."
+        },
+        {
+            "code": "E2",
+            "description": "Door to the bottom-right bedroom is misplaced; it should be shifted to the left."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the top-left bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the bottom-right small room/balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the kitchen area is misplaced and its size is distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen area; it appears wider and shorter than in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the living room; it appears slightly wider than in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "A small utility/storage room next to the kitchen on the left side is completely missing."
+        },
+        {
+            "code": "E2",
+            "description": "Wall between the kitchen and the main living area is misaligned and thicker than in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door alignment is incorrect, and the wall leading to it is misaligned."
+        },
+        {
+            "code": "E4",
+            "description": "The top-right balcony area appears significantly smaller and its opening is different."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in the top-left bedroom is incorrectly placed and scaled."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in the bottom-right bedroom is incorrectly placed and scaled."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa and shelves in the main living room are not accurately placed according to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs in the central area are different in style and placement."
+        },
+        {
+            "code": "E2",
+            "description": "The bathroom fixtures and layout in the top-right bathroom do not match the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The bathroom fixtures and layout in the bottom-left bathroom do not match the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Several doors are incorrectly oriented or fully open without indicating their swing on the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan5.jpg"
+}

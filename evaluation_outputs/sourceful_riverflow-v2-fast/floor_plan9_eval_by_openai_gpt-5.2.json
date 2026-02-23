@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall room clustering is recognizable (garage bottom-right, master suite top-right, secondary bedrooms right side, public spaces left/center), but multiple plan-defining geometries are simplified or altered. The 2D plan\u2019s distinctive angled walls/entries (living-room corner near master corridor; kitchen peninsula angles; several jogs in exterior walls) are largely orthogonalized in the 3D. Door locations/swing/orientation are not consistently matched (notably patio access and several interior room entries). Window positions are not faithfully reproduced (few/unclear openings where the plan shows many exterior windows). Room proportions appear off: garage depicted larger (labeled 2.5 car) and some rooms/hall widths look widened/normalized compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent but many wall offsets/jogs are missing, reducing fidelity to the plan. Several adjacency relationships are preserved (bedroom wing connected to hall; master suite adjacent to master bath/WIC; utility near garage), but key elements appear missing or merged (covered patios, nook articulation, pantry/closet definition). The garage is hallucinated as larger than specified (2.5 car vs 2 car). Overall structure reads as a simplified reinterpretation rather than a precise extrusion of the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generic and does not clearly follow the 2D furniture/appliance layout. Kitchen configuration appears changed (plan shows an angled peninsula and specific appliance placement; 3D shows a more conventional island/linear setup). Some room uses are implied correctly (beds in bedrooms, seating in living), but scale and placement are not verifiable as matching the plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric/axonometric view is generally correct and composition is clear. Lighting is soft and readable, but the render is somewhat blurry/low-detail, reducing legibility of openings and fine geometry. Geometry is clean overall, though simplification introduces a 'boxy' look inconsistent with the plan\u2019s angled segments."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing covered patio spaces: the 2D plan shows a covered patio at the top-left and another at the bottom-center; these outdoor areas are not clearly present/formed in the 3D massing."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced/unclear patio door: the 2D plan has a distinct door from the living room to the top-left covered patio; the 3D does not clearly show this opening at the correct location."
+        },
+        {
+            "code": "E4",
+            "description": "Garage proportion distortion: 2D specifies a 2-car garage; 3D labels/shows a larger '2.5 car garage' footprint/scale."
+        },
+        {
+            "code": "E4",
+            "description": "Loss of plan-specific angled geometry: multiple angled/jogged walls in the 2D (kitchen peninsula angle, living/master-corridor corner, exterior offsets) are simplified to orthogonal walls in the 3D."
+        },
+        {
+            "code": "E1",
+            "description": "Nook articulation missing/merged: the 2D plan includes a distinct 'Nook' adjacent to kitchen and patio; in the 3D it appears absent as a separately legible space or merged into the kitchen/dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry/closet definition missing: the 2D plan shows a labeled pantry ('PAN.') and several closets; these are not clearly represented as enclosed dedicated spaces in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: the 2D plan shows numerous exterior windows (living, dining, bedrooms, master areas); the 3D does not reproduce these at matching positions (openings are sparse/unclear)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing fidelity not preserved: several interior doors in the 3D appear as open passages or differently oriented openings compared to the 2D door swings (notably along the hall/bedroom wing)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated element: the garage is explicitly represented as '2.5 car' in the 3D, which is not supported by the 2D plan (2 car)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact/legibility issue: low resolution/blur makes verification of smaller openings (windows/closets/door swings) unreliable and contributes to apparent omission of details."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan9.png"
+}

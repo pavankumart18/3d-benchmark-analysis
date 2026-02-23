@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Fundamental failures in mapping the floor plan. The dining room area has been hallucinated as an exterior staircase/entrance. Kitchen island orientation and secondary cabinetry are misplaced. Door orientations are inconsistent with the 2D plan drawings."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The central pantry has been erroneously converted into a bathroom with a sink and toilet. The stairwell at the top is misrepresented. Significant halluncination of exterior steps where the dining room should be enclosed."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture scale is largely inconsistent, notably the oversized pink chairs and the incorrectly placed circular dining set inside the living room zone. Kitchen fixtures follow the layout roughly but lack precise plumbing alignment."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Lighting and material consistency are high. Clean clay-style rendering. However, orthographic projection shows slight perspective distortion causing vertical wall segments to look slightly flared."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior staircase and entry porch where the dining room enclosure should be."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom fixtures (toilet/sink) placed inside the central pantry area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the foyer area and stairwell width relative to the living room."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door leaf swing direction on the side entry near the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific closet door details in the foyer and secondary bedroom areas."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan8.jpg"
+}

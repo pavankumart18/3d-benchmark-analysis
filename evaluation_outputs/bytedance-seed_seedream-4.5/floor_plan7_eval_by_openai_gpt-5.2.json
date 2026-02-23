@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall massing roughly matches (dining left, kitchen top, living room right, bath core center, stairs right), but several key plan-to-render mismatches: the plan\u2019s dedicated Bedroom 1 is not clearly represented as such (render labels/depicts it as a secondary living space) (E2). The main entrance at the top-right (double door/entry recess in plan) is not shown as an exterior entrance in the render (E1/E2). Multiple door locations/orientations do not match the swings/placements in plan, especially around the wash/toilet core and bedroom entry (E2/E3). Window placement does not match the plan\u2019s distribution (E2). Room proportions (notably kitchen depth/width and stair block proportions) appear distorted versus the plan (E4)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Adjacency is partially preserved (kitchen near dining and living; wash/toilet near center; stair on right), but entry sequence is structurally wrong due to the missing/misplaced main entrance (E1/E2). Door embedding is inconsistent (several openings appear as generic gaps/arched portal rather than plan-accurate doors) (E2/E3/E5). Wall thickness is visually consistent, but some interior partitions differ from the plan\u2019s alignment around the bath core and bedroom connection (E2). One major planned element (the entrance) is missing as-built, and at least one element (arched interior opening) appears hallucinated (E5)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Dining set placement is plausible for the dining room, and a sofa is placed in the living room area. However, bedroom vs living-room furnishing intent is inconsistent with the labeled/assigned spaces (E2). Kitchen fixture layout is not a faithful match to the plan\u2019s indicated counters/appliances (E2). Some furniture scale is acceptable, but spatial clearances (especially near doors/bath core) do not align with the plan (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera is correct and visually clear. Lighting is clean and readable; geometry is mostly clean with no major rendering artifacts. However, the render uses stylistic elements (arched doorway) that reduce orthographic/plan-faithful accuracy (E5), and some openings read ambiguously (door vs void), slightly hurting clarity."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Main entrance at the top-right (\"Entrance to the House\" in plan) is not represented as an exterior entry door/entry recess in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 1 is not faithfully represented as a distinct bedroom per the plan (render labels/depicts the bottom-left room inconsistently as \"Living Room 1\")."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement around the wash/toilet core does not match the plan\u2019s door locations (openings/doors are shifted relative to the plan)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door orientations/swings are incorrect or replaced by non-door openings (e.g., arched portal), differing from plan-defined hinged doors."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent with the plan (some plan windows appear missing and additional/moved windows appear on different exterior walls)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of key zones (kitchen run depth/width and the stair block footprint) appear distorted compared to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated architectural element: arched interior opening/portal is not indicated in the 2D floor plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan7.jpg"
+}

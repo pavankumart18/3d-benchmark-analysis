@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is strong. Minor discrepancies in door swing directions for BED-3 and BED-4. The transition from the Living area to the Deck contains a slight misalignment in the wall depth compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "All rooms are present and correctly adjacent. Wall thickness is consistent. Small structural hallucination found in the utility area where a partition wall is slightly elongated compared to the source."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture layouts, including the specific rug in the living room and the dining table configuration. Slight scaling issue with the chair in the foyer."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "High-quality isometric projection. Lighting and shadows are realistic and help define the space. Geometry is clean with no significant artifacts."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Internal door swing for BED-3 and BED-4 do not match the 2D plan orientation."
+        },
+        {
+            "code": "E5",
+            "description": "Extra partition segment hallucinated in the bottom-right utility/toilet junction."
+        },
+        {
+            "code": "E4",
+            "description": "Foyer furniture (chair) appears slightly oversized relative to the entrance hall width."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan19.webp"
+}

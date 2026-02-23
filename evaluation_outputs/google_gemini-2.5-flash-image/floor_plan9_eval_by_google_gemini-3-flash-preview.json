@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent room alignment and wall placement. Door swings mostly match the 2D plan. Window placements on the exterior walls are consistent with the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "All rooms are present and correctly adjacent. Minor wall thickness variation in the garage area. The 'Dining Room' in the plan is rendered with office furniture and lacks the full wall separation shown in the original layout."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Kitchen island and appliances are accurately mapped. The 'Dining Room' and 'Bedroom #4' contain furniture inconsistent with room labeling (office/dining swap)."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High-quality orthographic projection with clean geometry and soft, realistic lighting. Visual clarity is excellent."
+    },
+    "total_score": 86,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Dining room furniture placed in bedroom area and office furniture placed in dining area."
+        },
+        {
+            "code": "E3",
+            "description": "Utility room door orientation slightly differs from 2D plan swing."
+        },
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion in the primary bathroom tub area compared to plan dimensions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan9.png"
+}

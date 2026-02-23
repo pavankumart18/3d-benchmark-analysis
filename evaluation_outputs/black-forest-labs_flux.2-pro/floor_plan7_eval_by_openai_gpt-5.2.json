@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "notes": "Overall room layout matches (Dining top-left, Kitchen top-center, Living right, Bedroom bottom-left, Toilet/Wash core, Stairs bottom-right). However, multiple circulation/partition details diverge: central corridor partitions are rendered as curved/arched walls instead of the plan\u2019s straight walls and standard door openings (E2/E5). Several door locations/orientations are inconsistent with the plan\u2019s hinged doors (notably the openings around Kitchen/Living/Wash core), and at least one exterior door appears at the bottom-center protrusion that is not indicated as an entry in the 2D plan (E5). Window placement mostly follows exterior walls, but there are discrepancies in count/position (notably at/around the stair volume and some facade segments) (E2). Room proportions are slightly distorted: the corridor/core and kitchen enclosure read thicker/wider in 3D than in plan, affecting perceived usable area (E4)."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent, but the substitution of straight wall segments/door frames with curved partitions reduces fidelity to the plan (E2/E5). Door embedding is not faithfully modeled for several internal connections (door leaves/swing behavior replaced by open arches) (E2/E3). Adjacency relationships are mostly preserved (no major room swaps), and all primary rooms appear present (Dining, Kitchen, Living, Bedroom, Toilet, Wash Area, Stairs) (no E1). Hallucinated architectural elements are present: curved corridor walls/arches and an additional exterior opening/door not supported by the plan (E5)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture types and room assignment largely match (dining table/chairs in Dining, bed in Bedroom, sofa set in Living). Minor mismatches in scale and spacing relative to the plan\u2019s implied clearances (e.g., seating group and core corridor clearances feel tighter/wider than 2D suggests) (E4). Some fixture placement in the wet core is approximate rather than plan-exact (E2)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric-style view is clear and generally correct, but perspective feels slightly more camera-perspective than strict axonometric/orthographic (minor rubric hit). Lighting is clean and readable; geometry is mostly clean with good material separation. Visual clarity/composition is strong, though the curved partitions introduce a noticeable non-plan distortion (structural artifact from verification perspective)."
+    },
+    "total_score": 70,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated curved/arched corridor partitions near the center (plan shows straight walls with standard hinged door openings)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced/modeled internal openings: several plan doors around Kitchen/Living/Wash core appear as open arches or shifted openings in 3D."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/behavior mismatch: hinged doors with defined swing in plan are not faithfully represented (replaced by open portals/incorrect swing cues)."
+        },
+        {
+            "code": "E5",
+            "description": "Additional exterior door/opening appears at the bottom-center protrusion in the 3D render that is not indicated as an entrance in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch on some exterior segments (notably the stair-side facade and/or adjacent wall runs) relative to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the central core/corridor and kitchen enclosure: perceived widths/thicknesses differ, impacting usable-area proportions versus plan."
+        },
+        {
+            "code": "E2",
+            "description": "Wet-area fixture/partition positioning is approximate (toilet/wash elements not aligned as tightly to the 2D layout)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan7.jpg"
+}

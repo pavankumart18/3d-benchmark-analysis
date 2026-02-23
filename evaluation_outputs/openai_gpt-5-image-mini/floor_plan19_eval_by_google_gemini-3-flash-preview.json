@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant deviations in layout. The dual outdoor decks (balconies) from the floor plan are entirely missing. The orientation of Bed-3 and Bed-1 contains major wall alignment errors. Window placements are reduced to generic punches that do not match the panoramic openings on the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Failure to include the primary deck structure. Bed-4 is completely hallucinated or merged into a larger room. Adjacency of TOI-1 and the utility area is structurally inaccurate compared to the technical drawing."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generic. The dining table orientation is correct, but bedroom furniture lacks the integrated wardrobes and specific placements shown in the floor plan. Scale is slightly exaggerated."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render is of high visual quality with clean orthographic projection, consistent lighting, and professional-grade minimalist geometry."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing outdoor decks (balconies) shown at the top of the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bed-4 room and associated partition walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segments and incorrect room merging in the top-right quadrant."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door openings; kitchen transition lacks the specific foyer wall structure."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the hallway and utility area, which appear compressed."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan19.webp"
+}

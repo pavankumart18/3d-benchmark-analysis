@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout mismatch between 2D and 3D. Living room/dining room/kitchen zones are not clearly partitioned per plan and several boundaries/offsets do not align. The central stair core shown in the 2D plan is not represented as stairs in the 3D, causing the entire top-center circulation to be wrong. Door locations and swing/orientation do not match multiple openings in the plan. Window placement is largely absent/unclear compared to the numerous exterior windows indicated in the 2D. Room proportions (especially kitchen/dining depth and the top-center core) appear distorted."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Key structural elements are missing or altered: the stair (with UP/DN) is not modeled; adjacency relationships around foyer/WC/stairs/kitchen do not match the plan. Several rooms appear merged/opened (dining vs kitchen; living vs foyer transitions) compared to the 2D wall layout. There are also added/altered wall shapes (curved/rounded partitioning) not supported by the 2D drawing. While wall thickness looks somewhat consistent, door embedding and the correctness of interior partitions are frequently incorrect."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not correspond to the 2D plan: a bed appears in the top-center area (not a bedroom in the plan), and a desk setup appears where the plan indicates playroom/kitchen-adjacent space. Kitchen cabinetry/appliance layout (sink/range/island) is not faithfully represented. Furniture scaling is only loosely plausible and not anchored to the plan\u2019s fixture positions."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Rendering is clean and readable with decent lighting and geometry. However, the camera is more perspective/isometric-like rather than a strict architectural isometric/orthographic presentation, and some wall/partition shaping (including curved elements) reduces plan-faithful clarity. Overall visually coherent but not technically precise."
+    },
+    "total_score": 36,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing stair core (UP/DN stairs) shown at top-center of the 2D plan; replaced by non-stair space in 3D."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom-like setup (bed/furnishing) in the top-center area where the 2D plan shows stairs/landing and adjacent small rooms, not a bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen fixture placement is incorrect/missing: the 2D plan indicates specific counters/sink/range/island positions that are not matched in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Dining room definition is missing/merged: the 2D plan shows a distinct dining room footprint at the bottom center; 3D reads as an undifferentiated open area."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple door locations do not match the 2D plan (notably around the kitchen/dining connection and top-center core)."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation mismatches at several openings (door arcs/swing directions in 2D are not respected in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Windows indicated around the exterior perimeter in 2D are largely absent or not placed correctly/consistently in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: relative sizes/depths of kitchen/dining and the top-center service/circulation zone differ noticeably from the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/unsupported curved wall/rounded partition element(s) not present in the rectilinear 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan8.jpg"
+}

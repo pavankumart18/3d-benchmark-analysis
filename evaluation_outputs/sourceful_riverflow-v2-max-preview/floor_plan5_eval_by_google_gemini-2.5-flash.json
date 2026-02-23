@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placements are mostly correct. Wall alignment shows some inconsistencies, especially in the central living area and around the bathrooms. Door placement and orientation issues are present, particularly the missing door on the right bathroom and incorrect swings in several areas. Window placements are partially missing and misrepresented. Room proportions are generally preserved but minor deviations exist."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent, but there are areas where it appears thicker in the render than indicated in the plan. Door embeddings are incorrect due to missing and misplaced doors. Adjacency relationships are mostly maintained, but the connection between the central living space and the bathroom on the right is altered due to a missing door. No hallucinated rooms were identified, but a door is missing for a room. One entry area with outdoor seating on the bottom is missing from the 3D render."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is largely accurate, however, there are some minor shifts and reorientations observed. The furniture scale is generally consistent with the rooms, but some items appear slightly oversized for their space (e.g., dining chairs)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera is correct, and the orthographic projection appears accurate. Lighting quality is good, providing clear visibility of the layout. Geometry is clean with no noticeable distortions. Visual clarity and composition are good, presenting the floor plan effectively."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door for the master bathroom on the right side of the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entry area with outdoor seating on the bottom left of the plan (indicated by three squares)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window on the left wall of the living room (near the kitchen)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window on the right wall of the bottom bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bedroom on the far left of the plan; it is shifted to the left."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced small wall segment separating the toilet and sink in the small bathroom at the top, slightly off-center."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced sink in the top-right bathroom; it is shifted further right."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door swing for the bathroom door next to the dining area."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door swing for the bedroom door on the far left of the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the wall thickness, appearing slightly thicker in the render in some areas."
+        },
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion in some furniture items, appearing slightly oversized."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen island appears slightly thinner than indicated in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan5.jpg"
+}

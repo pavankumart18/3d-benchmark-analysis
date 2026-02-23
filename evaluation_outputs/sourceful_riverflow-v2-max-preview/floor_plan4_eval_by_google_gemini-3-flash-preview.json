@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained. Major inaccuracy in Bedroom 2 window placement (shifted from side wall to front wall). Living room partition wall is slightly elongated compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms are present. Adjacency is correct. Door embedding is mostly accurate, though the closet door in the laundry area lacks the distinct 2D swing angle. The wall between the kitchen and hall is thicker than specified."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture scale is consistent. Kitchen counter layout matches the 2D footprint. Living room seating orientation is flipped relative to the windows."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is soft and clean. Geometry is high-quality with no visible mesh distortions or artifacts."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bedroom 2 windows moved from the right exterior wall to the bottom exterior wall."
+        },
+        {
+            "code": "E3",
+            "description": "Living room sofa and armchair orientation is mirrored compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The dividing wall between the living room and the hallway is disproportionately long."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan4.jpg"
+}

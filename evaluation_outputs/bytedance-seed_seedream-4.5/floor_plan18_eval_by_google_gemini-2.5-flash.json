@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Kitchen/Foyer area is distorted. Wall alignment has several inaccuracies, particularly around the Foyer/Kitchen area and the Balcony. Door placements are largely incorrect, with several doors missing or misplaced. Window placements are incorrect across multiple rooms. Room proportions are significantly distorted, especially in the Foyer/Kitchen and Balcony areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas, notably around the Balcony and the Foyer. Door embedding is incorrect, and some doors are missing. Adjacency relationships are mostly preserved, but the Foyer and Kitchen are significantly altered. There are missing walls and a missing door to the Balcony. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor; many furniture items are missing or misplaced. The dining table and chairs are distorted and incorrectly placed in the Living/Dining area. Furniture scale consistency is affected by the distorted room proportions."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair, but some angles seem slightly off. Lighting quality creates an unrealistic interior glow from windows. Geometry is generally clean with some minor distortions. Visual clarity is good, but the composition highlights the inaccuracies."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen and Foyer area walls are misaligned and disproportionately rendered."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall separating the Living/Dining and Foyer areas."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the Balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the Kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrectly sized window in the Foyer."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the Toilet."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the Bedroom is misplaced and not aligned with the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Living/Dining area, dining table, and chairs."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between Living/Dining and Bedroom."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the bed in the Bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the Toilet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the Utility room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bathroom fixtures in the Utility room."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness inconsistency, particularly around the Balcony and Foyer."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture elements in Living/Dining and Foyer areas."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa in Living/Dining is misplaced and disproportionate."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter layout is simplified and not accurate to the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window on the left side of the Balcony based on the floor plan's outline, assumed to be an external wall."
+        },
+        {
+            "code": "E6",
+            "description": "Unrealistic interior lighting from windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan18.jpg"
+}

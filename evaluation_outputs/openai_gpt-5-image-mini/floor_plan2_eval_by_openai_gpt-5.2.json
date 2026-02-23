@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout mismatches vs plan: bathroom suite is not correctly located/formed (shower placed inside left bedroom; bathroom core only has a sink). Corridor/hall geometry and the living-room inset wall arrangement do not match the plan\u2019s wall layout. Kitchen area does not match the plan\u2019s bottom-right L-shaped counter + sink/stove run. Several interior doors shown in plan are missing or repositioned; overall room proportions skew toward a more uniform/rectangular footprint than the plan\u2019s stepped outline."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Adjacency relationships are partially incorrect (bathroom elements not contained within the bathroom; kitchen not occupying the correct zone/edge). Missing functional room features (toilet, shower inside bathroom; full kitchen run). Hall segmentation/door openings do not faithfully embed into the correct walls. At least one hallucinated small room/closet-like space appears at the top center that is not clearly present in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Beds and a desk roughly correspond to the plan, and living room seating exists, but key fixtures are wrong (shower in bedroom; missing toilet). Kitchen fixtures/counters do not match the plan (no clear sink wall run; only an island/cooktop). Furniture scales are generally plausible, but placement does not follow the plan closely in service areas."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric with consistent materials and generally good lighting. Camera isometric view is acceptable and geometry is mostly clean. Minor clarity issues due to missing/ambiguous doors and simplified fixtures; not strictly orthographic but visually coherent."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom suite misplaced: shower is rendered inside the left bedroom instead of within the bathroom area shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bathroom elements: toilet not present in the bathroom; bathroom is incomplete relative to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout mismatch: 2D plan shows a bottom-right L-shaped counter run with sink/stove placement; 3D render shows a simplified island/counter and does not match the plan\u2019s counter/sink positioning."
+        },
+        {
+            "code": "E2",
+            "description": "Hall/corridor and internal partition walls do not align with the 2D plan\u2019s stepped outline and inset living-room wall geometry."
+        },
+        {
+            "code": "E1",
+            "description": "Door placement/orientation mismatches: multiple plan-indicated doors (room entries off the hall and/or exterior entry) are not clearly present or are repositioned in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: windows are not placed consistently with the 2D plan\u2019s top-edge window locations (bathroom/office positions)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: overall footprint and relative room sizes appear more rectangular/uniform in 3D, deviating from the plan\u2019s room proportions and offsets."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated space: an extra small top-center room/closet-like area appears that is not clearly defined as a separate room in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan2.png"
+}

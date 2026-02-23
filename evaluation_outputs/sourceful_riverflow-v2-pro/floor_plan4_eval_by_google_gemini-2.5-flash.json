@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Laundry room is improperly merged with the hall, and Bedroom 2's entrance is altered. Wall alignment is fair, but some interior walls are shifted. Door placements are largely incorrect in orientation and position. Window placements are entirely missing. Room proportions are distorted, particularly in Bedroom 2 and the Laundry area."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly for interior walls that appear thinner or incorrectly aligned. Door embedding is poor, with many doors rendered as detached or incorrectly oriented panels. Adjacency relationships are incorrect for the Laundry and Closet next to it, and Bedroom 2 is altered. No missing rooms, but the Laundry room's identity is compromised. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate in general location but details are often incorrect (e.g., in Bathroom, Laundry, Bedroom 2). Scale consistency is fair for most main pieces, but details like kitchen appliances and bathroom fixtures are not to scale or poorly represented."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection is fair. Lighting quality is flat and lacks definition. Geometry is clean but simplistic, with many elements poorly represented. Visual clarity is moderate due to missing details and inconsistent representation."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Laundry room wall shifted and merged with Hallway, altering room shape and entrance."
+        },
+        {
+            "code": "E1",
+            "description": "All windows are missing from the 3D render."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door orientation is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Bathroom has incorrect orientation and placement."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Hall closet has incorrect orientation and placement."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Laundry room has incorrect orientation and placement, also the wall is missing for the closet next to it."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Bedroom 2 has incorrect orientation and placement, leading to an altered room layout."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Bedroom 1 has incorrect orientation."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom 2, appearing smaller and with a different wall layout at the bottom."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Laundry room and its adjacent closet, due to shifted walls."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout and appliance placement are significantly different from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom fixtures (toilet, sink) are misplaced and incorrectly scaled."
+        },
+        {
+            "code": "E1",
+            "description": "Dining area chairs are missing in the render."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 2 furniture layout does not match the floor plan; desk and chair are different, and the closet is missing its door and has an altered interior."
+        },
+        {
+            "code": "E2",
+            "description": "Hallway closet door is missing and interior layout is different."
+        },
+        {
+            "code": "E6",
+            "description": "Poor rendering of interior wall details and door embeddings."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan4.jpg"
+}

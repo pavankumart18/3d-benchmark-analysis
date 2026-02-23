@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major spatial failures. The living room/foyer boundary is misunderstood, turning the foyer into a bedroom. The central pantry is replaced by a decorative wall. Window and door counts do not match the blueprint specs."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The primary structural logic is broken. The 'Playroom' is missing entirely, replaced by a kitchen extension. The stairs are duplicated/split incorrectly compared to the central U-turn stair in the plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is hallucinated based on room misidentification (e.g., a bed in the foyer). Kitchen island placement is somewhat preserved but scale is off."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with clean isometric perspective, soft lighting, and consistent 3D modeling, despite being architecturally incorrect."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated a bedroom in the foyer/closet area."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry room and Playroom are missing from the 3D generation."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen functions have drifted into the space designated for the Playroom."
+        },
+        {
+            "code": "E4",
+            "description": "The central staircase is distorted and does not follow the dual-flight 'up/down' configuration of the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The W/C and Closet are merged/replaced by an open bathroom niche."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan8.jpg"
+}

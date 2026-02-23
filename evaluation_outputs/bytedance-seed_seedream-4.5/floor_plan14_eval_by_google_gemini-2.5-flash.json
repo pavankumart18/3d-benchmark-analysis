@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is generally correct. However, doorways are often simplified or missing, especially to the bathroom from BED-2 and the utility room. Windows are not consistently placed or sized according to the plan. Some room proportions, particularly for decks, appear distorted."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness appears mostly consistent. Door embeddings are simplified and sometimes missing. The overall adjacency relationships are maintained but internal structural elements like doors are missing. No missing rooms, but the hallway to the left of CT.TOI is simplified. The outdoor area adjacent to the utility room is not accurately rendered."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is largely accurate, though some items are rearranged. Scale consistency is fair, but some furniture such as beds and sofas appear slightly undersized relative to the rooms. The kitchen layout is simplified."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection are good. Lighting quality is decent, but some areas could be better illuminated. Geometry is mostly clean with minor distortions. Visual clarity is generally good, but some details are lost due to simplification."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing doorway to CT.TOI from the hallway adjacent to BED-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing doorway to Utility from Kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent in BED-1."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent in LIVING/DINING."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation to BED-1 is incorrect or missing entirely. The physical door is missing."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the deck areas, especially 'DECK 13'9\" X 5'' and 'DECK 5'8\" X 4'6\"', appear shallower."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall panel extending from BED-2, not indicated in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing partition wall or door between the hallway and CT.TOI."
+        },
+        {
+            "code": "E1",
+            "description": "Simplified and largely missing entrance to TOI-1 from the hallway."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter layout is different; the L-shaped counter from the plan is simplified to a single line."
+        },
+        {
+            "code": "E1",
+            "description": "The outdoor area adjacent to the A/C ledge in the utility area is not rendered accurately."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior structure on the bottom left, next to the Deck of BED-2, where the plan shows a flat wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan14.webp"
+}

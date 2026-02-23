@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but wall alignment has minor discrepancies. Several doors are misplaced or oriented incorrectly. Window placement does not match the floor plan in multiple locations. Room proportions are generally preserved but there are minor deviations."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is not entirely consistent, especially around the bathroom and staircase. Door embeddings are incorrect for the bedroom and bathroom doors, appearing inset where they are not on the plan, or not opening in the correct direction. There is a wall missing to the right of the stairs. Adjacency relationships are mostly correct. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, but some items are slightly off. Furniture scale is mostly consistent, but the sofa in the living area appears smaller than on the plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and orthographic projection appears correct. Lighting quality is decent but could be improved for better depth perception. There are some minor geometry issues, such as the missing wall and some uneven surfaces. Visual clarity and composition are good."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom door is misplaced and its swing direction is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom door is misplaced and its swing direction is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Several windows are either missing or misplaced on the exterior walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior wall section to the right of the stairs."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bathroom door is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bedroom door is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Sofa in the living area appears to have a distorted proportion (smaller) compared to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout has minor discrepancies in placement compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The entrance door placement is slightly off and its swing direction is incorrect."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan6.jpg"
+}

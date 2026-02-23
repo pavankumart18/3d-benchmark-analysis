@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the 'Balcony' area is significantly altered. Wall alignment is inconsistent in several places, particularly around the 'ACTIVITY' and 'Balcony' areas. Many door and window placements/orientations are incorrect or missing. Room proportions, especially for the 'Balcony' and 'ACTIVITY' areas, are not preserved; 'BED 2' also appears distorted."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly noticeable with the exterior walls and around internal partitions. Several doors are incorrectly embedded or missing. Adjacency relationships are frequently incorrect due to missing or misplaced walls/doors. The 'Balcony' room is effectively missing as a distinct outdoor space, and the 'Recess' area is completely missing. No hallucinated rooms, but significant structural alterations to existing areas."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate for 'BED 3' and 'BED 4', but significantly different or missing in 'ACTIVITY' and 'BED 2'. Furniture scale seems mostly consistent with the rooms, but the rendered furniture style is often different from the plan. The 'Linen' cupboard is missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness seems acceptable. Orthographic projection is reasonable. Lighting quality is decent, but some areas appear overly shadowed or flat. The geometry is mostly clean, but some wall junctions show minor distortions. Visual clarity is good, but the composition could be improved with more consistent lighting and shadow distribution across the entire floor plan."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Balcony' area as an open space."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Recess' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Linen' cupboard."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'WC'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'BED 2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the 'ACTIVITY' area."
+        },
+        {
+            "code": "E1",
+            "description": "The window in 'BED 4' is missing."
+        },
+        {
+            "code": "E1",
+            "description": "The window in 'BED 3' is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior wall defining the 'Balcony' area, creating an enclosed room instead of an open balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'BATH' - shifted towards WC."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced furniture in 'ACTIVITY' (layout differs from plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced furniture in 'BED 2' (layout differs from plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in 'ACTIVITY' area, not aligning with the plan's indication of a large window/sliding door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to 'BED 3'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Balcony' area, which is significantly smaller and enclosed."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'ACTIVITY' area due to altered wall configuration."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'BED 2' due to altered wall configuration."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness throughout the model."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan12.png"
+}

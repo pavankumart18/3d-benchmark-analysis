@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall footprint is similar (central living/dining with kitchen on lower-left and bedrooms on left/top-right/bottom-right), but multiple layout deviations are present. Several interior wall runs and offsets do not align with the 2D plan (notably the left-side suite and the top-middle wet-area corridor). Door locations/swing directions are frequently inconsistent with the plan, especially around the central hall and bedroom entries. Window positions/counts along the top and right exterior walls do not match the 2D drawing. Some room proportions (bedroom sizes and corridor widths) appear altered vs. the plan."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness appears mostly consistent, but door embedding and adjacency relationships deviate in several places (openings shifted, some partitions reshaped). All major room types appear represented (no clear whole-room omission), but there are multiple plan-to-model discrepancies in the left annex connection and the bathroom/closet partitioning. At least one exterior element (steps) appears added beyond the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture types are broadly plausible (beds in bedrooms, sofa set in living, dining table central, kitchen counters), but placement does not reliably match the 2D symbols (kitchen layout and some bedroom side furniture differ). Scale is generally consistent, though some rooms appear resized which indirectly distorts furniture fit."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera is coherent and readable; geometry is mostly clean with acceptable lighting. However, it is not a strict orthographic/isometric match to the plan (perspective/scale cues plus simplified openings). Some window/door modeling looks generalized rather than accurately drafted, reducing technical clarity."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Interior wall alignment mismatch: multiple partitions in the top-middle corridor/bathroom zone are shifted/reshaped compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Left-side annex/room connection differs: the 3D render shows a more open/altered transition from the central space toward the far-left room than the 2D plan indicates."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation errors: several doors (central hall to bedrooms/baths) swing differently than shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement errors: some doorway positions along the central living/dining perimeter appear shifted relative to the 2D wall segments."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch along the top exterior wall: spacing and number of windows in the 3D render do not align with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch on the right exterior wall: 3D window grouping/sizes differ from the 2D plan\u2019s openings."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: corridor widths and at least one bedroom footprint (relative to the central living/dining area) appear resized compared to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior element: exterior steps near the lower-left side appear in the 3D render without a clear corresponding feature in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan5.jpg"
+}

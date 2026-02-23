@@ -1,0 +1,46 @@
+{
+  "spatial_accuracy": {
+    "score": 22,
+    "max": 40,
+    "notes": "Overall room zoning roughly matches (bedroom top-left, living/dining center-left, kitchen right, toilet top-center/right, balcony bottom-left), but several plan-critical placements diverge: the FOYER shown in 2D (4'6\"x3'10\") is not clearly modeled as a distinct space in 3D (E1/E4). Balcony geometry/extent appears different and reads more like an enclosed recess than the 2D balcony proportion/edge condition (E2/E4). Multiple door locations/orientations do not match the 2D plan (bedroom entry, toilet entry, balcony access, and main entry/foyer transition) (E2/E3). Window placement is partially aligned (left windows, toilet window) but utility-side fenestration is unclear/inconsistent (E2). Room proportions are notably distorted around the entry/foyer and balcony/living edge (E4)."
+  },
+  "structural_fidelity": {
+    "score": 14,
+    "max": 25,
+    "notes": "Wall thickness looks generally consistent and clean, but structural fidelity to the 2D plan is reduced by: missing/merged FOYER enclosure (E1), inconsistent door embedding/where openings are placed versus the plan (E2), and right-side service zone mismatch. The 3D render appears to introduce an extra small service/laundry-like room with a washing machine separate from the utility, whereas the 2D shows a toilet + duct + a single utility strip (E5). Adjacencies are mostly correct (kitchen near utility, toilet near bedroom/kitchen), but the circulation node between living/kitchen/toilet/foyer does not match the plan (E2)."
+  },
+  "furniture_mapping": {
+    "score": 7,
+    "max": 10,
+    "notes": "Key furniture types are present and broadly placed similarly (bed in bedroom, dining table in living/dining, sofa along living bottom edge, kitchen counters/cooktop) (minor E2). However, because the foyer/balcony boundaries and some openings differ, the implied furniture-to-circulation clearances and exact placement fidelity cannot match the 2D plan precisely (E4)."
+  },
+  "aesthetic_quality": {
+    "score": 18,
+    "max": 25,
+    "notes": "Isometric view is coherent and readable with generally clean geometry and consistent wall thickness. Lighting is serviceable but flat; shadows/material definition are minimal (E6). Projection is mildly perspective-like rather than strictly orthographic/isometric-perfect (minor E6). Composition is clear, but some openings read ambiguous due to minimal door geometry."
+  },
+  "total_score": 61,
+  "detected_errors": [
+    {
+      "code": "E1",
+      "description": "FOYER (4'6\"x3'10\") from the 2D plan is missing or not modeled as a distinct enclosed space; entry appears to open directly into living area."
+    },
+    {
+      "code": "E4",
+      "description": "Entry/foyer zone proportions are distorted relative to the 2D plan, affecting circulation layout near the main door."
+    },
+    {
+      "code": "E2",
+      "description": "Balcony geometry/extent does not match the 2D plan's balcony footprint and boundary condition; appears differently enclosed/proportioned."
+    },
+    {
+      "code": "E2",
+      "description": "Balcony access opening/door placement from living area is unclear or does not match the 2D plan location."
+    },
+    {
+      "code": "E2",
+      "description": "Bedroom door placement/representation differs: 2D shows a hinged door from living into bedroom; 3D reads as a different-width opening and/or different positioning."
+    },
+    {
+      "code": "E2",
+      "description": "Toilet entry placement/circulation relationship differs from the 2D plan (door location

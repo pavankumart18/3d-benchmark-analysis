@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is strong, but there are deviations in window counts (living room shows 4 small panes instead of 3 large) and the orientation of some interior doors."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Garage depth appears slightly truncated compared to floor plan. Utility room placement and adjacency are correct. Master suite closet/bath division is simplified."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture generally follows room labels well; kitchen island shape is accurately interpreted as a multi-angled piece."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is consistent and clean with distinct shadows. Geometry is sharp with no visible clipping or artifacts."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Windows in Living Room do not match the quantity/spacing defined in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing between Study and Foyer is reversed relative to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The 2-car garage appears too shallow to accommodate standard vehicle lengths based on the provided floor plan scale."
+        },
+        {
+            "code": "E2",
+            "description": "Fireplace/Media center bump-out in the Living Room is missing the specifically notched exterior wall profile."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan9.png"
+}

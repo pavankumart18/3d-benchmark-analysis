@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe layout deviation. The 3D render misses the central stairwell and crawlspace access. Window placements on the exterior walls do not match the specific bay window or standard window locations shown in the 2D blueprint."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major structural rooms are missing, specifically the central hall and stair area. The toilet/WC has been moved and mirrored incorrectly. Adjacency between the utility room and kitchen is misrepresented."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen appliance layout is roughly approximated but fails to follow the pantry and refrigerator placement indicated on the plan. Dining table orientation is rotated."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The render is clean, well-lit, and utilizes a consistent isometric perspective. Geometry is professional despite the lack of architectural accuracy."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing central stairwell, crawlspace access, and hallway partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen sink and stove units are misplaced relative to the plan's L-shape/galley layout."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room area is compressed; exterior window bay proportion is entirely lost."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom/WC fixtures shifted to an incorrect wall plate."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior window configurations on the left-side wall that conflict with plan openings."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan11.png"
+}

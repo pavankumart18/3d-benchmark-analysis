@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe layout inversion. The bedroom has been moved to the front left quadrant, contradictory to the plan. The staircase is entirely missing from the right side. Door placements for the bathroom and bedroom are incorrectly mirrored or shifted."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing major structural staircase. Hallucinated wall partitions in the central area. The kitchen counter configuration does not match the L-shape plus island shown in the floor plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Bed is placed in the living area; sofa/living set is in the wrong location. Scale is generally inconsistent with the 2D layout specs."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and clean monochrome clay render style. The isometric camera is mostly correct, though perspective distortion is present on the outer windows."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Entire staircase unit on the right side of the plan is missing from the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom and Living areas are swapped/transposed relative to the entrance and terrace."
+        },
+        {
+            "code": "E3",
+            "description": "Inner door swings and kitchen orientation do not align with the provided 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom area proportions are distorted with extra internal wall segments not found in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated second bed/small unit in the back right where the stairs should be."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General room placement is accurate. Door swings are mostly missing or poorly defined as gaps in geometry rather than door objects. Window placement on the top balconies is accurate but lacks frame detail."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent room adjacency. Wall thickness is consistent throughout. Primary structural deviation is the lack of proper door leaf representation and slight simplification of the foyer entrance area."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Dining table, sofas, and beds are correctly positioned. Scaling is generally consistent with the 2D plan, though the rug in the living room is represented as a solid block."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric camera angle and soft global illumination. Geometry is clean, but textures are overly simplified (clay-render style), losing the material nuance of the original plan (wood/tile)."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door swings and specific bathroom fixture details (sinks/toilets) are simplified to blocks."
+        },
+        {
+            "code": "E2",
+            "description": "Living room chair orientation and rug thickness don't match the 2D plan's flat representation."
+        },
+        {
+            "code": "E4",
+            "description": "The foyer area feels slightly elongated compared to the 2D dimensions provided (5' x 8'6\")."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan19.webp"
+}

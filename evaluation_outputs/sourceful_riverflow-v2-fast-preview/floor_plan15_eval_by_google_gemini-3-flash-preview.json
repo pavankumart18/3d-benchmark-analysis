@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major spatial discrepancies detected. The kitchen/utility block on the right is mirrored or incorrectly rotated relative to the living area. Door openings are missing or poorly defined throughout the 3D model, specifically at the main entrance and room transitions."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Adjacency relationships are compromised; the hallway connection between the master bedroom and living room is obstructed by an extra wall. The utility room and kitchen boundary walls are merged or missing. Wall thicknesses are inconsistent."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Hallucination of a 4th bedroom layout where the kitchen should be. Furniture scale in the living room is disproportionately small compared to the bed sizes. The dining table from the plan is missing."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "While the lighting is soft, the floating roof plane obscures the interior view. Geometry is 'mushy' and lacks sharp architectural edges. The camera is isometric, but the composition is cluttered by the floating slab."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen and utility room fixtures; replaced by generic bedroom furniture."
+        },
+        {
+            "code": "E2",
+            "description": "Internal doorways are misplaced or closed off, specifically leading to the master bedroom corridor."
+        },
+        {
+            "code": "E4",
+            "description": "The living/dining area proportion is squeezed, making the furniture look cramped."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall partitions in the open-plan living area that do not exist in the 2D floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Floating roof plane artifact creating a disconnected visual experience and obstructing structural verification."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan15.webp"
+}

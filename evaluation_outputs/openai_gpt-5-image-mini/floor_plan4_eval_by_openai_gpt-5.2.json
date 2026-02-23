@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Overall layout does not match the 2D plan. Kitchen/dining and living are roughly in the correct left/center zones, but the central hall/bathroom core is not represented. Bedroom placement is incorrect: the upper bedroom in the 3D render sits where the 2D plan shows the living room zone, and the right-side bedroom arrangement does not follow the plan\u2019s two-bedroom cluster (Bedroom 1 top-right, Bedroom 2 bottom-right). Door locations/orientations are largely inconsistent with the plan\u2019s hall-based circulation. Window placement is significantly wrong (3D shows two right-wall living windows only; 2D has multiple windows along top wall and in bedrooms). Room proportions are distorted (living/hall relationships and bedroom sizes do not preserve the 2D proportions)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Missing the plan\u2019s defining adjacency structure: in 2D, hall connects to laundry, bathroom, closets, bedroom 2, and living; in 3D, the hall/core is not formed and bathroom/closets are absent, so adjacency relationships are incorrect. Some walls exist but do not align to the 2D partitioning, and door openings are not embedded where the 2D plan indicates. Multiple required rooms are missing and there are effectively hallucinated/merged spaces (open area replacing hall+bath+closets)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is only loosely consistent: kitchen counters/appliances and dining table exist, and living seating exists, but their placement does not correspond well to the 2D plan\u2019s kitchen footprint and living boundary. Bathroom fixtures shown in 2D are missing in 3D. Furniture scale appears generally plausible but not verifiably consistent with the 2D room sizes due to major layout distortions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric render with consistent materials and mostly clean geometry. Camera is isometric-like and visually clear. However, it is not orthographic/plan-faithful, and the simplified openings/walls reduce architectural clarity. Lighting is adequate and there are no major rendering artifacts."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Bathroom (center-right) from the 2D plan is missing entirely in the 3D render (no enclosed bathroom room and no fixtures)."
+        },
+        {
+            "code": "E1",
+            "description": "Closets shown in the 2D plan (one near laundry, one near hall/bath) are missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 1 location is incorrect: in the 2D plan it is top-right; in the 3D render a bedroom appears along the top/upper central zone, occupying space inconsistent with the 2D living room region."
+        },
+        {
+            "code": "E2",
+            "description": "Hall/circulation spine (center-bottom in 2D) is not formed; circulation is replaced by an open-plan space, breaking the 2D plan\u2019s room access pattern."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation is inconsistent with the 2D plan: the 2D plan has multiple doors off the hall (to laundry, bathroom, bedroom 2, closets) and a door between living and bedroom 1; these are not present/located correctly in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Laundry placement/relationship is incorrect: while a laundry-like nook exists, it does not match the 2D plan\u2019s enclosed laundry room and its specific hall/closet adjacency."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is incorrect: 3D render shows two windows on the right wall of the main living area, while the 2D plan indicates multiple windows along the top exterior wall (kitchen/living) and windows in Bedroom 1 (top/right) and Bedroom 2 (right)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: the main open area in 3D is oversized relative to the 2D plan\u2019s separated living + hall + bath core, and bedroom sizes/positions do not preserve the 2D plan\u2019s relative areas."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-plan configuration: the 3D render merges/omits the central hall/bath/closet partitioning, creating a large continuous space not supported by the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan4.jpg"
+}

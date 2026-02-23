@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major mismatches between the 2D plan (Central Hall + WC + Utility Room + Kitchen/Pantry + Dining + Breakfast/Window-seat + Alcove/crawlspace/stair zone) and the 3D layout. The 3D appears to depict a simplified apartment-like arrangement with a large open room and a bedroom-like space, not the same room placement or boundaries as shown. Several interior partitions and key circulation paths (central hall connections, utility/WC cluster) are not aligned to the plan (E2/E4). Door locations and swing/orientation are largely absent or inconsistent (E1/E2/E3). Window placement/count does not match the plan\u2019s prominent dining/kitchen/breakfast openings and window-seat geometry (E2/E1). Room proportions are significantly altered (dining room footprint and the right-side angled/window-seat/breakfast edge are not preserved) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Adjacency relationships in the plan (Kitchen adjacent to Pantry and Dining; Utility/WC cluster off hall; Breakfast area on the right with angled/window-seat segment) are not faithfully represented (E2). Multiple labeled rooms/features from the plan are missing in the 3D (WC, Utility Room details, Pantry, Breakfast area, Window-seat/angled bay, Central Hall as drawn, Alcove/crawlspace access/stair zone) (E1). No clear evidence of correct door embedding in walls (few/none modeled) (E1/E2). Wall thickness is rendered uniformly but not verified against plan intent; however, the larger issue is missing/misplaced partitions rather than thickness (E2/E1). No strong evidence of additional fully hallucinated rooms beyond a bedroom-like space not present in the provided plan segment (possible) (E5)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "The 3D includes generic kitchen cabinetry and an island, but their arrangement does not clearly follow the 2D kitchen perimeter (range/fridge/pantry wall locations) (E2). Furniture appears partially hallucinated (bedroom bed) relative to the plan segment provided (E5). Scale is plausible but not anchored to the plan\u2019s specific clearances/dimensions (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Camera is a reasonable isometric-like view, but not strictly orthographic/isometric (minor perspective feel) (E6). Lighting is soft and readable; geometry is mostly clean with consistent materials. However, openings/doors are under-modeled and some wall junctions feel simplified, reducing clarity for architectural verification (E6). Overall composition is clear but lacks annotated fidelity to the plan."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing WC (bathroom) room and fixtures as shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Utility Room subdivision/details (WH/HVAC zones and related partitioning) shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry room adjacent to Kitchen (2D shows a dedicated pantry)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Breakfast area and the right-side angled/window-seat geometry shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Overall room placement and partition layout do not align with the 2D plan (central hall and service core not located/formed as drawn)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation is incorrect or absent relative to the 2D plan\u2019s door swings and openings between hall/WC/utility/kitchen/dining."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count does not match the 2D plan, particularly along the dining/right perimeter and breakfast/window-seat area."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion: dining/kitchen footprints and right-side perimeter shape are not preserved from the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom-like furniture/space appears in the 3D that is not indicated in the provided 2D plan segment."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering simplifies architectural elements (limited door modeling, simplified openings), reducing verifiability even where geometry is clean."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan11.png"
+}

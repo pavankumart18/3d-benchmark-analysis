@@ -1,0 +1,58 @@
+{
+  "spatial_accuracy": {
+    "score": 19,
+    "max": 40,
+    "notes": "Overall exterior footprint is broadly similar (left and right projecting volumes present), but several interior spaces do not match the 2D plan. The far-left room in the plan (appears as a living/dining-like space) is rendered as a bedroom in 3D (E2/E5). Internal partition alignment around the central living/dining and the right-side corridor/bedroom cluster deviates, changing circulation paths (E2). Multiple door locations/swing orientations shown in 2D are simplified/shifted in 3D (several openings appear centered differently or treated as open portals) (E2/E3). Window count/positioning on exterior walls does not consistently match the 2D plan (some windows missing, others resized/relocated) (E1/E2). Room proportions are not preserved: the central living zone and some bedrooms appear stretched compared to the plan’s relative dimensions (E4)."
+  },
+  "structural_fidelity": {
+    "score": 14,
+    "max": 25,
+    "notes": "Wall thickness is fairly consistent visually, but internal wall layout does not faithfully reproduce the plan’s adjacency relationships (e.g., left block and right-side bedroom/bath arrangement) (E2). Several doors are not embedded/specified as in the 2D plan (missing leaf/swing clarity; some are modeled as wide open cutouts) (E2/E6). At least one planned room/function is effectively missing or transformed (left room becoming a bedroom) (E1/E2). The 3D also introduces a bedroom-like program where the 2D indicates a different space, qualifying as a hallucinated program element (E5)."
+  },
+  "furniture_mapping": {
+    "score": 6,
+    "max": 10,
+    "notes": "Central living/dining furniture generally matches the idea of the plan (dining table central; seating group nearby), but multiple rooms’ furniture programs differ from the 2D (notably the far-left room rendered as a bedroom) (E2/E5). Furniture scale looks generally consistent and coherent in 3D, with no extreme size anomalies."
+  },
+  "aesthetic_quality": {
+    "score": 19,
+    "max": 25,
+    "notes": "Isometric camera is correct and presentation is clean. Projection is slightly perspective-like rather than strictly orthographic. Lighting is soft and readable; geometry is mostly clean with minor blur/low-resolution artifacts. Composition is clear, but openings/doors lack crisp definition compared to the plan."
+  },
+  "total_score": 58,
+  "detected_errors": [
+    {
+      "code": "E2",
+      "description": "Far-left room program/contents do not match the 2D plan; rendered as a bedroom instead of the plan’s non-bedroom space."
+    },
+    {
+      "code": "E5",
+      "description": "Hallucinated bedroom function introduced in the far-left zone relative to the 2D plan’s depicted furnishing/layout."
+    },
+    {
+      "code": "E2",
+      "description": "Internal wall/partition layout around the central living/dining and right-side circulation differs, altering room boundaries and circulation."
+    },
+    {
+      "code": "E2",
+      "description": "Multiple door positions differ from the 2D plan (openings shifted/centered differently along walls)."
+    },
+    {
+      "code": "E3",
+      "description": "Door swing/orientation information from the 2D plan is not preserved; several are modeled as open portals without matching swing direction."
+    },
+    {
+      "code": "E1",
+      "description": "Some exterior windows shown in the 2D plan are missing in the 3D render."
+    },
+    {
+      "code": "E2",
+      "description": "Some exterior windows are placed/resized differently than in the 2D plan (counts and spacing do not align)."
+    },
+    {
+      "code": "E4",
+      "description": "Room proportion distortion: relative sizes (notably central living area vs adjacent rooms) appear stretched compared to the 2D plan."
+    },
+    {
+      "code": "E6",
+      "description": "Rendering clarity artifacts: slight blur/low-resolution edges reduce precision of door

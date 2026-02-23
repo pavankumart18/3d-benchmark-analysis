@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Overall layout roughly matches (open lounge/dining left, kitchen central-top, two bedrooms right, bath+WC central-bottom, separate garage). However several plan-to-render mismatches are evident: the entry/linen zone is not clearly modeled as a distinct closet; the hall/door cluster near bath/WC is reconfigured with different door positions and swing/orientation; the robe/wardrobe location does not match the plan (render shows a long built-in along the corridor/bedroom side rather than the small RO BE location shown near the kitchen/bedroom junction). Window placement also deviates (render adds/reshapes openings on external walls compared to the plan\u2019s limited, specific openings). Minor-to-moderate proportion drift in corridor width and wet-area sizing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Key adjacencies are mostly correct (kitchen adjacent to living; bath and WC near corridor; bedrooms grouped). But fidelity issues remain: the linen closet at entry appears missing/merged; robe placement is inconsistent; door embedding/orientation around the bath/WC/bedroom hall does not follow the 2D plan exactly; exterior openings do not consistently match the plan. No clearly new room is invented, but storage elements appear hallucinated/relocated."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are plausible (sofa + dining set in living, beds in both bedrooms). Kitchen/bath fixtures are present but not clearly matching the 2D intent (wet-area fittings and storage/robe placement). Some furniture scaling/proportion is acceptable, but not verifiably aligned to the given room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric view with coherent lighting and generally clean geometry. Minor issues: openings/door panels look inconsistent in thickness and placement; some areas feel simplified/ambiguous (closets/wet-area details). Camera is a standard axonometric/isometric-like angle and composition is clear."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Linen closet at the Entry (shown in 2D plan) is not clearly present as a distinct enclosed closet with a door in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "ROBE/storage location differs: the 2D plan shows a small robe near the kitchen/bedroom junction, while the 3D render depicts a long built-in wardrobe element along the bedroom/corridor side."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements around the central hall (bath/WC/bedroom entries) do not precisely match the 2D plan\u2019s door positions relative to wall junctions."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing/orientation directions appear inconsistent with the 2D plan (notably in the bath/WC/bedroom hall cluster)."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening layout on exterior walls deviates from the 2D plan (render adds/reshapes openings such as larger multi-panel windows/doors not explicitly indicated)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions drift: corridor and wet-area sizing/spacing in the 3D render appear altered compared with the tighter 2D plan layout."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan13.jpg"
+}

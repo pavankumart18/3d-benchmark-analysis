@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall layout is only loosely consistent with the 2D plan. The central hall concept and right-side bedroom wing are suggested, but multiple room boundaries and transitions are simplified/shifted. Several doors are represented as open portals/arches rather than the plan\u2019s hinged doors, and their locations/orientations do not consistently match the 2D swings. Window distribution on exterior walls is inconsistent with the plan (missing and/or repositioned openings). Room proportions appear distorted: the large open living/kitchen zone and the right-side suite/bedroom areas do not preserve the plan\u2019s relative widths/lengths."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major program element missing (garage), and several interior partitions are not faithfully reproduced (closets/utility/pantry segmentation simplified). Adjacency is partially correct (bedrooms to hall), but the master suite/bath/closet geometry and connections are not reliably preserved. Wall thickness looks mostly consistent in the render, but door embedding is frequently incorrect (open archways where doors should exist) and some openings appear inserted without corresponding 2D locations."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and not mapped to the 2D furniture/fixture intent. Kitchen layout (peninsula/angles/appliance placement) does not match the plan\u2019s counters and appliance positions. Several rooms show oversized/undersized furniture relative to room sizes, indicating scale inconsistency."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean clay-style isometric render with generally coherent camera angle and decent lighting. However, it is not strictly orthographic/isometric-accurate (perspective present), and some geometry appears overly smoothed/rounded compared to the plan\u2019s rectilinear partitions, reducing clarity for verification."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "2-car garage from the 2D plan is not present/clearly modeled in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Master suite region (master bedroom/bath/WIC) boundaries and connections appear shifted/simplified relative to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counters/peninsula shape and appliance placement do not match the 2D plan layout."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior door orientations and placements do not match the 2D door swings; several are represented as open archways instead of doors."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placement/count does not match the 2D plan (several openings missing or repositioned along perimeter walls)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted (open living/kitchen area and right-side bedroom wing do not preserve the plan\u2019s relative dimensions)."
+        },
+        {
+            "code": "E1",
+            "description": "Fine-grain spaces/partitions such as pantry/utility/closet subdivisions are missing or significantly simplified compared to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "A staircase/stepped element appears in the central area of the 3D render despite the 2D plan indicating a single-story layout with no stairs."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan9.png"
+}

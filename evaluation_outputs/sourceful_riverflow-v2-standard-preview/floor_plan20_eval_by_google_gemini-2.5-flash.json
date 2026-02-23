@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct but several walls are significantly misaligned. Door placements are frequently incorrect in terms of position and orientation. Window placements are largely missing or inaccurate. Room proportions are distorted, particularly in Bedroom-2, Bedroom-3, and the 'Home Office / Maid's Room' area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker than others. Door embedding is incorrect, often floating or not properly integrated into walls. Adjacency relationships are mostly preserved, but wall misalignments affect them. No rooms are missing, but several elements like balconies are missing. No hallucinated rooms, but numerous hallucinated elements."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally aligned with the floor plan, but some items are misplaced (e.g., wardrobe in Bedroom-2, desk in Home Office). Furniture scale is moderately consistent, but some items appear undersized or oversized relative to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection appear correct. Lighting is flat, lacking realistic shadows and depth. Geometry is mostly clean but distorted in places due to inaccurate spatial representation. Visual clarity is acceptable, but the lack of detail and poor lighting reduce overall composition."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall misalignment between Living & Dining and Bedroom-2, and near the kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Balcony in Bedroom-2 is misplaced and incorrectly oriented in the render."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Balcony in Bedroom-1 is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Toilet-2 is off-center relative to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Toilet-3 is incorrectly oriented and placed."
+        },
+        {
+            "code": "E1",
+            "description": "Windows missing from Bedroom-3, Home Office, Kitchen, and Balconies."
+        },
+        {
+            "code": "E1",
+            "description": "Balconies are completely missing from Bedroom-1 and Bedroom-2."
+        },
+        {
+            "code": "E1",
+            "description": "Deck area is missing furniture and walls are simplified."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom-2 proportions appear too narrow compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom-3 proportions are distorted, appearing shorter."
+        },
+        {
+            "code": "E4",
+            "description": "Home Office / Maid's Room area proportions are significantly distorted."
+        },
+        {
+            "code": "E6",
+            "description": "Wall thickness inconsistency throughout the render."
+        },
+        {
+            "code": "E2",
+            "description": "Wardrobe in Bedroom-2 is off-center and not fully integrated against the wall."
+        },
+        {
+            "code": "E2",
+            "description": "Desk in Home Office is misplaced."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partition wall structure near the dining area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated counter/island in the kitchen area with incorrect appliance placement."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment near the main entrance/Lobby area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing railing/boundary for the Deck and Balconies."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door orientation is incorrect."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan20.avif"
+}

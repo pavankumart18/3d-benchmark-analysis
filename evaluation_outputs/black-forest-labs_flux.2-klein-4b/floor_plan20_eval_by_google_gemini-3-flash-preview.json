@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is correct, but door orientations in the lobby and bedroom-1 areas deviate from the plan. Window placement on the top-left section is simplified compared to the plan's openings."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses are mostly consistent. However, the external balcony/deck areas are significantly simplified, missing the defined railing/boundary wall details seen in the plan."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Highly accurate placement and scaling of furniture assets, including the specific rug orientation and dining set configuration."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent rendering quality with soft shadows and clean geometry. The orthographic-leaning perspective provides high visual clarity."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Swing orientation of the main entrance door and internal doors (e.g., Bedroom-1) does not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony/deck boundaries are simplified and lack the specific structural offsets shown in the original blueprint."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact or simplification: The utility/kitchen wall partition appears slightly merged or non-standard compared to the defined blueprint lines."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained. However, the door to the balcony is incorrectly rendered as a solid wall/door hybrid, and window depth in the bedroom is inconsistent with the plan's structural notation."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Major issue with the balcony/living room transition where a large white vertical pillar/door is hallucinated. The 'Utility' room is empty and lacks the specified door to the exterior/void. Wall thickness varies inconsistently around the foyer."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Dining table and chairs are simplified into a single unidentifiable mass. Sofa and bed placement are accurate, but the kitchen stove and sink are merged into the counter geometry without clear separation."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong isometric perspective and clean lighting. The clay-render style provides good visual clarity, though some geometry clipping occurs near the toilet fixtures."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated large white door/panel in the living room blocking the balcony access."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door and furniture detail in the utility area."
+        },
+        {
+            "code": "E4",
+            "description": "Dining table set distorted into a single rounded block."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer entry door arc is rendered on the floor but the actual door geometry is missing or merged into the wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan18.jpg"
+}

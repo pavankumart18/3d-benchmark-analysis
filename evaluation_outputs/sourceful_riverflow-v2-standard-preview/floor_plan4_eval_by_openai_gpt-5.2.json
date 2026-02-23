@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall footprint roughly matches, and major zones (kitchen/dining top-left, living top-center, bedrooms right, wet/core bottom-center) are in the expected regions. However, the central hall/corridor geometry is distorted vs the plan (hall reads narrower and more fragmented), and the internal partitions around the bathroom/core do not align with the 2D wall layout. Multiple doors appear shifted from their plan locations and/or opened into different clearances. Window count/spacing along the top exterior wall does not match the plan\u2019s fenestration pattern, indicating placement inaccuracies. Several room proportions (hall and bedroom subareas) appear altered relative to the plan\u2019s stated areas."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall/door construction fidelity is weak: several doors look not properly embedded in walls (floating/odd jamb alignment), and the bathroom/core is subdivided differently than shown in the 2D plan (suggesting added partitions). Adjacency is mostly preserved at a high level, but the closet/bath/hall relationships are not faithfully replicated (closet placement and the bathroom internal arrangement diverge). At least one hall/utility subspace is either merged or reconfigured, and at least one extra compartment is introduced in the bathroom/core."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Key furniture types are present in the correct general rooms (dining set in kitchen/dining, seating in living, beds in bedrooms). However, several pieces do not match the 2D layout orientations/positions (notably bedroom furnishings and some living-room placements), and some clearances implied by the 2D plan are not respected. Scale is generally consistent, but door swings and furniture-to-wall spacing feel inconsistent with the plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Camera is a clean top-down/isometric-style view with good overall readability. Lighting is acceptable and geometry is mostly clean. However, multiple door elements read as rendering/placement artifacts (awkward angles, inconsistent hinge behavior), reducing clarity. Projection is not strictly orthographic (noticeable perspective), and some edges/door panels appear visually inconsistent with the wall system."
+    },
+    "total_score": 57,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Hall/corridor wall layout differs from the 2D plan; the hall appears narrower/more segmented and key openings do not align with the plan\u2019s main hall opening."
+        },
+        {
+            "code": "E5",
+            "description": "Bathroom/core appears to include an additional subdivided compartment/partitioning not shown in the 2D plan (extra internal division within the bathroom zone)."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple interior doors are not located where the 2D plan indicates (notably around the bathroom/closet/core and laundry/utility connections)."
+        },
+        {
+            "code": "E6",
+            "description": "Several doors appear improperly embedded or visually floating/misaligned with wall thickness, indicating door placement/rendering artifacts."
+        },
+        {
+            "code": "E2",
+            "description": "Top exterior window spacing/count in the 3D render does not match the 2D plan\u2019s fenestration pattern (windows appear redistributed)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: the hall/core and right-side bedroom subareas do not preserve the 2D plan\u2019s relative proportions/areas."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture orientations/placements (especially in Bedroom 2 and parts of the living room) do not match the 2D furniture layout."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan4.jpg"
+}

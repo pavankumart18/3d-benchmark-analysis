@@ -1,0 +1,128 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are generally correct, but wall alignments, door and window placements, and room proportions show significant deviations."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Many rooms are missing, particularly the 'Coat', 'Closet', and the second bathroom. Wall thicknesses are not consistent, and door embeddings are incorrect due to missing door frames."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; many items are missing, and some are misplaced. Scale consistency is also an issue, with some furniture appearing disproportionate."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera and orthographic projection are generally correct. Lighting is simplistic, and geometry lacks detail, resulting in a low visual clarity compared to the complexity of the floor plan."
+    },
+    "total_score": 27,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Closet' room (storage area above kitchen)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Coat' room (storage area next to Rachel's bedroom)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing second bathroom next to Monica's bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "All doors are missing from the living spaces and bedrooms. Only openings are present."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all internal doors, including the main entrance door."
+        },
+        {
+            "code": "E2",
+            "description": "The window in the living room area is misplaced; the floor plan shows three windows in a bay configuration, while the render shows a single, standard window."
+        },
+        {
+            "code": "E2",
+            "description": "The window in Rachel's bedroom is misplaced; the floor plan shows it on the adjacent wall to the bathroom, while the render shows it opposite the bed."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Chandler & Joey's Apartment' door and connecting wall are missing."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in the overall layout and individual room sizes, especially the main living area which appears much squarer than the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The bathroom next to Rachel's bedroom is significantly shrunk in the render compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent throughout the render; some walls are much thinner than implied by the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen cabinet/counter section between the kitchen and Monica's bedroom, replacing a wall and part of the main passageway."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the entire bay window structure in the living room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing most furniture items in the living room (e.g., armchair, shelves, additional small tables)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the rug in Monica's bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Closet' area (top left of floor plan) is rendered as a small, undefined alcove rather than a distinct closet."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Coat' area (mid-left of floor plan) is rendered as part of the overall wall structure with no clear definition of a cloakroom/closet."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter layout is simplified; the L-shaped counter and breakfast bar are replaced by a straight counter."
+        },
+        {
+            "code": "E1",
+            "description": "Missing refrigerator indicated in the kitchen plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the second toilet and basin in the bathroom adjacent to Rachel's bedroom."
+        },
+        {
+            "code": "E3",
+            "description": "The toilet in the visible bathroom is rotated 90 degrees compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The bathroom shower/tub is completely different in layout and size in the render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bedside tables and lamps in Rachel's bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bedside tables and lamps in Monica's bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "The position of Rachel's bed is shifted significantly compared to the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan.jpg"
+}

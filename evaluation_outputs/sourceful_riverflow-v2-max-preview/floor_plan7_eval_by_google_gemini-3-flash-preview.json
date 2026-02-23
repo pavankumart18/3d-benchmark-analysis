@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Main room blocks are correct, but door orientations and specific window placements are inconsistent. Specifically, the entrance door has been replaced with a solid wall/window combo, and internal bedroom door swing is reversed."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The staircase contains a black rendering artifact/void. The door to the wash area/toilet block is misinterpreted as multiple openings. The wall between the kitchen and living room is significantly shorter than in the plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture generally aligns with labels, though the living room sofa arrangement is simplified and the kitchen cabinetry layout devates from the U-shape shown in the blueprint."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean isometric perspective and lighting, but let down by the geometric void in the staircase and merged wall/window textures in the bedroom corner."
+    },
+    "total_score": 68,
+    "detected_errors": [
+        {
+            "code": "E6",
+            "description": "Large black geometric artifact/hole in the staircase structure."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is missing/replaced by a window segment."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom 1 door orientation is mirrored compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen partition wall is too short, creating an unintended wide opening to the living room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional window or opening in the corner of Bedroom 1."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but wall alignment has several errors (E2). Many doors are missing or misplaced (E1, E2). Numerous windows are missing (E1)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas (E4). Door embeddings are incorrect due to missing or misplaced doors (E1, E2). Adjacency relationships are disturbed by missing walls and doors (E1, E2). No missing or hallucinated rooms, but internal structural elements are significantly altered."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in multiple rooms (E2). Scale consistency is poor for many furniture items (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera position is acceptable. Orthographic projection seems to be maintained. Lighting is flat, lacking detail. Geometry is mostly clean. Visual clarity is good."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing a door in the top-left room leading to the right bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a door in the main living space leading to the bottom-right bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a door for the restroom in the top-right section."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple windows in various rooms, especially prominent in bedrooms and bathrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door between the kitchen and the living room area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for the bottom-left restroom."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment errors in the kitchen/dining area and several other internal partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture (sofas, beds, tables) are frequently misplaced compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, particularly noticeable around doorframes and external walls."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of furniture items; some appear too small, others too large relative to the rooms."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan5.jpg"
+}

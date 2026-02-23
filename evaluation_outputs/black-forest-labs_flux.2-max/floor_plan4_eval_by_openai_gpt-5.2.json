@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (kitchen/dining left, living center/top, bedrooms right, bath center-right, laundry bottom-left), but multiple layout deviations are present: several door openings are not in the same positions as the 2D plan and are modeled with incorrect curved shapes; closet areas do not match the 2D partitions; window counts/locations on exterior walls differ from the plan; and room proportions (notably bath/bedroom wing vs living/hall) appear distorted compared to the 2D footprint."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Adjacency is partially preserved, but fidelity is reduced by missing/merged closet partitions, inconsistent wall thickness/door cut behavior, and multiple doorway placements/orientations that do not align with the plan. No clearly new full rooms are added, but several openings/partitions functionally change circulation compared to the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Major furniture types are present in the correct general rooms (dining table in kitchen/dining, seating in living, beds in bedrooms, tub in bath). However, placements and scales are not reliably aligned to the 2D plan (living seating arrangement and bedroom furniture positioning differ; some casework/fixture placements appear shifted), reducing mapping accuracy."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric-style render with generally good lighting and clarity. Camera is consistent with an isometric/axonometric look, geometry is mostly clean. Main aesthetic penalty is the unnatural curved/warped door openings (reads as modeling artifact) and minor proportional oddities that reduce architectural believability."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Closet partitions do not match the 2D plan: the closet near the bathroom/hall and the closet by the laundry appear missing, merged, or reconfigured compared to the labeled closets in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements along the central hall/bedroom junction are shifted from the 2D plan (openings do not align to the same wall segments, changing circulation into the bedroom wing)."
+        },
+        {
+            "code": "E3",
+            "description": "Several doors have incorrect orientation/hinge behavior compared to the 2D plan (swing direction and opening side not preserved)."
+        },
+        {
+            "code": "E2",
+            "description": "Laundry entry door position does not cleanly match the 2D plan\u2019s hall-to-laundry opening location."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count differs on exterior walls (notably the long/top windows and left-side windows do not match the plan\u2019s window locations and segmentation)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the bathroom/bedroom wing appears enlarged relative to the hall/living area compared to the 2D plan proportions, and some internal wall runs appear lengthened/shortened."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra interior elements not indicated in the 2D plan, such as an added desk/work-surface and/or miscellaneous built-ins in circulation spaces."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/modeling artifact: multiple door openings are modeled as curved/warped cutouts rather than planar doorways consistent with the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan4.jpg"
+}

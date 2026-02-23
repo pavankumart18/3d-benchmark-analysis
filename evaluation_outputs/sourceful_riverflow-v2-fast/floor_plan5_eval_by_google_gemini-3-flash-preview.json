@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General floor plan layout is followed, but there are significant discrepancies in door orientations and window placements. The main entrance doors (double door at bottom) are rendered as a single door with different framing."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Adjacency is mostly maintained, but the kitchen area (bottom left) has been transformed into a bedroom hallucination. Wall thicknesses are inconsistent near the balconies."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Extreme deviation in the bottom-left room where a large bed replaces the kitchen island and cabinets. Furniture scale in the living area is slightly undersized compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High visual clarity and excellent orthographic-style projection. Lighting and geometry are clean with no significant rendering artifacts."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Kitchen at bottom-left is hallucinated as a bedroom with a bed."
+        },
+        {
+            "code": "E3",
+            "description": "Double entrance doors at the bottom center are rendered as a single leaf door."
+        },
+        {
+            "code": "E2",
+            "description": "Living room sofa configuration differs from the 2D layout (central coffee table missing/replaced)."
+        },
+        {
+            "code": "E3",
+            "description": "The swing direction of internal doors in the top-right bedroom/en-suite does not match the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The left balcony proportions appear elongated relative to the bedroom it adjoins."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan5.jpg"
+}

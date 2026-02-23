@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is highly accurate. Majority of wall alignments and room placements match the 2D plan. Door in Toilet-1 is reversed in swing direction. Window in the bedroom is slightly wider than original spec."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "All rooms (Kitchen, Utility, Toilet, Living, Bedroom, Balcony) are present and correctly adjacent. Door frames are well-embedded, though the utility door is simplified compared to the plan's opening."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture including the specific rug, sofa arrangement, and round dining table. Scale is consistent with floor area."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High-quality isometric rendering. Lighting is soft and realistic. Geometry is clean with no visible artifacts or clipping."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Toilet-1 door swing orientation is mirrored relative to the architectural plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom window/balcony sliding door width is slightly overstated compared to the 2D footprint."
+        },
+        {
+            "code": "E2",
+            "description": "The utility room appliances are slightly rearranged compared to the specific icons in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan16.avif"
+}

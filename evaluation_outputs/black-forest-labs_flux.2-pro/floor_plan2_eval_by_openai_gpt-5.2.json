@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall room layout is recognizable (left twin-bedroom, central bath cluster, right master, open living/dining/kitchen), but several plan-to-render mismatches exist: the small study/office zone between bathroom and master is not clearly preserved as a distinct functional room; central circulation and the living-room enclosure/partition dimensions differ from the 2D plan; multiple door positions/swing orientations do not match the plan; window placement does not follow the 2D locations (notably kitchen window/wall and top-wall windows)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Adjacency is mostly consistent (bedroom-bath/study-master chain; living adjacent to dining/kitchen), but fidelity breaks due to the study/office not being faithfully represented, inconsistent wall thickness/offsets vs the plan, and at least one apparent added exterior opening not shown in the 2D drawing. Door integration is inconsistent (some doors appear shifted relative to wall corners/segments)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Major furniture types are present (beds, dining set, sofa/TV wall, kitchen run), but the study/office furniture mapping is incorrect/unclear (desk placement not matching the plan). Some items are repositioned (master bed/desk and living set) in ways that do not match the 2D arrangement, and some scales feel inconsistent (oversized circulation relative to room furnishing)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with decent lighting and materials. However, it is not a true orthographic/isometric match to the 2D (perspective depth is present), and some geometry reads simplified (partition lengths and openings not crisply aligned to the plan). Overall composition is clear."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Study/office function from the 2D plan (room with desk at top-middle/right) is not faithfully represented; desk/office layout appears missing or converted into a different use."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: kitchen window appears on a different exterior wall/position than the 2D plan\u2019s bottom-wall window at the sink zone."
+        },
+        {
+            "code": "E2",
+            "description": "Top-wall window placements (bathroom/study/master zone) do not clearly align with the 2D plan\u2019s indicated openings."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door swing/orientation inconsistencies versus the 2D arcs (several doors appear to swing differently or are hinged on the opposite side)."
+        },
+        {
+            "code": "E2",
+            "description": "At least one interior door appears shifted relative to the 2D plan (door leaf not centered/located on the same wall segment as in the drawing)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: central hall/open area and living-room partition lengths differ from the 2D plan, changing relative room sizes and enclosure depth."
+        },
+        {
+            "code": "E5",
+            "description": "Possible hallucinated exterior opening/door (large opening on the right-side exterior wall) not clearly indicated in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan2.png"
+}

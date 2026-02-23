@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General wall layout and room associations are followed correctly. However, the toilet door is missing (open gap), and the bathroom fixtures (sink/toilet) are hallucinated with storage instead. Window placement in Bedroom 1 is slightly wider than indicated in the plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Bathroom is missing all internal sanitary fixtures (E1). The laundry area correctly includes the washing machine but the separation wall between the kitchen and utility is simplified. Hallucination of a large black wardrobe in the toilet area where the sink should be."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate to the plan, including the round dining table, L-shaped kitchen counter, and bedroom layout. TV unit and desk in bedroom match the 2D intent."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is soft and professional. Geometry is clean and materials are well-defined, providing high visual clarity."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing sanitary fixtures (toilet and sink) in Toilet-1."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated large dark wardrobe inside the toilet/utility area."
+        },
+        {
+            "code": "E3",
+            "description": "The kitchen sink is placed on the side wall rather than the window-facing wall as shown in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal swinging door for the bathroom/toilet room."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan16.avif"
+}

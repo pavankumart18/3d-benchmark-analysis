@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (living/dining/kitchen at top; two bedrooms at bottom), but multiple plan-level mismatches: the central entry/foyer and connecting hallway geometry is simplified/shifted; the kitchen footprint and its relationship to the closet/bath zone on the left is altered; bathroom shapes/positions do not align cleanly with the 2D plan; door locations along the hall and into bedrooms/baths do not match the plan\u2019s indicated openings; window placement appears incomplete beyond the large living-room window, with bedroom exterior windows not clearly represented in the same locations as the plan. Noticeable room proportion drift (living area oversized relative to bedrooms/hall; left service zone compressed)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall network is simplified and several partitions do not follow the 2D wall jogs (notably the left-side bathroom/coat/closet cluster and the hall). Adjacency is partially preserved (kitchen next to dining/living; bedrooms separated), but the exact closet/coat storage relationships are not faithfully reproduced. Door embeddings/openings appear inconsistent with the plan (hall-to-living opening, bath doors, bedroom doors). Likely missing or materially altered closet/coat storage spaces; no clear evidence of an added full extra room, but several elements read as non-plan partitions."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generic and only loosely corresponds to the plan: dining table and living seating are present but not matched in placement/orientation; bedroom furniture is simplified; kitchen fixtures/island/peninsula do not match the plan\u2019s layout. Scale reads plausible overall, but several items (kitchen run/peninsula and living seating group) do not align to the 2D proportions."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Camera is broadly isometric and composition is clear. Lighting is flat/low-contrast and the render looks slightly foggy/low-detail, reducing edge definition. Geometry is mostly clean, but some walls/edges look softened and simplified, which hurts clarity for verification. Projection is not strictly orthographic (reads like mild perspective isometric)."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Entry/foyer and central hallway geometry does not match the 2D plan\u2019s bottom-center entry and corridor layout (walls/voids simplified and shifted)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen footprint and boundary with the left-side service zone (bath/coat/closet) is reconfigured compared to the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Closet near the kitchen (top-left closet in plan) is not clearly present as a distinct enclosed room in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Coat storage area/closet indicated near the left bathroom in the plan is not clearly represented as shown in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom locations/shapes are inconsistent with the plan (left bathroom and the central bottom bathroom appear resized/shifted; door positions do not align)."
+        },
+        {
+            "code": "E2",
+            "description": "Several interior door placements/orientations (hall-to-bath, hall-to-bedrooms, hall-to-living opening) do not match the 2D door locations and swings."
+        },
+        {
+            "code": "E1",
+            "description": "Window placement appears incomplete relative to the plan: beyond the large living-room window, bedroom exterior windows are not clearly shown in corresponding locations."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining area reads oversized while bedrooms/hall/service areas read compressed compared to the plan\u2019s relative proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Non-plan partition treatment (e.g., glass/railing-like elements around the kitchen/hall area) appears added and not indicated in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Render appears slightly hazy/low-detail, reducing geometric legibility (soft edges and low contrast)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan.jpg"
+}

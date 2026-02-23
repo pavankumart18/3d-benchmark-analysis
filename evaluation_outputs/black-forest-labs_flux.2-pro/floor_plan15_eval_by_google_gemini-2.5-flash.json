@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are mostly correct but some dimensions/proportions are off. Wall alignments are generally good, but some interior walls are shifted. Door placements are largely incorrect, and window placements are very inaccurate. Room proportions are distorted in multiple areas, especially the living and dining area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially for interior walls. Door embedding is incorrectly rendered for most doors. Adjacency relationships are mostly maintained but proportions make them feel different. No missing rooms, but there are some hallucinated wall/structural elements."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate to the floor plan, but scale consistency is poor for several items."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera and orthographic projection appear correct. Lighting quality is acceptable, but the shadows are quite stark, reducing clarity in some areas. Geometry is mostly clean but some elements like railings show minor distortions. Visual clarity is good overall, but the floor texture is very repetitive."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Living & Dining area dimensions."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and absence of doors for 'BEDROOM-1' and its adjoining toilet."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for 'M.BEDROOM'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and orientation for 'T.P. TOILET'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and orientation for the toilet adjacent to 'BEDROOM-2'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for 'BEDROOM-2'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the partition between the Living & Dining area and 'BEDROOM-2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the 'KITCHEN' and 'UTILITY' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in 'M.BEDROOM'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in 'BEDROOM-1'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in 'BEDROOM-2'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the 'KITCHEN' and 'UTILITY' areas, shifted from the original floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, particularly interior partitions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small structural wall element extending from the 'LIVING & DINING' area towards the balcony."
+        },
+        {
+            "code": "E4",
+            "description": "Furniture scale inconsistency for several items, e.g., dining table and chairs appearing small, bed frames too large in proportion to room."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the wardrobe in 'BEDROOM-1'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced sink in 'TOILET' of 'M.BEDROOM'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced toilet fixture in 'T.P. TOILET'."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan15.webp"
+}

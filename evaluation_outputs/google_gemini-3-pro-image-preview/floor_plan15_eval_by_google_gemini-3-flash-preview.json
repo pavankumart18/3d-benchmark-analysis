@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is correct. Door swings are inconsistent compared to the plan (E3). Window placement in the living area and kitchen is simplified."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All primary rooms are accounted for. The utility area and general kitchen partition show minor simplified geometry compared to the technical ducting shown in the 2D plan (E4)."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement logically follows the 2D layout, though bed and sofa proportions are slightly scaled for visualization."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High-quality orthographic/isometric camera placement. Soft, diffuse lighting with clean geometry and a cohesive material palette."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Internal door swing directions in bedrooms and bathrooms differ from the architectural 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen and utility partitions are slightly thicker/simplified, losing the precision of the utility wall in the 2D source."
+        },
+        {
+            "code": "E6",
+            "description": "Slight clipping in the rendering of the secondary balcony railing geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan15.webp"
+}

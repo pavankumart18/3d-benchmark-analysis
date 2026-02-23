@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Kitchen/Utility area shows significant deviation. Wall alignment is inconsistent, with several walls not matching the floor plan's dimensions and positions. Door placement is inconsistent, and several are missing or incorrectly oriented. Window placement is highly inaccurate with many missing and some misplaced. Room proportions are distorted, particularly in the living/dining and kitchen areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Many doors are missing (E1) or incorrectly embedded (E2). Adjacency relationships are mostly preserved but suffer from dimension shifts. The utility area is essentially missing as a distinct room, integrated into the kitchen space, and the 'foyer' area is no longer a distinct space. There are no hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; the bed is rotated 90 degrees (E3), and the wardrobe in the bedroom is a hallucinated element. The Sofa (Living/Dining) is missing (E1). Kitchen counter layout and sink placement are different. The dining table is correctly placed but the chairs are simplified/different."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is good, and orthographic projection is generally maintained. Lighting is flat without significant shadows or highlights. Geometry is mostly clean with minor distortions. Visual clarity is good, but the overall composition feels sparse due to missing elements and simplified detailing."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Bedroom bed orientation is incorrect."
+        },
+        {
+            "code": "E5",
+            "description": "Wardrobe in the bedroom is a hallucinated element not present in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony door is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Living/Dining room sofa is missing."
+        },
+        {
+            "code": "E1",
+            "description": "TV unit in Living/Dining room is missing. Hallucinated TV stand/shelf is present instead."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room is not separately defined and integrated into the kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet door is misplaced and incorrectly oriented in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "Door between Living/Dining and Kitchen/Foyer is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Door to the master bedroom from the Living/Dining area is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Two windows in the Bedroom are missing, replaced by one."
+        },
+        {
+            "code": "E1",
+            "description": "Window in the Kitchen is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Balcony is misrepresented and misplaced/incorrectly modeled."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in the Living/Dining and Kitchen areas."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout and sink placement deviate from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Foyer area is not a distinct space in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet window is misplaced."
+        },
+        {
+            "code": "E1",
+            "description": "Cabinet/Washbasin in the utility area is missing, replaced by a simple basin in toilet."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent across the model."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan18.jpg"
+}

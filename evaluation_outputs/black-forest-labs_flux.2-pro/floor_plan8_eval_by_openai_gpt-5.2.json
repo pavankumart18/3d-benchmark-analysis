@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout mismatches. (E2/E4) The 2D plan has clearly separated Living (left), Dining (bottom center), Kitchen (right-center), and Playroom (top-right). In the 3D render, the bottom-center Dining room bump-out/shape is not preserved and the main space reads as one large open area. (E2) Pantry location/shape is incorrect: 2D shows a pantry room near the center-left of kitchen; 3D replaces the central core with a small bathroom-like room. (E3/E2) Exterior door placement differs: 2D shows an exterior door at the bottom-right wall; 3D shows a prominent exterior opening/door at bottom-center. (E2) Window positions/counts on the right and bottom walls do not match the 2D plan\u2019s specific window groupings."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Adjacency and room set fidelity are poor. (E5) A central bathroom/fixture room appears in the 3D where the 2D indicates pantry/service space, not a bathroom. (E1/E2) The Dining room as a distinct enclosed/defined zone is effectively missing/merged. (E2) Foyer/closet arrangement at the upper-left is not faithfully reconstructed (closet geometry and openings differ). (E2/E3) Door embeddings and swings are not consistently aligned with the 2D plan (notably the main exterior access and several interior openings). Wall thickness appears mostly consistent, but many walls/partitions do not align to the 2D wall network."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not correspond to the 2D plan. (E5) A bed appears in the left-side main area where the 2D plan indicates Living/Dining functions, not a bedroom. (E2/E4) Kitchen fixtures/island placement is only loosely similar and does not map cleanly to the 2D counter/appliance layout. Scale feels inconsistent (oversized/underspecified pieces relative to room extents)."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Visually clean and readable isometric with generally good lighting and simple materials. Minor issues: (E6) some geometry simplification and ambiguous wall/door detailing reduces interpretability. Camera is broadly isometric-like, but the render is not an orthographic-accurate architectural match to the plan."
+    },
+    "total_score": 36,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated central bathroom/fixture room in the middle of the plan; 2D shows pantry/service area there, not a bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Dining room as a distinct, proportioned bottom-center space (with its specific outline) is missing/merged into the main open area."
+        },
+        {
+            "code": "E2",
+            "description": "Pantry location/shape and its adjacency to kitchen are incorrect compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior door placement is wrong: 3D shows a dominant bottom-center exterior opening; 2D indicates the main exterior door at the bottom-right wall."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count along the right and bottom perimeter walls does not match the 2D plan\u2019s window groupings and spacing."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted, especially the bottom-center dining projection and the left living area extent relative to the overall footprint."
+        },
+        {
+            "code": "E2",
+            "description": "Upper-left foyer/closet geometry and openings do not align with the 2D closet sizes/door locations."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom furniture (bed) placed in the left main living/dining zone where no bedroom exists in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Several door orientations/swings and embedding positions appear inconsistent with the 2D door symbols (notably near the main entry/exterior access)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering simplifications (doors/windows as generic modules) reduce fidelity and introduce ambiguous openings compared to the precise 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan8.jpg"
+}

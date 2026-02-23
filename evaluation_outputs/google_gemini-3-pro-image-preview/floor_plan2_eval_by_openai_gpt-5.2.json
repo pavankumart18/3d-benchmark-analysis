@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (2 bedrooms, bath, office, living, kitchen/dining), but several layout details deviate. Living-room enclosure/partitioning does not match the 2D plan (wall runs/openings differ) (E2). Multiple door locations/openings are simplified or shifted vs the plan (E2/E3). All plan-indicated windows are absent in the 3D (E1). Corridor and central open area feel widened relative to the plan, affecting room proportions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness appears visually consistent, but door embedding is largely missing (open portals instead of modeled doors) (E1), reducing fidelity. Adjacency is mostly correct (bath/office between bedrooms, living near kitchen), but the living-room boundary wall alignment/opening logic diverges from the plan (E2). No clear missing rooms, but multiple required openings/doors and all windows are missing (E1). A few added decorative elements (plants) not present on plan count as minor hallucinations (E5)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Some furniture matches the intended rooms (round dining table, bedroom beds, office desk), but kitchen fixture layout (sink/cooktop placement and counter run) does not align well with the 2D plan (E2). Living room furniture arrangement differs from the plan\u2019s depicted layout (E2). Scale is generally plausible, though some pieces (cabinetry/wardrobe) appear oversized relative to room width (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Camera isometric view is clear and well-composed. Lighting is clean and consistent. Geometry is mostly clean, but there is a visible dashed/marker-like line on the floor reminiscent of plan notation, which reads as a rendering/translation artifact (E6). Orthographic accuracy is not strict (mild perspective), but overall readability is good."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "All windows shown on the 2D plan (top wall windows and kitchen/bottom window region) are missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Most interior doors shown in the 2D plan are not modeled as doors in 3D (open doorways instead), reducing door fidelity."
+        },
+        {
+            "code": "E2",
+            "description": "Living room boundary walls/opening configuration differs from the 2D plan (enclosure/partition alignment not preserved)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout does not match the plan: appliance/sink/counter positions appear rearranged relative to the 2D symbols."
+        },
+        {
+            "code": "E3",
+            "description": "Where door openings exist, swing/orientation logic from the 2D plan is not represented or is ambiguous in the 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Central circulation/corridor area appears proportionally larger in 3D than in the 2D plan, compressing adjacent room proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Decorative plants and some built-in/furnishing details appear in 3D without clear counterparts on the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Dashed/marker-like line on the floor surface appears as a translation/rendering artifact (plan annotation leaking into render)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan2.png"
+}

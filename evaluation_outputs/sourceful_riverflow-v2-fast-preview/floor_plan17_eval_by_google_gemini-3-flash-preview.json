@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Poor spatial alignment. The layout has been mirrored and simplified. Window counts do not match the floor plan. The central dining and living area distribution is incorrect."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Significant structural deviations. Missing the service room and utility area extension. Balcony structures are absent. Internal wall configuration for toilets and kitchen does not match the original layout."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Minimal furniture presence. The expansive living room sets, dining table, and desk units from the plan are entirely missing. Scale of beds is inconsistent with room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The render has clean geometry and decent soft lighting. The isometric perspective is well-executed, though the content is architecturally inaccurate."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple rooms including Service Room, Foyer, and two Balconies."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and bathroom placements do not align with the provided 2D plan plumbing zones."
+        },
+        {
+            "code": "E4",
+            "description": "Living area proportions are severely shrunk compared to the bedroom zones."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior grass plinth not present in the architectural intent."
+        },
+        {
+            "code": "E1",
+            "description": "Missing large glass sliding doors for balcony access; replaced by standard small windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan17.jpg"
+}

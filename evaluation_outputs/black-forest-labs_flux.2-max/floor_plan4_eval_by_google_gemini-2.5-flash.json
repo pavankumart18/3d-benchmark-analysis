@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Door placement and orientation errors are significant. Window placements are partially incorrect and several are missing. Room proportions are mostly maintained but some internal structures are missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "There are missing walls/structures (e.g., laundry room closets, hall closet area, part of the bathroom, entryway). Wall thickness is inconsistent in some areas. Hallucinated walls/structures are present (e.g., in the hall, laundry room)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Some furniture is missing (e.g., in bedroom 2, closet in hall). Furniture placement is mostly accurate where present, but some scales are not perfectly consistent with the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera correctness and orthographic projection accuracy are good. Lighting quality is acceptable. Geometry is clean. Visual clarity and composition are good."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing wall for hall closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall for laundry room closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for laundry room closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for hall closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing inner wall segment in the bathroom near the shower/tub area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing partition wall and door for 'Bedroom 2' closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'Bedroom 2' closet (if existing)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the kitchen/dining area and living room (some present but fewer than implied in floor plan)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in 'Bedroom 2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture in 'Bedroom 2'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement/design of the main entrance door and adjacent wall structure."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the door between 'Hall' and 'Bathroom' (shifted)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the door between 'Hall' and 'Living Room' (shifted)."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'Bedroom 1' are misplaced; they should be on two different walls, not one continuous section."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door orientation is incorrect; it appears to swing outwards or is a sliding door, not an inward swing as depicted."
+        },
+        {
+            "code": "E3",
+            "description": "Door leading to 'Bathroom' from 'Hall' has incorrect swing direction (swings into 'Hall' in 3D, into 'Bathroom' in 2D)."
+        },
+        {
+            "code": "E3",
+            "description": "Door leading to 'Living Room' from 'Hall' has incorrect swing direction (swings towards room center in 3D, towards wall in 2D)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the main entrance area / Hall, making it appear slightly narrower or more compact."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small wall segment inside the 'Hall' area, not present in 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partial wall/structure in the laundry room replacing the closet."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan4.jpg"
+}

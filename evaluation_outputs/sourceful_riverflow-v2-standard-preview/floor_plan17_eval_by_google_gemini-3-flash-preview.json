@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The 3D render significantly fails to match the 2D layout. The main entrance foyer is poorly defined, and the entire kitchen and utility block in the bottom left is structurally distorted or missing clear partitioning. Windows are rendered as blue glass walls rather than punctuations in the masonry."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major structural deviations present. The 'Servant Room' and 'Utility' areas are merged into a single vague platform. Internal walls for the toilets in the bottom center and top right are incorrectly placed or missing. Wall thickness is inconsistent."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is used as generic placeholders. The dining table lacks the correct chair count/arrangement. Bedroom furniture is missing or incorrectly scaled relative to the room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera angle and lighting are professionally executed. However, the use of transparent blue planes for windows and exterior walls creates visual confusion between indoor and outdoor spaces."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing walls for Servant Room and specific toilet partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and Living area boundaries are misplaced and do not align with the foyer entrance."
+        },
+        {
+            "code": "E4",
+            "description": "The Master Bed Room and adjacent Balcony proportions are distorted, appearing smaller than the 2D plan indicates."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior platforms/steps near the entrance that are not present in the original architectural plan."
+        },
+        {
+            "code": "E6",
+            "description": "The window glass is rendered as floor-to-ceiling glass walls, which is a structural artifact not supported by the 2D wall segments."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan17.jpg"
+}

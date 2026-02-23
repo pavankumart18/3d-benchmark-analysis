@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "The 3D render fails to follow the 2D layout. The entrance door is missing, stairs are relocated, and window placements are entirely different from the floor plan specifications."
+    },
+    "structural_fidelity": {
+        "score": 4,
+        "max": 25,
+        "notes": "The central bathroom core is missing. The relationship between the kitchen (now a bedroom/bath hybrid) and living areas is disregarded. Hallucinated rooms appear in the background."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture is hallucinated; a bed and bathtub are placed in areas designated as living/dining/kitchen in the 2D plan. Scale is inconsistent with the floor plan dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The rendering quality is high with good lighting, clean geometry, and a correct isometric perspective. However, it fails as an architectural representation."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing central bathroom unit and entrance door."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase moved from bottom-left to center-right wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom furniture and bathtub in kitchen/living zones."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated rooms/voids beyond the back wall not present in 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Window proportions and counts do not match the orange indicators in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan3.jpg"
+}

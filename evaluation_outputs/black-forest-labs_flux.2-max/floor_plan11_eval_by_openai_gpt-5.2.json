@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout mismatch between plan and 3D. The plan\u2019s clearly defined CENTRAL HALL, DINING ROOM, KITCHEN (with specific wall runs), UTILITY ROOM, and WC are not preserved as distinct, correctly bounded spaces in the render. The dining/kitchen zone is overly merged and reshaped, and internal wall lines do not align with the 2D wall positions (E2/E4). Door locations/swings do not match the plan (notably around WC/utility/hall junctions) (E2/E3). Window placement/count is inconsistent: the plan shows a long window run along the dining exterior wall and a specific window-seat/bay condition; the render adds/omits/relocates openings and changes the bay/window-seat geometry (E2/E5). Room proportions are distorted (dining area and open space expanded; service core compressed) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Adjacency relationships are incorrect: in plan, WC/utility/hall form a tight service cluster adjacent to kitchen; in render, this cluster is rearranged and circulation is reinterpreted (E2). Several plan elements are missing or not legible (pantry as drawn, crawlspace access, detailed hall boundaries) (E1). Multiple hallucinated spaces/partitions appear (extra rooms/areas not present in the provided plan crop) (E5). Door embedding into the correct walls is inconsistent with the plan\u2019s door positions and swings (E2/E3). Wall thickness appears more uniform and simplified than the plan\u2019s varied conditions, reducing fidelity (E6/E4)."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture/fixtures do not map to the 2D plan: the render includes bedroom-like furniture (beds/side tables) and additional seating arrangements not indicated in the plan segment (E5). Kitchen appliance/cabinet runs and island/peninsula treatment do not match the plan\u2019s labeled placements (REF/pantry/counters) (E2). Scales of furniture relative to rooms are inconsistent with the plan-defined room sizes (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Visually clean and readable with decent lighting and materials, but the camera is more perspective than a strict isometric/orthographic presentation (E6). Some geometry reads simplified and stylized rather than plan-accurate (E6). Overall composition is clear, but fidelity-critical details (window/door precision, wall alignment) are not cleanly represented."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Internal wall layout does not align with the 2D plan: CENTRAL HALL/service core boundaries are rearranged and merged into larger open space."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear plan elements in the render, including the crawlspace access and several plan-specific partitions around the hall/utility junction."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen configuration is altered: cabinet/appliance wall runs and pantry/REF relationship differ from the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room exterior window run is not matched in count/placement; openings are shifted and resized compared to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window-seat/bay condition at the dining side is geometrically different from the plan\u2019s indicated feature."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations/swings and/or door locations around WC/utility/hall do not match the plan\u2019s door symbols."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: dining/open area expanded and service rooms compressed compared to plan dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated rooms/areas and furnishings (bedroom-like setup and extra partitions) not present in the provided 2D plan segment."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/camera is not strictly isometric/orthographic; stylized simplifications reduce architectural verifiability."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan11.png"
+}

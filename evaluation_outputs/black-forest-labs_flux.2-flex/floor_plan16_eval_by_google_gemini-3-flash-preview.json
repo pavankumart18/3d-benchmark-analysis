@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is preserved, but structural errors exist: the front entrance is missing a door, and the balcony transition lacks the solid wall segment shown on the bottom left of the floor plan. Window placement in the bedroom is incorrectly extended into full-height glazing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Significant structural deviations: the Utility area wall is missing, merging it into the kitchen. The 'Toilet-1' entry door is placed on the side rather than facing the hallway as indicated. Hallucinated a full-height glass window in the bedroom where a standard window and wall section should exist."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent furniture mapping. The dining table, sofa orientation, rug, bed placement, and kitchen appliance layout closely follow the 2D reference, though the side-sofa from the plan is replaced with a desk in the 3D render."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High visual quality. Correct orthographic-style perspective, clean geometry, and lighting. Realistic material application for the marble floors and cabinetry."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing front entrance door and utility room partition wall."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door misplaced to the side wall instead of the hallway-facing wall."
+        },
+        {
+            "code": "E3",
+            "description": "Kitchen sink and counter orientation flipped relative to the 2D layout."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom window proportion distorted into a full floor-to-ceiling glass panel."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated desk in bedroom replacing the auxiliary sofa shown in the living room area of the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan16.avif"
+}

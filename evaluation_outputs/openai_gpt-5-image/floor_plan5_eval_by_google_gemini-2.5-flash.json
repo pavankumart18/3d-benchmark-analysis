@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placements are generally correct but there are significant issues with wall alignment and proportions. The front entrance area is missing its defining walls. The bathroom adjacent to the master bedroom has incorrect wall configuration. The room in the bottom right corner of the plan is completely missing its interior walls. Window and door placements are frequently incorrect."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Multiple rooms are missing. The front entrance area is missing outer walls. The room at the bottom right of the plan is missing internal walls. Wall thickness is not consistent across all rendered walls. Door embeddings are incorrect in several locations, appearing as simple openings rather than proper doors. There are hallucinated walls defining a new, incorrect room layout in the bottom right section."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate in terms of room allocation but specific positioning within rooms is often off. Some rooms have significantly different furniture layouts (e.g., the bottom right bedroom). Scale consistency is acceptable for placed furniture."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are well-executed, offering good visual clarity. Lighting quality is decent and geometry appears clean with no major distortions, apart from structural inaccuracies."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing defining exterior walls for the front entrance area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing interior walls in the room at the bottom right of the plan, creating one large space instead of a defined room."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the bathroom adjacent to the master bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the bedroom on the immediate left of the main living area, the door is shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the door leading from the main living area to the hallway on the right."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the bathroom on the right side of the plan, it's moved too far right."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the bathroom in the top right corner."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the bedroom exit from the top left corner."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement for several windows, notably in the kitchen and the room at the bottom right."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in several rooms, leading to slightly different room shapes, particularly noticeable in the kitchen and the dining area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall creating a new, incorrect room layout in the bottom right section where there should be two smaller rooms."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan5.jpg"
+}

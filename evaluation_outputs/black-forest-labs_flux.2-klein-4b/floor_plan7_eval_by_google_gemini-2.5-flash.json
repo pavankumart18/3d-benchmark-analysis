@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the 'Entrance to the House' area is distorted and misaligned. Wall alignment in several places is inaccurate, particularly around the kitchen and living room. Door placement is incorrect for the 'Ensuite to the House' and the main entrance to the toilet/wash area. Windows are either missing or misplaced; only two small windows are visible. Room proportions are significantly distorted in the kitchen, wash area, and living room."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly noticeable around the wash area and kitchen. Door embedding is incorrect, especially for the toilet door which is recessed without an opening. Adjacency relationships are mostly correct for rooms but flawed due to wall misalignments. Missing rooms: The staircase area and 'Entrance to the House' are not fully represented or are heavily distorted/missing. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate in the dining room and bedroom, but some kitchen elements (stove, sink) are missing. Living room furniture is present but not perfectly scaled to the distorted room. Furniture scale is inconsistent, especially for the toilet fixtures and kitchen appliances."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct. Orthographic projection is inconsistent, leading to some skewed perspectives. Lighting quality is flat and lacks definition. Geometry is clean in some areas but distorted in others, particularly walls. Visual clarity is good in some rooms but hampered by structural inaccuracies in others."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced Entrance to the House area, heavily distorted and misaligned."
+        },
+        {
+            "code": "E2",
+            "description": "Wall misalignment near kitchen, living room, and wash area."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for 'Entrance to the House' and main toilet/wash area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows from kitchen, toilet/wash area, bedroom, and living room. Only two small windows are placed."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion in kitchen, wash area, and living room."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness throughout the model."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door embedding for the toilet door (recessed without opening)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing staircase structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen elements like stove and second sink."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent furniture scale, especially toilet fixtures and some kitchen appliances."
+        },
+        {
+            "code": "E6",
+            "description": "Flat lighting quality, lacking depth and realism."
+        },
+        {
+            "code": "E6",
+            "description": "Distorted geometry in several wall sections."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan7.jpg"
+}

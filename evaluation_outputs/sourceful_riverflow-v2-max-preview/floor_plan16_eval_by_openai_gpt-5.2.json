@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (Living/Dining left, Kitchen+Utility top, Bedroom right, Toilet near center-right), but several layout details diverge. The small shaft/duct shown to the right of Toilet-1 in the 2D plan is not represented as an open shaft and appears enclosed/usable in 3D (E5/E2). Door locations are not faithfully reproduced: the bathroom and bedroom access points appear shifted relative to the plan\u2019s short passage alignment (E2), and the balcony opening/threshold does not clearly match the plan\u2019s balcony edge/entry position (E2). Proportions are off: Toilet/wardrobe zone and the central passage read wider in 3D than in plan; living area depth vs bedroom width appears distorted (E4). Window placement is inconsistent: the 3D shows large continuous glazing on the bedroom exterior and additional window placements that do not clearly correspond to the plan\u2019s specific openings (E2)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Key adjacency relationships mostly hold (Kitchen adjacent Living; Utility adjacent Kitchen; Toilet near Bedroom), but the right-side duct/shaft is structurally misrepresented as enclosed space (E5). Door embedding/orientation is inconsistent with the 2D swing placements, especially around the toilet/bedroom junction (E2/E3). Wall thickness looks somewhat uniform, but several partitions appear re-positioned or thickened, changing the corridor/room boundaries (E4). No major primary room is fully missing, but the plan\u2019s non-occupiable duct element is not correctly modeled (E2/E5)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are present (sofa, dining table, bed), but placements do not tightly match the 2D arrangement (e.g., sofa/TV/coffee table grouping and dining position appear shifted) (E2). Scale is generally plausible, though some pieces read undersized relative to circulation widths created in the 3D (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Camera isometric view is acceptable, but the render is low-clarity/blurred with flat lighting. Materials/textures and edges lack definition, and some openings (doors/windows) are hard to read, reducing verifiability (E6). Geometry is mostly clean, though proportion distortions in partitions reduce architectural credibility."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "The duct/shaft shown to the right of Toilet-1 in the 2D plan appears modeled as an enclosed/usable space in the 3D render rather than a service shaft."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/bedroom/passage partition lines appear shifted, changing the exact room boundary alignment compared with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door position and/or connection to the passage does not match the 2D plan\u2019s door location."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony opening/threshold placement and the balcony edge relationship to the living area do not clearly match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements (notably the large bedroom glazing and additional openings) do not clearly correspond to the specific window locations in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: the toilet/wardrobe/passage zone reads wider in 3D than in the 2D plan, affecting circulation and relative room sizes."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering blur/low detail makes doors, windows, and exact wall junctions difficult to verify, reducing clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan16.avif"
+}

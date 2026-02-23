@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major structural deviations present. The 3D render adds a central dividing wall that splits the Kitchen/Living area into two separate rooms, which is not in the plan. Door placements are largely hallucinated or missing; the main entrance and bedroom entry are not correctly represented."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The stairs are present but located in an open area rather than being properly walled in. A major hallucinated wall divides the main living space. The outdoor balcony/terrace on the left of the floor plan is completely missing."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generic and does not follow the kitchen layout (no island or counters). Seating is misplaced relative to the plan's sofa and dining table positions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The render is visually clean with consistent lighting and a proper isometric orthographic perspective. Geometry is solid despite being architecturally incorrect."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated central wall dividing the kitchen and living room into two distinct rooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing outdoor terrace/balcony structure on the left side of the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door openings; the bedroom entry swing is not captured and the main entrance is moved."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen counters, sink island, and stove units as specified in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the stairwell enclosure are distorted and lack the perimeter walls shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan6.jpg"
+}

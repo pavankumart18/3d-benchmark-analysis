@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the overall shape of the floor plan is distorted. Wall alignment shows inconsistencies, especially in the kitchen, utility, and adjacent toilet areas. Door placements are largely correct, but some orientations are unclear or incorrect. Window placements are partially missing or inaccurately represented. Room proportions are not perfectly preserved, particularly for the kitchen, utility, and foyer."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness shows some inconsistencies, especially around corners and room transitions. Door embedding is generally correct but some doors appear to be flush with walls rather than properly recessed. Adjacency relationships are mostly maintained, but the outdoor patio/deck areas deviate significantly. No entirely missing rooms, but the 'HO' room and a small patio section are heavily altered. No hallucinated rooms, but hallucinated structural elements exist on the deck spaces."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement mostly follows the floor plan, but there are several instances of repositioning. Furniture scale generally appears consistent within the rendered space, but some items appear slightly oversized or undersized compared to the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle is good, providing a clear overview. Orthographic projection appears accurate, showing parallel lines. Lighting quality is acceptable, providing sufficient illumination. Geometry is mostly clean with minor distortions. Visual clarity and composition are good, clearly presenting the layout."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Overall floor plan shape and individual room proportions are distorted, particularly pronounced in the lower right section of the plan (kitchen, utility, HO, and adjacent toilets)."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment inaccuracies, especially in the kitchen/utility area and the complex outer perimeters of the decks."
+        },
+        {
+            "code": "E3",
+            "description": "Several doors' orientations are unclear or appear incorrect compared to the floor plan (e.g., door to Utility, door to C.TOI, door to HO)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows or window placements that deviate from the floor plan (e.g., windows in kitchens, bathrooms). The 'HO' room and its associated patio are significantly altered/missing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural elements, particularly fences/railings and planters on the deck areas, leading to a different architectural feel than indicated by the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture repositioning within rooms, specifically in the living/dining area, bedrooms, and decks."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, noticeably around the Kitchen and Utility areas, making some walls appear thinner or thicker than others."
+        },
+        {
+            "code": "E1",
+            "description": "A section of the open deck labeled 'DECK 12'5' in the upper right appears significantly reduced or merged with an adjacent structure in the 3D render."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan19.webp"
+}

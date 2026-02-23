@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions recognized. Many walls are misaligned or have incorrect thickness, impacting overall layout. Several doors are either missing, incorrectly placed, or have the wrong swing direction. Windows also have inconsistent placement. Room proportions are not preserved, leading to a warped representation of the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout the render. Doors are not embedded correctly, with some missing or showing gaps. Adjacency relationships are compromised due to wall and room placement errors. Multiple rooms are missing, and some elements appear to be hallucinated, altering the apartment's structure."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate where rooms exist, but scale consistency is not perfectly maintained. Missing rooms also imply missing furniture."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is suitable, and the projection appears orthographic. Lighting is adequate, and geometry is mostly clean. However, the numerous structural inaccuracies detract significantly from overall visual clarity and composition."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'CLOSET' room as indicated in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'COAT' closet room next to Rachel's Bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a significant portion of the wall structure near the kitchen/living room area where the balcony is."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bathroom next to Rachel's Bedroom. It's shifted and scaled incorrectly."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation/swing for the main entrance door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation/swing for the door to the bathroom near Monica's Bedroom."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen area; the island and surrounding space are altered."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the living room, particularly the sofa near the window, and general room dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Rachel's Bedroom, appears much smaller and elongated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Monica's Bedroom, appears narrower than on the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated elements on the balcony, such as the outdoor planter, which is not indicated on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Rachel's bedroom, it's longer and positioned differently."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Monica's bedroom, it's longer and positioned differently."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bedroom next to Monica's (indicated as 'Chandler & Joey's Apartment'). The door is present but its specific position and embeddedness in the wall are off."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrectly sized main living room window structure."
+        },
+        {
+            "code": "E2",
+            "description": "Wall misalignment leading to an incorrect shape of the kitchen and dining area."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating the main living area from 'Chandler & Joey's Apartment' is misaligned and appears to have an incorrect thickness."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan.jpg"
+}

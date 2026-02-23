@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (bedroom top/left, living central, kitchen right, toilet top/right, balcony left), but several key spatial placements deviate: the foyer is not clearly formed as a separate 4'6\"x3'10\" space (entry reads as opening into living), kitchen/utility boundary is altered, and balcony depth/shape appears enlarged. Multiple openings (kitchen/foyer, utility access) do not match the 2D layout precisely. Some window locations do not align with the plan (notably living/balcony-side fenestration)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Adjacency mostly preserved (living connects to bedroom/toilet/kitchen; kitchen adjacent to utility), but fidelity issues: foyer separation wall/door logic is incorrect, kitchen entry is represented as a wide opening rather than the plan-indicated door, and the utility is rendered as a more enclosed room than the plan\u2019s narrow utility strip. Wall thicknesses are generally consistent, but several door embeddings/openings do not match the plan locations."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture items are present and generally plausible (bed in bedroom, sofa in living, dining table central, kitchen counters). However, placement does not tightly follow the 2D arrangement (sofa position/orientation differs), and some items are generic rather than mapped to the plan specifics."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric render with good lighting and generally consistent geometry. Camera isometric perspective is acceptable though not strictly orthographic. Minor clarity issues where doors/openings blend into walls, making verification harder."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Foyer is not accurately represented as a distinct enclosed 4'6\"x3'10\" space; entry appears to open directly into living/dining rather than into a defined foyer."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/incorrect kitchen door from the foyer/living side: plan shows a door-controlled opening; render shows an open passage without the planned door placement."
+        },
+        {
+            "code": "E2",
+            "description": "Utility area is misrepresented: plan indicates a narrow utility strip (3'9\" wide) adjacent to kitchen; render depicts it as a more enclosed room-like space with altered boundary/shape."
+        },
+        {
+            "code": "E4",
+            "description": "Balcony proportions appear distorted (rendered deeper/larger relative to living than the plan suggests for a 4' wide balcony)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: living/balcony-side fenestration and/or positioning does not clearly align with the 2D plan\u2019s window locations."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/altered partition elements near the entry zone that do not correspond cleanly to the plan\u2019s foyer wall layout."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan18.jpg"
+}

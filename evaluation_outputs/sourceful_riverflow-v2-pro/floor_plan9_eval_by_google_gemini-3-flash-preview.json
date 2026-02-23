@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is recognizable, but there are significant door and window placement errors. The windows in the living room and master bedroom do not match the staggered layout of the floor plan. The door to Bedroom #4 is misplaced relative to the hall closet."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "All major rooms are present. However, wall thicknesses are inconsistent (particularly in the kitchen/pantry area). The closet configurations in Bedrooms #2 and #3 are simplified or slightly halluncinated compared to the detailed layout on the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Proportions of furniture are generally consistent, though the kitchen island geometry is simplified and missing the specific sink/dishwasher layout details."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric projection with clear lighting. Geometry is sharp, though the materials are flat and lacks texture, which is appropriate for a schematic render but lacks visual depth."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The door to Bedroom #4 is shifted south compared to the floor plan's hallway configuration."
+        },
+        {
+            "code": "E3",
+            "description": "The windows in the Master Bedroom are rendered as three separate small units instead of the large multi-pane unit shown in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen pantry and refrigerator alcove walls do not align with the depth specified in the 2D drawing."
+        },
+        {
+            "code": "E2",
+            "description": "Laundry/Utility room door is misplaced relative to the hallway junction."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the specific tray ceiling detail in the Master Bedroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan9.png"
+}

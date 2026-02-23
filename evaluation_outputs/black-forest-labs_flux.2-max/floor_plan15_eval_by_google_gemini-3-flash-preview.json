@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is faithfully reproduced. Room placement is correct. Door orientation for the main entrance and internal rooms matches the 2D swing directions well. Window openings are consistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "All rooms from the 3BHK plan (three bedrooms, kitchen, living, utilities, and toilets) are accounted for. Adjacency is correctly handled. Wall thickness is consistent, though the division between living and kitchen is slightly more closed in the render than the plan suggests."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Highly accurate mapping of dining chairs, sofa orientation, and bed placements. Balcony furniture and bathroom fixtures are correctly localized."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is soft and professional. Geometry is clean without visible 'leaks' or floating meshes. Orthographic constraints are well-respected."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen/Living partition wall appears slightly extended compared to the more open passage shown in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Utility' zone adjacent to the kitchen is slightly compressed in width compared to the 2D dimensions provided."
+        },
+        {
+            "code": "E6",
+            "description": "Minor lighting artifact/shadow clipping at the entrance foyer corner."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan15.webp"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout mismatch between 2D and 3D. (E2) Kitchen zone: in 2D the kitchen is an open L-shaped run along the top-left with an island; in 3D the cooktop/cabinetry is placed in a more enclosed top-center/right nook and the overall kitchen boundary/placement does not match. (E2) Stair placement: 2D shows a long stair run tight to the right exterior wall; 3D shows a shorter internal stair run not aligned to the right perimeter. (E1/E2) The lower-middle room with two single beds (guest/second bedroom) present in 2D is not represented as such in 3D. (E3) Several interior doors swing/orient differently than the plan\u2019s arcs, especially around the central hall/bath/closet zone. (E4) Proportions are off: the open living area in 3D is larger/emptier relative to the clustered service core than the 2D indicates."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Core adjacency relationships are not preserved. (E2) Stairs are not adjacent/embedded along the right exterior wall as in 2D. (E1) The plan\u2019s distinct lower-middle sleeping room (two beds) is missing as a dedicated room. (E2) Bathroom/utility core partitioning differs: 2D indicates a tub/shower zone plus fixtures; 3D shows a different fixture layout and lacks the clearly depicted tub location. (E5) Additional/altered partitions create a kitchen enclosure/nook not present in the 2D. Wall thickness appears somewhat consistent, but several walls/doorways do not match plan positions."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "(E2) Living room furniture (sofa/coffee table) is only loosely consistent with the 2D, but placement relative to windows/walls differs. (E1) The two single beds shown in the 2D lower-middle room are not mapped as a room with those beds in 3D. (E5) Extra/altered furniture elements appear (e.g., additional bench/bed-like piece in the living zone) not clearly supported by the 2D. Scale is plausible, but mapping to the plan is weak."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is visually clean and readable with coherent materials and lighting. Isometric camera is acceptable and geometry is mostly crisp. Some window repetition and simplified details reduce fidelity, but overall presentation quality is good. Minor perspective/orthographic inconsistency typical of stylized isometric renders."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen placement/configuration does not match the 2D (open L-shape top-left vs enclosed/shifted kitchen nook in 3D)."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase is not located/extended along the right exterior wall as in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Lower-middle room with two single beds (second sleeping room/guest room) shown in 2D is missing as a corresponding room in 3D."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior door swings/orientations around the central hall/bath/closet differ from the 2D door arcs."
+        },
+        {
+            "code": "E1",
+            "description": "Bathtub/shower element indicated in the 2D bathroom is not clearly present/matched in the 3D bathroom layout."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count differs substantially (3D shows many large repeated windows not matching the specific 2D openings on bottom/left/right walls)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living area vs service core and stair hall sizes do not preserve the 2D plan proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/unsupported partitioning creating a distinct kitchen enclosure/nook not present in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan6.jpg"
+}

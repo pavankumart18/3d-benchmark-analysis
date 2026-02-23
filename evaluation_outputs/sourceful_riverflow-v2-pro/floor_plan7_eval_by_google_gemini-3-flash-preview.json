@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved, but door orientations and exact wall openings for entrances are inconsistent with the 2D plan. The entrance to the house is significantly altered."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Internal door swings are missing or replaced with open gaps. The toilet/wash area layout has been simplified, and the stairs orientation is reversed/mirrored compared to the plan's 'UP' arrow logic."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent correspondence between plan furniture and 3D models. The dining chairs, kitchen appliances, and bedroom layout match the floor plan well."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric render with clean geometry, consistent lighting, and professional toy-house aesthetic."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Staircase directionality is reversed compared to the transition indicated on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door is missing its specific recessed vestibule geometry shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Actual door panels are missing, shown only as wall punctures."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional sink/vanity in the wash area not clearly delineated in the simple 2D circle/square symbols."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan7.jpg"
+}

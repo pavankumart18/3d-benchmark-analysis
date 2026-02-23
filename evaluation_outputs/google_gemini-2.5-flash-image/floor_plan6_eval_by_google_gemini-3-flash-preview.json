@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is highly consistent. Small deviations in window sizing on the southern wall and the orientation of the secondary bathroom door."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to wall logic. All rooms from the 2D plan are present. Small hallucination in the entryway threshold and slight wall misalignment in the closet area."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "High mapping fidelity; kitchen island, bed, and bathroom fixtures are correctly placed. The sofa color and style vary from the simplified 2D symbol but maintain location logic."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "High-quality isometric render with clean shadows, consistent lighting, and professional orthographic projection. Text labels are preserved correctly."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Bathroom door swing orientation is mirrored relative to the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior plant placement shifted significantly from the balcony corners to the central entry path."
+        },
+        {
+            "code": "E4",
+            "description": "Windows on the bottom (south) wall appear narrower in the 3D model than shown in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partial wall/threshold at the main entrance door compared to the open 2D plan notation."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan6.jpg"
+}

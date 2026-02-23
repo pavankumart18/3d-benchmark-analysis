@@ -1,0 +1,116 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is generally correct, but several walls are misaligned. Door placements are frequently incorrect in location or orientation. Window placement is highly inaccurate with many missing or misplaced windows. Room proportions are distorted, particularly in the central hall, utility room, and dining room."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is somewhat inconsistent. Door embedding is incorrect in several instances (e.g., doors flush with walls or lacking proper frames). Adjacency relationships are mostly maintained, but the central hall is significantly altered. There are several missing rooms and a hallucinated room section."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is mostly inaccurate, with many items missing or relocated. Scale consistency is poor for some elements, such as the kitchen island and bathroom fixtures."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection appear correct. Lighting quality is good. Geometry is relatively clean with no major distortions. Visual clarity is decent, but composition is skewed due to architectural inaccuracies."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing WC room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Breakfast Nook/Screened Porch area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Alcove area (front left)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Laundry (W/D) in Utility Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing HVAC unit in Utility Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing pantry from Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple windows throughout the structure."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the WC/Central Hall area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the Dining Room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen island location and orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced refrigerator."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows on all exterior walls."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door leading to the Utility Room."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door leading from the Central Hall to the Dining Room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Central Hall, making it wider and shorter."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Utility Room, appearing wider."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Dining Room, particularly the depth."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Kitchen, appearing wider than indicated."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment near the stairs, where a crawlspace access and open area should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall separating the kitchen area from what should be the Breakfast room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated counter/island structure adjacent to the dining room window seat area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small wall segment near the front entrance, blocking the intended open space."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan11.png"
+}

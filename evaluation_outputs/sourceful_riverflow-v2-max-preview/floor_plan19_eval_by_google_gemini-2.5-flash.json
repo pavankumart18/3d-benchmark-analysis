@@ -1,0 +1,128 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Significant spatial inaccuracies across the render. Room placements are generally recognizable but with poor alignment. Door and window placements are frequently incorrect or missing. Room proportions are distorted throughout."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Many structural elements are incorrect or missing. Several rooms are missing, and wall thickness is inconsistent. Doors are often not correctly embedded. Hallucinated walls are present."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; many pieces are missing or misplaced. Scale consistency is poor. Some furniture is represented by generic blocks."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable, but orthographic projection is not fully accurate due to the simplified geometry. Lighting quality is dull and uniform, lacking depth. Geometry is overly simplified and lacks detail, leading to poor visual clarity."
+    },
+    "total_score": 26,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Deck (25'6\" x 9') next to Living/Dining is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Deck (12' x 8') next to BED-1 is missing."
+        },
+        {
+            "code": "E1",
+            "description": "TOI-4 (5' x 8'8\") attached to BED-2 is missing."
+        },
+        {
+            "code": "E1",
+            "description": "TOI-1 (6' x 9') attached to BED-1 is missing."
+        },
+        {
+            "code": "E1",
+            "description": "C.TOI (6' x 5') next to BED-4 is missing."
+        },
+        {
+            "code": "E1",
+            "description": "UTILITY (5' x 11') next to Kitchen is missing."
+        },
+        {
+            "code": "E1",
+            "description": "HO (6' x 7') next to Foyer and TOI is missing."
+        },
+        {
+            "code": "E1",
+            "description": "TOI (6' x 4') next to HO is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for BED-2 is incorrect and its orientation is wrong. It's an opening instead of a door."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for BED-3 is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for BED-1 is incorrect and its orientation is wrong. It's an opening instead of a door."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for BED-4 is incorrect and its orientation is wrong. It's an opening instead of a door."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for Foyer entrance is incorrect and oriented wrongly. It's an opening."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Kitchen is missing/incorrectly represented."
+        },
+        {
+            "code": "E1",
+            "description": "Many internal doors are missing (e.g., between Living/Dining and bedroom hallway)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and sizing on exterior walls are frequently inaccurate, particularly for BED-2, Living/Dining, and the area around BED-1/BED-4."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of Living/Dining area appear narrower and distorted, especially the '13' width dimension."
+        },
+        {
+            "code": "E4",
+            "description": "Overall room proportions are not consistently maintained throughout the render, making rooms appear squashed or stretched."
+        },
+        {
+            "code": "E5",
+            "description": "The wall separating the Foyer/Kitchen area from the exterior perimeter in the 3D render doesn't match the original 2D plan, potentially adding a hallucinated wall section or misinterpreting the boundary."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent; some internal walls appear thicker or thinner than others without justification from the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing details on exterior walls such as planter boxes or decorative elements shown in 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small balconies/cut-outs along the exterior perimeter."
+        },
+        {
+            "code": "E2",
+            "description": "Dining furniture placement is simplified and does not match the 2D plan's dining table and chairs."
+        },
+        {
+            "code": "E2",
+            "description": "Living room furniture layout and scale are different from the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Significant architectural details like columns or protruding sections on the exterior are simplified or missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan19.webp"
+}

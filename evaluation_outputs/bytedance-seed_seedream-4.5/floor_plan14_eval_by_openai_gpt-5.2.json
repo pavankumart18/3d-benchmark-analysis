@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 23,
+        "max": 40,
+        "notes": "Overall room locations broadly follow the 2D plan (2 beds, living/dining central, kitchen+utility bottom, two toilets), but there are major deviations in openings and some dimensions. Doorways to decks and exterior glazing do not match the plan, and TOI-1 proportions are significantly distorted (render shows ~3' width vs 5' in plan). Window/door placement on exterior walls is notably inconsistent with the 2D drawing."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "Primary enclosure and internal partitions largely preserve adjacency (beds adjacent to living/dining; kitchen adjacent to utility; toilets positioned near their expected zones). However, the render introduces an additional exterior terrace/balcony mass and large curtain-wall style openings not indicated in plan (hallucinated elements). Wall thickness and door embedding look mostly consistent, but the TOI-1 size error is a structural/dimensional fidelity issue."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture types and general placement are mostly consistent (beds in bedrooms, sofa/coffee table in living, dining set in living/dining, kitchen counters). Minor mismatches in exact arrangement and scale relative to room boundaries are present (some furniture appears oversized/loose vs the tightness implied by the 2D plan)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric presentation with good lighting and readable composition. Geometry is mostly crisp with consistent materials. Some visual choices (large floor-to-ceiling glazing and added exterior deck) look polished but reduce plan-faithfulness; minor projection/camera exaggeration exists but remains generally coherent."
+    },
+    "total_score": 69,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wooden terrace/balcony platform on the lower-left side of the 3D render that is not present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: the 3D render uses large floor-to-ceiling glazed openings on exterior walls (notably left/bottom exteriors) that are not indicated in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "TOI-1 proportion/dimension distortion: 2D plan shows TOI-1 as 5' x 8', while the 3D render labels/shapes it closer to ~3' x 8' (significant width reduction)."
+        },
+        {
+            "code": "E2",
+            "description": "Deck access inconsistency: the 2D plan indicates deck access patterns that do not align with the 3D render\u2019s apparent door/opening placement (left deck connection appears altered)."
+        },
+        {
+            "code": "E3",
+            "description": "Some door swing/orientation cues (notably around toilet/passage areas) do not reliably match the 2D plan\u2019s indicated door swing directions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan14.webp"
+}

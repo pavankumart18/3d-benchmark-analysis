@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General wall layout follows the blueprint well. Significant deviation in door orientation; bathroom and study doors open into the hallway instead of into rooms. Kitchen window is missing on the bottom wall."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Bathroom wall is missing a segment in the 3D render (opening up towards the hallway without a full frame). Room adjacencies are mostly correct, though door swing logic is reversed for several threshold points."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture scaling is consistent. Furniture placement accurately reflects the blueprint, particularly in the living and dining areas."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is soft and professional. Geometry is clean with high visual clarity. Orthographic projection is well-maintained."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Doors to the twin bedroom, bathroom, and office swing into the hallway rather than into the rooms as specified."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen window on the bottom exterior wall is missing in the 3D render."
+        },
+        {
+            "code": "E6",
+            "description": "The partition wall separating the bathroom from the hallway is missing its top header or door frame logic."
+        },
+        {
+            "code": "E2",
+            "description": "Radiator placement in the master bedroom and living room is shifted relative to wall corners in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Kitchen and L'dry walls are significantly misaligned. The WC and Bath area proportions are distorted. The balcony is missing. The 'Entry' hallway is missing. The linen cupboard is missing. Window in the kitchen is misplaced. No windows are shown in bedrooms where implied on the floor plan by wall breaks, nor in the lounge/dining area."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing Balcony, Entry, and Linen cupboard. Hallucinated walls in the bedroom 2/WC/Bath area creating a different layout. Door embedding for Bedroom 2 is incorrect, and the door to WC is missing. The structural integrity in the Bath/WC/Bedroom 2 area is significantly altered."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement for the sofa and armchair is inaccurate compared to the implied layout. The beds are placed differently or their orientation is inaccurate. No furniture is mapped for Bathroom, WC, or Laundry. Kitchen appliance layout is different."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are good. Lighting quality is acceptable, and geometry is clean."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Entry' hallway and associated walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Linen' cupboard."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen window and missing windows throughout the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for Bedroom 2."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Bath and WC areas, making them appear consolidated or re-arranged."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall layout changes in the Bath/WC/Bedroom 2 area, altering room adjacencies significantly."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior walls for Kitchen and L'dry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for WC."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen appliance arrangement is different from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa and armchair placement is inaccurate. Bed orientations in both bedrooms are different."
+        },
+        {
+            "code": "E1",
+            "description": "No windows rendered for Lounge/Dining and bedrooms as implied by the floor plan breaks."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General wall layout follows the blueprint well. Significant errors in door orientation: the entrance door and bedroom door swing into hallways/external space rather than following the inward swing specified in the plan. The window in the dining area is missing its secondary pane on the left wall."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The wash area and toilet partitions are slightly misaligned compared to the plan's grid. The staircase area lacks the internal structural wall/railing details shown in the blueprint, and the 'UP' entrance to the stairs is partially obstructed by hallucinated floor levels."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen cabinetry is added where the plan shows open space. Dining chairs and living room sofa layout are mostly accurate, though the scale of the bedroom wardrobe is exaggerated."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering with consistent lighting and clean geometry. Materials provide good visual clarity."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Entrance door and bedroom door swing orientations are reversed compared to the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing secondary window on the left-most wall of the dining room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated upper cabinets in the kitchen area not present in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Wash Area' and 'Toilet' corridor width is slightly wider than the proportional grid allocated in the blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen sink and stove placement are swapped relative to the layout shown on the blueprint's right/top walls."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan7.jpg"
+}

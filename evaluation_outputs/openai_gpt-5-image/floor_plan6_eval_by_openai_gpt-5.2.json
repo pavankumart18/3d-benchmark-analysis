@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout mismatches between plan and render. Living/kitchen and bedroom are generally present, but the right-side circulation/stair zone does not match the 2D plan, the entry is not in the correct location, and an additional room appears on the far right. Window distribution and several interior partitions do not align with the plan. Bedroom/bath relationships are only partially consistent."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness and basic wall/door modeling look consistent, but adjacency relationships deviate: the plan\u2019s dedicated stairwell/right-side zone is not represented correctly, and an extra enclosed room is introduced. Several expected elements are missing (notably the plan\u2019s exterior/patio-like left strip and some interior storage/fixture details). Hallucinated room penalized heavily."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "General furniture categories exist (sofa, table, bed), but kitchen layout differs (plan indicates an island/central counter and different run arrangement). Bathroom fixture set is incomplete relative to plan (sink/vanity not shown). Placement is only loosely consistent with the 2D drawing."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean isometric presentation with good lighting and readable composition. Minor projection/scale inconsistencies and simplified geometry (especially in bath/doors) reduce technical clarity but overall render quality is solid."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entry door location does not match the 2D plan (plan shows entry at bottom-right into the right-side stair/hall zone; render places entry on the front/bottom edge into the living area)."
+        },
+        {
+            "code": "E2",
+            "description": "Right-side stairwell/circulation zone is modeled differently: the plan shows a dedicated stairwell along the right edge with specific boundaries; the render depicts stairs integrated into the apartment with different enclosing walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional room on the far right with a window and dresser; the 2D plan does not indicate a separate enclosed room there (that area corresponds to stairwell/circulation)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom door placement/orientation does not match the plan\u2019s corridor-based entry configuration; render shows a different doorway relationship between living/corridor/bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows on the bottom exterior wall: the 2D plan shows multiple openings along the bottom edge; the render does not include corresponding windows."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/quantity differs on the left side: the render uses large glazing units that do not correspond cleanly to the plan\u2019s specific opening positions."
+        },
+        {
+            "code": "E1",
+            "description": "Bathroom sink/vanity shown in the 2D plan is missing in the 3D render (render shows tub/toilet only)."
+        },
+        {
+            "code": "E1",
+            "description": "Exterior/patio-like left strip indicated in the 2D plan (with plants/outdoor boundary) is not represented as a distinct exterior space in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions on the right side (bath/hall/stair region) appear distorted relative to the plan due to the altered stair enclosure and added room."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen configuration differs: the 2D plan indicates a central island/peninsula and specific counter run; the 3D render uses a single straight run without the island/center element."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan6.jpg"
+}

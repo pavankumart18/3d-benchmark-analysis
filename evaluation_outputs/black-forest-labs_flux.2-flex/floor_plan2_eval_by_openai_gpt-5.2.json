@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall layout resembles the plan (central hall, left bedroom, bathroom zone, right bedroom, living + dining/kitchen), but multiple placement issues: the kitchen/dining zone is reconfigured (window moved to right wall and counters not matching the L-shape), the small top-center/right office/study room from the plan is not clearly preserved as a distinct room, and several door locations/hinge orientations do not match the 2D arcs. Room sizes/proportions appear altered (hallway widened, left bedroom and service rooms compressed)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Major adjacency is mostly maintained (hall connects to bedrooms/living), but fidelity breaks in the top-center/right service area: the plan shows two separate small rooms (bath + office) with distinct doors; the render appears to merge/repurpose that area. Some wall runs and interior partitions differ in length and alignment versus the plan, and window/door embedding does not consistently match the drawn openings."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not map reliably to the 2D plan: the left bedroom in the plan has two single beds, but the render shows one bed; the dedicated office/study furniture is not placed in the corresponding small room (desk appears in the bedroom instead). Kitchen layout and dining adjacency are simplified/changed relative to the plan. Scales are generally plausible but not faithful to the plan\u2019s arrangement."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric render with consistent materials and generally good lighting. Camera is a correct isometric-like angle and geometry is mostly clean. However, some openings and partitions look simplified, and a few door placements feel visually inconsistent with typical clearance (minor compositional/architectural clarity issues)."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/unclear dedicated office/study room as a distinct space per the 2D plan (top-center/right small room with desk)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen window placement differs: 2D plan indicates a window/opening on the bottom exterior wall near the sink area; 3D render places a large window on the right exterior wall instead."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout differs from the 2D L-shaped configuration; render simplifies/reshapes counters and appliance placement."
+        },
+        {
+            "code": "E1",
+            "description": "Left bedroom bed count mismatch: 2D shows two single beds; 3D shows a single bed (one bed missing)."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior door swing/orientation relationships do not match the 2D door arcs (hinge side/open direction inconsistent in the hall/service-room zone)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: central hall appears wider and the top service rooms/left bedroom appear compressed compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture relocation: desk/office function appears placed in the bedroom rather than in the small office location shown in the plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan2.png"
+}

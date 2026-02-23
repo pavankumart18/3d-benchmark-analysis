@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major layout mismatches. (E1) The large DECK/terrace along the top edge in the 2D plan is not modeled in the 3D render (replaced by solid exterior wall). (E1/E2) Kitchen + attached Utility zone (bottom-center/right in plan) are not represented as a distinct room cluster in 3D; central space reads as continuous living/dining. (E2) Bathroom/toilet block locations and their relationship to bedrooms/corridor do not match plan (left-side toilets and central/right toilet appear re-partitioned). (E2/E3) Door locations and orientations are largely incorrect/undefined (most openings have no clear hinged orientation matching the plan). (E4) Room proportions differ: living/dining area is expanded; service core (kitchen/utility/lobby) is compressed/absent; corridors/wall runs do not align to the plan."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Structural fidelity is low. (E4) Wall alignment and partition geometry do not preserve the plan\u2019s grid/offsets. (E2) Adjacencies are wrong: plan\u2019s kitchen/utility/toilet-1 sequence on the bottom/right side is not maintained; deck adjacency to living is missing. (E1) Missing deck and missing/merged service rooms violate completeness. (E5) Several openings/windows appear added or resized without plan basis. Wall thickness is somewhat consistent visually, but door embedding is not faithful (many door leaves omitted)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not map well to the 2D plan. (E1) Kitchen fixtures (counters/appliances) and utility fittings are missing. (E5) Two dining tables are shown (plan indicates a single dining set) and furniture arrangement does not respect the plan\u2019s intended zoning (living/dining vs kitchen separation). Bedroom furniture is generic and not scaled/placed to match the 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Render is visually clean and readable, with acceptable lighting and geometry. Isometric camera is plausible, though not strictly orthographic. Some clarity issues arise from missing door swings/frames and simplified openings, which reduces architectural legibility. Overall presentation quality is moderate despite fidelity issues."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Deck/terrace (top side in 2D plan) is missing in the 3D render; replaced by an exterior wall with windows."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen and attached Utility rooms (as distinct spaces in the 2D plan) are missing/merged into the main living/dining space in 3D; no kitchen counter/appliance layout present."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/bathroom partitions are misplaced relative to the 2D plan; the left-side toilet stack and the central/right toilet positions do not align with the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Lobby/entry organization and corridor geometry do not match the 2D plan; internal wall runs are shifted."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation is incorrect or unspecified: many openings lack door leaves and do not match the plan\u2019s hinged swing positions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent with the plan: plan emphasizes large openings to deck/balconies; 3D adds/relocates windows on exterior walls without matching the 2D layout."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions are distorted: living/dining area appears oversized while service core (kitchen/utility/lobby) is reduced or absent; several room dimensions do not visually correspond to labeled sizes in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/unsupported interior elements: an extra dining table and some window/opening sizes appear not grounded in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan20.avif"
+}

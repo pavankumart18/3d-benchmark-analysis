@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room adjacency broadly matches (left bedroom, central bath, small office, right bedroom, open kitchen/dining, living area), but several layout specifics deviate: living room enclosure/partitioning differs from the plan, several door positions/swings do not align with the 2D arcs, window locations/counts do not match the plan\u2019s exterior openings, and some room sizes appear altered (notably the left bedroom and the central service strip)."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "All major rooms appear present and generally adjacent as in the plan, but the wall layout is not a faithful extrusion of the 2D: the living-room boundary/entry condition is changed, door embeddings appear shifted from the plan\u2019s wall segments, and exterior opening placement is inconsistent. No clearly new/extra rooms were added, but multiple structural elements are relocated/simplified."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture does not match the 2D plan well: the left bedroom is missing one of the two single beds, several items are substituted (desk types, storage), and living-room/kitchen fixtures are simplified/rearranged relative to the plan. Scales look broadly plausible but do not map tightly to the drawn layout."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with coherent lighting and generally tidy geometry. Minor issues: not strictly orthographic (noticeable perspective), and some openings/doors feel visually inconsistent with the 2D intent, reducing clarity as a verification render."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Living room boundary/partition differs: the 2D plan shows the living room more distinctly enclosed with a defined opening condition, while the 3D uses a different wall/partial-wall configuration, changing circulation."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing inconsistencies: multiple interior doors (notably along the central corridor/service strip) do not clearly match the 2D door swing directions and hinge sides."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement mismatch: at least one of the doors serving the right-side bedroom/office zone appears shifted relative to the corresponding wall segments in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: the 3D exterior windows (left facade and right facade) do not align with the 2D plan\u2019s indicated openings (top strip openings and kitchen-side opening positions)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: the left bedroom and central service areas appear resized compared with the 2D plan, contributing to altered furniture fit and circulation widths."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture element: the left bedroom in the 2D plan contains two single beds; the 3D render shows only one."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen fixture layout mismatch: sink/counter/cooktop arrangement in the 3D does not clearly match the 2D plan\u2019s bottom-right kitchen run and appliance placement."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/substituted furniture forms: the office desk geometry (curved corner workstation) and some cabinetry do not correspond to the 2D plan\u2019s furniture depiction."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall layout matches (living/dining left, kitchen top-left/center, utility top-right, toilet center-right, bedroom bottom-right, balcony bottom-left). However: Toilet area is reconfigured into two spaces in the 3D (toilet room + separate shower cubicle) vs single Toilet-1 in plan (E2/E5). Bedroom entry/door location appears shifted and/or left as an open passage without the shown swing placement from the plan (E2/E3). Window placement does not match: 3D adds a long multi-panel bedroom window along the bottom exterior wall not clearly indicated in the plan, and omits/does not clearly represent expected openings on other exterior walls (living/kitchen/utility) (E2/E5). Some proportion drift: toilet/utility zone depth and partitions look different from plan dimensions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall network broadly follows the plan footprint, but internal partitioning in the bath/shaft zone deviates: an extra enclosed shower-like room is introduced to the right of Toilet-1 (E5) and the right-side dashed-zone in plan (likely shaft/wardrobe) is not represented consistently (E2). Door embedding is inconsistent: multiple openings are modeled without door leaves/swings where the 2D specifies hinged doors (entry/toilet/bedroom) (E2/E6). Adjacencies mostly correct (kitchen-utility, living-balcony, living-bedroom), but bath subdivision changes functional adjacency and circulation (E2). No major missing primary rooms detected (living, kitchen, utility, toilet, bedroom, balcony all present)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Key furniture types are present and generally placed correctly (dining table in living, sofa seating, bed in bedroom). Some items differ from plan intent: added desk/workstation and additional cabinetry not indicated, and balcony furniture layout differs from the simple balcony depiction (E5/E2). Scale is mostly believable but some built-ins (wardrobe/cabinet runs) appear exaggerated compared to the plan\u2019s implied clearances (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera is consistent and readable. Lighting is clean and materials are coherent. Geometry is mostly clean with good visual clarity. Minor issues: door representations are inconsistent/absent (reads as incomplete modeling rather than design intent) (E6), and some wall/partition thicknesses appear uneven in the bath/utility cluster (E4)."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated separate shower cubicle/second bath compartment to the right of Toilet-1; the 2D plan shows a single Toilet-1 room with an adjacent dashed zone (likely shaft/wardrobe), not a second enclosed wet area."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/shaft-right-side partitioning does not match the plan: the right-side dashed region and its function/extent are not represented consistently in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom entrance placement and opening geometry differ from the 2D door location shown near the upper-left portion of Bedroom-1."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing information from the plan (entry/toilet/bedroom) is not followed; openings are modeled without matching hinged-door orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: 3D adds a long multi-panel bedroom window along the bottom exterior wall not clearly indicated in the 2D, and other exterior openings (living/kitchen/utility) are not clearly matched."
+        },
+        {
+            "code": "E4",
+            "description": "Local proportion distortion in the utility/toilet partition cluster (depths and wall offsets differ from the plan\u2019s stated dimensions and alignment)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/modeling omission: several specified doors are not fully modeled as door objects (no leaf/swing), reducing architectural fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan16.avif"
+}

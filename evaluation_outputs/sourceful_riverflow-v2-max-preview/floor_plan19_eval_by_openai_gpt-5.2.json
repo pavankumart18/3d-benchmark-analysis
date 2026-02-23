@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Overall building footprint in the 3D render is simplified into a near-rectangular shell and does not match the 2D plan\u2019s stepped/angled top edge with two decks. Several major room locations appear only approximately clustered (living zone left, bedrooms around), but internal wall layout and circulation do not align well with the plan. Door locations/orientations are not faithfully represented (openings are unclear and do not correspond to the plan\u2019s specific door positions), and window/door-to-deck placement on the north/top side is largely missing. Room proportions are not preserved (living/dining and bedroom bay sizes/offsets appear compressed and rebalanced)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Key adjacency relationships from the plan (decks connected to living/bed-1, kitchen\u2013utility relationship, and multiple toilets placed at specific corners) are not cleanly reproduced. Multiple small service spaces (utility/toilets/foyer/store/HO) are either missing or merged into ambiguous partitions. Wall thickness appears inconsistent and many walls read as soft/blurred masses, reducing confidence in correct wall/door embedding. Several planned rooms/spaces are absent, and the render also introduces ambiguous corridor-like partitions that do not clearly exist in the 2D layout."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and only loosely corresponds to the 2D plan. The 2D plan\u2019s dining table placement and kitchen/utility cabinetry runs are not clearly matched. Bed placements exist, but room-specific furniture arrangements (living seating composition, dining orientation, and built-ins) are not faithfully mapped. Some furniture appears underspecified and scale is inconsistent due to the blurred geometry."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Isometric viewpoint is broadly acceptable, but the render is very soft/blurred (geometry lacks crisp edges), which reduces visual clarity and makes verification difficult. Lighting is flat but not severely broken. Clean-geometry score is reduced due to apparent rendering artifacts and indistinct interior partitions. Composition is adequate but not informative for architectural fidelity."
+    },
+    "total_score": 36,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing both decks/balconies shown on the north/top side of the 2D plan (large deck off living/dining and smaller deck near Bed-1)."
+        },
+        {
+            "code": "E2",
+            "description": "Overall exterior footprint/outline is incorrect: 3D massing is too rectangular and does not reproduce the plan\u2019s stepped/angled north edge and offsets."
+        },
+        {
+            "code": "E1",
+            "description": "Utility space adjacent to kitchen (labeled UTILITY 5' x 11') is not clearly present or is merged into other partitions."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple toilets/bathrooms from the plan (TOI-1, C.TOI, TOI-4, and the small bottom toilet) are not distinctly and correctly represented as separate rooms in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen location/shape and its direct adjacency to dining/living and utility are not accurately laid out compared to the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement and orientation cannot be matched to the 2D plan: several planned door locations (foyer entry, bedroom doors, toilet doors, deck access) are missing or appear in different positions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count on external walls does not match the 2D plan, especially where large openings/doors should connect to the decks."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: the relative sizes of living/dining vs. bedrooms and the widths of circulation zones do not reflect the 2D dimensions/spacing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/ambiguous interior partitions create corridor-like spaces not clearly indicated in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Significant rendering blur/softness obscures wall edges and openings, reducing geometric reliability and creating apparent wall/furniture smearing."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan19.webp"
+}

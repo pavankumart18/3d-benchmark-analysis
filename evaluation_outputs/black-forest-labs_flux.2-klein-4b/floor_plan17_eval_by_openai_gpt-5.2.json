@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 7,
+        "max": 40,
+        "notes": "Major mismatch between 2D layout and 3D. The 2D plan is a 4-bedroom apartment with two balconies (living + master), a defined foyer, kitchen + utility, servant room, dress area, and multiple toilets. The 3D render shows a simplified layout with fewer distinct rooms (appears closer to ~2 bedrooms), different wall geometry (curved/angled partitions not present in plan), and lacks the balcony interfaces. Door locations/orientations and window openings do not correspond to the plan\u2019s perimeter and balcony doors. Overall room sizing and circulation proportions are significantly distorted (living/dining overly dominant; bedroom wing configuration not preserved)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Wall thickness looks somewhat consistent in the render, but the partition network does not follow the plan\u2019s adjacency relationships (bedroom cluster + toilets + dress). Multiple required spaces are missing, and some newly introduced wall shapes create non-existent circulation. Door embedding is incomplete/incorrect relative to the plan (several openings absent or placed differently). The model also appears to introduce undefined rooms/spaces not labeled in the plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Living room seating cluster and a dining table exist, but they do not align well with the plan\u2019s furniture arrangement and room boundaries. Several rooms that should contain beds (Bedrooms 2/3/4) are not clearly present, so furniture-to-room mapping is largely unfaithful. Furniture scale is generally plausible within the rendered spaces, but because room sizes are distorted, the overall mapping is inaccurate."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Lighting is clean and the model is visually readable. However, the camera appears more perspective than true isometric/orthographic. Geometry is mostly clean, but the use of curved/irregular walls reduces clarity relative to the rectilinear plan and contributes to perceived distortion. Overall presentation is decent despite poor plan fidelity."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing both balconies shown in the 2D plan (living balcony and master bedroom balcony)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bedrooms 3 and 4 as distinct rooms per the 2D plan (3D shows fewer bedrooms than required)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dedicated dress room/area attached to the master bedroom as labeled in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing utility and servant room block shown adjacent to kitchen/foyer area in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing several toilets/bathrooms shown in the plan (multiple WC blocks not represented as separate enclosed rooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/foyer zone placement does not match the plan\u2019s lower-left entry/foyer-to-kitchen relationship; circulation is rearranged."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom wing placement and adjacency (Bed 2/3/4 relative to dining corridor and toilets) does not match the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation is inconsistent with the plan (several planned doorways are absent or relocated; bedroom/toilet access points differ)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is largely incorrect/insufficient: the plan indicates multiple exterior windows and balcony doors, but the 3D shows few or none in corresponding locations."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: living/dining areas appear oversized relative to bedroom/service areas compared to the dimensioned plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated curved/angled interior partitions and open zones not present in the rectilinear 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan17.jpg"
+}

@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Bedroom, living/dining, kitchen, toilet, and utility are generally in the correct relative quadrants, but multiple layout details deviate: the foyer area at the main entry is not clearly represented as a distinct space (E1/E2). Several interior wall lines/offsets (notably around the toilet/utility/kitchen junction) do not match the 2D plan\u2019s partitions and duct alignment (E2). Door locations/hinge orientations are inconsistent or absent (toilet/utility), and balcony access is not clearly modeled as in plan (E1/E2). Room proportions appear shifted: living/dining reads oversized while kitchen/utility junction depth/width differs from plan dimensions (E4). Window placement is partially matched on the left fa\u00e7ade but does not faithfully reproduce all plan openings/positions (E2)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness looks visually consistent, but the structural partitioning around the service core (toilet/utility/duct) differs from the plan (E2). Adjacencies are partly correct (kitchen next to utility; bedroom adjacent to toilet), yet the foyer-to-living relationship is altered (foyer not clearly separated) (E1/E2). Toilet and utility doors are not correctly embedded/represented per the 2D door swings (E1/E2/E3). No clear additional full room is added, but the balcony/foyer representation introduces ambiguous/incorrect spatial constructs (E5 risk for the balcony/entry void)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types roughly correspond (bed in bedroom; dining set in living; kitchen counters/appliances), but placement does not tightly follow the 2D plan (e.g., living seating/TV alignment and balcony-side arrangement) (E2). Scale is generally plausible, though living/dining reads disproportionate relative to furniture compared to the plan (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric view is generally correct and readable. Projection feels mostly consistent, lighting is adequate, and geometry is fairly clean. However, some wall intersections/offsets around the service core look visually awkward/overcomplicated relative to the simple 2D plan (E6), and openings (doors/windows) are not clearly communicated, reducing clarity."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer (4'6\"x3'10\") is not clearly represented as a distinct entry space; main entry appears to open directly into living/dining."
+        },
+        {
+            "code": "E1",
+            "description": "Toilet door is missing or not clearly modeled according to the 2D plan (door swing/leaf not shown)."
+        },
+        {
+            "code": "E1",
+            "description": "Utility access door/opening is not clearly represented as in the 2D plan (door/threshold ambiguous)."
+        },
+        {
+            "code": "E2",
+            "description": "Service-core wall layout (toilet/duct/utility/kitchen junction) does not match the 2D plan\u2019s partition alignment and offsets."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony configuration and/or connection from living area is not faithfully matched; balcony reads as an ambiguous recessed space rather than the defined 4' wide balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements are only partially consistent; left fa\u00e7ade windows appear, but overall window positions/openings do not clearly match the plan (including kitchen/utility/toilet ventilation openings)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/hinge logic does not match the 2D plan where doors are present (notably around toilet/utility/entry)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining appears enlarged relative to bedroom and the kitchen/utility zone compared with the plan dimensions."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering/clarity artifact: interior openings (doors/windows) are not clearly delineated, making structural reading weaker than the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan18.jpg"
+}

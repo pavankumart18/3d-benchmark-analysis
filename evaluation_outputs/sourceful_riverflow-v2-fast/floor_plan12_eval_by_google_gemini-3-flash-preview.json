@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe deviations in room placement. The activity area and balcony configuration are fundamentally altered. Window and door placements do not correspond to the floor plan logic, particularly in the bedrooms and bathroom core."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The model hallucinations additional internal walls and corridors not present in the 2D layout. The staircase/activity area is largely ignored in favor of a generic room grid. Adjacency for Bed 2 and the Bathroom is incorrect."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture exists but does not align with the 2D plan's designated locations (e.g., Bed 2 placement is flipped, Activity sofa is missing or replaced with ambiguous blocks)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render quality is high with clean clay-style materials and soft lighting. Isometric camera angle is well-executed despite the underlying structural inaccuracies."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase and specific balcony balustrade details."
+        },
+        {
+            "code": "E2",
+            "description": "Bath and WC orientation completely mismatched from the central core."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion of Bed 4 and Activity area are compressed/distorted."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated internal partition walls dividing the main activity space."
+        },
+        {
+            "code": "E2",
+            "description": "Window openings placed on solid wall sections identified in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan12.png"
+}

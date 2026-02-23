@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major spatial failures: The separate garage module has been fused into the main living structure or replaced by an additional room. Window placements significantly deviate from the floor plan (e.g., lounge area should have one sliding door to balcony, not multiple windows)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The floor plan shows a specific layout for Bath, WC, and Laundry which are completely distorted in the 3D render. The entry/linen closet annex is missing from the 3D structure."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture appears hallucinated and does not match the room labels; lounge and dining zones are filled with generic table-like objects that ignore the indicated circulation paths."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The render has good visual clarity, consistent isometric projection, and soft lighting, though it fails as an architectural representation of the specific provided plan."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry/linen closet protrusion at the bottom left of the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior windows on the left wall of the lounge area where none exist in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The detached garage has been merged/replaced with a room sharing a wall with the main structure."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bathroom fixtures and kitchen cabinetry does not align with the 2D schematic."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the hallway and transitional dining area are significantly widened compared to the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan13.jpg"
+}

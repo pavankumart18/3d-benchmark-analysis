@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (living/dining left-center, bedrooms right, master top, balconies present), but multiple plan-to-model deviations: (1) Foyer\u2013kitchen boundary is altered into a curved/angled partition not shown in the 2D plan (E5/E2). (2) Several door openings are simplified/relocated (notably around kitchen/foyer, dining-to-bedroom passage, and bathroom entries), with missing swing/orientation fidelity (E2/E3). (3) Window placement is incomplete/ambiguous on exterior walls versus the plan\u2019s indicated openings (E1/E2). (4) Corridor and bathroom proportions appear compressed/reshaped relative to the plan, affecting the central service core and right-side bedroom cluster (E4)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent, but plan-accurate adjacency/embedding is not fully preserved: (1) The small entry-side toilet near the foyer (and/or its exact compartmenting) is not clearly represented as a distinct room in the 3D (E1). (2) Door embedding between tight wet areas and the passage is inconsistent with the plan (several openings appear widened/shifted) (E2). (3) Central toilet cluster/powder room segmentation near dining/bedroom-4 zone appears consolidated or rearranged versus the 2D partitions (E2/E4). No clearly added full extra rooms, but added non-plan partitions/forms are present."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living and dining furniture is broadly consistent with the plan\u2019s intent (sofa grouping in living, dining table centered). Bedroom beds are present but some orientations/placements do not tightly follow the 2D layout (E2/E3). Kitchen cabinetry/appliance placement is stylized and does not strictly match the plan\u2019s counters and fixture positions (E2). Some furniture scale (chairs/sofas) appears oversized relative to circulation widths (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is clear and generally correct; geometry is clean with good lighting and readable room separations. Minor issues: slight perspective/orthographic inconsistency (more perspective than strict axonometric) and some softened/rounded geometry that obscures exact plan compliance (E6). Composition and material clarity are good."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated/unsupported curved or angled partition at the foyer\u2013kitchen boundary; 2D plan shows rectilinear walls."
+        },
+        {
+            "code": "E1",
+            "description": "Entry-side small toilet near the foyer is not clearly present as a distinct enclosed room in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple door openings appear shifted/widened/simplified versus the 2D plan, especially around the dining-to-bedroom passage and wet-area entries."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing fidelity is not preserved (several doors are missing or shown as open passages without correct directionality)."
+        },
+        {
+            "code": "E1",
+            "description": "Several exterior windows indicated in the 2D plan are missing or not placed clearly in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/extent on some bedroom exterior walls does not match the plan\u2019s marked openings."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in central corridor/service core: bathrooms and passage widths appear reshaped/compressed relative to plan partitions."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/stylization (rounded forms/soft edges) reduces verifiability of exact wall/door alignment against the plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan17.jpg"
+}

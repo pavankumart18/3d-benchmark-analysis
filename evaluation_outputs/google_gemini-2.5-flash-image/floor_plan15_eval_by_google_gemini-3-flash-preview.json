@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Door swings in Bedroom-2 and primary toilets are incorrectly oriented. Room proportions for the kitchen and utility area are distorted, appearing narrower than the plan specs."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Missing structural niches in the master bedroom and living room. Column indicators from the 2D plan are modeled inconsistently as flat wall sections."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture layout adheres to plan, but dining table scale is slightly oversized, obstructing the passage flow compared to the 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with consistent orthographic projection. Lighting and shadows are clean, though text labeling is slightly blurred."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Incorrect door leaf orientation in several internal rooms (Bedroom-2 entrance and Toilet)."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen and Utility area dimensions are compressed compared to the 2D floor plan ratio."
+        },
+        {
+            "code": "E1",
+            "description": "Missing niche detailing on the external wall of the Master Bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet fixtures in the central bathroom are slightly offset from the plumbing wall specified in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan15.webp"
+}

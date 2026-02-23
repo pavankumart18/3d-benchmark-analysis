@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major structural deviations present. The 3D render has failed to place the windows and doors in their correct cardinal positions. The central bathroom unit is significantly undersized and lacks the required layout. Staircase orientation is incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Bathroom is hallucinated as a tiny cubicle rather than a 3x2 room with standard wall thickness. The back-to-back room partitioning is absent, creating a single open hall instead of defined Dining/Living zones. Door embedding is clean but locations are inaccurate."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen cabinetry is roughly in the correct corner, but the specific stove and sink layout from the 2D plan is simplified. Stair treads are oversized compared to the plan's count."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render has high visual clarity, correct orthographic/isometric perspective, and professional lighting. Geometry is clean despite the plan inaccuracies."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Entrance door is shifted to the left and placed on a projected wall section not in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Central bathroom core is significantly smaller than the 3' x 2' specified dimensions."
+        },
+        {
+            "code": "E3",
+            "description": "Staircase direction is inverted or misaligned compared to the 2D plan layout."
+        },
+        {
+            "code": "E5",
+            "description": "A window is hallucinated on the left staircase wall where the plan shows a solid exterior wall."
+        },
+        {
+            "code": "E1",
+            "description": "Double-swing doors for the Dining area are missing, replaced by a single window."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan3.jpg"
+}

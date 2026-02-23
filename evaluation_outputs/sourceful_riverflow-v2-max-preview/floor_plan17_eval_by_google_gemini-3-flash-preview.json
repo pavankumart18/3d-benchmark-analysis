@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but window openings in the bedrooms are simplified or missing (E1). Door orientation for the foyer and utility areas shows minor deviations (E3)."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Most rooms are present, but the 'Ser. Rm' and connected 'Tol' in the bottom left are significantly simplified and merged with the utility area (E1/E4). Wall thickness is generally consistent."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement mapping is highly accurate to 2D plan, including specific orientations of beds and the dining cluster. Scale is consistent across rooms."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric projection and neutral lighting. Text textures are hallucinated/garbled (E6), but the geometry is clean and lacks major distortion."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific bathroom fixtures and detailed window apertures in bedrooms."
+        },
+        {
+            "code": "E4",
+            "description": "Service room and lower-left utility corner proportions are distorted compared to 2D spec."
+        },
+        {
+            "code": "E6",
+            "description": "Text labels on the floor surface are rendered as illegible artifacts."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance foyer door swing and utility threshold orientation errors."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan17.jpg"
+}

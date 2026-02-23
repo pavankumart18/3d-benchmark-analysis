@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall layout resembles a 2-bed unit with central living and two balconies, but multiple plan-level mismatches are present. (E2) Foyer/entry sequence at bottom-right of 2D plan is not clearly formed in 3D (entry reads as a large open cut-out rather than a defined 4'6\"x3'8\" foyer + short passage). (E2/E4) Living/Dining (15'x21'4\") appears compressed and more square in 3D; circulation widths and room aspect ratios do not match the long central hall-like proportion shown in 2D. (E2) Kitchen placement is generally correct (bottom-left), but its enclosure/opening lines differ from 2D (missing/shifted partial walls). (E3/E2) Several door orientations/hinge locations do not match the 2D swings; some openings are rendered as cased openings without clear door leaves where the plan shows doors. (E2) Window/slider placement to balconies and external walls does not consistently match the 2D window runs (notably along living-to-deck and bedroom exterior walls)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Key adjacencies mostly exist (living center, bedrooms on left/right, toilets near bedrooms, utility near kitchen), but plan fidelity is weak. (E1) The foyer as a distinct bounded space is effectively missing/merged into a large void/opening. (E2) Bathroom blocks are not clearly located/partitioned exactly as in 2D (common toilet vs TOI-1 arrangement/door access reads differently). (E2) Several interior partitions (around entry and living) do not align with 2D wall lines, indicating wall alignment errors. (E6) Door embedding is inconsistent (some planned doors appear absent or rendered as open passages). No clearly hallucinated additional rooms, but partitions/furnishings create implied zones not present in 2D."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture is plausible but not plan-faithful. (E2) Living seating configuration and dining placement do not match the 2D layout depiction (sofa/TV/dining positions differ). (E4) Some furniture scales (sofa/bed clearances) suggest different room sizes than the stated dimensions. Kitchen cabinetry/appliance linework is simplified and does not match the exact 2D counter runs."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is clear and readable with good lighting and generally clean geometry. Minor issues: (E6) some openings/edges read unfinished (notably at the entry cut-out), and orthographic/isometric consistency is good but not perfectly aligned to the 2D plan proportions."
+    },
+    "total_score": 57,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer/entry space shown in 2D (4'6\"x3'8\" with a short passage) is not represented as a distinct enclosed area in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Living/Dining proportions are distorted: the long 15'x21'4\" space in 2D reads notably more compact/square in 3D, affecting circulation widths."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall alignments around entry/living/kitchen do not match the 2D partition lines; openings appear shifted relative to the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements and/or swing orientations are inconsistent with the 2D plan; several planned doors are not clearly modeled with correct hinge/swing."
+        },
+        {
+            "code": "E2",
+            "description": "Window/slider placement along exterior walls and balcony interfaces does not consistently match the 2D window runs (notably at living-to-deck and bedroom exterior walls)."
+        },
+        {
+            "code": "E6",
+            "description": "Some door/opening embeddings appear as unmodeled cased openings (missing door leaves/frames), reducing plan-accurate readability."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom block access/partitioning reads differently than the 2D (common vs TOI-1 relationship and door access not clearly matching)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan14.webp"
+}

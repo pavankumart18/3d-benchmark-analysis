@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout violations. The staircase is inverted and placed in the central living area rather than against the utility wall. The WC/Kitchen relationship is severed by hallucinated corridors. Bay window in dining room is missing."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The utility room and pantry walls are missing or merged. Hallucinated doors added to the central stair block. Window placements on the bottom facade do not match the specified rhythm in the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Kitchen cabinetry is simplified and lacks the correct L-shaped configuration. Bathroom fixtures are placed in incorrect rooms. Scale of the 'island' structure is arbitrary."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean isometric rendering with consistent lighting and soft shadows. Geometry is clean despite the architectural inaccuracy."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Dining Room bay window (Window Seat area)."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase misplaced and inverted compared to technical drawing."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance doors and internal circulation paths oriented incorrectly."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen counter and pantry proportions significantly distorted."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated central wall block with extra doors not present in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan11.png"
+}

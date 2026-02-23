@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "Room placements are mostly correct. Wall alignment is generally good but the Balcony wall is missing, and the Garage is shifted. Doors are mostly in the correct positions but some orientations may be off or missing. Window placements are partially incorrect. Room proportions for Dining and Lounge areas seem distorted relative to the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness appears consistent. Door embeddings are mostly correct, but some are missing. The 'Balcony' room is missing, as is the entire external structure for the 'Garage' which is also hallucinated internally. Adjacency relationships are largely maintained except for the missing Balcony and the shifted Garage area."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement within visible rooms appears accurate, matching the plan's icons. Scales seem consistent."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection are good. Lighting quality is acceptable. Geometry is clean with no significant distortions. Visual clarity and composition are good despite the structural errors."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony room and its associated external wall."
+        },
+        {
+            "code": "E2",
+            "description": "Garage room is misplaced and shifted inwards, no longer a separate external structure."
+        },
+        {
+            "code": "E5",
+            "description": "Garage has been hallucinated as an internal room adjacency rather than an external structure."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room dimensions appear distorted; the floor plan shows Dining 3.3 x 3.1 and Lounge 2.8 x 3.3, but the render shows Dining 3.8 x 3.1, changing its proportion and overall size."
+        },
+        {
+            "code": "E2",
+            "description": "The window on the left side of 'Linen' room is missing on the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "The exterior wall of the Garage on the bottom right side has a window in the 3D model, but none is present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Windows for Bedroom 1 and Bedroom 2 are incorrectly placed and sized. The 2D plan indicates a single large window for each, while the 3D render shows two smaller windows for each."
+        },
+        {
+            "code": "E3",
+            "description": "The orientation of the door between the Dining room and the Bathroom corridor is ambiguous or potentially incorrect."
+        },
+        {
+            "code": "E1",
+            "description": "The arrow indicating access to the Balcony is present, but the Balcony itself is missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan13.jpg"
+}

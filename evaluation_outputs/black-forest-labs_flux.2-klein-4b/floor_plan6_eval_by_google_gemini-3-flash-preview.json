@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major wall alignment failures. The kitchen island orientation is incorrect (90-degree rotation). The staircase has been replaced with a vague hallway/storage area. Window placement is completely inconsistent with the 2D layout."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The staircase is entirely missing (E1). The entrance door and hallway configuration are structurally distorted. Several interior walls are missing or rendered as curved/detached segments, failing to create sealed rooms."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The bed shape is hallucinated as a hexagon (E5). The dining table scale is small, and the sofa in the living area is improperly aligned with the window walls."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Good lighting and soft shadows. The isometric perspective is generally correct, but 'melted' geometry at wall junctions (E6) and non-orthographic wall thicknesses significantly detract from the technical quality."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Entire staircase at the right-wing of the plan is missing/replaced with a corridor."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island is rotated incorrectly and lacks the sink/counter integration shown in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom dimensions and dining area proportions are significantly distorted compared to the master plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated hexagonal bed frame and curved wall segments not present in the original 2D architectural drawing."
+        },
+        {
+            "code": "E6",
+            "description": "Incomplete wall junctions and floating geometry near the bathroom and entrance area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan6.jpg"
+}

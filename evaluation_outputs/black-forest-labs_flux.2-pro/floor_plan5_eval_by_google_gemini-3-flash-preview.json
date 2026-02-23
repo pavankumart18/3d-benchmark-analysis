@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is highly consistent. Doors and windows are located correctly in relation to floor plan partitions, though there is minor distortion in the depth of the center-right bedroom suite."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Walls are modeled with consistent thickness and all rooms from the 2D blueprint are present. No major hallucinations detected in structural components."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent mapping of furniture types to their designated spots. Scale of the central dining set is slightly reduced compared to the 2D plan representation."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Professional isometric render with clean geometry and soft shadows. Minimal aliasing and clear orthographic perspective."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion in the central dining area; table and chairs appear smaller relative to the room floor space than depicted in the blue-print."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error for the rug/table in the far left terrace area; the 3D model slightly rotates the furniture set compared to the strict parallel alignment in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan5.jpg"
+}

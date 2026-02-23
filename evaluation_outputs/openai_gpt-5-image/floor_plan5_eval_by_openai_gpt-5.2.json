@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout mismatch between 2D plan and 3D. Several interior walls are not aligned to the plan (notably the curved/arched partitions in the 3D vs straight walls in 2D) (E2/E5). The plan\u2019s distinct room blocks on the left/top-left and right side do not match the 3D room placement (E2). Main entry on the bottom side is shown as a double door in 2D but becomes a large arched opening without matching door geometry in 3D (E2/E1). Window positions and counts do not correspond closely to the plan (E2/E5). Central living/dining proportions appear significantly altered (over-enlarged) relative to adjacent rooms (E4)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Perimeter footprint differs: the 2D plan shows exterior offsets/projections (e.g., small bumps/porch-like extensions) that are not represented; 3D outer shell reads as a simplified rectangle (E1/E2). Multiple walls in 3D are curved where the plan uses orthogonal straight segments (E5). Door embedding/orientation is inconsistent: many 3D doors are placed generically on walls without matching swing-side and exact openings from 2D (E2/E3). Adjacency fidelity is weak (bath/bed/hall relationships appear rearranged) (E2). At least one bathroom/utility space from the 2D is not clearly present as a properly enclosed room in 3D (E1)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not map cleanly to the plan: 3D includes two dining tables (one near center/top and another at bottom) whereas the plan indicates a single primary dining placement in the central space (E5/E2). Bedroom furnishing and kitchen layout do not follow the plan\u2019s fixture/counter shapes closely (E2). Scale is inconsistent (central furniture appears undersized relative to the enlarged central room) (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is visually clean with coherent materials and decent lighting. Isometric-style camera is acceptable, though reads slightly perspective-biased rather than strictly orthographic/isometric (E6). Geometry is generally clean, but the curved/arched walls and openings introduce stylistic distortions relative to architectural orthogonality (E6/E5). Overall clarity is good."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Overall room placement does not match the 2D plan (left/top-left and right-side room blocks appear rearranged in 3D)."
+        },
+        {
+            "code": "E5",
+            "description": "Curved/arched interior walls and openings appear in 3D where the 2D plan shows straight orthogonal walls."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance on bottom side: 2D shows a centered double door; 3D shows a large arched opening without matching door placement/geometry."
+        },
+        {
+            "code": "E1",
+            "description": "Exterior footprint projections/offsets visible in the 2D plan are missing or overly simplified in the 3D perimeter shell."
+        },
+        {
+            "code": "E2",
+            "description": "Interior door locations are inconsistently placed versus the 2D openings (several doors appear shifted to more central wall positions)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing logic from the 2D plan is not respected in the 3D (generic door placement without correct handedness)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count does not correspond to the 2D plan; several windows appear added or relocated on exterior walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hall/partition geometry suggests additional or altered circulation spaces not present in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "At least one bathroom/utility room indicated in the 2D plan is not clearly represented as an enclosed, correctly placed room in the 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: central living/dining area appears disproportionately large compared to surrounding rooms relative to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Extra dining setup: 3D shows an additional dining table not indicated in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Camera/projection is not strictly orthographic/isometric; slight perspective feel reduces architectural verification clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan5.jpg"
+}

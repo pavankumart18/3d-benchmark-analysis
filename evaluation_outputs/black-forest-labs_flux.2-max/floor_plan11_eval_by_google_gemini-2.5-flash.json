@@ -1,0 +1,148 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Alcove area appears significantly altered. Wall alignment is generally good, but some interior walls are missing or incorrectly placed. Door and window placements are frequently incorrect or missing. Room proportions are distorted, particularly in the Alcove and WC areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly for interior walls and dividing elements. Many interior doors are not correctly embedded or are missing. Adjacency relationships are frequently incorrect due to missing walls and altered room layouts. Several rooms, such as the 'Central Hall' are not clearly defined or are missing walls, and the 'Crawlspace Access' is completely missing. A significant portion of the 'Alcove' wall is missing. Hallucinated elements include curved walls in the Alcove/Stair area and a curved counter in the Kitchen."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in several rooms, especially the Utility Room, WC, and Alcove. The scale of some furniture items, like the sinks and toilets, appears inconsistent, and kitchen appliances are inaccurately represented or scaled."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera angle is correct, and orthographic projection appears accurate. Lighting quality is decent, but some areas are too dark. Geometry is generally clean, but there are some visible distortions in complex areas like the stairs and the window seat. Visual clarity is good, but the composition could be improved by highlighting missing or inaccurate elements less subtly."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing wall for 'Central Hall' defining the 'WC' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Crawlspace Access' in the Utility Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between the 'Utility Room' and the 'Central Hall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'HVAC' unit in the Utility Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing interior wall separating a portion of the 'Alcove' from the stairs."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door in the 'Alcove' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall between 'Central Hall' and stairs."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'WC' from 'Central Hall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the 'WC'."
+        },
+        {
+            "code": "E1",
+            "description": "One window missing above the 'Breakfast' nook (Kitchen area)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the 'Pantry'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Pantry' (should open inwards, not as a pocket door or completely open)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced refrigerator ('REF') is not built-in as per plan and placed differently."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced stove/cooktop in 'Kitchen' area with different configuration of counters/island."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced sink in the 'Kitchen' area; positioning and number of sinks are incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced washing machine ('W') and dryer ('D') in 'Utility Room'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced toilet and sink in 'WC'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced stairs and landing configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and altered layout of the 'Alcove' area, including benches and tables."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and altered layout of the 'Dining Room' windows with an added central structural element and different window quantities/design."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the sink in 'Utility Room'."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the toilet in 'WC'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'WC' area, appears smaller."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Alcove' area, appears significantly smaller and reconfigured."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Dining Room' width due to altered window configuration."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated curved wall/boundary in the 'Alcove' area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated curved counter/pass-through element in the 'Kitchen' area not present in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated central structural column/element in the 'Dining Room' window bay."
+        },
+        {
+            "code": "E6",
+            "description": "Unclear geometry for stairs, appearing distorted or incomplete at the bottom."
+        },
+        {
+            "code": "E6",
+            "description": "Jagged edges or rendering artifacts visible around some furniture items (e.g., in WC, Utility)."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan11.png"
+}

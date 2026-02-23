@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout resembles the plan (dining top-left, kitchen top area, bedroom left, stair zone bottom-right), but several key spatial mismatches exist. The dedicated entrance/foyer at the top-right with the double-door entry shown in 2D is not clearly present in the 3D (E1/E2). The right-side main room is labeled/treated as a different space (\u201cWash room\u201d) rather than the Living Room and its boundaries/read are inconsistent with the 2D living room footprint (E2/E5). Kitchen geometry appears simplified to a near-rectangle and does not preserve the 2D plan\u2019s wall offsets/notches and relationships to the entry zone (E4/E2). Internal circulation and the central core (wash/toilet) alignment appears shifted relative to the hall/living connection shown in 2D (E2)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Adjacency is partially correct (bedroom near wash/toilet core; dining adjacent to kitchen zone), but the 2D entrance-to-living relationship and entry enclosure are not faithfully modeled (E1/E2). Several walls appear reinterpreted, producing different room boundaries (notably the right-side main room) (E2). Door integration is unclear/incomplete: the 2D shows a prominent double entry door and specific internal doors to bedroom/wash; the 3D does not convincingly match these placements/orientations (E2/E3). Potential hallucinated room labeling/function (\u201cWash room\u201d as a large right-side space) not supported by the 2D (E5)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Dining table/chairs and bed are present in roughly corresponding rooms, but the Living Room seating arrangement from 2D is missing/not mapped (E1). Furniture quantity/detail and scale cues are inconsistent (e.g., right-side main room largely empty vs. 2D living furniture) (E1/E4)."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and the model is readable. Lighting is flat and materials are minimal. Geometry is generally clean, but the presentation lacks clarity on doors/entry and fine architectural elements (door swings/frames) which reduces interpretability. Window slits are stylized and not clearly matched to the plan."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/unclear dedicated top-right entrance/foyer area shown in 2D (\u201cEntrance to the House\u201d) including the prominent double-door entry."
+        },
+        {
+            "code": "E2",
+            "description": "Right-side main room does not match the 2D Living Room footprint/definition; circulation and boundaries read differently in 3D."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated or incorrect room designation: large right-side space labeled/treated as \u201cWash room,\u201d which is not a room in the 2D plan (wash area is a small central room)."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen proportions/shape simplified in 3D; 2D plan shows more specific wall offsets/notches and a different relationship to the entrance zone."
+        },
+        {
+            "code": "E2",
+            "description": "Wash area + toilet core placement/alignment appears shifted relative to surrounding hall connections compared with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements/orientations do not clearly match the 2D (notably the entry double-door and internal doors to bedroom/wash/toilet)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is not verifiably consistent with the 2D plan; the 3D uses generic slit windows that do not clearly correspond to the plan\u2019s window locations/lengths."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Living Room furniture layout shown in 2D (sofa/chairs/side tables), reducing functional fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan7.jpg"
+}

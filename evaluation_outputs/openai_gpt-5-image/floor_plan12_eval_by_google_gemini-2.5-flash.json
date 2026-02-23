@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "The 3D render completely deviates from the 2D floor plan. Room placements are incorrect, wall alignments are wrong, many doors and windows are missing or misplaced, and room proportions are not preserved. No structural elements from the original plan are accurately represented."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "No structural fidelity is maintained. Wall thickness consistency is not comparable due to complete structural deviation. Doors and windows are largely missing or incorrectly embedded. Adjacency relationships are entirely different. All rooms from the 2D plan are missing, and many hallucinated rooms/areas are present in the 3D model."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "No furniture from the 2D plan is present in the 3D render. The 3D render features entirely different furniture and layouts that do not correspond to the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera is mostly correct, and the orthographic projection is reasonable. Lighting quality is basic, and geometry is clean but overly simplified. Visual clarity and composition are moderate for the rendered elements, but the content is completely irrelevant to the source."
+    },
+    "total_score": 10,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing all rooms: ACTIVITY, BATH, WC, BED 4, BED 3, BED 2, BALCONY."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all doors, including front door, internal doors for bedrooms, bathrooms, and activity area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows depicted in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing staircase ('DN'), 13c HIGH CAPPED WALL, RECESS, LINEN closet, ROBE closets."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the 'WALL TO 21c AFL' and 'BALUSTRADE'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced walls and partitions, resulting in a completely different floor plan layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'living room' with two large sofas, no corresponding area on the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'dining area' with a table and chairs, no corresponding area on the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'kitchen area' with stove and island, no corresponding area on the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'bathroom/toilet' area with different fixtures and layout from the plan's BATH/WC."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'garage' area with a car, not present on the depicted floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion of all implied spaces due to complete structural deviation."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan12.png"
+}

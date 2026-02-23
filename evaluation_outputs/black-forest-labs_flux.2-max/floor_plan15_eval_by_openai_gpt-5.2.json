@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall zoning roughly resembles the plan (3 bedrooms distributed left/center-right, living/dining central, kitchen at right, balconies at left and top), but the internal wall layout deviates substantially. The 2D plan\u2019s straight wide passages (left 1.10m, right 1.05m) are not preserved; the 3D introduces curved partitions and an open-flow core that changes room boundaries and circulation. Multiple doors shown in plan (powder/P-toilet, bedroom/toilet doors, kitchen door) do not match the 3D positions/orientations. Window placement is simplified/unclear compared to the plan\u2019s defined exterior openings. Room proportions (notably corridors, toilets, and kitchen/utility) appear distorted relative to the 2D dimensions."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness looks visually consistent in the render, but plan-level structural fidelity is weak: several partitions are reshaped/relocated (curved/arched segments not in plan), changing adjacency and access logic. The plan indicates multiple toilets (including a small P-toilet near entrance and other toilets near bedrooms); the 3D does not clearly represent all of them as distinct enclosed rooms with correct doors. Kitchen/utility separation is not clearly maintained as a distinct enclosed utility room. Some correct adjacencies remain (balcony off living, bedroom wings), but several internal boundaries/door embeddings do not match the 2D."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is plausible but not mapped to the plan: the 2D shows conventional enclosed kitchen and defined dining/living arrangement, while the 3D uses a more open kitchen/island-like setup and generic bedroom layouts. Scale is generally consistent visually, but placement does not faithfully follow the 2D layout and room extents (especially around dining/kitchen and corridor areas)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera is coherent and the model is visually clean with good lighting/shadows and readable composition. However, it is not an orthographic-accurate translation of the plan (stylized curved geometry and open-plan treatment reduce projection fidelity). Geometry appears mostly clean with no major mesh artifacts."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated curved/arched interior partitions around the central circulation/living area; the 2D plan uses straight walls and straight passages."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the plan\u2019s two wide passages (left and right) are not preserved as straight corridor segments; circulation area appears widened/reshaped."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear dedicated P-toilet near the entrance as a distinct enclosed room with correct door (present in 2D plan)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear full set of toilets shown in plan (plan indicates multiple separate toilets; 3D does not clearly show all as enclosed rooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement mismatch for interior rooms (bedroom and toilet doors do not align with the 2D door locations along the passages)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing logic is inconsistent with the plan in the central area (arched/open entries replace planned hinged door placements)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen boundary/entry differs: the 2D shows a more enclosed kitchen with a defined doorway; 3D depicts a more open kitchen connection."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room separation is missing/unclear (2D shows a distinct utility adjacent to kitchen; 3D does not clearly enclose it as a separate room)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is simplified/does not match the plan\u2019s specific exterior window positions, especially along bedroom and kitchen/utility exterior walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture/layout elements (e.g., island/open kitchen arrangement) not supported by the 2D plan\u2019s interior mapping."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan15.webp"
+}

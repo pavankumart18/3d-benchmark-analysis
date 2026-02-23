@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Door placement is majorly incorrect; the entry door is an open gap and internal doors swing the wrong direction. Window counts do not match the floor plan (missing windows in the left bedroom and kitchen area)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Living room partition wall is unconnected to the secondary wall, creating a structural gap not present in the CAD. Bathroom layout is simplified, losing the specific fixtures' positions."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture scale is generally consistent, but the kitchen counter layout is mirrored/flipped compared to the plan, and the living room seating orientation is rotated 90 degrees."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "High quality rendering with clean geometry and consistent lighting. Isometric perspective is well-executed despite architectural inaccuracies."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen stove and countertops are misplaced/mirrored relative to the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Living room sofa and TV unit are rotated 90 degrees from the original design."
+        },
+        {
+            "code": "E3",
+            "description": "Inner doors swing inward/outward incorrectly compared to the 2D CAD swing arcs."
+        },
+        {
+            "code": "E1",
+            "description": "Missing large window on the left-side wall of the twin bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Entry door is rendered as an open gap without a frame or door leaf."
+        },
+        {
+            "code": "E4",
+            "description": "The living room divider wall is shortened, failing to meet the vertical wall as shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan2.png"
+}

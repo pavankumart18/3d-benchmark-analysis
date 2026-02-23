@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct, but there is significant door placement error in the hallway and bedroom 2 transitions. Some window apertures on the right facade do not align perfectly with the source plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Missing the wall partition for the closet in Bedroom 1. The laundry room entrance is widened inaccurately. Hallucinated a second toilet/partition area in the bathroom suite."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Good kitchen cabinetry and bedroom 1 placement. Bedroom 2 furniture is simplified and slightly misplaced. Dining chairs are slightly oversized compared to the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High quality rendering with consistent lighting and clean geometry. The orthographic/isometric perspective is well-executed."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing closet partition wall in Bedroom 1."
+        },
+        {
+            "code": "E2",
+            "description": "Hallway doors to bathroom and laundry shifted or merged incorrectly."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated an extra toilet and partition wall within the main bathroom area."
+        },
+        {
+            "code": "E4",
+            "description": "Laundry room doorway width is distorted relative to the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Interior door wing direction in Bedroom 2 does not match the source diagram."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan4.jpg"
+}

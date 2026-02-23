@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Bathroom and coat closet walls are misaligned. The external wall for Rachel's Bedroom and Bathroom is not straight. The main entrance door is misplaced. Window placements are largely off, especially in Rachel's bedroom and bathroom. Room proportions, particularly in the living/dining area, appear slightly compressed."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially for the exterior walls. The main entrance door is not embedded correctly and appears as an internal door. Adjacency relationships are mostly correct, but the hallway leading to Monica's bedroom has issues. No missing or hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement within rooms is generally accurate, but scale consistency for some items (e.g., dining chairs, kitchen appliances) is slightly off. Kitchen counter extension is missing, and the living room carpet is a different shape. Some minor furniture items like the coat rack in the coat closet are missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection is reasonable for an isometric view. Lighting is aesthetically pleasing. Geometry is mostly clean, but some wall junctions show minor imperfections. Visual clarity and composition are good despite the errors."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entrance door is misplaced and oriented incorrectly. Internal wall between bathroom and coat closet is misplaced."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the external wall of Rachel's bedroom and bathroom is incorrect (not straight)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements are incorrect, especially the two windows in Rachel's bedroom and the bathroom window. The large panoramic window in the living area has a different design."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the living/dining area appear slightly compressed. Some furniture scale inconsistencies."
+        },
+        {
+            "code": "E1",
+            "description": "Missing coat rack in the coat closet. Missing kitchen counter extension."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness, particularly exterior walls are thicker in some parts than others."
+        },
+        {
+            "code": "E5",
+            "description": "The carpet in the living room is a different shape than depicted in the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "The door to Monica's bedroom appears to swing inward on the wrong side."
+        },
+        {
+            "code": "E2",
+            "description": "The overall footprint is slightly different, causing a shift in the alignment of rooms."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan.jpg"
+}

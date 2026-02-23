@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is recognizable, but there are significant door and window discrepancies. The primary terrace doors are missing and replaced by windows, and internal door swings are inconsistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Bathroom/utility core geometry is over-complicated and deviates from the clean lines of the floor plan. The staircase is included but lacks the correct landing logic shown in 2D."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate (bed, sofa, kitchen island), though the dining table and chairs are undersized and poorly defined."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent render quality with clean 3D isometric projection, soft lighting, and consistent material application."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing double doors leading to the balcony/terrace area on the left."
+        },
+        {
+            "code": "E2",
+            "description": "Hallway door to bedroom is incorrectly placed or replaced with an open archway."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door orientation and swing do not match the floor plan's internal logic."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen island/peninsula is stunted in length compared to the 2D plan proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated extra internal partitioning walls within the bathroom and laundry core."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact on the bottom-right stairs where steps merge into the wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan6.jpg"
+}

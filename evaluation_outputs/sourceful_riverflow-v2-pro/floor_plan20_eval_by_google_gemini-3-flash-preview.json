@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major spatial reconfigurations: Toilet-2 is moved to the position of the lobby/maid's area. The deck sliding door has been mirrored/flipped. Door orientations for several rooms do not match the swing arcs of the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Significant structural errors. The room labeled Toilet-1 in the plan is transformed into a walkthrough area in the 3D render. Toilet labeling is inconsistent with the original diagram numbering. One balcony is missing a clear perimeter wall as shown in the original."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "General furniture types match (beds, dining table), but placement in the living area is rotated 90 degrees compared to the rug placement in the 2D plan. The office desk orientation is changed."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent visual execution. Clean orthographic projection, consistent lighting, and high-quality textures. The model is aesthetically superior despite its structural failures."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Toilet-2 misplaced; moved from the center-right to the bottom-left entry corridor area."
+        },
+        {
+            "code": "E3",
+            "description": "Living room furniture set and rug orientation rotated 90 degrees from floor plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen and utility area proportions are compressed relative to the overall floor width."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet-1 has been merged/opened up, losing its structural boundary as a private bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific partition walls between the lobby and the kitchen entrance."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan20.avif"
+}

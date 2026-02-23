@@ -1,0 +1,50 @@
+{
+  "spatial_accuracy": {
+    "score": 17,
+    "max": 40,
+    "notes": "Overall zoning is roughly similar (3 bedrooms, central living/dining, kitchen-right, balconies at left and top), but internal wall layout deviates notably. Several partitions are reshaped into curved/arched walls that do not exist in the 2D plan (E2/E5), breaking wall alignment and corridor geometry. Door locations/orientations are not faithfully represented (many are shown as open archways or placed inconsistently with the plan’s swing-door positions) (E2/E3). Window/door-to-balcony openings are largely absent or not placed per the plan’s exterior wall openings (E2/E1). Room and passage proportions appear distorted: living/dining reads oversized and passages do not match the plan’s long narrow ‘wide passage’ runs (E4)."
+  },
+  "structural_fidelity": {
+    "score": 14,
+    "max": 25,
+    "notes": "Wall thickness looks visually consistent, but the plan’s structural partitioning is not preserved due to substituted curved partitions and simplified cores (E2/E5). Adjacencies are partially correct (kitchen adjacent to dining; bedrooms along the long bar), but at least one toilet cluster is missing/simplified, reducing fidelity to required program (E1). Several doors are not embedded/hinged correctly (arched openings instead of doors; inconsistent thresholds) (E3/E2). No clear extra rooms are added, but multiple non-plan architectural elements (curved feature walls/arches) are introduced (E5)."
+  },
+  "furniture_mapping": {
+    "score": 6,
+    "max": 10,
+    "notes": "Furniture types generally match the intended rooms (beds in bedrooms, sofa + TV zone in living, dining near kitchen), but placements do not strictly follow the 2D plan’s implied clearances and circulation (E2). Scale appears mostly plausible, though some circulation widths look inflated relative to furniture, contributing to proportion drift (E4)."
+  },
+  "aesthetic_quality": {
+    "score": 19,
+    "max": 25,
+    "notes": "Isometric-style view is clear and readable, though it uses perspective rather than a strict orthographic/isometric projection. Lighting is clean and materials are consistent. Geometry is mostly clean, but the added curved/arched partitions read as stylistic distortions relative to the plan (E6/E5). Overall composition is visually strong."
+  },
+  "total_score": 56,
+  "detected_errors": [
+    {
+      "code": "E1",
+      "description": "Missing powder toilet (P. TOILET) near the entrance shown in the 2D plan; not clearly present as a distinct room in the 3D render."
+    },
+    {
+      "code": "E1",
+      "description": "Missing/omitted common toilet at the lower-left zone of the 2D plan (one of the 2.45x1.52 toilets); 3D shows fewer bathroom rooms than the plan."
+    },
+    {
+      "code": "E2",
+      "description": "Internal wall alignment differs from the 2D plan: corridor/wide-passage partitions are not placed as straight runs and do not match the plan’s wall grid."
+    },
+    {
+      "code": "E5",
+      "description": "Hallucinated architectural elements: curved feature walls and arched openings replace the plan’s straight partitions and standard door openings."
+    },
+    {
+      "code": "E3",
+      "description": "Door orientation/operation not preserved: multiple locations that should be swing doors are rendered as open arches or doors are not shown with correct hinge side and swing direction."
+    },
+    {
+      "code": "E2",
+      "description": "Window/opening placement on exterior walls is not faithfully mapped; several plan-indicated windows/balcony door openings are missing or not positioned per the 2D layout."
+    },
+    {
+      "code": "E4",
+      "description": "Proportion

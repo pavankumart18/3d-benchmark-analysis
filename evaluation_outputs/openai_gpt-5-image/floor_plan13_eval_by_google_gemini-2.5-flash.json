@@ -1,0 +1,120 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Poor spatial accuracy, numerous discrepancies in wall alignment, door placement, and window placement. Room proportions are significantly distorted."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing numerous elements including the Balcony, Linen cupboard, WC, and Laundry. Hallucinated elements like a window in the bedroom and a solid wall in the kitchen. Incorrect wall thickness consistency for exterior walls. Adjacency relationships are inaccurate due to missing rooms and reconfigured internal structures."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture mapping is very poor. Kitchen appliances are partially present but placement is incorrect, and scaled inaccurately. Bathroom fixtures are completely missing or inaccurately represented."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Lighting is basic but clear. Geometry is generally clean. However, the orthographic projection is lacking detail for doors and windows, and visual composition is compromised by the inaccurate representation of the floor plan."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Linen cupboard near Entry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing WC room and toilet fixture."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Washing Machine (WM) and Laundry area details."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the entrance door."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and size of the window in the 'Lounge'/'Dining' area. It's rendered as a sliding door but does not connect to a balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 1; it should open into a small hallway, not directly from the kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 2; it should open from the hallway."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom door. The rendered door appears to be directly opposite the kitchen door, which is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the main entrance door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of interior doors (e.g., Bedroom 1, Bathroom)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Lounge' and 'Dining' areas, appearing much larger and elongated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Kitchen area, appearing wider and less deep."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Bedroom 1 and Bedroom 2, appearing wider than indicated in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Bathroom, appearing smaller and with a different shape."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated solid wall separating the kitchen from the hallway area next to Bedroom 1."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window in Bedroom 1 that is not present on the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window in Bedroom 2 that is not present on the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated entry step/platform."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness, especially for exterior walls."
+        },
+        {
+            "code": "E6",
+            "description": "Poor rendering of kitchen cabinetry; partial and simplified, not matching floor plan representation."
+        },
+        {
+            "code": "E6",
+            "description": "Bathroom fixtures are completely absent or simplified beyond recognition."
+        },
+        {
+            "code": "E6",
+            "description": "The kitchen sink and countertop are only partially rendered and simplified."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan13.jpg"
+}

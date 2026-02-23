@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 7,
+        "max": 40,
+        "notes": "Overall layout does not match the 2D plan. The 2D plan has distinct zones (kitchen top-left, dining top-right, living right/bottom) plus an enclosed bathroom at center and stair block at left; the 3D render depicts essentially one open room with a stair opening and no correct room partitioning. Kitchen is placed on the right wall instead of top-left (E2), bathroom is not a separate enclosed room and is placed along the left wall (E2/E1), and dining/living areas are not spatially defined as in plan (E2/E1). Entrance/door locations do not correspond to the bottom-center entrance shown in plan (E2/E1). Window count/placement is largely incorrect (E2/E1). Room proportions and relative sizes between kitchen/dining/living are not preserved (E4)."
+    },
+    "structural_fidelity": {
+        "score": 4,
+        "max": 25,
+        "notes": "Key architectural structure from the plan is missing or altered. The bathroom enclosure/walls are missing (E1) and adjacency relationships (kitchen adjacent to dining along top, bathroom central, stairs left) are not respected (E2). The stair is modeled as a central open void with railing, unlike the plan's stair block on the left (E2/E5). Door embedding/orientation is not faithful: an interior door on the upper wall appears in 3D but the plan\u2019s door positions (including bottom entrance and bathroom door) are not matched (E2/E3). No evidence of correct wall thickness logic relative to the plan; internal partitions are largely absent (E1)."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture/fixtures do not map to the plan. The plan implies separate dining and living spaces; the 3D adds a dining table/chairs but without corresponding room boundaries (E2). Bathroom fixtures appear in open space and not inside the small central bathroom (E2). Kitchen cabinetry/appliances are not arranged as the plan suggests (E2). Scale is stylized and not dimensionally tied to the 16'x12' kitchen and 13'x24' living proportions (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clean and readable with coherent lighting and consistent stylized geometry. Isometric viewpoint is acceptable, though the representation is more diorama-like than an accurate architectural isometric/orthographic translation of the plan (minor projection fidelity penalty). Minimal rendering artifacts; good composition, but architectural clarity suffers due to missing partitions."
+    },
+    "total_score": 31,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing enclosed central bathroom room/walls shown in the 2D plan; 3D shows bathroom fixtures without an actual bathroom enclosure."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen location is incorrect: plan places kitchen at top-left; 3D places full kitchen run on the right wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing distinct dining room and living room spatial separation/placement as indicated in the plan (dining top-right, living right/bottom)."
+        },
+        {
+            "code": "E2",
+            "description": "Stair placement and configuration are incorrect: plan shows stair block on the left; 3D depicts a central stair void/opening with railing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated railing/open-void stair feature not represented in the 2D plan\u2019s stair enclosure."
+        },
+        {
+            "code": "E1",
+            "description": "Main entrance at bottom-center (plan) is not represented correctly in 3D; no matching entrance door at the corresponding location."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement does not match the plan (e.g., a door appears on the back wall in 3D that does not correspond to the plan\u2019s shown exterior/interior door positions)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing logic cannot be reconciled with the plan due to missing partitions and mismatched door locations."
+        },
+        {
+            "code": "E1",
+            "description": "Missing most windows indicated in the plan (multiple openings along bottom and right walls, plus top openings); 3D shows only a single window."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is incorrect relative to the plan\u2019s window/door distribution; the lone 3D window does not correspond to the plan\u2019s opening pattern."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of major areas (kitchen 16'x12', living 13'x24) are not preserved; 3D reads as a single similarly sized space without correct dimensional hierarchy."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan3.jpg"
+}

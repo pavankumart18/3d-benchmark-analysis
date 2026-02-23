@@ -1,0 +1,128 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions, especially for secondary rooms and service areas. Walls are generally aligned but have some shifts. Many doors and windows are missing or incorrectly placed."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Numerous missing rooms (balconies, service room, foyer, utility) and completely reconfigured rooms (dress, bed room 2, bed room 3). Wall thickness is mostly consistent where present, but many adjacency relationships are incorrect due to missing or altered rooms."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is highly inaccurate; many pieces are missing, misplaced, or have incorrect scales. Example: Living room furniture layout is different, dining room includes extra table, kitchen layout is completely changed, bedrooms are missing essential furniture, toilet layouts are vastly different."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera and orthographic projection appear correct, and the geometry is clean. Lighting is basic. Visual clarity is good, but the composition is poor due to the large number of structural and furniture inaccuracies. The representation is very simplified compared to the detailed floor plan."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony (5'0\" wide) attached to M. Bed Rm is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony (8'0\" wide) attached to Living room is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Foyer is missing its enclosure, only a small wall stub is present. Furniture for Foyer is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Ser. Rm (7'0\"X7'3\") is completely missing."
+        },
+        {
+            "code": "E1",
+            "description": "Utility (5'9\" wide) is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Dress room (10'6\"X5'0\") is missing; replaced by an open area in the master bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple windows are missing or replaced by single, wide windows in different locations."
+        },
+        {
+            "code": "E1",
+            "description": "Many internal doors are missing (e.g. door to M. Bed Rm toilet, door to Bed Rm 2 toilet, door to Kitchen, door to Bed Rm 4 toilet, several bedroom doors)."
+        },
+        {
+            "code": "E2",
+            "description": "The entrance door in the Foyer is misplaced and incorrectly oriented. The red triangle indicates the entrance, but the door is on a different wall."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen wall layout and appliances are completely reconfigured and simplified. The sink is misplaced, and the L-shaped counter is simplified."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet (8'0\"X5'0\") for M. Bed Rm has a completely different layout and fixture placement. Missing door."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet (8'0\"X5'0\") for Bed Rm 2 has a completely different layout and fixture placement. Missing door."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet adjoining Living/Dining area has a different layout and fixture placement. Missing door."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet adjoining Bed Rm 4 has a different layout and fixture placement. Missing door."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bed Room 2 is completely misplaced and changed in size/proportion."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bed Room 3 is misplaced and changed in size/proportion."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bed Room 4 is misplaced and changed in size/proportion."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in Living room is rearranged and some pieces are missing or changed (e.g., TV unit missing, different sofa configuration)."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs are different in style and number compared to the plan (round vs. rectangular, fewer chairs)."
+        },
+        {
+            "code": "E2",
+            "description": "Master Bed Room layout is simplified; missing wardrobes shown in the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance door orientation is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "The proportions of several rooms are visibly distorted, e.g., Bed Room 2, Bed Room 3, Bed Room 4 appear wider relative to their length than in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The overall footprint of the rendered structure appears compressed vertically compared to the implied proportions of the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "The rendered balcony at the bottom right (Bed Room 4) is hallucinated, as the plan shows it as an internal utility area."
+        },
+        {
+            "code": "E5",
+            "description": "The exterior wall surrounding the Foyer, Ser. Rm, and Utility is replaced entirely by a simple, straight wall segment, hallucinating the external structure."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan17.jpg"
+}

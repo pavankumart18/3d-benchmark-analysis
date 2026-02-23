@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the front balcony is disproportionately small. Wall alignment has some inaccuracies, particularly in the utility and service room area, and the balconies. Door placements are frequently incorrect in terms of exact position and orientation. Window placements are largely missing or generalized. Room proportions are distorted in several areas, notably the balconies and the utility/service rooms."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker than others without clear reason. Door embedding is poor; many doors are rendered as simple openings without proper frames or flush mounting. Adjacency relationships are mostly preserved for major rooms but are problematic for smaller service areas. Missing rooms include the 'SER. RM' and 'UTILITY' as distinct, properly enclosed spaces. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is generally approximated but lacks accuracy, especially in the living room and bedrooms where items are misaligned or slightly off. Furniture scale consistency is poor; many items appear too small or too large relative to the rooms and other furniture, particularly beds and living room seating."
+    },
+    "aesthetic_quality": {
+        "score": 13,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is mostly maintained, though some angles appear slightly off. Lighting quality is poor, resulting in flat, uninteresting visuals and loss of detail due to lack of shadows. Geometry is clean for the main walls but many smaller elements (doors, windows, furniture) are simplistic and lack detail, leading to a 'blocky' appearance. Visual clarity is okay, but composition is uninspired."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Front balcony (left side) is significantly smaller than shown in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment inaccuracies around the utility room and service room (bottom left)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement errors in multiple bedrooms, toilets, and the main entrance; exact positions and orientations differ from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Most windows are either missing or rendered as simple undifferentiated openings without distinct frames or glazing."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the utility room and service room, making them appear compressed or improperly shaped."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'SER. RM' as a distinct and properly partitioned room; it appears merged or incorrectly represented with the utility area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'UTILITY' room as a clearly defined separate space as shown in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness throughout the render, some walls are noticeably thicker without reason."
+        },
+        {
+            "code": "E6",
+            "description": "Door embedding is superficial; doors are generally represented as simple openings rather than proper architectural elements with frames."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement accuracy is low, with many items misaligned or not precisely matching the floor plan layout (e.g., living room sofas, bedroom beds)."
+        },
+        {
+            "code": "E4",
+            "description": "Furniture scale inconsistency; some furniture items appear too small or too large relative to the room and other objects."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting quality, resulting in a flat render without adequate shadows or highlights to define space and form."
+        },
+        {
+            "code": "E6",
+            "description": "Lack of visual detail on elements like windows, doors, and some furniture, contributing to a generally simplistic and undetailed aesthetic."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan17.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but door swings are simplified or missing (E3). Window placement in the living area and bedrooms deviates slightly from the specific fenestration patterns shown in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All primary rooms (3 BHK + Kitchen + Utility) are present. Adjacency is correct. However, some wall thicknesses appear uniform, ignoring the structural columns/offsets visible in the 2D plan (E4)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement matches the zones but lacks detail. Typical beds and seating are placed correctly relative to the rooms, but specific dining chairs and balcony furniture are simplified."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent clay-model aesthetic with a clean isometric camera. Lighting provides good depth. Geometry is clean without mesh artifacts."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Door swing directions and specific leaf orientations are not modeled to match the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Specific structural wall offsets and niche details (e.g., in the Master Bedroom) are smoothed out or generalized."
+        },
+        {
+            "code": "E2",
+            "description": "Living area windows are rendered as simple openings rather than the specific sliding door-to-balcony configuration shown."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan15.webp"
+}

@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "Major spatial failure. The render misinterprets the floor plan's 'Activity' and 'Balcony' zone as a dining/living room and converts the bedroom wing into a garage/parking space. Window and door placements bear no resemblance to the structural blueprint."
+    },
+    "structural_fidelity": {
+        "score": 4,
+        "max": 25,
+        "notes": "Fundamental structural collapse. The staircase is missing. Bedrooms 2, 3, and 4 are replaced by an open garage area. The bathroom layout is simplified into a generic toilet room."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "The render hallucinations include a car and a full dining set which are not present in the reference. Bed furniture from the floor plan is completely discarded."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While structurally incorrect, the rendering quality is high. It features clean orthographic geometry, consistent soft lighting, and professional visual clarity."
+    },
+    "total_score": 27,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entire staircase assembly shown in the top left of the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a car and garage space where Bedrooms 3 and 4 should be located."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a large dining table in the activity/balcony zone."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all three bedrooms (Bed 2, 3, 4)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect adjacency; the bathroom/WC logic is completely restructured into a single isolated block."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness throughout the render is inconsistent with the technical specifications of the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan12.png"
+}

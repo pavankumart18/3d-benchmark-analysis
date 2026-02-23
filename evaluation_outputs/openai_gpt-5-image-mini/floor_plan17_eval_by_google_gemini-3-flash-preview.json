@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The 3D render significantly distorts the layout. The entire upper-left section including the large balcony and the secondary seating area in the living room is merged or missing. Room proportions for Bed Room 2 and 3 are severely compressed compared to the large living/dining area."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Major structural deviations: The Master Bedroom and associated Dress/Toilet block are completely omitted. The Servants room and utility area are hallucinated as a single corner wall. The entrance foyer is poorly defined."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While basic furniture types (sofa, dining, kitchen) are present, the count and placement are incorrect. The L-shaped sofa configuration in the plan is replaced by two separate sofas, and the bedroom furniture layout does not match the wall-facing orientation of the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Highly polished 3D rendering with consistent soft lighting, clean isometric perspective, and a coherent color palette, despite the structural inaccuracies."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Master Bedroom, Dress area, and primary Balconies."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen sink and counter placement moved to the wrong corner of the room."
+        },
+        {
+            "code": "E4",
+            "description": "Bedrooms are shown significantly smaller relative to the living room compared to architectural measurements."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior walls in the lower right and simplified the servant zone."
+        },
+        {
+            "code": "E3",
+            "description": "Living room sofas are not oriented according to the floor plan's specific furniture arrangement."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan17.jpg"
+}

@@ -1,0 +1,168 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is generally correct. However, wall alignment accuracy is poor, with many walls being misaligned or missing entirely. Door placements are largely incorrect, with many doors missing or wrongly oriented. Window placements are also incorrect. Room proportions are distorted significantly in several areas, particularly the kitchen, utility, and balcony areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, and many walls are missing or merged incorrectly. Door embeddings are incorrect due to missing or misplaced doors. Adjacency relationships are frequently violated. Multiple rooms are missing (Foyer, Ser. Rm, multiple toilets, Dress area, Utility, Balconies). There are no significantly hallucinated rooms, but existing rooms are heavily distorted."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate with many items missing or misplaced. The scale of remaining furniture is inconsistent with the distorted room proportions."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and orthographic projection is generally maintained. Lighting quality is poor with harsh, unmotivated lights. Geometry is not clean, showing distortions and lack of detail. Visual clarity and composition are hampered by the poor geometry and lighting."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Foyer."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Ser. Rm."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bathroom connected to Bed Room 2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bathroom connected to Bed Room 3."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bathroom connected to Bed Room 4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing common bathroom near Dining."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony from Living room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony from M. Bed Rm and Dress area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for M. Bed Rm toilet 1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for M. Bed Rm toilet 2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Bed Room 2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Bed Room 3."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Bed Room 4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior wall for Living room balcony area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall between M. Bed Rm and Dress area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing walls for Utility room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal walls in the Kitchen and Utility area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall separating powder room near kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the Living room and Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in most bathrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table is shifted, merging with the kitchen entry."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from Dining to Bed Room 4 is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bed Room 4 is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bed Room 2 is completely missing, while a small window appears on a different wall."
+        },
+        {
+            "code": "E2",
+            "description": "Window in M. Bed Rm balcony is misplaced."
+        },
+        {
+            "code": "E3",
+            "description": "Front door orientation is inverted."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen proportions are severely distorted, making it much smaller and narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Utility room proportions are distorted and merged with Kitchen."
+        },
+        {
+            "code": "E4",
+            "description": "Foyer area is not represented with correct proportions; it is entirely missing."
+        },
+        {
+            "code": "E4",
+            "description": "Dress area in M. Bed Rm is distorted and merged into the main room."
+        },
+        {
+            "code": "E4",
+            "description": "Balconies are heavily distorted or missing external walls, changing their proportions."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom proportions are generally distorted or the rooms are missing entirely."
+        },
+        {
+            "code": "E6",
+            "description": "Poor rendering of wall junctures and corners, leading to an unclean geometry."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent and harsh lighting, particularly in the dining area and master bedroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan17.jpg"
+}

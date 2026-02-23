@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major layout mismatches. The main entry/foyer zone is not positioned as in plan (plan: bottom-center foyer/passage; render: entry on left facade). Kitchen block is shifted from the plan\u2019s bottom-left placement to a more bottom-center/right position, altering circulation. Balconies/decks do not match: the plan\u2019s large top deck (13'9\"x5') off Living/Dining is not represented in the correct location/extent; balcony/rail elements appear on the left side instead. Several door openings appear relocated and/or resized, especially around the foyer-to-living and bedroom access points. Window distribution on exterior walls does not correspond to the plan\u2019s openings. Overall room proportions (Living/Dining vs bedrooms, and deck sizes) look distorted."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Adjacency relationships are partially preserved (two bedrooms + two toilets exist), but key plan structure is not faithfully embedded: foyer/passage hierarchy is not clearly modeled, and the utility/service area is not clearly separated as a distinct room per plan. Door embedding/orientation is inconsistent with plan swing/placement. Hallucinated balcony/railing placement creates exterior geometry not supported by the plan, while the primary large deck appears missing/relocated. Wall thickness is visually consistent but does not compensate for plan deviations."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is plausible (beds, sofa set, dining table, kitchen counters), but it does not reliably confirm the plan: dining/living zoning differs and furniture scale-to-room ratio suggests altered room dimensions (notably Living/Dining)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean and readable with decent lighting and materials. However, the camera is more perspective than true isometric/orthographic, reducing plan-verification usefulness. Geometry is mostly clean, but composition emphasizes aesthetics over strict plan fidelity."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entrance and foyer/passage location does not match plan (plan entry at bottom-center into foyer; render shows entry on left exterior wall with altered circulation)."
+        },
+        {
+            "code": "E1",
+            "description": "Foyer (4'6\"x3'8\") and defined passage (4'6\"x4'7\") are not clearly present as distinct spaces per the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen placement is shifted relative to plan (plan: bottom-left adjacent to utility; render: kitchen appears bottom-center/right), changing room-to-room relationships."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room (5'x7'8\") is missing or merged into another space; no clearly bounded utility space matching the plan is visible."
+        },
+        {
+            "code": "E1",
+            "description": "Large deck (13'9\"x5\") off Living/Dining (top of plan) is not represented at the correct location/size."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony/deck geometry appears on the left side in the render, which does not align with the plan\u2019s deck placement and extents."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple door placements/openings (notably around living-bedroom connections and entry/living boundary) do not match the 2D plan positions and orientations."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placement/count does not correspond to the 2D plan\u2019s window locations; several openings appear added or shifted."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions appear altered: Living/Dining, deck areas, and circulation widths do not preserve the plan\u2019s relative dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior railing/balcony elements appear where the plan does not indicate a deck/balcony of that form/placement."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan14.webp"
+}

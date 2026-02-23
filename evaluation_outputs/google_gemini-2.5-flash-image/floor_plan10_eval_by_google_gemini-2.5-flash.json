@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placements are generally correct. Wall alignment shows minor inaccuracies, particularly around the Kitchen/Pantry area and the exterior walls of the Living/Alfresco. Door placements are mostly correct, but the front door into 'ENTRY' is missing. Window placements are largely accurate. Room proportions are mostly preserved with some minor distortions in Kitchen and Living areas."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is not entirely consistent, especially visible in the exterior walls and around the Kitchen/Pantry. The front door into 'ENTRY' is missing (E1). All rooms from the floor plan are present. No hallucinated rooms were identified."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Most furniture is correctly placed and scaled. Some furniture, such as the dining table in 'LIVING' and the desk in 'STUDY', deviates from the floor plan's depiction, while others like the 'Linen' cupboard in the hallway and appliances in the kitchen are represented differently. The garage does not contain a car in the 3D render."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera is correct, and orthographic projection accuracy is good. Lighting quality is decent, but some areas appear flat. Geometry is mostly clean with minor imperfections. Visual clarity and composition are good overall."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing main entrance door into 'ENTRY'."
+        },
+        {
+            "code": "E2",
+            "description": "Slight misalignment of exterior walls, particularly apparent in the 'LIVING' and 'ALFRESCO' sections. Wall between Kitchen and Hallway is thicker than depicted."
+        },
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion in Kitchen and Living room dimensions compared to the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Car is missing from 'GARAGE'."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs in 'LIVING' are different from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Desk in 'STUDY' is oriented differently and appears to have a different design."
+        },
+        {
+            "code": "E2",
+            "description": "Appliances in the Kitchen and Laundry areas are represented differently in 3D compared to 2D floor plan symbols."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan10.png"
+}

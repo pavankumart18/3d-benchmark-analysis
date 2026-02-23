@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe inversion of the floor plan layout. The master bedroom and kitchen/utility positions are mirrored or swapped relative to the central living axis. Window patterns on the exterior facade do not match the single-story logic of the 2D plan, appearing like a multi-story stack."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Walls are thick but layout logic fails; the utility area and specific toilet placements are halluncinated or merged. The entrance logic is completely altered from the bottom-center 2D position."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Generic furniture used; dining table is moved into the kitchen area rather than staying in the living/dining hall. Scale of the master bed is slightly oversized for the rendered room."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean render with good lighting and orthographic projection. However, the 'floating' multi-story effect on the left side is a significant rendering artifact for a single unit plan."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucination of a multi-story balcony stack on the left side not present in the 2D flat plan."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen and dining area are merged and misplaced compared to the compartmentalized 2D layout."
+        },
+        {
+            "code": "E3",
+            "description": "Mirroring/Inversion of the entire unit's orientation."
+        },
+        {
+            "code": "E4",
+            "description": "Distortion of room proportions, specifically reducing the 'Wide Passage' to nearly zero."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact where text labels from the plan serve as 'textures' on the 3D floors."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan15.webp"
+}

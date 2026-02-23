@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout roughly resembles a 2-bed unit with central living/dining and bedrooms left/right, but multiple plan-critical mismatches exist. (E2/E4) Entry/foyer zone shown in 2D (foyer + defined entry passage) is not preserved; 3D entry reads as a more open direct connection into living/dining. (E2/E3) Toilet locations/access do not match: the 2D plan has a clear common toilet near Bed-2 side and an attached toilet for Bed-1 near the top-right; in 3D the bathroom cluster is shifted/organized differently and the Bed-1 attachment is not clearly respected. (E1/E2) Utility room placement at bottom-left (adjacent to kitchen) is not represented as a distinct room in 3D. (E2) Balcony/deck connections are approximated but their depths/threshold placement and adjacent wall breaks do not precisely follow the 2D plan. (E4) Room proportions are noticeably altered (kitchen/entry/circulation widths and bathroom block sizing)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Wall masses are clean and consistent, but plan fidelity is weak. (E1) Utility room (5' x 7'8\") is missing as a separate enclosed space. (E1/E2) Foyer (4'6\" x 3'8\") and the defined entry corridor geometry in the 2D plan are not faithfully modeled. (E2) Adjacency relationships for toilets are incorrect/unclear: Bed-1 should have an attached toilet directly accessed from Bed-1; 3D shows a shifted bathroom arrangement that reads more like a shared/central bath. (E5) Extra/altered internal partitions around the living/TV/sofa zone appear that are not in the 2D wall layout, changing circulation and wall alignment. Door embeddings are present but do not consistently match the 2D door positions/orientations."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are present (two beds, sofa, dining table, kitchen counters), but mapping is only approximate. (E2) Living seating/TV partitioning does not correspond to the 2D suggested arrangement and constrains space differently. (E4) Some furniture scale vs room sizes (especially dining-to-kitchen/entry clearance) appears inconsistent with the 2D plan\u2019s proportions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is visually clear with clean geometry and generally good lighting. Camera is a top-down axonometric/isometric-like view but not a strict orthographic isometric match to the 2D plan (minor perspective feel). Walls/floors are clean with minimal artifacts; composition is readable."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Utility room (bottom-left adjacent to kitchen in 2D) is missing as a distinct enclosed room in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Foyer/entry space shown in 2D is not represented as a clearly defined foyer in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom/toilet block placement differs from 2D; toilets appear shifted/reorganized relative to bedrooms and living."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements do not consistently match the 2D plan, especially around the bathroom(s) and entry/foyer area."
+        },
+        {
+            "code": "E3",
+            "description": "Intended attached access for Bed-1 toilet is not clearly preserved (reads as a more central/shared access rather than an attached ensuite as in 2D)."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony/deck thresholds and adjacent wall openings are approximated and do not precisely align with 2D deck placements and widths."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of circulation, kitchen/entry zone, and bathroom block are distorted compared to the 2D plan dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Additional/altered internal partitions near the living/sofa/TV zone appear that are not present in the 2D wall layout."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placements are not verifiable as matching the 2D plan; several exterior wall openings appear simplified/shifted."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan14.webp"
+}

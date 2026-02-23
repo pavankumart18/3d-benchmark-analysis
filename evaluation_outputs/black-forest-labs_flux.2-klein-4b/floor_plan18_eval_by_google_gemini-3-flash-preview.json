@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant door and window placement errors. The doorway to the bedroom is shifted, and the balcony entrance/window configuration is completely misinterpreted. The kitchen entrance arch is a hallucination not present in the original line work."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Missing the entire 'Utility' room. The wall between the kitchen and the living area is incorrectly merged, losing the distinct foyer geometry. Balcony area is incorrectly rendered as a solid wall niche rather than an external space."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Bedroom furniture is rotated 90 degrees incorrectly. The dining table is floating and lacks chairs. The sofa in the living area is missing its side table."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Good lighting and material consistency, but failed to maintain the orthographic projection required for architectural isometric views. Objects appear soft and lack precision."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Utility' room and external balcony wall structure."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen entrance incorrectly placed; bedroom door shifted towards center."
+        },
+        {
+            "code": "E3",
+            "description": "Bed in the bedroom is oriented incorrectly (perpendicular to original plan)."
+        },
+        {
+            "code": "E4",
+            "description": "Foyer area is compressed and not distinct from the living room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated arched doorways not present in the 2D floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Non-parallel edges indicating a perspective lens rather than an orthographic/isometric camera."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant spatial failures. The central pantry has been misidentified as a secondary stair layout. Door and window counts do not align with the 2D architectural blueprint, particularly in the living and dining areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Large-scale structural errors: The powder room/W/C has been swapped with a kitchen-like layout in the render. Adjacency for the playroom and kitchen is fundamentally broken by incorrect wall dividers."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen islands and sinks are present but incorrectly scaled and oriented. Hallucinated kitchen elements appear in the upper utility block where a bathroom should be."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High visual quality with consistent isometric lighting and clean geometry. Textures and shadows are rendered professionally despite the logical failures."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The central pantry is incorrectly rendered as an open structural frame labeled 'STAIRS'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen appliances (stovetop/counters) placed within the W/C and closet footprint."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room bump-out is significantly undersized compared to the 2D dimensions."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Powder Room' text label is misplaced in what is clearly the primary Living Room space."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific window segments in the dining room and living room alcoves."
+        },
+        {
+            "code": "E3",
+            "description": "The staircase 'UP' and 'DN' directions are visually confused with the surrounding wall heights."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan8.jpg"
+}

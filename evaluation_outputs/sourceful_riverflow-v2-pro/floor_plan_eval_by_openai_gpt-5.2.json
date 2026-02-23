@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room layout broadly matches (living/kitchen top, bedrooms bottom left/right, baths left/center), but several envelope openings do not match the plan. The right-side living-room entry/connection to Chandler & Joey\u2019s apartment is not represented as a door/opening in the 3D. Additional/incorrect windows appear on the right exterior wall that are not indicated in the 2D. Several interior door leaves/swing orientations are missing or simplified, reducing placement/orientation fidelity. Minor proportion drift: the central hall/foyer and closet zones read wider/more open than in plan."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Major adjacency/opening mismatch at the right living-room wall (plan shows a door to corridor/neighbor; render shows wall/window instead). Some closets/utility partitions appear opened up or altered (closet near top-left/living area lacks clear door separation). Wall thickness is mostly consistent, but door embedding is frequently absent (open portals instead of doors), weakening structural fidelity. No clear evidence of an added full room, but there are added built-in/shelf-like elements not shown in plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Key furniture pieces are present in expected rooms (living seating group, dining table, beds). However, exact kitchen fixture placement and some furniture positioning do not precisely follow the 2D schematic, and several objects feel generically placed rather than mapped to the plan\u2019s exact layout. Scale is mostly consistent, but some items read oversized relative to circulation (table/sofa clearances)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style presentation with good lighting and minimal geometry noise. Camera is consistent with an isometric/axonometric look, though not perfectly orthographic (perspective/soft depth cues present). Visual clarity is high; geometry edges are mostly crisp with minor softness/blur and simplified door detailing."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Right-side living-room door to Chandler & Joey\u2019s apartment shown in 2D is not correctly represented as a door/opening in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Additional/right-wall window openings appear in the 3D on the east exterior wall (near living/Monica bedroom zone) that are not indicated in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple interior doors shown with swings in the 2D (bedroom/bath/hall connections) are missing as explicit doors in the 3D (rendered as open passages)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing information from the 2D plan is not preserved (no swings/leaf direction), preventing correct verification of door handedness."
+        },
+        {
+            "code": "E2",
+            "description": "Closet zone at the top-left (adjacent to living/kitchen) lacks the clearly defined enclosure/door relationship shown in the 2D and reads more open/altered in the 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Hall/foyer and closet/circulation proportions appear expanded relative to the 2D, reducing proportional fidelity of the central circulation spine."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated built-in/shelf-like detail along the top-left interior edge is present in 3D but not specified in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan.jpg"
+}

@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are generally correct. However, wall alignments are poor, especially for internal walls. Door and window placements are significantly incorrect, with many misplacements and incorrect orientations. Room proportions are distorted, particularly for the bathroom and living room areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness consistency is poor; walls appear thin and inconsistent. Many doors are not correctly embedded, appearing as cutouts. Adjacency relationships are mostly maintained but with major proportional errors. Several rooms, such as the 'Stairs/Hallway' area, are completely missing or severely altered. There are no clearly hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; many items are missing, misplaced, or have incorrect scale. For example, the kitchen appliances are incorrectly placed and sized, and the bathroom fixtures are missing/incorrect."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, but the projection does not appear truly orthographic, showing some perspective distortion. Lighting quality is poor, making details hard to discern. Geometry is not clean, with many jagged edges and inconsistent surfaces. Visual clarity and composition are low due to poor rendering and detail."
+    },
+    "total_score": 25,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom door is misplaced and oriented incorrectly. It is facing the kitchen in the 3D model, but facing the living room area in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "No entrance door or explicit entrance area in the 3D model, as indicated by 'ENTRANCE' and door in 2D."
+        },
+        {
+            "code": "E2",
+            "description": "Windows on the bottom wall (exterior) are misplaced and have incorrect proportions. The 3D model shows two, while the 2D plan shows three and smaller ones at different positions."
+        },
+        {
+            "code": "E2",
+            "description": "Windows on the right wall (exterior) are misplaced and proportionally incorrect. The 3D model shows one large window, whereas the 2D plan shows multiple smaller windows."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the kitchen area are misplaced; the 3D model shows one larger window where the 2D shows two smaller ones."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of Kitchen are distorted, specifically the wall separating it from the dining/living room area is thinner and shorter."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom dimensions and proportions are highly distorted; appears much larger and differently shaped in 3D."
+        },
+        {
+            "code": "E1",
+            "description": "Staircase and associated walls/hallway are completely missing from the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Internal wall alignment between Kitchen, Bathroom, and Living Room is incorrect."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen sink, oven, and refrigerator appliance models."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilet and sink models in the bathroom."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent throughout the render."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting quality, making the render dark and unclear."
+        },
+        {
+            "code": "E6",
+            "description": "Jagged and unclean geometry evident throughout the model."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in the living/dining room area is inaccurately placed and scaled."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan3.jpg"
+}

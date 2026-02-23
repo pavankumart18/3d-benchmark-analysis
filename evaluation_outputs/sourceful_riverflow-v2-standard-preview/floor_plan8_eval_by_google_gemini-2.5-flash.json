@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the W/C and closet area next to the stairs is significantly altered. Wall alignment shows discrepancies, particularly around the living room and dining room. Door placements are largely incorrect, and many are missing. Window placements are also incorrect or missing in several locations. Room proportions are distorted in several areas, especially the W/C and general living/dining area."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, some walls are thinner than others. Door embedding is incorrect due to missing doors. Adjacency relationships are heavily compromised in the WC/Closet area and around the kitchen/dining. There are significant missing rooms (W/C, Closet near foyer, Pantry). There are also hallucinated structural elements, such as the wall separating the kitchen from an open space, and altered stair configuration."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement accuracy is very low; most furniture from the 2D plan is either missing or heavily misplaced. Scale consistency of the rendered furniture is also questionable, with some items appearing oversized or undersized relative to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are acceptable. Lighting quality is dull and lacks definition. Geometry is mostly clean but lacks detail. Visual clarity and composition are moderate; the overall render is plain and lacks specific details to accurately represent the floor plan."
+    },
+    "total_score": 30,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing W/C room and associated fixtures."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Closet near foyer."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all doors."
+        },
+        {
+            "code": "E1",
+            "description": "Missing most windows."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced refrigerator."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen sink and countertops."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced stove/oven."
+        },
+        {
+            "code": "E3",
+            "description": "Door openings for main entrance and living room balcony are incorrectly rendered as solid walls."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the W/C and adjacent closet area; it is rendered as an open space."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the living room and dining room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the kitchen countertops and appliances."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall dividing kitchen area from a non-existent open space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural changes to the stair configuration and surrounding walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall at the right side of the dining area where a window is indicated."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact - indistinct, blurry geometry near the stairs and in corners."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan8.jpg"
+}

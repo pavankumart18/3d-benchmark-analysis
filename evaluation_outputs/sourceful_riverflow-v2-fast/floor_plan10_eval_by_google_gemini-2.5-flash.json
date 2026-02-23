@@ -1,0 +1,152 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "notes": "Room placement is generally correct, but several walls are misaligned. Multiple doors are either missing or incorrectly placed/oriented. Windows are missing. Room proportions are distorted in several areas, notably the garage, living room, and master suite."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is not consistently rendered, appearing thinner in some areas and thicker in others without cause. Multiple doors are not correctly embedded or are missing. Adjacency relationships are mostly correct, but the Garage/Entry and Living/Kitchen relationships show issues. Multiple rooms are missing, and elements are hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in many rooms, with elements either missing or moved. Furniture scale consistency is poor, with some items appearing oversized or undersized."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and orthographic projection is fairly accurate. Lighting quality is dim and lacks detail. Geometry has some distortions, particularly noticeable in wall junctions and room corners. Visual clarity is decent, but the composition is somewhat flat due to inadequate lighting and lack of material definition."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Pantry' room along with its contents and door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Laundry' room along with its contents and door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WIR' (Walk-in Robe) for Master Suite."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WC' for Master Suite beside WIR."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Bath' room along with its contents."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WC' room for Bed 2/3/4 area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Linen' closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Robe' in Bed 2, Bed 3, and Bed 4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Verandah' structure and furniture."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Portico' structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows as indicated on the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing external doors for 'Alfresco', 'Verandah', and 'Portico'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior wall dividing 'Bed 3' and 'Bed 4', creating a single large room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Master Suite', not aligned with floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entrance wall to 'Theatre' room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced furniture in 'Kitchen' (missing island, rearranged counters)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect furniture layout in 'Living' room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced dining table and chairs in 'Alfresco' area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced internal door leading from 'Activity' to 'Bed 3/4' corridor."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced vehicle in 'Garage', not aligned with floor plan. Garage entry wall also differs."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of internal door for 'Theatre' room."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of internal door for 'Study' room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Garage' room, appearing narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Living' room, appears slightly wider and shorter."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Master Suite' and 'Ensuite', appearing smaller than plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the combined 'Bed 3' and 'Bed 4' area, which is significantly altered."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated extended counter/cabinetry where 'Pantry' should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall section connecting 'Bed 3/4' corridor to 'Activity' area, closing off access."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall where 'Laundry' should be, enclosing the space haphazardly."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting leading to lack of depth and detail."
+        },
+        {
+            "code": "E6",
+            "description": "Rough geometry and lack of smooth surfaces, especially noticeable at wall junctions."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan10.png"
+}

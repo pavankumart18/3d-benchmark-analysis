@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major spatial failure: The garage is hallucinated as an attached basement/lower level under the bedroom, whereas the floor plan shows it as a detached structure. Window placement is completely incorrect, with windows added to the bottom wall of the bathroom and WC where none exist on the plan. Door orientation for the entry is reversed."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model fails to maintain detached structure integrity (Garage). The adjacency of the Garage to Bedroom 2 is structurally impossible based on the plan. Wall thickness is okay, but the vertical integration of the garage is a significant structural hallucination."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Internal fixtures (Kitchen, Bath, Laundry) are generally placed correctly in relation to their labels, though the sink in the laundry is floating/distorted (E6)."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with clean lighting and convincing isometric camera work. Textures are applied reasonably well based on the floor plan's color coding."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated garage as a lower level/basement attached to the main structure."
+        },
+        {
+            "code": "E2",
+            "description": "Hallucinated window placements on the southern wall of the Bath and WC."
+        },
+        {
+            "code": "E3",
+            "description": "Entry door swing and orientation are mirrored compared to the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing detached garage unit as shown in the original survey."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact in the kitchen/laundry transition where walls and counters merge incorrectly."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan13.jpg"
+}

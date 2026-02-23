@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but door orientations for the bathroom and bedroom are inverted compared to the plan. Window distribution on the right wall lacks the specific spacing defined in the 2D blueprint."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Staircase structure and room adjacency are mostly correct. However, doors are rendered as abstract floor markers/curved planes rather than properly embedded architectural elements."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "High mapping accuracy for kitchen island, dining set, and bedroom furniture. Scale is consistent with the architectural shell."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent clay-model aesthetic. Lighting and shadows are realistic. Isometric projection is well-executed with clean geometry."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Bedroom and bathroom doors swing in the opposite direction of the design plan."
+        },
+        {
+            "code": "E6",
+            "description": "Doors rendered as floating curved surfaces rather than standard swinging door geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Minor displacement of windows on the eastern wall compared to the 2D spacing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant layout corruption. Doors are missing entirely for Bed-1 and Bed-2. Window placement is completely inconsistent with the 2D plan, notably the missing windows in Bed-2 and incorrect orientation in Bed-1. Central circulation does not match the foyer/living junction."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing two balconies/decks. The utility area is fused incorrectly with the kitchen. Hallucinated a solid wall where the corridor should lead to the primary bedroom."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Approximate placement of living/dining sets but scale is off. Wardrobes and specific layout niches for Bed-1 are ignored. Kitchen counter configuration is simplified."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with consistent lighting and clay-style aesthetic. The isometric projection is executed correctly despite the structural inaccuracies."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing outdoor decks/balconies in both living and bedroom areas."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal doors for bedrooms (Bed-1 and Bed-2)."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in Bed-1 are placed on the wrong wall relative to the plan orientation."
+        },
+        {
+            "code": "E4",
+            "description": "Utility room and Kitchen adjacency and proportions are merged incorrectly."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated solid wall blocking access to the top bedroom where a door should be."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan14.webp"
+}

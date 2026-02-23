@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant orientation errors. The garage is rendered perpendicular to its plan orientation, detached from the main structure's logic. Room labels are hallucinated or duplicated (e.g., Bedroom #4 appears twice). Door swings do not match the architectural plan consistently."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing the 'Bedroom #3' entirely; it has been replaced by a duplicate Bedroom #4. The primary exterior walls fail to close correctly near the garage entrance. Adjacency between the utility room and the garage is broken by a structural gap."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen island and master bath fixtures are present, but scale is inconsistent. Bedroom furniture appears as generic blocks rather than representing the plan's specific layouts."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Good lighting and shadows. However, it fails as an orthographic projection due to perspective distortion. Wall thickness varies wildly between rooms."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Bedroom #3 is missing from the layout."
+        },
+        {
+            "code": "E3",
+            "description": "2 Car Garage is rotated 90 degrees relative to the house layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a second Bedroom #4 where Bedroom #2 should be, and duplicated labels."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Nook' and 'Master Bath' areas are severely compressed compared to the 13-foot dimensions in the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Structural floating: The garage area is detached from the ceiling/wall plane of the residential block."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan9.png"
+}

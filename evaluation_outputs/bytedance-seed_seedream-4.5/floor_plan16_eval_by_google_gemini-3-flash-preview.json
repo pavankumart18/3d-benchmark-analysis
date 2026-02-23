@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is correct, but door orientations for the bedroom and bathroom differ from the 2D swing directions. Windows have been added to the left-side wall which are not present in the original floor plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Major hallucination of second balcony/terrace space attached to the bedroom that is not in the source. Utility room and kitchen boundary wall is partially merged."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture mapping is exceptionally high fidelity, matching the layout, count, and color scheme of the sofa, dining table, and bedding."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent rendering quality with clean geometry, warm interior lighting, and a perfect isometric camera angle."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucination of extra windows on the western wall and a secondary terrace/balcony outside the bedroom."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing orientation for bedroom and bathroom does not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen appliance layout; oven and stove shifted relative to the sink position."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan16.avif"
+}

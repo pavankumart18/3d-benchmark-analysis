@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are mostly correct, but wall alignment has significant errors, and some doors and windows are missing or misplaced. Room proportions are not perfectly maintained across all spaces."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. There are multiple missing rooms and hallucinated structural elements. Door embeddings are incorrect due to missing frames. Adjacency relationships are partially maintained but significantly flawed in several areas."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is mostly inaccurate, especially for fixed elements like the kitchen islands and bathroom fixtures. Furniture scale is inconsistent in some areas."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting is basic but acceptable. Geometry is clean with no obvious distortions. Visual clarity is good, but the composition is incomplete due to missing elements."
+    },
+    "total_score": 34,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entire room/area on the far left of the floor plan (living/dining combination)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entire room/area on the far right of the floor plan (one bedroom and one bathroom)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the bathroom adjacent to the main bedroom bottom right."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the separate toilet room next to the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the bathroom near the entrance next to the second bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door between the main bedroom and the central hallway (should be further down and to the left)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for the second bedroom (top right in 2D plan, rendered bottom right) - it's positioned differently."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrectly sized window in the bedroom on the left."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the main living space (middle of the house, looking out to the right). Should be a wider opening."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the kitchen area (should be on the exterior wall towards the bottom)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the main bedroom door (should open outwards from the bedroom)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the main living area, appears wider than in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen area, appears stretched and simplified."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior wall section in front of the kitchen sink area, not present in 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing several interior doors throughout the structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all exterior doors."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the bathroom attached to the main bedroom (bottom right in 2D plan). It's completely absent and the wall segment is misplaced."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen island and most kitchen appliances shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bathroom fixtures (toilets, sinks) from all bathroom areas."
+        },
+        {
+            "code": "E4",
+            "description": "The outer boundary of the house has been distorted, especially on the left and right sides, to simplify the structure and omit rooms."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan5.jpg"
+}

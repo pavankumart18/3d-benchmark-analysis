@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained. However, several door openings are missing or converted to open thresholds. The angled wall of the secondary deck is slightly shallower than the source plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses are consistent. Major issue with TOI-1 adjacent to BED-1 which is missing its internal entrance from the bedroom. The 'HO' room and bottom TOI are merged into a single generic space."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement mostly accurate, but the dining table orientation and chair count differ slightly from the 2D plan and the kitchen island configuration is simplified."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent orthographic projection and clean geometry. Minimalist material palette is consistent and lighting provides clear depth."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry doors for several rooms, appearing as open gaps in the walls."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen island/counter is misplaced compared to the 'U' shape shown in original floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Furniture in the living area has different orientation than the rug/layout in 2D."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion of the foyer and HO room at the bottom entrance are distorted/simplified."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan19.webp"
+}

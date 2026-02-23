@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the lower left room is significantly distorted. Wall alignment has several discrepancies, particularly in the hallway and the lower bedroom. Door placements are largely incorrect in orientation and position. Window placements are missing entirely. Room proportions are significantly distorted in multiple areas, especially the lower left bedroom and the main living area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly noticeable in the bathroom and hallway areas. Door embedding is incorrect, often floating or improperly integrated into walls. Adjacency relationships are mostly preserved but compromised by incorrect wall alignments. No missing rooms, but the bathroom layout is very different. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally off, with many items being moved or rotated incorrectly. For example, beds are oriented differently, the living room couch is rotated, and the dining table is in a different corner. Furniture scale is inconsistent, with some items appearing oversized or undersized relative to the rooms, such as the living room furniture and the beds."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair. Lighting quality is decent, but some areas appear slightly dark. Geometry is mostly clean with minor distortions. Visual clarity and composition are good despite the structural inaccuracies."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Lower-left bedroom's shape and proportions are significantly distorted, it is missing the two beds and closet shown in the floorplan and instead shows a couch with a cabinet."
+        },
+        {
+            "code": "E2",
+            "description": "Many doors are misplaced or have incorrect swing orientations, e.g., the bathroom door, the lower left bedroom door, and the right bedroom door."
+        },
+        {
+            "code": "E1",
+            "description": "All windows are missing from the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "The bathroom layout is significantly altered; the WC, shower, and sink are present but in different positions and orientations."
+        },
+        {
+            "code": "E2",
+            "description": "The living room sofa and chairs are rotated and misplaced compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The dining table and chairs are moved to a different corner of the room."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter layout and appliance placement (stove, sink) are different in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "The main living area and kitchen proportions appear wider in the 3D render than in the 2D plan, especially the depth."
+        },
+        {
+            "code": "E4",
+            "description": "The corridor leading to the bathroom and right bedroom is significantly wider and shorter than in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The beds in the upper-left and upper-right bedrooms are rotated 90 degrees compared to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wardrobe in the upper-left bedroom is misplaced and misproportioned."
+        },
+        {
+            "code": "E2",
+            "description": "The office desk and cabinet in the upper-right room are placed against a different wall and are missing a wall that separates a second bed from the office in the 2D plan. The office also has two beds in the 3D render whereas only one is shown in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thicknesses are inconsistent, particularly visible around the bathroom area and main entryway."
+        },
+        {
+            "code": "E2",
+            "description": "The decorative plant near the main entrance is moved laterally and slightly rotated."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan2.png"
+}

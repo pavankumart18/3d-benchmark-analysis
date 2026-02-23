@@ -1,0 +1,112 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Room placements are generally correct, but several walls are misaligned. Multiple doors are missing and others are oriented incorrectly. Windows are missing and misplaced. Room proportions are significantly distorted in several areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are missing or incorrectly embedded. Adjacency relationships are mostly maintained but suffer from wall misalignment. Several rooms are missing. No hallucinated rooms, but significant structural deviations exist."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in many rooms, and scale consistency is poor. Many furniture items from the plan are missing."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection is generally maintained. Lighting is flat. Geometry is not clean, with many structural distortions and inconsistencies. Visual clarity is moderate, but the distortions detract from composition."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple doors, including main entrance, toilet doors, and bedroom doors."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Kitchen, Utility, Bedroom-2, Master Bedroom, and Balcony areas."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entire balcony structure on the left side (MBedroom)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing various furniture items, e.g., bed in Bedroom-1, dining table and chairs, kitchen counters and appliances, a significant portion of living room furniture, and bathroom fixtures."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door between Living & Dining and Bedroom-2."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bedroom-1."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bedroom-2, moved to an internal wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall separating Living & Dining from Bedroom-2 and Toilet, shifting entire section."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall between Kitchen and Utility, creating an opening instead of a solid wall with a door."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced internal bathroom structures and fixtures in various toilets."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of utility appliances."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the Bedroom-1 door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the Bedroom-2 door."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in the entire left side of the floor plan, specifically the Master Bedroom and attached Toilet, making them appear narrower and shorter. The Balcony is completely missing."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom-1, appearing smaller."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Kitchen and Utility areas, appearing narrower laterally."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness throughout the model."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small boxes and clutter around the perimeter walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional structural elements, e.g., a short wall/pillar near the entrance of Utility."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting quality, resulting in flat and undifferentiated surfaces."
+        },
+        {
+            "code": "E6",
+            "description": "Lack of clean geometry, with rough edges and non-uniform surfaces."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan15.webp"
+}

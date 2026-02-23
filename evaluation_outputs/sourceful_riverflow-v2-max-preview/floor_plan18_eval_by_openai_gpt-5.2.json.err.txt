@@ -1,0 +1,50 @@
+{
+  "spatial_accuracy": {
+    "score": 18,
+    "max": 40,
+    "notes": "Overall layout resembles the plan (bedroom left, toilet central-top, kitchen right, living/dining central), but several key spatial deviations exist. The utility space shown on the 2D plan is not represented as a separate room/zone in the 3D. The foyer in the 2D plan is a distinct small entry (bottom-right) but appears merged/opened into the living area in the 3D, altering the entry sequence. Door locations/swing relationships around the toilet/kitchen/entry do not reliably match the 2D plan. Window locations/counts also diverge (notably kitchen and living façade openings). Room proportions appear distorted: living/dining reads oversized relative to the compact foyer and kitchen sizes given in the plan."
+  },
+  "structural_fidelity": {
+    "score": 12,
+    "max": 25,
+    "notes": "Wall thickness and general wall construction look consistent, and doors are generally embedded cleanly. However, adjacency fidelity is weakened by the missing utility and altered foyer boundary. The 3D introduces an exterior door from the kitchen/right side that is not indicated in the 2D plan, and the utility access from kitchen (a key adjacency) is not preserved. No clear, correctly separated utility enclosure is present."
+  },
+  "furniture_mapping": {
+    "score": 7,
+    "max": 10,
+    "notes": "Major furniture types are placed in plausible corresponding rooms (bed in bedroom, dining table in living/dining, kitchen counters/appliances). Exact placement does not strictly follow the 2D hints (e.g., living arrangement/TV not specified in plan), but scale appears generally consistent and usable."
+  },
+  "aesthetic_quality": {
+    "score": 19,
+    "max": 25,
+    "notes": "Isometric view is clear and well composed with clean geometry and good lighting. Minor issues: projection is slightly perspective-like rather than strict axonometric/orthographic. Visual quality is strong even though architectural fidelity is weak."
+  },
+  "total_score": 56,
+  "detected_errors": [
+    {
+      "code": "E1",
+      "description": "Utility room/utility zone (top-right, 3'9\" wide) is missing as a distinct space; no separate enclosure matching the 2D plan is shown."
+    },
+    {
+      "code": "E2",
+      "description": "Foyer (bottom-right, 4'6\" x 3'10\") is not preserved as a clearly bounded entry space; it appears opened/merged into the living area, altering room boundaries."
+    },
+    {
+      "code": "E5",
+      "description": "Hallucinated exterior door/opening on the right side near/within the kitchen area that is not indicated on the 2D floor plan."
+    },
+    {
+      "code": "E2",
+      "description": "Toilet door placement/access path appears different from the 2D plan (plan shows toilet accessed from the small inner junction near bedroom/kitchen; 3D suggests a different direct opening arrangement)."
+    },
+    {
+      "code": "E2",
+      "description": "Kitchen-to-utility relationship is incorrect: the 2D plan shows a dedicated utility accessed from kitchen; 3D lacks this partition/connection."
+    },
+    {
+      "code": "E2",
+      "description": "Window placement/count on the living/kitchen exterior walls does not match the 2D plan indications (3D shows large continuous window sets not clearly supported by the 2D window markers)."
+    },
+    {
+      "code": "E4",
+      "description": "Proportion distortion: living/dining reads disproportionately large relative to the specified compact foyer and kitchen dimensions; circulation widths and room

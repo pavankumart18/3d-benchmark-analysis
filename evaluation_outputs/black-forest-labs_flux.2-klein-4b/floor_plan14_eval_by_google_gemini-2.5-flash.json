@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room 'Utility' is missing, impacting room placement correctness. Wall alignment is inconsistent, particularly around the kitchen and Utility/C.TOI area. Numerous doors are missing or incorrectly placed/oriented. Several windows are missing. Obvious proportion distortions in various rooms, especially the Kitchen and Foyer."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly noticeable with the interior partition walls. Many missing doors. The 'Utility' and 'C.TOI' rooms are entirely missing, along with their adjacency to the kitchen. Hallucinated walls are present where 'Utility' and 'C.TOI' should be."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement accuracy is low; many elements are missing or in different locations. Scale consistency is poor for several furniture items, such as the living room sofa and some beds."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera is mostly correct, but the orthographic projection is not perfectly accurate as some elements appear slightly skewed. Lighting quality is acceptable but could be improved. Geometry shows some distortions and lacks refinement in certain areas, especially where rooms are missing. Visual clarity is okay, but the omission of significant structural elements reduces overall composition quality."
+    },
+    "total_score": 27,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing room: 'Utility'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing room: 'C.TOI'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between Kitchen and Foyer/Living Dining."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for BED-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for TOI-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for BED-1."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom fixtures in the area where 'C.TOI' should be."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in BED-1; floor plan shows a window on the outer wall, render shows an internal opening."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in DECK adjacent to BED-1; render shows a wall instead of a window."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the entrance door in the foyer."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Kitchen area, appears significantly smaller and reconfigured."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Foyer, appears narrower and longer than shown on floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in BED-2, appears wider than specified on floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'DECK' areas."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall where 'Utility' and 'C.TOI' rooms should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partition wall within the Living/Dining area not present in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Distorted geometry and lack of clean edges around several wall junctions and room transitions."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan14.webp"
+}

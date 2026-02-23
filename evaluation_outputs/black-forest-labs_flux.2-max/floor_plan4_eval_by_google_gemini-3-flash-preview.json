@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but window placement on the left facade is merged. Door swings in the hallway area and entrance transition are slightly inconsistent with the floor plan's precise orientations."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms (Laundry, Closets, Bedroom 1 & 2, Bathroom) are accounted for. Wall thickness is consistent. The partition wall in the living room is slightly shorter than drafted in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture types; kitchen U-shape, dining set, and living room arrangement align well. Bedroom 2 furniture orientation is slightly shifted."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Clean isometric projection with high visual clarity. Lighting is consistent and professional. Minimal geometry artifacts at door thresholds."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The kitchen window and dining window are merged into a continuous strip rather than separate units as shown in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Hallway door to the bathroom and laundry closets show slight orientation mismatches compared to the 2D swing indicators."
+        },
+        {
+            "code": "E4",
+            "description": "Living room divider wall is proportional shorter in the 3D render, altering the hallway aperture width."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan4.jpg"
+}

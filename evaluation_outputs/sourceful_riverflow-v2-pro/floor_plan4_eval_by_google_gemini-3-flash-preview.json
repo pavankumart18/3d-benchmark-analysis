@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is maintained, but door swings and orientations are inconsistent with the plan. Window placements on the right and bottom facades show slight alignment drift."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall partitions for closets are represented as thin shells rather than architectural walls. Entryway threshold is missing a clear definition. Bathroom internal partitions differ slightly from the 2D schematic."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate to the floor plan's suggested layout. Minor scale discrepancy with the bedroom 2 desk and the living room sofa size relative to walls."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent orthographic-style rendering. Clean textures and soft shadows. High visual clarity for architectural verification."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Laundry room door and bathroom door swings are oriented incorrectly compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The hallway (Hall 149 sq ft) width appears slightly compressed compared to the kitchen island spacing."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior front door placement is missing the specific alcove indicator/step shown in the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Thin wall geometry for closet enclosures lacks the thickness consistency of the primary structural walls."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan4.jpg"
+}

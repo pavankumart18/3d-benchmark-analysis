@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Major layout mismatches vs plan. (E2/E4) Living & dining zone in 3D does not read as the long central 3.65x6.97 space connecting to both passages/balcony; it appears reshaped and more compact with a large empty front area. (E2/E3) Several internal door locations/orientations do not match the plan\u2019s passage-driven circulation (doors to toilets/bedrooms appear simplified/shifted). (E2) Window locations/count do not match the plan\u2019s extensive external openings; balcony-side openings are not represented correctly. (E4) Room proportions (living/dining length, corridor widths, kitchen depth) appear distorted relative to the annotated plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Basic apartment shell is present, but key program elements are missing and adjacencies are simplified. (E1) Balconies shown on the plan (living balcony and master balcony) are not modeled as balcony spaces. (E1) Utility space adjacent to kitchen is missing. (E1) Plan indicates multiple toilets (including a powder toilet); 3D shows fewer wet rooms than required. (E2) Adjacency/circulation via the two 'wide passages' is not faithfully reproduced; walls/doorways appear rearranged. Wall thickness/door embedding are generally consistent but not enough to compensate for missing spaces."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Core furniture types (beds, sofa, dining table) are present, but do not reliably map to the plan\u2019s room extents due to room reshaping. (E2) Dining/living placement is plausible but not aligned to the plan\u2019s long living/dining zone and balcony edge. (E4) Some furniture-to-room scale feels off (living area vs surrounding circulation/empty area)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clean and readable with consistent materials. Camera is acceptable isometric-like perspective (minor perspective distortion vs true isometric/orthographic). Lighting is even and geometry is mostly clean. (E6) Minor visual artifacts/clarity issues include floor text labels and simplified detailing (no balcony rails/thresholds)."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Both balconies from the 2D plan (living balcony and master bedroom balcony) are missing in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen utility area shown in the 2D plan is missing in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple toilets shown in the 2D plan (including the powder toilet) are not all present; 3D depicts fewer bathrooms than required."
+        },
+        {
+            "code": "E2",
+            "description": "Living & dining area placement/shape does not match the plan\u2019s long central living/dining space and its relationship to the passages and balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Circulation based on the two 'wide passages' is simplified/shifted; wall alignment and key openings between rooms do not follow the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior door orientations/positions (bedroom/toilet entries) do not match the plan\u2019s door swings and locations along the passages."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count is inconsistent with the 2D plan; several external wall openings are missing or relocated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions are distorted: living/dining length-to-width and corridor widths do not appear preserved relative to the annotated dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "A large empty front area/room-like space appears in the 3D that is not clearly defined in the 2D plan as a separate room."
+        },
+        {
+            "code": "E6",
+            "description": "Non-architectural floor text labels and oversimplified balcony/threshold detailing reduce representational fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan15.webp"
+}

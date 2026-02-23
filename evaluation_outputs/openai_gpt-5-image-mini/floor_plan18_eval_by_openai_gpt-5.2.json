@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 7,
+        "max": 40,
+        "notes": "Major layout mismatch. (E2/E1/E4) Bedroom is not a separate enclosed room; bed is placed in the main living space and the bedroom walls/partitioning from the 2D plan are not represented. Kitchen is generally on the right side but its footprint and relationship to foyer/utility are incorrect. Toilet is not correctly positioned/formed relative to the plan\u2019s top-middle bath and passage. Balcony is hinted at bottom-left but its connection/entry from living is not correctly shown. Door and window placements do not match the plan, and overall room proportions (living vs bedroom vs kitchen) are distorted."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Core adjacency and enclosure rules are violated. (E1/E2/E5) Missing foyer and utility spaces; bedroom not separated; bath enclosure lacks correct access/door treatment. Adjacencies differ: plan has entry->foyer->living/kitchen branching; render shows no foyer and an open-plan bedroom/living. Some wall thickness is consistent visually but walls/partitions are invented or omitted, creating hallucinated open space and incorrect partitions."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not follow the 2D layout. (E2/E4/E5) Bed location/room is wrong (should be in enclosed bedroom). Living seating/dining set are present but not arranged per plan\u2019s proportions and circulation. Kitchen uses an island/cooktop arrangement not indicated in the 2D plan; utility fixtures not mapped."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean and visually clear with consistent materials. Isometric-style camera is acceptable, though not a strict orthographic/isometric match. Lighting is soft and even; geometry is mostly clean with no major artifacts. However, the simplified/open-plan modeling reduces architectural readability versus the plan."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer at bottom-right (entry vestibule) is missing; main entry sequence does not match the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Utility area to the right of the kitchen (3'9\" wide) is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom is not placed/enclosed as the top-left room; bed is located in the main living/dining space."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom internal partition/walls separating bedroom from living/dining are missing."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/bath is not correctly placed/configured relative to the plan (should be top-middle with defined door access from the passage)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements/orientations are largely absent or incorrect: no clear main door at bottom-right, no correct bedroom door from living, no correct toilet door, and no balcony door from living."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements do not match the 2D plan (notably missing/incorrect windows for kitchen/utility/toilet ventilation and mismatched bedroom window positions)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: living/dining vs bedroom vs kitchen sizes and circulation do not preserve the 2D plan dimensions/ratios."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-plan layout (combined bedroom+living) that contradicts the 2D plan\u2019s separated rooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island/cooktop configuration not indicated in the 2D plan (plan suggests a more compact kitchen with utility adjacency)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan18.jpg"
+}

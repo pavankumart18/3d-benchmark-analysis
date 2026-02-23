@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "There are significant discrepancies in room placement and proportions. The playroom is disproportionately small and its adjacency to the kitchen is incorrect. The W/C and closet area next to the foyer is significantly altered, and the stairs area is distorted. Window and door placements are frequently incorrect."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Multiple missing rooms (closets), hallucinated walls, and incorrect adjacency relationships (e.g., between kitchen and playroom, and the W/C/closet area). Wall thickness is not consistently preserved, and door embedment is often incorrect."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture in the kitchen is mostly present but the island's orientation differs from the floor plan. The fireplace in the living room is present, but the pantry and W/C fixtures are inaccurate or missing their proper placement."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good, and orthographic projection seems accurate. Lighting quality is acceptable, and geometry is clean. Visual clarity is generally good, but the overall composition suffers from the structural inaccuracies."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The kitchen island's orientation is different from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'Pantry' room is missing; only a counter structure is present."
+        },
+        {
+            "code": "E1",
+            "description": "The closet next to the W/C is missing."
+        },
+        {
+            "code": "E1",
+            "description": "The closet in the foyer is missing."
+        },
+        {
+            "code": "E2",
+            "description": "The door to the playroom is misplaced and its type is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "The door leading to the W/C/closet area from the foyer is completely different in type and placement."
+        },
+        {
+            "code": "E3",
+            "description": "The toilet and sink in the W/C are incorrectly oriented or missing their exact positions."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple windows are either misplaced or have incorrect proportions/types (e.g., living room, dining room, playroom)."
+        },
+        {
+            "code": "E4",
+            "description": "The playroom's proportions are significantly distorted, making it appear much smaller than indicated on the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The W/C and surrounding closet area proportions are heavily distorted and reconfigured."
+        },
+        {
+            "code": "E5",
+            "description": "A new wall segment appears to be introduced near the playroom and kitchen, altering the original layout."
+        },
+        {
+            "code": "E2",
+            "description": "The staircase configuration appears altered and is not fully contained as per the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating the W/C from the rest of the house is not aligned with the floor plan, extending further into the foyer area."
+        },
+        {
+            "code": "E2",
+            "description": "The wall thickness consistency is poor in several areas, particularly around the foyer and staircase."
+        },
+        {
+            "code": "E2",
+            "description": "Door embedment for the main entrance and the dining room (to exterior) is incorrect or missing."
+        },
+        {
+            "code": "E2",
+            "description": "The exterior doors shown in the render (e.g., dining room, kitchen) do not match the floor plan's depiction of windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan8.jpg"
+}

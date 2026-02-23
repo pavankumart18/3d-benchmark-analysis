@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Door placements for bedrooms 2 and 3 are significantly altered from the plan. The sliding access to the balcony is represented as generic glass panes rather than the specified opening. Window placements in the bedrooms are simplified and don't match the plan's exact framing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The hallway area connecting Bed 2, 3, and 4 is structurally confused compared to the floor plan's 'L' shape. The bathroom/WC wall layout is inverted. The staircase area is truncated with a lack of the specified 'capped wall' detail."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Bed orientations in Bed 2 and Bed 3 are rotated 90-180 degrees from the plan. The activity room sofa placement is reasonably accurate, but the balcony furniture is missing."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High quality isometric render. Lighting is consistent and materials are clean. Small geometry artifacts in the secondary bedroom doorway area."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Beds in rooms 2 and 3 are rotated and placed against the wrong walls."
+        },
+        {
+            "code": "E2",
+            "description": "WC and Bath layout is mirrored/swapped relative to the stair location."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony depth and the hallway width are distorted compared to dimensional labels."
+        },
+        {
+            "code": "E1",
+            "description": "Linen closet and specific recessed areas are missing from the structure."
+        },
+        {
+            "code": "E6",
+            "description": "Staircase geometry merges into the back wall awkwardly."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan12.png"
+}

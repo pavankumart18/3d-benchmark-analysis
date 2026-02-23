@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the overall layout proportions deviates significantly. Wall alignment is inconsistent in several areas, especially around the bathroom and staircase. Door placement is incorrect for the main entrance and the bedroom closet. Window placement is mostly correct but some are missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout the render; some walls are thin and others are disproportionately thick. Main entrance door is missing. The small room next to the staircase entrance is missing. Hallucinated elements include a wall next to the main entrance door and an unnecessary wall in the kitchen/living area where a large opening should be. Staircase details are missing. Bedroom closet is missing."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture scale is inconsistent, particularly the bed in the bedroom which appears shrunk. The refrigerator is missing. The dining table in the kitchen/living area is missing. The toilet and sink in the bathroom are underscaled. Furniture in the bedroom closet is missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera is correct. Orthographic projection seems accurate. Lighting quality is acceptable. There are some clean geometry issues evident in the inconsistent wall thickness and some structural elements like the staircase. Visual clarity is good, but the composition shows some missing elements."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Overall room proportions are distorted, particularly the main living area and kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is misplaced and poorly rendered as an opening with a wall."
+        },
+        {
+            "code": "E1",
+            "description": "Main entrance door is missing its actual structure."
+        },
+        {
+            "code": "E1",
+            "description": "The small room adjacent to the staircase entrance is missing."
+        },
+        {
+            "code": "E5",
+            "description": "A new wall is hallucinated next to the main entrance where a doorway should be."
+        },
+        {
+            "code": "E5",
+            "description": "A wall is hallucinated in the kitchen/living area, where a large open space should be according to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent across the model."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom closet door and internal elements are missing."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom bed appears to be underscaled."
+        },
+        {
+            "code": "E1",
+            "description": "Refrigerator in the kitchen is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Dining table in the kitchen/living area is missing."
+        },
+        {
+            "code": "E4",
+            "description": "Toilet and sink in the bathroom are underscaled."
+        },
+        {
+            "code": "E1",
+            "description": "Planters on the exterior are missing their plants."
+        },
+        {
+            "code": "E2",
+            "description": "Windows at various locations are misplaced or missing."
+        },
+        {
+            "code": "E1",
+            "description": "Upper windows in the kitchen/living area are missing."
+        },
+        {
+            "code": "E1",
+            "description": "Staircase details are simplified and missing components like railings and individual steps."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the bathroom is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the bedroom is misplaced."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan6.jpg"
+}

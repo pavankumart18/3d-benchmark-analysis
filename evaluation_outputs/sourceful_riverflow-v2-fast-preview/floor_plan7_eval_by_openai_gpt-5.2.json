@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room cluster resembles the 2D plan (Dining top-left, Kitchen top-center, Bedroom bottom-left, Living right, Toilet/Wash core), but major spatial deviations exist: the main Entrance zone/door is not positioned on the top-right as in the plan and instead appears shifted to the bottom/center edge. The large bottom-right Stair/UP volume from the plan is not correctly represented (space shape/use differs). Several door locations/swing orientations in the central core (Bedroom\u2194hall and Wash/Toilet access) appear inconsistent. Window placement differs notably on Bedroom and some service walls."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Key structural element (staircase) is missing/incorrectly modeled. Adjacency is partially preserved (Dining adjacent to Kitchen; Living adjacent to hall/core), but the Entrance adjacency and circulation path differ. Wall thickness looks generally consistent, but door embedding and the openings to the Entrance/Stair zone do not match the plan. No clear evidence of the plan\u2019s stair flight/landing geometry."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Dining table/chairs, bedroom bed, and living seating are present and generally plausible, but not tightly matched to the 2D layout (living arrangement and clearances differ; some furniture appears repositioned relative to walls/openings). Scale is mostly consistent, though circulation clearances around the central core look tighter than the plan suggests."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera is consistent and readable; lighting is clean with minimal artifacts. Geometry is mostly clean, but the bottom-right zone reads as an undefined/incorrect volume (hurting clarity). Overall presentation quality is good despite plan fidelity issues."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entrance location is misplaced: 2D plan shows entrance at the top-right; 3D render depicts the primary exterior door/opening at the bottom/center edge."
+        },
+        {
+            "code": "E1",
+            "description": "Staircase (UP) shown in the bottom-right of the 2D plan is missing as a stair flight/landing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bottom-right area is modeled as an undefined room/volume rather than the plan\u2019s stair zone, altering circulation and spatial intent."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior door swing/orientation inconsistencies in the central core (Bedroom/hall and Wash/Toilet access) relative to the 2D plan door arcs."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom window placement differs: plan indicates a window on the left wall (and additional opening), but the 3D render emphasizes windows on the bottom wall with no clear left-wall bedroom window."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the bottom-right zone: the plan\u2019s stair volume footprint and subdivision are not preserved in the 3D model."
+        },
+        {
+            "code": "E5",
+            "description": "Hall/room-like space appears in the bottom-right where the plan specifies stairs; this reads as a hallucinated functional space replacing the stairs."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan7.jpg"
+}

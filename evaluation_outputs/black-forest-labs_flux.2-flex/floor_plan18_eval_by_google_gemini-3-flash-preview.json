@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant orientation and placement errors. The bedroom window is shifted to the headboard wall. Door openings in the living area and toilet are missing or replaced with solid gaps. The kitchen entryway configuration is structurally different from the source plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The utility room is missing its exterior enclosure. The living room to balcony transition is incorrect. Several internal wall corners do not match the staggered layout of the source plan. Hallucinated openings appear in the living area."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Dining table is replaced by a chaise-longue style chair. Hallucinated text 'ITCHEN' and 'DINING' appears on the floor. Furniture scale in the living room is disproportionate to the room size."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "High quality rendering with consistent lighting and shadows. Isometric perspective is maintained well, though some text rendering is garbled."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing utility room walls and balcony door connection."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom window shifted from side wall to the wall behind the bed."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom door orientation and bathroom door entry points are incorrectly aligned."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen counter proportions and foyer width do not match the 2D dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated floor text and incorrect furniture types in the dining area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but wall thicknesses and exact window aperture sizes vary from the 2D plan. The staircase to the right is significantly truncated in the 3D render."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Missing the full run of the staircase (E1). The laundry/storage area below the bathroom shows hallucinated armchair-like objects instead of standard storage geometry (E5). Door swings are rendered as literal curved walls rather than architectural symbols."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Kitchen island and bedroom furniture are well-placed. The dining set has been simplified into a single rectangular block."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent lighting and clean clay-render style. Isometric perspective is consistent. Visual clarity is high, though labels are rendered as 3D text which is a stylistic choice."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "The full staircase run on the right side of the plan is missing/shortened in 3D."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated seating inside the storage/laundry room defined by the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Double doors on the left balcony are rendered as jagged wall segments rather than clean swinging panels."
+        },
+        {
+            "code": "E4",
+            "description": "Window dimensions along the bottom wall are inconsistent with the 2D rhythm."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan6.jpg"
+}

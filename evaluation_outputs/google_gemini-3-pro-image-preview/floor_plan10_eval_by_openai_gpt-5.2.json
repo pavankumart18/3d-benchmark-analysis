@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall arrangement roughly follows the plan (bedroom zone at top, central kitchen/living, alfresco to the right, master/study/front zone at bottom), but multiple critical spatial mismatches exist. (1) Garage massing is substantially larger than the plan and reads as a double-bay rather than the single garage shown (E4/E5), affecting adjacent entry proportions. (2) Front external areas (verandah/portico) are not clearly separated/positioned as in the plan (E1/E2). (3) Several small-service spaces shown in plan (WIL/linen/recesses) are not consistently represented as distinct volumes, altering corridor/room geometry (E1/E4). (4) Door and window layouts do not reliably match the 2D openings, especially along the front and bedroom fa\u00e7ades (E2/E3)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent in the render, but fidelity to the plan\u2019s structural partitioning is weak in key areas. Adjacency is only partially correct: living-to-alfresco connection exists, and bedroom cluster exists, but entry/garage/study/front-zone relationships are distorted by the enlarged garage and unclear portico/verandah definition (E2/E4). Multiple plan-defined micro-spaces (WIL, linen, recesses) are missing or merged (E1). The garage depiction introduces an extra bay/space not present in the plan (E5). Several interior door embeddings/openings appear simplified compared to the plan\u2019s door count and swing placements (E2/E3)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture is plausible but does not map tightly to the plan\u2019s intent. The plan indicates a dedicated theatre; the render shows lounge seating, but the theatre fit-out/placement is ambiguous and may be substituted by generic living seating (E2). Bedroom furnishing is generic and may not match window/robe/desk-recess constraints shown on plan (E2/E4). Scale is mostly consistent, but the oversized garage and some open areas make furniture-to-room scale unreliable in affected zones (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with coherent lighting and generally tidy geometry. Camera is close to isometric but still perspective-biased (minor). Materials are consistent and there are no major rendering artifacts. Visual clarity is good; however, some geometry simplification (missing recesses/closets and simplified openings) reduces architectural legibility relative to the plan."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Garage size/proportions are significantly larger than the floor plan, altering the front-right massing and internal adjacency."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated double-car usage/extra bay implied: render shows two vehicles and a garage capacity inconsistent with the single garage shown in plan."
+        },
+        {
+            "code": "E1",
+            "description": "Verandah is not clearly present/defined in the render as a distinct front-left external space matching the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Portico is not clearly present/defined as a distinct front entry element matching the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing or merged storage/service micro-spaces from the plan (e.g., WIL, linen, and multiple labeled recess areas are not consistently modeled as distinct spaces)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement/count is simplified versus the plan (multiple interior openings appear repositioned or omitted, especially around entry/corridor/service zones)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door orientations (swing direction/hinge side) are not verifiable as matching the 2D plan and appear generically assigned."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/pattern does not reliably match the plan\u2019s fa\u00e7ade openings (notably along bedroom and front elevations; glazing segments appear generalized)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortions likely in the front zone (entry/study/garage interface) due to the enlarged garage footprint and simplified external porch geometry."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "Severe failure in room placement and door/window logic. The central bathroom is missing its specific placement relative to the kitchen/stairs, and the layout has been transformed into a multi-room bedroom suite not present in the plan."
+    },
+    "structural_fidelity": {
+        "score": 4,
+        "max": 25,
+        "notes": "Major structural errors. Missing the staircase entirely. Multiple hallucinated interior walls creating small rooms. Adjacency relationships between kitchen and living/dining are ignored."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Hallucinated furniture including a bed and desk. Failed to map the kitchen appliances or staircase features correctly."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "The isometric camera angle is correct and the lighting is soft. However, there are significant artifacts and 'ghosting' in the center of the render where geometry is poorly defined."
+    },
+    "total_score": 23,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase element entirely."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated multiple small rooms and a bedroom layout not found in 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door and window placements do not align with orange indicators on the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Visual artifacts and blurry geometry in the central corridor area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the overall rectangular footprint are distorted into more of a square ratio."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan3.jpg"
+}

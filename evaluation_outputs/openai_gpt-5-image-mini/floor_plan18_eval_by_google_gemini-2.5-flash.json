@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. Balcony is disproportionately small and lacks depth. Living/Dining area is combined with the foyer space."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Missing doors to Bedroom, Toilet, Utility, and Kitchen. Adjacency of rooms is generally correct but internal wall arrangements are simplified and incorrect. Hallucinated walls in the 'Living/Dining' area that are not present in the floor plan. Missing utility room entirely."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement in Bedroom and Living is generally correct but orientation of the dining table and sofa is incorrect. Balcony railing is present but not accurately represented in the 3D model."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric perspective is maintained, and geometry is clean. Lighting is basic but acceptable."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door for Bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Toilet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Utility."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entire Utility room and its contents."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and size of a window in the Bedroom (smaller and off-center compared to floor plan indication)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and size of a window in the Toilet (smaller and moved)."
+        },
+        {
+            "code": "E3",
+            "description": "Dining table and chairs orientation is incorrect (rotated 90 degrees)."
+        },
+        {
+            "code": "E3",
+            "description": "Sofa orientation is incorrect (facing the wall rather than towards an implied TV area)."
+        },
+        {
+            "code": "E4",
+            "description": "Balcony proportion distortion (too shallow/small)."
+        },
+        {
+            "code": "E4",
+            "description": "Living/Dining room proportions distorted, combined with foyer."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen dimensions appear significantly altered; the L-shaped counter from the plan is simplified to a single wall counter and island, altering the space substantially."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment separating the 'Living/Dining' area from what should be the kitchen entry/foyer in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated island counter in Kitchen."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan18.jpg"
+}

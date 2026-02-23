@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placements are generally correct, but several walls are misaligned. Multiple doors are incorrectly placed or oriented, especially in bathrooms and bedrooms. Windows are missing entirely in several areas. Room proportions are distorted, particularly noticeable in the kitchen and the bedroom in the bottom right."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker than others. Door embeddings are often incorrect, with doors floating or improperly intersecting walls. Adjacency relationships are mostly correct for rooms but flawed for specific elements. Several windows are missing, and no rooms appear to be hallucinated, but a small patio area on the right has been 'filled in' with a solid wall."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate in terms of general location within rooms, but specific arrangements deviate from the floor plan (e.g., kitchen layout, bedroom furniture). Furniture scale consistency is poor; some items appear too large or too small relative to the rooms. Many small details like sinks and cooktops are missing or simplified."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, but the orthographic projection accuracy is compromised by distorted geometry. Lighting is basic and lacks realism, making the scene flat. Geometry is generally clean with few obvious artifacts, but the overall visual clarity is reduced by missing details and inconsistent proportions. The composition is standard for an isometric view."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misaligned walls in multiple areas, especially around the central living/dining space and bedrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and orientation for the bathroom near the kitchen, and several bedroom doors."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows throughout the entire structure."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen, resulting in a narrower and elongated space compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the bottom-right bedroom, appearing wider than indicated."
+        },
+        {
+            "code": "E2",
+            "description": "Inconsistent wall thickness throughout the model."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door embedding, with some doors not properly set into walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific furniture elements and appliances from the kitchen (e.g., sink, stovetop detail)."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent furniture scale, with some items appearing oversized (e.g., beds) or undersized."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small patio area on the right side of the plan; it has been rendered as a solid wall."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect layout of kitchen counters and appliances compared to the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bed in the top-left bedroom is incorrect relative to the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan5.jpg"
+}

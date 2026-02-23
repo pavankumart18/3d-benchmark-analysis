@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but significant door alignment errors exist. The foyer/entrance area is over-simplified, and the entryway into the living room lacks the wall-depth definition shown in the CAD plan. Window openings in BED-2 are merged rather than keeping specific structural widths."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses are mostly consistent. However, the connection between the Kitchen and Utility area is misinterpreted; the door to the Utility is misplaced. The balcony/deck attached to BED-1 has an incorrect structural wall termination."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Living room furniture mimics the plan well. The BED-1 layout is flipped compared to the CAD (headboard on the wrong wall). Kitchen appliances are simplified cubes lacking the specific stove/sink placement of the source."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Clean isometric projection with soft, diffuse lighting. Clay-style render provides excellent visual clarity. Minor geometry clipping where some walls meet floors."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "BED-1 furniture orientation is mirrored/flipped compared to the 2D plan layout."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room door is misplaced relative to the kitchen counter and wall layout."
+        },
+        {
+            "code": "E4",
+            "description": "The foyer area (entrance) is shortened and lacks the specific alcove proportions for the main door."
+        },
+        {
+            "code": "E2",
+            "description": "TOI-1 door is shown swinging into the hallway space in the render rather than into the bathroom as per plan."
+        },
+        {
+            "code": "E6",
+            "description": "The 'DECK' off Bed-1 lacks the specific wall cut-out for the sliding door frame."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan14.webp"
+}

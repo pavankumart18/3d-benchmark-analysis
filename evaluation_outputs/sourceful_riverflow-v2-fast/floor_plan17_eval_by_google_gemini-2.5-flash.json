@@ -1,0 +1,112 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the utility room and service room are distorted. Wall alignment shows inconsistencies, especially around the Kitchen/Utility area and the Balconies. Door placements are largely incorrect in terms of orientation and position. Window placement is completely missing on all exterior walls. Room proportions are distorted in several areas, notably the Foyer, Utility, Kitchen, and Balconies."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness appears inconsistent, particularly for exterior walls that are thicker in the render than the plan suggests for some sections. Door embedding is frequently incorrect, with doors opening into walls or at wrong angles. Adjacency relationships are mostly correct for main rooms, but the Utility and Service Room connection to the Kitchen is altered. Several rooms are missing, including the entire second Balcony. There are no hallucinated rooms, but a small wall is inappropriately added in the Foyer."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate in terms of type and room, however, specific positioning within rooms is often off. Furniture scale consistency is poor; many items appear oversized or undersized relative to the room or other furniture."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair, but some perspective distortions are subtle. Lighting quality is dull and uniform, lacking depth or realism. Geometry shows some minor distortions, particularly in corners and wall junctions. Visual clarity is moderate, but the lack of windows and wall details reduces the overall composition."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing a significant portion of the Balcony 6'0\" WIDE."
+        },
+        {
+            "code": "E1",
+            "description": "All exterior windows are missing from the render."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Foyer from outside is misplaced and poorly embedded."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Toilet next to Kitchen is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Utility room is misplaced and orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bed Room 4 toilet is misplaced and orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bed Room 3 toilet is misplaced and orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bed Room 2 toilet is misplaced and orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door to M. Bed RM toilet (left) is misplaced and orientation is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door to M. Bed RM toilet (right) has incorrect orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Dress room is misplaced and has incorrect orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Internal door to M. Bed RM is misplaced and has incorrect orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Balcony 5'0\" WIDE is misplaced."
+        },
+        {
+            "code": "E3",
+            "description": "Many doors have incorrect opening orientations, making them open into walls."
+        },
+        {
+            "code": "E4",
+            "description": "Utility room proportions are severely distorted; it appears much larger and its shape is altered."
+        },
+        {
+            "code": "E4",
+            "description": "Balcony 6'0\" WIDE is significantly truncated and distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Foyer's proportions are distorted, making it appear wider than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen proportions are slightly compressed."
+        },
+        {
+            "code": "E4",
+            "description": "Overall wall thickness consistency is poor, with some exterior walls appearing thicker in the render than the plan suggests."
+        },
+        {
+            "code": "E5",
+            "description": "A small wall segment is hallucinated in the Foyer, partially obstructing entry."
+        },
+        {
+            "code": "E6",
+            "description": "Poor wall junctions and corner geometry in various parts of the render."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan17.jpg"
+}

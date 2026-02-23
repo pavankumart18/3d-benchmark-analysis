@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "The 3D render represents only a small, distorted portion of the original floor plan, specifically the Master Bedroom, Master Bath, and WC. No other rooms are present. The wall dimensions and room proportions within this section are significantly distorted. No doors or windows are accurately placed, and actual doors from the floor plan are rendered as openings, not doors."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, and many significant walls and rooms are entirely missing. The adjacency relationships are incorrect due to missing structures and distorted proportions. There are no actual doors, only openings, and no attempt to embed doors correctly. The vast majority of the rooms are missing."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "No furniture is rendered except a very small, incorrectly scaled toilet in the WC, and a small, unrecognizable object in the Master Bath. All other furniture is missing."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The render is an isometric projection, but the overall composition lacks clarity due to the significant structural and spatial inaccuracies. Lighting is basic and geometry is clean, though highly inaccurate. Most elements are missing, leading to poor visual representation of the original plan."
+    },
+    "total_score": 10,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Living Room', 'Kitchen', 'Nook', 'Covered Patio' (left), 'Dining Room', 'Study', 'Bedroom #4', 'Covered Patio' (bottom), '2 Car Garage', 'Utility', 'Hall', 'Bedroom #2', 'Bedroom #3'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced walls in 'Master Bedroom', 'Master Bath', and 'WC' areas. Orientation of the 'WC' and 'Master Bath' layout is significantly altered."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion for 'Master Bedroom', 'Master Bath', and 'WC'. The rooms are significantly smaller and have altered shapes compared to the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all doors. (Rendered as simple openings without door frames or actual door geometry)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all specific furniture items except a severely undersized and unidentifiable toilet and an unrecognizable item in the master bath."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the 'WC' and 'Master Bath' within the rendered section is incorrect relative to the 'Master Bedroom' as per the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan9.png"
+}

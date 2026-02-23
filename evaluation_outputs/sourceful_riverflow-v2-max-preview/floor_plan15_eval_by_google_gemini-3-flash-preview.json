@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Poor spatial alignment. The primary balcony off the living room is missing. The second balcony off the master bedroom is omitted. Door placements do not follow the plan's swing directions or exact wall positions."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Large structural omissions including the main balcony and utility balcony. Room adjacencies for the bathrooms are highly distorted compared to the 2D layout. Wall thicknesses are inconsistent."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture layout is generalized and does not match the specific orientation of the 2D plan (e.g., dining table and living sofa arrangement). Scale is slightly off."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The render has decent lighting and clean geometry, but the orthographic projection is slightly skewed, and the lack of floor textures makes it look unfinished."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing main balcony connected to the living room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing secondary balcony connected to the master bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Living and Dining area furniture misplaced and rotated incorrectly relative to the entrance."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen and utility area proportions are squashed compared to the master bedroom wing."
+        },
+        {
+            "code": "E5",
+            "description": "Interior doors added in locations not specified or missing where they should be based on the wide passage."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan15.webp"
+}

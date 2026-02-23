@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "General layout is recognizable, but door and window placements are significantly distorted. The entrance foyer area lacks the correct door orientation and the dining area's distinctive window bay is oversimplified."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Major structural issues: the staircase is rendered as a filled block/room rather than stairs. The W/C and Closet partitions are merged or missing. Wall thicknesses are inconsistent and blurry."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The kitchen island and pantry are present but poorly scaled. The fireplace/mantle in the living room is rendered as a generic block with incorrect proportions."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Good isometric camera angle and soft lighting. However, the 'ghostly' transparency of the walls creates visual confusion and many geometric edges are blurred or melted."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase; replaced with a solid volumetric block."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island and pantry misplaced relative to the playroom wall."
+        },
+        {
+            "code": "E3",
+            "description": "Foyer door and internal closet doors are either missing or incorrectly oriented."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the dining room bay window and living room width."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated solid massing where the W/C and stairs should be separate functional spaces."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts resulting in 'melted' wall tops and semi-transparent geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan8.jpg"
+}

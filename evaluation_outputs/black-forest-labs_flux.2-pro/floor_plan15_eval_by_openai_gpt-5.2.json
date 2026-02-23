@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major plan-to-render mismatch. The 2D plan is predominantly orthogonal with straight passages; the 3D model introduces large curved corridor walls and curved door openings (E2/E4), altering the core circulation geometry. The living & dining zone location is roughly central, but its boundaries and connectivity do not match the plan\u2019s straight-walled layout (E2). Balcony configuration deviates: the plan shows 2 balconies (master-left and living/top-center), while the 3D shows additional/expanded terrace-like exterior platforms and different balcony extents/positions (E5/E2). Door placement/orientation is inconsistent with the plan: multiple oversized curved openings appear where standard hinged doors are expected; several door positions along the main passage do not align to the plan (E2/E3). Window placement is also inconsistent: the 3D adds large glazed openings on the right facade and different opening patterns not indicated in the plan (E5/E2). Room proportions are not preserved due to the curved corridor consuming/reshaping room depths compared with the plan\u2019s dimensioned rectangles (E4)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Wall thickness and structural language are not consistent with the 2D plan: many walls appear uniformly thick and softened/rounded in 3D, unlike the plan\u2019s clear rectilinear partitions (E4). Door embedding is often incorrect: openings are modeled as wide, arched/curved portals rather than standard door leaves located at the plan\u2019s door swings (E2/E3). Adjacency relationships are partially broken by the re-shaped corridor; several rooms appear to open into the curved hall in ways not matching the plan\u2019s straight passage connections (E2). Toilet count/locations are unclear and appear reduced/merged compared to the plan\u2019s multiple toilets including a powder toilet near entrance (likely missing or relocated) (E1/E2). Additional exterior deck/terrace elements and facade openings not present in the plan are introduced (E5)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "The 2D plan provides minimal furniture intent beyond room labeling, so exact furniture mapping is not verifiable. However, the 3D introduces extensive furniture layouts (multiple sofas, side tables, large kitchen island/counters, etc.) that cannot be confirmed from the plan (E5). Some furniture appears oversized relative to the altered corridor width and room proportions (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Visually clean and coherent as a standalone isometric render with decent material consistency and readable room separation. However, the camera is perspective-heavy rather than a true orthographic/isometric technical view (E6). Lighting is acceptable but somewhat flat; geometry is clean, though the curved-wall design choice creates a strong deviation from the rectilinear plan (counted under fidelity rather than aesthetics). Overall composition is clear but not a faithful architectural translation."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Curved main corridor and rounded wall geometry in 3D distort the plan\u2019s straight, orthogonal passage and room boundaries."
+        },
+        {
+            "code": "E2",
+            "description": "Several room wall alignments and room boundary placements do not match the 2D plan\u2019s rectilinear layout (notably around the central living/dining and passages)."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony placement/extent differs: plan shows two specific balconies (master-left and living/top-center), while 3D shows different/additional terrace-like exterior spaces."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/type mismatch: 3D uses wide curved openings/portals where the plan indicates standard hinged doors with specific swing locations."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placement mismatch: 3D adds/relocates large glazed openings on the right facade not indicated in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "At least one toilet (notably the small powder toilet near the entrance in plan) appears missing or not clearly represented in the 3D layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior architectural elements (expanded decks/terraces and facade glazing patterns) not present in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion caused by the widened/curved corridor reshaping room depths and openings relative to the plan\u2019s dimensioned rectangles."
+        },
+        {
+            "code": "E6",
+            "description": "View is not a strict orthographic/isometric technical projection; perspective and framing reduce verification clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan15.webp"
+}

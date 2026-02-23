@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major layout mismatch. (E2) Lounge/Dining zone is not in the correct position relative to Kitchen/Bath core; in the 2D plan lounge is left with balcony at top-left, while the 3D render places a large lounge-like space on the right side. (E1) Balcony space and its connection to lounge are missing. (E2/E3) Kitchen location/shape does not match the plan\u2019s compact top-middle kitchen with adjacent laundry/robe; the 3D kitchen reads as relocated and simplified. (E2/E3) Bathroom/WC core position and door openings do not correspond to the plan\u2019s central bottom bath + separate WC. (E4) Room proportions are off: lounge is oversized and bedrooms/circulation widths do not preserve the plan\u2019s compact central hallway and measured room sizes."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Structural relationships diverge from the plan. (E2) Adjacencies are incorrect: the plan has two bedrooms stacked on the right with shared hallway access; the 3D distributes sleeping areas differently. (E1) Garage (shown as a separate volume in the 2D plan) is not represented. (E1) Laundry (L'dry/WM) and robe/linen storage shown in plan are not clearly present as distinct enclosed spaces. (E5) An extra bedroom/bed-space appears (3 beds shown vs 2 bedrooms in plan). Wall thickness/door embedding look visually consistent in the render, but they do not correspond to the plan\u2019s partition layout."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not map to the plan. (E5) Additional bed(s) imply extra room(s) not in the 2D plan. (E2) Dining set placement is not clearly aligned with the plan\u2019s dining zone adjacent to entry and lounge. (E2/E4) Furniture scale/spacing suggests different room dimensions than the plan."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is clean and readable with acceptable lighting and generally consistent geometry. Isometric-like view is present, though not a strict architectural isometric/orthographic match (slight perspective). Some areas look simplified/blurred, reducing clarity of doors/fixtures (minor E6)."
+    },
+    "total_score": 36,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony (top-left in 2D plan) is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Garage (separate space shown on the right of the 2D plan) is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Laundry/WM nook and robe/linen storage shown in the 2D plan are not clearly represented as separate enclosed elements."
+        },
+        {
+            "code": "E2",
+            "description": "Overall room placement is incorrect: lounge/dining/kitchen/bath core arrangement does not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom placement/stacking is incorrect: the 2D plan has Bedroom 1 above Bedroom 2 on the right; the 3D render distributes sleeping areas differently."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements/orientations do not match the 2D plan\u2019s hallway doors to Bath/WC/Bedrooms (openings appear relocated/simplified)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent: the 3D shows multiple openings on the long right wall that do not correspond to the 2D plan\u2019s window/door locations (including balcony opening)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions are distorted: lounge area appears significantly larger than in the 2D plan; circulation widths and room sizes do not preserve labeled dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated extra bedroom/bed-space: 3D render shows three beds while the 2D plan specifies two bedrooms."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering/clarity artifacts (blur/simplification) obscure exact door/fixture details, making some placements ambiguous."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,116 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placements are generally correct, but wall alignment is significantly off in several areas. Door placements are incorrect or missing, and windows are either missing or misplaced. Room proportions are distorted in multiple areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not embedded correctly; many are just represented by openings or are completely missing. Adjacency relationships are mostly correct but distorted due to wall misalignment. Several rooms appear to be hallucinated in terms of their actual structure (e.g., bathroom, kitchen layout)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; many items are missing, misplaced, or have incorrect orientations. Furniture scale is inconsistent, with many items appearing too small or large for the rendered rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally good. Lighting is adequate, and geometry is clean. Visual clarity is acceptable, but accuracy issues detract from overall composition."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall alignment for the bathroom entrance is incorrect and shifted."
+        },
+        {
+            "code": "E1",
+            "description": "Doors for the two bedrooms on the left are completely missing in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The door for the bathroom is severely misplaced and represents a simple opening without a door element."
+        },
+        {
+            "code": "E2",
+            "description": "The door for the right bedroom is entirely missing and replaced by an opening at the wrong position."
+        },
+        {
+            "code": "E1",
+            "description": "All internal doors are missing (except the implied openings for some rooms)."
+        },
+        {
+            "code": "E1",
+            "description": "Window in the top-left bedroom is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in the bathroom is incorrect."
+        },
+        {
+            "code": "E1",
+            "description": "All windows in the kitchen/dining area are missing."
+        },
+        {
+            "code": "E4",
+            "description": "The bathroom proportions are significantly distorted; it appears larger and differently shaped in the render."
+        },
+        {
+            "code": "E4",
+            "description": "The top-right bedroom proportions are distorted; the room appears wider and shallower."
+        },
+        {
+            "code": "E4",
+            "description": "The living room area and the corridor leading to the top-left bedrooms are proportionally distorted and wider."
+        },
+        {
+            "code": "E2",
+            "description": "The toilet is placed on the wrong wall in the bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "The sink in the bathroom is misplaced."
+        },
+        {
+            "code": "E1",
+            "description": "The shower stall is missing in the bathroom; a simple opening is present."
+        },
+        {
+            "code": "E1",
+            "description": "Many furniture items are missing (e.g., cabinets in bedrooms, bookshelves, office desk, dresser, washing machine, stove and oven, kitchen sink, kitchen island)."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in the top-right bedroom is misplaced and oriented incorrectly. The bed is against the wrong wall."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs are of incorrect scale and misplaced from the center of the dining nook."
+        },
+        {
+            "code": "E2",
+            "description": "TV stand and TV in the living room are misplaced from the plan, which shows them on the opposite wall or without a dedicated TV stand."
+        },
+        {
+            "code": "E1",
+            "description": "The wall dividing the living room and the dining area/kitchen is partially missing, creating an open-plan kitchen/dining area not strictly shown in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "The kitchen layout in the render is a simplified hallucination of the complex kitchen shown in the floor plan, lacking specific appliances and counter shapes."
+        },
+        {
+            "code": "E2",
+            "description": "The couch in the living room is not oriented as per the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall partition element in the living room area shown in the floor plan as a half-wall or furniture unit."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Major layout mismatches versus plan: the long DECK along the top of Living & Dining is not represented as an exterior deck space (E1/E2). Both balconies (Bedroom-2 top balcony and Bedroom-1 right balcony) are not clearly modeled as balconies and their access openings are not placed as in plan (E1/E2). Window placement deviates strongly: render shows a near-continuous ribbon of windows along the top fa\u00e7ade, not matching the plan\u2019s localized openings/sliders at deck/balconies and specific room walls (E2). Several door locations/orientations appear simplified/shifted (notably deck/balcony access and some bath entries), and overall room shapes feel normalized compared to the plan\u2019s jogs/offsets (E2/E3). Proportions appear altered (Living/Dining depth and right-side bedroom/balcony massing) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Adjacency is partly preserved (3 bedrooms, kitchen central, office/maid left, toilets clustered), but exterior features are structurally incorrect: missing deck and balconies (E1) significantly change envelope and circulation. Door embedding/orientation is inconsistent with the plan at exterior interfaces (deck/balconies) and at least one internal corridor transition appears simplified (E2/E3). Wall thickness is mostly consistent visually, but several plan wall jogs/offsets are reduced, impacting fidelity (E4). No clear hallucinated additional rooms, but hallucinated continuous glazing is present (E5)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Key furniture types are present in expected rooms (beds in bedrooms, sofa set + dining in Living/Dining, desk in office). However, furniture arrangement does not reliably follow the 2D plan (e.g., living seating/dining alignment relative to deck opening, and bedroom/balcony-side placement), and some pieces appear scaled/placed to fit the altered geometry rather than the plan (E2/E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric render with coherent materials and generally consistent wall thickness. Camera is a standard isometric/axonometric-like view, though not strictly orthographic. Lighting is even but somewhat flat. Geometry is mostly clean; main visual issue is the unrealistic continuous window band and simplified exterior massing, which reduces architectural believability."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Top DECK (23'10\" x 4'5\") along Living & Dining is missing/not modeled as an exterior deck space."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom-2 balcony (9'4\" x 3'5\") is missing or not clearly represented as a balcony volume."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom-1 balcony (7'5\" x 4'0\") on the right side is missing or not clearly represented as a balcony volume."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior opening placement does not match plan: deck/balcony access openings/sliders are not placed/expressed as in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement deviates heavily: render shows a continuous ribbon of windows along the top fa\u00e7ade rather than the plan\u2019s specific window/slider locations."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated continuous glazing/window band across multiple rooms without corresponding openings in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room/envelope proportions are altered by removal/absorption of deck/balconies, changing perceived dimensions of Living/Dining and the right-side bedroom massing."
+        },
+        {
+            "code": "E2",
+            "description": "Several wall jogs/offsets from the 2D plan (especially around exterior edges and balcony/deck interfaces) are simplified, reducing wall alignment accuracy."
+        },
+        {
+            "code": "E3",
+            "description": "At least one set of internal door swings/orientations appears inconsistent with the 2D plan (notably around bath/corridor transitions), suggesting generic door placement."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture layout appears adapted to the altered geometry rather than matching the plan\u2019s intended placement relative to openings (notably living seating/dining relative to deck side)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan20.avif"
+}

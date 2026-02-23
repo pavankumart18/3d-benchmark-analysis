@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Bathroom door is missing. Kitchen layout is distorted, and its entrance is incorrect. Balcony door is incorrectly placed as a window. Window placements in the bedroom and utility room differ significantly from the floor plan. Room proportions, especially in the kitchen/utility area, are noticeably distorted, as is the bedroom. The living/dining area entrance is also incorrect. The partition wall between the living/dining and bedroom is thicker than indicated on the floor plan, affecting room proportions."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The door to the toilet is missing, and the opening from the living area to the kitchen is just an opening when it should be a door frame from the plan. The wall thickness for the bedroom/living area partition is inconsistent, appearing thicker in the 3D render. The entire toilet room seems to be missing in the 3D render. The wall between the kitchen and utility room is incorrect, and the utility room overall shape is distorted. The area identified as 'toilet-1' in the 2D plan is represented differently, appearing more as a utility room continuation in the 3D, and the specific toilet layout from the plan is absent."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor, particularly in the kitchen and utility room where appliances and countertops are significantly rearranged. Bedroom furniture, especially the wardrobe, is different in type and placement. The bathroom fixtures are completely missing as the room itself seems to be missing. Balcony planter boxes are present but changed. Living area furniture is generally similar in type but layout differs slightly."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is correct, and geometry is clean with no obvious distortions. Orthographic projection appears generally accurate. However, the scene lacks realistic lighting, appearing flat and without shadows, which reduces overall visual clarity and appeal. The composition is standard but could be enhanced with better lighting."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing toilet room and its door."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen entrance, should be a doorway not just an opening."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation and type for the balcony access; depicted as a window instead of a sliding door."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in both the bedroom and utility room compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen, utility, and bedroom areas."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wardrobe in the bedroom and incorrect type."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness between living/dining and bedroom, making the 3D render wall thicker."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific bathroom fixtures (toilet, sink, shower) due to the apparent absence/repurposing of the 'TOILET-1' room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segmentation and arrangement in the kitchen/utility area, differing significantly from the 2D plan's layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect type of wall for the kitchen/utility separation."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan16.avif"
+}

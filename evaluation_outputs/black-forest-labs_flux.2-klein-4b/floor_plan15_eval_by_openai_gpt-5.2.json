@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 6,
+        "max": 40,
+        "notes": "Overall layout does not match the 3BHK 2D plan. The 2D plan is a long, linear unit with central Living & Dining, three bedrooms (Master on far left, Bedroom-1 upper left of living, Bedroom-2 far right), multiple toilets, two balconies, kitchen + utility on the right, and wide passages. The 3D render depicts a much smaller, compact layout with only one clearly readable bedroom, a combined living area, and a kitchen/dining zone; the linear sequencing and room positions are not preserved. Door and window positions are largely inconsistent with the plan, and room proportions/elongation are significantly distorted."
+    },
+    "structural_fidelity": {
+        "score": 4,
+        "max": 25,
+        "notes": "Major program elements from the plan are missing (2 bedrooms, multiple toilets, utility, balconies, passages), and adjacency relationships (e.g., bedroom-toilet attachments, living-to-balcony, kitchen-to-utility) are not maintained. Several interior partitions in the 3D model do not correspond to any walls in the 2D plan, indicating hallucinated structure. Wall/door integration appears plausible as a standalone model, but it does not faithfully embed doors/walls per the source plan."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not correspond to the specific 3BHK plan\u2019s room set and likely room functions (e.g., missing multiple bedroom setups and dining configuration for the central living/dining as drawn). Several furniture groupings (desk/office-like setup) appear invented relative to the plan. Scale is generally consistent internally, but mapping to the 2D layout is largely incorrect."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Isometric view is clear and generally well-composed, with acceptable lighting and readable geometry. However, it is not an accurate architectural isometric translation of the 2D plan (projection/orthographic faithfulness is poor relative to the source). Some simplification/blockiness is present but not severely artifacted."
+    },
+    "total_score": 26,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bedroom-2 (far right in 2D plan) in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bedroom-1 (upper-left of Living & Dining in 2D plan) in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Master Bedroom + its balcony (far left in 2D plan) in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing central Living & Dining balcony (top center in 2D plan) in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Utility adjacent to Kitchen (right side in 2D plan) in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple toilets shown in 2D plan (including attached/common/powder) or not represented in correct count/locations in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen area is not placed/configured per the right-side kitchen + utility arrangement shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Living & Dining is not centrally positioned with the same surrounding adjacencies (bedrooms/toilets/balcony) as in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Doors are not placed/oriented according to the 2D plan\u2019s entry, bedroom doors, toilet doors, and passage doors."
+        },
+        {
+            "code": "E2",
+            "description": "Windows are not placed to match the 2D plan\u2019s exterior openings along the long perimeter and at balconies."
+        },
+        {
+            "code": "E4",
+            "description": "Overall unit proportions are heavily distorted: the 2D plan is long and linear; the 3D render is compact and does not preserve length-to-width ratios."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partitions/room subdivisions appear in the 3D render that do not correspond to walls in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture program (e.g., office/desk-like setup) not indicated by the 2D plan and inconsistent with missing rooms."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan15.webp"
+}

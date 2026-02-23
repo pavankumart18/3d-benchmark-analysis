@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major deviations in door and window placement. The central double-door entry in the plan is replaced by a single door and a misplaced window. The left-side terrace/balcony access is incorrectly walled off from the kitchen. Windows are added to internal-facing bedroom walls."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Missing the bathroom/utility rooms located at the top-left and top-right of the central cluster. Door wings are floating or curved unrealistically. The small balcony at the bottom is disconnected from the interior floor level."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture layout generally follows the plan's zoning but hallucinations occur, such as the L-shaped sofa in the kitchen area which contradicts the plan's island/breakfast bar layout."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering with consistent lighting and soft shadows. Geometry is clean despite its architectural inaccuracies."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing secondary bathrooms and utility closets shown in the top section of the blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance doors shifted from center-bottom to side; kitchen balcony access replaced with a solid wall."
+        },
+        {
+            "code": "E3",
+            "description": "Arc-shaped door swings are rendered as physical curved panels rather than indicating path of travel."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen/dining area proportions are stretched compared to the compact layout in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated sofa in the kitchen where an island bench was specified."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan5.jpg"
+}

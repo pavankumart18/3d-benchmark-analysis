@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout deviations from the 2D plan. (E2/E4) The entry location appears shifted (plan: bottom-center entry into hall; render: entry/opening reads closer to bottom-left edge). (E2) Bedroom placements do not match: the plan shows Bedroom 1 at top-right and Bedroom 2 mid-right; the render shows one clear bedroom at the far right and another bed/room-like space near the bottom-center that does not correspond to Bedroom 2\u2019s planned position. (E2) Bathroom position/shape appears altered (plan: bottom center-right with tub; render: bathroom zone reads more bottom-center with different internal partitioning; tub not clearly represented). (E3) Multiple interior door positions and swing orientations differ from the plan (hall-to-bedroom/bath/laundry). (E2) Window count/locations do not align: plan has specific perimeter window placements per room; render uses larger/continuous windows along top/right that do not match the plan. (E4) Room proportions are not preserved (hall and living/bedroom areas appear rebalanced relative to stated plan sizes)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent and clean in the render, but plan fidelity is weak. (E2) Adjacency relationships are partially broken: Bedroom 2 should be adjacent to the hall on the right side; in the render the secondary sleeping area is not in the correct adjacency/location. (E1) Closets are missing or not represented correctly (plan includes a closet near laundry and a closet near bathroom/hall; render does not clearly show these as separate enclosed closets with doors). (E5) Extra/ambiguous sleeping area (a bed placed near bottom-center) suggests a hallucinated room/function or a misassigned Bedroom 2. (E2/E3) Door embedding/locations are inconsistent with the plan (notably at entry and bedroom/bathroom connections)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Main public-area furniture is plausible but not mapped tightly to the 2D layout. (E2) Dining table and living seating exist but their relative zoning does not match the plan\u2019s open kitchen/dining-left and living-center arrangement. (E2) Bedroom furniture distribution does not match Bedroom 1 vs Bedroom 2 locations. (E4) Some furniture-to-room scale feels off due to altered room proportions (living and hall feel compressed/expanded relative to plan)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric presentation is clean and readable with consistent materials. Camera is broadly correct for an isometric-style view, though not strictly orthographic. Lighting is adequate and geometry is mostly artifact-free with clear separation of rooms and furnishings."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Entry location and hall access do not match the plan (plan: bottom-center entry into hall; render reads closer to bottom-left edge)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom layout mismatch: Bedroom 2 is not positioned mid-right as in the plan; the render shows a secondary sleeping area nearer bottom-center."
+        },
+        {
+            "code": "E5",
+            "description": "Possible hallucinated/extra sleeping area (bed placed in a location not corresponding to either planned bedroom)."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom location/shape differs from the plan; the planned tub layout is not clearly represented."
+        },
+        {
+            "code": "E1",
+            "description": "Closets shown in the plan (near laundry and near bathroom/hall) are missing or not clearly modeled as enclosed closets with doors."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior door placements and swing orientations (hall-to-bedroom/bath/laundry) do not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: render uses larger/continuous window runs that do not align with the plan\u2019s discrete window positions per room."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted relative to the 2D plan (hall and living/bedroom sizes appear rebalanced)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan4.jpg"
+}

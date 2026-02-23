@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General room placement is correct. However, the window on the right wall (living area) is shifted too far back. The proportion of the dining area relative to the kitchen island cabinetry is slightly compressed."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The hallway area near the entrance (bottom center) shows structural ambiguity; the wall separation between the two closets/bedrooms is muddied. The 'CLOSET'/Balcony room in the top left is rendered as an open space rather than a distinct room with a door."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Dining table and sofa orientation match the plan. The kitchen island/counter is blocky, and the secondary seating (armchairs) in the living room is merged into a single volumetric mass."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean clay-style rendering. Lighting is soft and professional. Minority distortions in the translucent bathroom walls interfere slightly with visual clarity."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The window on the right side of the living room is misplaced compared to the blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen cabinetry and dining area proportions are compressed compared to the longitudinal dimensions provided."
+        },
+        {
+            "code": "E6",
+            "description": "Ghosting/translucency artifacts in the interior partition walls, particularly around the central bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific doorway definition for the upper-left utility closet."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan.jpg"
+}

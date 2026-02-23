@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (dining left, kitchen top, living right, bedroom bottom-left, service core central, stair wing right), but multiple critical layout mismatches: entrance location/door not represented (E1/E2), stair form and placement differs (spiral added; straight run differs) (E5/E2), wash area + toilet configuration does not match the 2D split and door locations (E2/E3), several interior doors appear in different positions/orientations than the plan (E2/E3), and room proportions (kitchen/hall widths and stair wing proportions) appear distorted versus the plan (E4). Window locations/counts also do not clearly correspond to the plan (E2)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Adjacency is partially preserved (major rooms remain neighbors), but key structural fidelity issues: hallucinated spiral staircase not in plan (E5) and the stair configuration in the right wing does not match the plan (E2/E4). The service core (wash area over toilet) is not faithfully separated/represented (E2/E1) and door embedding/locations between corridor/living/service rooms are inconsistent (E2/E3). No clear evidence of the main entrance door where the plan shows it (E1). Wall thickness looks generally consistent, but openings and partitioning diverge materially."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Dining, living, and bedroom furniture types are broadly plausible, but mapping is not plan-faithful: bathroom includes bathtub/fixtures not indicated on the 2D plan (E5), and some furniture scale/fit (living seating cluster and circulation clearances near doors/hall) appears inconsistent with the tighter plan proportions (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Strong visual quality: clean geometry, coherent materials, good lighting, and clear isometric-style presentation. Minor deductions: camera/projection reads slightly perspective rather than strict orthographic isometric (E6), and some cutaway edges/openings read stylized rather than plan-accurate (E6)."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Main entrance door shown on the 2D plan (top-right, 'Entrance to the House') is not clearly present/placed in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Spiral/curved staircase near the kitchen/living junction is hallucinated; the 2D plan shows only a straight stair run in the right wing."
+        },
+        {
+            "code": "E2",
+            "description": "Stair wing layout and stair run placement/orientation in 3D does not match the 2D stair footprint and access shown in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Wash Area and Toilet are not faithfully represented as the same split core with matching partitioning and locations as in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior door orientations/placements (between hall/service core/bedroom/living) do not match the door swings and locations indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/counts appear inconsistent with the 2D plan (notably dining/living/bedroom facades and service core windowing)."
+        },
+        {
+            "code": "E4",
+            "description": "Room and circulation proportions appear distorted versus the 2D plan, especially kitchen footprint vs hall width and the stair wing depth/width."
+        },
+        {
+            "code": "E5",
+            "description": "Bathroom bathtub/fixture arrangement appears added; the 2D plan indicates wash area + toilet but does not depict a bathtub."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering uses stylized cutaway/perspective that reduces strict orthographic/isometric plan fidelity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan7.jpg"
+}

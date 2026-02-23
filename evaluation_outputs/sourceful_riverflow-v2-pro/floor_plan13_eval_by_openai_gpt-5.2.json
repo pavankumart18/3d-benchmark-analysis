@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout roughly resembles the 2D plan (living/dining on left, bedrooms on right, wet areas central), but several key spatial mismatches exist. The balcony shown on the 2D plan at the lounge side is not modeled as an external balcony space. The kitchen/laundry core is simplified and does not match the 2D partitions. Multiple exterior window placements do not match the plan (notably windows appearing along the long bottom exterior wall where the 2D plan does not indicate them, and bedroom window positions appear shifted). Door positions and swings along the central hall/bath/WC cluster do not consistently match the 2D door locations/orientations. Room proportions appear distorted: the living/dining area reads oversized relative to kitchen/wet areas compared to the annotated dimensions on the plan, and the corridor/central core appears widened/reshaped."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent and the model is coherent, but key plan-defined elements are missing or merged. Laundry (L'dry/WM) area is not faithfully represented as a distinct space per plan, and the entry linen storage is not shown. Robe/closet partitioning near the bedroom/kitchen core is not clearly modeled. Adjacencies are only partially correct: bathrooms are central, bedrooms right, but the exact partitioning of kitchen/laundry/robe and the hall-to-wet-area boundaries do not match. No clearly hallucinated extra rooms, but there are hallucinated/misplaced exterior openings."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Living room and dining furniture are plausible but not verifiably aligned to the 2D plan\u2019s openings and circulation. One bedroom is furnished; the second bedroom appears largely empty. Kitchen is minimally represented and does not map to the 2D kitchen/laundry fixtures. Furniture scale is generally consistent, but placement does not reliably reflect the plan constraints (especially near the living-to-balcony side and central circulation)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with coherent lighting and mostly artifact-free geometry. Camera is appropriate for an isometric presentation, though it is perspective rather than strict orthographic. Materials are simple but clear; overall composition is understandable."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony space shown on the 2D plan (off the lounge) is missing in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "Laundry (L'dry/WM) area indicated adjacent to the kitchen is not modeled as a distinct, plan-accurate space."
+        },
+        {
+            "code": "E1",
+            "description": "Entry LINEN storage/closet shown on the 2D plan is missing in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "ROBE/closet partitioning shown near the kitchen/bedroom core is missing or not clearly represented."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior windows are placed along the long bottom exterior wall in the 3D render in ways that do not match the 2D plan\u2019s indicated openings."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom exterior window placement appears shifted/incorrect relative to the 2D plan (bedrooms should primarily have right-side exterior windows)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation around the central hall, bath, and WC does not consistently match the 2D door locations and swings."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted versus the 2D annotated dimensions: living/dining reads oversized and the central core (kitchen/wet areas/corridor) appears reshaped/widened."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior openings/windows appear that are not supported by the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan13.jpg"
+}

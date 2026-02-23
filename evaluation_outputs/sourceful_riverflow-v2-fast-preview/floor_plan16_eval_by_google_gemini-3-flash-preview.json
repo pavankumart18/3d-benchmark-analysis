@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe misalignment of rooms. The kitchen and utility areas are fused into a generic space, and the door to the balcony is incorrectly represented as a solid wall with an external door on the wrong side. Window placements from the 2D plan are entirely missing in the 3D render."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The internal adjacency between the bedroom and the toilet/utility zone is corrupted. Hallucinated doors appear on the exterior perimeter where windows or balcony access should be. The recessed balcony area is flattened into a single rectangular volume."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is vaguely represented. While a table and sofas exist, their orientation relative to the walls (specifically the TV wall and kitchen counters) is incorrect. The bedroom furniture layout does not match the 2D floor plan's orientation."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The rendering features clean geometry and a consistent isometric perspective with soft lighting. However, the lack of architectural openings (windows) makes it look like an enclosed box rather than a dwelling."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing windows throughout the structure and missing specific bathroom fixtures."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door and balcony access doors are misplaced or replaced with generic external doors on wrong walls."
+        },
+        {
+            "code": "E4",
+            "description": "The aspect ratio of the living/dining area is distorted, appearing more square than the elongated 10'0' x 16'7' area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior door on the right-hand wall of the bedroom/utility side."
+        },
+        {
+            "code": "E6",
+            "description": "Utility and Kitchen partition wall is rendered as a single blob of furniture/counter space rather than a room division."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan16.avif"
+}

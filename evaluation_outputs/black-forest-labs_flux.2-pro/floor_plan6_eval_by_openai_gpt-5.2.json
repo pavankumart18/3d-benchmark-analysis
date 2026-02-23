@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout is recognizable (Kitchen/Living left, Bedroom top-right, Bath core, Stairs right), but multiple plan-critical deviations exist. Major wall-alignment error on the left exterior where the 2D plan shows an angled/bayed wall segment while the 3D render uses a straight fa\u00e7ade. Several openings do not match: the 2D bottom wall shows segmented windows, but the 3D depicts large floor-to-ceiling sliding glazing, changing the exterior rhythm. Interior door at the Living-to-hall/bedroom zone appears as an open passage or differently placed/treated than the plan\u2019s swing door. Bedroom/bath openings are approximately located but do not strictly match the 2D geometry. Room proportions are altered by the fa\u00e7ade changes (Living area appears wider/more open in 3D)."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Wall thickness is visually consistent in 3D, but structural fidelity to the plan is compromised by fa\u00e7ade reshaping and opening substitutions. Door embedding is inconsistent (at least one planned swing door is not represented as a door leaf/opening of the correct type). Adjacencies are mostly preserved (Bedroom next to Bath core; Stairs on right), but the left-side exterior geometry change and the bottom glazing change constitute major plan violations. Storage/closet zone near the bath/hall appears re-partitioned/represented differently than the 2D hatched closet/storage area."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Kitchen counters and island roughly correspond to the plan intent, but living-room furniture placement is only approximate (coffee table/sofa positions do not strictly align to the 2D arrangement). Bedroom furniture is plausible but not tightly matched to the 2D symbols. Scale feels generally consistent, though the expanded glazing and altered wall lines make the living area read larger than in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric view is clear and coherent with good lighting and generally clean geometry. Some elements read more like a stylized render than a faithful architectural orthographic/isometric translation (notably the oversized floor-to-ceiling glazing and simplified fa\u00e7ade). Composition and legibility are strong; no major mesh artifacts observed."
+    },
+    "total_score": 57,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Left exterior wall geometry does not match the 2D plan: the plan shows an angled/bayed wall segment on the left side, while the 3D render presents a straight fa\u00e7ade."
+        },
+        {
+            "code": "E2",
+            "description": "Bottom fa\u00e7ade openings differ: segmented windows in the 2D plan are rendered as large floor-to-ceiling sliding glass panels in 3D."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/overstated glazing elements (large sliding door systems) not supported by the 2D window schedule/segmentation."
+        },
+        {
+            "code": "E1",
+            "description": "A planned interior swing door (Living/Kitchen to the hall/circulation zone) is not clearly represented as a door in the 3D render (appears as an open passage or missing door leaf)."
+        },
+        {
+            "code": "E2",
+            "description": "Left-side exterior door/opening placement does not strictly match the 2D plan\u2019s left-wall door position/orientation (3D shows a different opening treatment)."
+        },
+        {
+            "code": "E2",
+            "description": "Closet/storage partitioning near the bathroom/hall differs from the 2D plan\u2019s indicated closet/storage layout (reconfigured internal partitions)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted by the altered exterior wall lines and enlarged glazing, making the Kitchen/Living read larger/more open than the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan6.jpg"
+}

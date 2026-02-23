@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is captured, but there is a major door orientation error at the main entrance (Chandler & Joey's Apartment) and a significant window placement error on the right wall of the living area which is missing in the render. Bathroom wall alignment near Rachel's room is slightly distorted."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Structural integrity is mostly maintained, but the kitchen has been modified from a 'U-shape' to an 'L-shape' with a separate island/counter that does not match the floor plan's continuous cabinet layout."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate to the blueprint labels, though the kitchen appliance placement (stove/sink) shifted positions."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting and materials are cohesive and clear, providing a high-quality visualization despite structural deviations."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "The main entry door orientation is incorrect; it should swing inward towards the wall, not outward into the hall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window on the far right wall of the living room/Monica's bedroom segment."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen layout is misplaced; it should be a continuous counter along the wall, but it has been split into an island and a wall-mounted unit."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the hallway width leading to the bedrooms compared to the open living space."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan.jpg"
+}

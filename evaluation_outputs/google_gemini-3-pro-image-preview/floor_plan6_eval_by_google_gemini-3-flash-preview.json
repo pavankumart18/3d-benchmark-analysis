@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major deviation in room layout. The entire right-side quadrant containing the stairs and secondary bathroom/entry area is completely missing or merged inconsistently. The entrance door has been moved to the kitchen wall."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The internal staircase is entirely omitted (E1). The laundry/utility area adjacent to the bathroom is missing. Hallucinated a TV unit and changed window positions on the left facade."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic furniture items (bed, sofa, dining table) are present but their orientation often ignores the floor plan's intent. The sink on the island is misplaced compared to the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with clean geometry, consistent lighting, and correct isometric perspective. The visual style is professional even though the data accuracy is low."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Entire staircase and entry hallway on the right side of the plan are missing."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door is missing from its original location and a side door has been hallucinated in the kitchen area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a TV and TV stand in the living area not present in the original 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window on the left wall is transformed into a large opening/cutout rather than matching the plan's window/mullion pattern."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the bathroom are significantly altered to accommodate the omission of the stairs."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan6.jpg"
+}

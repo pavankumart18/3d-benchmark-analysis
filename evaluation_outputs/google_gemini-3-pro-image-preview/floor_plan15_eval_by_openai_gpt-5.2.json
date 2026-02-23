@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall 3-bedroom + living/dining + kitchen/utility layout resembles the 2D plan, but several key spatial relationships deviate. (E1/E2) The living/dining balcony shown at the top-center of the 2D plan is not modeled as a balcony with an exterior opening; the 3D shows a flat exterior wall with windows instead. (E2/E3) Bathroom placements and their door orientations do not cleanly match the 2D: at least one toilet that should open off the wide passage/living zone appears shifted and/or reoriented. (E4) Corridor widths and room proportions (especially the central living/dining vs. adjacent passages) look altered, with the circulation areas appearing wider and the living/dining zone compressed relative to the 2D. (E2) Window groupings on the long exterior walls do not match the exact plan locations (bedroom windows appear redistributed)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Major structural elements are simplified and some are incorrect. (E1) Missing the primary living/dining balcony volume and its bounding rail/parapet as indicated in the 2D. (E2) Several interior walls (notably around passages/toilets) are not aligned to the 2D wall runs, indicating adjacency drift between toilets/bedrooms and the living core. (E4) Wall thicknesses appear visually uniform in 3D but do not reflect the 2D plan\u2019s varied structural/shaft thicknesses and offset columns/cores (render omits/softens these). (E2/E3) Door embedding and swing/orientation do not consistently correspond to the 2D door positions (some openings appear centered/relocated on walls rather than at the plan-indicated ends). (E5) Added interior partitions/closet-like niches appear that are not clearly present in the 2D drawing."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Bedrooms are furnished with beds and side tables in plausible locations, but mapping is not faithful to the 2D. (E2) Living/dining furniture arrangement does not clearly correspond to the plan\u2019s living seating + dining placement relative to the balcony opening (since the balcony/door is missing, the furniture zoning shifts). (E4) Some furniture appears slightly oversized for the modeled room proportions, especially dining clearance and bed-to-wall spacing."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric view is coherent and readable with generally clean geometry. Minor issues: (E6) Some edges/walls show small alignment/mesh simplification artifacts at corners. Lighting is serviceable but flat, reducing depth cues for openings. Projection is mostly consistent, though some perspective feel suggests it is not a strict orthographic/isometric."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing top-center living/dining balcony volume and corresponding exterior opening indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall alignments around passages/toilets deviate from the 2D plan, shifting room boundaries and adjacencies."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door placements/orientations (bathroom/passage openings) do not match the 2D plan\u2019s door locations and swing directions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements/groupings along exterior walls do not match the 2D plan\u2019s indicated window positions (bedroom/living facade openings redistributed)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: circulation (passages) appears widened and living/dining and some bedrooms appear compressed compared to the 2D proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra partition-like elements (closet/niche partitions) appear in 3D that are not clearly present in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering/geometry artifacts at wall junctions and corner terminations (simplified joins)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan15.webp"
+}

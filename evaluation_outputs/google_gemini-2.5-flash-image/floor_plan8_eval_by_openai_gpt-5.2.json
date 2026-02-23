@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room zoning matches (foyer/living left, dining bottom center, pantry core, kitchen right, playroom top-right, stairs/top core). However several openings do not match the 2D plan: multiple doors are missing or left as open wall gaps, and several window runs differ in count/position. Pantry enclosure/entry condition and some room edge proportions (especially pantry/dining edge and right-side exterior wall segmentation) appear distorted vs the plan."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "All major rooms/areas appear present (no obvious missing room volumes), and adjacencies are mostly correct (playroom adjacent to kitchen, pantry adjacent to kitchen, WC/closets by foyer/stairs). Structural fidelity is reduced by missing/incorrectly embedded doors, and some exterior opening/segment layouts that do not follow the plan precisely. Wall thickness looks generally consistent in the render."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The 2D plan provides minimal furniture intent, so most placed furniture in the render is unverifiable. Some items appear arbitrary and may conflict with implied circulation/door locations (where doors are missing in 3D). Furniture scale is generally plausible but not grounded to the annotated 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric-style presentation with decent lighting and materials. Camera appears slightly perspective rather than strict orthographic/isometric. Geometry is mostly clean, but missing door geometry and some opening inconsistencies reduce architectural clarity."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Main exterior entry door at the foyer (left side) is not modeled as a door; rendered as an open gap/no door leaf."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen exterior door at the lower-right wall (shown in 2D with a swing) is missing/not modeled in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry door/opening condition does not match the 2D plan (plan shows an enclosed pantry with a defined door; render appears as an open entry/incorrect closure)."
+        },
+        {
+            "code": "E3",
+            "description": "Door between dining room and adjacent circulation/kitchen area shows different swing/orientation treatment (2D indicates a hinged door; 3D appears as an open passage/no swing)."
+        },
+        {
+            "code": "E2",
+            "description": "Right-side exterior window layout along the kitchen wall differs from the 2D plan (count/spacing/segmentation not matching the plan\u2019s vertical run)."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room bottom exterior window set/bay segmentation does not match the 2D plan\u2019s window placements along the dining room projection."
+        },
+        {
+            "code": "E2",
+            "description": "Playroom exterior windows (top and/or right walls) differ in count/placement relative to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Pantry and adjacent core proportions/wall alignments appear shifted (pantry footprint and its relationship to dining/kitchen edge lines do not precisely preserve the 2D plan geometry)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated built element in living room corner (a fireplace/hearth-like mass) is present in the 3D render but is not indicated on the 2D floor plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan8.jpg"
+}

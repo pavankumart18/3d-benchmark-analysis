@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 4,
+        "max": 40,
+        "notes": "Room placements are significantly altered, leading to incorrect adjacencies. The kitchen, bathroom, and staircase are generally in their respective areas but with major layout changes. Wall alignment issues abound due to the reconfigured floor plan. Door placement is incorrect for the entrance and bathroom. Windows are completely different in number, size, and placement. Room proportions are entirely distorted due to the significant floor plan changes."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Wall thickness appears inconsistent. Door embedding is incorrect for the front door. Adjacency relationships are severely violated (e.g., bathroom adjacent to stairs, kitchen open to bathroom). The dining room, living room are missing. There is a hallucinated open space next to the stairs, and the kitchen is significantly condensed."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Some furniture (kitchen appliances, toilet, sink, dining table, chairs) are present but their placement is often inaccurate within the new layout. Furniture scale consistency is difficult to assess accurately due to the overall proportion distortion of the rooms themselves, but individual items seem roughly scaled relative to each other."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair, but some perspective distortion is visible. Lighting quality is decent, providing clear visibility of the scene. Geometry generally looks clean. Visual clarity is good, and the composition is aesthetically pleasing despite the architectural inaccuracies."
+    },
+    "total_score": 22,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Dining Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Living Room."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door is misplaced and its orientation is incorrect from the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door is misplaced and its orientation is incorrect compared to the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "All window placements are incorrect in location, size, and quantity."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion for all rooms (Kitchen, Bathroom, Staircase area)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open space next to the stairs that was not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall forming an implied 'L-shape' kitchen which was not in the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "The staircase layout and landing are significantly different and misplaced from the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen wall alignment and overall shape are incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom wall alignment and overall shape are incorrect."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan3.jpg"
+}

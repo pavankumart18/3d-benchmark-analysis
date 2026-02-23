@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "While the general layout perimeter is followed, significant errors exist in window and door placement. Many windows are missing or replaced by solid walls. Door orientations are inverted or hallucinated."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The central pantry and stairs are identifiable, but the 'Playroom' has been converted into a bedroom/office hybrid. Wall thicknesses are inconsistent, and several interior door openings do not match the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Scale is largely incorrect. Large beds appear in the living room and kitchen areas where sofa/dining furniture should be. Kitchen appliance placement is inverted relative to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Strong isometric rendering with clean lighting. Geometry is mostly stable, though there are minor mesh artifacts at the wall junctions."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple exterior windows in the Dining Room and Living Room perimeter."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island and appliances are misplaced and scaled incorrectly."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated beds in the Living Room and Kitchen area."
+        },
+        {
+            "code": "E3",
+            "description": "Foyer and Playroom doors have incorrect swing orientations."
+        },
+        {
+            "code": "E4",
+            "description": "Central pantry walls are disproportionately thick and short compared to the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Floating geometry and clipping on the far right bathroom/closet wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan8.jpg"
+}

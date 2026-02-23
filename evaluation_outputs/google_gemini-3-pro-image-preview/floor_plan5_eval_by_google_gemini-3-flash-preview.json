@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General room layout is maintained. However, the external protrusions (balconies/porches) show alignment issues. The main entrance double-door is simplified to a gap without frame depth, and internal door swing clearances are represented as simple wall gaps."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses are inconsistent between external and internal partitions. Significant missing element: the door connecting the kitchen/living area to the left-side patio is missing. Adjacency is mostly correct, but some wall junctions are floating or improperly capped."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate to the floor plan's intent. Scale of beds and dining sets matches the 2D layout well. Color coding helps distinguish zones."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean orthographic-style projection. Lighting is even with soft shadows, providing good visual clarity. The geometry is 'blocky' but intentional for a schematic render."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door between the left master bedroom/living area and the far-left patio space."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen island is slightly rotated or elongated compared to the vertical orientation in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance double-door at the bottom center lacks appropriate orientation/swing markers, appearing only as a wall segment break."
+        },
+        {
+            "code": "E4",
+            "description": "The top-center bathrooms show slight proportion distortion in wall placement relative to the long corridor."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts present where wall segments meet the floor, showing slight light leaks or gaps in the mesh."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan5.jpg"
+}

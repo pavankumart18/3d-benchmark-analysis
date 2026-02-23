@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some walls are misaligned. Door placements are largely correct, but some orientations are inaccurate. Window placement is generally accurate. Room proportions show some distortion in the kitchen and living room."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly around the kitchen and hallway. Door embeddings are mostly correct but some are flush with the wall. Adjacency relationships are mostly correct. No missing rooms, however, a hallway closet has been hallucinated. The closet next to the main bedroom is missing."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement accuracy is fair, but several items are missing or moved. Scale consistency is acceptable."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera is mostly correct. Orthographic projection seems accurate. Lighting quality is dull. Geometry is clean. Visual clarity and composition are good."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall misalignment, particularly evident in the kitchen and the wall separating the living room from the hallway."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation error for the door to the 'COAT' closet, and the door to Rachel's bedroom."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen area, appearing smaller. Living room proportion appears slightly off."
+        },
+        {
+            "code": "E1",
+            "description": "The 'CLOSET' next to Monica's bedroom is missing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated closet in the hallway leading from the kitchen to the bedrooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'COAT' closet door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture: desk and chair in Rachel's bedroom, side table in Monica's bedroom, and some minor decor."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced refrigerator."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entire bathroom next to Rachel's bedroom shown on the floor plan on the lower left."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan.jpg"
+}

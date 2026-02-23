@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are mostly incorrect. The 'Balcony' at the top left is missing dimensions, and the 'Living' room is significantly distorted. 'Foyer' and 'Kitchen' are shifted. Many walls appear to be missing or misaligned. Door placements are largely incorrect, and numerous doors are missing. Window placements are also incorrect or missing in multiple rooms. Room proportions are very poorly preserved overall."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness consistency is poor, with varying thicknesses observed. Door embedding is incorrect; many doors are missing or appear as openings without proper frames. Adjacency relationships are frequently violated due to room shifts and missing walls. Numerous rooms are missing, including 'Dress', 'Toilet' for 'M. Bed Rm', one 'Toilet' for 'Bed Room 2', and both 'Toilets' for 'Bed Room 3' and 'Bed Room 4'. The 'Utility' and 'Ser. Rm' are entirely missing. There are no clearly hallucinated rooms, but significant parts of the structure are missing."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement accuracy is extremely low. Many rooms are empty or contain furniture not matching the floor plan (e.g., 'Bed Room 4' has no bed, 'Kitchen' is empty). Furniture scale consistency is poor; objects like beds and sofas appear out of proportion to the rooms. Most furniture from the floor plan is missing."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, but the orthographic projection struggles with depth and scale due to the structural inaccuracies. Lighting quality is basic. Geometry is not clean, with several distortions and jagged edges visible, especially with the rendering of glass elements and walls. Visual clarity is significantly hindered by the numerous missing and misplaced elements."
+    },
+    "total_score": 25,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'Living' room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced 'Foyer' and 'Kitchen'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Dress' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Toilet' for 'M. Bed Rm'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing one 'Toilet' for 'Bed Room 2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing both 'Toilets' for 'Bed Room 3'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing both 'Toilets' for 'Bed Room 4'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Utility' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Ser. Rm' (Service Room)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement in multiple rooms, including 'Living' and all bedrooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing numerous doors throughout the structure."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Living' and 'Bed Room 2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in 'M. Bed Rm' and 'Bed Room 3'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing walls in 'Living' and 'M. Bed Rm' areas, particularly separating the balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Misalignment of walls in 'Living' and 'Balcony' areas."
+        },
+        {
+            "code": "E1",
+            "description": "Missing furniture in 'Living', 'Dining', 'Kitchen', and 'Bedroom 4'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all bathroom fixtures."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of bed in 'M. Bed Rm'."
+        },
+        {
+            "code": "E6",
+            "description": "Jagged geometry and rendering artifacts, especially with glass balustrades."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan17.jpg"
+}

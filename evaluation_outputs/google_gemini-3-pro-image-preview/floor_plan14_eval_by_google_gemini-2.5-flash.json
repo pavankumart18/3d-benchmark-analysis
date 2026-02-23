@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "Room placement is mostly correct. Wall alignment shows some discrepancies, particularly around balconies and the utility area. Minor window placement errors. Proportion distortions in some rooms like the master bedroom's deck area and the kitchen."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is not entirely consistent, especially exterior walls seem thinner in the render. Door embedding is mostly correct but some doors are missing. No hallucinated rooms, but certain wall segments are missing or simplified. The utility area has been significantly altered."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Most furniture is placed accurately, but some items are missing (e.g., in Bathroom 2, foyer console, kitchen appliances on stove-side wall). Scale consistency is generally good."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection is consistent. Lighting is adequate. Geometry is clean with no major distortions. Visual clarity and composition are good."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the BED-1 deck area; it appears narrower in the render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Kitchen; the length of the counter and overall room dimensions appear slightly compressed."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment discrepancy in the UTILITY room; the layout is significantly altered in the render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between BED-2 and C.TOI (bathroom)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door inside C.TOI (bathroom)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door in TOI-1 (bathroom)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing appliances on the right wall of the kitchen (e.g., refrigerator, chimney)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing console table in the Foyer area."
+        },
+        {
+            "code": "E2",
+            "description": "Stove/sink placement in Kitchen is slightly different (relative to the window)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the C.TOI (bathroom)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing planters on the DECK of BED-2 bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the UTILITY room from the kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Wall segment extending from the Kitchen into the Living/Dining area is shortened/altered."
+        },
+        {
+            "code": "E2",
+            "description": "External wall thickness appears inconsistent, particularly on the left side of the render compared to the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing partition wall or door indication between LIVING/DINING and FOYER for the main entrance."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan14.webp"
+}

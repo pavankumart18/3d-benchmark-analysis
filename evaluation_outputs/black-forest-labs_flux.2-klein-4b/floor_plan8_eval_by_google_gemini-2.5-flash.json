@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is generally correct. However, wall alignment has several errors, especially in the Living Room and Dining Room areas, where the external wall shape is significantly altered. Door placements are largely incorrect or missing. Window placements are completely missing. Room proportions are distorted, particularly in the Living Room which appears significantly wider and shorter, and the Dining Room which is severely distorted in shape."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in various sections (E4). Door embedding is incorrect or missing in multiple locations. Adjacency relationships are mostly correct for rooms but detailed internal structures like the pantry and stairs are misrepresented. There are several missing rooms/areas including the closet next to the W/C, the stairs leading up/down, and the entire 'Playroom' area. The 'Pantry' is present but incorrectly rendered as a single wall unit, not a room. There are hallucinated elements in the 'Playroom' area, which has been replaced with a bedroom-like setting and a study area."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; much of the furniture from the plan (e.g., in Living Room, Kitchen) is missing, while new furniture is hallucinated (E5) in areas like the Playroom and a desk area. Furniture scale is inconsistent, with some items appearing oversized or undersized relative to the room."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy struggles due to the structural inaccuracies. Lighting quality is decent but does not compensate for the structural flaws. Geometry is not clean, with distortions in wall shapes and corners. Visual clarity is moderate, but the significant structural deviations detract from the overall composition."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing closet next to W/C."
+        },
+        {
+            "code": "E1",
+            "description": "Missing stairs."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Playroom' as defined in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced internal walls in Living Room and Dining Room affecting the overall shape."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of the fireplace."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and type for the W/C."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the 'Playroom' area from the main hall."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Living Room and Dining Room external walls."
+        },
+        {
+            "code": "E4",
+            "description": "Distortion of the 'Pantry' from an enclosed space to a partial wall/cabinet unit."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom furniture in the area that should be the 'Playroom'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated desk and office chair in the area that should be the 'Playroom'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing various kitchen units indicated in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing living room furniture."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness throughout the render compared to the floor plan's implication."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan8.jpg"
+}

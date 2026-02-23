@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall massing roughly matches (central living/dining, bedrooms distributed left/right), but several plan-to-render mismatches: balcony/deck configuration appears simplified into a more continuous edge rather than two distinct decks (top-left large deck + top-right deck). Service/core area at bottom-left (foyer/HO/toilets) is not clearly preserved; circulation and partitions look rearranged. Multiple door locations/orientations are not verifiable or appear shifted (notably along the bedroom corridor and into bathrooms). Window runs along the top fa\u00e7ade look over-continuous vs. segmented openings in plan. Room proportions appear distorted (living/dining and kitchen feel resized; corridor widths and bathroom sizes appear inconsistent with the tight plan)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness is rendered fairly consistently, but interior partition layout in the foyer/HO/toilet cluster is not faithfully reproduced. Adjacency is partially correct (kitchen near living; bedrooms adjacent to corridor), yet bathroom/utility relationships appear altered. At least one small service room (HO/store-like space) is not clearly represented, and toilet count/placement appears reduced or reconfigured. No obvious extra 'new' major rooms, but balcony geometry and some internal niches appear invented/smoothed compared to the plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Key furniture types generally match (beds in bedrooms, dining table, living seating), but kitchen is rendered with a large island/peninsula arrangement that does not closely match the plan\u2019s counter geometry. Some furniture scales look generic and may not respect the tight bathroom/utility dimensions shown in 2D."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, visually coherent render with good materials and lighting. Camera is isometric-like but shows mild perspective; not strictly orthographic. Geometry is mostly clean, though balcony/window bands are simplified and reduce plan-readability. Overall clarity is good but fidelity to 2D constraints is weakened by smoothing/merging elements."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Deck/balcony layout does not match 2D: two distinct decks (large top-left + smaller top-right) appear merged/simplified in the 3D perimeter."
+        },
+        {
+            "code": "E1",
+            "description": "HO (small room near bottom-center/left in plan) is not clearly present as a distinct enclosed room in the 3D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom/toilet placements appear reconfigured: the plan\u2019s multiple toilets (TOI-1, C.TOI, TOI-4, small TOI near HO) are not clearly matched one-to-one in the 3D partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer/service-core partitioning at the bottom-left of the plan appears rearranged or simplified, changing circulation paths."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swings/orientations cannot be reconciled with the 2D plan (notably along the bedroom corridor and bathroom entries), suggesting incorrect door orientation/placement."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement along the top fa\u00e7ade appears as longer continuous glazing in 3D versus more segmented openings in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining and kitchen/corridor proportions appear altered relative to the 2D annotated plan, with bathrooms/corridors looking too generous."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/smoothed elements: balcony edge geometry and some interior wall alignments are 'cleaned up' beyond what the 2D plan indicates, creating new continuous edges/niches."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan19.webp"
+}

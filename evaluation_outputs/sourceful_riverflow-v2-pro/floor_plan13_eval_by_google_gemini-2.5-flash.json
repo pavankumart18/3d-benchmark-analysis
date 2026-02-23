@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant deviations in room placement contribute to a low score. The kitchen, laundry, and dining areas show notable changes in their spatial relationship from plan to render. Proportions are not well-preserved, especially for the living and dining areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing the 'Linen' closet and the 'WC' room as distinct entities. The garage is detached, which is a significant structural deviation. Some wall thicknesses appear inconsistent."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement mostly matches, but scale is inconsistent, particularly the bed in Bedroom 1, which appears too large. The 'WM' area in the L'dry is missing its appliance."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera is correct, and geometry is generally clean. However, lighting is flat, and the lack of some structural elements (like the laundry machine) reduces visual clarity regarding functionality."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen wall alignment and overall shape are significantly different from the floor plan, particularly the wall separating it from the dining/lounge."
+        },
+        {
+            "code": "E2",
+            "description": "Dining area proportions are distorted; it appears smaller relative to the lounge and kitchen in the render than in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Lounge' and 'Dining' areas are merged into a single open space in the render without clear distinction of their boundaries as suggested by dimensions in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The main bathroom ('Bath') and 'WC' are combined into a single room in the render, deviating from the separate rooms shown in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'Linen' closet near the entry is completely missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "The 'L'dry' room, while present, is not distinctly enclosed as shown in the floor plan; it appears more like a functional alcove within the kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "The garage is depicted as a completely separate structure, while the floor plan suggests it is adjacent and possibly connected or integrated into the property's footprint."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from the hallway to Bedroom 2 is incorrectly placed closer to the corner, and its swing direction is opposite in the render compared to the floor plan (E3)."
+        },
+        {
+            "code": "E2",
+            "description": "The door to Bedroom 1 is misplaced; in the plan, it's closer to the 'Robe' area, in the render it's centered on the wall."
+        },
+        {
+            "code": "E4",
+            "description": "The overall footprint and proportions of the residential unit, especially the depth of the kitchen/laundry area and the width of the bedrooms, appear distorted when comparing the render to the numerical dimensions on the plan."
+        },
+        {
+            "code": "E5",
+            "description": "The area labelled 'Entry' on the plan appears to have an additional small wall/partition in the render that is not indicated on the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'WM' (washing machine) appliance in the laundry area is missing."
+        },
+        {
+            "code": "E4",
+            "description": "The bed in Bedroom 1 appears disproportionately large for the room's indicated dimensions (3.6 x 3.1) in the render."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement on the external walls (e.g., in the lounge/dining area and bedrooms) does not precisely match the locations implied by the floor plan's depiction, though some are present."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall zoning resembles the 2D plan (central Living/Dining, Kitchen to the right, 3 bedrooms distributed left/center/right), but key spatial features deviate. The Living/Dining balcony shown in the plan (top-center) is not represented correctly in the 3D, and a balcony-like space appears in an unplanned location. Toilet/bathroom placements do not consistently match the plan\u2019s positions off the wide passages. Several exterior openings (windows/doors) do not align with the plan\u2019s fa\u00e7ade logic, and room proportions (notably Living/Dining vs passage widths) appear compressed/shifted compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness looks consistent and geometry is coherent, but fidelity to the plan\u2019s structure is weakened by (1) an apparent missing planned balcony connection and (2) a hallucinated balcony/terrace zone. Adjacencies are partially correct (kitchen adjacent to living/dining; bedrooms connected via corridor), but the plan\u2019s specific toilet-to-bedroom/corridor adjacencies are not reliably preserved. Door openings exist but do not convincingly correspond to the plan\u2019s door locations and swing/orientation intent."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture groups are placed plausibly (sofa set in Living, dining near kitchen, beds in bedrooms). However, mapping is not plan-faithful in detail (balcony furnishing appears where the plan does not indicate that balcony, and some rooms read as staged rather than dimensionally derived). Furniture scale is generally consistent with room sizes in the render."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric view is clear and legible with good lighting and mostly clean geometry. Minor issues: the view is closer to perspective-isometric than strict axonometric/orthographic, and some openings/edges look simplified (generic window/door modules) which reduces technical clarity for verification."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/incorrect representation of the Living & Dining balcony shown on the 2D plan (top-center balcony connection not faithfully present in the 3D)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated balcony/terrace-like area appears at the bottom-right in the 3D render that is not indicated at that location in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/bathroom locations do not consistently match the 2D plan\u2019s layout off the corridors (bath blocks appear shifted relative to Bedroom-1/Bedroom-2/passage positions)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and sizing appear generalized; several exterior windows/door-windows do not clearly correspond to the 2D plan\u2019s fa\u00e7ade openings (notably around balcony interfaces)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: corridor widths vs room sizes (especially Living/Dining footprint relative to adjacent passages) do not read as dimensionally consistent with the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Some door orientations/entry relationships (especially at balcony interfaces and bathroom entries) do not reflect the plan\u2019s intended door placement and orientation."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan15.webp"
+}

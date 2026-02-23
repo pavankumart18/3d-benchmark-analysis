@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Overall layout only loosely resembles the 2D plan (central living + surrounding bedrooms), but major plan-defining spaces are absent or relocated. Bedroom placement is approximate but not matched to the plan\u2019s left/right zoning. The deck (top of plan) and right-side balconies are not represented correctly. Interior partitions (kitchen/utility/toilet blocks/lobby) do not align with the 2D wall geometry. Door and window locations largely do not correspond to the 2D openings. Significant proportion drift: living/dining becomes oversized while service core spaces (kitchen/toilets/utility/lobby) collapse or vanish (E2/E4)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness and basic wall joins are visually consistent, but the plan\u2019s adjacency graph is not preserved: kitchen/utility should sit along the lower middle with adjacent toilets; instead the 3D render shows no true kitchen block and only a couple of small rooms near the bottom-right. Multiple required rooms are missing (deck, utility, lobby, office/maid, several toilets) and at least one balcony-like space is hallucinated/relocated relative to the plan (E1/E5)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living/dining furniture exists in plausible positions (sofa group + dining table), but it does not map to the plan\u2019s detailed furnishing (kitchen counters/utility fixtures/toilet fixtures are mostly absent). Bedroom furniture is generic and not aligned to the plan\u2019s specific bed/wardrobe placements. Scale is generally consistent, but the lack of mapped service-area furniture/fixtures reduces accuracy (E1/E2)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric presentation with coherent lighting and readable geometry. Camera isometric angle is acceptable and the model is visually clear. Minor issues: openings/frames feel generic and not tightly integrated with the plan; some window/door sizing appears inconsistent across elevations (E6)."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing DECK along the top edge of the living/dining space shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing BALCONY spaces on the right side (adjacent to Bedroom-1 and Bedroom-2) as shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "A balcony/terrace-like area is shown at the bottom-left in the 3D render, which does not match the 2D plan\u2019s deck/balcony locations."
+        },
+        {
+            "code": "E1",
+            "description": "Missing or non-identifiable KITCHEN layout (2D shows a defined kitchen with counters in the lower middle)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing UTILITY room adjacent to the kitchen (present in 2D plan)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilets: the 2D plan contains TOILET-1, TOILET-2, TOILET-3, TOILET-4; the 3D render does not show four correctly located bathrooms."
+        },
+        {
+            "code": "E1",
+            "description": "Missing LOBBY/entry zone (2D shows a 4'11\" wide lobby at bottom-left with main entry)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing HOME OFFICE / MAID'S ROOM at the bottom-left of the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom placement/zoning does not match the plan: Bedroom-3 should be top-left with adjacent Toilet-3/4 cluster; 3D shows a different partitioning without the required service core."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement does not follow the 2D plan\u2019s facade openings (large glazing and several window positions appear generic rather than plan-driven)."
+        },
+        {
+            "code": "E3",
+            "description": "Door layout/orientation is inconsistent with the 2D plan: several expected doorways between lobby-kitchen-living and bedroom-toilet connections are absent or relocated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: living/dining volume is expanded relative to the plan while service rooms (kitchen/toilets/utility/lobby) are reduced or omitted."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra small rooms/closets appear (e.g., bottom-right cluster) that do not correspond clearly to the 2D plan\u2019s labeled spaces."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan20.avif"
+}

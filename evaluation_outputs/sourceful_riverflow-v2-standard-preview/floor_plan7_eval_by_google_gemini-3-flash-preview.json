@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General room placement is correct, but door and window layouts deviate significantly. The main entrance door in the 3D model is single-leaf and solid, whereas the plan indicates a double-leaf transparent entrance. Multiple windows in the kitchen and dining areas are incorrectly sized or shifted."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The wash area and toilet partitions are present but incorrectly joined to the hallway. The staircase geometry is inverted (stairs should go up relative to the landing, not down into a pit). Hallucinated doors added to the toilet/wash area that do not match the swing paths of the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate to the plan's icons, including the dining table configuration, bedroom layout, and living room seating group."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent render quality with consistent wall thickness, clean orthographic-style projection, and soft, realistic ambient lighting. Geometry is sharp and professional."
+    },
+    "total_score": 76,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Main entrance door is simplified to a single solid door instead of the specified double-leaf glass/transparent entry."
+        },
+        {
+            "code": "E3",
+            "description": "Staircase orientation error: the stair run from the landing goes in the wrong direction relative to the 'UP' indicator."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bedroom 1 is misplaced and lacks the wide frame shown in the 2D technical drawing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior door at the bottom of the floor plan near the wash area/staircase junction."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen sink and counter layout mirrored or shifted compared to the plumbing wall indicated in the source plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan7.jpg"
+}

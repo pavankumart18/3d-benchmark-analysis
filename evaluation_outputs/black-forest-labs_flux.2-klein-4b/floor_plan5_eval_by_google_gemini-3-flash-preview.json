@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major spatial failures. The layout flips the primary living space orientation. The central dining/living ratio is distorted, and the left-most external terrace is completely disconnected from its original alignment."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Significant structural deviations. Door swings often appear as solid wall segments or arches. The kitchen area (bottom left) lacks its defining island/counter structure and has merged with the living space incorrectly."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is hallucinated or substituted (e.g., bedroom sets replaced with generic cubes, dining table misplaced). Proportions are inconsistent with the dimension lines in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and soft-clay aesthetic. The isometric camera is well-calibrated, though the geometry suffers from 'melting' artifacts in doorframes."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen island and specific terrace furniture."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and sofa clusters are incorrectly positioned relative to the center of the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent, and bathroom dimensions are severely compressed."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated arched entryways that do not exist in the 2D architectural representation."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts where walls meet the floor, particularly in the bottom-left quadrant."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan5.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but window placement in Bedroom-3 and Bedroom-1 deviates from the plan. Door swings are inconsistent with the architectural symbols in the 2D plan, specifically for the main entrance and utility area."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent. However, the partition between the kitchen and utility is simplified, and the balcony glass railings do not match the specific wall-return details shown in the 2D sketch."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate to the plan's suggestion. Minimal scale issues with the dining table and the desk in the home office/maid's room."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean geometry. Lighting is coherent, though some minor shadow artifacts appear in the smaller bathrooms."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The window in Bedroom-3 is centered on the wall instead of being positioned towards the corner as per the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door swing orientation is reversed compared to the 2D floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony attached to Bedroom-2 appears significantly narrower in the 3D render than the 9'4\" x 3'5\" dimensions suggest."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room access and sink placement are slightly shifted relative to the kitchen's island/counter configuration."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan20.avif"
+}

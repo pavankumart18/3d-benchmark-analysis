@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall massing roughly matches (living at left with balcony at top, dining central, bedroom wing at right, utility/servant zone bottom-left), but several plan-level spatial details diverge. The master suite zone does not clearly preserve the distinct 'DRESS' room separation shown in the 2D plan (E1/E2). The foyer/entry definition and main entry door position from the left side are unclear/not represented as in plan (E1/E2). Multiple door locations/orientations are not verifiable or appear omitted in the render (E1/E2/E3). Window/opening placement is largely not modeled beyond balcony voids, so plan windows cannot be confirmed (E1). Some room/circulation proportions appear compressed/expanded (notably living vs dining/corridor widths and bedroom sizes) relative to the labeled plan dimensions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Wall network generally follows the plan\u2019s major adjacencies (living-dining-kitchen relationship and right-side bedroom stack), but fidelity breaks at finer partitions. The dedicated master 'DRESS' space/partitioning is not clearly present as a distinct room (E1). Door embedding is largely missing/ambiguous (few/no visible leafs or clear openings), making several required connections (foyer-to-living, dining-to-bedrooms, kitchen-to-utility, bedroom-to-toilet) uncertain (E1/E2/E3). Bathrooms exist in roughly the correct cluster locations, but exact placements/door accesses do not consistently match the plan (E2). No clearly new (hallucinated) major rooms are introduced, but there are minor alcoves/partition offsets not evidenced in the 2D plan (E5)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living seating and dining table are placed in the correct general zones, and beds are present in the bedroom wing. However, furniture is not consistently aligned to the 2D arrangement (e.g., living seating grouping and dining placement differ), and some rooms (notably dressing/wardrobe areas and desks) do not match the plan\u2019s implied built-ins (E2). Scale feels somewhat inconsistent (dining table/chairs vs surrounding circulation, and bathroom fixture spacing) (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric viewpoint is coherent and readable, with generally clean geometry and acceptable lighting. However, the render functions more like a stylized cutaway and does not provide reliable orthographic/plan-faithful depiction of doors/windows (reducing verification utility) (E6). Some edges/walls look simplified, and openings are not consistently modeled, hurting architectural clarity."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Master suite 'DRESS' room shown in the 2D plan is not clearly present as a distinct enclosed space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Foyer/main entry door area from the left side of the plan is missing or not clearly represented in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Most interior doors (openings/leaf orientation) are not modeled or are too ambiguous to match the plan (bedroom doors, toilet doors, kitchen/utility access)."
+        },
+        {
+            "code": "E1",
+            "description": "Window placements from the 2D plan are largely not represented; only balcony voids/edges are visible, preventing plan-accurate window verification."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom placements/access points appear shifted/simplified relative to the plan (exact partitions and door approaches do not match consistently)."
+        },
+        {
+            "code": "E3",
+            "description": "Kitchen layout/orientation appears changed (render shows a different counter configuration than the plan\u2019s depicted layout), affecting functional orientation."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: relative sizing of living, dining, corridors, and some bedrooms does not clearly preserve the plan\u2019s stated dimensions/ratios."
+        },
+        {
+            "code": "E5",
+            "description": "Minor partition alcoves/offsets appear that are not evidenced in the 2D plan (small niche-like wall changes), suggesting small hallucinated structural details."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/representation limitation: simplified opening modeling (doors/windows not cut/shown) reduces structural verifiability despite otherwise clean visuals."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan17.jpg"
+}

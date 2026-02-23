@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Overall footprint is loosely similar, but multiple room boundaries are not respected. The 2D plan\u2019s clear separation of PLAYROOM (top-right), KITCHEN (right-center), DINING (bottom-center), LIVING (left), FOYER/CLOSETS/WC/STAIRS (top-left/top-center) is not cleanly reproduced. Stair core at top-center is not clearly present/legible in the 3D, and the foyer/closet/WC cluster appears merged/simplified. Dining-room bay/projection and several wall jogs are not matched, causing noticeable proportion and wall-alignment drift. Door and window locations/counts do not correspond well to the plan."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Several partitions appear omitted or relocated (notably around the stair/foyer/WC/closets and between dining/living transitions), breaking intended adjacency. Wall thicknesses look generally consistent, but openings are not embedded where the plan indicates. The render reads as a simplified open plan, introducing/omitting separations compared to the 2D drawing."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island/counter concept exists, but its shape/placement does not clearly match the plan\u2019s island and perimeter runs. Other key plan elements (dining table zone, living layout hints) are not mapped; several built-ins/casework forms appear generic and not anchored to the 2D symbols. Scale of some casework elements appears inconsistent with surrounding circulation widths."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Clean, readable massing with decent lighting and minimal rendering artifacts. Camera is isometric-like but not strictly orthographic; perspective is present. Geometry is generally clean, but simplification and ambiguous room definition reduce clarity relative to the source plan."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Stair (UP/DN) at the top-center of the 2D plan is not clearly represented as a stair element in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "FOYER / closet / WC cluster (top-left/top-center in plan) appears spatially merged/simplified and does not match the plan\u2019s compartmentalized layout."
+        },
+        {
+            "code": "E4",
+            "description": "DINING ROOM footprint/proportions (including the bottom bay/projection and wall jogs shown in plan) are not preserved in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall alignment between LIVING\u2013DINING\u2013KITCHEN zones does not follow the plan; separations and transitions appear shifted or removed."
+        },
+        {
+            "code": "E1",
+            "description": "Several plan-indicated windows (multiple along living room exterior, dining bay windows, and playroom/kitchen exterior windows) are missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement that does exist in the 3D appears inconsistent with the plan\u2019s window locations/spacing on the exterior walls."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior door placements (e.g., bottom-right door swing shown near kitchen/dining area and other exterior openings) are not clearly matched in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Generic built-in/casework features and partition fragments appear in the 3D without clear correspondence to any 2D plan symbols or dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions (especially right-side kitchen/playroom depth vs. left living area) appear distorted relative to the plan\u2019s dimensioned extents."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major deviations from the 2D plan. The 3D model loosely resembles an open living/kitchen zone on the left and a garage on the right, but the internal partitioning, hall geometry, and room arrangement do not match the plan. Door locations are represented mostly as open passages and do not correspond to the plan\u2019s hinged door placements or swings. Window positions and counts do not align with the exterior window layout shown in the floor plan. Overall room proportions (notably living area, bedroom wing, and service core) appear distorted compared to the specified dimensions and wall offsets."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Wall thickness is relatively consistent, but structural layout fidelity is poor: several plan-defined spaces are missing or merged, and the plan\u2019s adjacency relationships (hall-bath-utility-bedroom connections; master suite separation into bath + WIC) are not preserved. Doors are not properly embedded as specified (many missing actual door placements). The 3D includes partitioning that does not clearly map to the plan\u2019s closet/bath/utility boundaries, suggesting invented or simplified rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture is generic and only partially maps to the plan. The kitchen peninsula/working triangle and dining room setup do not match the plan\u2019s kitchen + nook + dining separation. Bedroom furnishing is simplified and does not confirm correct room identities. Scale is generally plausible, but placement does not validate plan accuracy."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with consistent materials and acceptable lighting. Camera is broadly isometric/perspective and composition is clear. Geometry is mostly clean with minimal artifacts, but simplifications (missing doors, reduced detailing) reduce architectural legibility versus a true plan-faithful orthographic/isometric reconstruction."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Covered patios (top-left and bottom-center in the plan) are missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom #4 (bottom-middle/left of hall in the plan) is not clearly present as a distinct room in the 3D layout."
+        },
+        {
+            "code": "E1",
+            "description": "Study (bottom-left in plan) is missing or not identifiable as a dedicated room in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Master suite configuration is incorrect: the plan\u2019s master bedroom + master bath + WIC arrangement is not faithfully separated/matched in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Hall/core layout is misplaced: the central hall, bath, and utility cluster does not match the plan\u2019s wall offsets and connections."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room vs kitchen/nook zoning is incorrect: the plan\u2019s distinct dining room and nook areas are merged/unclear in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent with the plan: exterior window counts/locations (especially along the bedroom wing and left-side living/dining walls) do not match."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/definition is incorrect: many plan-specified hinged doors (with specific swing directions) are rendered as open wall cutouts with no door elements."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: the relative sizing of the living area, bedroom wing rooms, and service spaces does not match the plan\u2019s indicated dimensions and footprint."
+        },
+        {
+            "code": "E5",
+            "description": "Hallway/partition segments appear invented or overly simplified relative to the plan (extra/shifted partitions that do not correspond to labeled closets/baths/utility boundaries)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan9.png"
+}

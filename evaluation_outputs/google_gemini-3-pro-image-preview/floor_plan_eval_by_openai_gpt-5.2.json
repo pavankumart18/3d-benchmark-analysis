@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall layout is broadly recognizable (living/dining/kitchen at top; bedrooms bottom left/right; baths left/center), but multiple plan-to-render mismatches exist. E2/E3: Several interior doors do not match the 2D plan in position and/or swing/orientation (notably around the entry hall/den area and bathroom/bedroom connections). E2: The top-left closet zone adjacent to the living room/kitchen is not faithfully formed (render shows an open alcove/plant area rather than a clearly enclosed closet with a door). E4: Corridor and room proportions appear altered (entry/den band and central bath area look widened/reshaped vs plan), impacting adjacency geometry and perceived room sizes. E2: Right-side living-room wall opening/door location does not clearly align with the 2D plan's indicated doorway toward the neighboring apartment."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "E2/E4: Wall segments and offsets on the left side (bath/coat/hall zone) do not strictly follow the stepped wall geometry shown in the 2D plan; some partitions are simplified or shifted. E1/E2: Closet/coat storage elements are not consistently enclosed or doored as in plan (top-left closet and left-side coat area). E2/E3: Door embedding and adjacency logic is inconsistent in places (some openings appear centered/relocated, and some door swings are not represented). No clear evidence of additional fully hallucinated rooms, but multiple structural elements are simplified or misrepresented."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Living room furniture grouping (sofa/coffee table/armchair) and dining table placement generally align with the plan. Kitchen reads as an L-shape with similar appliance placement, but exact fixture positions are approximate. E4: Some furniture appears slightly rescaled relative to room sizes (e.g., living seating cluster and bedroom clearances), consistent with the proportion changes in the shell."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera is coherent and readable, with good overall composition and soft lighting. Orthographic/isometric correctness is acceptable (minor perspective feel but not severe). Geometry is mostly clean; however, some edges/openings read simplified and slightly imprecise compared to the crisp 2D plan. Visual clarity is good, but plan-faithful detailing (doors/windows) is under-modeled."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Top-left closet (adjacent to living room/kitchen) is not clearly present as an enclosed room with a door as shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Left-side coat/storage area near the left bathroom/hall is simplified/shifted; storage enclosure and boundaries do not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Several interior door locations around the entry/den corridor and bathroom/bedroom connections do not align with the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door swing/orientation indications from the 2D plan are not respected or are ambiguous in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Right-side living-room wall opening/door (toward the neighboring apartment) is not clearly placed/represented as in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Noticeable proportion distortion in the central band (entry/den + central bathroom zone) causing altered corridor widths and room scaling versus the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated decorative/open alcove element (plant area) appears where the 2D plan indicates a more defined enclosed closet/storage geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is under-specified/partially missing compared to the plan (only the large living-room window is clearly represented; other exterior-window positions are not consistently evident)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan.jpg"
+}

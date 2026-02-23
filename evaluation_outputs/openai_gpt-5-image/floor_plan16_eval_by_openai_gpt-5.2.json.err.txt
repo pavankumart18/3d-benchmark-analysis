@@ -1,0 +1,34 @@
+{
+  "spatial_accuracy": {
+    "score": 15,
+    "max": 40,
+    "notes": "Major plan-to-render mismatch in the service core: the bathroom/toilet shown in the 2D plan is not represented as a toilet in the 3D layout, and the right-side block is reorganized. Living/dining + kitchen + utility are generally in the expected quadrant, but internal partitions, door locations, and bedroom opening/window locations do not reliably match the plan. Bedroom bed orientation and glazing positions indicate notable spatial deviation and proportion drift."
+  },
+  "structural_fidelity": {
+    "score": 10,
+    "max": 25,
+    "notes": "Wall thickness and general perimeter continuity are acceptable, but key functional structure is incorrect: the toilet room is missing as a toilet, adjacency relationships around the wet area (utility/toilet/bedroom) do not match, and an extra enclosed room/zone appears where the plan shows toilet/closet alignment. Doorways that do exist are cleanly embedded, but several planned doors are absent or relocated due to the altered partitioning."
+  },
+  "furniture_mapping": {
+    "score": 5,
+    "max": 10,
+    "notes": "Living/dining furniture conceptually matches (sofa + table), and kitchen/utility appliances roughly correspond. However, bedroom furniture orientation differs from the plan (bed rotated), and added elements (TV console/desk placement) do not clearly map to the 2D plan. Overall scale is plausible but mapping accuracy is weak."
+  },
+  "aesthetic_quality": {
+    "score": 20,
+    "max": 25,
+    "notes": "Isometric view is coherent and readable; lighting is even and geometry is mostly clean with no major mesh distortions. Presentation is clear. Minor deductions for simplistic detailing and some visual ambiguity around openings/doors."
+  },
+  "total_score": 50,
+  "detected_errors": [
+    {
+      "code": "E1",
+      "description": "Toilet/Bathroom (TOILET-1) present in the 2D plan is not represented as a toilet/bathroom in the 3D render (missing functional room/fixtures)."
+    },
+    {
+      "code": "E5",
+      "description": "Hallucinated/incorrect enclosed room on the right/top-right area (large wardrobe/storage-like room) that does not correspond to a dedicated room in the 2D plan."
+    },
+    {
+      "code": "E2",
+      "description": "Wet-core partitioning around utility/toilet/bedroom is rearranged: walls and access paths differ from the

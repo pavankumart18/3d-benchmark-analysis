@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 13,
+        "max": 40,
+        "notes": "Major mismatch between the 2D layout (irregular footprint with two decks at the top edge and multiple service cores) and the 3D model (more rectangular footprint, no deck geometry). Several rooms appear repositioned/merged: the bottom/service zone in plan (foyer + HO + multiple toilets + utility) is not represented with the same partitioning. Door locations/orientations are largely not consistent with the plan (many openings are missing or placed on different walls). Window locations/count are significantly reduced and do not follow the plan\u2019s exterior window distribution. Room proportions are not preserved (living/dining and corridor widths read differently; bedroom sizes/relationships appear normalized)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Adjacency relationships deviate: plan shows distinct utility (bottom-right), multiple toilets (TOI-1, TOI-4, C.TOI, plus additional small WC), and a foyer/entry sequence; the 3D collapses these into fewer, differently shaped rooms. Missing elements include both decks and at least one bathroom block as drawn. A bathroom with a tub-like fixture appears that is not indicated in the 2D plan. Wall thickness looks broadly consistent internally, but the overall wall layout does not match the plan\u2019s perimeter offsets and interior jogs."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some high-level furniture exists (sofa, coffee table, dining table, kitchen run, beds), but mapping to the plan is weak: the 2D shows a defined living + dining arrangement and kitchen/utility counters; the 3D places generic furniture without matching exact zones (e.g., dining placement/scale and kitchen/utility separation). Furniture scale is generally plausible but does not reflect the plan\u2019s specified room sizes (beds and circulation clearances appear inconsistent)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric view is clean and readable with decent lighting and tidy geometry. However, it is not an orthographic-accurate translation of the plan: proportions and perimeter shape are simplified, and some openings/rooms appear procedurally generated. No major rendering artifacts, but the model\u2019s simplification reduces architectural clarity relative to the 2D intent."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Both deck areas shown on the 2D plan (top edge) are missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bottom/service zone layout is misplaced: the plan\u2019s foyer + HO + multiple small toilets + utility cluster is not arranged as in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "At least one bathroom/toilet room from the plan (multiple are shown: TOI-1, TOI-4, C.TOI, plus an additional small WC) is missing or merged in the 3D."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation does not match the plan: several planned hinged doors (bedrooms/bathrooms/foyer) are absent or placed on different walls in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Windows are incorrectly placed and under-counted: the 3D shows far fewer windows and they do not align with the plan\u2019s exterior window positions."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: the living/dining and corridor dimensions appear normalized compared to the plan\u2019s long 20'10\" x 24' living/dining and the varying bedroom sizes."
+        },
+        {
+            "code": "E5",
+            "description": "A tub-like bathroom fixture appears in the 3D that is not indicated in the 2D plan\u2019s toilet layouts."
+        },
+        {
+            "code": "E2",
+            "description": "Overall exterior footprint is simplified/incorrect: the plan has multiple perimeter jogs and a pronounced top deck outline; the 3D perimeter reads more rectangular and does not preserve those offsets."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan19.webp"
+}

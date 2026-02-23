@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct. However, significant errors exist in door placement, particularly the entry door which is shifted and the orientation of the laundry room entrance. Window placements on the right wall are simplified and lack the specific indentations shown in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent but the entrance foyer geometry is distorted compared to the plan's 45-degree angled walls. The closet near the bathroom is poorly defined."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "The dining table is missing several chairs and has been rotated. The couch configuration in the living room is simplified. Bathroom fixtures are present but scale for the tub is slightly exaggerated."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good lighting and shadows. Isometric camera angle is effectively achieved. Geometry is relatively clean, though some furniture looks like primitive blocks rather than detailed assets."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entrance door is misplaced/shrunk relative to the hall corridor size."
+        },
+        {
+            "code": "E3",
+            "description": "Dining table and seating orientation rotated 90 degrees."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Hall' area geometry is distorted at the entrance point, losing the clean rectangular lines of the original plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific door for the laundry room entrance and missing dining chairs."
+        },
+        {
+            "code": "E6",
+            "description": "Smudged geometry where the bathroom wall meets the shower/closet area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan4.jpg"
+}

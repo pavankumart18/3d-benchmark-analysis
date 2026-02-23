@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major wall alignment failure; a hallucinated wall divides the living and dining areas which are open-plan in the blueprint. Entrance door is incorrectly oriented and placed. Several windows are missing or swapped for doors."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The internal wall segment for the stairwell and bathroom is merged incorrectly. The '13x24' open space is violated by a full-height divider wall. One exterior door is rendered as a window."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture scale is largely consistent, though the kitchen stove is detached from the wall and the bathroom fixtures are simplified."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution, clean geometry, and consistent lighting. However, the cutaway logic creates visual artifacts near the front entrance steps."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated wall dividing the Living Room and Dining Room areas."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entrance door; the staircase and bathroom enclosure is structurally merged."
+        },
+        {
+            "code": "E1",
+            "description": "Missing large sliding doors/windows on the right-hand wall and bottom wall."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error: The bathroom door is facing the wrong direction compared to the blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen counter proportions do not match the L-shape indicated in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan3.jpg"
+}

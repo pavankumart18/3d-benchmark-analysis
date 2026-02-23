@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Severe misalignment. Kitchen moved to the right wall instead of the top-left corner. The bathroom is completely missing walls, with fixtures placed out in the open. Staircase orientation is incorrect."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Failed to include internal partition walls for the bathroom. Missing external doors and windows defined in the plan. Hallucinated a large central staircase cavity that does not match the floor plan's footprint."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen appliances are present but misplaced. Bathroom fixtures (toilet/sink) are hallucinated as open-plan furniture rather than enclosed in a room."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "High visual quality. Correct isometric camera angle, clean geometry, and consistent lighting/color palette despite structural inaccuracies."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing bathroom partition walls and multiple external windows/doors."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen elements moved from North/West walls to East wall."
+        },
+        {
+            "code": "E3",
+            "description": "Staircase orientation and layout do not match the U-shaped design in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The scale of the staircase is oversized relative to the living area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-air bathroom fixtures and extra furniture pieces not in plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan3.jpg"
+}

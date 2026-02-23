@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major architectural failures: Door-to-living room transition is missing. Window placements on the bottom wall do not match the spacing indicated on the plan. Room proportions are vertically stretched."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Utility room walls are partial/incomplete. Several walls lack continuous vertical extension. Missing floor texture transitions that define specific zones (tiled utility vs wood halls)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The kitchen island/peninsula is missing. Dining table is undersized. Hallucinated seating elements placed in the center corridor area."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric projection with soft, diffuse lighting. Materials are well-defined though text labels are corrupted/hallucinated."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen peninsula/island and pantry wall segment."
+        },
+        {
+            "code": "E2",
+            "description": "WC and sink misplaced relative to the utility room corridor entrance."
+        },
+        {
+            "code": "E3",
+            "description": "Staircase orientation/start point is incorrectly rendered compared to the 2D 'UP' arrow."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room area is disproportionately large compared to the kitchen footprint."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated floating glass/transparent archway symbols above the interior walls."
+        },
+        {
+            "code": "E6",
+            "description": "Text distortion in the center of the render ('ITUnY TOOM')."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan11.png"
+}

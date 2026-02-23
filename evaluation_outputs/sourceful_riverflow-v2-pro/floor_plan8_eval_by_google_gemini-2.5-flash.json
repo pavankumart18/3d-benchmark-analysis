@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room 'W/C' is represented as a full bathroom with shower in 3D, changing its function and size (E4). The 'CLOSET' adjacent to the foyer in 2D is rendered as a small room with furniture in 3D (E1, E4). The 'Foyer' area in 2D appears to be combined with an extended 'Living Room' in 3D. The 'Living Room' and 'Dining Room' proportions are distorted (E4). Many window placements are either missing or incorrect (E1, E2). Door orientations are incorrect for multiple doors (E3), and some doors are misplaced (E2)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The 'W/C' room in the 2D plan is represented as a 'Bathroom' with a shower in the 3D render (E5). The closet directly north of the foyer in the 2D plan is rendered as a small room with furniture, not a closet (E5). Adjacency relationships are mostly maintained but impacted by room reinterpretation. Wall thickness appears mostly consistent. Missing the explicit labels for 'Foyer' and 'Dining Room' as distinct spaces in the 3D render, although the spaces exist (E1)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor. The 'Pantry' in the 2D plan is rendered as an open shelving unit with a counter (E4, E2). The 'Kitchen' layout is completely different, with appliances misplaced and a different island design (E2, E4). The 'Living Room' furniture is a hallucination of items not suggested in the 2D plan, and its placement does not match. The 'Dining Room' furniture is also misplaced and appears out of proportion for the space (E2, E4). The 'Playroom' contains new furniture (E5)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness seems acceptable. Orthographic projection is reasonable. Lighting quality is flat and lacks variation, making the scene appear dull (E6). Geometry is clean. Visual clarity is good, but composition is uninspired."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Room 'W/C' is rendered as a full bathroom with a shower, distorting its proportion and intended function from the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'CLOSET' adjacent to the 'Foyer' in the 2D plan is missing its intended function and rendered as a small room with new elements."
+        },
+        {
+            "code": "E4",
+            "description": "The proportions of the 'Living Room' and 'Dining Room' appear distorted compared to the 2D plan, with the 'Foyer' area seemingly absorbed into the living space."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple windows indicated in the 2D plan are missing from the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Several windows present in the 3D render are not in the correct locations or configurations as per the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations are incorrect for multiple doors, especially for the entryways to the 'W/C'/'Bathroom' and the closet near the foyer."
+        },
+        {
+            "code": "E2",
+            "description": "Some doors are misplaced, specifically the door leading into the 'Playroom' from the staircase landing."
+        },
+        {
+            "code": "E5",
+            "description": "The 'W/C' room in the 2D plan is hallucinated as a larger 'Bathroom' with a shower in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "The closet directly north of the foyer in the 2D plan is hallucinated as a small room with furniture, changing its structural role."
+        },
+        {
+            "code": "E1",
+            "description": "The explicit definition of 'Foyer' and 'Dining Room' as distinct labeled spaces from the 2D plan is missing in the 3D render, even if the general areas exist."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Pantry' in the 2D plan is rendered as an open shelving unit with a counter, distorting its intended structure and proportions."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Kitchen' layout, including appliance placement and island design, is significantly different and misplaced compared to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Furniture in the 'Living Room' is entirely hallucinated, with elements not present or suggested in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Dining Room' furniture is misplaced and appears too large for the space as rendered."
+        },
+        {
+            "code": "E5",
+            "description": "New furniture elements are hallucinated in the 'Playroom' not present or implied by the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting quality is flat, resulting in poor visual appeal and lack of depth in the render."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "notes": "Overall room layout roughly matches (open lounge/dining at left, kitchen central/top, bath+WC central/bottom, two bedrooms right, detached garage). However several openings do not match the 2D plan: the dining-to-hall connection appears as an open passage in 3D where the plan indicates a hinged door; WC door location/orientation appears different (plan shows WC accessed from the hall with a different swing/face than the 3D); laundry/robe partitioning and access looks reinterpreted (3D reads more like an open alcove rather than the plan\u2019s tighter service core). Balcony/glazing length also appears extended relative to the plan\u2019s indicated opening. Room proportion balance (especially living zone vs service core) is somewhat distorted."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Primary adjacencies are mostly preserved (kitchen adjacent to living; bath and WC off hall; bedrooms off hall; garage detached). Wall thickness looks consistent and doors are generally embedded in walls. Main structural deviations are in internal opening definitions: missing/changed door at dining-to-hall, WC access/swing mismatch, and altered service-core subdivision (laundry/robe). No clear additional rooms beyond those in the plan; no clear room omissions observed."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "The 2D plan provides no furniture layout, yet the 3D includes multiple furniture pieces (sofa set, beds, etc.). Placement/scale cannot be validated against the plan and should be treated as largely invented content for verification purposes; some items also risk misrepresenting circulation widths near doors."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is coherent and readable; lighting is even and geometry is generally clean. Minor issues: elements read slightly simplified (door leaves/walls), and some openings/glazing proportions look inconsistent with the plan. Overall clarity is good with minimal rendering artifacts."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Dining-to-hall opening is represented as an open passage in the 3D where the 2D plan indicates a hinged door (door omitted/changed at the living/dining\u2013hall threshold)."
+        },
+        {
+            "code": "E3",
+            "description": "WC door placement/orientation does not match the 2D plan (access face/swing appears different in the 3D compared to the hall-access configuration shown on plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Laundry/robe service-core partitioning and access appear reconfigured (3D depicts a more open/altered alcove arrangement versus the tighter labeled L'dry + robe zone in the plan)."
+        },
+        {
+            "code": "E4",
+            "description": "Balcony-side glazing/opening appears longer/more continuous in the 3D than suggested by the 2D plan, indicating exterior opening proportion distortion."
+        },
+        {
+            "code": "E4",
+            "description": "Living/dining area to service-core proportion balance appears inflated in 3D relative to the plan (service core reads compressed)."
+        },
+        {
+            "code": "E5",
+            "description": "Furniture is added in 3D despite not being specified in the 2D plan (sofa set, beds, etc.), making interior mapping largely non-verifiable and effectively hallucinated for strict verification."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan13.jpg"
+}

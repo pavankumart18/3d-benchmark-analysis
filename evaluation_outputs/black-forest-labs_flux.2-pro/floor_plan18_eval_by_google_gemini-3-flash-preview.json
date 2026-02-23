@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Primary wall placement and room layouts are generally correct. However, doors are rendered as abstract swing lines rather than physical openings in walls, and the bedroom door orientation is slightly misinterpreted. Window openings are present but lack depth."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Walls have consistent thickness, but the doors are floating artifacts rather than structural voids. The utility area is present but the door connecting the kitchen and utility is missing its wall frame. The transition into the foyer is somewhat blurred."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture mapping is exceptionally accurate. The kitchen stove, sink, living room sofa, dining table, and bedroom wardrobe/bed are all correctly placed and scaled according to the 2D reference."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering. Lighting and shadows are consistent. Geometry is clean, though the choice to render door swings as 2D-style lines in a 3D space is a stylistic choice that slightly reduces architectural realism."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The door swing for the bathroom and bedroom are rendered as floating vector lines rather than integrated architectural hinges."
+        },
+        {
+            "code": "E1",
+            "description": "Missing physical wall openings for some transition points; the 3D model uses lines to represent doors instead of actual gaps in the geometry."
+        },
+        {
+            "code": "E6",
+            "description": "The foyer entry area lacks a clear front door model, represented only by a swing arc on the floor."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan18.jpg"
+}

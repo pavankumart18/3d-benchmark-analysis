@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but door swings are inconsistently represented as open gaps without leaf geometry. The foyer entrance wall at the bottom right is slightly shortened compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms (Bed-1, Bed-2, Kitchen, Utility, etc.) are present and correctly adjacent. However, the external wall line in the utility area at the bottom left is simplified, losing the specific structural indentation shown in the plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the plan, including the dining set, living room rugs, and bedroom orientations. Scale is consistent."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean matte rendering. Lighting is soft and professional. Some minor aliasing on thin partition walls."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Foyer partition wall is shorter than indicated in the 2D architectural drawing."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swings are not rendered; they are shown as empty structural gaps."
+        },
+        {
+            "code": "E4",
+            "description": "The utility space at the bottom left has simplified wall geometry compared to the multi-stepped plan."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering artifacts in the kitchen area where the counter meets the wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan14.webp"
+}

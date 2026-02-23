@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatches between plan and render. (E2/E4) Kitchen-to-dining boundary and overall room extents are not preserved: the dining room in the render reads as one very large open area with fewer defining walls than the plan. (E1/E2) The breakfast area shown on the plan at the far right/top is not clearly modeled as a distinct space. (E2/E3) Several interior door openings do not match the plan\u2019s locations/swing relationships (notably around the utility room/hall connections). (E2) Window placements do not consistently match: the plan\u2019s right-side window-seat/bay condition is not accurately represented as a window-seat feature, and window distribution along the perimeter appears simplified. (E4) Proportions feel distorted: the open floor area is enlarged relative to the tighter wall/room segmentation in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Structural relationships are simplified and in multiple places incorrect. (E2) Wall alignments/returns do not follow the plan, especially around the central hall/adjacent partitions. (E1) Pantry as labeled/defined in the plan is not clearly enclosed as a room in the render. (E2) Adjacency fidelity is weak: plan shows a specific sequence (kitchen\u2013pantry\u2013breakfast / kitchen\u2013dining / hall\u2013utility\u2013WC), but the render compresses/reshapes these separations. (E5) Hallucinated/extra partial walls and stub partitions appear (e.g., freestanding short walls near the center) that are not evidenced in the 2D plan. Wall thickness is roughly consistent, but door embedding/openings are inconsistently represented."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "(E2) Kitchen casework is broadly suggested but does not reliably match the 2D plan (e.g., pantry enclosure and some run lengths). (E5) A large central island/peninsula element appears in the render that is not indicated in the provided 2D plan portion. (E4) Furniture/appliance scale is inconsistent relative to room size (oversized open area vs. cabinetry), reducing fidelity."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Camera is a plausible isometric-style view, though not strictly orthographic. Lighting is even but flat; edges/geometry are clean overall. Some visual ambiguity from simplified openings and lack of door panels reduces clarity. No major rendering artifacts, but the minimal detail makes verification harder."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Breakfast area shown on the 2D plan is not clearly present as a distinct modeled space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry (labeled on plan) is not clearly enclosed/represented as a dedicated room in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall layout around the central hall/utility/WC zone does not align with the 2D plan\u2019s partition positions."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements and/or swing/orientation relationships around the utility room and adjacent circulation do not match the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window layout is simplified and does not match the plan\u2019s perimeter window/feature placement (notably the right-side window-seat/bay condition)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: the dining/open area is modeled substantially larger/less segmented than indicated by the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "A large kitchen island/central block appears in the 3D render but is not indicated in the provided 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Extra stub/partial partitions appear in the 3D render that are not evidenced in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan11.png"
+}

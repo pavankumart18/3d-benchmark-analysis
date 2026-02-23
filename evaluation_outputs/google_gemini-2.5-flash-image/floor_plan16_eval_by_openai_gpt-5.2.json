@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 31,
+        "max": 40,
+        "notes": "Overall room layout matches (Living/Dining left, Kitchen top-left, Utility top-right, Toilet mid-right, Bedroom bottom-right, Balcony bottom-left). However, window depiction/placement differs: the Living/Dining left wall window present in the plan is not clearly represented in the render (E1/E2), and the Utility/right-side glazing is rendered as large blue window panels that do not match the plan\u2019s simpler openings (E2). Minor door swing/orientation inconsistencies are visible around Toilet-1/Bedroom entry compared to the plan arcs (E3)."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "Adjacency relationships are largely correct (Kitchen-Utility-Toilet stack on right; Bedroom below Toilet; Balcony off Living). No major rooms missing. Notable fidelity issues: wall thickness representation changes substantially (thick black perimeter/interior walls in plan vs thin uniform gray walls in render), which alters perceived structural hierarchy (E4). Door embeddings/leaf thickness and exact jamb positions are simplified, and Toilet/Bedroom door detailing does not consistently match the plan (E2/E3). Render introduces oversized window-wall elements on the right/utility edge beyond what the plan indicates (E5)."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture types and general locations align (sofa/coffee table in Living, round dining table, bed in Bedroom, fixtures in Toilet, washer in Utility). Minor scale/spacing differences exist (e.g., bedroom circulation around bed/wardrobe band appears slightly altered by wall thickness changes) (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 9,
+        "max": 25,
+        "notes": "The provided '3D isometric' render is effectively a top-down 2D/orthographic-style visualization rather than an isometric 3D view (E6). Lighting/shading is minimal and does not convey 3D depth. Geometry is clean and readable, but overall fails the isometric camera requirement and has overly stylized window coloring that reduces plan-faithful clarity."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Utility/top-right and right-side openings are rendered as large blue window panels that do not match the plan\u2019s window/opening representation and apparent size."
+        },
+        {
+            "code": "E1",
+            "description": "Living/Dining left wall window shown in the plan is not clearly present/legible in the render."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation around Toilet-1 (and potentially Bedroom entry) appears inconsistent with the plan\u2019s door arc placement."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness hierarchy is not preserved (plan shows thick structural/perimeter walls; render uses thin uniform walls), altering perceived proportions and structural intent."
+        },
+        {
+            "code": "E5",
+            "description": "Oversized/extra-stylized glazing elements on the right side (utility/shaft edge) read as added features beyond what is explicitly indicated in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Render is not isometric 3D; it is a top-down 2D-like visualization, failing the intended camera/projection requirement."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan16.avif"
+}

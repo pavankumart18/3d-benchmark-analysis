@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 6,
+        "max": 40,
+        "notes": "Overall layout in the 3D render does not correspond to the 2D plan. The 2D plan is a full house with living room, kitchen/nook, dining, study, 4 bedrooms, multiple baths, utility, and a 2-car garage; the 3D render depicts a much smaller, different configuration (few rooms around a central space). Major wall runs and room locations (e.g., garage block at lower-right, kitchen/dining/living massing on left/center, bedroom wing on right) are not preserved. Door and window locations do not match the plan\u2019s exterior openings and interior door positions. Room proportions are not comparable to the specified dimensions in the plan."
+    },
+    "structural_fidelity": {
+        "score": 3,
+        "max": 25,
+        "notes": "Most required rooms/spaces from the 2D plan are missing and the adjacency graph is incorrect (e.g., no garage-to-house entry, no kitchen-to-nook/living, no master suite + WIC + master bath cluster as drawn). Several rooms in the 3D render have no clear correspondence to named rooms in the plan (hallucinated/undefined spaces). Interior openings are simplified/omitted and wall thickness/edge conditions are inconsistent with a plan-derived model."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture does not map to the plan: kitchen cabinetry/island, dining table area, living room seating layout, and bedroom count/placements are not represented. The rendered furniture appears generic and placed in rooms that do not align with the plan\u2019s functions. Scale is only loosely plausible but not verifiable against the plan due to missing corresponding rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Render is visually clean with acceptable lighting and materials, and uses an isometric-like camera. However, it is not a faithful orthographic/isometric representation of the provided plan (cutaway walls and simplified geometry reduce clarity for verification). Composition is readable but the model appears to be a different floor plan."
+    },
+    "total_score": 25,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage block present at lower-right of the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen + pantry layout (counters, appliances, sink run, pantry room) shown on left-middle of the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dining room (left-lower) and its adjacency to kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing living room sized/placed per plan (large central-left space with patio connection)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing nook and covered patio at upper-left, including the exterior door from nook/patio connection."
+        },
+        {
+            "code": "E1",
+            "description": "Missing study at lower-left of the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bedroom #2 and Bedroom #3 wing on the right side as drawn (two distinct bedrooms with specific door placements)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Master suite configuration: master bedroom shape, master bath, and walk-in closet (WIC) cluster does not appear as in plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bedroom #4 at lower-center-left and its relation to the hall and covered patio."
+        },
+        {
+            "code": "E1",
+            "description": "Missing utility/laundry room (with W/D) and its adjacency to hall/garage entry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing secondary bath near hall (plan shows a bath off the hall; rendered bath layout does not match placement/shape)."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placement in the 3D render does not align with the 2D plan\u2019s exterior openings (counts and locations differ significantly)."
+        },
+        {
+            "code": "E2",
+            "description": "Interior door positions and orientations are largely absent or incorrect relative to the plan (hall doors, bedroom doors, bath doors, and garage entry are not represented correctly)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions/massing are inconsistent: the rendered footprint is much smaller/simpler than the plan\u2019s full footprint (no garage/patio projections and no matching room dimension relationships)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated room configuration: the 3D model shows a few generic rooms around a central space that do not correspond to the plan\u2019s named rooms and adjacency structure."
+        },
+        {
+            "code": "E6",
+            "description": "Cutaway wall edges/partial-height openings appear as modeling artifacts (irregular top edges) that reduce plan-to-model interpretability."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan9.png"
+}

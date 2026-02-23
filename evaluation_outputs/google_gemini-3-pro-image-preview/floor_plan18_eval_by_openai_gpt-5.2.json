@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall layout roughly matches (bedroom top-left, living/dining center-left, kitchen right, toilet top-center/right, balcony bottom-left), but several plan-critical deviations exist. The foyer shown in 2D at bottom-right is not clearly formed in 3D (entry appears to open into the living area), altering circulation. Toilet geometry is significantly different (2D is a long 4'9\"x8'0\"; 3D reads much squarer/overwide). Utility zone placement/shape is inconsistent (2D is a defined 3'9\" wide strip connected from kitchen; 3D shows a blue corridor-like area and a small enclosure that do not match the 2D footprint). Window locations do not match well (notably bedroom and living-side openings). Room proportions between living vs. bedroom/bath appear distorted (living seems oversized; bath/utility also enlarged vs plan)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Key adjacency partly correct (kitchen adjacent to living; toilet near kitchen/living), but the missing/blurred foyer breaks the intended entry sequence and wall segmentation. Door embedding is inconsistent with the 2D plan: the main entry door should land in the foyer, then connect to living and kitchen; 3D lacks that defined enclosure. Utility and service partitions appear reconfigured and include an extra small compartment not indicated on the 2D plan. Wall thickness looks generally consistent, but several partitions are shifted/reshaped compared to the plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are present in expected zones (bed in bedroom; dining table in living/dining; sofa/TV in living). However, placement/orientation does not tightly follow the 2D layout (e.g., living seating/TV arrangement and circulation differs), and some items read oversized/undersized relative to room sizes due to proportion distortions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable render with coherent materials and lighting. Camera is a top-down perspective/isometric-like view, but not a strict orthographic/isometric projection (perspective depth is evident). Geometry is mostly clean with no major artifacts, though some openings/doors are visually ambiguous."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer (4'6\"x3'10\") shown in the 2D plan at the bottom-right is missing or not clearly formed in the 3D model; entry appears to connect directly into the living area."
+        },
+        {
+            "code": "E2",
+            "description": "Main entry door placement/circulation is incorrect: in 2D it enters the foyer first; in 3D the foyer separation is not present, changing the entry adjacency sequence."
+        },
+        {
+            "code": "E4",
+            "description": "Toilet proportions are distorted: 2D indicates a long narrow 4'9\"x8'0\" bathroom, while the 3D bathroom reads significantly wider/squarer."
+        },
+        {
+            "code": "E2",
+            "description": "Utility area layout is inconsistent: 2D shows a defined 3'9\" wide utility directly off the kitchen; 3D shows a corridor-like blue space plus a small enclosure that does not match the 2D footprint."
+        },
+        {
+            "code": "E5",
+            "description": "An extra small enclosed compartment/closet-like volume near the toilet/utility zone appears in 3D that is not indicated as a room in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: the bedroom/living exterior openings in 3D do not clearly align with the 2D plan\u2019s window positions (notably the bedroom side window and living-side openings)."
+        },
+        {
+            "code": "E4",
+            "description": "Relative room scaling appears off: living/dining reads oversized compared to the bedroom, and service spaces (toilet/utility) appear enlarged versus the 2D dimensions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan18.jpg"
+}

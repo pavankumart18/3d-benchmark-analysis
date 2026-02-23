@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained. However, several door orientations are incorrect compared to the plan (E3). Window placement in Bedroom 2 and the Kitchen shows minor alignment shifts."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "Wall partitions are correctly placed. All rooms are present. There is a minor hallucination of a secondary interior structure near the entry hallway that does not match the floor plan (E5)."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate to the proposed 2D layout, including the kitchen island shape and the corner bathtub. One chair is missing from the dining set."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent orthographic projection and clean geometry. Lighting is consistent and shadows provide good depth. Composition is centered and professional."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Bedroom 1 and Hallway doors have incorrect swing orientation versus the 2D blueprint."
+        },
+        {
+            "code": "E5",
+            "description": "Hallway entry area contains a hallucinated partition/low wall not present in the original plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific closet door details in the small storage areas."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen counter depth is slightly exaggerated compared to the walkway proportion shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan4.jpg"
+}

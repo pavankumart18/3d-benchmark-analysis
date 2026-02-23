@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major spatial failures: The balcony area has been transformed into an enclosed room with windows. Bed 4 and the Activity area are merged/misidentified. The stair landing is incorrectly scaled and oriented."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Severe errors in adjacency; the hallway structure is broken. The WC room is replaced by an generic door leading to nowhere. Wall thickness is inconsistent with the floor plan's load-bearing representation."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Beds are hallucinated as wall-mounted panels or incorrectly oriented. The sofa from the Activity room is moved to a different wing. Incorrect scale for most assets."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and clean isometric rendering. The clay-style materials are visually pleasing despite the architectural inaccuracy."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific WC and linen storage compartments."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced Activity room furniture and bathroom fixtures."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door swings and stair orientation compared to source 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion of the balcony/outdoor living space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior windows on the left-side wall and non-existent furniture types."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan12.png"
+}

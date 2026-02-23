@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is broadly correct but specific dimensions and arrangements are off. Door and window placements deviate significantly from the floor plan. Room proportions are distorted, particularly in the kitchen and living room."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially around the bathroom and the exterior walls. The adjacency of the bathroom and living room is incorrect due to wall repositioning. There is a missing door for the bathroom. A wall/pillar has been hallucinated within the living room area. The 'ENTRANCE' area's internal wall is missing."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Kitchen furniture is mostly present but scaled inaccurately. The toilet in the bathroom is present but its orientation and position are incorrect relative to the small bathroom size shown. The sink in the bathroom is missing. The stove in the kitchen is depicted as two round elements, which is a hallucination of type versus the floorplan's 'square' stove element."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and there are no severe rendering artifacts. However, lighting is flat, and the overall composition lacks detail and visual interest. Geometry is clean but simplistic."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom door is misplaced and oriented incorrectly. It should be on the side facing the living room."
+        },
+        {
+            "code": "E2",
+            "description": "Living Room/Dining Room window is misplaced and is too small compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen window is misplaced and disproportionate."
+        },
+        {
+            "code": "E3",
+            "description": "Toilet orientation in the bathroom is incorrect."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sink in the bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal wall separating the entrance from the living/dining area."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom proportions are significantly distorted; it appears larger and differently shaped in the 3D model."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen proportions are distorted; the space appears wider."
+        },
+        {
+            "code": "E4",
+            "description": "Living/Dining room proportions are distorted; the room appears narrower than indicated by the 13'x24' dimension."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall/pillar in the living room area next to the bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing opening for the 'ENTRANCE' area, replaced by a solid wall with a door. The floor plan indicates an open entrance."
+        },
+        {
+            "code": "E2",
+            "description": "The door from the stairs to the main living area is misplaced and its swing direction is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "The stairs are significantly wider and differently shaped than depicted in the floor plan, causing proportion distortion."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement for the main entrance is incorrect, it's pushed further to the left compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom dimensions and layout are entirely missing as it's meant to be on the second floor, this model only depicts the first floor."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dining room and living room distinction. The 3D model just has one large open area."
+        },
+        {
+            "code": "E2",
+            "description": "The two exterior windows on the right side of the floor plan are combined into one single, centrally located window on the 3D model, causing misplacement and a change in quantity."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan3.jpg"
+}

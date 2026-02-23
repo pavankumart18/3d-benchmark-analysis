@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct, but there is an error in the rear wing where Bed 3 and Bed 4 windows are misplaced. The master suite window facing the front verandah is also incorrectly segmented."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The transition between the Alfresco area and the Living room lacks the structural columns and thin-frame glazing indicated in the plan. Wall thicknesses are mostly consistent, but the entry portico structure is oversimplified."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture mapping is exceptionally high. Bed placements, kitchen island orientation, and the dining table positioning match the intended floor plan exactly."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High quality isometric rendering with consistent lighting. Clean geometry throughout, though the car model is slightly underscaled for a double garage footprint."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The window in Bed 4 is placed on the side wall instead of the rear wall per the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the laundry door to the exterior appears changed to a window."
+        },
+        {
+            "code": "E4",
+            "description": "The car scale in the garage is too small relative to the 5.91m width of the space."
+        },
+        {
+            "code": "E6",
+            "description": "Glazing frames on the Alfresco sliders are merged/simplified compared to the detailed plan lines."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan10.png"
+}

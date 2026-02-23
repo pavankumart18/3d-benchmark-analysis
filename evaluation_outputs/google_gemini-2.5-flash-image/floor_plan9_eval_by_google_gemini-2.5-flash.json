@@ -1,0 +1,128 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the overall shape of the house perimeter is distorted. Several doors and windows are either missing or incorrectly placed/oriented."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in certain areas. Several doors are missing or incorrectly embedded. The covered patios, nook, pantry, and study areas show significant structural deviations, including missing walls and an entire missing room (Study). Hallucinated walls are present in the 'Nook' and 'Master Bath' areas."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in Kitchen, Nook, Living Room, Dining Room, Master Bedroom, Master Bath, Bedroom #3, Bedroom #2, Hall, and Utility. Scale consistency is also an issue, with many furniture items appearing disproportionate to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera correctness and orthographic projection are generally good, but lighting is flat. Geometry is mostly clean with minor distortions. Visual clarity is fair, but the lack of accurate structural representation and many missing elements detract from the overall composition."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing wall for 'Covered Patio' area on the left."
+        },
+        {
+            "code": "E1",
+            "description": "Missing walls for 'Nook' area, resulting in an open plan where there should be distinct walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'Pantry' in the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing walls and door for the 'Study' room, which is completely absent in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet doors for 'Bedroom #4'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet doors for 'Bedroom #2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WC' room and its associated elements in the Master Bath."
+        },
+        {
+            "code": "E1",
+            "description": "Missing double doors for 'Master Bedroom'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Covered Patio' at bottom left of the house."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced refrigerator in the kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Dining Room'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Master Bedroom'."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'Living Room' are misplaced and fewer in number."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'Master Bedroom' are misplaced and fewer in number."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'Bedroom #3' are misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'Hall', 'Utility', and 'Bedroom #4' are generally misplaced or depict incorrect configurations based on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen island/counter layout is incorrectly mapped."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the sink in 'Master Bath'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Dining Room', appearing much smaller on the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Kitchen' and 'Nook' areas, with the 'Nook' being absorbed into an open-plan kitchen."
+        },
+        {
+            "code": "E4",
+            "description": "General proportion distortion of several rooms due to altered wall alignments."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall section in the 'Nook' area, not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall splitting the 'Master Bath' area, instead of the 'WC'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated additional window in Bedroom #4."
+        },
+        {
+            "code": "E6",
+            "description": "Distortion in the wall thickness, particularly noticeable around the 'Master Bath' and 'Master Bedroom' areas, and near the garage."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan9.png"
+}

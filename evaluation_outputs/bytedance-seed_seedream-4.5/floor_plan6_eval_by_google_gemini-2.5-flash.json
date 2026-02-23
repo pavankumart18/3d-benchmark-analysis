@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct. Wall alignment shows some discrepancies, particularly around the kitchen/living area and the stairs. Several door placements are incorrect or have incorrect swing directions. Window placements are altered and some windows are missing from the plan. Room proportions are somewhat preserved but show minor distortions, especially in the kitchen/living area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas, particularly noticeable in the kitchen/living area where the wall appears thinner than in the floor plan. Door embedding is incorrect for some doors. Adjacency relationships are mostly correct. One room (the small storage/utility space near the stairs) appears to be missing or significantly altered. No hallucinated rooms, but internal structural elements like the small wall separating the kitchen island from the main living space are missing."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Numerous furniture items are missing (e.g., dining chairs, TV stand, furniture in the bathroom and the entrance area). The scale of some present furniture items appears inconsistent with the floor plan or with each other. The kitchen island is completely different and its orientation and relation to other kitchen elements are incorrect. The L-shaped kitchen counter is rendered straight, losing the corner element. The couch is split into two, and its orientation is incorrect."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is mostly maintained, though some angles feel slightly off. Lighting quality is decent, but some internal shadows are too dark. Geometry is mostly clean with minor distortions. Visual clarity and composition are good despite the errors."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen/Living room wall alignment is inaccurate, particularly the curved wall becoming straight."
+        },
+        {
+            "code": "E2",
+            "description": "Many windows are misplaced from their original positions on the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Several windows present in the floor plan are missing in the 3D render, particularly on the bottom and right walls of the kitchen/living area and next to the stairs."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation/swing direction for the bedroom door, bathroom door, and the main entrance door."
+        },
+        {
+            "code": "E1",
+            "description": "Small storage/utility room near the stairs is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island's position and design are entirely different from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple dining chairs, TV stand, and bathroom furniture (e.g., sink cabinet, toilet paper holder)."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom wall proportions seem slightly off, making it appear wider in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The couch is rendered as two separate units and is oriented differently from the plan."
+        },
+        {
+            "code": "E1",
+            "description": "The L-shaped kitchen counter from the floor plan is rendered as a straight counter, missing the corner element."
+        },
+        {
+            "code": "E2",
+            "description": "The entry door is misplaced and its orientation is incorrect, leading into a wall."
+        },
+        {
+            "code": "E1",
+            "description": "The small internal wall separating the kitchen island area from the main living area is missing."
+        },
+        {
+            "code": "E4",
+            "description": "The total length of the kitchen/living area on the left side seems to be proportionally distorted."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan6.jpg"
+}

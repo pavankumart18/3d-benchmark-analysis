@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct. The bedroom door orientation is mirrored (swings into the living area instead of bedroom). The main entrance door is missing a physical leaf and frame, represented only by a floor arc. Balcony access door is misinterpreted as a full wall opening."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The utility room partition wall is missing, merging it into the kitchen space. The toilet/bath wall layout is simplified, losing the specific niches shown in the 2D plan. Wall thickness is consistent but the structural pillar near the balcony is omitted."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent mapping of the dining table, sofa, and kitchen appliances. The bedside tables are hallucinated/added as they were not in the 2D plan, but they serve the scale well."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with soft shadows and clean geometry. The orthographic/isometric perspective is well-maintained. Lighting is consistent."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing partition wall between Kitchen and Utility room."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom door swing orientation is incorrect (E3); it swings out into the living room."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet fixtures (sink and commode) are swapped relative to the entry door."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedside tables and modified headboard design not present in the 2D original."
+        },
+        {
+            "code": "E4",
+            "description": "The foyer area is slightly wider than the plan, distorting the entry sequence."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan18.jpg"
+}

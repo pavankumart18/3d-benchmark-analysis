@@ -1,0 +1,116 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Several rooms are significantly distorted in proportion or missing structural elements. Door placements are largely incorrect, and window placements deviate from the plan."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Multiple rooms are missing entirely from the 3D render. Adjacency relationships are mostly preserved but compromised by missing rooms and wall distortions. Wall thickness is not consistently applied, and door embeddings are often incorrect or absent."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is largely inaccurate; several pieces are missing or entirely different from the plan. Scale consistency is poor for many furniture items."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera and orthographic projection are generally correct. Lighting is basic and lacks realism. Geometry shows some clean areas but also significant distortions due to structural inaccuracies. Visual clarity is acceptable, but composition highlights the errors."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entire bathroom next to the master bedroom (top right)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small utility room/storage area in the bottom right corner."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the entire kitchen area (bottom left)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing smaller bedroom at the bottom left."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is completely missing and its wall is significantly altered."
+        },
+        {
+            "code": "E2",
+            "description": "Door to the top-left bedroom is misplaced and rotated."
+        },
+        {
+            "code": "E2",
+            "description": "Door to the top-right bedroom is misplaced towards the inside of the room."
+        },
+        {
+            "code": "E2",
+            "description": "Door to the bathroom is missing (near the top-left bedroom)."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from the living area to the main hallway is misrepresented as an open archway."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the top-left bedroom are incorrect in number and placement."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the top-right bedroom are incorrect in number and placement."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the main living/dining area are missing; walls are solid where windows should be."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the small room adjacent to the living room (bottom right) is missing."
+        },
+        {
+            "code": "E4",
+            "description": "The top-left bedroom shows significant volumetric distortion; it appears elongated and thinner."
+        },
+        {
+            "code": "E4",
+            "description": "The main living/dining area proportions are altered, appearing wider than indicated on the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The hallway leading to the bedrooms is significantly wider in the render."
+        },
+        {
+            "code": "E5",
+            "description": "Presence of a small, undefined alcove or room where the kitchen should be."
+        },
+        {
+            "code": "E5",
+            "description": "A wall segment appears to be added near the main entrance, creating an unnecessary corner."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in all bedrooms is either missing entirely, scaled incorrectly, or placed inaccurately."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs in the central area are missing."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all exterior walls and roof structure outside the immediate internal layout shown in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Wall segment separating hallway and laundry/utility area near top-left missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan5.jpg"
+}

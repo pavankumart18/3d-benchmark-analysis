@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the balcony's connection to the living area is not accurately represented. Wall alignment shows minor discrepancies, particularly around the balcony and the bedroom/toilet division. Door placements are largely incorrect, and window placements deviate significantly from the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness consistency is poor, with some walls appearing thicker or thinner than others without logical reason. Door embeds are incorrect; doors are placed where walls should be, especially between living/dining and bedroom, and bedroom and toilet. Adjacency relationships are broadly maintained but specific thresholds (e.g., between living room and kitchen) are changed. No missing or hallucinated rooms were detected."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, but some items like the bed and sofa are oriented differently. Scale of furniture shows minor inconsistencies relative to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, but the orthographic projection is not completely accurate, leading to some perspective distortion. Lighting quality is fair but somewhat artificial. Geometry is mostly clean, however, some elements appear less detailed. Visual clarity is good, but the overall composition could be improved with better accuracy to the floor plan."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Balcony's connection to the living area is misrepresented in structure."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is missing from the render. The door to the toilet from the common area is also missing."
+        },
+        {
+            "code": "E2",
+            "description": "Internal door placements are incorrect; render shows doors where walls should be, specifically between living/dining and bedroom, and bedroom and toilet. The door to the kitchen from the living/dining is also incorrectly placed/missing an opening."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom door orientation is incorrect. The floor plan shows it opening towards the bedroom, while the render shows it opening towards the living area."
+        },
+        {
+            "code": "E2",
+            "description": "All window placements are incorrect or missing. The living/dining area and bedroom windows are placed differently than indicated on the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Overall room proportions are not perfectly preserved, especially noticeable in the living/dining area and kitchen. The balcony appears to have a different proportional depth."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent throughout the render; some walls appear thicker or thinner than implied by the floor plan, particularly around the central common wall."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room's washbasin is missing."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom bed orientation is different from the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Living room sofa orientation is different from the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting appears artificial and flat, lacking realistic shadows and depth."
+        },
+        {
+            "code": "E5",
+            "description": "The balcony railing is a hallucinated element. The floor plan only shows a wall section, not a complex railing."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan16.avif"
+}

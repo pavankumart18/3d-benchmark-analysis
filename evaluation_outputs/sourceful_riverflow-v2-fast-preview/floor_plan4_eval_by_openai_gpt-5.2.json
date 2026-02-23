@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 23,
+        "max": 40,
+        "notes": "Overall layout roughly matches (kitchen/dining top-left, living top-center, bedrooms to the right, service spaces bottom band), but several key plan-to-model mismatches exist: the Hall is not clearly enclosed/separated as in the 2D plan (appears overly open), the living\u2013hall separating wall reads as a low/partial partition rather than a full wall with an opening, and the bathroom/closet sub-partitions do not align cleanly with the 2D wall layout. Door locations between the central zone and Bedroom 1/Bedroom 2 are not clearly placed per plan (openings/door swings appear different or absent). Window count/spacing on the top fa\u00e7ade is simplified/shifted versus the plan, and at least one window appears on the bottom fa\u00e7ade that is not clearly indicated in the 2D plan. Room proportions drift: bathroom and central circulation feel enlarged while hall definition is reduced."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness is visually consistent in the render, but structural fidelity to the plan is weak in several places: the Hall enclosure and its adjacency-driven door network (to Laundry, Bathroom, Bedroom 2) is not faithfully reproduced; some doors appear missing or replaced by open passages. Closet volumes/entries (especially the small central closet by the bathroom) are not clearly or correctly represented. A partial-height/low divider in the living area deviates from the plan\u2019s full-height wall intent. No clearly new/extra rooms are added, but multiple partitions are altered enough to change adjacency and circulation."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture groups are present in the correct general rooms (dining table in kitchen/dining, living seating/TV, beds in both bedrooms). However, placement and scaling do not consistently match the 2D plan: living room furniture arrangement differs from the plan\u2019s depicted layout, and Bedroom 2\u2019s furnishing/bed orientation appears inconsistent with the plan. Some built-in elements (closet/bath fixtures alignment) do not map cleanly to the 2D diagram."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clean, readable, and well-lit with coherent materials. However, the camera is closer to a top-down perspective than a true isometric, and some walls/partitions read ambiguously (full-height vs half-height), reducing architectural clarity. Geometry is mostly clean with no major visible artifacts."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Hall is not represented with the same enclosed wall layout as the 2D plan; circulation reads more open, altering the plan\u2019s intended separation."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion drift: bathroom/central zone appears oversized while the hall/circulation zone is under-defined relative to the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements/orientations differ: bedroom and bathroom access points do not clearly match the plan\u2019s door locations and swing directions (some read as open passages)."
+        },
+        {
+            "code": "E1",
+            "description": "Closet detailing is incomplete/unclear: the small central closet near the bathroom (and/or its doorway) is not faithfully represented."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom internal partitions/fixture-wall alignment do not match the 2D layout (sub-wall positions appear shifted)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count along the top fa\u00e7ade is simplified/shifted versus the 2D plan (spacing and segmentation do not match)."
+        },
+        {
+            "code": "E5",
+            "description": "A low/partial-height divider in the living area is introduced where the 2D plan indicates a standard wall condition (full-height partition intent)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 2 furniture/bed orientation and arrangement appears inconsistent with the 2D plan depiction."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Home Office/Maid's Room and adjacent bathrooms are shifted relative to the main structure. Wall alignment has several discrepancies. Door placements are frequently incorrect in terms of position and orientation. Window placements are partially correct but many are missing. Room proportions show some distortions, particularly in the Home Office and Toilet areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas, especially around the Home Office/Maid's Room and its adjacent bathrooms. Door embedding is incorrect, often showing doors flush with the wall where frames should be, or misaligned. Adjacency relationships are mostly preserved but the Home Office/Maid's Room section is detached/misaligned. Several rooms are missing or heavily merged, and several elements are hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor, with many items missing or completely relocated. The number of furniture pieces is significantly reduced. Furniture scale consistency is also poor, with some items appearing oversized or undersized compared to the room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair, but some perspective distortions are visible. Lighting quality is decent but lacks realism. Clean geometry is fair, with some minor artifacts. Visual clarity and composition are good, but the missing details detract from the overall quality."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'DECK' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'BALCONY' connected to 'BEDROOM-2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'BALCONY' connected to 'BEDROOM-1'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'LOBBY' entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'HOME OFFICE / MAID'S ROOM'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'TOILET-4'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'TOILET-3'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'TOILET-1'."
+        },
+        {
+            "code": "E1",
+            "description": "Many windows are missing from the exterior walls."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall separating 'TOILET-3' and 'TOILET-4' in the 3D render is not straight. The entire 'HOME OFFICE / MAID'S ROOM' and adjacent 'TOILET-3' and 'TOILET-4' section is shifted and misaligned from the main structure."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from 'LIVING & DINING' to 'BEDROOM-3' is misplaced and is no longer at the corner."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from 'LIVING & DINING' to 'TOILET-2' is misplaced and not in the correct corner."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from corridor to 'TOILET-1' is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from corridor to 'UTILITY' is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from 'KITCHEN' to 'UTILITY' is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from 'LIVING & DINING' to 'KITCHEN' is misplaced."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the door opening to 'BEDROOM-3' is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the 'TOILET-2' door is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'HOME OFFICE / MAID'S ROOM' and 'TOILET-3' and 'TOILET-4' areas, appearing narrower or differently shaped. 'BEDROOM-3' appears narrower. Some general resizing of rooms like 'KITCHEN' and 'UTILITY' are evident."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall or structural element between where 'TOILET-2' and 'BALCONY' for 'BEDROOM-2' should be, creating an enclosed space not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall where the balcony for 'BEDROOM-1' should be, enclosing the space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall at the entrance of 'LOBBY' not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small wall/partition inside 'KITCHEN' not present in floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small partition outside of 'TOILET-1' area, and next to 'UTILITY' door."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan20.avif"
+}

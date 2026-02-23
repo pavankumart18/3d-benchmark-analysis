@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the bathroom is significantly enlarged and shifted. Wall alignment is generally good, but the bathroom walls are incorrect. Door placements are incorrect for the primary entrance and the bathroom. Window placements differ from the plan, with four front-facing windows shown in the render instead of two, and incorrect back window configurations."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness appears consistent. Door embedding is mostly correct, but the front door is angled inwards instead of being flush. Adjacency relationships are mostly correct, except for the bathroom's new size. No missing rooms, but the bathroom is hallucinated in terms of its size and internal layout."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate for the kitchen, dining, and living areas. Furniture scale appears consistent. However, the bathroom fixtures are changed and misplaced due to the altered bathroom layout."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera angle and orthographic projection are good. Lighting is adequate. Geometry is clean with no major distortions. Visual clarity and composition are good, clearly showing the layout."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Bathroom room dimensions are significantly enlarged from 3' x 2' to approximately 5' x 4'."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom is shifted further into the main living space."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is placed on the side wall of the entrance area, instead of centrally on the front wall as indicated by 'ENTRANCE' label on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door is placed on the side of the room, rather than opening into the main common area as depicted in the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door is oriented inwards with a visible jamb (angled), instead of being flush with the wall."
+        },
+        {
+            "code": "E2",
+            "description": "Four windows are depicted on the front wall of the render, but only two are indicated on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Rightmost window on the back wall of the render is a single large window, while the floor plan shows two smaller, separated windows."
+        },
+        {
+            "code": "E2",
+            "description": "Leftmost window on the back wall of the render (kitchen area) is a single, centered window, while the floor plan shows two windows flanking the kitchen appliances."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom internal layout (toilet and sink placement) is different due to the change in bathroom dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "The increased size and altered internal layout of the bathroom constitute a hallucination from the original floor plan's specific dimensions and fixture arrangement."
+        },
+        {
+            "code": "E1",
+            "description": "The small wall section between the stairs and the bathroom entrance in the floor plan is missing in the render, extending the openness of the stairwell directly to the bathroom door."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan3.jpg"
+}

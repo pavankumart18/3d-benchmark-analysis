@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe deviations in room placement. The Theatre room has been merged with general living space, and the complex cluster of the Master Suite, Ensuite, and WIR is completely misrepresented as basic square rooms. Many door orientations are flipped or placed on incorrect wall segments."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Missing several critical internal partitions that define the hallway and utility zones. The Alfresco area and Portico are functionally absent, with the garage opening directly into internal space. Hallucinated walls appear in the center of the living area."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While furniture is present, the scale is inconsistent. The kitchen island is rotated 90 degrees from the floor plan, and the study furniture is placed in a way that blocks the logic of the entry foyer."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The rendering quality is high with consistent low-poly art style, clean orthographic-adjacent projection, and soft, readable lighting. Geometry is clean despite not matching the source blueprint."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific utility zones: Laundry, WIL, and WC partitions are absent."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island and sink assembly are rotated 90 degrees compared to design."
+        },
+        {
+            "code": "E3",
+            "description": "Entry door and garage door orientations do not match blueprints."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the Living/Dining hall are compressed, losing the 'L' shape of the Alfresco corner."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated solid partition wall in the middle of the 'Living' zone where an open plan was specified."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan10.png"
+}

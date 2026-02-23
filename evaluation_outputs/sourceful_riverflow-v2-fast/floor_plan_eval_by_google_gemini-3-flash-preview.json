@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "The overall footprint is recognizable, but significant orientation and placement errors exist. The hallway leading to bedrooms is misshapen. Window placement on the right wall is missing, and the balcony/closet area at the top is completely ignored or merged incorrectly."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Severe issues with wall thickness and door embedding. Many doors from the floor plan are represented as open gaps or missing entirely. The bathroom / 'coat' room area in the upper left is structurally incoherent compared to the plan."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "The dining table and living room rug/table are present and roughly in the right zone, but the kitchen island and bedroom furniture lack specific layout fidelity to the 2D document."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The lighting is soft and professional, and the isometric camera angle is generally correct. However, there are significant rendering artifacts across the 'cut' walls and ghostly transparent planes floating above the geometry."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing closet/balcony structure at the top of the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter and sink placement do not match the L-shape configuration shown in the blueprint."
+        },
+        {
+            "code": "E3",
+            "description": "Entry door orientation and hallway transition into the bedrooms is spatially incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the bathroom and auxiliary rooms on the left is heavily distorted."
+        },
+        {
+            "code": "E6",
+            "description": "Significant rendering artifacts/transparent planes floating over the wall geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan.jpg"
+}

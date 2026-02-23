@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct. Wall alignment shows some discrepancies, particularly around the recessed area and the balcony entrance. Door placement and orientation issues observed in the bathroom, WC, and bedroom entrances. Window placement is consistent where visible. Room proportions generally preserved but some minor scaling issues."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness shows some inconsistencies. Door embedding is incorrect for the bathroom, WC, and bedrooms, appearing as openings instead of embedded doors. Correct adjacency relationships are mostly maintained, but the recessed area next to the stairs is an E5. No missing rooms observed. Hallucinated walls/structures around the recessed area and missing wall along the balcony. The '13c HIGH CAPPED WALL' and 'WALL TO 21c AFL' elements are not clearly represented."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is largely accurate, matching a significant portion of the floor plan. Furniture scale consistency is good for most items, but the beds appear slightly too small for their designated areas, and some sofas appear larger in proportion."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair, but some perspective distortions are present. Lighting quality is good. Geometry is relatively clean, though some minor distortions are present around doorways and the recessed area. Visual clarity and composition are good."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Door orientation incorrect for Bathroom door. Appears as a simple opening."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation incorrect for WC door. Appears as a simple opening."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation incorrect for Bed 4 entrance door. Appears as a simple opening."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation incorrect for Bed 3 entrance door. Appears as a simple opening."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation incorrect for Bed 2 entrance door. Appears as a simple opening."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall for the balcony on the left side of BED 2."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall/structure around the 'RECESS' area next to the stairs, differing from flat recess in plan."
+        },
+        {
+            "code": "E2",
+            "description": "Wall near 'RECESS' is inaccurately depicted; in the 2D plan, it is a single line, but in the 3D render, it is a thick wall with an opening."
+        },
+        {
+            "code": "E4",
+            "description": "Beds in Bed 2, Bed 3, and Bed 4 appear slightly undersized relative to the room dimensions and bedding."
+        },
+        {
+            "code": "E1",
+            "description": "The specific elements '13c HIGH CAPPED WALL' and 'WALL TO 21c AFL' are not clearly represented or distinguishable in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "The entrance to the balcony from 'ACTIVITY' room shows a wall where the floor plan indicates an open access with a balustrade."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan12.png"
+}

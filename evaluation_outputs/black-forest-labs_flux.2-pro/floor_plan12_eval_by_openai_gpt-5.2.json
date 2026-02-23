@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall room layout roughly matches (Activity left, Balcony bottom-left, Bed2 bottom-center, Bed3 bottom-right, Bed4 top-right, Bath/WC central), but several major spatial deviations exist: Balcony is rendered as an enclosed/glazed room rather than an open balcony with balustrade (E2/E5). Multiple room dimensions/proportions do not match the 2D plan (Activity, Bed2, Bed3 labels/sizes differ) (E4). An apparent exterior opening/door at the bottom-center facade appears in 3D that is not shown on the plan (E5/E2). Door swing/orientation in the Bath/WC corridor appears inconsistent with the plan\u2019s door placements/swing directions (E3)."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Most walls and key adjacencies are preserved (beds adjacent to corridor; Bath and WC adjacent at top center; robes in similar locations). However, the balcony enclosure via continuous glazing changes the structural intent from exterior space with balustrade to interior-like space (E2/E5). A hallucinated exterior entry/opening on the bottom-center wall breaks fidelity (E5). Door integration looks plausible but at least one door orientation/swing differs from plan (E3). No rooms are fully omitted, but the balcony treatment is structurally incorrect."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Bedroom furniture (beds/side tables) and robe locations are broadly consistent. Activity room furniture is not clearly specified in the 2D plan (iconography differs), so the 3D bed-like placement is only partially supported (E2). Furniture scale appears generally consistent with room sizes, though room proportion errors reduce confidence."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric view is clear and readable with good lighting and generally clean geometry. Some perspective/foreshortening makes it less orthographic-accurate. Balcony glazing/continuous window wall looks visually polished but is a fidelity error relative to the plan. No major rendering artifacts observed."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Balcony modeled as enclosed/glazed space; 2D plan indicates an open balcony with balustrade, not a windowed enclosure."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated continuous window wall around the balcony perimeter, effectively converting exterior balcony edge into an interior facade."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions/dimensions do not match the 2D plan: Activity (3810x4770 vs shown 3310x4700), Bed2 (3370x3210 vs shown 3310x3740), Bed3 (3170x3740 vs shown 3310x3700)."
+        },
+        {
+            "code": "E5",
+            "description": "Apparent exterior opening/door on the bottom-center exterior wall in the 3D render is not present on the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bath/WC door swing/orientation appears inconsistent with the 2D plan\u2019s door placements (corridor-to-bath/WC door behavior differs)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan12.png"
+}

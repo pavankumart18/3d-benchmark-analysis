@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout loosely resembles the plan (living left, kitchen central, bedrooms right, separate garage), but multiple plan-critical placements diverge. Entry position/approach does not match the 2D plan (plan entry at bottom-left into dining; render shows entry closer to bottom-center with different foyer geometry). Central wet-area layout is not faithfully reproduced: the plan has Bath and a separate WC; the render reads as a different partitioning/door arrangement (and does not clearly preserve the two distinct rooms). Door positions/orientations in the central hall are inconsistent, including a non-plan curved/rounded wall segment. Bedroom openings and circulation read differently from the plan. Window locations on the right-side rooms do not match the plan\u2019s exterior window distribution. Room proportions appear distorted (living/dining oversized and corridor/central core simplified)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Several structural relationships from the plan are not preserved: Bath vs WC separation/adjacency is altered; the robe/closet element near Bedroom 1 is not clearly represented; laundry/WM appears relocated/represented differently than the plan\u2019s kitchen-adjacent laundry niche. The render introduces non-plan geometry (curved/rounded hall element) that changes wall alignment and door embedding. While a detached garage is present, the main unit\u2019s internal partitions and openings do not maintain strict plan fidelity. Wall thickness looks generally consistent, but the altered partitions and doorway cutouts reduce structural correctness."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture/interior mapping is minimal and not plan-referenced (only basic kitchen cabinetry and a car in the garage). No dining/living/bedroom furniture is provided to validate placement. Scale cues are limited; the kitchen fitout exists but is not verifiably matched to the plan\u2019s exact kitchen layout and adjacent laundry niche."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean isometric-style presentation with readable walls and openings. Lighting and materials are coherent, geometry is mostly clean, and composition is clear. However, some elements (notably the curved hall/door feature) read like stylized/hallucinated geometry rather than an accurate architectural translation, reducing technical/orthographic faithfulness."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Entry door/foyer is misplaced: 2D plan shows entry at bottom-left into dining; 3D render places entry closer to bottom-center with different approach and internal connection."
+        },
+        {
+            "code": "E1",
+            "description": "Linen closet at entry (shown in the 2D plan) is missing or not clearly represented in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Separate WC room (distinct from Bath in the 2D plan) is not clearly present as a separate enclosed room in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Laundry/WM location and enclosure do not match the 2D plan\u2019s kitchen-adjacent laundry niche; the 3D render suggests a different partition/placement."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom 1 robe/closet (labeled ROBE in the 2D plan) is missing or not clearly modeled as a dedicated closet space."
+        },
+        {
+            "code": "E5",
+            "description": "Curved/rounded central hall wall element and associated doorway geometry are hallucinated; the 2D plan uses straight walls and standard hinged doors."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior door swing/orientation cues do not align with the 2D plan\u2019s hinged door placements (central hall and wet-area doors read differently)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom window placements do not match the 2D plan\u2019s exterior window distribution on the right-side rooms."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining zone and central circulation/core do not preserve the plan\u2019s relative dimensions and partition offsets."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan13.jpg"
+}

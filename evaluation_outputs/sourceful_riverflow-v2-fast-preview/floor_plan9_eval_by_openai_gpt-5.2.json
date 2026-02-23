@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 2,
+        "max": 40,
+        "notes": "The 3D render does not match the overall footprint or room layout of the 2D plan. The 2D plan is a full house with multiple wings (garage wing, bedroom wing, living/kitchen wing, patios), while the 3D shows a small, near-rectangular shell with a few partitions. Room placement, wall alignment, door locations, and window locations are largely unrepresented or incorrect. Proportions are heavily distorted (major areas like the living room/garage/bedroom wing are missing entirely)."
+    },
+    "structural_fidelity": {
+        "score": 1,
+        "max": 25,
+        "notes": "Most required spaces are missing and adjacency relationships do not correspond to the plan (e.g., no garage adjacent to utility/hall, no living-kitchen-dining core, no master suite cluster). Wall thickness appears somewhat consistent within the small model but does not reflect the plan\u2019s complexity. Doors are mostly absent and not embedded per the plan; windows/patio openings are not modeled as specified. The 3D contains generic partitions that do not map to the 2D layout."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "The 2D plan implies kitchen fixtures, baths, and room functions; the 3D render contains essentially no matching furniture/interior fixtures at the scale or positions indicated. Any small elements present are not traceable to the plan\u2019s furniture/fixture layout."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Isometric-like camera angle is acceptable and the render is clean and readable. However, it is not an accurate architectural isometric/orthographic representation of the provided plan. Lighting is soft and consistent; geometry is mostly clean with minimal artifacts, but the model is overly simplified relative to the plan, reducing clarity for verification."
+    },
+    "total_score": 17,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing major rooms/spaces from the plan: Living Room, Kitchen, Nook, Dining Room, Study, Bedrooms #2/#3/#4, Master Bedroom, Master Bath, Hall, Utility, Pantry, and 2-Car Garage."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior spaces/openings shown in plan such as covered patios and the patio-to-interior connections."
+        },
+        {
+            "code": "E2",
+            "description": "Overall building footprint and internal wall layout do not align with the plan\u2019s arrangement (bedroom wing and garage wing are not represented)."
+        },
+        {
+            "code": "E1",
+            "description": "Door placements and orientations from the plan are largely missing in the 3D model (inter-room doors, entry points, garage-to-house door)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement does not match the plan; most perimeter windows are missing or not positioned per the 2D elevations implied by the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion: the rendered structure is far smaller/simpler than the multi-room plan and does not preserve relative room sizes or wing lengths."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated generic partitions/rooms that do not correspond to any clearly identifiable room shapes or boundaries in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan9.png"
+}

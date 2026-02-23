@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "The 3D render significantly modifies the floor plan. The garage is mirrored to the right side compared to the layout, and the entire master suite/ensuite/WIR cluster has been rearranged. Door placements are largely arbitrary and do not reflect the architectural swings indicated in the 2D document."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Walls are thick but inconsistent. The relationship between the kitchen, pantry, and theatre is lost; the 'Alfresco' area has been enclosed as a standard room rather than an outdoor terrace. The entry/portico area lacks the structural definition of the original plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generically placed. The kitchen island lacks the sink/appliance placement specified, and the theatre seating is replaced with a standard couch. Furniture scale is inconsistent, particularly in the bedrooms."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The render is visually pleasing with clean lighting and a consistent isometric camera angle. Geometry is sharp, though the interpretation of the floor plan is architecturally unfaithful."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Garage and entry portico elements are mirrored/misplaced relative to the main living block."
+        },
+        {
+            "code": "E3",
+            "description": "Master Suite and WIR orientation flipped and door access points moved to incorrect walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated enclosure of the Alfresco area into a four-walled interior room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific kitchen pantry structure and recessed wall features in the living area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Study' and 'Activity' rooms are distorted to accommodate misplaced hallway transitions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan10.png"
+}

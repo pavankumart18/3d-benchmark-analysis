@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe deviations in room placement. The 'Activity' area is truncated. The staircase is incorrectly located on the top-left exterior rather than the interior-top. Doors are mostly replaced by open archways or missing entirely. Window count and placement do not match the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major structural failures. The hallway logic is broken. The 'WC' and 'Bath' layout is completely misinterpreted. The balcony is missing its structural separation. Multiple hallucinated wall segments and open voids exist where solid walls should be."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is hallucinated. The render includes kitchens/counters in areas designated as bedrooms or robes. Bed placements do not align with the orientations provided in the 2D floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render is visually pleasing with high-quality isometric lighting, consistent materials, and clean 3D geometry despite being architecturally incorrect."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony balustrade and structural separation from Activity room."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase misplaced to the far left edge instead of the top-center alcove."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen cabinetry and appliances in Bed 3 and Bed 4."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the bathroom/wet areas are severely distorted compared to bedrooms."
+        },
+        {
+            "code": "E3",
+            "description": "Bed orientation in Bed 2 and Bed 3 is rotated 90 degrees from the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in Bed 4 moved from the side wall to the top wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan12.png"
+}

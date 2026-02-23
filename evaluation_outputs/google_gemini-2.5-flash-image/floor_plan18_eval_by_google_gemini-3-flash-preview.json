@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is correct. However, door swings in the living area and bedroom are represented by floor lines rather than actual door frames in several places. Window placement in the bedroom is slightly shifted relative to the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses are mostly consistent. The toilet/utility partition includes some hallucinated geometry not clearly defined in the plan, such as the extra wall niche near the laundry area."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement matches the plan, but the scale of the dining table is slightly smaller than indicated, leaving too much open floor space compared to the 2D footprint. Living room sofa and bed are well scaled."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering. Lighting is soft and realistic. Geometry is clean, though some floor markings for door swings are aesthetically distracting and look like structural cracks."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bedroom window shifted further from the corner compared to the original floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing physical door leaf for the main bedroom entrance; only a floor arc/opening exists."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall niche/shelf units in the bathroom and utility transition area not found in 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Foyer entrance door orientation is ambiguous due to floor marking style."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan18.jpg"
+}

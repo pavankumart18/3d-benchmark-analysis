@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major disorientation in wall placement. The dining area has been flipped/rotated relative to the kitchen. Entrance doors are missing or misplaced. The stairway is rendered as a sunken pit rather than a vertical circulation element."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Significant wall discontinuities. The wall separating Bedroom 1 from the Wash Area is floating. The main entrance area is structurally unrecognizable compared to the 2D source. Door gaps exist without door frames or paneling."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While a table and bed exist, their orientation is incorrect. The living room sofa/seating arrangement is entirely missing or replaced with an empty corridor space."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "Text labels are hallucinated gibberish. The orthographic projection is inconsistent, leading to warped floor depths. Lighting is flat, and certain walls appear to be paper-thin."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing living room furniture and entrance door structure."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room and kitchen wall adjacencies are incorrectly mapped and shifted."
+        },
+        {
+            "code": "E3",
+            "description": "Kitchen counter orientation is rotated 90 degrees from the source plan."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Toilet' area is disproportionately narrow compared to the Wash Area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'UP' text in the dining area and garbled text labels throughout."
+        },
+        {
+            "code": "E6",
+            "description": "Non-manifold geometry where the interior walls meet the floor near the bedroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan7.jpg"
+}

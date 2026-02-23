@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some walls are misaligned. Door placements are largely incorrect, and window representation is inconsistent or missing. Room proportions show minor distortions."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent but not perfectly uniform. Many doors are incorrectly embedded or missing. Adjacency relationships are mostly correct. One room (Kitchen) is missing a wall, creating an open space that isn't on the floor plan. The Foyer has been merged with the living area, and the Kitchen, Foyer entrance is completely omitted. Utility room is also missing. Toilet 1 and Toilet 2 have incorrect wall structures compared to the plan. One "
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture has been placed in most rooms, but with some inaccuracies in placement and scale consistency, especially in the living/dining area and bedrooms. The Kitchen and Utility are almost entirely missing furniture or have grossly incorrect items."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection appear correct. Lighting is decent, but some areas are dim. Geometry is mostly clean, however, there are some floating elements and missing walls/doors. Visual clarity is moderate but impacted by structural inaccuracies and missing elements. There are no window elements are portrayed as on the 2D floor plan. The balconies (Deck) also only have one wall."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall misalignment near the Foyer and Kitchen entrance, and the walls connecting to the balconies."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom entrances (C.TOI and TOI-1) are incorrectly placed or oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 1 and Bedroom 2 door placements are incorrect."
+        },
+        {
+            "code": "E1",
+            "description": "Windows are entirely missing from the render, which were present on the 2D plan, especially in bedrooms and living areas."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Foyer area, which appears wider and more open than on the plan."
+        },
+        {
+            "code": "E1",
+            "description": "The Kitchen entrance wall is missing, making it an open-concept kitchen which is not depicted in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The Utility room door and interior elements are missing."
+        },
+        {
+            "code": "E5",
+            "description": "The wall structure for C.TOI and TOI-1 differs significantly from the floor plan, appearing as minor structural adjustments or removal of internal walls."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement inaccuracies in the Living/Dining area and both bedrooms."
+        },
+        {
+            "code": "E1",
+            "description": "Many furniture elements are missing from the Kitchen and Utility room."
+        },
+        {
+            "code": "E4",
+            "description": "The 'DECK' areas are rendered with only one external wall, creating an open side not present in the floor plan, distorting their enclosed nature."
+        },
+        {
+            "code": "E1",
+            "description": "The external decorative architectural elements shown on the 2D plan boundary (zig-zag pattern) are completely absent in the 3D render."
+        },
+        {
+            "code": "E3",
+            "description": "Several doors have incorrect orientations or are missing frames/jambs, appearing as simple cutouts."
+        },
+        {
+            "code": "E6",
+            "description": "Some elements 'float' slightly above the floor, e.g. the bed in Bed-1."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan14.webp"
+}

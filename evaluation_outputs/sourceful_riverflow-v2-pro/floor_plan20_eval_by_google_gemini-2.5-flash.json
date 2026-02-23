@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Door placement errors in Toilet-2, Toilet-3, Toilet-4, Home Office. Window placement errors in Master Bedroom, Bedroom-2, Kitchen, Living/Dining (Deck). Several room proportions are distorted, particularly Home Office/Maid's Room and Kitchen. Balcony 1 and Balcony 2 layouts are significantly altered."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing Toilet-4. Significant changes to wall alignments around Balcony 1 and Balcony 2. Adjacency relationships are mostly correct where rooms exist. Several doors are incorrectly embedded."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture layout and scale are generally close in Living & Dining and Bedroom-3. However, Bedroom-1, Bedroom-2 and Balcony furniture mapping is poor with significant changes or incorrect scaling. Kitchen has some mapping issues."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera angle is good. Lighting quality is decent. Geometry is clean with no obvious distortions. Visual clarity is good overall, despite structural errors."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Toilet-4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a window in Kitchen, replaced by extended countertop."
+        },
+        {
+            "code": "E1",
+            "description": "Missing doors to Balcony 1 from Bedroom 2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing secondary windows in Bedroom 1, Bedroom 2, Bedroom 3, and Living & Dining."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for Toilet-2 (originally opens into Bedroom-2, now opens into hall)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for Toilet-3 (shifted position)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for Home Office / Maid's Room (shifted position and orientation)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and size in Bedroom-1 and Bedroom-2 are incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and size for Living & Dining / Deck area are incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony 1 and Balcony 2 layouts and wall structures are significantly altered."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation for Toilet-2 is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation for Home Office / Maid's Room is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Home Office / Maid's Room (appears narrower)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Kitchen (appears wider)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Balcony 1 and Balcony 2, especially their depth."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated extended interior wall replacing part of Balcony 1 in Bedroom-2."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior wall between Living & Dining and Balcony towards Bedroom-1."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment between Utility and Kitchen, and changed door to Utility."
+        },
+        {
+            "code": "E6",
+            "description": "Slight discrepancies in overall wall thickness consistency compared to the plan lines."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan20.avif"
+}

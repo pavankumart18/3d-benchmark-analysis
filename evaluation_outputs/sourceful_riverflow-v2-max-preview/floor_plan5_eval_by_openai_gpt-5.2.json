@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall layout is recognizable (central living/dining core with bedrooms on left and right), but several plan-to-render mismatches are present: (E2) multiple interior partitions on the right side (corridor/bedroom separators and the long horizontal wall in the mid-right) do not align with the 2D plan; (E2/E3) several door openings are shifted and/or not placed where the plan indicates (notably around the right-side hall and the central-top wet-room zone); (E2) window positions/counts along exterior walls do not consistently match the plan (top wall and bottom wall windows are simplified/shifted); (E4) room proportions differ\u2014central living area appears enlarged while adjacent rooms (especially right-side rooms and wet spaces) compress/shift compared to the 2D dimensions."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Mixed fidelity: (E2) adjacency relationships are mostly preserved (kitchen-left, bedrooms-left/right), but the right-side circulation walling and door connections differ from the plan, changing intended access patterns; (E1) some planned door locations are not represented as true doors (appear as open passages or are missing entirely); (E2) wet-room partitioning at the top is rearranged relative to the plan; (E5) the rightmost small appended space reads as a fully enclosed lounge-like room in the render, whereas the plan suggests a small external annex/balcony-type space with different intent; (E4) inconsistent wall thickness/offsets vs the plan\u2019s consistent wall bands."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is broadly plausible but not tightly mapped: (E2) living room seating arrangement and dining placement differ from the 2D symbols (render adds/relocates seating relative to plan); (E4) some furniture scale feels off (oversized sofas/tables relative to room widths, especially central living); (E5) furnishing of the rightmost annex as an interior sitting room conflicts with the likely balcony/aux space intent in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Good visual quality and readability with clean materials and coherent lighting. Deductions: (E6) camera is closer to a top-down perspective than a true isometric/orthographic hybrid; (E6) minor depth/perspective cues and shadowing reduce orthographic accuracy; geometry is mostly clean but some openings/frames look simplified versus plan detail."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Right-side corridor and bedroom partition walls do not align with the 2D plan; several wall segments are shifted/reshaped, altering circulation."
+        },
+        {
+            "code": "E2",
+            "description": "Top wet-room zone partitioning differs: bathroom/WC boundaries and fixture bay placement are rearranged compared to the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Some planned interior doors are missing as explicit doors (represented as open gaps or not present), especially around the right-side hall connections."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing intent from the plan is not respected (openings do not correspond to the planned hinged-door placements)."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placement/count does not match the plan consistently (top and bottom elevations show simplified/shifted window positions)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: central living/dining appears oversized while adjacent rooms (right-side rooms and wet spaces) appear compressed relative to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Rightmost appended space is rendered as an enclosed furnished sitting room, which conflicts with the plan\u2019s small annex/balcony-like space intent."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering is not strictly isometric/orthographic; slight perspective and lighting/shadow stylization reduce projection accuracy."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan5.jpg"
+}

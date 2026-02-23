@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are mostly correct, but walls and elements within rooms have significant issues. The living and dining area is merged, and the '1.05 8T1' label is incorrect. The toilet near bedroom 1 is significantly different. Windows and doors are often misplaced or have incorrect orientations. Proportions are distorted in several areas, particularly the kitchen and bathrooms."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially around door frames. Several doors are incorrectly embedded or missing. Adjacency relationships are broadly maintained but specific room dimensions are altered. One 'TP TOILET' is entirely missing, and the 'M.BEDROOM' has elements, notably a door, missing. Hallucinated elements include an extra door to the 'M.BEDROOM', an extra wall in the living room, and an incorrectly placed sink in the kitchen."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is mostly inaccurate, especially in the M.BEDROOM where the bed is not centered, and the nightstands are missing. The kitchen has a hallucinated sink. Furniture scale is generally inconsistent, e.g., the toilet, bed, and dining table."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting quality is acceptable, but there are some issues with clean geometry, particularly around wall corners and intersections. The visual clarity of the overall composition is decent, but the presence of unlabeled rooms and elements detracts from it."
+    },
+    "total_score": 28,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'TP TOILET' near the entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the 'M.BEDROOM' toilet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing balustrades/railings on balconies."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'M.BEDROOM'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in 'BEDROOM-1'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in 'BEDROOM-2'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in 'BALCONY' (left side)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the main 'BALCONY' (right side)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'BEDROOM-2'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen sink."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bed and furniture in 'M.BEDROOM'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced toilets and sinks in bathrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall in the 'TOILET' adjacent to 'M.BEDROOM'."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of doors in 'BEDROOM-1' and 'BEDROOM-2'."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the main entrance door."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'KITCHEN' area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'TOILET' adjacent to 'M.BEDROOM'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'TOILET' adjacent to 'BEDROOM-2'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'LIVING & DINING' space, which appears more open concept than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'BALCONY' on the left side."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness throughout the model."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated door to the 'M.BEDROOM' toilet, facing the general corridor."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall in the 'LIVING & DINING' space, adjacent to 'BEDROOM-1'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated entry wall to 'M.BEDROOM'."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan15.webp"
+}

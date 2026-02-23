@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (Living left, Dining bottom-center, Kitchen right, Playroom top-right, Stairs top-center, Powder/WC top-center-left), but several perimeter shapes and openings deviate. Dining-room bump-out geometry and exterior opening treatment differ (E4/E2). Pantry enclosure/entry appears reconfigured relative to the 2D plan (E2). Multiple door swings/placements do not match the plan (notably around the kitchen/dining connection and some interior openings) (E2/E3). Window counts/positions on the right-side kitchen/playroom perimeter and along the bottom dining fa\u00e7ade do not reliably match the 2D window layout (E2). Proportions of the kitchen footprint vs. dining/playroom appear altered (E4)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness looks mostly consistent, but several structural relationships are altered: the pantry is not faithfully enclosed/entered as in plan (E2) and the dining-room fa\u00e7ade/bay is substantially different (E4). Adjacencies are mostly preserved (kitchen-to-playroom, kitchen-to-dining, foyer-to-living), but internal opening definitions differ (E2/E3). At least one exterior opening at the dining bump-out appears added/changed compared to the 2D plan (E5/E2). No obvious entire major room is missing, but several elements are materially reinterpreted."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen fixtures (island/cooktop, sink run) are broadly plausible but do not clearly match the 2D symbols/placements (E2). The 2D plan provides limited furniture intent, while the 3D adds extensive living/playroom furnishings that cannot be verified and may not align with circulation clearances (E5). Some furniture scale (large living seating group vs. room) appears tight compared to the 2D proportions (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is coherent and readable; geometry is mostly clean with consistent materials. Minor issues: some openings/windows read inconsistently (visual alignment/spacing) and a few door panels look awkwardly placed relative to wall returns (E6). Lighting is flat but acceptable; composition is clear."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Dining room perimeter/bump-out proportions and geometry differ from the 2D plan (bottom center fa\u00e7ade appears reshaped/expanded)."
+        },
+        {
+            "code": "E2",
+            "description": "Pantry enclosure and its entry/opening configuration do not match the 2D plan (pantry appears re-partitioned/repositioned relative to kitchen/dining)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen\u2013dining doorway placement/swing appears inconsistent with the 2D plan (door location/orientation differs)."
+        },
+        {
+            "code": "E3",
+            "description": "At least one interior door swing direction does not match the 2D swing indications (notably around central corridor/kitchen transitions)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count along the right-side kitchen/playroom exterior wall does not match the 2D plan\u2019s window layout."
+        },
+        {
+            "code": "E2",
+            "description": "Bottom fa\u00e7ade openings/windows along the dining area do not match the 2D plan\u2019s window pattern (spacing and type differ)."
+        },
+        {
+            "code": "E5",
+            "description": "An exterior opening at/near the dining bump-out reads as added or altered (door-like opening not clearly supported by the 2D plan)."
+        },
+        {
+            "code": "E4",
+            "description": "Relative room proportions appear distorted: kitchen footprint and adjacent spaces (dining/playroom) do not preserve the 2D plan\u2019s dimensional balance."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering/assembly artifacts: some doors/windows appear slightly mis-embedded or misaligned to wall segments."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan8.jpg"
+}

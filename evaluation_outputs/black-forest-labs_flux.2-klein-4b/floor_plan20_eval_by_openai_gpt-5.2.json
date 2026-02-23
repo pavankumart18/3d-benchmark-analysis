@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Major exterior-space mismatch: the large DECK (top center) and both BALCONIES (top-right and far-right) shown in the 2D plan are not modeled as exterior areas in the 3D render (E1/E2). As a result, the living/dining north edge and the bedroom-2/bedroom-1 exterior edges are enclosed differently than the plan (E2). Several door locations/orientations that should connect to deck/balconies are absent or replaced by solid walls (E1/E3). Window placement is largely missing/simplified compared to the many openings implied on the plan perimeter (E1/E2). Room proportions are noticeably altered by the removal of deck/balconies, making the main living zone read deeper/more enclosed than in plan (E4)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent, but perimeter structure is materially different due to missing deck/balconies (E1). Adjacency relationships that rely on outdoor spaces (living\u2194deck, bedroom-2\u2194balcony, bedroom-1\u2194balcony) are not preserved (E2). Bathrooms and utility/kitchen cluster are generally in the correct region, but the left-side toilet arrangement appears simplified and may not match exact partitioning/door placements from the plan (E2/E3). A zig-zag/angled partition along the top of living/dining appears in 3D but is not represented in the 2D plan (E5)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture pieces (beds, sofa set, dining table, kitchen counters) are mapped to the correct rooms, but placement does not reliably match the 2D layout details (e.g., outdoor/deck furniture missing because deck is missing) (E1/E2). Furniture scale looks generally consistent, though the living/dining reads sparse relative to the plan\u2019s spatial intent (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric camera is coherent and readable. Lighting is clean with minimal noise. Geometry is mostly clean, but the model\u2019s simplification (missing exterior slabs/openings) reduces architectural clarity and makes the envelope feel incorrect relative to the plan (E6). Composition is clear, but orthographic/isometric faithfulness is undermined by incorrect envelope openings."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing DECK at the top-center of the plan; 3D render encloses this edge instead of modeling an outdoor deck."
+        },
+        {
+            "code": "E1",
+            "description": "Missing BALCONY for Bedroom-2 (top-right) shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing BALCONY for Bedroom-1 (far-right) shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior-connected doors/openings that should lead from living/dining and bedrooms to the deck/balconies."
+        },
+        {
+            "code": "E2",
+            "description": "North (top) boundary of Living & Dining is modeled with a different wall/opening configuration than the plan due to omission of the deck."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom-2 exterior edge is modeled as a solid interior boundary without the planned balcony relationship."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom-1 exterior edge is modeled without the planned balcony; perimeter openings do not match."
+        },
+        {
+            "code": "E1",
+            "description": "Window placement is heavily simplified/missing compared to the 2D plan\u2019s perimeter openings."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted, especially living/dining depth and overall envelope proportions, because exterior spaces (deck/balconies) are not represented."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra zig-zag or angled partitioning along the top of the living/dining zone not evident in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan20.avif"
+}

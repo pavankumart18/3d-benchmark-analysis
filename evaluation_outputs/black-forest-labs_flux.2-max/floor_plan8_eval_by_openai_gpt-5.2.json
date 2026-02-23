@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Major mismatch between the 2D plan and 3D layout. (E2/E4) Room placement is largely incorrect: the 2D has Living (left), Dining (bottom-center), Kitchen (right-center) with Pantry (center), Playroom (top-right), Foyer/Closets/WC (top-left) and central stairs; the 3D shows a different right-side suite arrangement and does not preserve the plan\u2019s room zoning. (E2) Wall alignments do not follow the 2D perimeter (notably the right wing and bottom dining/kitchen junction). (E2/E3) Door locations/swing orientations do not match key openings (e.g., dining-to-kitchen opening and foyer/closet/WC connections). (E2) Window placement/count is inconsistent with the plan\u2019s exterior window runs (living room left/bottom and playroom/kitchen right side). (E4) Room proportions are not preserved (living/dining/kitchen sizes and the right-side block are distorted)."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "(E1) Missing named program spaces from the 2D: Playroom and clearly defined Dining room volume are not represented as such in the 3D. (E1) Pantry (center) is not faithfully modeled as an enclosed room in the correct location. (E5) Additional rooms appear that are not in the 2D plan (bedrooms on the right). (E2) Adjacency relationships are wrong (2D: Kitchen adjacent to Playroom and Dining; 3D: right-side rooms read as sleeping areas adjacent to kitchen). Wall thickness looks mostly consistent, but door embedding and overall partitioning do not match the source plan."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "(E2/E5) Furniture does not correspond to the 2D plan\u2019s fixtures and intended room functions (e.g., beds appear where the plan indicates kitchen/playroom area). (E4) Furniture scale and placement do not align with the plan\u2019s room extents (kitchen/dining furnishing layout is not mapped to the 2D geometry)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Camera is a reasonable isometric-style view and the scene is generally clean. Lighting is soft and geometry is mostly tidy, though some elements feel simplified. Orthographic/isometric accuracy is not strict (slight perspective feel). Visual clarity is decent, but the model\u2019s incorrect program/layout reduces interpretability as a faithful architectural render."
+    },
+    "total_score": 31,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Playroom (top-right in 2D) is missing/not identifiable in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry (center, adjacent to kitchen in 2D) is not correctly modeled as an enclosed room in the correct position."
+        },
+        {
+            "code": "E2",
+            "description": "Overall room placement/zoning is incorrect: living/dining/kitchen/playroom arrangement does not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior wall outline and internal wall alignment (especially right wing and bottom-center dining/kitchen junction) do not match the 2D perimeter and partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations do not match the 2D plan\u2019s openings (notably dining-to-kitchen connection and foyer/closet/WC connections)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing orientations appear inconsistent with the 2D plan\u2019s indicated swings."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count along exterior walls is inconsistent with the 2D plan\u2019s window runs (living room left/bottom and kitchen/playroom right side)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted relative to the 2D plan (living/dining/kitchen sizes and right-side block depth/width)."
+        },
+        {
+            "code": "E5",
+            "description": "Bedrooms/beds appear in the 3D render despite no bedrooms being shown in the provided 2D floor plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout resembles a 3BHK, but several plan-to-render spatial mismatches are present. The living/dining zone and its relationship to the main balcony appear shifted/reshaped versus the 2D plan\u2019s centered living+dining with balcony directly above. The internal corridor (\"wide passage\") geometry is simplified and does not preserve the plan\u2019s segmented passage alignment. Multiple door locations/swing directions do not match the plan (notably around living-to-passage and bedroom/toilet entries). Window placements are sparse and not aligned with the plan\u2019s exterior openings (several fa\u00e7ade windows shown in plan are missing or relocated). Room proportions appear altered: the living/dining footprint and some bedrooms/toilets look resized compared to the plan\u2019s stated dimensions and relative widths."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent in the render, but door embedding and adjacency relationships deviate: the plan\u2019s sequence of passage-to-rooms/toilets is not faithfully maintained. At least one toilet shown in the 2D plan (the small P. Toilet near the entrance/passage) is not clearly present as a distinct room in the 3D render, indicating a missing programmed space. Some room adjacencies appear swapped/merged (kitchen/utility block and nearby service spaces do not read as the same partitioning as the plan). No clearly new \"extra\" bedroom is added, but there are decorative/architectural elements not specified in plan (e.g., arched opening at entry)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is plausible but not plan-accurate: dining table placement/scale and living seating arrangement do not match the plan\u2019s depicted arrangement. Bedroom furniture placement is generic and does not align to the plan\u2019s bed positioning and circulation clearances. Some items (balcony seating, sofa set) appear sized for aesthetics rather than matching the plan\u2019s measured proportions."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is visually clean with good lighting and material consistency. Isometric camera is acceptable and readable. However, it is not a strict orthographic/isometric architectural projection (perspective/foreshortening is present). Geometry is mostly clean with few visible artifacts, and the composition is clear."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Living & Dining placement/shape relative to the main balcony does not match the 2D plan\u2019s centered balcony-over-living arrangement."
+        },
+        {
+            "code": "E2",
+            "description": "Wide passage/corridor alignment is simplified and does not follow the 2D plan\u2019s segmented passage geometry and room offsets."
+        },
+        {
+            "code": "E1",
+            "description": "P. Toilet (small toilet near entrance/passage in the 2D plan) is not clearly represented as a distinct enclosed room in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/utility/service partitioning and adjacency appear altered; the plan\u2019s kitchen + utility configuration is not faithfully reproduced."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior door placements and/or swing orientations differ from the 2D plan (notably around living-to-passage and bedroom/toilet entries)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent: multiple exterior windows indicated in the plan are missing, reduced, or relocated in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: relative sizes of living/dining vs bedrooms/toilets do not preserve the plan\u2019s stated dimensions and ratios."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated architectural element: arched opening/feature at the entry is not specified in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan15.webp"
+}

@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Overall zoning is roughly correct (kitchen top-left, dining top-right, living right/bottom-right, stair bottom-left, bath near center), but multiple openings do not match the plan. Bathroom door position/orientation is wrong, the dining-side top opening is not represented as in plan, and several window locations/counts differ. Bathroom and stair areas appear scaled differently than the 2D proportions."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Adjacency is mostly preserved (open kitchen/dining/living; bath central; stair left), but the opening layout deviates: a required exterior door on the left wall of the kitchen is missing, and the bathroom entry relationship to the main space is incorrect due to door relocation. Several window/door elements appear substituted (door vs window) relative to the plan. No extra enclosed rooms are added, but multiple elements are effectively hallucinated/substituted as different opening types."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "The 2D plan provides essentially no furniture layout to match. The 3D adds a full living room set (sofa, chair, coffee table, TV console) and dining set without a corresponding 2D reference, making placement/scale unverifiable and effectively speculative."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Camera is a clean isometric-style view with good readability. Lighting is simple but adequate; geometry is generally clean. However, the scene reads more like a generic interior than a precise architectural translation (opening substitutions and scale feel reduce technical clarity/faithfulness)."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing exterior door on the left wall of the kitchen shown in the 2D plan (render shows no matching door on that wall)."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door is misplaced: plan shows bathroom entry on the left side of the bathroom core; render places the bathroom door on a different face (front/bottom-facing wall)."
+        },
+        {
+            "code": "E3",
+            "description": "Top-wall dining opening type/orientation mismatch: plan indicates a double-door opening at the top-right; render shows a window (not a double-door) in that location."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch along the right exterior wall: the plan\u2019s right-wall window configuration does not match the render\u2019s openings."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom proportion distortion: the plan labels a very small bathroom (3' x 2'); the rendered bathroom volume appears significantly larger relative to surrounding spaces."
+        },
+        {
+            "code": "E4",
+            "description": "Stair proportion/configuration distortion: stair footprint/geometry in the render does not clearly match the plan\u2019s stair run/landing layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior elements not specified in the 2D plan (living room sofa/chair/coffee table/TV console and detailed dining set)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan3.jpg"
+}

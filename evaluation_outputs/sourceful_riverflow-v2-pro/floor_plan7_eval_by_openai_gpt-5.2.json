@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (dining left, kitchen upper, living right, bedroom lower-left, stairs lower-right), but several plan-defined subspaces and openings do not match. Entrance vestibule/entry nook shown at top-right in the 2D plan is not clearly modeled as a distinct space in the 3D render (space reads as direct opening into living circulation). Wash Area + Toilet configuration differs from the plan\u2019s stacked/linear arrangement; the 3D shows a different partitioning and fixture layout relative to the hall. Door locations/orientations are not faithfully reproduced (several plan doors/swing directions are missing/ambiguous). Window placements/counts do not align with the 2D plan. Some room proportions (notably the bathroom core and circulation) appear distorted versus the plan."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Primary external wall loop is broadly consistent, but internal partitions in the wet core (wash/toilet) and the entry zone do not maintain the plan\u2019s exact adjacency and separation. Wall thickness looks mostly consistent in the render, but the embedding of doors/openings is inconsistent with the floor plan (missing or relocated openings). Adjacency is partially preserved (kitchen near dining; living near stairs), but entry-to-house transition is not represented as a defined room/vestibule as in the plan. Some window/opening elements appear added without 2D support."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture groups are present and generally placed in the correct rooms (dining set in dining, sofas in living, bed in bedroom, counters in kitchen). However, bathroom fixtures do not match the 2D plan\u2019s layout, and some furniture scale/clearances appear off relative to the tighter plan proportions (especially in circulation near the wet core)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean isometric presentation with coherent lighting and generally tidy geometry. Camera reads as isometric/axonometric, though not strictly orthographic. Minor visual ambiguity in identifying doors/windows (thin posts/slots) reduces clarity. No major rendering artifacts, but architectural openings are not consistently legible."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Entrance/vestibule area labeled 'Entrance to the House' in the 2D plan is not clearly modeled as a distinct enclosed/defined space in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Wash Area and Toilet partition layout is misplaced relative to the 2D plan (wet core segmentation and fixture placement do not match the plan\u2019s arrangement)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation does not match the 2D plan in multiple locations (plan shows specific hinged door positions/swing directions for bedroom and wet areas that are missing or different in 3D)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen opening/entry relationship to the main circulation is inconsistent with the 2D plan (the plan\u2019s opening location/extent is not faithfully reproduced)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/counts do not align with the 2D plan (3D shows repeated small window-like elements not matching the plan\u2019s specific window locations on dining/bedroom/living/kitchen walls)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion in the central circulation and wet core area (3D spacing/room sizes appear expanded/reshaped compared to the tighter plan geometry)."
+        },
+        {
+            "code": "E5",
+            "description": "Additional window/opening elements appear to be hallucinated (decorative/structural posts used as windows) without clear counterparts in the 2D floor plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan7.jpg"
+}

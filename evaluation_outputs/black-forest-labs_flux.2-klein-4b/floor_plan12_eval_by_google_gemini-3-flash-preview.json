@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Significant failure in room layout. The 'Activity' area is missing the staircase and balcony connection. The 'Bath' and 'WC' region is combined into a singular, undefined alcove. Wall alignment for the bedrooms is largely hallucinatory."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Missing the staircase entirely. Missing the external balcony. Wall thicknesses are inconsistent and doors are represented as flat planes or gaps rather than architectural openings. Bedroom 3 and Bed 4 partitions are incorrect."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Bed placement is erratic; Bed 2 contains two beds instead of one. Bed 4 is floating against the wrong wall. Robe/closetry elements are entirely missing or replaced with generic blocks."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The render has a clean clay-style aesthetic with soft lighting, but fails at orthographic projection, showing perspective distortion."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase and upper-level access point from the Activity room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing external balcony and balustrade structural elements."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom and WC consolidated into an incorrect spatial niche."
+        },
+        {
+            "code": "E5",
+            "description": "Two beds placed in Bed 2 where the floor plan specifies only one."
+        },
+        {
+            "code": "E4",
+            "description": "Activity room proportions are stretched, losing the rectangular ratio defined by the dimensions 3810 x 4770."
+        },
+        {
+            "code": "E3",
+            "description": "Windows in Bed 3 and Bed 4 are incorrectly oriented or merged into generic openings."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan12.png"
+}

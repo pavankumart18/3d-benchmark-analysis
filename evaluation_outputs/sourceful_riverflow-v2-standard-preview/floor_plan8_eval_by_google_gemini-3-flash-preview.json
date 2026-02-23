@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "The primary layout is loosely followed, but major door and window placements are ignored. The foyer closet area is simplified and the dining room bay window geometry is incorrectly represented as a simple extrusion."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major structural errors found: the central pantry is rendered as an open stairway or tiered platform (hallucination). Door openings are mostly missing throughout the internal walls."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island and sink area are roughly positioned but lack architectural scale. The 'Living Room' feature is misinterpreted as a floating block."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable and lighting is soft, but there are significant rendering artifacts and 'ghosting' on the top of the walls."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucination of a second set of stairs where the pantry should be located."
+        },
+        {
+            "code": "E1",
+            "description": "Missing almost all internal door swings and external window frames shown in plan."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Playroom' wall transition to 'Kitchen' is missing the specified closet/buffer zone."
+        },
+        {
+            "code": "E4",
+            "description": "The proportions of the staircase are overly wide compared to the 2D blueprint specifications."
+        },
+        {
+            "code": "E6",
+            "description": "Blurred geometry and transparent artifacts visible on wall caps."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan8.jpg"
+}

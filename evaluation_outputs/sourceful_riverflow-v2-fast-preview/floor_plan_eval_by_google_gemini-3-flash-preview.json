@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Generally accurate layout following the blueprint. Discrepancies noted in the living room window width and the balcony/closet door orientation which appears simplified compared to the source."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "All rooms are present and correctly adjacent. Wall thickness is consistent. The main entryway door (bottom center) is missing a clear door leaf, appearing more like an open threshold."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly faithful to the blueprint including the kitchen island, L-shaped sofa arrangement, and bedroom layouts. Scale is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High-quality isometric rendering with soft, clean lighting. Geometry is sharp with minimal artifacts. Orthographic projection is well-executed."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Swing direction for the balcony closet door is reversed compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The large bay window in the living room is rendered as a flat window unit, losing the angular depth shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the specific door swing geometry for the main apartment entrance at the bottom of the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Hallucinated' door leaf on the right-side exit to 'Chandler & Joey's' is positioned slightly higher on the wall than the blueprint indicates."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan.jpg"
+}

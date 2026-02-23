@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct but proportions are off. Wall alignment has inconsistencies and misalignments. Door and window placements are frequently incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is not consistent across the render. Door embedding is incorrect in multiple locations. Adjacency relationships are mostly maintained, but there's a hallucinated wall. No missing rooms, but the Kitchen/Utility area is heavily distorted."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate to the floor plan, but scaling is inconsistent for some items, and some furniture is missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera angle is mostly correct, but orthographic projection has minor flaws. Lighting is decent. Geometry has some minor distortions, and visual clarity is good."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'M.BEDROOM' and its 'TOILET', appearing much wider than intended."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from 'M.BEDROOM' to its 'TOILET' is misplaced and incorrectly oriented (E3). It should open inward, not outward into the bedroom space. The door from 'M.BEDROOM' to 'WIDE PASSAGE' is also incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "The door for 'BEDROOM-1' is misplaced from its original position further along the wall shown in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'M.BEDROOM' are incorrectly placed; the floor plan shows a single window, the render shows multiple smaller windows."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in 'BEDROOM-1' and 'BEDROOM-2' are incorrectly placed and sized. The render shows two smaller windows where the plan shows one larger."
+        },
+        {
+            "code": "E4",
+            "description": "'BALCONY' next to 'M.BEDROOM' is significantly smaller and less deep in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The door to 'TOILET' (near entrance, bottom left) is incorrectly placed and oriented. It should be recessed within the wall, not flush with the main passage wall."
+        },
+        {
+            "code": "E2",
+            "description": "The door for the secondary 'TOILET' (between BEDROOM-1 and BEDROOM-2) is incorrectly placed and oriented. It also appears embedded incorrectly in the wall (E6)."
+        },
+        {
+            "code": "E4",
+            "description": "The 'LIVING & DINING' area appears narrower than indicated by the floor plan, distorting room proportions."
+        },
+        {
+            "code": "E1",
+            "description": "The wall separating the 'KITCHEN' and 'UTILITY' from the 'LIVING & DINING' area is missing the cut-out/opening indicated in the floor plan. Instead, it is a solid wall."
+        },
+        {
+            "code": "E2",
+            "description": "The 'KITCHEN' window is incorrectly placed and resized. The floor plan shows a larger window or opening on the exterior wall."
+        },
+        {
+            "code": "E4",
+            "description": "The 'UTILITY' area is significantly smaller and distorted compared to the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing railing for the 'BALCONY' next to 'LIVING & DINING'. Only a solid wall is rendered."
+        },
+        {
+            "code": "E5",
+            "description": "A hallucinated wall/extension appears above the 'KITCHEN' area where the 'UTILITY' space should be, creating an enclosed space not depicted in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "The embedding of doors into walls sometimes shows rendering artifacts or inconsistent wall thickness, particularly noticeable near the toilets."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent throughout the render; some walls appear thinner or thicker than others without reason (E6)."
+        },
+        {
+            "code": "E1",
+            "description": "One of the desks in 'BEDROOM-1' is missing."
+        },
+        {
+            "code": "E1",
+            "description": "The small table and chair in 'BEDROOM-2' are missing."
+        },
+        {
+            "code": "E2",
+            "description": "The 'BEDROOM-2' door is displaced and further into the room than shown on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony railing on the 'M.BEDROOM' balcony appears to be lower than standard height and not flush with the wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan15.webp"
+}

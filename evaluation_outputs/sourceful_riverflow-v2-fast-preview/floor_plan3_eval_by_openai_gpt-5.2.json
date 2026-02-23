@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall rectangular footprint roughly matches, and the broad zoning (kitchen left, dining/living right) is partially respected. However, multiple critical mismatches occur: the left-side stair zone from the plan is not correctly represented; the central bathroom block is reshaped and expanded into multiple partitions; the main entrance at the bottom center of the plan is not clearly present/placed correctly; exterior door locations on the top wall (single door near kitchen and double door at dining) do not match the 3D; window distribution and placement on right/bottom walls differs substantially. Room proportions also drift (central core too large; left-side service/stair area proportionally incorrect)."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness and general wall geometry are reasonably consistent, but fidelity to the plan\u2019s partitioning is weak. The plan shows a single compact bathroom centered; the 3D introduces extra internal rooms/corridor-like partitions around the core, changing adjacency relationships. The staircase element is effectively missing or not recognizable as the large left-side stair run shown. Several interior/exterior doors appear added or moved compared to the plan, indicating structural layout deviation and hallucinated openings."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen, dining, and living furniture are placed in broadly correct zones (kitchen fixtures left, dining table upper-middle/right, seating right). However, exact mapping to the 2D plan is not verifiable due to layout deviations (missing/altered stair zone and changed central core). Furniture scale appears generally consistent, though some pieces feel sparsely/loosely arranged relative to the plan\u2019s implied room extents."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric presentation is clear with clean materials and readable space. Camera angle is acceptable and lighting is soft and consistent. Minor penalties: not truly orthographic (visible perspective), some geometry looks simplified/blocky (especially the central core), and openings/windows look inconsistently detailed relative to the plan."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing or non-represented staircase: the large left-side stair run shown in the 2D plan is not clearly present in the 3D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance mismatch: the 2D plan entrance at the bottom center is not clearly located/represented in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom block misplaced/reshaped: the central bathroom in the 2D plan is expanded/altered in the 3D, changing its footprint and position relative to surrounding space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated internal partitions/rooms: the 3D central core contains extra small rooms/corridor-like divisions not shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior door placement mismatch: the top-wall doors (single near kitchen and double at dining in the plan) do not align with the 3D door locations."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: right and bottom wall window positions/counts differ from the 2D plan (notably the right-side window arrangement and bottom wall windows)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the left-side service/stair zone and the central core occupy incorrect relative area compared to the 2D plan, compressing/expanding adjacent open spaces."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan3.jpg"
+}

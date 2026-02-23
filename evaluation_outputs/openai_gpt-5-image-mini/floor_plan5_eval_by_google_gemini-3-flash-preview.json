@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major misalignments in room configurations. The central living area lacks the correct door orientation (swing directions are missing), and the window placements on the exterior walls do not match the intervals or quantities shown in the 2D CAD. The left balcony/terrace room is completely missing its external boundary walls."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Severe structural failure. The large terrace on the left and the small balcony on the right are entirely omitted or drastically simplified to open floor space. Several internal bathroom partitions and utility rooms from the top-center of the plan are merged or missing."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generic and does not strictly follow the layout. The kitchen island and cabinetry are misrepresented as floating blocks, and the 6-seat dining table is oriented incorrectly compared to the vertical alignment in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean clay-style rendering with consistent lighting and orthographic camera perspective. Geometry is manifold, though it lacks architectural detail like frames or glazing."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Left-side terrace and right-side balcony structural enclosures are missing."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table rotated 90 degrees from plan specification."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the secondary bedrooms on the right are wider than specified inCAD."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partial wall divider in the kitchen/entry area not present in original plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door openings lack specific cut-outs for swing paths, resulting in generic gaps."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan5.jpg"
+}

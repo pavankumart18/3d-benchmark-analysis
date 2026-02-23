@@ -1,0 +1,45 @@
+{
+  "spatial_accuracy": {
+    "score": 22,
+    "max": 40,
+    "notes": "Overall zoning is roughly correct (living/dining at top, kitchen upper-left, bedrooms bottom corners, baths left/center-bottom), but several critical openings and fenestration placements diverge from the 2D plan. Multiple doors are omitted or replaced by plain openings (orientation/swing not represented), and exterior windows appear added on walls that are not windowed in the plan. Some sub-areas (closet/coat/entry hall/den zone) show shape/size drift."
+  },
+  "structural_fidelity": {
+    "score": 14,
+    "max": 25,
+    "notes": "Wall thickness appears fairly consistent, but fidelity is reduced by missing/incorrect door embeddings and altered enclosure of storage areas (top-left closet reads as an open alcove rather than a defined room with a door). Adjacencies mostly hold (kitchen↔living, bedrooms↔hall, bath locations), but the right-side egress to Chandler/Joey and the main entry are not faithfully constructed, and extra exterior openings (windows) are introduced."
+  },
+  "furniture_mapping": {
+    "score": 7,
+    "max": 10,
+    "notes": "Major furniture groups generally match the plan (living sofa/rug/coffee table, dining table near kitchen, beds in both bedrooms, bath fixtures present). However, the kitchen work triangle/appliance/sink placement appears simplified and not clearly matching the 2D layout, and some furniture scale/spacing is loosely interpreted (large open areas vs. tighter plan)."
+  },
+  "aesthetic_quality": {
+    "score": 19,
+    "max": 25,
+    "notes": "Clean, readable isometric-style render with coherent lighting and mostly tidy geometry. Slight perspective/softening reduces orthographic faithfulness, and some elements (windows/openings) are visually ambiguous. Composition is clear, but accuracy-related omissions (doors) also reduce perceived architectural correctness."
+  },
+  "total_score": 62,
+  "detected_errors": [
+    {
+      "code": "E1",
+      "description": "Missing main entry door at bottom-center (shown in 2D with entry mark), rendered as no clear door/threshold."
+    },
+    {
+      "code": "E1",
+      "description": "Missing/incorrect door on right wall to 'Chandler & Joey's apartment' (2D shows a door; 3D does not clearly model it as a door)."
+    },
+    {
+      "code": "E2",
+      "description": "Multiple interior door placements are not explicitly modeled as doors (bath/bedroom/closet entries appear as open wall gaps), reducing placement verifiability vs. the 2D plan."
+    },
+    {
+      "code": "E3",
+      "description": "Door swing/orientation information from the 2D plan is not respected (no swinging leaves), preventing correct orientation matching and effectively constituting orientation loss."
+    },
+    {
+      "code": "E5",
+      "description": "Hallucinated exterior window strips along the bottom wall and/or right wall that are not indicated in the 2D plan (plan shows limited specific window locations, notably the large living-room window and Rachel bedroom window)."
+    },
+    {
+      "

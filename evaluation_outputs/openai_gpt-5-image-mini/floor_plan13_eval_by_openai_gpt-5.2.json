@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 13,
+        "max": 40,
+        "notes": "Overall massing is loosely similar (living/dining/kitchen on left, two bedrooms on right), but multiple plan-defining partitions and openings are incorrect. The central wet-area block (Bath + separate WC + hall doors) is not laid out per plan, and several circulation/door relationships do not match. Window/door locations are largely not traceable to the 2D plan, and room proportions (especially living/dining vs hallway/wet areas) appear distorted."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Wall thickness and basic enclosure are consistent, but key program elements from the plan are missing (balcony, separate WC, laundry, entry/linen). Adjacencies are partially preserved (kitchen near dining; bedrooms clustered), yet the wet-area configuration and corridor/door network do not follow the plan. No strong evidence of entirely new rooms, but the bathroom-toilet separation is collapsed into a single space, altering structure."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living and dining furniture appears in the general left-side zone consistent with lounge/dining, and beds are placed in both bedrooms. However, furniture does not help confirm correct room boundaries (since several walls/rooms are missing), and scale/spacing is somewhat generic relative to the plan\u2019s tighter service core."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean isometric presentation with readable geometry and decent lighting. Camera is stable and the model is visually coherent, but it is not an accurate architectural translation of the 2D plan (projection/orthographic fidelity is only moderate because the layout itself diverges)."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony shown on the 2D plan (adjacent to Lounge) is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Separate WC (toilet room) shown next to Bath in the 2D plan is missing; 3D appears to merge/omit this dedicated room."
+        },
+        {
+            "code": "E1",
+            "description": "Laundry (L'dry/WM) area shown beside Kitchen in the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Entry zone and Linen closet at the lower-left of the 2D plan are not represented as defined spaces in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Wet-area core placement/shape (Bath + WC block) does not match the 2D plan\u2019s partitioning and positioning relative to the hallway and bedrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Door layout is inconsistent with the 2D plan: the plan shows multiple specific door swings/locations (entry-to-dining, hall-to-bedrooms, hall-to-bath, hall-to-WC), but the 3D door placements/orientations are not matching those positions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is not faithful: the 3D render shows a single prominent window on the left wall near the kitchen/dining, while the 2D plan implies different exterior openings (notably at/near the balcony and along exterior walls)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining area and the service core/hall proportions do not reflect the 2D plan\u2019s more compact central wet-area cluster and defined entry."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan13.jpg"
+}

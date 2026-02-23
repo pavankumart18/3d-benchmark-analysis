@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "Door to TOI-4 is missing. Window in TOI-4 is missing. Wall alignment between Utility and HO is incorrect. Proportions of the '5 x 8' room are distorted as its length appears shorter than its width in the 3D model, while it is the opposite in the 2D plan. The deck dimensions are slightly off (25'6\" x 9' vs 25'8\" x 8' and 12' x 5' vs 12' x 6')."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Door to TOI-4 is missing. Window in TOI-4 is missing. Incorrect adjacency between Utility and HO due to varied wall alignment. Bed-2 room shows an extra wall segment next to the window, creating a small inset not present in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Most furniture is placed correctly, but the sofa in Bed-2 appears slightly larger than in the 2D plan, potentially affecting scale consistency."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Lighting is generally good, and geometry is clean. Visual clarity is high. However, the isometric camera and orthographic projection appear slightly off, leading to some minor perspective distortion, particularly visible in the '5 x 8' room and the HO area."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door to TOI-4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in TOI-4."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment between Utility and HO."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in '5 x 8' room, length appears shorter than width in 3D, opposite in 2D."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in deck dimensions (25'6\" x 9' vs 25'8\" x 8' and 12' x 5' vs 12' x 6')."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment near the window in Bed-2."
+        },
+        {
+            "code": "E4",
+            "description": "Slight scale inconsistency in the sofa in Bed-2."
+        },
+        {
+            "code": "E6",
+            "description": "Minor perspective distortion from isometric camera and orthographic projection, particularly in '5 x 8' room and HO area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan19.webp"
+}

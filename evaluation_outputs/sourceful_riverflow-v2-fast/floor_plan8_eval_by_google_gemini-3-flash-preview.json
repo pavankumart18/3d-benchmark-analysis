@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major failures in staircase interpretation and room layout. The central staircase is replaced by a solid wall and hallway. Room proportions in the Dining area and Playroom are significantly distorted."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The primary staircase (UP/DN) is entirely missing as a functional element. The central pantry area is hallucinated as an open counter. External bay window geometry is simplified into flat walls."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island and sink placement approximately match positions but lack architectural scale. Hallucinated furniture blobs appear in the living area where clear floor space was indicated."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and clay-render aesthetic. Isometric camera angle is correctly applied. However, geometry 'melts' in complex corners (E6)."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Completely missing staircase structure and associated railings/steps."
+        },
+        {
+            "code": "E2",
+            "description": "Central pantry walls transformed from an enclosed room into an open L-shaped counter."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated architectural divider in the living room area not present on the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room bay window projection is flattened and reduced in width relative to the living room span."
+        },
+        {
+            "code": "E6",
+            "description": "Melting wall geometry near the W/C and foyer closet area."
+        },
+        {
+            "code": "E3",
+            "description": "Kitchen counter orientation simplified, losing the specific sink/stove relationship indicated in CAD blocks."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan8.jpg"
+}

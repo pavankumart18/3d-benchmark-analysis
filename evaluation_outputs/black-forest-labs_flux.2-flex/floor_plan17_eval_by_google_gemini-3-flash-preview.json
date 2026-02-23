@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved. However, the foyer and servant room area is compressed. Window counts in the living area are hallucinated (3 windows on the left wall instead of 1 large opening)."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Door placements are mostly accurate, but the entry sequence from the foyer is distorted. The balcony areas lack proper railing/threshold definitions compared to the plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture color palette is consistent with the plan, but the arrangement in the living area is overly dense compared to the open space shown in the 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric rendering with clean geometry and soft lighting. Texture application is consistent and professional."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated multiple small windows on the left living room wall where the plan suggests a different structural treatment."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the servant/utility area; these spaces appear smaller and more cramped than the scaled floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table is slightly centered in a way that disrupts the clear circulation path shown between the master bedroom and living area."
+        },
+        {
+            "code": "E6",
+            "description": "The balcony flooring does not reflect the blue/checkered tile pattern explicitly detailed in the original plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan17.jpg"
+}

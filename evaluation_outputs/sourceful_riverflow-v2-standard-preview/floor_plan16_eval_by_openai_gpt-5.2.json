@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall layout roughly matches (living/dining left, kitchen/utility top, toilet center-top, bedroom right, balcony bottom-left). However, the wet-area block (toilet/utility) partitioning and access geometry appear simplified/shifted versus the 2D plan (E2/E4). Entry door condition at the top-left is not represented clearly in 3D, affecting circulation accuracy (E1). Door swing/orientation for internal doors (notably toilet) appears inconsistent with the 2D swing direction (E3). Window/opening positions are not consistently traceable to the 2D plan (toilet/utility/side openings) (E2). Some room size relationships (kitchen vs utility vs toilet) look proportionally off compared to labeled dimensions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Adjacency is mostly preserved (kitchen near living, utility near kitchen, toilet near utility, bedroom off living). But the 3D omits/unclearly depicts the main entry door and likely simplifies door framing/embedding (E1/E2). The wardrobe/closet element shown on the 2D plan along the bedroom\u2019s upper wall is not modeled (E1). Interior partition layout around toilet/utility does not faithfully reproduce the 2D wall breaks/door locations (E2/E4). No clearly hallucinated extra rooms, but several openings appear added/changed relative to the plan (E5 risk on windows/openings)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture is present and broadly placed correctly (sofa/coffee table in living, dining table in living/dining zone, bed in bedroom). Some items from the 2D (e.g., bedroom built-in/wardrobe, smaller decor placements) are missing or not aligned to plan intent (E1/E2). Scale looks generally consistent, but circulation clearances differ due to partition/door deviations (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric view is acceptable and readable. Projection is not strictly orthographic (perspective present), but still consistent. Lighting is flat but adequate. Geometry is generally clean; however, door/window detailing is minimal/ambiguous, reducing clarity for verification. Composition is clear with good separation from background."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Main entry door at the top-left shown in the 2D plan is missing/unclearly represented in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom wardrobe/closet element indicated on the 2D plan (hatched built-in along the bedroom upper wall) is not modeled in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet/utility partition layout and access points appear shifted/simplified compared to the 2D plan, altering exact wall breaks and openings."
+        },
+        {
+            "code": "E3",
+            "description": "Toilet door swing/orientation does not match the 2D plan\u2019s indicated swing direction."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placements (especially around toilet/utility and side walls) are not consistently matched to the 2D plan and appear relocated/changed."
+        },
+        {
+            "code": "E4",
+            "description": "Relative proportions between kitchen, utility, and toilet appear distorted versus the labeled 2D dimensions (utility/toilet sizing relationship not preserved)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan16.avif"
+}

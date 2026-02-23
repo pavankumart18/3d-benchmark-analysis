@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall zoning roughly matches (open living left, kitchen central/top, two bedrooms right, wet areas bottom/center), but several key layout details deviate. Dining area is not clearly defined/separated as in plan (E2/E4). Balcony placement/relationship to lounge appears shifted (render shows a broad terrace-like platform not matching the small balcony off the lounge) (E2/E4). Bath/WC configuration and door positions do not match the plan\u2019s distinct Bath and separate WC arrangement (E2/E3). Multiple curved/rounded internal partitions change wall alignment compared to the rectilinear 2D plan (E2/E4). Window openings appear larger/longer and not aligned to the plan\u2019s indicated window spans (E2)."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Wall thickness looks generally consistent, but internal wall geometry is not faithful (curved/arc walls where plan shows straight walls) (E2/E4). Door embedding/orientation is inconsistent with the plan (several openings are shifted and/or represented with atypical curved returns) (E2/E3). Adjacencies are partially preserved (kitchen near living; bedrooms on right), but the service core (Bath/WC/L'dry/Linen) does not resolve to the same partitions as the plan (E2/E1). Linen closet at entry is not clearly present (E1). Balcony is represented as a larger terrace element, effectively altering the building envelope (E5/E4)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Only minimal furniture/fixtures are shown. Kitchen counters/appliances are approximate but not mapped to the 2D plan\u2019s exact run lengths/positions (E2/E4). Living/dining furnishings are largely missing or non-specific relative to the labeled dining/lounge areas (E1). Fixture scaling appears plausible, but the lack of mapped items prevents accurate verification."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera is clear and readable. Lighting is clean and consistent. Geometry is mostly clean, but the use of curved interior partitions and oversized glazing reads as a design reinterpretation rather than a faithful reconstruction (counts against orthographic/projection fidelity). Visual composition is strong, with good material differentiation."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Entry LINEN closet from the 2D plan is not clearly modeled/present in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony location/relationship to the lounge differs; the 3D shows a larger terrace-like slab not matching the small balcony off the lounge."
+        },
+        {
+            "code": "E4",
+            "description": "Balcony/terrace size is exaggerated relative to the plan, altering exterior proportions/envelope."
+        },
+        {
+            "code": "E2",
+            "description": "Dining area is not distinctly represented as in the 2D plan (open living zone appears over-dominant/undifferentiated)."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall alignment deviates: multiple curved/rounded partitions appear where the 2D plan shows straight rectilinear walls."
+        },
+        {
+            "code": "E2",
+            "description": "Bath/WC partitioning deviates from the plan\u2019s separate Bath and separate WC arrangement."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation for the wet-area core (Bath/WC) and central hall appears inconsistent with the 2D plan\u2019s hinged door locations/swings."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/extent is not faithful: the 3D render uses long/large glazed openings that do not match the plan-indicated window spans."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated architectural detailing: rounded/curved entry/hall forms and oversized glazing read as invented elements not supported by the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan13.jpg"
+}

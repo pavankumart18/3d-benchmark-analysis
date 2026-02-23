@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major layout disagreement between plan and render. The right-side stair zone shown in the 2D plan is not represented in the 3D model (space is instead treated as regular room fa\u00e7ade with windows) (E1/E2). Bedroom position appears shifted to the left/front in the 3D (bed placed along the main windowed fa\u00e7ade), while the plan locates the bedroom at the top-right (E2). Central core (bath/closet/hall) geometry and wall alignment do not match the plan\u2019s clean rectangular partitions (E2). Exterior entry locations from the plan (left-side door and bottom-right door) are not clearly present/placed correctly in the 3D (E1/E2). Window counts and positions do not correspond to the plan (E2/E4). Room proportions are distorted: the main living zone and bedroom proportions relative to the core differ noticeably (E4)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Wall thicknesses appear more uniform than the plan\u2019s heavy exterior vs lighter interior convention, but multiple partitions do not follow the plan\u2019s adjacency logic (E2). The stairwell/vertical circulation element on the right edge of the plan is missing entirely (E1), breaking key adjacency relationships (hall\u2194stairs, stairs\u2194entry) (E2). Door embedding/orientation is inconsistent: several planned swing doors (bedroom/bath/hall) are not clearly modeled or are relocated (E1/E2/E3). The 3D introduces an over-complicated central cluster of small volumes compared to the plan, suggestive of extra/altered rooms or closets (E5)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not reliably map to the plan: the bed appears in a zone that reads as the main fa\u00e7ade/living side rather than the plan\u2019s top-right bedroom (E2). Kitchen island/counter arrangement is only loosely similar and appears shifted relative to the plan\u2019s kitchen location (E2). Furniture scale is generally plausible, but placement-to-room association is frequently incorrect (E2)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera is coherent and readable (minor perspective/orthographic mismatch typical of isometric renders). Lighting is soft and clean; geometry is mostly crisp. However, openings/windows look generic and repetitive, reducing fidelity/clarity to the source plan. No major rendering artifacts, but some wall/void transitions appear simplified compared to architectural detailing."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing stairwell/steps along the right side that are clearly shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Planned exterior entry doors (left-side door and bottom-right door) are not clearly present or are not placed as in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom is misplaced: 3D bed/bedroom zone appears on the main fa\u00e7ade/left side rather than the plan\u2019s top-right bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Central core partitions (bath/closet/hall) do not align with the plan\u2019s wall layout and room boundaries."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and counts do not match: the 3D shows large repetitive fa\u00e7ade windows where the plan shows fewer, differently positioned openings (including the stair-side window pattern)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted relative to the plan, especially the relationship between living/kitchen area, bedroom, and the central core."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra interior volumes: the 3D central cluster suggests additional/altered small rooms/closets not evidenced by the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/embedding is inconsistent with the plan\u2019s swing-door locations between hall/bedroom/bath; several appear missing or relocated."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan6.jpg"
+}

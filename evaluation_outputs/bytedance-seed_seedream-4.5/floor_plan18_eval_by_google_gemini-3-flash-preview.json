@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major spatial failures. The floor plan shows an L-shaped offset footprint, but the 3D render represents a rectangular solid with hallucinated exterior walls. Window placement is completely incorrect, ignoring the plan's specific openings to add generic exterior windows on the south and east faces."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The kitchen entry is blocked by a wall that shouldn't exists near the foyer. The balcony is turned into a closed room. The toilet dimensions listed in text (4'8\"x6'0\") contradict both the original plan (4'9\"x8'0\") and the geometry shown."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture icons from the 2D plan were projected onto the floor as 2D textures rather than being modeled as 3D assets, resulting in major scale and verticality issues."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "While architecturally inaccurate, the rendering features high-quality soft lighting, clean isometric perspective, and consistent materials."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior walls and three large windows on the southern facade not present in 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer and Kitchen entrance blocked by incorrect wall segments."
+        },
+        {
+            "code": "E4",
+            "description": "Utility room and Balcony proportions distorted to fit a rectangular envelope."
+        },
+        {
+            "code": "E1",
+            "description": "Missing proper 3D furniture models; replaced by flat floor decals."
+        },
+        {
+            "code": "E6",
+            "description": "Text artifacts: 'KITCHEN' becomes 'KOYHEN' and toilet dimensions changed."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General wall layout is highly accurate. Doorways are mostly represented as open gaps rather than swinging door assets. Window placement in the living area matches the blueprint correctly."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Excellent room adjacency. However, the exterior 'closet'/balcony area lacks the specified door swing. Interior bathroom partitions are slightly thicker than the original architectural intent."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is nearly 1:1, including the specific rug orientation in the living room and the kitchen island configuration."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "High-quality isometric projection with consistent soft lighting and clean matte materials. Geometry is crisp with no visible rendering artifacts."
+    },
+    "total_score": 86,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door leaf assets; all doors are rendered as open structural thresholds."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony/closet area at the top left lacks the defined entrance door seen in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Slight proportion distortion in the hallway width between the bedrooms compared to the dimensioned plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan.jpg"
+}

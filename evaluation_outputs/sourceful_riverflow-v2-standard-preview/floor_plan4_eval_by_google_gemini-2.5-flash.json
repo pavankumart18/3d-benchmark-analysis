@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the front door is misplaced. Walls show some alignment inconsistencies. Door placements are correct in some areas (e.g., bedrooms) but incorrect for closets and the main entrance. Window placement cannot be fully assessed from the render. Room proportions seem distorted, especially in the Laundry/Closet area and Bathroom."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is not consistent across all walls. Door embeddings are incorrect, with some doors appearing to be surface-mounted or not properly integrated. Adjacency relationships are largely maintained but with some deviations due to door and wall issues. There are missing rooms (closets are not fully enclosed rooms) and some hallway space is altered. No hallucinated rooms, but internal structural alterations are present."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, particularly in the living room and bedroom. However, some elements like the Laundry room appliances and kitchen island/bar are not accurately represented. Furniture scale consistency is reasonable for most items, but some kitchen elements appear scaled incorrectly compared to the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct. Orthographic projection seems accurate. Lighting quality is good, providing clear visibility of the interior. Geometry is mostly clean, but there are some minor distortions visible around doorways and walls. Visual clarity and composition are good, aiding in the interpretation of the layout."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Front door is misplaced; it is rendered on the exterior wall to the left of its original intended position."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet rooms next to the main entrance and in Bedroom 2. These appear as open alcoves or shelves in the render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Laundry room and the adjacent closet area. The spaces appear narrower or shallower."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the Hall's closet and the Laundry room door. They are rendered as sliding doors or in-swinging, rather than out-swinging as indicated by the arcs."
+        },
+        {
+            "code": "E2",
+            "description": "Hallway wall adjacent to the Bathroom is significantly altered, affecting room boundaries."
+        },
+        {
+            "code": "E1",
+            "description": "Windows are missing from the render, making it impossible to verify their placement."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment inaccuracies, particularly in the Laundry/Closet area and around the Bedroom 2 closet, where walls do not align perfectly with the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom proportions seem slightly off, especially the area near the bathtub and toilet."
+        },
+        {
+            "code": "E2",
+            "description": "Wall separating Kitchen/Dining from Laundry is shifted, causing the Laundry room to appear smaller than indicated in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan4.jpg"
+}

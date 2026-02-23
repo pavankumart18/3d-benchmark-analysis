@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement for main areas is mostly correct. However, significant wall alignment inaccuracies are present, especially around the bathroom/WC area and the stairwell. Door placements are largely incorrect in terms of position and orientation. Windows are missing or incorrectly placed. Room proportions for 'Balcony', 'Activity', and 'Bed 2' are noticeably distorted."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas, particularly around 'Balcony' and the 'Activity' room. Door embedding is incorrect for numerous doors, showing gaps or improper fitting. Adjacency relationships are mostly preserved but distorted due to wall and door errors. The 'Recess' area is entirely missing. Part of the 'Balcony' is not rendered structurally as per the plan (missing wall and balustrade extension). There are no hallucinated rooms, but major structural elements like the '13c high capped wall' and the external wall 'WALL TO 21C AFL' are not represented."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is generally off. Beds are misaligned within rooms. The 'Activity' room furniture is poorly placed compared to the plan (E2). The 'Linen' cupboard is missing. Furniture scale consistency is poor, with some items appearing oversized relative to the rooms. The 'Robe' areas are not properly rendered as built-in wardrobes, rather just empty spaces or simple wall protrusions."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct. Orthographic projection seems mostly accurate. Lighting quality is acceptable, providing clear differentiation of surfaces. Geometry has some distortions, particularly the inconsistent wall thicknesses. Visual clarity is moderate but suffers due to structural inaccuracies. The overall composition is confusing due to the missing elements and misplacements."
+    },
+    "total_score": 38,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom wall alignment incorrect, leading to distorted bathroom and WC layout."
+        },
+        {
+            "code": "E2",
+            "description": "WC door is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Various internal connecting doors (e.g., between 'Bed 3' and 'Bed 4' hallway, 'Bed 4' to hallway) are incorrectly placed relative to walls."
+        },
+        {
+            "code": "E3",
+            "description": "Numerous door orientations are incorrect (e.g. WC, Bathroom, external door near stairs, doors for 'Bed 3' and 'Bed 4')."
+        },
+        {
+            "code": "E1",
+            "description": "Windows are either completely missing, e.g., in 'Activity', 'Bath', 'WC', 'Bed 2', or misplaced/incorrectly sized, e.g., in 'Bed 3' and 'Bed 4'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of 'Balcony' are distorted; it appears smaller and differently shaped conceptually."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of 'Activity' room appear compressed and distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of 'Bed 2' appear distorted relative to the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness throughout the model (e.g., thin walls around balcony). Some walls are not properly connected."
+        },
+        {
+            "code": "E1",
+            "description": "The 'Recess' area highlighted in the plan is entirely missing in the render."
+        },
+        {
+            "code": "E1",
+            "description": "The '13c high capped wall' and 'WALL TO 21C AFL' structural details are missing."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase rendering is incomplete and misaligned with the wall structure."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement in 'Activity' room (sofa, coffee table) does not match plan."
+        },
+        {
+            "code": "E2",
+            "description": "Beds in 'Bed 2', 'Bed 3', and 'Bed 4' are not positioned to match the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'Linen' cupboard is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Internal features like the 'Robe' entries for 'Bed 3' and 'Bed 4' appear as simple wall cutouts instead of properly integrated wardrobes; the 'Robe' for 'Bed 2' is missing its indicated structure."
+        },
+        {
+            "code": "E4",
+            "description": "Furniture scale inconsistency; some items appear too large or too small for the room context."
+        },
+        {
+            "code": "E1",
+            "description": "The 'Balustrade' of the balcony is not fully represented as per the plan's extent."
+        },
+        {
+            "code": "E2",
+            "description": "The 'DN' (down) arrow for the stairs indicates direction, but the render's staircase appears to go up from a lower level, contradicting the plan's implied upper level."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan12.png"
+}

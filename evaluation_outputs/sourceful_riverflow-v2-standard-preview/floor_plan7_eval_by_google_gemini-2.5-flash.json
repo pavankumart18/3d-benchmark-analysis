@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the 'Wash Area' and 'Toilet' are combined into one larger bathroom in the 3D render. Wall alignments are generally good, with some minor deviations around the entrance and 'Wash Area'. Door placements are mostly incorrect, with missing doors and orientation issues. Window placements are largely mismatched in quantity and location. Room proportions are somewhat altered, especially for the 'Bedroom 1' and the combined bathroom."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent but several internal walls are missing or altered. Door embedding is incorrect due to missing and misplaced doors. Adjacency relationships are heavily altered, particularly for the bathroom and the entrance area. The dedicated 'Wash Area' is missing as a separate room, combined with the toilet. No hallucinated rooms, but significant structural changes."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement generally matches the floor plan, especially in the living room and bedroom, though some items like the rug in 'Bedroom 1' are missing. Furniture scales are mostly consistent with the rendered environment."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is present. Lighting quality is decent, providing clear visibility of the interior. Geometry is generally clean, with no obvious distortions. Visual clarity and composition are good, making it easy to understand the layout."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing a separate 'Wash Area' room, which is combined with the 'Toilet'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'Bedroom 1'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the combined 'Wash Area' and 'Toilet'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the 'Kitchen'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'Entrance to the House'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the 'Living Room', located on an internal wall instead of leading from the entrance."
+        },
+        {
+            "code": "E3",
+            "description": "The entrance area wall alignment is incorrect, and the external door is missing."
+        },
+        {
+            "code": "E4",
+            "description": "The 'Bedroom 1' proportions are slightly distorted, appearing wider in the render."
+        },
+        {
+            "code": "E4",
+            "description": "The combined 'Wash Area' and 'Toilet' proportions are significantly altered."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Bedroom 1'. The floor plan shows one large window, while the render shows two smaller windows."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Dining' room. The floor plan shows one large window, while the render shows two smaller windows."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the 'Kitchen' area."
+        },
+        {
+            "code": "E2",
+            "description": "A new window is added to the wall adjacent to the stairs, which was not present in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal wall separating 'Wash Area' and 'Toilet' in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal wall between 'Kitchen' and 'Living Room' shown in floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The furniture for the 'Wash Area' and 'Toilet' is rearranged due to the room combination."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall layout resembles a 2-bed unit with a central living/dining, but multiple plan-critical placements diverge. (E2/E4) Living/Dining footprint and geometry do not match the 15' x 21'4\" proportion; the 3D living zone reads noticeably more compact relative to bedrooms. (E2) Kitchen enclosure is inconsistent: the 2D plan shows a more bounded kitchen with a defined wall line and opening, while the 3D render depicts a more open kitchen relationship to dining. (E2/E1) Foyer/entry segmentation (4'6\" x 3'8\" + passage) is not clearly represented; entry appears to feed directly into the main space without the same buffering. (E2) Balcony/deck locations are not aligned to the plan: the 2D plan has a primary deck off living (top/center) and a smaller deck off Bed-1 (top/right), while the 3D shows balcony/terrace edges in different sides/positions relative to rooms. Door swings/orientations and exact window runs do not consistently match the 2D drawing."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Key adjacency relationships are partially correct (both bedrooms connect to living; two toilets exist), but plan fidelity is broken by boundary/edge conditions. (E2) Utility + kitchen block: the 2D plan has a distinct Utility room (5' x 7'8\") adjacent to the kitchen; in the 3D it is not clearly a separate enclosed room and reads more like an open balcony/service terrace. (E2) Deck adjacency is inconsistent (living deck and Bed-1 deck not clearly attached as in plan). (E2/E3) Door embedding/orientation is inconsistent with the 2D (several openings are present but not at the same wall segments or with the same swing logic). Wall thickness appears visually consistent, but the perimeter wall geometry deviates from the 2D outline in multiple places."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is plausible but not mapped tightly to the plan. (E2) Dining table position/orientation differs from the 2D arrangement and the circulation clearances suggested by the plan. (E4) Relative furniture scaling (sofa zone vs room width, bedroom bed clearances) suggests different room dimensions than the 2D. Bathrooms/kitchen fixtures do not clearly correspond to the exact 2D fixture placement."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Camera is isometric-like and readable, lighting is clean and geometry is mostly artifact-free. Minor issues: (E6) Some edges/openings (balcony rails/voids) read ambiguous versus true architectural openings. Projection is not strictly orthographic/isometric (noticeable perspective), but overall clarity is good."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Deck/balcony placement does not match the 2D plan (living deck and Bed-1 deck appear on different sides/segments in the 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Foyer/entry buffering shown in the 2D plan is not clearly represented as a distinct foyer zone in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen enclosure/relationship to dining differs: 2D indicates a more bounded kitchen with defined wall line/opening; 3D depicts a more open kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room (5' x 7'8\") is not clearly present as a separate enclosed space in the 3D; it reads merged/converted into an open terrace/service zone."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining appears reduced relative to bedrooms compared to the 15' x 21'4\" central space indicated in the 2D."
+        },
+        {
+            "code": "E2",
+            "description": "Several door positions and swing/orientation cues do not align with the exact wall segments shown in the 2D (bedroom/toilet openings appear shifted)."
+        },
+        {
+            "code": "E2",
+            "description": "Window runs and large slider placements do not consistently match the 2D window locations along the exterior walls (especially around decks)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering ambiguity at balcony edges/openings (rails/voids) reduces confidence in exact opening placement versus solid wall."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan14.webp"
+}

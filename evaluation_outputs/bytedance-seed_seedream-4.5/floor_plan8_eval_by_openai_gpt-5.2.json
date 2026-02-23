@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout mismatch between 2D and 3D. (E1/E2) Dining Room is missing entirely; its footprint is replaced by an open area labeled \"KANTRY\" and oversized \"POWDER ROOM\". (E2/E4) Kitchen + pantry arrangement does not match: pantry in 2D is a small enclosed room off the kitchen; in 3D it is an open central zone with an island/cabinets. (E2/E3) Door locations/orientations are inconsistent: the 2D shows a door swing between Dining and Kitchen area and a defined WC door; 3D does not reflect these placements. (E2) Window locations/types differ: 2D has multiple smaller windows distributed on exterior walls; 3D uses large floor-to-ceiling glazing and places openings that do not correspond to the plan. (E4) Room proportions are notably distorted (e.g., \"Powder Room\" area is far larger than any powder/WC zone in the 2D)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Structural relationships deviate heavily. (E1) Missing Dining Room. (E1) Missing the small WC enclosure as drawn (2D shows a compact WC near foyer/closet zone; 3D does not represent it as a small separate room). (E5) Hallucinated large \"POWDER ROOM\" occupying a major portion of the plan that should be Living/Dining circulation. (E2) Stairs are represented differently: 2D shows an open stair/landing configuration central-top; 3D encloses/frames stairs with walls creating a different core and circulation. (E2) Adjacencies are wrong: in 2D, Living\u2013Dining\u2013Kitchen have a clear sequence; in 3D the central area is reorganized such that Dining is not between Living and Kitchen and pantry is not a discrete adjacent room."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "(E2) Kitchen fixtures/counters are not mapped to the 2D layout (2D indicates specific counter runs and sink placements; 3D places multiple islands/blocks that don't correspond). (E4) Furniture/fixture scale is inconsistent with the 2D (oversized island blocks and oversized labeled \"Powder Room\" area relative to plan). Minimal other furniture exists to verify accurately."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric presentation is clear and visually clean. Camera angle reads as isometric-like and composition is good. Lighting is consistent and geometry is mostly clean. Minor issues: glazing style/scale looks exaggerated compared to typical plan windows (a design choice but reduces plan-to-render fidelity), and some wall/trim thickness reads inconsistent at corners."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Dining Room from the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "A large room labeled \"POWDER ROOM\" is hallucinated; the 2D plan only indicates a small WC/powder area near the foyer, not a large room."
+        },
+        {
+            "code": "E2",
+            "description": "Pantry is misplaced/redefined: 2D shows a small enclosed pantry off the kitchen; 3D shows an open central \"KANTRY\" zone with island/cabinets."
+        },
+        {
+            "code": "E2",
+            "description": "Stair core/circulation is structurally different: 2D open stair/landing configuration is not preserved in 3D (enclosure/wall framing changes)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation does not match the 2D plan (notably the WC door and the Dining\u2013Kitchen connection with a shown door swing in 2D)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and window type/size do not match: 2D distributed smaller windows; 3D uses large floor-to-ceiling glazing and positions openings inconsistently."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion: central/left areas are reallocated, producing room sizes and footprints that diverge from the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan8.jpg"
+}

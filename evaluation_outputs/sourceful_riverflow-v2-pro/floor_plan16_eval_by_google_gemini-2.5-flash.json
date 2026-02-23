@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the balcony and utility area's spatial relationship to the main structure are significantly altered. Wall alignment shows significant deviations, specifically around the kitchen, utility, and balcony areas. Door placement is incorrect for the Bedroom and Toilet-1, with doors either missing or relocated. Many windows are missing from the 3D render. Room proportions, particularly for the balcony and kitchen/utility, are distorted."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is not consistently preserved; some walls appear thinner than implied by the floor plan. Door embedding is incorrect as the doors themselves are missing. Adjacency relationships are mostly maintained but the separation between the kitchen and utility is less defined in the render. Major missing elements include the wall separating the kitchen from the utility area, and the door to the bedroom. There are no hallucinated rooms, but sections of walls are missing that should connect to the balcony and utility areas, instead being open."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate within the living, dining, and bedroom areas. However, the kitchen countertop layout is altered, and elements like the washing machine are differently placed. Scale consistency for furniture is mostly maintained, though some items like the washing machine appear slightly off."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are well-executed, providing a clear view. Lighting quality is good, offering clear distinction of spaces. Geometry is clean with no noticeable distortions or rendering artifacts. Overall visual clarity and composition are good, making the layout easy to understand."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry door to the apartment."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Bedroom-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Toilet-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in Bedroom-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in Toilet-1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall separating Kitchen and Utility."
+        },
+        {
+            "code": "E2",
+            "description": "Washing machine and dryer placement in Utility is altered."
+        },
+        {
+            "code": "E2",
+            "description": "Placement of the refrigerator in the kitchen area is altered/missing."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet-1 fixture arrangement is different (toilet and sink swapped)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Balcony, appearing wider relative to its depth."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Kitchen/Utility area, specifically the width of the kitchen countertop area."
+        },
+        {
+            "code": "E6",
+            "description": "Open wall section leading to the balcony and utility, where solid walls are indicated in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan16.avif"
+}

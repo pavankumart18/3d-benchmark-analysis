@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct but proportions are significantly distorted. Wall alignment has numerous inaccuracies. Doors are frequently misplaced and incorrectly oriented. Windows are missing and incorrectly placed."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is not consistent. Many doors are not correctly embedded. Adjacency relationships are mostly maintained but with significant layout changes. Several rooms are missing or severely altered (e.g., 'ACTIVITY', 'BALCONY', 'BATH', 'WC', 'LINEN', 'ROBE' areas). There are hallucinated structures, such as the kitchenettes."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in most rooms, with significant deviations from the floor plan. Furniture scale is also inconsistent and doesn't always match the room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection is reasonably accurate. Lighting quality is decent, but some areas appear underlit. Geometry is generally clean but with structural inaccuracies. Visual clarity is good, but the composition highlights the structural deviations."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'ACTIVITY' room. The area is present but is not clearly defined as 'ACTIVITY' and is filled with different furniture."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'BALCONY'. The area is present but incorrectly portrayed as an interior space with a different railing."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'BATH' room. The area is present but altered with different fixtures and layout."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WC' room. The area is present but altered with different fixtures and layout."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'LINEN' area/closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'ROBE' areas in BED 3 and BED 4."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchenette/counter in place of 'BATH' and 'WC'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchenette/storage unit in the area of 'LINEN' and 'ROBE' for BED 2."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrectly oriented door near the stairs leading to the 'ACTIVITY' area."
+        },
+        {
+            "code": "E2",
+            "description": "Door to BED 2 is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door to BED 3 is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door to BED 4 is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and altered entrance to the 'BATH' and 'WC' area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows throughout, some are missing entirely, others are added where none exist."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'BED 2' and 'BED 3' rooms appear larger/differently shaped than the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'BATH' and 'WC' area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'ACTIVITY' area, and its corresponding wall alignment."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment inaccuracies, particularly around the 'BATH', 'WC', and 'LINEN' areas, and the external wall near 'BALCONY'."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bed in 'BED 2' is different from the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bed in 'BED 3' is different from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in 'ACTIVITY' area is different from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Missing staircase railing 'BALUSTRADE' on the balcony side."
+        },
+        {
+            "code": "E2",
+            "description": "Railing of the balcony is not correctly represented; it's an interior wall with a fence."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WALL TO 21c AFL' and '13c HIGH CAPPED WALL' indicators are structural elements not rendered."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan12.png"
+}

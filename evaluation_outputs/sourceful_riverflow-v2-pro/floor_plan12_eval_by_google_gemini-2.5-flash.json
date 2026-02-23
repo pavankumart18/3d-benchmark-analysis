@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "The 3D render completely misinterprets the floor plan. The overall layout is incorrect, and rooms are not placed as per the 2D plan. The staircase and balcony are missing. The 'Activity' area is misrepresented as a dining/living area with a kitchen island. Bedrooms and bathrooms are replaced by what appears to be a garage and a modified living space. Door placements are largely incorrect due to the complete spatial rearrangement. Windows are entirely absent in the 3D render. Room proportions are completely distorted due to the reinterpretation of the layout."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, and several walls from the 2D plan are missing or reconfigured. Door embeddings are incorrect due to the general misplacement of all doors. Adjacency relationships are completely broken; for example, bedrooms are replaced by a garage, and the bathroom configuration is completely different. All bedrooms, bathrooms (as depicted in the 2D plan), stairs, and the balcony are missing. A large garage-like room has been hallucinated, along with an open-plan kitchen/dining area not present in a similar configuration in the floor plan."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement is entirely inaccurate as the rooms themselves are reconfigured or missing. The beds from the 2D plan are absent, replaced by a car in a hallucinated garage. The sofa, dining table, and kitchen island are not present in the specified locations or rooms of the original floor plan. Furniture scale consistency is difficult to assess accurately given the severe misinterpretation of the layout, but the car seems disproportionately large for the space it occupies relative to other furniture scaled."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct, and orthographic projection appears accurate for the rendered elements. Lighting quality is decent, offering basic ambient illumination. Geometry is mostly clean with no obvious rendering artifacts or distortions within the rendered elements themselves. However, the visual clarity and composition suffer significantly due to the extreme deviation from the original floor plan, making it a poor representation."
+    },
+    "total_score": 15,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Staircase."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bedroom 2, Bedroom 3, Bedroom 4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bath and WC rooms from the specified locations."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Recess' area from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing '13c high capped wall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Linen' closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Robe' closets for all bedrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and reconfigured 'Activity' area into an open-plan living/dining/kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door adjacent to the WC/Bath area in the original plan is now part of a hallway."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignments are entirely incorrect throughout the structure."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the entire layout is drastically altered, even if rotated for viewing, the internal layout is changed."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion of all rooms and the overall structure."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated garage with a car element."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island and associated counters."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-plan living/dining area configuration."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated walls forming the new, incorrect layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan12.png"
+}

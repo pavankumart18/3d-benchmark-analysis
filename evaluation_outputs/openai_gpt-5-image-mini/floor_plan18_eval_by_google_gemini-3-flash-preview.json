@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major structural deviations: the bedroom is missing its separating wall/door and has been merged into the living area. The toilet/bathroom orientation is rotated 90 degrees compared to the plan. Foyer entry wall is missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Significant errors including missing internal partition walls for the bedroom. The 'Utility' and 'Toilet' areas are represented as open voids or incorrectly walled enclosures. Door swings and physical door frames are entirely omitted."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture exists but is misplaced; the sofa is located where the bedroom wardrobe/wall should be. Dining table orientation is changed. Kitchen island is hallucinated (plan shows L-shape counter)."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High visual quality with clean orthographic/isometric projection, consistent lighting, and clay-style rendering. Mathematically clean despite architectural inaccuracy."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing wall and door separating Bedroom from Living room."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet fixtures and sink misplaced/rotated relative to the floor plan layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island; original plan shows a perimeter wall-bound counter."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the bedroom window and balcony entryway."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the overall floor area for the kitchen and utility feels expanded compared to original ratios."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan18.jpg"
+}

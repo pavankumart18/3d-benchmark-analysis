@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall layout resembles the 2D plan (left bedroom, central corridor, bathroom cluster, right bedroom, living room, and kitchen/dining), but there are notable deviations: an extra enclosed top-side room appears, bathroom/vanity area is reconfigured, several exterior window locations/counts do not match the 2D openings, and some room sizes (corridor vs. living/dining) look stretched compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Wall thickness and basic construction are mostly consistent, and most doors are embedded into partition walls. However, adjacency is compromised by a hallucinated top-side room and altered wet-area layout (extra vanity/sinks). The core rooms largely exist, but the added room constitutes a major fidelity failure."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture elements are mostly present (beds/wardrobes, living seating, dining table, kitchen run). Some furniture is simplified or repositioned relative to the 2D plan (kitchen counters/appliances and desk/office elements), but scale is generally consistent and readable."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clean with coherent lighting and good visual clarity. Camera is near-isometric but not perfectly orthographic (mild perspective). Geometry is mostly clean; no severe mesh artifacts observed."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated enclosed room along the top side (empty room with an arched brown door and window) that is not present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Wet-area/bathroom zone is spatially reconfigured: a double-sink/vanity area and radiator appear in the top room area, which does not match the single-bath arrangement shown in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated plumbing fixtures (two pedestal sinks) not indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placement/count differs: the 3D render adds/relocates multiple large windows (notably on right/top exterior walls) that do not correspond clearly to the 2D plan\u2019s window openings."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: central circulation and the kitchen/dining area appear enlarged relative to the living room and some bedrooms compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout is simplified/altered versus the 2D plan (counter run and appliance/sink placement do not precisely match the drawn arrangement)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan2.png"
+}

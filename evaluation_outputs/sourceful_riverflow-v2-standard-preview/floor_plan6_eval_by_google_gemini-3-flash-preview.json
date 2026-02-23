@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The rendering significantly fails to map the 2D layout. It misses the external balcony/patio area entirely. Door placements for the bedroom and bathroom are inconsistent with the plan, and window counts on the left wall are incorrect."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The staircase is moved from the interior right-side wall to an external-facing orientation. The bathroom/laundry layout is simplified or hallucinated into a single open pit-like structure. Missing the entire balcony transition."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While a kitchen counter and bed exist, the specific placement of the dining table and sofa are replaced with generic blocky furniture that does not match the floor plan's orientation or scale."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera angle is correctly applied and the lighting is soft and consistent. However, text labels are distorted (hallucinated characters) and geometry in the bathroom area is messy."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing outdoor balcony/terrace area shown on the left of the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase relocated from the bottom-right corner to a central-right position."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance door from the kitchen to bedroom shifted from a corner hinge to a centered placement."
+        },
+        {
+            "code": "E4",
+            "description": "The bathroom area proportions are heavily distorted, appearing as an open sub-floor area rather than rooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated floating blocks in the living area that do not correspond to the specified furniture."
+        },
+        {
+            "code": "E6",
+            "description": "Text rendering artifacts in the 'Bedroom' and 'Kitchen/Living' labels."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan6.jpg"
+}

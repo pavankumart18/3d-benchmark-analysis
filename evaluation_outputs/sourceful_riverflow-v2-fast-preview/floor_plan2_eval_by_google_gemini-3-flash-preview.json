@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General room layout is maintained, but window placement deviates significantly from the floor plan, specifically adding extra windows in the living and kitchen areas and omitting them in the secondary bedroom."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The wall between the bathroom and the small office/storage room has been shifted. Door orientations are mostly consistent, though the entrance door lacks the depth indicated by the vestibule area."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Several furniture items are missing or altered. The twin bedroom only features one bed instead of two. The kitchen appliances and countertop layout have been simplified and rearranged."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent isometric rendering with clean geometry, consistent lighting, and professional toy-model aesthetic. Minor clipping on the kitchen window."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing second twin bed in the left bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Window in the master bedroom moved from the side wall to the back wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated extra window at the front of the house and in the kitchen area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the living room seating area are smaller than indicated in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen stove and sink positions are swapped or simplified compared to the specific icons in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major structural deviations identified. The staircase in the bottom-right corner is entirely missing and replaced with a hallway hallucination. Door placement for the main entrance and bedroom is physically impossible or missing. Window intervals on the left and bottom walls do not match the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The internal wall separating the kitchen and living area is disconnected. The toilet/wash area layout is distorted. Wall thicknesses are inconsistent, and a major room segment (staircase) has been hallucinated as a generic corridor."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "General furniture types and locations (dining table, bed, sofa) are captured, but the scale of the dining area is pinched. Kitchen cabinetry and appliances are represented by unidentifiable blocks."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera is mostly correct, and lighting is soft and consistent. However, geometry clipping occurs in the wash area and the exterior walls show perspective warping."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "The staircase assembly in the lower-right corner is completely missing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated hallway and closet area where the staircase should be located."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door is missing its structural opening, replaced by solid geometry."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the kitchen area relative to the living room width."
+        },
+        {
+            "code": "E6",
+            "description": "Wall segments near the wash area show disjointed and intersecting geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan7.jpg"
+}

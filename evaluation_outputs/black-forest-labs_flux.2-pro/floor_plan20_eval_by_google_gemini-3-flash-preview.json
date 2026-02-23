@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct. However, significant discrepancies in door orientation and clearance. The entrance lobby door swing does not match the 2D plan, and some window apertures lack the designated architectural setbacks shown in the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses are inconsistent across the model. Major E1 error: The Utility room wall adjacency to the kitchen has been modified. E5 error: Some wall segments appear transparent or incomplete near the floor level."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent mapping of furniture types. Bedroom-1 and Bedroom-2 bedding styles match the colors of the plan. Dining set and sofa configuration is accurate. Minor scale error in the Home Office/Maid's room desk."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering. Lighting is balanced and provides good depth. Texture mapping on walls and floors is clean, though some text overlays (labels) are overlapping geometric edges."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific internal wall segment partition between the kitchen entrance and the utility zone."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance lobby door swing direction is inverted compared to the architectural floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in Bedroom-3 is slightly offset from the central axis defined in the 2D document."
+        },
+        {
+            "code": "E6",
+            "description": "Text labels for rooms are floating and occasionally clip through wall geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 23,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (Activity left, Bath/WC central, three bedrooms right), but several spatial placements deviate. Balcony in the 3D appears larger/deeper and more open than the 2D balcony footprint (proportion/extent mismatch). The small hall/circulation node between Bath/WC and bedrooms is simplified and door locations along this junction do not align well with the 2D plan. Window runs are rendered as long continuous bands/sliders where the 2D shows more discrete openings/segments. Bedroom and robe proportions appear altered (especially Bed 3/Bed 4 robe wall lengths)."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Primary adjacencies are mostly preserved (Bath and WC adjacent; bedrooms grouped), but multiple labeled architectural elements from the plan are not represented: LINEN cupboard, A/C cupboards, and the RECESS near stairs. Balcony boundary conditions (wall/balustrade and partial-height wall notes) are not faithfully modeled. Door embedding is inconsistent with plan intent at the central junction (several doors shifted and/or simplified), reducing fidelity even if the overall partition layout is similar."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Bedroom bed placement is broadly plausible but not matched to the 2D symbols/orientations precisely. Activity room and balcony furniture is largely invented relative to the plan (TV unit, sectional/benching, outdoor lounge arrangement). Scale feels visually consistent, but it does not map tightly to the 2D furniture indications."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is clear and coherent; geometry is generally clean. Lighting/materials are serviceable and readable. However, the render leans toward stylized continuous glazing and simplified wall/door detailing, which reduces orthographic/architectural exactness compared to the plan."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "LINEN cupboard (shown on 2D above Bed 2) is missing/not identifiable in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "A/C cupboards/closets shown on the 2D plan are missing/not identifiable in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "RECESS area adjacent to the stair zone (labeled on 2D) is not represented in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony footprint/extent does not match the 2D plan; 3D balcony reads larger/deeper and more open than specified."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: balcony and adjacent glazing/wall lengths are not consistent with the 2D dimensions/relative ratios; robe wall lengths also appear altered."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/segmentation mismatch: 3D uses long continuous window/slider bands where the 2D indicates more discrete window sections and specific openings."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement and swing/orientation at the central hall junction (between Bath/WC and bedrooms) does not match the 2D door positions/swing logic."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior/exterior elements: TV unit, large lounge seating layout, and balcony furniture arrangement are added without clear correspondence to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan12.png"
+}

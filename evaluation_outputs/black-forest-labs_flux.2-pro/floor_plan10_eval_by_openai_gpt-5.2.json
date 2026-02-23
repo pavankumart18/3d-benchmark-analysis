@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Overall room layout in the 3D render does not match the 2D plan. Major zoning errors: the plan\u2019s clear separation of Theatre (left-middle), Bed 2 (left-middle), Activity (upper-middle), and the Living/Kitchen core is not preserved. The 3D appears to convert multiple distinct rooms into larger open areas and relocates wet areas. Door locations and swing/orientation do not follow the plan, and exterior openings (alfresco/verandah/portico connections) are not represented correctly. Room proportions are noticeably altered (e.g., Living/Kitchen/Theatre regions)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Adjacency relationships from the plan are frequently broken (e.g., Theatre next to Bed2/Living; Activity adjacent to Beds 3&4; Laundry/Bath/WC cluster). Multiple labeled plan spaces are missing or merged. The model introduces elements not present in the plan (a central stepped/railed feature resembling a stair/sunken area). Wall thickness looks generally consistent, but interior partitions do not match the plan\u2019s wall alignment and segmentation."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not map to the correct rooms per the 2D plan (e.g., Theatre seating arrangement vs. open-plan lounge/dining; bedroom count and placements inconsistent). Several spaces that should contain specific built-ins (robes/WIR/pantry/laundry bench) are not represented accurately. Scale is plausible visually, but the furniture placement corresponds to a different layout."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean and readable with coherent lighting and materials. Camera is broadly isometric-like but not a strict architectural axonometric/orthographic match. Geometry quality is generally good with minimal artifacts; however, clarity is reduced by structural mismatches (spaces read as a different design than the provided plan)."
+    },
+    "total_score": 36,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Alfresco area (plan shows a large ALFRESCO at upper-right with exterior boundary; 3D does not clearly depict this outdoor room or its correct boundary)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Verandah and Portico (plan front/bottom outdoor elements are not represented as separate exterior spaces in the 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing distinct Theatre room (plan has a dedicated THEATRE at left-middle; 3D shows an open living/dining-type area instead)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear Laundry + Bath + WC cluster at upper-left/left-middle (plan shows a specific arrangement; 3D wet areas do not match or are merged/relocated)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear Activity room (plan has ACTIVITY centrally at top; 3D does not show a dedicated room with matching placement)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear multiple bedroom set (plan includes BED 2, BED 3, BED 4, and MASTER SUITE; 3D shows fewer bedrooms and does not preserve their positions)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/Pantry placement and surrounding walls do not match plan (plan places KITCHEN centrally with PANTRY above it; 3D kitchen appears shifted and not enclosed/partitioned as in plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Entry/Study region mismatched (plan has ENTRY and STUDY at bottom-center; 3D does not preserve the same compartmentalized front layout)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door placement and/or orientation across multiple internal connections (e.g., bedroom/bath/WIR entries and major room transitions do not match the plan\u2019s door locations and swings)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement does not follow the plan\u2019s exterior openings (plan shows specific window runs along top bedrooms and living/alfresco edges; 3D window distribution appears generic and not aligned)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortions: major rooms are resized/reshaped (Living/Kitchen/Theatre zones read significantly different from plan dimensions and boundaries)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated central stepped/railed feature (resembles stairs/sunken area) not present in the single-level 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/incorrect internal partitions creating spaces not shown in plan (e.g., extra corridor-like segmentation and rearranged wet-area partitions)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan10.png"
+}

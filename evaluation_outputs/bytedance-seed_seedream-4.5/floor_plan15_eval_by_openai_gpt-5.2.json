@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatches vs 2D plan. (E2) Kitchen is shown as an open integrated space into the living/dining in 3D, while the 2D plan has a clearly separated kitchen with a door and a dedicated utility. (E1) Utility room is not clearly present as a separate space. (E2/E3) Entrance location/orientation appears wrong: 2D entrance is centered along the bottom edge entering living/dining; 3D shows a primary exterior door on the right facade leading into the kitchen/dining zone. (E2) Toilet placements do not match: the 2D has multiple toilets including a powder/toilet near entrance and toilets near bedrooms; 3D shows fewer/relocated toilets and different adjacency. (E4) Corridor/wide-passage geometry and room proportions are not preserved; 3D compresses/reshapes the long linear plan into a more compact block. (E2) Balcony arrangement differs: 2D has 2 balconies (living/dining top-center and master on left); 3D shows prominent stacked left-side balconies and a rear balcony layout that does not clearly match the plan\u2019s positions and access points. (E2) Window placement/count does not correspond to the 2D openings; several facade windows appear arbitrary relative to the plan."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Adjacency and enclosure fidelity is weak. (E2) Kitchen\u2013utility relationship is incorrect (utility missing/merged). (E1) Powder toilet (P.Toilet) near the entrance in the 2D plan is not represented as a distinct room in 3D. (E2) Bedroom/toilet adjacencies are inconsistent with the plan (toilets appear reduced and/or repositioned). (E5) Exterior massing/facade elements (multiple stacked balconies and extra window placements) introduce features not supported by the single-floor 2D plan. Wall thickness is visually consistent, but wall alignment and room boundary locations do not track the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "(E2) Furniture arrangement does not follow the 2D plan intent: living/dining and kitchen furniture are arranged as an open-plan composition rather than the 2D\u2019s separated kitchen and central living/dining with balcony. (E4) Some furniture scaling/clearances (notably kitchen/dining zone) appear optimized for the 3D concept rather than matching the 2D room sizes and circulation widths."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric presentation is strong with clean materials and readable spaces. Camera is broadly correct for an isometric-style view, though not orthographic-accurate (visible perspective). Lighting is pleasing and geometry is mostly clean, but the cutaway/void and facade detailing emphasize a different building concept than the 2D plan, reducing architectural clarity as a verification render."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen location/boundary incorrect: rendered as open to living/dining; 2D plan shows a separate enclosed kitchen with a door."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room (adjacent to kitchen in 2D) missing as a clearly separated space in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance placement incorrect: 2D entrance is bottom-center into living/dining; 3D shows primary entry on right facade leading into kitchen/dining zone."
+        },
+        {
+            "code": "E1",
+            "description": "Powder toilet (P.Toilet) near the entrance in the 2D plan is not represented as a distinct room in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet count/locations do not match the 2D plan (multiple toilets in 2D appear reduced/relocated in 3D)."
+        },
+        {
+            "code": "E4",
+            "description": "Overall plan proportions distorted: long linear unit with wide passages in 2D is compressed/reshaped in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony configuration mismatch: 2D indicates two balconies (living/dining top-center and master left); 3D shows prominent stacked left balconies and unclear access alignment."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count inconsistent with the 2D plan openings; several facade windows appear arbitrary relative to room positions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior/facade elements (extra stacked balconies and window patterning) not supported by the single-floor 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan15.webp"
+}

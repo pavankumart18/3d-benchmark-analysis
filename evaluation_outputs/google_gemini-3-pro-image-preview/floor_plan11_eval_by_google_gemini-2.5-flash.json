@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Room placement for Central Hall, WC, Utility Room, Kitchen, and Dining Room are generally correct. However, the Alcove and Breakfast Nook areas are significantly distorted or missing. Wall alignment has numerous inaccuracies, particularly in the Central Hall, WC, and the area near the stairs. Door placements are frequently incorrect, with missing doors and incorrect orientations. Window placements are also incorrect, with many windows missing or mispositioned. Room proportions are distorted throughout the model."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker than others without clear reason. Door embedding is poor, with many doors not properly integrated into walls. Adjacency relationships are frequently compromised by incorrect wall placements and missing elements. There are missing rooms (e.g., Alcove is not represented as a distinct space, Breakfast is incomplete). There are no significantly hallucinated rooms, but existing rooms are improperly structured."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor. Many items are missing (e.g., WC fixtures, Dining Room table, Central Hall furniture). Some elements that are present, like kitchen cabinets and appliances, are placed approximately but not precisely. Furniture scale consistency is difficult to assess accurately due to general proportion issues, but some elements like the washer/dryer appear reasonable."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection appear generally correct. Lighting quality is basic and flat, lacking realism. Geometry is clean in terms of rendering, but fundamentally incorrect in spatial representation. Visual clarity is moderate, but the numerous inaccuracies detract from overall composition."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Proportion distortion of Central Hall, Alcove, Utility Room, Kitchen, Dining Room, and Breakfast Nook area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing walls for the Alcove, leading to an open-concept representation not present in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment for the bathroom (WC) and Central Hall."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment and shape for the Breakfast Nook area. This area appears largely incomplete or misrepresented."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the WC."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the Utility Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing interior door connecting Central Hall to the Dining Room."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to the 'alcove' area (implied). It's also largely missing."
+        },
+        {
+            "code": "E1",
+            "description": "Many windows are entirely missing from the exterior walls, particularly in the Central Hall, Dining Room, and Breakfast Nook areas."
+        },
+        {
+            "code": "E2",
+            "description": "The few windows present are incorrectly placed relative to the floor plan (e.g., in the WC, Utility Room)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing fixtures in WC (toilet, vanity)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing utility sink in Utility Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dining table in Dining Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing refrigerator (REF on plan) in Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing pantry door/cabinetry."
+        },
+        {
+            "code": "E2",
+            "description": "The stairs appear to be misplaced relative to the landing and adjacent walls."
+        },
+        {
+            "code": "E4",
+            "description": "The curve of the window seat area in the Dining Room/Breakfast is poorly represented and distorted."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Crawlspace Access' area and associated details near the stairs."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan11.png"
+}

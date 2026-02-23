@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the overall dimensions for the kitchen/dining/living area are too compressed. Wall alignment has several inaccuracies, particularly for the bathroom walls, the wall separating Rachel's bedroom from the coat closet/bathroom, and the wall separating Monica's bedroom from the living room. Door placement and orientation issues are numerous, especially for the main entrance door, kitchen door, and bathroom doors. Window placements are largely missing or inaccurate. Room proportions are distorted, most notably in the living/dining/kitchen area which appears significantly smaller, and the bedrooms feel slightly compressed."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker than others without reason. Door embeddings are incorrect, with many doors being missing entirely or improperly recessed. Adjacency relationships are disturbed due to misplaced walls and missing doors. Several rooms are missing or heavily altered (e.g., the coat closet, specific bathroom layouts, the closet in Monica's bedroom, the closet near the main entrance). No hallucinated rooms were detected, but significant parts of rooms are altered."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally off. For example, the bed orientation in Rachel's bedroom is incorrect, the bedside tables are missing. Most furniture in the bathrooms is missing. The dining table and chairs are present but scaled differently. The sofa in the living room is present, but the chaise lounge is missing. The small table with chairs in the kitchen is also entirely missing. Furniture scale consistency is poor due to proportional distortions of the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is fair, but the angle feels a bit too low. Orthographic projection accuracy is difficult to assess purely from this angle, but depth perception seems inconsistent in places. Lighting quality is flat and lacks definition. Geometry is clean for the most part, but there are some visible gaps and irregular edges (e.g., around missing windows). Visual clarity and composition are moderate, but the lack of detail and poor lighting reduce overall aesthetic appeal."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Overall apartment layout has proportional distortions, particularly the living/dining/kitchen area which is compressed."
+        },
+        {
+            "code": "E2",
+            "description": "The exterior wall surrounding the main living area is misaligned and appears to be pushed inwards compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating the two bathrooms on the left side is inaccurately placed and dimensioned."
+        },
+        {
+            "code": "E2",
+            "description": "The wall dividing Rachel's bedroom from the adjacent bathroom/closet space is misaligned."
+        },
+        {
+            "code": "E1",
+            "description": "Main entrance door is missing its opening and door leaf."
+        },
+        {
+            "code": "E1",
+            "description": "Door leading to the kitchen/dining area from the hallway is missing."
+        },
+        {
+            "code": "E1",
+            "description": "All window placements are either missing or significantly altered/reduced compared to the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The large bay window structure in the living room is rendered as a simple wall with openings, failing to capture its intricate design."
+        },
+        {
+            "code": "E1",
+            "description": "The coat closet near the main entrance is completely missing, replaced by a simple wall."
+        },
+        {
+            "code": "E1",
+            "description": "The small closet inside Monica's bedroom is missing."
+        },
+        {
+            "code": "E1",
+            "description": "The closet in the 'CLOSET' room (top left) is missing its intricate shelving and appears as a simple empty room."
+        },
+        {
+            "code": "E1",
+            "description": "Most bathroom fixtures (toilets, sinks) are missing or simplified beyond recognition."
+        },
+        {
+            "code": "E1",
+            "description": "The shower/tub in both bathrooms is either missing or heavily simplified."
+        },
+        {
+            "code": "E2",
+            "description": "The door placements for both bathrooms are incorrect in terms of location and orientation (E3)."
+        },
+        {
+            "code": "E3",
+            "description": "The bed in Rachel's bedroom is oriented incorrectly."
+        },
+        {
+            "code": "E1",
+            "description": "The small table with two chairs in the kitchen area is entirely missing."
+        },
+        {
+            "code": "E1",
+            "description": "The chaise lounge component of the living room sofa is missing."
+        },
+        {
+            "code": "E1",
+            "description": "The furniture (beds, nightstands) in both bedrooms are simplified versions and not all elements are present (e.g. nightstands in Rachel's room)."
+        },
+        {
+            "code": "E6",
+            "description": "Visible gaps or irregular geometry around missing window areas."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating Monica's bedroom from the living room is shifted, making Monica's bedroom slightly smaller and the living room larger than intended compared to the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan.jpg"
+}

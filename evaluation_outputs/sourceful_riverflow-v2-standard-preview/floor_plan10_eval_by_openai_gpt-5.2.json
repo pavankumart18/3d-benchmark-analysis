@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall zoning is roughly similar (beds along one wing, open living/kitchen to alfresco, garage at front), but multiple plan-critical details deviate. Several internal partitions/openings are simplified, making some rooms read as merged or re-shaped (notably the activity/circulation and wet-area cluster). Door locations/orientations are frequently not represented as per the plan (many openings appear undetailed or placed differently). Window/slider placements and sizes are inconsistent with the 2D plan (especially along the living/alfresco edge and bedroom exteriors). Room proportions appear off: the open living/dining zone reads larger and more open than the plan, while some secondary spaces (WC/robes/linen) are compressed or omitted."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is visually consistent, but structural fidelity to the plan is weakened by omitted/altered internal separations and missing plan elements. Key adjacency is mostly preserved (kitchen near living, alfresco off living, garage adjacent to entry), yet several required discrete spaces (notably small service rooms) are not clearly modeled as distinct rooms. Multiple doors are not embedded/located as indicated (including likely internal access points and bathroom/WC entries). Exterior hardscape is expanded beyond the plan, introducing additional elements not specified."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is plausible but not plan-accurate. The plan indicates specific room functions (theatre vs living, activity), while the 3D places similar lounge furniture in multiple areas, blurring intended use. Scale is generally believable, but several spaces appear furnished more generously than their plan proportions suggest."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric camera is coherent and readable. Geometry is generally clean with acceptable lighting and materials. However, the render is more 'conceptual' than plan-faithful (many openings/doors simplified), reducing orthographic/architectural interpretability. Some facade/window systems look standardized rather than plan-driven."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/unclear discrete Entry-area WC (plan shows a WC near WIR/entry; 3D does not clearly model it as a separate enclosed room)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear internal door connection between Garage and house/Entry (plan implies internal access; 3D does not clearly show a door in the expected location)."
+        },
+        {
+            "code": "E2",
+            "description": "Activity/circulation region is reshaped/simplified; walls/openings do not match the plan's defined Activity room boundaries and connections."
+        },
+        {
+            "code": "E2",
+            "description": "Wet-area cluster (Bath/Laundry/WC/WIL) appears re-partitioned; door placements and wall breaks do not align with the 2D layout."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior doors lack correct swing/orientation or are represented as open passages where the plan indicates hinged doors."
+        },
+        {
+            "code": "E2",
+            "description": "Window and sliding door placement along the Living\u2013Alfresco interface is inconsistent with the plan (openings appear resized/relocated)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom exterior window placements/sizes are inconsistent with the plan (render uses large standardized window groupings rather than plan-specific openings)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the main Living/Dining area reads oversized relative to adjacent rooms compared with the 2D plan proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior hardscape/perimeter slab around large portions of the house/garage not indicated in the 2D plan (beyond verandah/portico/alfresco)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan10.png"
+}

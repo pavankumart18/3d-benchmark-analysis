@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room layout roughly follows the 2D plan (3 bedrooms, living/dining central, kitchen/utility band, office at bottom-left), but there are major spatial deviations: both specified balconies are not represented, and the outdoor deck reads as simplified/shifted relative to the plan. Several openings (doors/windows) do not align with the 2D positions, and some room proportions (notably entry/lobby depth and right-side suite massing) appear distorted compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Primary adjacency relationships mostly hold (bedrooms-to-toilets, kitchen-to-utility, office-to-lobby). However, two exterior spaces (balconies) are missing entirely, which is a significant structural fidelity failure. Some openings appear embedded/placed differently than the plan, and a few windows are introduced where the 2D plan suggests balcony openings or different fenestration."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture groups generally match intent (beds in bedrooms, sofa set and dining in living/dining, counters in kitchen, desk in office). Exact placement/orientation is not tightly matched to the 2D plan, and some scale relationships (walkways around dining/sofas) appear looser than the plan implies."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clean and readable with good lighting and generally correct isometric presentation. Some orthographic/isometric fidelity is reduced by simplified exterior openings (balconies/doors/windows) and minor geometry simplifications, but overall visual quality is strong."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony for Bedroom-1 on the right side (2D plan shows a 7'5\" x 4'0\" balcony; 3D shows a solid exterior wall with no balcony volume)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony for Bedroom-2 at the top-right (2D plan shows a 9'4\" x 3'5\" balcony; 3D does not depict this exterior space)."
+        },
+        {
+            "code": "E2",
+            "description": "Deck (top outdoor space) appears simplified and/or shifted in extent relative to the 2D plan\u2019s long deck spanning the living/dining edge."
+        },
+        {
+            "code": "E2",
+            "description": "Window/door openings on exterior walls do not consistently match the 2D plan (some window placements appear added or relocated relative to where balcony/door openings are expected)."
+        },
+        {
+            "code": "E3",
+            "description": "Some interior door orientations/swing directions appear inconsistent with the 2D plan (notably around toilet/utility/corridor junctions)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the right-side bedroom suite massing and circulation widths (lobby/corridor feel) do not preserve the 2D plan\u2019s relative proportions, especially given the missing balcony volumes."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated fenestration: exterior windows are shown in locations where the 2D plan suggests different openings (e.g., balcony-facing doors) or does not indicate windows."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan20.avif"
+}

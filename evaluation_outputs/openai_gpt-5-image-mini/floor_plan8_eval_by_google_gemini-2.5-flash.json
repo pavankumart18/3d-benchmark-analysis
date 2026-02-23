@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions, and door/window placements."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Many missing rooms (foyer, W/C, closets, pantry, playroom). Adjacency relationships are mostly incorrect due to missing elements and structural changes. Hallucinated walls in some areas."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement and scale are mostly incorrect, and many essential fixtures are missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the rendering is clean, the isometric projection creates some visual distortions due to incorrect structural representation."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Foyer."
+        },
+        {
+            "code": "E1",
+            "description": "Missing W/C and its door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing two closets."
+        },
+        {
+            "code": "E1",
+            "description": "Missing pantry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entire playroom."
+        },
+        {
+            "code": "E2",
+            "description": "Relocated stairs; they are not enclosed within a room as in the floor plan and lead to an open space."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout is completely different. Sink and stove placement are incorrect, and there's a hallucinated island."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room dimensions and wall configurations are significantly altered."
+        },
+        {
+            "code": "E2",
+            "description": "Living room shape and wall configurations are significantly altered."
+        },
+        {
+            "code": "E2",
+            "description": "All window placements are incorrect or missing (e.g., missing window in the kitchen, misplaced windows in living/dining areas, hallways)."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from the living area to the 'foyer' region is misplaced and its function is changed due to missing rooms."
+        },
+        {
+            "code": "E3",
+            "description": "Door leading to the W/C area (which is now just a wall) is incorrectly oriented or leads to nowhere."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion across all rooms, particularly the kitchen, living room, and dining room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall enclosing the staircase from the side."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated long wall segment separating living room area towards the right."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated counter/cabinetry near the stairs."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all exterior wall details and shape complexity from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in the living room (sofa, coffee table) is placed without a reference to the 2D plan, and the plan does not dictate furniture here."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room table and chairs are placed, but the room itself is distorted."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan8.jpg"
+}

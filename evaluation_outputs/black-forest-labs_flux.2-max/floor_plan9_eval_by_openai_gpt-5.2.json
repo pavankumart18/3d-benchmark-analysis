@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Major layout mismatch: the 2-car garage (bottom-right in 2D) is not present as a garage in the 3D and appears replaced by a large bedroom-like space (E1/E5). Several room placements are broadly similar (kitchen-left, living-top, master-top-right), but the right/lower-right massing and circulation deviate heavily from the 2D plan. Door locations/swing logic is simplified and does not consistently match the 2D (notably around the hall/utility/garage zone and some interior room entries) (E2/E3). Window runs are stylized/continuous in 3D and do not reliably match the 2D window positions and counts (E2). Room proportions also shift: the lower-right zone is proportioned as a bedroom suite rather than the large rectangular garage (E4)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Core structural fidelity fails due to the missing garage and resulting broken adjacencies (utility/garage/bedroom #2 relationship in 2D is not preserved) (E1/E2). The utility/laundry function is not clearly realized as shown in plan (W/D placement unclear or missing) (E1). Some interior wall thickness looks uniform and clean, but several openings appear \"placed for convenience\" rather than embedded exactly per plan (E2). No clear evidence of the exact garage door/exterior opening that must exist in the 2D (E1). Hall connections and room-to-room adjacency on the right side are inconsistent with the 2D because the garage block is replaced (E2/E5)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Kitchen and living/dining furniture is plausible but not reliably mapped to the 2D (the 2D provides limited furniture detail). The largest mismatch is functional: a garage should contain parking/storage, but the 3D shows bedroom furniture in the garage location/footprint (E5). Laundry/utility appliances are not clearly mapped to the 2D utility W/D positions (E1/E2). Furniture scale appears generally consistent visually, but it reinforces incorrect room program in the lower-right (E5)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Lighting and materials are clean and readable, with generally tidy geometry. However, the camera is more top-down orthographic-like than a true isometric, and perspective/scale cues are mild (camera/projection not strictly isometric) (E6). Visual clarity is good, but the render prioritizes aesthetic staging over strict plan fidelity (seen in windows/doors and the garage-to-bedroom substitution)."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage: the 2D plan shows a large garage (bottom-right) but the 3D does not depict a garage space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated large bedroom-like room in the area where the garage should be (bed, nightstands, bedroom staging)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect adjacency/circulation at the right/lower-right: utility/garage/bedroom #2 relationships from the 2D plan are not preserved due to the garage substitution."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear laundry/utility build-out: the 2D utility shows W/D, but the 3D utility/laundry appliances are not clearly present or correctly placed."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count inconsistencies: the 3D uses long continuous window bands that do not match the discrete window locations/counts indicated in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation simplification: multiple interior doors (notably around hall/utility/right-side rooms) do not clearly match the 2D door swing directions and placements."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the lower-right massing: area sized and laid out like habitable space rather than the rectangular garage volume shown in the 2D."
+        },
+        {
+            "code": "E6",
+            "description": "Projection/camera mismatch: render is closer to top-down orthographic with mild perspective rather than a strict isometric representation."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan9.png"
+}

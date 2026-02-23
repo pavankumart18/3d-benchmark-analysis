@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout mismatch. The 2D plan has a right-side stair/hall/entry zone and a central wet/closet core; the 3D render shows a simplified open plan with a different internal partition scheme (E2/E4). Left exterior wall in 2D is angled/indented; 3D outer shell is essentially rectangular (E4). Door locations and orientations are not respected (2D shows multiple hinged doors with specific swings; 3D uses generic openings in different positions) (E2/E3). Windows are largely missing or relocated: 2D has multiple exterior openings (notably along the bottom and left), while 3D shows only a single bedroom window-like opening (E1/E2). Room proportions are notably altered (living area and circulation simplified; bedroom/core sizes differ) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Walls/partitions do not reproduce the 2D adjacency relationships: the 2D plan includes a distinct entry hall connected to stairs and a bathroom/closet block; these are not correctly modeled (E2). Bathroom/WC area shown in 2D is missing in 3D (E1). Right-side stairwell/corridor shown in 2D is missing in 3D (E1). Closet/wardrobe zone (hatched area in 2D) is missing (E1). A hallucinated extra enclosed room/box volume appears near the top-center of the 3D model that does not match any clearly defined room in the 2D plan (E5). Wall thickness looks consistent in the render but does not correspond to the plan\u2019s heavy structural walls vs lighter partitions (E4)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some furniture types are present (kitchen cabinetry, dining table, sofa, bed), but mapping to the 2D layout is inaccurate: the 2D plan shows a kitchen island/sink arrangement and specific placement of living furniture relative to windows; the 3D placement is generic and not aligned to the plan\u2019s circulation and openings (E2). Scale is plausible but not verifiable against the plan due to missing/shifted walls and openings; relative sizing between rooms/furniture is affected by proportion distortions (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric camera is clear and readable (minor perspective feel rather than strict isometric) (E6). Lighting is even and visually pleasant. Geometry is clean with few artifacts; materials are simple but coherent. Composition is legible, though accuracy issues reduce architectural clarity."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Bathroom/WC room(s) present in the 2D plan are missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Right-side stairwell/corridor (and associated entry/transition space) present in the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Closet/wardrobe zone indicated in the 2D plan (hatched storage area) is missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Internal partition layout does not match: the central core walls and room adjacencies differ substantially between 2D and 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations are incorrect: 2D shows specific hinged doors between living/bedroom/bath/hall; 3D uses openings in different positions."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing information from the 2D plan is not respected (hinged swings replaced by generic openings and/or reversed implied orientation)."
+        },
+        {
+            "code": "E1",
+            "description": "Most exterior windows/openings from the 2D plan (notably along the bottom and left walls) are missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is incorrect: the 3D shows a single bedroom-side opening that does not account for the 2D plan\u2019s multiple window locations."
+        },
+        {
+            "code": "E4",
+            "description": "Exterior footprint distortion: the 2D plan\u2019s angled/indented left boundary is not reproduced; 3D outer walls appear simplified/rectangular."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/circulation and the bedroom-to-core sizing differ from the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated enclosed room/box-like space near the top-center of the 3D render that is not clearly present as a room in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Camera/projection is not strictly orthographic-isometric; slight perspective is present."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan6.jpg"
+}

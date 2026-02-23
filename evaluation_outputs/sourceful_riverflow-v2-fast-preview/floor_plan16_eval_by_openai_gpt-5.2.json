@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major layout mismatch to 2D plan. Living/dining, kitchen, bedroom, toilet, and utility/balcony zones are not placed or shaped consistently. Internal partition positions do not align with plan; the overall subdivision looks like a generic multi-room box rather than the specific plan. Doors are not in the plan-specified positions (notably bedroom/toilet access). No clear balcony opening and no verified window placements. Room proportions (living/dining should dominate; balcony is long/narrow; utility is small) are not preserved."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Walls appear uniformly thick and geometry is mostly clean, but adjacency relationships do not match the plan (kitchen-utility-toilet-bedroom sequence is not correctly represented). Balcony and utility are missing/merged. Extra exterior door(s) appear that are not in the plan. Door-to-room embedding is inconsistent with expected entry points (bedroom should not have an exterior door per plan)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is largely missing or not mapped to the 2D layout: the living area in the plan shows sofa/coffee table arrangement and balcony connection, but the render shows minimal furniture and different placement. Scale is plausible but the set and positions do not correspond to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Isometric view is acceptable and geometry is mostly clean. However, the render is overly sparse with limited detail and unclear room labeling; lack of openings (windows/balcony) reduces architectural readability. Lighting is adequate but flat; composition is clear yet not informative for verification."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony shown in 2D plan (bottom-left, 7'10\" x 3'5\") is missing in the 3D render (no balcony space or opening from living/dining)."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room shown in 2D plan (top-right, 3'6\" x 7'0\") is missing or not clearly separated/located correctly in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet-1 location/footprint does not match the plan (plan places it mid-right between kitchen/utility zone and bedroom; render shows a different placement/shape)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom-1 placement and access do not match the plan (plan has bedroom in bottom-right accessed from living/dining via an internal door; render suggests different partitioning and/or access)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/placement is incorrect: plan indicates a main entry at top-left into living/dining and internal doors to bedroom/toilet; render shows door positions that do not correspond to these openings."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior door on the right outer wall appears in the 3D render; the 2D plan does not show an exterior entry from the bedroom/right side."
+        },
+        {
+            "code": "E1",
+            "description": "Window placement cannot be validated because the 3D render shows no clear windows/openings where the plan implies exterior openings (balcony side and exterior-facing rooms)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living/dining should be the dominant 10'0\" x 16'7\" space with an attached balcony; the render subdivides space into more uniform rooms, not preserving relative sizes."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen zone (top-middle/left in plan adjacent to living/dining and utility) is not clearly aligned with the plan\u2019s L-shaped counter placement and adjacency in the 3D render."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan16.avif"
+}

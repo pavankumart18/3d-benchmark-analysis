@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major spatial failures. The layout is mirrored/flipped incorrectly. The kitchen is misplaced relative to the dining room. Window and door placements do not match the architectural plan rhythm."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Severe errors in adjacency. The Master Suite connection to the Master Bath is structurally altered. The garage is rendered with an open-cell roof/wall structure that differs from the plan's solid enclosure."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Hallucinated furniture present that is not indicated in the plan. Scale of the car in the garage is exaggerated causing proportion distortion."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Lighting and materials are well rendered, but the orthographic projection is inconsistent, leading to warped geometry at the edges."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen and Dining room inverted/misplaced relative to the front entrance."
+        },
+        {
+            "code": "E3",
+            "description": "Entire layout appears mirrored or rotated incorrectly compared to the 2D blueprint orientation."
+        },
+        {
+            "code": "E4",
+            "description": "The garage and vehicle scale are disproportionate to the adjacent bedroom dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partitions found within what should be a large open living area."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact on the front garage wall shows non-structural gaps and floating planes."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan9.png"
+}

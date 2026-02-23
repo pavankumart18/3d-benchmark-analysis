@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the 'Wash Area' and 'Toilet' are merged into one room. Wall alignment is generally good, but some internal walls are missing, notably between the Kitchen and the entrance, and the separation of the 'Wash Area' and 'Toilet'. Door placements are mostly correct, but the main entrance door is missing. Window placements are altered and some are missing. Room proportions are mostly preserved but some are slightly distorted due to missing walls."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent but internal walls are missing. The main entrance door is not embedded. Adjacency relationships are incorrect for the 'Wash Area' and 'Toilet' which are shown as a single room. The 'Entrance to the House' room is missing in its entirety. The wall separating the 'Kitchen' and the 'Entrance to the House' is missing. The wall between the 'Wash Area' and 'Toilet' is missing. Halucinated elements such as the curved wall and half-wall in the combined wash/toilet area distort room boundaries."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate, though the washroom fixtures are rearranged due to structural changes. Furniture scale is consistent."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is good. Lighting quality is decent. Geometry is clean with no significant distortions apparent. Visual clarity and composition are good."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing main entrance door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall between 'Wash Area' and 'Toilet'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall separating 'Kitchen' and 'Entrance to the House'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Entrance to the House' room."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and configuration of washroom fixtures due to merged 'Wash Area' and 'Toilet'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated curved internal wall in the combined wash/toilet area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated half-wall separating toilet from wash basin."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Wash Area' and 'Toilet' due to their merge into a single space."
+        },
+        {
+            "code": "E2",
+            "description": "Some windows are altered in placement."
+        },
+        {
+            "code": "E1",
+            "description": "One window in the 'Kitchen' is missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan7.jpg"
+}

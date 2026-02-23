@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but window placement on the right elevation deviates from the 2D plan. The internal wall partition between the Theatre and Kitchen shows thickening not present in the original line work."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Doors are represented as openings rather than swings, which obscures orientation verification. Text labels are hallucinated/mangled (e.g., 'ROSE' for Robe, 'PORTICH' for Portico). Boundary wall in Alfresco area is unnecessarily thick."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement matches the schematic well, though the 3D car model is generic and doesn't fully represent the scale of the double garage relative to the floor plan's footprint."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting and shadows are consistent. Geometry is clean with no visible faces overlapping or mesh tearing."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Windows on the right side of the Living/Garage wall are added where they do not exist on the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated text/labels such as 'PORTICH' and 'ROSE' instead of 'PORTICO' and 'ROBE'."
+        },
+        {
+            "code": "E3",
+            "description": "Entry door swing direction is ambiguous due to open-arch rendering style."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness in the pantry/kitchen core appears inconsistent with exterior wall widths."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan10.png"
+}

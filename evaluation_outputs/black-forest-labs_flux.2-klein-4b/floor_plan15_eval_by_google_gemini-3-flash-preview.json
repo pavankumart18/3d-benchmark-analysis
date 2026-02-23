@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major architectural failure. The three-bedroom (3BHK) layout is completely collapsed; internal partitions do not reflect the wide passage or specific room placements of the floor plan. Window and door positions are largely random."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Missing several critical rooms including the master bedroom balcony and utility area. Wall topology is broken with hallucinated floating structures and mismatched adjacency."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture objects are generic and do not match the specific programmatic arrangements (dining, kitchen utility, or bed orientations) specified in the 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The render is aesthetically pleasing with clean lighting and a consistent isometric camera, but it functions as a generic office/living space rather than the specified apartment."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 3BHK room divisions; third bedroom and specific bathrooms are not rendered."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated floating wall segments and central pillar not present in the original blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance orientation and living room adjacency are incorrectly mapped."
+        },
+        {
+            "code": "E1",
+            "description": "Missing external balconies for both M. Bedroom and Living area."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions used for the kitchen and utility zones are vastly different from the source plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan15.webp"
+}

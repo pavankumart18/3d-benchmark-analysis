@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "Door to Bathroom 1 (lower left) is missing in the render (E1). Door to Bathroom 2 (upper right) in the render is wider than on the floor plan (E4). The balcony railings on both sides appear to be a solid wall in the render, deviating from the more open railing design of the floor plan (E4). Bathroom 1 (lower left) has its toilet and shower switched from the floor plan (E2)."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The wall thickness for the internal walls seems generally thinner in the 3D render compared to the 2D plan, especially noticeable around the bedrooms and bathrooms (E4). The wall separating the kitchen from the utility area in the render is partially obscured or missing compared to the floor plan (E1). The entrance area's wall is missing (E1)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate, but the scale of the sofa in the living room seems slightly smaller in the render; also the balcony furniture on the left has no table, unlike the floor plan. The furniture in the upper right toilet is not correctly placed per the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are generally correct. Lighting quality is acceptable, but the shadows are very soft, making it hard to discern depth. Clean geometry is mostly present, but some elements like the balcony railings are simplified. Visual clarity and composition are good."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Door to Bathroom 1 (lower left) is missing in the render."
+        },
+        {
+            "code": "E4",
+            "description": "Door to Bathroom 2 (upper right) in the render is wider than on the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony railings on both sides appear to be a solid wall instead of open railings."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom 1 (lower left) has its toilet and shower switched."
+        },
+        {
+            "code": "E4",
+            "description": "Internal wall thicknesses appear thinner in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Partial wall missing between kitchen and utility area."
+        },
+        {
+            "code": "E1",
+            "description": "Entrance area's wall is completely missing."
+        },
+        {
+            "code": "E4",
+            "description": "Sofa in the living room seems slightly smaller."
+        },
+        {
+            "code": "E1",
+            "description": "Missing table on the left balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in the upper right toilet is not correctly placed."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan15.webp"
+}

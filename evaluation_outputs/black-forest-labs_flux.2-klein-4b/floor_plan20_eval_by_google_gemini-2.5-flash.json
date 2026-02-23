@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the 'TOILET-3' and 'TOILET-4' area has significant deviations, and the 'HOME OFFICE / MAID'S ROOM' is merged with the lobby. Wall alignments are inaccurate in several sections, particularly around toilets and the kitchen. Numerous doors are missing or incorrectly placed. Windows are entirely missing from the render. Room proportions, especially of the toilets and kitchen, are not accurately preserved."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, with some walls appearing thicker than others without reason. Many doors are not correctly embedded, and some are represented as open voids. Adjacency relationships are inaccurate for 'TOILET-3' and 'TOILET-4' and the 'HOME OFFICE / MAID'S ROOM'. There are no missing rooms as major areas are present, but the 'HOME OFFICE / MAID'S ROOM' is not distinctly rendered. No hallucinated rooms, but significant structural changes in the 'TOILET-3' / 'TOILET-4' area."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally followed in the main rooms (Living & Dining, Bedrooms), but many smaller elements are missing. Scale consistency is fair for the placed furniture, but there is a general lack of detail."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and orthographic projection seems generally correct. Lighting quality is basic and lacks realism. Geometry could be cleaner, with some edges appearing soft or merging. Visual clarity is moderate; the dark background makes the grey walls blend in, reducing legibility. The lack of windows and exterior elements detracts from the overall composition."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing windows throughout the entire plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing many interior doors, especially for 'Utility', 'Toilet-3', and 'Toilet-4'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all exterior balcony railings."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the entire 'BALCONY' structure for Bedroom-2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the 'HOME OFFICE / MAID'S ROOM' as a distinct enclosed area; it appears merged with the 'LOBBY'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall layout and room configuration for 'TOILET-3' and 'TOILET-4' area; merged into a single, larger bathroom without the partition."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for 'TOILET-2'; it is shown opening into a wall rather than a room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced doorway for 'Utility', shifted from the kitchen access to a different wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced wall separating Kitchen and Living/Dining, it's shortened."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the main entrance door; shown as a closed wall instead of an open doorway indicated by the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to 'BEDROOM-2' (appears to be a solid wall)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'TOILET-3' and 'TOILET-4' area, significantly altered and combined."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the 'KITCHEN'; it appears wider relative to its length compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Slight proportion distortion in 'LOBBY' and 'HOME OFFICE / MAID'S ROOM' area due to merging."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior wall/structure in 'TOILET-2', not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated storage/cabinet element in 'BEDROOM-2' where a wardrobe is shown on the plan as a recessed area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan20.avif"
+}

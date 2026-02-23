@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is recognizable, but there are significant door and window placement errors. The entry portico and garage door alignment do not match the source plan. Several windows are missing or incorrectly scaled relative to the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Most rooms are present, but wall thickness varies inconsistently. The WIR (Walk-In Robe) and Ensuite partitioning is simplified or merged incorrectly compared to the detailed floor plan. The Alfresco area structural support is missing."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement generally follows the designated zones, though some scaling in the Living and Master Suite areas feels slightly oversized for the space."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality orthographic projection and clean geometry. Lighting is soft and professional, though materials are simplified (clay-style render)."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The garage entry door and main house entry are vertically misaligned compared to the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple small windows in the Laundry and Ensuite areas shown on the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "The kitchen island stools are oriented toward the sink rather than the breakfast bar overhang."
+        },
+        {
+            "code": "E4",
+            "description": "The Master Suite and Study proportions appear stretched horizontally compared to the original blueprint."
+        },
+        {
+            "code": "E6",
+            "description": "Shadow artifacts in the corners of partitioned rooms where walls meet the floor plane."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan10.png"
+}

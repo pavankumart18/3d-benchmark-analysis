@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major spatial failure in the bedroom wing; Bedroom 2 is detached and oriented horizontally instead of vertically. The garage is incorrectly placed adjacent to the bathroom/bedroom area instead of the rear. Many windows are missing, particularly in the living area where a door replaces the balcony exit."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The internal hallway structure is broken; Bedroom 2 is not connected via the central corridor as specified in the plan. The balcony is missing entirely, replaced by a standard window and side door. The linen cupboard at entry is oversized."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen cabinetry follows the general L-shape but the laundry appliances are incorrectly rendered as a sink unit. The 'Robe' in Bedroom 1 is halluncinated as a bulky kitchen-style unit."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality rendering with consistent isometric perspective, clean global illumination, and realistic materials. Visual clarity is excellent despite structural inaccuracy."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony structure at the rear of the Lounge."
+        },
+        {
+            "code": "E2",
+            "description": "Garage is misplaced adjacent to Bedroom 2 rather than standing separate or aligned with the side boundary."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom 2 rotated 90 degrees, breaking the rectangular footprint of the house."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion of the Linen closet at entry is significantly larger than indicated on the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated second door in the lounge area where a sliding door should be."
+        },
+        {
+            "code": "E2",
+            "description": "WC and Bathroom doors are missing their proper corridor orientation."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Major layout mismatches between the 2D plan and 3D. The 2D has a distinct FOYER (bottom-right) before entering Living/Dining; in 3D the entry reads as opening directly into the Living/Dining with no clear foyer enclosure (E1/E2). Kitchen-Utility-Toilet cluster on the right/top-right does not match the 2D wall breaks and door locations (E2). Bedroom window placement is incorrect (2D shows a window on the bedroom's left/exterior wall; 3D places a window on the top wall) (E2). Several door positions/orientations do not align with the 2D plan (toilet/utility/bedroom access offsets) (E2/E3). Room proportions appear distorted: Living/Dining is oversized relative to Bedroom vs the stated 10'x13' and 10'x12' relationship; Kitchen appears expanded relative to 7'6\"x8'6\" (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Adjacency is partially respected (Bedroom near Toilet; Kitchen near Utility), but the separating walls/thresholds differ from the 2D. Foyer enclosure is effectively missing (E1). Utility access appears mis-modeled (in 2D it is accessed from Kitchen; in 3D it reads as accessed via a different doorway/zone and includes an exterior-style door) (E2/E5). Window/vent openings for toilet/utility do not match the plan (E1/E2). Wall thickness looks fairly consistent, but door embedding and wall alignment around the right-side core deviate from the 2D geometry (E2)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are present (bed, sofa, dining set, basic kitchen/bath fixtures), but placement does not consistently follow the 2D: the Living/Dining layout and circulation to Bedroom/Kitchen differ, and kitchen cabinetry/counters are not represented as in plan (E2). Some scale relationships feel off due to room proportion distortion (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean isometric-style presentation with good materials and lighting. Geometry is mostly clean with readable spaces. However, camera/projection is mildly perspective rather than strictly orthographic-isometric, and some openings/partitions look simplified, reducing architectural clarity (E6)."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer enclosure/defined foyer space from the 2D plan is missing or not clearly modeled; entry appears to open directly into Living/Dining."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom window is misplaced: 2D indicates a window on the left exterior wall; 3D places the window on the top wall."
+        },
+        {
+            "code": "E2",
+            "description": "Right-side core (Kitchen/Toilet/Utility) wall alignment and room boundaries differ from the 2D plan (offset partitions and simplified exterior wall breaks)."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door placements/orientations do not match the 2D plan, notably around toilet/utility access and the bedroom entry alignment."
+        },
+        {
+            "code": "E1",
+            "description": "Toilet/utility ventilation/window openings shown in 2D are missing or not represented in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: Living/Dining appears too large relative to Bedroom; Kitchen appears enlarged compared to stated 2D dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Utility room includes an exterior-style door/element not supported by the 2D plan (hallucinated access/feature)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/projection is not strictly orthographic-isometric; mild perspective and simplification reduces plan-to-model verifiability."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan18.jpg"
+}

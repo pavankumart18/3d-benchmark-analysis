@@ -1,0 +1,58 @@
+{
+  "spatial_accuracy": {
+    "score": 9,
+    "max": 40,
+    "notes": "Major layout mismatch. The 2D plan is a 2-bed/2-toilet unit with two decks and a separate utility + foyer. The 3D render depicts a different spatial program (appears as 3 bedrooms) and does not preserve the deck/balcony geometry. Doors and windows do not align with the 2D plan’s exterior openings (notably the missing deck/sliding-door edges), and room proportions (living/dining vs bedrooms) are distorted due to the extra room(s). Errors: E1, E2, E3, E4, E5."
+  },
+  "structural_fidelity": {
+    "score": 9,
+    "max": 25,
+    "notes": "Some basic wall construction is clean and consistent, but the unit’s structural intent is not faithfully reproduced: missing both decks and the utility space, and an extra bedroom is introduced. Adjacency relationships are incorrect (rooms/baths do not match the plan’s connections to foyer/living and bed-1/bed-2). Door embeddings exist but are placed in the wrong walls relative to the 2D plan. Errors: E1, E2, E5."
+  },
+  "furniture_mapping": {
+    "score": 4,
+    "max": 10,
+    "notes": "Furniture does not map to the 2D plan’s room count and implied functions: an additional bed/bedroom is furnished (hallucinated program). Scales are generally plausible, but placement cannot be considered accurate because the underlying rooms are mis-specified. Errors: E5, E2."
+  },
+  "aesthetic_quality": {
+    "score": 18,
+    "max": 25,
+    "notes": "Visually clean and readable isometric-style render with good lighting and mostly consistent geometry. However, it is not a true plan-faithful isometric/orthographic representation of the provided 2D layout, and perspective/proportional cues do not support verification. Minor simplifications/omissions reduce clarity for architectural matching. Errors: E6 (minor), E4 (perceptual distortion vs plan)."
+  },
+  "total_score": 40,
+  "detected_errors": [
+    {
+      "code": "E5",
+      "description": "Hallucinated extra bedroom: 3D render shows three bed-equipped rooms, while the 2D plan is explicitly 2 bedrooms (BED-1 and BED-2)."
+    },
+    {
+      "code": "E1",
+      "description": "Missing DECK at top (13'9\" x 5') in 2D plan; no corresponding balcony/outdoor space in 3D."
+    },
+    {
+      "code": "E1",
+      "description": "Missing DECK at right (5'8\" x 4'5\") connected to BED-1 in 2D plan; not present in 3D."
+    },
+    {
+      "code": "E1",
+      "description": "Missing UTILITY (5' x 7'8\") adjacent to KITCHEN in 2D plan; not represented as a distinct room in 3D."
+    },
+    {
+      "code": "E2",
+      "description": "Bedroom placement mismatch: BED-1 (right side in plan) and BED-2 (left side in plan) are not preserved; the 3D bedroom arrangement does not match the 2D adjacency/positions."
+    },
+    {
+      "code": "E2",
+      "description": "Foyer/entry sequence mismatch: 2D includes a defined FOYER leading to living/dining; 3D does not clearly represent this transitional space or its boundaries."
+    },
+    {
+      "code": "E2",
+      "description": "Bathroom placement/adjacency mismatch: 2D has one common toilet near kitchen/left zone (C.TOI) and one attached to BED-1 (TOI-1). In 3D, bathroom locations/doors do not match these relationships."
+    },
+    {
+      "code": "E3",
+      "description": "Door orientation/hinge logic inconsistent with plan: multiple interior door swings/opening directions are not verifiable against the 2D and appear placed on different walls than specified."
+    },
+    {
+      "code": "E2",
+      "description": "Window/opening placement mismatch: large exterior glazing shown in 3D does not correspond to the 2D plan

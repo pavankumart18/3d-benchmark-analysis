@@ -1,0 +1,136 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are mostly correct, but significant deviations in wall alignment and room proportions reduce the score. Window and door placements are frequently incorrect or missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Many missing rooms (Nook, Study) and interior walls. Significant deviations in wall thickness and door embedding. Hallucinated elements like the large window in the Master Bathroom."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Only partial kitchen furniture is present, and its scale and placement are not fully accurate. Missing all other furniture."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera and orthographic projection appear correct. Lighting quality is good, and geometry is clean overall. Visual clarity is acceptable despite structural inaccuracies."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Nook room entirely."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Study room entirely."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WC' room in Master Bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet in 'BEDROOM #3'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet in 'BEDROOM #2'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all interior doors and walls within rooms (e.g., in Bath, Utility, Master Bedroom, Master Bath)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Optional External Door or Ext'd Closet' in Master Bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'PAN.' in Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Dining Room, Living Room, Master Bedroom, Bedroom #3, Bedroom #2."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Dining Room'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect number of windows in Kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and size of window in 'Bedroom #4'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and size of window in 'Master Bathroom'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the entry door to the 'Master Bedroom' hallway."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the door to 'Bath'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the door to 'Utility'."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in 'Covered Patio' (left side)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to 'Bedroom #3'."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to 'Bedroom #2'."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in 'Master Bedroom' and 'Master Bath'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Living Room' and 'Dining Room'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Covered Patio' (left side)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated large window in the Master Bathroom."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window in the exterior wall of the 'Living Room'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window where the kitchen 'Nook' should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior door next to the 'Nook' area instead of a wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment in the 'Hall' leading to 'Bedroom #4' and 'Utility'."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan9.png"
+}

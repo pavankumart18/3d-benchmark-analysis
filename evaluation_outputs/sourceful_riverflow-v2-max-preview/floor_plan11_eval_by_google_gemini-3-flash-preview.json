@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe deviations in layout. The kitchen/pantry/utility flow is merged improperly. The central staircase/hallway core is completely missing. Bay window (window seat) is missing on the right side."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Missing the key structural staircase and crawlspace access. Interior partition walls do not match the blueprint's complex utility room and HVAC layout. Missing the distinct indentations of the floor plan's footprint."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Kitchen cabinetry is simplified and misplaced. Utility appliances (W/D/HVAC) are ignored. Sink placement in the bathroom is roughly correct but lacks plumbing depth shown in plans."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean 3D rendering with consistent lighting and orthographic camera properties, but the fidelity to the source architectural drawing is very low."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Complete omission of the central staircase and crawlspace access core."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the structural bay window and window seat on the right-hand wall."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and pantry areas are merged into a generic open space lacking the specific partition walls."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the central hallway relative to the rooms is distorted and elongated."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated windows on the far left wall that do not exist in the provided technical drawing segment."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan11.png"
+}

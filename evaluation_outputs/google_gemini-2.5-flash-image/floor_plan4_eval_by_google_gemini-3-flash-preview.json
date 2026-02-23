@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General room placement and wall alignment are high. Penalized for window placement discrepancies between the kitchen and bedroom areas compared to the 2D reference."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Most structural elements are present. Minor point deduction for the hallway door swing orientations and the slightly simplified bathroom layout."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture mapping is exceptionally accurate and matches the floor plan's specific placement and scale for almost all items."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "The rendering is professionally executed with perfect orthographic projection, clean geometry, and consistent lighting."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Bathroom door and closet door swings do not match the intended orientation in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the kitchen area are rendered as large floor-to-ceiling glass doors which deviate from the standard window markings in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific partition detail or vanity scale adjustment in the primary bathroom compared to the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan4.jpg"
+}

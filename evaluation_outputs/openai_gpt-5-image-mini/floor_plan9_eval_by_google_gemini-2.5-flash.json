@@ -1,0 +1,168 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Nook/Covered Patio area is significantly altered. Wall alignment has numerous inaccuracies, primarily around door and window openings, and several walls are missing completely or have incorrect lengths. Door placements are largely incorrect, with many doors missing, misplaced, or having incorrect swing directions. Window placements are also frequently incorrect or missing. Room proportions are distorted in several areas, particularly the kitchen, living room, and master bedroom."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is somewhat inconsistent, though generally present. Door embedding is frequently incorrect due to missing or misplaced doors. Adjacency relationships are heavily compromised by missing walls and altered room layouts. Numerous rooms are missing, including the Master Bath, WC, Study, and 2 Car Garage. Conversely, some areas are hallucinated or incorrectly combined, such as the utility/hallway area and the external covered patio being integrated into the interior structure."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is generally inaccurate or missing. The kitchen island/counter layout is significantly different. Furniture in the living room and bedrooms does not match the implied layout of the floor plan. Scale consistency of furniture is questionable given the distorted room proportions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is acceptable. Lighting quality is decent, but some areas are shadowed. Geometry is generally clean with few distortions, focusing on a minimalistic style. Visual clarity and composition are good for the presented view."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Master Bath' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WC' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Study' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing '2 Car Garage' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Covered Patio' at the Nook area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Covered Patio' at the Bedroom #4 area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between 'Kitchen' and 'Dining Room'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'Pantry' in Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'Bath' from 'Hall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'Utility' from 'Hall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'Bedroom #2' from 'Hall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to 'Bedroom #3' from 'Hall'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sliding glass door from 'Master Bedroom' to exterior."
+        },
+        {
+            "code": "E1",
+            "description": "Numerous missing interior doors throughout the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen counter/island layout."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Dining Room' from 'Hall'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced external door near Kitchen/Nook."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to 'Master Bedroom' with direct entry from Living Room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect number of windows in 'Living Room'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect number of windows in 'Master Bedroom'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect number of windows in 'Bedroom #2'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect number of windows in 'Bedroom #3'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect number of windows in 'Bedroom #4'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in 'Dining Room'."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced double window in 'Kitchen'."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door swing for Master Bedroom door."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Kitchen' area, appearance of being smaller."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Living Room', appears narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Master Bedroom'."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Nook' area, significantly altered."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Hall' and adjacent rooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall where Covered Patio should be near Bedroom #4."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segmentation in the 'Hall' area near 'Utility' and 'Bath'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall splitting the combined 'Utility' and 'Hall' space."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window placement in Bathroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan9.png"
+}

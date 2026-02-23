@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "The general layout matches the plan, but window placements in Bedroom-3 and the Living area are incorrect. The lobby entrance depth is slightly exaggerated."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses are fairly consistent. However, several internal doors are represented as open gaps without frame definition, and the balcony railings are structurally simplified."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate relative to the plan, specifically in the living room and bedrooms. The dining table orientation is correct."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean clay-style rendering. Lighting is soft and consistent, providing high visual clarity across all zones."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Window in Bedroom-3 is centered on the wall instead of being a corner-adjacent full length as implied by the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific swing geometry for internal doors; mostly rendered as open thresholds."
+        },
+        {
+            "code": "E4",
+            "description": "The deck/balcony area at the top of the living room appears significantly shallower than the primary living space proportions would dictate."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan20.avif"
+}

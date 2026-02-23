@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 7,
+        "max": 40,
+        "notes": "The 3D layout does not match the 2D plan\u2019s overall zoning: the large Living/Dining/Kitchen block on the left and the bedroom wing on the right are not preserved. The render shows a simplified cluster of similar-sized rooms around corridors, with major plan-defining spaces absent. Door locations and openings do not correspond to the plan, and window placement appears generic rather than plan-driven. Room proportions are heavily distorted (no large living area; bedrooms/corridors appear resized/rebalanced)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Wall thickness is fairly consistent in the render, but structural fidelity to the plan is poor: multiple required rooms are missing, key adjacencies (Living\u2194Dining\u2194Balcony; Kitchen\u2194Utility; Master\u2194Dress\u2194Toilets) are not represented, and several interior partitions/corridors appear invented. Door embeddings exist but do not align to the plan\u2019s door count, position, or swing/orientation."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is minimal and does not map to the 2D plan\u2019s furnished living/dining arrangement. Beds appear placed in some rooms, but the plan\u2019s living seating group, dining table location, and kitchen fixtures are not represented. Scale looks plausible in isolation but is not tied to the plan\u2019s specific room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Camera is generally isometric-like and the geometry is clean and readable. However, it is not a faithful architectural translation (projection/scene reads more like a simplified model than a plan-accurate build). Lighting is adequate but flat; overall composition is clear though detail is sparse."
+    },
+    "total_score": 34,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Living room (large living area on left side of plan not present in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Dining area (central dining in plan not represented in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Kitchen (bottom-left kitchen in plan not present in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Utility (adjacent to kitchen in plan; not present in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Foyer/main entry sequence (plan shows foyer and entrance; 3D does not show corresponding entry/door placement)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Servant room (SER. RM. in plan not present in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing balconies (both balcony areas shown in plan are not modeled in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Master dress room (DRESS adjacent to master in plan not present in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple toilets/bathrooms from plan (plan contains several toilets; 3D shows at most one simplified bathroom cluster)."
+        },
+        {
+            "code": "E2",
+            "description": "Overall room placement mismatch: bedroom wing on right and living/kitchen block on left are not preserved; spaces are rearranged into a different configuration."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated corridor/partition network: 3D includes corridor geometry and room splits that do not correspond to the plan\u2019s wall layout."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect adjacency relationships: Master\u2194Dress\u2194Toilets and Kitchen\u2194Utility relationships from the plan are not represented in 3D."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door placement/orientation: interior door positions do not align with the plan\u2019s door locations and swings (plan-defined entries into bedrooms/toilets not matched)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement: 3D windows appear evenly distributed and do not match plan-specific openings (including balcony-side openings)."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion distortion: the plan\u2019s large living space and specific room size hierarchy are not preserved; rooms appear normalized to similar sizes."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan17.jpg"
+}

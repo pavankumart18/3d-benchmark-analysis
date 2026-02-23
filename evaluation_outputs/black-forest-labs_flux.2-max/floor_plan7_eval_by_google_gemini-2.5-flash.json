@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the wall defining the 'Entrance to the House' area in the render is significantly shorter and creates an open space not present in the floor plan. Wall alignment is inconsistent in several areas, particularly around the entrance and the staircase. Door placements are inconsistent, with some missing and others incorrectly oriented. Window placement is mostly incorrect. Room proportions are generally maintained, except for the 'Entrance to the House' area."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly around the 'Entrance to the House' area and the staircase where walls are missing or significantly altered. Door embedding is incorrect; some doors from the floor plan are missing, and others are simple openings without actual door frames. Adjacency relationships are altered due to missing walls. No missing rooms, but the 'Entrance to the House' area is structurally altered. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate, but some smaller items in the kitchen and living room are missing or misplaced. The bed in Bedroom 1 is missing a bedside table. Furniture scale is generally consistent."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection is accurate. Lighting quality is good. Geometry is mostly clean, but there are some minor distortions around wall intersections. Visual clarity and composition are good, providing a clear overview of the floor plan."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing wall separating the 'Entrance to the House' from the outside, and the wall separating it from the Living Room is significantly shortened."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for 'Entrance to the House'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Bedroom 1."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Toilet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for Wash Area."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment is inaccurate for the external wall of the 'Entrance to the House' area, making it an open space."
+        },
+        {
+            "code": "E2",
+            "description": "Windows are misplaced in the Dining area, Bedroom 1, and Living Room, and on the 'Entrance to the House' exterior wall."
+        },
+        {
+            "code": "E2",
+            "description": "Wall defining the 'Entrance to the House' area is moved and shortened."
+        },
+        {
+            "code": "E3",
+            "description": "The door between the Kitchen and the Dining room is present but lacks an actual door model, appearing as an open archway."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the 'Entrance to the House' area due to missing/shortened walls."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness, particularly in the staircase area and around the 'Entrance to the House'."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan7.jpg"
+}

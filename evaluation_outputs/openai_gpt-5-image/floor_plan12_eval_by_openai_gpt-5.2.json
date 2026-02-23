@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 2,
+        "max": 40,
+        "notes": "The 3D render does not match the 2D plan\u2019s room layout (Activity + Balcony + Beds 2/3/4 + Bath + WC + Linen + Robes + stair recess). Overall room placement, wall layout, and circulation differ entirely. Door and window locations/orientations shown in 3D do not correspond to the plan. Room proportions from the labeled dimensions in the plan are not preserved."
+    },
+    "structural_fidelity": {
+        "score": 1,
+        "max": 25,
+        "notes": "Major structural mismatch: most plan rooms are absent and several new spaces appear. Adjacency relationships (e.g., bath/WC cluster near Bed 4, corridor serving bedrooms, balcony off Activity) are not represented. Wall topology and thickness logic do not follow the plan; the 3D model effectively depicts a different unit/level."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture in 3D (sofas, dining table, kitchen island/benches) does not correspond to the plan\u2019s bedroom and activity/balcony furnishing indications. Bed layouts for Beds 2/3/4 are not represented; scale cannot be verified against the plan due to mismatched program."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Render is visually clean with coherent materials and lighting. Camera is broadly isometric-like, though not strictly orthographic. Geometry is mostly clean, but architectural fidelity to the provided plan is poor (evaluated separately in other sections)."
+    },
+    "total_score": 19,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Activity room as defined in plan (large upper-left space with stair recess connection)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Balcony (plan shows balcony off Activity with balustrade and tiled area)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bed 2 room (plan bottom-center/left bedroom with window and door from hall)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bed 3 room (plan bottom-right bedroom with robe)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bed 4 room (plan top-right bedroom with robe and adjacency to WC/Bath zone)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing separate Bath and separate WC rooms (plan has two distinct wet areas)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Linen closet shown between hall and Bed 2 in plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Robe/wardrobe elements for Beds 3 and 4 as drawn in plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing stair/recess area and indicated stair direction/landing geometry present in plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated garage/car space on the right side of the 3D render (not present in the 2D plan)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated open-plan living/dining/kitchen arrangement (sofas, dining table, kitchen island) which is not part of the provided floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Windows are placed on different walls and in different counts/configurations than the plan (plan has specific bedroom/activity/balcony openings; 3D shows large glazing inconsistent with these)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements and swings do not match the plan\u2019s corridor/bedroom/bath/WC door locations; 3D shows different internal partitioning and entry points."
+        },
+        {
+            "code": "E4",
+            "description": "Overall building footprint and room proportions do not align with the plan\u2019s labeled dimensions and stepped perimeter; 3D massing represents a different outline."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan12.png"
+}

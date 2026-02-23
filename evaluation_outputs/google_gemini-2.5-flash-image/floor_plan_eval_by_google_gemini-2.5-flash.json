@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Living room window proportions are distorted (E4). The balcony from the 2D plan is entirely missing (E1). The wall separating the kitchen from the dining area is misplaced and forms an 'L' shape in the render (E2). The wall between 'Rachel's Bedroom' and 'Monica's Bedroom' is significantly thicker in the render, distorting room proportions (E4). The door to 'Monica's Bedroom' is narrower and incorrectly oriented (E3, E4). The door to 'Rachel's Bedroom' is narrower and incorrectly oriented (E3, E4). The external balcony window in the living room is missing its sliding door feature (E1)."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Balcony is entirely missing from the 3D render (E1). The wall thickness between the two bedrooms is inconsistent and much thicker in the render (E4). A portion of the wall between the kitchen and dining area is missing/misplaced, creating an 'L' shaped counter (E1, E2). Doors are improperly embedded; they appear as simple openings, not flush with the walls (E6)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "While most furniture is present, scale and placement are not always accurate. For example, the dining table seats 6 in 2D, but 4 very large chairs in 3D (E4). The sofa in the living room appears larger in 3D, and its configuration is slightly different from the 2D plan (E4). Bedroom furniture layouts are similar but not perfectly matched."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is fair, but the angle doesn't fully capture the entire layout as clearly as it could. Orthographic projection seems mostly accurate. Lighting is flat and lacks dynamic range. Geometry is clean, but the overall composition feels somewhat bland due to the uniform lighting and material choices."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Living Room window proportions distorted."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony missing."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/Dining area wall misplaced, creating an 'L' shaped counter."
+        },
+        {
+            "code": "E4",
+            "description": "Wall between bedrooms is thicker, distorting room proportions."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Monica's Bedroom incorrectly oriented."
+        },
+        {
+            "code": "E4",
+            "description": "Door to Monica's Bedroom is narrower."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Rachel's Bedroom incorrectly oriented."
+        },
+        {
+            "code": "E4",
+            "description": "Door to Rachel's Bedroom is narrower."
+        },
+        {
+            "code": "E1",
+            "description": "Sliding door feature of the external living room window is missing."
+        },
+        {
+            "code": "E6",
+            "description": "Doors appear as simple openings, not embedded correctly within walls."
+        },
+        {
+            "code": "E4",
+            "description": "Dining table chairs are disproportionate in size and count compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Living room sofa scale and configuration differ from the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan.jpg"
+}

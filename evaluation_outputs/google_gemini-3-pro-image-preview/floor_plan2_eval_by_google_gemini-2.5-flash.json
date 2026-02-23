@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the front-left room with twin beds is significantly smaller than in the floor plan. Wall alignment for the exterior is generally good, but interior walls show discrepancies, especially around the bathroom and the front-left bedroom. Door placement and orientation are incorrect for several doors; the bathroom door opens incorrectly, the bedroom door on the right is missing, and the front-left bedroom door is both misplaced and has incorrect swing. Window placement is generally missing in the render."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is not consistent across all walls; some interior walls appear thinner than exterior ones. Door embedding is mostly correct where doors exist, but some are missing. Adjacency relationships are broadly maintained but distorted by room proportion changes. One room (the small one next to the kitchen with a table) is missing a door entrance from the main living area. The render also introduces an additional wall/structure in the kitchen area adjacent to the dining table."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in several rooms. In the larger right bedroom, the desk and bed positions are swapped. In the front-left bedroom, the beds are placed differently, and a significant amount of furniture from the floor plan (e.g., wardrobe, drawers) is missing. The living room furniture is arranged differently. The kitchen appliances are not accurately mapped; the washer/dryer are missing, and the sink area is simplified. The bathroom also has simplified and misplaced fixtures. Scale consistency for furniture is questionable given the room proportion distortions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good, providing a clear top-down view. Orthographic projection appears generally accurate. Lighting quality is decent, providing clear visibility of all areas. Geometry is mostly clean with no obvious distortions. Visual clarity and composition are good, allowing for easy identification of rooms and furniture."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Front-left bedroom (with twin beds) is significantly reduced in size/proportion in the 3D render compared to the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door's swing direction is incorrect."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom door from the main living area to the right bedroom is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Front-left bedroom door is misplaced and has incorrect swing direction."
+        },
+        {
+            "code": "E1",
+            "description": "All windows present in the floor plan are missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing doorway/entrance into the small room next to the kitchen/dining area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall/structure in the kitchen area, adjacent to the dining table."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture arrangement in the right bedroom (desk and bed positions swapped) is incorrect."
+        },
+        {
+            "code": "E1",
+            "description": "Significant amount of furniture (wardrobes, drawers) missing from the front-left bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Living room furniture arrangement differs from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Washer/dryer appliances are missing from the kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom fixtures are simplified and misplaced compared to the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing outdoor patio/deck area implied by the dashed line in the floor plan, or at least a door leading to it."
+        },
+        {
+            "code": "E2",
+            "description": "Sink area in the kitchen is simplified and does not match the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan2.png"
+}

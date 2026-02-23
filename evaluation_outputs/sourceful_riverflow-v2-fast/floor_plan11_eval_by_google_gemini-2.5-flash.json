@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Severe discrepancies in room placement and proportions, and significant incorrect door/window placements. The kitchen, utility room, and central hall layout are distorted. The dining room has a completely different shape. The WC is missing. The breakfast nook is missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Many missing rooms (WC, breakfast nook, pantry, alcove). Hallucinated wall in dining room area. Incorrect adjacency relationships throughout. Wall thickness consistency is poor in many areas."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement accuracy is extremely low due to distorted room layouts. Scale consistency is difficult to assess accurately due to significant architectural deviations, but appears poor in some areas like the kitchen island."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection appear reasonable. Lighting quality is basic. Geometry is generally clean but the underlying architectural distortions severely impact overall clarity and composition related to the original plan."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing WC room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing breakfast nook."
+        },
+        {
+            "code": "E1",
+            "description": "Missing pantry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing alcove."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced refrigerator."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of stairs. Stairs are also missing the landing."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and type for the Utility Room."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in the Kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement and proportion in the Dining Room. Missing the entire window seat area."
+        },
+        {
+            "code": "E2",
+            "description": "Missing walls and incorrect layout for the Central Hall and WC area."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for the Central Hall entry to staircase area."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in the Kitchen, Utility Room, Central Hall, and Dining Room."
+        },
+        {
+            "code": "E4",
+            "description": "Dining room shape and size is dramatically different from the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall dividing the kitchen and dining areas where a doorway should exist. Hallucinated wall and incorrect shape of the dining room."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall at the entrance to the 'Breakfast Nook' area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan11.png"
+}

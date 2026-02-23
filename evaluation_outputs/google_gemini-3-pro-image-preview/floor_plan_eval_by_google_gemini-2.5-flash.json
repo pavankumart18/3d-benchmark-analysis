@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the bathroom near Monica's bedroom has shifted proportions. Wall alignments show inaccuracies, particularly around the kitchen and hallway. Doors are frequently misplaced or incorrectly oriented, for example, the main entrance door and the door to Monica's bedroom. Window placement is generally preserved, but the large living room window has distorted proportions. Room proportions are not perfectly preserved, especially in the bathrooms and the kitchen area, leading to a cramped appearance in some sections."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas, appearing thicker in some sections and thinner in others. Door embedding is incorrect for almost all doors; they are often recessed or not properly integrated into the wall. Adjacency relationships are mostly correct, but the hallway leading to the bedrooms and bathrooms appears narrower. No missing rooms are detected, but some areas, like the closet near the main entrance, are greatly simplified. No hallucinated rooms are present."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor; many items are moved or rotated. For example, the dining table is shifted, the couch near the window is scaled incorrectly, and bedroom furniture layouts are significantly altered. Furniture scale consistency is an issue, with some items appearing oversized or undersized relative to the room."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and orthographic projection is mostly accurate. Lighting quality is too uniform, lacking depth and realistic shadows. The geometry is generally clean with few major distortions, but some surfaces appear unnaturally flat. Visual clarity is good, but the composition feels a bit sterile due to the flat lighting and simplified textures."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Main entrance door is misplaced and incorrectly oriented in the hallway."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Monica's bedroom is incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Rachel's bedroom is misplaced."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the large living room window are distorted, appearing shorter and wider."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom near Monica's bedroom shows significant proportion distortion; it appears wider and shorter."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen proportions are slightly distorted, leading to a narrower walkway."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table is shifted from its original position."
+        },
+        {
+            "code": "E4",
+            "description": "Couch near the window in the living room has distorted proportions; it appears shorter and thicker."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom furniture layouts are significantly altered from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'COAT' closet near the entrance is present but greatly simplified, losing its internal structure (shelves in the original)."
+        },
+        {
+            "code": "E1",
+            "description": "The 'CLOSET' near the dining area is simplified and lacks detail."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness throughout the model."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect embedding of most doors, they are not flush with the walls."
+        },
+        {
+            "code": "E4",
+            "description": "Hallway leading to bedrooms appears to have narrower proportions than in the blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom doors are misplaced or incorrectly sized relative to the blueprint."
+        },
+        {
+            "code": "E1",
+            "description": "Missing detailed shelving/cabinets inside the closet next to Monica's bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing detailed shelving/cabinets inside the closet next to Rachel's bedroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan.jpg"
+}

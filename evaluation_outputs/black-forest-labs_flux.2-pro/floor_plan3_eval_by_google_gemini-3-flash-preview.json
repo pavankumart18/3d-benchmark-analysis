@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 8,
+        "max": 40,
+        "notes": "Severe structural failure. The bathroom, which should be a central island, has been moved to the rear wall. Door and window counts do not match the floor plan. The fireplace/chimney feature from the living room is absent."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "The internal wall configuration is fundamentally different from the source. The stairs have been rendered as a central open element rather than a contained side-wall feature. Hallucinated dividing walls added in the living area."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Kitchen cabinetry and appliances are missing or replaced with generic furniture. Bedroom furniture (bed) is hallucinated as there is no designated bedroom in the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent rendering quality with clean isometric perspective, soft lighting, and professional materials. Unfortunately, it fails as an architectural visualization due to inaccuracy."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom central island moved to the back corner wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom furniture and internal partition walls not present in 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen fixtures (stove, sink counter) and living room fireplace."
+        },
+        {
+            "code": "E4",
+            "description": "Staircase orientation and proportions do not match the designated 2D dimensions."
+        },
+        {
+            "code": "E3",
+            "description": "Entrance door and side windows incorrectly aligned relative to the internal layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan3.jpg"
+}

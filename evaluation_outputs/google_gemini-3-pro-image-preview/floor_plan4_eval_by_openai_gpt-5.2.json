@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatch: the 2D plan\u2019s bottom-left zone is Laundry + Closet, but the 3D render places the kitchen cabinetry/appliances there (E2/E5). The kitchen/dining area footprint is expanded/shifted compared to the plan, breaking the intended room zoning (E2). Hall/circulation geometry is altered with extra/angled partitions not present in the plan (E5) and several openings/door locations do not match the plan\u2019s wall breaks (E2/E3). Window distribution on the right/top facades does not follow the plan\u2019s specific placements/counts (E2). Room proportions (notably hall vs. service rooms) appear distorted relative to labeled areas (E4)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Adjacency relationships are violated: Laundry should adjoin hall and closet at bottom-left, but that area is used as kitchen (E2), implying Laundry is missing/relocated without plan support (E1). Additional small rooms/closet-like partitions near the entry/hall are introduced (E5). Door embedding/locations are inconsistent with the plan (multiple interior doors appear repositioned) (E2/E3). Wall thickness looks broadly consistent but the internal partitioning does not match the 2D wall layout (E2)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some high-level furniture intent matches (dining table in kitchen/dining zone; living seating cluster; two bedrooms with bed/desk). However, because the kitchen/service-room locations are incorrect, furniture/appliance mapping to the correct rooms is unreliable (E2). Several items appear generic/hallucinated (e.g., oversized wardrobe blocks and living glazing context) and scale feels inconsistent in the tight service-core areas (E5/E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric with good lighting and generally tidy geometry. Camera is consistent with an isometric-style view, though not strictly orthographic. Minor visual ambiguity in the service-core (bath/closets) and some window/door modeling looks stylized rather than plan-faithful."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen is placed/expanded into the bottom-left area where the 2D plan shows Laundry + Closet."
+        },
+        {
+            "code": "E1",
+            "description": "Laundry room (as a distinct labeled space with correct location) is missing or not identifiable in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Extra interior partitions/small rooms near the entry/hall appear that are not present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Hall and internal wall alignments differ from the 2D plan, changing circulation and room boundaries."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count on the right/top exterior walls does not match the specific window locations in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior doors/openings show different positions and/or swing/orientation compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: hall/service-core areas appear oversized/reshaped relative to the plan\u2019s labeled room sizes and outlines."
+        },
+        {
+            "code": "E5",
+            "description": "Large sliding/glazed door elements are introduced on the left side that are not clearly indicated as such in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan4.jpg"
+}

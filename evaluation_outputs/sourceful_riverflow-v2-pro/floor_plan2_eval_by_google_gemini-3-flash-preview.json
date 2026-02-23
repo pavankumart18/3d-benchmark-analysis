@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General wall alignment and room placement are strong. However, several door orientations are reversed compared to the plan (E3), and the window in the bottom kitchen area is misplaced horizontally (E2)."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Wall thickness is consistent and all rooms are present. The primary issue is door embedding; the kitchen/living area door is represented but lacks the proper swing clearance shown in the 2D blueprint (E3)."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture mapping is exceptionally accurate in terms of placement and count. There is a slight scale distortion in the L-shaped sofa versus the floor plan's footprint (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is soft and clear, geometry is clean. The orthographic projection is very well handled."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Bedroom and bathroom door swing directions are mirrored or incorrect compared to the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The window in the master bedroom (right) is placed on the side wall rather than the top wall as indicated in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The L-shaped sofa and the small armchair in the living room have slightly altered proportions relative to the wall lengths."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan2.png"
+}

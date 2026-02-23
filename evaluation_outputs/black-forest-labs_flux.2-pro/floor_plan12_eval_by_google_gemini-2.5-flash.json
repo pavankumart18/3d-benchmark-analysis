@@ -1,0 +1,112 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but wall alignment has minor deviations. Door and window placements have several inaccuracies."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in some areas. There are missing windows and incorrect door embeddings. Adjacency relationships are mostly correct. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement has inaccuracies and some items are missing. Scale consistency is fair."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera and orthographic projection appear correct. Lighting is acceptable. Geometry has some minor distortions, and visual clarity is slightly compromised by missing elements."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The wall separating 'ACTIVITY' from the staircase area is misaligned; in the 2D plan, it extends further left."
+        },
+        {
+            "code": "E1",
+            "description": "The 'RECESS' area next to the stairs in the 2D plan is represented as a solid wall in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "The '13C HIGH CAPPED WALL' detail in the 2D plan is missing a cap in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "The door to 'BATH' is misplaced and incorrectly sized; it is a single door in the 3D render, but a wider, recessed opening in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The door to 'WC' is misplaced; it is further right in the 3D render than in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "The window in 'BED 4' is missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "The door to 'BED 4' is misplaced relative to the external wall."
+        },
+        {
+            "code": "E1",
+            "description": "The 'A/C' unit shown in the 2D plan near 'WC' and 'BED 4' is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "The 'ROBE' in 'BED 4' is missing the bifold/sliding doors indicated in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "One window in 'BED 3' is missing. Only one is present in 3D, two in 2D."
+        },
+        {
+            "code": "E1",
+            "description": "The 'ROBE' in 'BED 3' is missing the bifold/sliding doors indicated in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'A/C' unit shown in the 2D plan near 'BED 3' and 'BED 2' is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "The 'LINEN' cupboard near 'BED 2' is missing its doors/recessed opening as shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "The window in 'BED 2' is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "The 'ROBE' in 'BED 2' is missing the bifold/sliding doors indicated in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "The 'BALUSTRADE' on the 'BALCONY' is shown as a solid wall in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "The 'WALL TO 21C AFL' detail indicated on the 2D plan is simplified to a regular wall in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions appear slightly distorted, e.g., 'ACTIVITY' room feels wider in 3D than suggested by the 2D dimensions, or 'BED 2' might be slightly elongated."
+        },
+        {
+            "code": "E2",
+            "description": "The external wall thickness appears inconsistent, particularly around the recessed balcony area."
+        },
+        {
+            "code": "E1",
+            "description": "The internal circular seating element in 'ACTIVITY' is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom fixtures (toilet, tub) are slightly misplaced within their respective rooms."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan12.png"
+}

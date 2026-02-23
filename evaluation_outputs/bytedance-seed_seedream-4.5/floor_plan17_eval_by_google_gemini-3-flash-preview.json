@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is maintained. Major windows on the bottom and side exterior walls are included despite not being fully detailed in the 2D plan. Door swing orientations are largely ignored in the 3D render, typically appearing as simple wall gaps."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "All rooms from the 2D plan (M. Bed Rm, Bed 2, 3, 4, Servant Rm, etc.) are present and correctly adjacent. Door thicknesses and wall gaps are slightly inconsistent."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement matches the schematic closely, including sofa clusters and table orientations. Scale is consistent with room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean lighting. Text labels are somewhat hallucinated/garbled (e.g., 'FOYER' becomes 'FOLER'), though they match positions."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Door swing indicators from the 2D plan are missing or improperly represented as simple gaps."
+        },
+        {
+            "code": "E6",
+            "description": "Text labels throughout the render contain typographical hallucinations (e.g., 'MICHEN' for 'KITCHEN')."
+        },
+        {
+            "code": "E2",
+            "description": "The dividing wall in the master bathroom area differs slightly in alignment compared to the original dress/toilet schematic."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan17.jpg"
+}

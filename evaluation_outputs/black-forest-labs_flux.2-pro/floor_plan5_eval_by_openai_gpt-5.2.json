@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall footprint (main rectangle + left and right protruding sunroom/terrace-like spaces) is broadly similar, but several interior partitions do not align to the 2D plan. The central living/dining area is oversized relative to adjacent rooms (E4). Bathroom/utility partitions near the top-center/right do not match the 2D wall layout cleanly (E2). Multiple interior doors are not located/oriented as in plan (notably bedroom/bath access off the central corridor and the living-to-kitchen transition) (E2/E3). Window runs are simplified and do not consistently match the plan\u2019s specific openings on each fa\u00e7ade (E2/E1)."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Wall thickness appears fairly consistent, but door integration is inconsistent (some openings show incorrect swing/orientation and do not correspond to the plan\u2019s hinge side) (E3). Adjacencies are mostly preserved (bedrooms grouped on right, kitchen on lower-left, central living/dining), yet smaller service spaces shown in 2D (closet/utility-like subareas and at least one compact wet-area partitioning) are simplified/merged, effectively missing distinct rooms/segments from the 2D plan (E1). Some interior segmentation appears added/altered (extra/overextended corridor-like span with long built-in element not clearly present in 2D) (E5)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture zones are roughly mapped (sofas in living, dining table central, beds in bedrooms, kitchen counter/island concept present), but several pieces are not placed as indicated in the 2D plan (E2), and some scales feel inconsistent with room sizes (notably door widths vs circulation and oversized central space relative to furniture) (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric-style view is clear and readable, with generally clean geometry. However, the projection is not strictly orthographic/isometric (noticeable perspective) (E6). Lighting is serviceable but flat. Door-swing arcs appear as prominent floor graphics and read as rendering/overlay artifacts rather than true architectural depiction (E6)."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Central living/dining area proportions are distorted (oversized) compared to adjacent rooms as dimensioned/implied in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Top-center/top-right service core (bath/utility partitions) wall layout does not align with the 2D plan; partitions are shifted/simplified."
+        },
+        {
+            "code": "E2",
+            "description": "Several interior door locations do not match the 2D plan (notably doors off the central corridor to bedrooms/bath and the living-to-kitchen transition)."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/hinge orientation is inconsistent with the 2D plan in multiple locations (swing direction/hinge side appears reversed or arbitrary)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is overly generalized; multiple fa\u00e7ade windows do not correspond to the specific window runs/openings shown on the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Some smaller distinct spaces shown in the 2D plan (closet/utility-like segments and/or compact wet-area subdivisions) are not represented as separate rooms in the 3D model."
+        },
+        {
+            "code": "E5",
+            "description": "An extended corridor/built-in-like element (long internal strip with furniture/cabinet) appears that is not clearly defined as such in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Prominent door-swing arcs rendered on floors read as overlay artifacts and reduce architectural clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan5.jpg"
+}

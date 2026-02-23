@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major deviations in window and door placement. The balcony/closet area is missing. The main entry door is omitted. Window count and locations do not match the blueprint (e.g., a window appears in the bedroom where none exists in the plan, while the large living room windows are reduced to a single small frame)."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Missing several interior partitions and the secondary bathroom. The kitchen layout is simplified and loses its 'U' shape for a 'Galley' style. Wall intersections are simplified, losing the specific indentations of the original floor plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is generic and does not match the orientation of the plan. The dining table has 4 chairs instead of 6. The sofa orientation is rotated 90 degrees relative to the TV/Fireplace wall in the plan. Scale is inconsistent with room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good lighting and clean orthographic projection. The model is visually pleasing and high-clarity, though it fails as an accurate representation of the specific blueprint provided."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing outdoor closet/balcony area and secondary bathroom near the master bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen island/counter is misplaced and simplified; dining table shifted."
+        },
+        {
+            "code": "E3",
+            "description": "Living room sofa and rug rotated 90 degrees away from the window wall."
+        },
+        {
+            "code": "E4",
+            "description": "Living room volume is shrunk relative to the bedrooms; kitchen appears oversized."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window in the bottom-left bedroom not present on the blueprint."
+        },
+        {
+            "code": "E6",
+            "description": "Wall gaps where doors should be; lack of actual door leaves/frames."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan.jpg"
+}

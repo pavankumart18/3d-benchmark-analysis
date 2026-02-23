@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the 'Wash Area' and 'Toilet' are incorrectly combined and arranged. Wall alignment is inconsistent, with many walls appearing thinner or thicker than represented in the floor plan. Door placements are largely incorrect, and orientations are wrong for several. Window placements are not accurately preserved, with sizes and locations deviating. Room proportions are distorted, particularly in the 'Bedroom 1' and 'Dining' areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout the render. Door embedding varies, with some doors not properly integrated into walls. Adjacency relationships are mostly maintained, but the 'Wash Area' and 'Toilet' form a single room in the render. No rooms are explicitly missing, but the 'Wash Area' and 'Toilet' separation is lost. No hallucinated rooms, but the combined bathroom space is an alteration."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate with the exception of the Dining room table, which has 6 chairs in the render instead of 8 in the floor plan. Furniture scale is mostly consistent, but the 'Living Room' furniture appears more compact than the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection accuracy are very good. Lighting quality is acceptable, providing clear visibility. Geometry is clean with no significant distortions. Visual clarity and composition are good."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for Bedroom 1, Wash Area/Toilet, and the main entrance."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation for Bedroom 1, Wash Area/Toilet, and the main entrance."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in Bedroom 1 (appears wider), Dining (appears wider), and living room (appears smaller and more compact). Combined Wash Area and Toilet. Window sizes and locations in Dining, Bedroom 1, and Kitchen are distorted."
+        },
+        {
+            "code": "E1",
+            "description": "Missing separate 'Wash Area' and 'Toilet'; they are combined into one room in the render."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan7.jpg"
+}

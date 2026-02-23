@@ -1,0 +1,38 @@
+{
+  "spatial_accuracy": {
+    "score": 23,
+    "max": 40,
+    "notes": "Overall apartment zoning is recognizable (living/dining/kitchen at top, bedrooms bottom left/right, baths left/center). However several plan-defined rectilinear walls are modeled as curved/arched transitions, shifting wall alignment and circulation geometry (E2/E4). Multiple plan doors are missing or replaced by open arches, so door locations/orientations do not reliably match the 2D swings (E1/E3). Window layout is only partially preserved: the large living-room window appears correct, but at least one bedroom window placement is inconsistent/missing compared to the plan (notably Rachel’s bedroom bottom-wall window) (E1/E2). Some room proportions (hall widths, entry/foyer shape) appear distorted versus the plan’s tighter, orthogonal corridor system (E4)."
+  },
+  "structural_fidelity": {
+    "score": 17,
+    "max": 25,
+    "notes": "Wall thickness is generally consistent and the main adjacency graph is mostly intact (kitchen-dining-living continuity; bedrooms off the central hall; bathrooms clustered left/center). Structural fidelity drops due to widespread door embedding omissions (doors rendered as open portals rather than inserted leaves/frames at the plan’s door locations) (E1). Closet/hall storage is not faithfully built: the plan’s long hall closet/closet runs read as a freestanding divider element in the open area rather than embedded along the corridor wall line (E2). Additionally, exterior cutouts with plants read as balcony/terrace-like spaces not indicated in the 2D plan (E5)."
+  },
+  "furniture_mapping": {
+    "score": 6,
+    "max": 10,
+    "notes": "Key furniture groups generally match the intended rooms (living seating group, dining table near kitchen, beds in both bedrooms). Exact placement relative to walls/openings differs from the 2D layout due to shifted wall/door geometry, and some items (e.g., central divider/console) do not correspond cleanly to plan fixtures (E2). Scale appears broadly plausible but is impacted by corridor/room proportion changes (E4)."
+  },
+  "aesthetic_quality": {
+    "score": 19,
+    "max": 25,
+    "notes": "Isometric camera is coherent and readable. Lighting is clean and soft, with minimal noise. Geometry is mostly clean, but repeated curved openings/rounded wall transitions reduce the impression of plan-accurate orthographic translation. Overall composition is clear, though fidelity issues (missing doors, extra exterior alcoves) reduce architectural legibility."
+  },
+  "total_score": 65,
+  "detected_errors": [
+    {
+      "code": "E1",
+      "description": "Multiple interior doors shown in the 2D plan (bedroom/bath/closet and main entry) are missing as modeled door elements; many are replaced by open arched portals."
+    },
+    {
+      "code": "E3",
+      "description": "Door orientation/swing logic from the 2D plan is not followed (openings do not reflect hinged swing directions; e.g., corridor/room connections read as non-door arches)."
+    },
+    {
+      "code": "E2",
+      "description": "Hall/closet storage alignment differs: the plan’s embedded closet run along the corridor is represented as a freestanding divider-like element in the open area, shifting corridor boundaries."
+    },
+    {
+      "code": "E1",
+      "description": "Rachel’s bedroom window on the exterior wall (

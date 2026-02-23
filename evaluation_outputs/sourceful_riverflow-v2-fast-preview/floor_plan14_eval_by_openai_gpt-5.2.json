@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room zoning roughly matches (Bed-2 left, Living/Dining center, Bed-1 right, Kitchen bottom-left, decks at top and top-right), but several plan-defining boundaries are altered. The foyer/entry pocket shown in 2D (with a defined foyer zone) is not clearly formed in 3D, reading as a more open direct entry into living. Multiple door locations/orientations from the 2D plan are not represented (render uses open portals), making door placement verification largely incorrect. Window/opening runs at decks/bedrooms are simplified and do not match the segmented window placement shown in 2D. Some proportional drift is visible: circulation/foyer and the kitchen/utility block proportions do not preserve the 2D footprint precisely."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Key adjacency relationships are mostly preserved (kitchen next to living, toilets near bedrooms/circulation), but several structural cues from the 2D plan are lost: door embedding is largely missing, and at least one partitioning condition around the foyer/corridor appears removed or shifted. Wall thickness appears visually consistent in the render but does not clearly follow the heavier structural wall pattern from the 2D drawing. Utility/shaft/service edges at the lower-left read ambiguous in 3D (geometry/voids do not clearly match the utility enclosure shown in 2D). No clearly new rooms are added, but multiple openings are effectively hallucinated as open passages due to missing doors."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living room sofa/TV zone and dining table location are broadly consistent with the 2D intent, and both bedrooms contain beds placed in plausible matching positions. However, several items differ from the 2D layout (extra lounge chair/side tables and altered kitchen layout details), and exact placement relative to walls/openings does not match precisely. Furniture scaling is generally coherent, but the open-plan change around entry/living affects perceived scale and spacing."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clean and readable with decent lighting and materials. Camera is more top-down perspective than a strict isometric/orthographic match to plan conventions. Geometry is mostly clean, but some boundary edges/openings are simplified, which reduces plan-faithful clarity."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Foyer/entry zone shown in the 2D plan is not spatially preserved in 3D; entry reads as a more open direct connection into Living/Dining with altered partitioning."
+        },
+        {
+            "code": "E1",
+            "description": "Door elements (leaves/swings) are largely missing in the 3D render, preventing correct representation of door placement and orientation per the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Several doorway positions appear widened/treated as open portals versus the narrower, explicitly located doors in the 2D plan (notably around the corridor/toilet/bedroom interfaces)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation (swing direction) for bedrooms/toilets as specified in 2D is not respected/represented in 3D (doors absent or implied incorrectly)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement along the decks/bedroom exterior walls is simplified; the segmented window runs indicated in 2D are not matched one-to-one in 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the entry/circulation and kitchen/utility block deviate from the 2D footprint, affecting relative room sizes and corridor widths."
+        },
+        {
+            "code": "E2",
+            "description": "Utility enclosure at the bottom-left is ambiguous in 3D (reads partially as a void/open area), not clearly matching the enclosed utility room shown in 2D."
+        },
+        {
+            "code": "E5",
+            "description": "Additional furniture/decor elements and some kitchen detailing appear not specified in the 2D plan (minor hallucinated interior elements)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan14.webp"
+}

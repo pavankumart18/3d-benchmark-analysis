@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "notes": "Overall layout roughly follows the plan (bedrooms at top, open kitchen/living center-right, garage bottom-right, master zone bottom-left), but several spaces are not placed/defined as in the 2D plan. Activity vs living zoning is blurred: the 3D shows a large open living area and a smaller TV nook, but the plan has a distinct ACTIVITY room centered above KITCHEN and a separate large LIVING to the right. The PANTRY is not shown as a separate enclosed room as per plan. Door locations/swing directions are frequently inconsistent or simplified into open passages (notably bedrooms-to-hall, ensuite/WIR/WC cluster, and entry/study). Windows shown in the 2D (many exterior wall segments) are largely absent or not placed to match; the 3D reads as mostly windowless exterior walls. Proportions appear distorted: garage and central open area read oversized relative to bedrooms/theatre compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent in the render, but fidelity to the plan\u2019s partitioning is reduced: several planned enclosed/service spaces are merged or omitted (PANTRY; master-side WC/WIR definition is unclear). Adjacency is partially correct (beds near bath/laundry; alfresco adjacent to living/activity; garage adjacent to entry zone), but the master suite sublayout (ENSUITE + separate WC + WIR) does not match clearly. No strong evidence of an added (hallucinated) extra room, but multiple internal walls/door embeds are simplified, changing circulation compared to the plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture types generally align (beds in bedrooms, sofas/TV in living/theatre, dining tables in living and alfresco), but mapping to specific labeled rooms is inconsistent due to missing/merged rooms (e.g., pantry not represented; activity vs living furniture zoning ambiguous). Scale feels off in places (garage and open living zone oversized relative to bedroom furnishings)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric/top-down presentation with decent lighting and generally clean geometry. However, it is more a stylized perspective/isometric render than an orthographic-accurate architectural isometric: openings/windows are under-modeled, and some wall junctions/recesses from the plan are not represented, reducing technical clarity."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "PANTRY (enclosed room between kitchen and adjacent spaces in the 2D plan) is missing/merged into the kitchen cabinetry."
+        },
+        {
+            "code": "E1",
+            "description": "Master suite cluster is incomplete/unclear: separate WC and/or WIR adjacent to ENSUITE (as shown in 2D) is not distinctly represented."
+        },
+        {
+            "code": "E2",
+            "description": "ACTIVITY room is not clearly placed/defined as a separate room above the kitchen; its boundaries appear merged into the main open living zone."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door placements and swing orientations do not match the 2D plan (bedroom-to-hall doors; ensuite/WIR/WC doors; entry/study interfaces), with several rendered as open passages."
+        },
+        {
+            "code": "E2",
+            "description": "THEATRE room enclosure/shape is inconsistent with the plan (plan shows a more defined rectangular room; render reads as a larger/softer lounge-like space)."
+        },
+        {
+            "code": "E2",
+            "description": "ALFRESCO perimeter and openings do not match the plan\u2019s exterior wall alignment/recess conditions; the rendered outdoor area appears more open/shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Windows are largely missing or not placed to match the 2D plan\u2019s exterior window locations across bedrooms, living, theatre, and master areas."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: garage and central open living circulation area appear oversized relative to bedroom and service-room footprints compared to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan10.png"
+}

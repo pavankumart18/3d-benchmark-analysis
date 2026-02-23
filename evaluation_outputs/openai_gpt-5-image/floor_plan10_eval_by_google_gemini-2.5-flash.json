@@ -1,0 +1,140 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is generally correct but several rooms have incorrect proportions. Wall alignments show significant deviations, particularly in the kitchen/living/dining area and the master suite. Many doors are missing or incorrectly placed/oriented, and window placements are frequently inaccurate."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout, with some walls appearing thicker than others without justification from the floor plan. A significant number of doors are missing or incorrectly embedded. Adjacency relationships are mostly correct for existing rooms, but the 'Pantry' is missing. Several rooms' internal wall structures are incorrect or missing."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate in almost all rooms. Scale consistency is poor for many furniture items, with some appearing oversized or undersized relative to the room and other objects."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and the projection appears orthographic. Lighting is flat and lacks detail. Geometry is generally clean with few distortions. Visual clarity is good, but the composition is basic."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Pantry' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'ROBE' in Bed 3, Bed 4, Master Suite, and Laundry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'WIR' in Master Suite."
+        },
+        {
+            "code": "E1",
+            "description": "Missing numerous internal doors, e.g., to Bath, WC, WIR, Ensuite, Theatre, Laundry, Pantry, Activity, Linen, and connecting Kitchen/Living."
+        },
+        {
+            "code": "E1",
+            "description": "Missing external doors to 'Alfresco' and 'Verandah'."
+        },
+        {
+            "code": "E2",
+            "description": "Door to 'Bath' is misplaced and oriented incorrectly. Should be a single door from hallway, not sliding from WC."
+        },
+        {
+            "code": "E2",
+            "description": "Door to 'WC' (off Activity) is misplaced and oriented incorrectly. Should be a single door."
+        },
+        {
+            "code": "E2",
+            "description": "Door to 'Laundry' is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door to 'Theatre' is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door to 'Study' is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door to 'Master Suite' (from Entry) is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Placement of all windows is inconsistent with the floor plan. Many are missing, added, or shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Wall misalignment and structural deviation in 'Kitchen/Living/Dining' area, especially the 'Pantry' recess and connecting walls."
+        },
+        {
+            "code": "E2",
+            "description": "Wall misalignment and structural deviations around 'Master Suite', particularly with 'Ensuite' and 'WIR'."
+        },
+        {
+            "code": "E2",
+            "description": "Many furniture elements are inaccurately placed in all rooms."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the 'WC' door near 'Activity' is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the 'Laundry' door is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the 'Theatre' door is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the 'Study' door is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Bath' room; appears wider than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Laundry' room; appears wider than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Kitchen', 'Living', and 'Dining' areas due to wall alterations."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Master Suite', 'WIR', and 'Ensuite' due to wall alterations."
+        },
+        {
+            "code": "E4",
+            "description": "Furniture scale inconsistency across multiple rooms (e.g., bed in Master Suite, dining tables)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated shelving/recess in the wall between 'Kitchen' and 'Living'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment and recess in 'Master Suite' near the 'Ensuite'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window in the 'Garage' rear wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture: extra seat at kitchen island, sofa in Alfresco."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan10.png"
+}

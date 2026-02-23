@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions, especially in the kitchen, utility, and dining areas. Wall alignment is inconsistent. Many doors and windows are missing or misplaced."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Numerous missing rooms (e.g., WC, Central Hall, Alcove, Pantry, Breakfast Nook). Hallucinated rooms appear where the WC and Central Hall should be. Wall thickness is inconsistent. Most doors are missing."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "No accurate furniture placement. The rendered furniture does not match the floor plan's indications (e.g., kitchen appliances, washer/dryer, toilet, sink). Scale is inaccurate for what is present."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera is present but lacks accurate orthographic projection. Lighting is flat, and significant geometry distortions are visible (e.g., warped walls, uneven surfaces). Overall visual clarity is poor, making it difficult to discern intended structures."
+    },
+    "total_score": 25,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing WC."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Central Hall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Alcove."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Breakfast Nook area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall separating Utility Room and Dining Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior walls for Breakfast Nook and Alcove."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple doors as indicated in the floor plan (e.g., to WC, Central Hall, Utility Room, Pantry)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the Dining Room, Kitchen, and Breakfast Nook areas."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and Utility Room are significantly misplaced and merged with other areas."
+        },
+        {
+            "code": "E2",
+            "description": "Dining Room location and boundaries are distorted and shifted."
+        },
+        {
+            "code": "E2",
+            "description": "The area where WC and Central Hall should be is a different room with a bed."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations in the render, where present, do not match the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in the Kitchen, Utility Room, Dining Room, and the room containing the bed."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent throughout the render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated room where WC and Central Hall should be, including a bed and nightstands not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior walls and merges of rooms not specified in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Warped and uneven geometry, especially visible in walls and floor surfaces."
+        },
+        {
+            "code": "E6",
+            "description": "Lack of clean edges and proper intersections where walls meet."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan11.png"
+}

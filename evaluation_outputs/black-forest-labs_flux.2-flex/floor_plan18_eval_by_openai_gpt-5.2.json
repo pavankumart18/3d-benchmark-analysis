@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout deviations from the 2D plan. (E1/E2) Foyer area at bottom-right of plan is not represented as a distinct space; entry appears to open directly into living. (E1/E2) Utility (3'9\" wide) on far right connected to kitchen is missing as a separate room. (E1/E2) Balcony at bottom-left is not correctly formed/positioned; 3D shows a recessed exterior pocket near entry but not the plan\u2019s balcony relationship to living. (E2/E3) Several interior door locations/orientations do not match: plan has a defined entry\u2192foyer\u2192living sequence and separate living\u2192kitchen and living\u2192toilet doors; 3D door placements are simplified/shifted. (E2) Toilet location is not as clearly top-center/right as in plan; appears more central, affecting circulation. (E4) Room proportions appear altered: kitchen zone reads larger/open compared to plan; living/foyer proportioning differs due to missing foyer."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Structural fidelity is poor due to missing/merged spaces. (E1) Utility room missing. (E1) Foyer missing as a bounded room. (E1/E2) Balcony not faithfully modeled as a distinct exterior room off living. (E2) Adjacencies are altered: in plan foyer buffers entrance from living and sits adjacent to kitchen; in 3D this adjacency/circulation is not preserved. (E2) Door embedding/partitioning around toilet/kitchen appears simplified (fewer defined wall returns and openings). Wall thickness looks somewhat consistent but does not compensate for missing partitions."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture only partially matches. (E2/E4) Living/dining in plan shows dining table + sofa layout; 3D uses a different arrangement/scale (central chaise-like seating) and lacks clear dining placement. (E1) Bedroom wardrobe/storage shown in plan is not modeled. (E4) Some furniture scale reads oversized relative to room extents (especially seating in living)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Visually clean and readable with good lighting and generally clean geometry. Camera is isometric-like but uses noticeable perspective (not true orthographic). Minimal rendering artifacts; materials are simple but coherent."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer (4'6\"x3'10\") is missing as a distinct enclosed space; entry appears to open directly into living."
+        },
+        {
+            "code": "E1",
+            "description": "Utility area (3'9\" wide) connected to kitchen on the far right is missing as a separate room/zone."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom wardrobe/storage element shown on the 2D plan is not represented in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony is not accurately placed/formed relative to the living room; 3D shows an exterior recess near the entrance rather than the plan\u2019s balcony off living at bottom-left."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet placement is shifted (reads more central) compared to the plan\u2019s top-center/right positioning, changing circulation."
+        },
+        {
+            "code": "E3",
+            "description": "Door sequence/orientation does not match plan: plan indicates entry\u2192foyer\u2192living plus distinct living\u2192kitchen and living\u2192toilet doors; 3D simplifies/relocates openings."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement differs: 3D includes a prominent living/front window not clearly indicated on the 2D plan, and kitchen/utility-side openings do not match the plan intent."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions are distorted due to missing foyer/utility partitions; kitchen and living extents read different from the 2D dimensional balance."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan18.jpg"
+}

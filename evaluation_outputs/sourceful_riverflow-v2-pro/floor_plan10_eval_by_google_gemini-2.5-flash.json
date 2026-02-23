@@ -1,0 +1,100 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Numerous inaccuracies in door and window placements. Hallucinated windows. Incorrect room proportions for several areas like 'Activity' and 'Living'. 'Theatre' room dimensions are significantly distorted. 'Ensuite' and 'WIR' are merged into one space."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing the 'Pantry' room. Several walls are incorrectly aligned or missing, such as the wall separating 'Ensuite' and 'WIR'. Significant wall material thickness variations. Hallucinated walls, for example, a new wall in the bathroom by BED2. Missing doors in several locations such as 'Linen', 'Pantry', 'WC' for Theatre, and 'WIR'."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Numerous furniture items are missing or misplaced (e.g., 'Laundry' appliances, 'Pantry' shelving, 'WC' fixtures). Furniture scales are inconsistent across different rooms. The bed in 'Master Suite' is oriented incorrectly. The car in the garage is incorrect model type."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric perspective appears correct. Orthographic projection seems accurate. Lighting is flat, lacking depth. Geometry is generally clean but lacks detail. Overall visual clarity is moderate due to missing details."
+    },
+    "total_score": 28,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for 'Bed 3', 'Bed 4', 'Bath', 'WC' by Bath, 'Laundry', 'Ensuite', 'WIR', 'WC' by Theatre, 'Master Suite', 'Study', 'Entry', 'Garage'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Pantry' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing numerous doors, specifically to 'Linen', 'Pantry', 'WC' by Theatre, 'WIR' and the sliding door to 'Alfresco'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window in 'Kitchen'."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall in Bathroom by Bed 2, creating an extra small enclosure."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in 'Activity' room, 'Living' room, 'Theatre' room, 'Ensuite', and 'WIR'. 'Ensuite' and 'WIR' appear merged."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the bed in 'Master Suite'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal walls that define original 'Ensuite' and 'WIR' as separate entities."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and absence of windows throughout the structure, notably new windows in 'Laundry' and 'Kitchen' which are not in the floorplan and missing windows in 'Verandah' area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing architectural details: door swings, specific fridge/microwave recesses, clothing rails in robes."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced plumbing fixtures and laundry appliances."
+        },
+        {
+            "code": "E4",
+            "description": "Changes to external wall geometry around 'Verandah' and 'Portico'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Desk Recess' in 'Bed 3' and 'Bed 4'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing recess detail in 'Pantry' (which is also missing)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment between 'Theatre' and 'Master Suite'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing shelving in the 'Linen' closet."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated outside paving/tiling in front of the 'Verandah'."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Alfresco' wall has changed position significantly affecting the adjacency with the 'Activity' and 'Living' rooms."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan10.png"
+}

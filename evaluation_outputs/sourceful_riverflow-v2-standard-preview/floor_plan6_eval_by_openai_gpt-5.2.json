@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Room placement is only partially consistent: the large Kitchen/Living zone is on the left and the Bedroom is on the upper/right side, but the central service core (bath/closet area) is re-shaped and simplified compared to the plan (E2, E4). Wall alignment differs notably: the 2D plan has a non-rectilinear/angled left exterior wall and a more articulated interior partition layout; the 3D render shows a mostly rectangular perimeter and different partition offsets (E2, E4). Door placement/orientation is inaccurate: several interior doors shown in the plan (notably bedroom entry and bathroom/closet doors) are not represented with correct swing/orientation; at least one appears relocated (E2, E3). Window placement is incorrect: the plan shows multiple openings along the bottom fa\u00e7ade and other positions; the 3D render uses a different distribution (missing bottom windows and adding/relocating openings on side walls) (E2, E1). Proportions are distorted: the bedroom and service core sizes/ratios do not match the plan\u2019s relative dimensions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent visually but not faithful to the plan\u2019s thickened/structural wall emphasis in several segments (E4). Door embedding is simplified (no clear jamb/swing logic), and several door locations do not align to the plan (E2, E3). Adjacency is partially correct (bedroom adjacent to service core; living adjacent to service core), but the service rooms are reconfigured, changing internal adjacencies (E2). Missing room/zone detail: the plan\u2019s distinct small rooms/closet/laundry-like nook are not clearly preserved as separate, correctly shaped spaces (E1, E2). Hallucinated/altered internal geometry: the 3D shows a bulky, irregular interior block/void-like partitioning in the service area not matching the plan\u2019s wall layout (E5/E2)."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture mapping is largely inaccurate. Kitchen layout differs (plan shows an L-shaped counter run plus an island; 3D shows a simplified straight run with no island) (E2, E1). Living furniture placement is generic and does not match the plan\u2019s sofa/table arrangement (E2). Bedroom furniture is missing/incorrect (plan shows a bed; 3D does not depict it clearly) (E1). Scale consistency is also weak: several furniture blocks appear underspecified and not proportioned to the room sizes as in the plan (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and readable, though not strictly orthographic/isometric (minor perspective and scale falloff) (E6). Lighting is soft and coherent. Geometry is generally clean, but the service-core massing looks blocky and ambiguous relative to the intended partitions (E6). Visual clarity is decent, but the lack of accurate openings/doors reduces interpretability."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Perimeter wall shape differs: the 2D plan includes an angled/irregular left exterior wall, while the 3D render uses a mostly rectangular perimeter."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen island shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout is incorrect: 2D shows an L-shaped run; 3D shows a simplified straight run."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom furniture (bed) shown in the 2D plan is missing or not represented in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Service core (bath/closet area) partition layout is reconfigured; interior walls do not align with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement does not match: multiple openings indicated along the bottom fa\u00e7ade in the plan are missing/relocated in the 3D render."
+        },
+        {
+            "code": "E3",
+            "description": "Interior door orientations (swing direction/hinge side) are not faithfully represented; several doors appear simplified or incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Entry/door positioning is inconsistent with the plan\u2019s bottom-right entry condition and adjacent circulation."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted, especially the bedroom-to-service-core ratio and the depth of the living area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/extra internal massing in the service area creates a bulky partition/void configuration not present in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Render uses simplified door/window geometry (no clear swings/frames), reducing architectural fidelity and causing ambiguity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan6.jpg"
+}

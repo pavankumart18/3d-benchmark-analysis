@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General wall alignment and room placement are high-fidelity. However, there are orientation errors with some interior doors (notably TOI-1 bathroom entry)."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Structural integrity is mostly preserved, but there are duplicate room labels ('BED-1' occurs twice in the 3D render, once replacing the 'BED-2' area). The duct areas lack proper architectural differentiation from internal space."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture mapping is remarkably high. Placement of the dining set, living room rug, sofa, and kitchen appliances match the plan closely."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric projection and clean geometry. Textures and lighting are soft and professional. Labeling overlap in the 3D space is the only minor visual detractor."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Room label 'BED-1' mistakenly duplicated over the BED-2 area."
+        },
+        {
+            "code": "E3",
+            "description": "TOI-1 bathroom door swing direction/orientation does not match the 2D plan precisely."
+        },
+        {
+            "code": "E4",
+            "description": "The foyer entry wall thickness appears slightly exaggerated compared to the 2D plan's line weights."
+        },
+        {
+            "code": "E6",
+            "description": "Text labels from the 2D plan are rendered as floaters in 3D, causing some visual occlusion of furniture."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan14.webp"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Critical failures in spatial logic. The 3D render represents a mirrored or heavily modified version of the plan where the Bed-2 and Kitchen/Utility locations are fundamentally altered. Window and door placements do not correspond to the source CAD."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The utility room and separate kitchen boundary walls are missing. The primary entrance foyer configuration is ignored. Missing secondary deck to the right of TOI-1."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is used as generic placeholders rather than architectural matches. The scale of the dining table relative to the living area is skewed."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and material soft-shadows. Isometric camera projection is consistent, though the geometry does not represent the provided blueprint structure."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing larger deck/balcony structure shown at the top of the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen and utility area (bottom left in plan) are incorrectly merged or replaced with a bedroom-like setting in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The toilet (TOI-1) is misplaced and lacks proper wall enclosure relative to the adjacent bedroom."
+        },
+        {
+            "code": "E4",
+            "description": "Living and Dining room proportions are squashed compared to the long rectangular layout defined in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior windows on the bottom-most wall where the entrance and utility should be."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan14.webp"
+}

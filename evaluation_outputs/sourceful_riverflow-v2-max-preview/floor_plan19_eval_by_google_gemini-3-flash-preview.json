@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe deviations in layout. The 3D render fails to capture the unique L-shaped footprint of the original plan, particularly regarding the indented Foyer and Bed-2 wing. Door and window positions are approximated and many do not align with the architectural plan's specific openings."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The render simplifies the external wall geometry significantly, losing the deck recesses and utility alcoves. It hallucinates a generic rectangular box structure rather than following the plan's complex perimeter."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "General furniture types are present (beds, sofas), but their orientation and specific placement relative to walls and doors are inaccurate. The dining area scale is distorted."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera is correct and the lighting is soft and professional. However, the model uses a 'ghosted' or translucent wall style that obscures structural clarity and contributes to a lack of defined geometry for internal partitions."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing outdoor deck areas and architectural recesses shown at the top of the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The entire floor plan has been compressed into a standard rectangle, distorting the room proportions and adjacency."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen and utility areas are misplaced or simplified into generic rooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior window placements that do not correspond to the source plan's light wells or openings."
+        },
+        {
+            "code": "E6",
+            "description": "Translucent wall artifacts make it difficult to distinguish between solid partitions and open space."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan19.webp"
+}

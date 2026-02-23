@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is highly consistent. External balcony/closet door is present. The main entry door (Chandler & Joey's side) is correctly placed but the door leaf swing in the 3D model is missing or unclear compared to internal doors. Window placements in bedrooms are accurate."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms from the 2D blueprint are present including the small bathroom between bedrooms. Wall thicknesses are consistent. However, the internal partition near Rachel's bedroom closet area shows minor depth misalignment (E4)."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture including the specific L-shaped kitchen, dining table orientation, and the living room rug and sofa configuration. Bed placement in both Monica's and Rachel's rooms matches the blueprint perfectly."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High quality isometric rendering. Lighting is soft and professional. Walls have clean geometry. Occasional floor-to-wall intersection bleeding in the bathroom area."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion in the hallway/closet width leading to Rachel's bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter shelving units on the external wall appear slightly expanded compared to the flat blueprint representation."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact in secondary bathroom where the tub/toilet boundary lacks clear floor definition."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan.jpg"
+}

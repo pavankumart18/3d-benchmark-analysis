@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is strongly preserved. Key issues include the omission of several interior doors (Entry to Garage, Master to WIR) and the rotation of the Master Suite bed 90 degrees."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Walls are structurally consistent, but internal openings (doorways) are often represented as open gaps rather than swung doors. The garage lacks the internal access door to the entry hall."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate, though the Master bed orientation is incorrect and the pantry/kitchen storage units are simplified."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution. Lighting is soft and professional. Geometry is clean with minimal artifacts, though the car model is slightly stylized."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing internal door between Garage and Entry hall."
+        },
+        {
+            "code": "E3",
+            "description": "Master Suite bed is oriented toward the side wall instead of the bottom wall as shown in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Entry door from Portico is missing its swing/hinge representation, appearing as a permanent void."
+        },
+        {
+            "code": "E4",
+            "description": "The Alfresco area lacks the specific outdoor furniture layout shown in the original 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan10.png"
+}

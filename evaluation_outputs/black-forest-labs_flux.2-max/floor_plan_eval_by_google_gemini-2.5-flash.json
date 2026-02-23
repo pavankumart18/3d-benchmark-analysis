@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some wall alignments are slightly off. Door placements have orientation issues and some windows are misplaced or missing. Room proportions are generally maintained, but minor distortions are present."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas. Door embedding is incorrect, with doors opening in the wrong direction or not cleanly integrated. Adjacency relationships are mostly correct. No missing rooms, but there's an unnecessary wall/room division near the entrance of Monica's Bedroom."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is largely accurate according to the floor plan. However, some furniture items show slight scale inconsistencies (e.g., the sofa in the living room appears slightly larger or longer)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle is correct, and orthographic projection is generally good. Lighting quality is decent but could be improved for better contrast and realism. Geometry is mostly clean with minor distortions. Visual clarity and composition are good."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Orientation of the main entrance door to Monica and Rachel's Apartment is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bedroom door for Rachel's Bedroom is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bathroom door for Rachel's Bedroom is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bathroom door for Monica's Bedroom is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the closet door next to the kitchen is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement at the dining/living room area does not precisely match the floor plan's segments."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Rachel's Bedroom and Monica's Bedroom."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen island proportion appears slightly different, particularly regarding its width compared to the length."
+        },
+        {
+            "code": "E4",
+            "description": "The living room sofa proportions appear stretched or larger than indicated."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall or room division near the entrance of Monica's Bedroom, dividing the hallway leading to the bedroom that is not present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The door to Monica's bedroom is misplaced; it is further inside the room than indicated in the plan, creating a small, unindicated hallway."
+        },
+        {
+            "code": "E2",
+            "description": "Missing a section of wall to the left of the main entrance door as indicated on the floor plan, leading to an open entranceway rather than a defined wall segment."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, particularly noticeable around doorframes and corners."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan.jpg"
+}

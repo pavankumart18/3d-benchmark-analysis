@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 29,
+        "max": 40,
+        "notes": "Overall room layout matches (Dining top-left, Kitchen top-center, Living right, Bedroom bottom-left, Wash/Toilet core, Stair bottom-right). However, several openings and internal layout cues deviate: the main entrance double-door shown on the 2D plan is not clearly present in the 3D; Bedroom 1 appears to be missing the left-wall window; Kitchen fenestration appears different (extra/shifted windows). Kitchen fixture arrangement (notably sink/run layout) does not match the 2D U-shape intent. Some relative proportions (kitchen vs. hall/corridor width) appear slightly expanded in 3D."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "Adjacency relationships are mostly correct (bath core between bedroom/living; stairs adjacent to corridor). Wall thickness is generally consistent and doors are embedded, but the entry condition from the 2D plan is structurally ambiguous/missing in the 3D. No clearly extra rooms are introduced, and all primary rooms appear present."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture zones are correctly assigned (dining set in Dining, seating group in Living, bed in Bedroom). Kitchen cabinetry/appliance/sink placement does not closely follow the 2D layout. Furniture scale is mostly consistent, with minor mismatches in living seating arrangement versus the 2D depiction."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric viewpoint is generally correct and the render is clean and readable. Slight perspective/orthographic drift is present. Lighting is adequate with no major artifacts. Geometry is mostly clean; composition is clear but some openings (notably the entrance) are not visually explicit, reducing interpretability."
+    },
+    "total_score": 74,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Main entrance double-door shown on the 2D plan (top-right) is not clearly represented as a door/opening in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom 1 left-wall window shown on the 2D plan is not present/clearly visible in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen window placement/count differs: 3D shows a different configuration (appears to add/shift windows on the top kitchen wall compared to the 2D plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen interior layout deviates: sink/counter run arrangement in 3D does not match the 2D U-shaped kitchen layout (fixture placement shifted)."
+        },
+        {
+            "code": "E4",
+            "description": "Minor proportion distortion: kitchen and adjacent circulation space appear enlarged relative to other rooms compared to the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation details from the 2D plan are not consistently reflected/legible in the 3D (openings exist but swing/orientation is not faithfully preserved)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan7.jpg"
+}

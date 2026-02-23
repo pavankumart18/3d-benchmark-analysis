@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major layout mismatch versus plan. The 2D plan has a large combined living/dining zone on the left with a wide balcony at the top-left; the 3D render shows a different central open area and does not clearly reproduce the living/dining footprint or its balcony connection (E2/E1). The right-side bedroom wing (Bed 2/Bed 3 with attached/common toilets) is not clearly arranged per the plan; room placements and corridor geometry do not align (E2). Door locations/orientations (foyer entry, bedroom doors, toilet doors) are largely not verifiable or appear inconsistent with the 2D plan (E2/E3). Window/balcony openings on exterior edges do not match the plan\u2019s balcony locations and window distribution (E2/E1). Overall proportions are distorted: several rooms appear oversized/undersized compared to the plan\u2019s labeled dimensions and adjacency spacing (E4)."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Several required spaces from the plan are missing or not distinctly modeled: servant room/servant toilet area, utility, defined kitchen, dress room, and multiple toilets are not clearly present as separate enclosed rooms (E1). Adjacency relationships are inconsistent (e.g., master suite should connect to dress + two toilets and a balcony; this suite structure is not faithfully reproduced) (E2). Some walls appear incomplete/ambiguous due to transparency/partial geometry, reducing confidence in correct wall thickness and door embeddings (E6/E2). No clearly correct count/placement of bathrooms relative to bedrooms (E1/E2)."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not match the 2D plan\u2019s arrangement (living seating set, dining table placement, kitchen fittings). Only a few generic beds/tables appear, with inconsistent scaling and missing key furniture groups (E2/E1/E4)."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "Isometric view is generally acceptable, but the render has heavy translucency/blur that obscures walls/doors (E6). Orthographic fidelity is weak due to perspective/scale ambiguity. Lighting is flat and materials are minimal. Geometry clarity is compromised by partial/ghosted surfaces and indistinct edges (E6). Composition is okay but not clean enough for verification."
+    },
+    "total_score": 30,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing or not distinctly modeled: kitchen, utility area, servant room, and servant toilet shown on the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear balcony structures: the large living balcony (6' wide) and master balcony (5' wide) are not clearly represented with correct placement."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear master suite subspaces: dress room and multiple toilets adjacent to the master bedroom are not faithfully separated/enclosed."
+        },
+        {
+            "code": "E2",
+            "description": "Living/dining zone footprint and placement do not match the 2D plan; central open area appears reconfigured."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom wing layout on the right (Bed Room 2/3/4 positions and corridor relationships) does not align with the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placement along exterior walls does not match the plan\u2019s window/balcony opening distribution."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations and exact placements (main entry/foyer door, bedroom doors, toilet doors) appear inconsistent or are not correctly embedded/depicted."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted relative to labeled dimensions; several spaces appear scaled incorrectly compared to adjacent rooms."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/undefined spaces: extra open areas/circulation zones appear where the 2D plan indicates enclosed functional rooms."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts (excessive translucency/blur/ghost geometry) obscure wall/door boundaries, reducing verifiability."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan17.jpg"
+}

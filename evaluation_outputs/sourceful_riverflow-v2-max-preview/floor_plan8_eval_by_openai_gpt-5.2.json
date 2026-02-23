@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Overall zoning is only partially consistent (left living area, central dining, right kitchen/playroom, central stair). Major issues: (E2/E4) room boundaries do not match the 2D outline\u2014right side massing is skewed with an angled/perimeter geometry not present in plan; (E2) pantry/core partitions are not placed/formed like the plan\u2019s pantry block and adjacent corridor openings; (E3) several doorways/openings shown in 2D are not represented or are in different locations (notably foyer\u2192living, closet/WC doors, pantry door, and the dining\u2192kitchen opening configuration). (E1/E2) Window locations are largely absent or not aligned to plan\u2019s numerous exterior windows (living, dining, kitchen, playroom). (E4) Proportions of living/dining and the right-side kitchen/playroom appear distorted relative to the plan (rooms read squarer/larger and circulation widths differ)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall network does not faithfully reproduce the plan. (E2) Adjacencies are partially correct (kitchen adjacent to dining/playroom; stairs central), but several partition runs and offsets/jogs are incorrect, especially on the right perimeter and the left foyer/closet/WC cluster. (E1) Multiple plan-required doors/openings are missing; (E5) a prominent angled/diagonal exterior wall segment and curved/rounded corner treatments appear that are not supported by the 2D plan. Wall thickness looks somewhat consistent but openings are not embedded where the plan indicates (E2/E3)."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture is mostly generic placeholder blocks. (E2) Kitchen fixtures (sink/range/island) do not match the 2D kitchen layout; (E2) living/dining furniture positions do not correspond to the plan\u2019s indicated placements. (E4) Scale is inconsistent (large blocky furniture relative to room sizes; circulation clearances not preserved)."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Camera is broadly isometric-like but not cleanly orthographic (minor perspective feel). Lighting is soft and readable but detail is low. (E6) Geometry/edges appear slightly blurred and simplified; openings/windows are not well-articulated, reducing clarity. Composition is acceptable, but the model lacks crispness and architectural definition."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Right-side exterior wall layout and internal partitions do not align with the 2D plan (kitchen/perimeter massing deviates)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated angled/diagonal perimeter geometry and rounded/curved corner treatments that are not present in the 2D floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Most exterior windows shown in the 2D plan are missing in the 3D render (living, dining, kitchen, playroom window runs)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation mismatches: foyer\u2192living, closet/WC, pantry, and dining\u2192kitchen openings are not represented as in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Several plan-defined door openings are absent, reducing correct circulation paths between foyer/closet/WC/pantry and main rooms."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions and circulation widths appear distorted (living/dining sizing and right-side room shapes do not preserve the 2D proportions)."
+        },
+        {
+            "code": "E2",
+            "description": "Pantry/core block location and geometry do not match the 2D plan\u2019s pantry footprint and adjacent wall alignments."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen fixture layout (counter/sink/range/island) does not correspond to the 2D plan\u2019s indicated kitchen arrangement."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/model clarity artifacts: softened/blurred edges and simplified openings reduce legibility and precision."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan8.jpg"
+}

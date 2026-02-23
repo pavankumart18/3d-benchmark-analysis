@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the WC/Central Hall/Utility Room area is heavily distorted. Wall alignment is significantly off in several areas, especially the central hallway and utility room. Door placements are largely incorrect or missing. Window placements are frequently incorrect. Room proportions are distorted in multiple areas, particularly the central hall, WC, and utility room."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness appears consistent. Door embedding is incorrect, often floating. Adjacency relationships are not fully correct due to missing walls and misaligned structures. Several rooms are missing; specifically, no 'Alcove' is present, and the 'Breakfast (Screen Porch)' area is absent. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; many items are missing. Furniture scale consistency is poor for the few items present (e.g., WC fixtures)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection is reasonable. Lighting quality is flat and basic. Geometry is generally clean but lacks architectural detail. Visual clarity is good, but composition is uninspiring."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'Alcove' room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Breakfast (Screen Porch)' area."
+        },
+        {
+            "code": "E1",
+            "description": "Numerous missing doors throughout the plan, particularly for Central Hall, WC, Utility Room, Kitchen, and Dining Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing appliances/fixtures: Washer, Dryer, HVAC unit, Refrigerator (REF)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific windows in the Dining Room (Window Seat area) and Kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door between Central Hall and Alcove (missing entire Alcove)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom door in the WC (missing/misaligned)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced Utility Room door (missing)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced Kitchen and Pantry entries; walls are incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows on exterior walls (e.g., west side of Central Hall, south-east corner of dining room, kitchen)."
+        },
+        {
+            "code": "E2",
+            "description": "Wall misalignment and incorrect lengths, specifically in the Central Hall, WC, and Utility Room block."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect adjacency relationship between Central Hall, WC, and Utility Room due to structural changes."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation errors where doors are present (e.g., WC door is simplified/missing accurate swing)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Central Hall, WC, and Utility Room block, making them appear wider/shorter than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Kitchen, particularly the island/counter length seems reduced."
+        },
+        {
+            "code": "E6",
+            "description": "Doors appear to be flush with the wall surface rather than properly embedded within the thickness."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan11.png"
+}

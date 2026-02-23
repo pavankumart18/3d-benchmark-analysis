@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "notes": "Overall layout roughly matches (living/kitchen/dining/study left; bedrooms + master suite right; garage bottom-right), but there are notable mismatches: (1) the top-left covered patio connection is not faithfully modeled\u20142D shows a distinct covered patio off the nook with a specific angled/offset boundary and door relationship, while the 3D render shows a simplified exterior area and different exterior-door configuration (E2/E3). (2) Several exterior window positions/counts do not clearly correspond to the 2D plan (notably along the long living-room exterior run and the right-side bedroom/master facade) (E2). (3) Some room proportions appear altered\u2014living room and right bedroom wing read narrower/reshaped compared to the 2D footprint, and the master suite polygonal wall geometry is simplified (E4)."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Primary adjacencies are mostly preserved (hall connects to bedrooms/bath/utility; kitchen to dining/nook; master bed to master bath/WIC). However: (1) a front/right-side covered outdoor structure/porch-like volume is present in 3D that is not indicated in the 2D plan (E5). (2) The top-left covered patio massing/outline is not structurally faithful to the plan (E2/E4). (3) Some door embeddings/placements appear shifted/simplified (e.g., nook/patio door type/position and at least one closet/bathroom door relationship in the master suite area is unclear vs plan) (E2/E3). Wall thickness looks mostly consistent."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen counters/peninsula and some bathroom fixtures align generally with the 2D intent, but added furniture (sofa/bed placements) is not verifiable from the 2D plan and may not match intended layout (E5). Some furniture scale looks plausible, though bedroom furnishing is minimal/inconsistent across rooms."
+    },
+    "aesthetic_quality": {
+        "score": 21,
+        "max": 25,
+        "notes": "Isometric view is clear and readable; lighting is good and geometry is mostly clean. Minor issues: window/door details look simplified, some edges feel slightly inconsistent with an orthographic/isometric architectural plate, and the added exterior elements (porch/yard/car) reduce plan-to-model verification clarity (E6)."
+    },
+    "total_score": 71,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Top-left covered patio massing/outline and its connection to the nook/living area does not match the 2D plan; exterior boundary is simplified/shifted."
+        },
+        {
+            "code": "E3",
+            "description": "Nook-to-exterior door configuration/orientation appears different (3D shows a different door type/placement than the 2D swing-door relationship to the covered patio)."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placement/counts do not clearly match the 2D plan, especially along the living-room exterior run and the right-side facade."
+        },
+        {
+            "code": "E4",
+            "description": "Room/wing proportions appear distorted: living room and right bedroom wing read reshaped relative to the 2D footprint; master suite polygonal geometry is simplified."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior element: a prominent front/right covered porch/carport-like structure (with yard scene) is shown in 3D but is not indicated on the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/verification clarity issue: added car/yard/exterior scene elements and simplified architectural detailing make strict plan-to-model checking harder and introduce non-plan artifacts."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan9.png"
+}

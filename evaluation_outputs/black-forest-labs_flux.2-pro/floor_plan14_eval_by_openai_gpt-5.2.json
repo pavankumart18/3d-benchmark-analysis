@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall layout (2 bedrooms, living/dining central, kitchen+utility lower left, two toilets, two decks) is broadly consistent, but several plan-level placements diverge. The foyer/entry zone appears enlarged/reshaped in the 3D compared to the compact foyer+short passage in the 2D (E4). The attached toilet (TOI-1) reads as more corridor-accessed than strictly bedroom-attached as in the plan (door relationship unclear/shifted) (E2/E3). Door swings/positions for the common toilet and internal passage do not match the plan\u2019s hinge locations and opening directions (E2/E3). Window/opening placement on the long outer left wall and deck-facing openings look simplified/standardized vs the plan\u2019s specific window segments (E2). Room proportion balance is slightly off: living/dining reads compressed relative to bedrooms compared with the stated dimensions (E4)."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Wall runs and major adjacencies are mostly correct (Bed-2 adjacent to living; Bed-1 on right; kitchen connected to living; utility off kitchen; two decks on top side). However, wall thickness is stylized and not consistently matching the plan\u2019s heavy structural walls vs partitions (E6/E4). Door embedding is inconsistent in a few places (some doors appear floating or not aligned to the exact wall breaks shown in plan) (E6/E2). The TOI-1 adjacency/attachment to Bed-1 is weakened by apparent corridor-style access (E2). No major room is entirely omitted, but the foyer/passage segmentation is not faithfully preserved (E4)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types are present (beds, sofa set, coffee table, dining set, kitchen counters), but placements don\u2019t tightly follow the 2D cues (e.g., living seating grouping and circulation clearances differ) (E2). Scale feels inconsistent: dining set and some seating appear undersized relative to circulation and room extents; bedroom furniture spacing also looks more generous than the plan implies (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is clear and consistent, with good readability of rooms and decks. Projection is mostly correct for an isometric-style render, though some perspective/foreshortening makes proportional comparison harder (minor) (E6). Lighting is clean and even. Geometry is generally clean, but door arcs/door leaves and some openings feel slightly mis-registered to walls (E6). Overall composition is strong."
+    },
+    "total_score": 70,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Foyer/entry and passage area appears expanded/reshaped relative to the compact foyer + short corridor in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "TOI-1 (attached toilet) access/placement reads shifted toward corridor access rather than clearly opening from inside Bed-1 as in the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior door swing directions and hinge sides do not match the 2D plan (notably around the toilet/passage zone)."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening layout on the long left exterior wall and some deck-facing openings appear standardized/simplified and do not match the plan\u2019s specific window segments."
+        },
+        {
+            "code": "E4",
+            "description": "Relative room proportions are slightly distorted: living/dining reads compressed compared to bedroom sizes versus the stated plan dimensions."
+        },
+        {
+            "code": "E6",
+            "description": "Wall thickness and some door embeddings look stylized/inconsistent, with minor misalignment between openings and wall breaks."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture arrangement and circulation paths in living/dining differ from the plan\u2019s implied layout, affecting functional mapping accuracy."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan14.webp"
+}

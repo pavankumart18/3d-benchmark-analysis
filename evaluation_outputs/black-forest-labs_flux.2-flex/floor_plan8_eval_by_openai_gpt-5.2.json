@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 7,
+        "max": 40,
+        "notes": "Major plan-to-render mismatch. The 2D plan is a Living/Dining/Kitchen + Playroom + Foyer/Closets + Pantry + WC + Stairs layout; the 3D render instead shows a Bedroom area and a different internal partitioning. Wall layout does not follow the 2D perimeter offsets or interior wall alignments, and the kitchen/playroom separation shown in 2D is not represented."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Some basic elements (stairs, open living/dining/kitchen concept) exist, but adjacency and room inventory do not match the 2D plan. Multiple required rooms/spaces are missing (playroom, foyer/closets, pantry, WC), while a bedroom is introduced. Doors/windows are not embedded in locations consistent with the floor plan."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture does not map to the 2D plan intent (no bedroom in plan; playroom not depicted). Kitchen and living furniture are generic and not placed according to any shown 2D furniture/fixture markers; scale and selection do not correspond to the plan\u2019s labeled spaces."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is visually clean with good lighting and readable geometry. However, the camera is more perspective-isometric than true orthographic/isometric, and some architectural clarity is reduced by decorative/furnishing emphasis over plan-accurate structure."
+    },
+    "total_score": 31,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing PLAYROOM space shown at top-right of the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing FOYER and associated entry configuration shown on the left side of the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing PANTRY room adjacent to the kitchen shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing W/C (powder room) shown near the stairs/closet zone in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closets (multiple labeled CLOSET areas in the 2D plan are not represented as such in 3D)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated BEDROOM (bed + nightstand area) not present anywhere in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall layout/room boundaries do not match: the 2D plan\u2019s kitchen/playroom boundary and central core partitions are not reproduced in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom-like space appears in the 3D render in a location/configuration that does not match the 2D W/C placement."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements/orientations do not correspond to the 2D plan (notably around the dining/kitchen connection and the left-side entry/foyer zone)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count is inconsistent with the 2D plan\u2019s exterior window runs (living/dining/kitchen perimeter openings do not align)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortions: overall footprint and relative sizes (living vs dining vs kitchen and the missing playroom wing) are significantly altered from the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan8.jpg"
+}

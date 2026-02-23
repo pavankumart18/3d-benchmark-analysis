@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is correct. Main entrance door is incorrectly modeled as a single swing instead of the double door indicated. Bathroom window is misplaced relative to the toilet position in 2D."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Wall thickness is consistent. The 'Wash Area' partition has been merged or simplified into the toilet room space improperly. Stairwell opening is rendered but the 'UP' direction and landing geometry slightly deviate from the plan's line work."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Good mapping of kitchen cabinetry, dining table, and bedroom set. Living room sofa orientation is accurate, though the small coffee table is a minor addition not explicitly in the grid, but fits the scale."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality isometric rendering with clean geometry and soft lighting. Very clear composition and orthographic accuracy."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Entrance door is a single swing door; 2D plan specifies a double door (double-leaf entrance)."
+        },
+        {
+            "code": "E2",
+            "description": "Small bathroom window is misplaced on the side wall rather than centered/aligned with the fixture layout shown in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific partition wall separating the 'Wash Area' from the 'Toilet' corridor as shown in the 2D blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen island/counter depth appears slightly narrower in proportion to the room compared to the 2D grid representation."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan7.jpg"
+}

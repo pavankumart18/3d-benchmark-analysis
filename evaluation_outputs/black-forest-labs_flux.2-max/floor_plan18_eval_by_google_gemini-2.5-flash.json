@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "There are significant deviations in wall alignment and room proportions. The Balcony and Kitchen walls are not aligned correctly with the Living/Dining area. The Foyer has a wall missing and is merged with the kitchen hallway. The Toilet's proportions are distorted. Many doors are misplaced or have incorrect orientations."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in several areas, particularly around the Foyer and Kitchen. The Foyer room is essentially missing as defined in the plan, and the Balcony wall is almost entirely missing. There is an erroneous wall added in the Living/Dining area. Missing structural elements like the utility room wall and specific utility zone."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally off. The dining table and chairs are rotated 90 degrees. The Sofa is not correctly placed in the corner. The bed in the bedroom is also rotated incorrectly. Many smaller furniture pieces, particularly in the kitchen and utility, are missing or misplaced."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera correctness and orthographic projection appear good. Lighting quality is decent, providing clear shadows. Geometry is clean with no obvious distortions. Visual clarity and composition are generally good, despite the architectural inaccuracies."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall misalignment between Living/Dining, Kitchen, and Balcony areas."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Foyer wall and merging of Foyer with Kitchen hallway."
+        },
+        {
+            "code": "E4",
+            "description": "Distorted proportions of the Toilet room, appearing wider."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the Toilet is misplaced and rotated incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the Bedroom is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is misplaced and missing associated wall structure."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony external wall missing, only railing present."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room walls and internal definition are missing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small wall segment near the main entrance/balcony area."
+        },
+        {
+            "code": "E3",
+            "description": "Dining table and chairs rotated 90 degrees from floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom bed rotated 90 degrees from floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa not placed accurately in the corner of the Living/Dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing smaller furniture and fixtures, especially in the kitchen, utility, and toilet."
+        },
+        {
+            "code": "E4",
+            "description": "The overall footprint appears to be slightly compressed horizontally compared to the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall room zoning is broadly similar (4 bedrooms around a central living/dining with kitchen/utility below), but several perimeter jogs and balcony/deck segmentations from the 2D plan are simplified or merged. Multiple door positions/swing orientations do not match the plan precisely. Window bands/openings along the decks and exterior walls are not faithfully mapped, and some room proportions (notably terrace/deck depth and a few bedroom/corridor widths) appear altered."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "notes": "Major adjacencies mostly preserved (bedrooms connected via the central corridor; kitchen adjacent to dining; utility adjacent to kitchen; bathrooms in roughly correct clusters). However, the plan's distinct deck areas appear treated as one continuous terrace space and some fine-grain partitions/jogs are reduced, creating structural divergence. No clear extra (hallucinated) rooms, but at least one small entry/foyer/vestibule segmentation appears merged."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living/dining and bedroom furniture is generally plausible, but does not consistently reflect the 2D layout (e.g., Bed-3 furniture configuration differs, and some room-scale-to-furniture relationships appear off). Outdoor furniture exists but the terrace segmentation mismatch makes it inconsistent with the plan."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Render is clear and readable with clean geometry and decent lighting. View is closer to a top-down perspective/isometric hybrid rather than a strict isometric/orthographic representation. Minor flattening/simplification of architectural edges reduces fidelity but overall visual composition is strong."
+    },
+    "total_score": 68,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Deck/terrace layout: the 2D plan shows two distinct deck areas (large living deck and separate Bed-1 deck), but the render reads as a more continuous/merged terrace space, reducing the intended separation."
+        },
+        {
+            "code": "E4",
+            "description": "Deck proportions: terrace depth/outline (including the angled/jogged top edge) appears altered versus the 2D plan, indicating perimeter proportion distortion."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen fit-out/wall relationship: the 2D kitchen is more enclosed with specific counter runs; the render depicts a different counter/peninsula configuration and openness relative to dining."
+        },
+        {
+            "code": "E1",
+            "description": "Entry/foyer segmentation: the 2D plan indicates a distinct small entry/foyer zone (and adjacent small spaces) that appears merged/simplified in the render, losing a discrete partitioned area."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement mismatch: at least one interior door along the central corridor cluster (near the common toilet/utility junction) is positioned differently than shown in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation inconsistencies: several hinged doors in the render do not reflect the swing direction/orientation indicated in the 2D plan (notably around corridor-to-room transitions)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement: long exterior glazing/openings along the living-to-deck edge and other exterior walls are not mapped with the same count/spacing as the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/underrepresented window bands: some exterior window runs shown on the 2D plan are simplified or absent in the render (especially along the top deck-facing walls)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion drift: corridor widths and at least one bedroom footprint (relative to adjacent baths) appear resized compared to the plan, suggesting local proportion distortion."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan19.webp"
+}

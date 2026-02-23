@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Major layout mismatches between plan and 3D: bedroom/bath core on the right side does not align with the 2D room arrangement (E2/E4). A bedroom appears placed in the bottom/center zone in 3D where the 2D plan indicates the main open living/dining circulation (E2). The top-right suite/rooming arrangement in 2D is not preserved in 3D (E2). Several door locations and swing/orientation do not match the 2D plan (notably internal doors around the central hall/living and right-side rooms) (E2/E3). Exterior window positions/count differ substantially from the 2D elevations implied by the plan (multiple missing/relocated windows, and oversized openings) (E2/E1/E4). Overall room proportions are distorted: the central living/dining appears oversized while right-side rooms/corridor are compressed/reorganized (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent in the render, but several partitions are shifted, changing adjacency relationships (e.g., right-side bedrooms/baths/utility cluster does not match 2D adjacency) (E2). Door embedding is inconsistent with plan: multiple openings are placed on different walls or with different swing directions than shown (E2/E3). At least one room function appears missing or replaced (e.g., a planned bedroom/right-side room is effectively replaced by an office-like space), and at least one extra/altered space appears introduced by re-partitioning (E1/E5). Balcony/porch projections do not reliably match the 2D footprint and their access points (E2/E4)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Some furniture types roughly correspond (central dining and living seating exist), but placement does not match room boundaries from the 2D plan due to reconfigured rooms (E2). A hallucinated/incorrect furnishing program appears in the top-left room (bed + dining/extra seating not indicated as such in the 2D plan) (E5). Scale is inconsistent: beds and living furniture appear oversized relative to some rooms and undersized relative to the enlarged central space (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric-style camera is clear and readable, with good lighting and clean materials. However, the view is slightly perspective rather than strict isometric/orthographic (E6). Geometry is mostly clean, but openings/windows read as simplified/oversized compared to plan intent, reducing technical clarity (E6/E4). Overall composition and readability are strong."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Right-side room cluster (bedrooms/bath/utility) is reconfigured and does not match the 2D plan\u2019s room placements and wall alignments."
+        },
+        {
+            "code": "E2",
+            "description": "A bedroom is placed in the bottom/central area in the 3D render where the 2D plan indicates open living/dining/circulation."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: central living/dining appears enlarged; right-side rooms/corridor appear compressed/reshaped relative to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple internal doors are placed on different walls than in the 2D plan (notably around the central space and right-side rooms)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing/orientation directions do not match the 2D plan\u2019s indicated hinge/swing arcs."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior window placement/count does not match the 2D plan: several windows appear relocated and resized."
+        },
+        {
+            "code": "E1",
+            "description": "Some exterior windows indicated/implied by the 2D plan are missing in the 3D render."
+        },
+        {
+            "code": "E5",
+            "description": "Top-left room contains a mixed program (bed + dining/seating) not supported by the 2D plan\u2019s furniture/room intent."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony/porch projections and/or their access openings do not consistently match the 2D plan footprint."
+        },
+        {
+            "code": "E6",
+            "description": "Camera projection is not strictly orthographic/isometric (slight perspective), reducing technical verification accuracy."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan5.jpg"
+}

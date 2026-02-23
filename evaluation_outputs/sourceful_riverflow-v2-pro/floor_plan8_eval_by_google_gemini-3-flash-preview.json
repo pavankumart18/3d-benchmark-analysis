@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Generally strong alignment with the blueprint. Door orientations in the foyer and playroom entry are slightly inconsistent with the swing arcs in the 2D plan. Window quantities on the west and east elevations are slightly reduced compared to the technical notations."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent reproduction of the central pantry block and the staircase configuration (UP and DN runs). Adjacency between the playroom and kitchen is maintained. Wall thickness remains consistent throughout."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Kitchen island and sink placement match the plan. Living room and dining sets are placed according to logical room labels, though the plan didn't explicitly detail the dining chairs."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High quality isometric render with clean shadows and clear geometry. Orthographic projection is well-handled without perspective distortion."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Foyer entry door swings inward to the left in 3D, whereas the plan indicates a swing against the closet wall."
+        },
+        {
+            "code": "E3",
+            "description": "The door between the hallway and playroom is shown partially open in a different orientation than the 2D swing arc."
+        },
+        {
+            "code": "E2",
+            "description": "Minor misalignment of windows in the dining room bay area compared to the dimension strings (26610 series)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan8.jpg"
+}

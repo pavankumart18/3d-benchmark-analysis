@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "notes": "Overall room zoning matches (left lounge/dining, left bedroom, central living/dining, bottom-left kitchen, right-side bedrooms, top bathrooms). However, several openings and facade elements do not align with the 2D plan: the bottom-left exterior access/porch connection is not represented as a door, multiple interior door positions are simplified into open passages, and several window runs/segmentations differ from the plan. Central living/dining reads proportionally larger than indicated, compressing adjacent circulation/room widths."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Primary adjacencies are mostly correct (kitchen-to-living, living-to-right bedroom zone, bathrooms on top band). Structural detailing diverges: wall thickness is treated uniformly (interior/exterior not clearly differentiated), several doors are not embedded as doors (rendered as empty openings), and some small partition details (closet/utility-like subareas shown in 2D) are reduced/omitted. No clearly new full rooms are added, but some built-in partitions are lost."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture layouts are only partially faithful. The kitchen shows an island/bar-like element and seating arrangement that does not match the 2D plan\u2019s table/counter arrangement. Some room furnishing counts/placements (living seating grouping, bedroom side furniture) are generic rather than mapped from the plan."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style presentation with coherent lighting and generally tidy geometry. However, it is not strictly orthographic (noticeable perspective), and some openings/windows read as simplified blocks rather than accurately modeled architectural elements, reducing technical clarity."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Bottom-left porch/exterior access shown in the 2D plan is not represented with a matching exterior door in the 3D render (appears as glazing/windows instead of a door)."
+        },
+        {
+            "code": "E2",
+            "description": "Several interior door locations are shifted/simplified in 3D (rendered as open wall gaps), reducing fidelity to the 2D door placement positions."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing information from the 2D plan is not preserved; openings in 3D do not reflect the specified hinged door orientations."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/segmentation differs on multiple exterior walls (e.g., long continuous window blocks in 3D where the 2D plan indicates separated window units/positions)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: the central living/dining area appears oversized relative to adjacent rooms/corridors compared with the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Smaller partition/built-in elements suggested in the 2D (closet/utility-like subareas) are reduced or omitted in the 3D model."
+        },
+        {
+            "code": "E5",
+            "description": "Kitchen island/bar seating element appears added in 3D and does not match the 2D plan\u2019s indicated kitchen furniture arrangement."
+        },
+        {
+            "code": "E6",
+            "description": "Render uses perspective rather than a strictly orthographic/isometric technical projection, slightly affecting measurement-like comparison."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan5.jpg"
+}

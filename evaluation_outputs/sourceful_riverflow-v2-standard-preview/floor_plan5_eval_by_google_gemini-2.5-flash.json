@@ -1,0 +1,128 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant deviations in room placement and proportions. Balconies differ significantly from floor plan. Missing windows and incorrect door placements."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Walls are simplified and sometimes missing entirely. Several doors are missing. Adjacency relationships are mostly correct but compromised by missing elements."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement deviates significantly in many rooms. Some furniture is missing or has incorrect scaling/type."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Camera angle and projection are good. Lighting is decent. Geometry is clean, but the render's simplification of architectural features degrades overall clarity compared to the detailed floor plan."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing two windows in the top-left room (bedroom 1)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing one window in the room next to bedroom 1 (study/office)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the top-right bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the bathroom next to the top-right bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between the kitchen and the living room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the bathroom on the right side."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door to the bedroom on the bottom-right."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the top-left bedroom is misplaced and facing outwards, rather than inwards into the hallway."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the top-right bedroom is misplaced compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the bathroom adjacent to the top-right bedroom is misplaced."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the door to the top-left bedroom is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony on the top-left differs significantly in shape and size from the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony on the bottom-left is significantly altered in shape and proportions."
+        },
+        {
+            "code": "E4",
+            "description": "The balcony on the right side is simplified and differs in proportion and structure."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the living room (center) appear slightly distorted, specifically width."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the kitchen area are slightly altered."
+        },
+        {
+            "code": "E5",
+            "description": "Several internal walls in the render are simplified or missing compared to the floor plan, leading to open spaces not present in the original."
+        },
+        {
+            "code": "E5",
+            "description": "The exterior wall surrounding the bottom-left balcony is significantly different and potentially hallucinated from the floor plan's depiction."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement in the top-left bedroom is incorrect: bed is horizontal in render, vertical in plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a sofa in the top-left balcony area."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in the top-right balcony area is different and misarranged."
+        },
+        {
+            "code": "E2",
+            "description": "The dining table in the central dining area is larger and differently shaped than depicted in the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a small table in the central living area."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture arrangement in the bottom-right bedroom is entirely different."
+        },
+        {
+            "code": "E1",
+            "description": "Missing doors to the two small storage/closet areas near the bathroom on the right."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan5.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Major layout mismatch: the 2D plan shows the Dining + Living as one open space (no separating wall), but the 3D render introduces a full-height interior wall and doorway separating a distinct Dining room from the Living room (E5/E2). Bathroom footprint and proportions differ strongly (2D compact block near center; 3D is a long/narrow rectangle) (E4/E2). Entrance location appears shifted (2D centered on bottom wall; 3D placed left-of-center) (E2). Multiple door locations/orientations do not match the plan due to the added partition and altered circulation (E2/E3). Window count/locations on the right and top exterior walls do not match the 2D window markers (E2)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Introduced structural partition between living and dining that is not present in the 2D plan (hallucinated wall/room division) (E5). Resulting adjacency relationships are incorrect: in 2D Dining and Living are contiguous zones; in 3D they are separated by a wall and a door (E2). Bathroom enclosure geometry is not faithful (shape and likely wall runs differ) (E4/E2). Wall thickness appears mostly consistent, but door embedding and openings do not correspond reliably to the 2D door positions (E2/E3)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen counters/stove presence is generally aligned with the kitchen area, but exact layout does not match the 2D fixture outline (E2). Added sofa and multiple dining tables are not indicated in the 2D plan (hallucinated furnishings) (E5). Some furniture scale feels plausible, but placement reflects the incorrect room partitioning (E2)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera is reasonable and geometry is mostly clean. Lighting is adequate with clear visibility of walls/openings. However, there are noticeable overlay/text artifacts on the floor (dimension labels) and some elements (orange highlights/markers) read like rendering/UI artifacts rather than architectural components (E6). Overall composition is clear but architecturally misleading due to structural deviations."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partition wall creating a separate enclosed Dining room; 2D plan indicates Dining and Living are an open continuous space without that wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entrance door: 2D shows entrance centered on the bottom wall; 3D places it left-of-center."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced/extra interior doorway associated with the hallucinated Dining/Living separation; door locations no longer match 2D circulation."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom proportion distortion: 3D bathroom is long/narrow compared to the compact central bathroom block in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch on exterior walls (notably top and right sides) compared to the 2D window markers."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture elements (e.g., sofa and duplicate/extra dining setup) not specified in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/overlay artifacts: floor text/labels appear distorted and not cleanly integrated."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall room locations roughly match (bedroom left, living/dining center, kitchen right, toilet top-center/right, utility top-right, balcony bottom-left), but several plan-level spatial details deviate. The foyer separation at the entry is not clearly formed as in the 2D plan, affecting wall alignment and circulation. The kitchen appears more open to the living area than shown (plan indicates a defined kitchen entry with a door/opening at a specific location). Door and opening positions are the biggest spatial mismatch; windows/openings also show discrepancies (extra/oversized openings on the right side). Utility and foyer proportions appear inflated relative to the 2D dimensions."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Wall thicknesses look generally consistent and doors are mostly embedded correctly where present, but fidelity issues occur at key partitions/openings: the entry/foyer partitioning is simplified/partly missing, and the kitchen boundary to living is altered (reads as an open-plan cut rather than the planned defined entry). Adjacencies (toilet near bedroom/kitchen, utility off kitchen, balcony off living) are largely preserved. No rooms appear entirely omitted or added, but there are hallucinated openings/large glazed sections not supported by the plan."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Major furniture types are present in the correct rooms (bed in bedroom, dining table in living/dining, kitchen counters/appliances). Exact placement and orientation do not precisely follow the 2D symbols (sofa/TV/wardrobe alignment differs), but scale is mostly believable and consistent."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Isometric view is coherent and readable. However, because several openings/partitions do not match the 2D plan, the render is not a reliable orthographic/isometric translation. Lighting is acceptable, geometry is mostly clean, and composition is clear; minor distortion comes from simplified walls and oversized openings."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen boundary to living/dining is altered: the 3D shows a more open connection than the 2D plan\u2019s defined kitchen entry location/extent."
+        },
+        {
+            "code": "E1",
+            "description": "Planned entry/foyer partitioning is not fully represented: the foyer reads insufficiently separated/defined compared to the 2D plan layout."
+        },
+        {
+            "code": "E2",
+            "description": "Main entry/foyer wall alignment and doorway relationship to living/kitchen differs from the 2D plan, changing circulation at the entrance zone."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/unsupported exterior opening(s) on the right side (large glazed/door-like opening) not clearly indicated in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: utility/entry zone appears larger relative to kitchen/living than the 2D dimensions suggest."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placement and size do not consistently match the 2D plan, especially along the right exterior wall."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan18.jpg"
+}

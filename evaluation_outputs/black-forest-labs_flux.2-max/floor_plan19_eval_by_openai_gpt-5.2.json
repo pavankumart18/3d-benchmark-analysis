@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall layout roughly follows the 2D plan (central living/dining, left Bed-2, right Bed-1/Bed-4, top decks), but several room details deviate. Bed-3 is rendered as a twin-bed room and its internal layout/entry positioning does not match the plan\u2019s Bed-3. The bottom service zone (FOYER/HO/TOI cluster) is not faithfully reproduced in shape and partitioning. Multiple door swings/orientations appear simplified or shifted vs the 2D plan, especially around the kitchen/utility corridor and the right-side toilet(s). Window openings are not consistently mapped to the plan\u2019s exterior window runs (some appear missing or replaced by generic glazing). Some room proportions (notably Bed-3 and the bottom rooms) look stretched/compacted compared to the labeled dimensions."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent in the render, but interior partition fidelity is weak in the bottom zone. Adjacencies are partially correct (beds adjacent to corridor; living connects to decks), however the plan\u2019s distinct small rooms at the bottom (HO 6'9\"x7' and the separate TOI 6'9\"x4') are not clearly preserved as separate, correctly placed spaces. Right-side wet areas appear reconfigured (toilet count/shape/placement differs from the plan\u2019s TOI-1 + C.TOI arrangement). No clear evidence of extra major rooms, but several partitions/door embeddings look altered enough to count as structural deviations."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living/dining furniture generally matches (sofa grouping and dining table in the correct zone). Bedroom furniture diverges: Bed-3 shows two single beds instead of a single bed arrangement per plan. Kitchen is modeled with long counters, but the exact plan layout (counter runs and openings) is simplified; utility furnishing/fixtures are not clearly mapped."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric view is clear and visually readable, with decent lighting and generally clean geometry. However, it is not a strict architectural/isometric-orthographic match to the plan (perspective/foreshortening and simplified openings reduce fidelity). Some edges/openings appear overly generic, and a few interior junctions look slightly mis-joined/simplified rather than accurately constructed."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bed-3 placement/internal configuration deviates from the 2D plan (render shows a twin-bed layout and altered interior arrangement compared to the plan\u2019s Bed-3)."
+        },
+        {
+            "code": "E1",
+            "description": "Bottom service cluster (HO 6'9\"x7' and separate TOI 6'9\"x4') is not clearly present as distinct, correctly partitioned rooms in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Right-side toilet area(s) appear reconfigured relative to plan (TOI-1 attached to Bed-1 and the separate C.TOI do not match in shape/placement)."
+        },
+        {
+            "code": "E2",
+            "description": "Several door placements/orientations are simplified or shifted, especially around kitchen/utility access and the right-side corridor/toilet doors."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/opening patterns do not consistently follow the 2D plan\u2019s exterior window runs (some windows appear missing or replaced by generalized glazing/rail)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in secondary rooms/corridors (notably Bed-3 and the bottom rooms) compared to the plan\u2019s labeled dimensions and partition geometry."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan19.webp"
+}

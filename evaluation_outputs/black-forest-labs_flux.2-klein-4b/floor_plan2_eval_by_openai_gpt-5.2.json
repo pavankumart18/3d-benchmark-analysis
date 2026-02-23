@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout deviations. (E2/E4) The top corridor/hallway shown in the 2D plan (connecting left bedroom \u2192 bath \u2192 office \u2192 right bedroom) is not faithfully represented; the 3D model reads as a much more open central space with altered wall runs. (E2) Bathroom/adjacent small-room configuration differs: the 2D plan has one bathroom + one separate office/desk room; the 3D shows a different partitioning and fixture placement/orientation. (E2/E3) Several door locations/swing/orientation do not match the 2D plan (notably the right bedroom entry and the doors serving the top rooms). (E2) Window placement does not match: the 3D adds prominent right-wall windows not indicated in the plan and misses/relocates the plan\u2019s small top-wall windows. (E4) Room proportions are notably distorted (central open area enlarged; top rooms/corridor widths not preserved)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Structural relationships are inconsistent. (E2) Adjacencies implied by the plan (clear separated corridor with discrete doorways into bath and office) are altered/blurred in the 3D. (E5) A curved/diagonal interior wall/partition appears in the 3D that is not present in the 2D plan. (E2) Door embedding into correct wall segments is inconsistent with the plan in multiple spots (top rooms and right bedroom). Wall thickness looks generally consistent, but the wall network itself does not match the drawing."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not map well to the plan. (E2/E1) Left bedroom in 2D shows two single beds; 3D shows a different bed arrangement (appears as a single/double bed setup rather than two singles). (E1/E2) The office/desk room furniture from the 2D plan is not clearly present as a distinct room with a desk in the correct location. (E2) Kitchen casework/appliance layout is not faithfully recreated (2D shows a defined bottom-right kitchen run with stove/sink/counters; 3D representation is incomplete/shifted). Scale feels plausible but is not anchored to the plan due to layout changes."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Camera is isometric-like and readable. Lighting is acceptable but somewhat flat. Geometry is mostly clean, but there are plan-inconsistent elements (notably the curved/diagonal partition) that reduce clarity as a verification render. Overall composition is clear, but not orthographically faithful to the 2D plan."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Top corridor/hallway wall layout and circulation path differ substantially from the 2D plan (3D appears more open and re-partitioned)."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom and adjacent small-room (office) partitioning/fixture placement does not match the 2D plan\u2019s bathroom + separate office configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Right bedroom entry door location does not match the 2D plan (door appears placed on a different wall segment in 3D)."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door orientations/swings are inconsistent with the 2D plan (notably doors serving the top rooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: 3D adds prominent right-wall windows not shown in the 2D plan and/or relocates the plan\u2019s small top-wall windows."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: central open area is oversized relative to the plan; top-room/corridor widths and separations are not preserved."
+        },
+        {
+            "code": "E5",
+            "description": "Curved/diagonal interior wall/partition is present in the 3D render but not in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Left bedroom furniture arrangement mismatch: 2D shows two single beds; 3D shows a different bed configuration."
+        },
+        {
+            "code": "E1",
+            "description": "Office/desk room (as a distinct, clearly bounded room with desk placement per plan) is missing or not clearly represented in the correct location."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout mismatch: the 2D plan\u2019s bottom-right kitchen run (stove/sink/counters) is not faithfully placed/represented in the 3D."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,49 @@
+{
+  "spatial_accuracy": {
+    "score": 21,
+    "max": 40,
+    "notes": "Overall zoning is broadly similar (living/dining left, kitchen top, utility and toilet to the right, bedroom bottom-right, balcony bottom-left), but several plan-critical spatial elements diverge. The 2D plan shows a distinct wardrobe/closet zone (dashed area) adjacent to Toilet-1; the 3D model does not represent this as a separate space (merged/omitted). Door locations and swings from the plan (main entry, bedroom, toilet, utility) are largely not modeled as doors, only as open passages, so door placement/orientation cannot be considered accurate. Some partition placements appear shifted, changing the corridor/transition space and room proportions (bedroom/living feel larger/smaller than indicated). Window/opening layout is only partially consistent (balcony glazing present, but other window placements don’t clearly match the plan)."
+  },
+  "structural_fidelity": {
+    "score": 14,
+    "max": 25,
+    "notes": "Wall thickness is fairly consistent and geometry is mostly coherent, but plan-defined separations are not faithfully preserved: the closet/wardrobe space beside Toilet-1 is missing as an independent compartment, affecting adjacency and boundary definition. Door embedding is a major fidelity failure: planned hinged doors are not embedded/located as per plan (render uses open portals). Adjacencies are mostly correct at a high level (kitchen adjacent to living; utility adjacent to kitchen; toilet near bedroom), but the missing closet and added vanity element alter the intended functional layout."
+  },
+  "furniture_mapping": {
+    "score": 6,
+    "max": 10,
+    "notes": "Major furniture pieces roughly match the plan intent (sofa/coffee table in living, round dining table, bed in bedroom, kitchen counters, washer in utility). However, an additional vanity/sink cabinet appears in the corridor area that is not shown in the 2D plan, and some furniture clearances/scales are only approximate relative to the stated room dimensions."
+  },
+  "aesthetic_quality": {
+    "score": 19,
+    "max": 25,
+    "notes": "Isometric viewpoint is clear and readable. Rendering is clean with decent lighting and minimal artifacts. However, the view is mildly perspective rather than strictly orthographic/isometric, and some architectural elements (doors/frames) are simplified, reducing technical clarity."
+  },
+  "total_score": 60,
+  "detected_errors": [
+    {
+      "code": "E1",
+      "description": "Missing separate wardrobe/closet space adjacent to Toilet-1 (dashed area on the right side of the 2D plan not modeled as its own compartment in 3D)."
+    },
+    {
+      "code": "E1",
+      "description": "Main entry door shown in the 2D plan is not modeled as a door (render shows an open passage/no door leaf)."
+    },
+    {
+      "code": "E1",
+      "description": "Bedroom door from living/circulation area is not modeled as a placed door with correct location/swing (appears as open opening)."
+    },
+    {
+      "code": "E1",
+      "description": "Toilet door is not modeled as a placed door with correct location/swing (appears as open opening)."
+    },
+    {
+      "code": "E1",
+      "description": "Utility access door/opening treatment does not match the plan’s defined separation (door not clearly represented)."
+    },
+    {
+      "code": "E5",
+      "description": "Hallucinated corridor vanity/sink cabinet appears outside the toilet area; this fixture is not present in the 2D floor plan."
+    },
+    {
+     

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General room layout is maintained, but door orientations for the bedroom and wash area are inverted or distorted. The entrance door swing is mirrored compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The staircase area lacks the 'UP' directional indication and landing depth. Wall partitions near the wash area and toilet are slightly thinner and lack the proper door threshold sealing shown in the plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the plan, including the dining set, kitchen counters, and bedroom layout. Some minor scaling issues with the toilet fixtures."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering with consistent lighting and clean geometry. The orthographic projection is well-executed."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "The entrance door and bedroom door have incorrect swing orientations compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet fixtures are slightly shifted from the original placement in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The staircase treads and landing proportions do not match the grid-based measurements of the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering artifacts on the curved door geometry for the wash area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan7.jpg"
+}

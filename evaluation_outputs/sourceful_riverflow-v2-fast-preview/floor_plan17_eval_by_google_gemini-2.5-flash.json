@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 1,
+        "max": 40,
+        "notes": "Room placement is incorrect. Many rooms are missing or distorted. Wall alignment is significantly off. Door placements are largely incorrect, and many are missing. Window placements are incorrect regarding position, quantity, and orientation. Room proportions are not preserved."
+    },
+    "structural_fidelity": {
+        "score": 1,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Door embedding is incorrect, with many doors missing. Adjacency relationships are mostly incorrect due to missing and misplaced walls. Many rooms are missing, and some seem to be hallucinated or severely distorted versions of original rooms."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement is mostly incorrect or missing. Scale consistency is poor, and many furniture items are missing."
+    },
+    "aesthetic_quality": {
+        "score": 5,
+        "max": 25,
+        "notes": "The isometric camera is mostly correct. Orthographic projection seems accurate. Lighting quality is poor, and geometry is not clean, with noticeable distortions and lack of detail. Visual clarity and composition are poor due to missing elements and inconsistencies."
+    },
+    "total_score": 7,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Foyer, Living, Dining, Kitchen, Utility, Ser. Rm, entire Balcony structure, Dress, and multiple Toilets."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced walls leading to significant layout discrepancies, especially in the central and right sections of the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple doors throughout the house, including main entrances, internal room doors, and bathroom doors."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the rendering relative to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and quantity of windows. Many windows from the 2D plan are missing, and some in the 3D render are placed where there should be none or in incorrect positions."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion for almost all rooms present, leading to an unrecognizable layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated walls and room configurations, especially in the areas where 'Living' and 'Kitchen' should be."
+        },
+        {
+            "code": "E6",
+            "description": "Poor lighting in the render, making it difficult to discern some details."
+        },
+        {
+            "code": "E6",
+            "description": "Unclean geometry and simplified representations of architectural elements, indicating rendering artifacts or low-quality modeling."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan17.jpg"
+}

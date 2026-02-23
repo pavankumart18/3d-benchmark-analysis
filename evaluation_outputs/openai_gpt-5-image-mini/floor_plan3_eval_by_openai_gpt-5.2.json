@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout mismatch vs plan. Kitchen is rendered as a fully enclosed room with an interior door, while the 2D plan shows the kitchen as an open area connected to dining/living (no separating wall). Bathroom location/enclosure is incorrect: the plan has a centered enclosed bathroom block with doors; the render shows a toilet placed in the open circulation area with no matching bathroom room volume. Living/dining zoning is altered by added partitions/alcoves not present in the plan. Window and entrance positions do not match the plan\u2019s marked openings. Overall room proportions and the relationship of the stair zone to adjacent spaces are notably distorted."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Adjacency relationships are broken (kitchen separated; bathroom block missing/incorrect). Several doors are added/shifted compared to plan, and door embedding does not correspond to the 2D door swings. At least one planned room (enclosed bathroom) is missing as a proper room, and at least one partitioned room/alcove is hallucinated. Wall thickness looks visually consistent, but fidelity to the specified wall network is poor."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Dining table is placed in a plausible dining zone but the zone itself is not faithfully derived from the plan. Living sofa/coffee table are added without corresponding 2D furniture references. Bathroom fixtures do not match the plan\u2019s bathroom configuration (toilet is exposed in open area). Furniture scale is generally consistent, but mapping to the plan is weak."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with decent lighting and generally consistent geometry. Camera is broadly isometric, though not perfectly orthographic. Openings and partitions are visually coherent, but accuracy issues reduce clarity as a plan-to-3D translation."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen placement/enclosure incorrect: rendered as a separate closed room, while the 2D plan shows an open kitchen area integrated with the main space."
+        },
+        {
+            "code": "E1",
+            "description": "Missing enclosed bathroom room volume: the 2D plan has a central bathroom block; the render does not create this room as shown."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom elements misplaced: toilet appears in open circulation area instead of inside the bathroom enclosure shown in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partitions/alcoves: rendered partial walls subdivide living space in ways not present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Interior door placement mismatch: multiple rendered interior doors do not correspond to the 2D door locations/swing positions."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior opening/entrance position likely shifted: the 2D plan entrance is centered on the bottom wall; the render\u2019s entry and immediate wall geometry do not match the same configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: the plan indicates specific window/door openings on top/right/bottom walls; the render shows a different distribution and sizes."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of primary spaces: the rendered main room geometry and stair zone sizing do not preserve the plan\u2019s indicated spatial proportions (e.g., large central open area vs planned zoning)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan3.jpg"
+}

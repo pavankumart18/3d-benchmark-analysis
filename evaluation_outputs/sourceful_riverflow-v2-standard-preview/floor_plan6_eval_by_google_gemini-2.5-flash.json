@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The overall room placement is mostly correct, but there are significant issues with wall alignment, particularly in the bathroom and the area near the stairs. Door placements are largely incorrect or missing. Window placements are also frequently incorrect, with some missing and others misplaced. Room proportions are significantly distorted in several areas, especially the bathroom and bedroom."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly for internal walls. Door embedding is incorrect, with many doors missing or simplified to openings. Adjacency relationships are mostly preserved but with proportional errors. No missing rooms, but significant portions of the bathroom and staircase area are simplified or altered. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; much of the furniture from the floor plan is either missing, replaced with generic blocks, or poorly placed within the rooms. Furniture scale consistency is poor; many items appear disproportionately small or large compared to the room and other furniture."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera correctness is acceptable, and the orthographic projection is generally applied. Lighting quality is decent. However, there are issues with clean geometry, particularly around the stairs and bathroom. Visual clarity is good in some areas but compromised by the poorly represented furniture and structural distortions."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bathroom wall alignment is incorrect; too much space is allocated to the toilet/sink area, and the shower area is not clearly defined."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a door for the bathroom/toilet area, replaced by an open archway."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a door for the bedroom, replaced by an open archway."
+        },
+        {
+            "code": "E2",
+            "description": "Wall separating the kitchen/living from the bedroom is not accurately represented, with a curved wall on the floor plan becoming straight."
+        },
+        {
+            "code": "E2",
+            "description": "Many windows are misplaced from their original positions on the floor plan; for example, the window near the kitchen sink is missing, and the windows on the left wall are different in number and placement."
+        },
+        {
+            "code": "E1",
+            "description": "Missing plant elements on the balconies as indicated in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the bathroom is significantly distorted; the toilet and sink are compressed, and the shower area is not clearly rendered."
+        },
+        {
+            "code": "E4",
+            "description": "Staircase proportions are significantly altered, appearing much wider and steeper than suggested by the floor plan, encroaching on the hallway space."
+        },
+        {
+            "code": "E1",
+            "description": "Missing many interior furniture items such as the bed in the bedroom, chairs in the kitchen/living area, and specific kitchen appliances (e.g., sink details)."
+        },
+        {
+            "code": "E2",
+            "description": "The sofa in the kitchen/living area is replaced by two separate block-type furniture items, and its placement is inaccurate."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen island/counter with stools."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter layout is simplified and does not accurately reflect the L-shape or appliance placement from the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent, with some internal walls appearing overly thick or thin compared to the external walls and other internal walls."
+        },
+        {
+            "code": "E2",
+            "description": "The door to the outdoor area on the bottom right is missing and replaced by a raised platform/wall."
+        },
+        {
+            "code": "E4",
+            "description": "The overall depth of the house appears compressed, distorting the proportions of the rooms."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan6.jpg"
+}

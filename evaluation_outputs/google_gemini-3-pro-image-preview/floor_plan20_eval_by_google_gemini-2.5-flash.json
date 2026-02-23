@@ -1,0 +1,120 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Bathroom 3 and 4 near main entrance are merged and misplaced. Balconies in Bedroom 1, 2, and the Deck are missing. The kitchen layout is significantly altered in proportion and layout. Utility room and Toilet 1 are proportionally incorrect. Bedroom 3 proportions are inaccurate. Living/Dining proportions are off. Home Office/Maid's Room proportions are distorted. Many doors are incorrectly placed or oriented."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "notes": "Missing Balconies (E1) and Deck (E1). Hallucinated wall sections, particularly in the lower left corner and around the kitchen/utility area (E5). Wall alignments are poor throughout (E2). Door embeddings are consistently incorrect, with several doors appearing to be surface-mounted or clipping through walls (E2, E6). Bathroom near main entrance is merged, leading to incorrect adjacency."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement deviates significantly from the floor plan (E2). Scale consistency is poor for some items (E4). Bedroom 2 has two beds hallucinated (E5). Kitchen counters and appliances are completely different (E2, E5). Bathroom fixtures are rearranged (E2). Home office furniture is different (E2)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera appears correct. Orthographic projection seems accurate. Lighting is flat, lacking depth. Geometry is mostly clean, but some wall intersections appear soft (E6). Visual clarity is decent, but some room distinctions are lost due to structural inaccuracies."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing balconies for Bedroom 1, Bedroom 2."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Deck accessible from Living & Dining."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom 3 and Bathroom 4 are merged into a single, larger, and irregularly shaped bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen wall layout and counter placement are incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room's shape and door placement are incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Bedroom 3 is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Bedroom 2 is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Toilet 2 is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Toilet 1 is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Utility is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Wall separating Living & Dining from Bedroom 2 and Toilet 2 is misaligned."
+        },
+        {
+            "code": "E2",
+            "description": "Wall separating Bedroom 1 from Toilet 1 and Utility is misaligned."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture placement in Living & Dining, Bedroom 1, Bedroom 2, Bedroom 3, Home Office/Maid's Room, and Kitchen is largely incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple door orientations are incorrect relative to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of Bathroom 3/4 combined room are distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of Kitchen are significantly distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of Utility and Toilet 1 are distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of Bedroom 3 are distorted, appearing longer and narrower."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of Home Office/Maid's Room are distorted."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segments in the main entrance/lobby area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a second bed in Bedroom 2."
+        },
+        {
+            "code": "E6",
+            "description": "Door embeddings show clipping issues with walls in multiple locations."
+        },
+        {
+            "code": "E6",
+            "description": "Some wall junctions appear to have soft or ambiguous geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room layout roughly matches (living/dining left, kitchen central, two bedrooms right, bath/WC central-bottom), but key spatial elements diverge: the balcony shown on the 2D plan is not modeled; living area window/door arrangement does not match the plan\u2019s balcony opening; proportions appear inflated in the living/dining zone relative to the bedroom block; and there appears to be an added/changed connection toward the garage side compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall networks and adjacencies are broadly consistent (hall to bedrooms/bath/WC, kitchen adjacent to living), but structural fidelity is reduced by the missing balcony space and likely a hallucinated internal access/door relationship with the garage not indicated on the 2D plan. Door embedding looks generally clean, but the exterior openings (balcony/entry side) do not faithfully follow the plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen, bath fixtures, and laundry elements are present and plausibly placed, but exact fixture placement and scale cannot be confirmed as matching the 2D plan; the render omits any living/dining furniture that could validate the large open area proportions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and clean materials; geometry is mostly crisp. However, the camera is perspective rather than a true isometric/orthographic match, which reduces verification clarity. Minor scale/perception distortion from the viewpoint makes proportion checking harder."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony space shown on the 2D plan (off the lounge) is missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony opening/door from lounge (top-left in plan) is not represented; instead the living area shows standard windows/openings inconsistent with the plan\u2019s balcony access."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in the living/lounge zone appears inconsistent with the 2D plan (extra/shifted windows versus a primary balcony opening)."
+        },
+        {
+            "code": "E5",
+            "description": "Likely hallucinated internal garage access/door relationship: the 3D render suggests a connection/door toward the garage that is not indicated on the 2D plan (garage appears separate with no internal door shown)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the living/dining area appears oversized relative to the bedroom/bath core compared to the 2D plan\u2019s dimensions and relative balance."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan13.jpg"
+}

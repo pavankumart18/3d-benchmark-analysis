@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placements are generally correct, but several walls are misaligned. Door placements are incorrect for many rooms, particularly the master bedroom, master bath, and bedroom #3. Window placements are largely inaccurate. Room proportions are distorted in multiple areas, such as the living room and kitchen."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Many doors are not correctly embedded and appear to float or have incorrect openings. Adjacency relationships are mostly correct, but the patio areas are not clearly defined. The 'Nook' and 'Covered Patio' near the kitchen are missing. There are no hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly inaccurate, with many items placed differently or missing compared to the floor plan. Furniture scale consistency is acceptable."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair. Lighting quality is good. Geometry has some minor distortions, particularly in wall corners. Visual clarity and composition are good despite the structural issues."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced walls in Living Room and Nook area."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and orientation for Master Bedroom, Master Bath, Bedroom #3, Bathroom, Hall, Dining Room, and Study."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Nook' area near the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Covered Patio' near the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'Covered Patio' near Bedroom #4."
+        },
+        {
+            "code": "E2",
+            "description": "Inaccurate window placements throughout the structure, particularly in the Master Bedroom and Living Room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Living Room, Kitchen, and Patio areas."
+        },
+        {
+            "code": "E2",
+            "description": "Inconsistent wall thickness leading to structural discrepancies."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect embedding of doors, appearing to float or having misaligned openings."
+        },
+        {
+            "code": "E2",
+            "description": "Inaccurate furniture placement in almost all rooms."
+        },
+        {
+            "code": "E6",
+            "description": "Minor geometry distortions visible in wall corners and junctions."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan9.png"
+}

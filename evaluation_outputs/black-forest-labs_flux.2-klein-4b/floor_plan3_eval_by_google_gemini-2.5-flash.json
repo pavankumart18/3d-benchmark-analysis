@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "The 3D render bears no resemblance to the 2D floor plan. Rooms are completely different, and none of the original plan's features are present."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "There are no matching rooms, wall configurations, staircases, or bathrooms. The entire structure is a hallucination of a different floor plan."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "The 2D floor plan only shows kitchen appliances. The 3D render contains completely different rooms with their own furniture, none of which can be mapped to the original plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The rendering itself is aesthetically pleasing with good lighting and clean geometry, but it is entirely incorrect in terms of content compared to the floor plan."
+    },
+    "total_score": 20,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Entire room layout and all internal walls are hallucinated."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Dining room is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Living room is missing."
+        },
+        {
+            "code": "E1",
+            "description": "Bathroom is missing and replaced by a different bathroom layout."
+        },
+        {
+            "code": "E1",
+            "description": "Staircase is missing."
+        },
+        {
+            "code": "E5",
+            "description": "Multiple new rooms (bedrooms, study, etc.) are hallucinated."
+        },
+        {
+            "code": "E2",
+            "description": "All doors and windows are misplaced as the structural layout is completely different."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are entirely different due to a complete change in floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan3.jpg"
+}

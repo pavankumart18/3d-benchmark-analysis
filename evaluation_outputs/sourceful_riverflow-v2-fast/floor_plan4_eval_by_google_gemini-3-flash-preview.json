@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained. However, several windows on the left and right exterior walls were omitted in the 3D render. The main entrance hall door orientation is reversed compared to the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Wall thicknesses are mostly consistent. The laundry room and kitchen divider walls show slight height/thickness glitches. Internal door frames are missing for the closets, leaving open gaps."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement correlates well with the 2D plan, including the round tub in the bathroom and the U-shaped kitchen counter. Scaling is generally plausible."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent orthographic representation and clean monotone aesthetic. Soft lighting and shadows provide great depth. Geometry is crisp with minimal rendering noise."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing windows on the kitchen/dining west wall and the bedroom 1/2 east walls."
+        },
+        {
+            "code": "E3",
+            "description": "Main entrance door swing orientation is incorrect relative to the hall layout."
+        },
+        {
+            "code": "E2",
+            "description": "Closet doors are missing, appearing as open wall indentations rather than hinged entries."
+        },
+        {
+            "code": "E6",
+            "description": "Artifacting on the wall segment between the laundry and kitchen area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan4.jpg"
+}

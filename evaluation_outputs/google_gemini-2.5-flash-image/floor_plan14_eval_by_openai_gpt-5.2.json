@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall room layout roughly matches (2 bedrooms left/right, central living/dining, kitchen + utility bottom-left, two toilets, two decks), but multiple spatial details diverge. E2/E4: foyer/entry zone appears resized (3D shows different foyer width/labeling vs 2D 4'6\" x 3'8\" + 4'6\" x 4'7\"). E2: several door locations/orientations do not precisely match the 2D (notably around living-to-passage and bath/bedroom door swings). E2/E1: window/opening placement is not faithfully represented\u20142D shows multiple exterior windows and deck openings; 3D largely depicts solid exterior walls with few/no clear window cutouts. E4: deck proportions (especially the large top deck) and some room widths appear visually compressed/expanded relative to the 2D dimensions."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "E1/E2: Major structural fidelity loss from missing/unclear exterior fenestration (windows/sliders) that are integral to the 2D plan. E2: door embedding/swing correctness is inconsistent (door locations look approximate rather than exact; some openings appear shifted). Adjacencies are mostly correct (kitchen next to living, utility next to kitchen, toilets near bedrooms/passage), and no obvious extra rooms are added. Wall thickness looks generally consistent, but several boundaries/openings are simplified compared to the 2D."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is plausible and generally aligned with room functions (beds in bedrooms, sofa + dining in living, counters in kitchen). E2: some furniture placement/orientation does not match the 2D intent (living seating arrangement differs; kitchen/utility fixtures simplified). E4: scale feels slightly off in a few areas (dining set clearance and sofa-to-wall spacing vs the tight 2D proportions)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric viewpoint is clear and readable, with decent lighting and generally clean geometry. However, E6: lack of modeled windows/openings reduces realism and clarity of the architecture. Orthographic/isometric fidelity is slightly compromised by mild perspective feel and simplified openings. Composition is good but overall architectural legibility is impacted by missing fenestration."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Most exterior windows and/or sliding door openings shown on the 2D plan are missing or not clearly modeled as cutouts in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer/entry area sizing and boundary placement differ from the 2D plan dimensions (appears widened/altered in 3D)."
+        },
+        {
+            "code": "E2",
+            "description": "Several door placements and/or swing orientations appear approximate rather than matching the exact 2D locations (notably around the living-to-passage and toilet/bedroom entries)."
+        },
+        {
+            "code": "E4",
+            "description": "Room/deck proportions are not consistently preserved; the large deck and some interior clearances appear visually compressed/expanded relative to the 2D dimensioned plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom identification/function mapping is inconsistent with the 2D labeling (left bedroom is BED-2 in 2D but appears mislabeled/treated as BED-1 in the 3D)."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/asset simplification (solid exterior walls, limited fenestration detail) reduces architectural fidelity to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan14.webp"
+}

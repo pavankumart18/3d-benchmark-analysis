@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Overall zoning (living/dining at top, kitchen left, two bedrooms bottom corners, bath left) roughly matches, but several plan-critical placements diverge: the bottom entry/foyer connection is unclear vs the plan\u2019s defined entry door and hall, multiple interior door locations/openings do not match the 2D swings, and exterior window placement is incomplete (bedroom windows largely missing). Hall/closet geometry and bedroom/hall proportions appear compressed/shifted compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Adjacency is mostly preserved (kitchen-to-living, hall-to-bedrooms, bath off hall), but fidelity drops due to missing/altered openings and closet/coat-storage definition. Several doors are rendered as arched openings rather than embedded hinged doors shown in plan. Bedroom window walls and some closet boundaries do not structurally match the 2D layout; some openings/wall segments appear invented or simplified."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Living/dining and bedroom furniture generally corresponds in intent, but exact placement/scales do not follow the plan closely (table/chairs count/spacing, kitchen fixtures, bath fixture arrangement). Several plan-indicated built-ins/closet runs are not represented accurately."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric with decent lighting and materials. However, the projection reads more like perspective than strict isometric/orthographic, and the frequent arched openings plus simplified wall/door geometry reduces architectural clarity. Minor softness/blur and simplified detailing detract from verification-grade legibility."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Main entry door at bottom (marked entry/X in plan) is not clearly modeled as a defined door in the 3D; entry/foyer threshold is ambiguous."
+        },
+        {
+            "code": "E3",
+            "description": "Multiple interior doors are represented as arched openings rather than hinged doors with correct swing/orientation as shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement along the hall-to-bedroom connections appears shifted relative to the plan (openings not aligned to the same wall segments/offsets)."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom exterior windows indicated on the 2D plan are largely missing in the 3D (notably in Rachel\u2019s bedroom; Monica\u2019s appears incomplete/incorrect)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement does not fully match the plan: the living room glazing is present, but bedroom window locations/lengths are not consistent with the 2D boundary walls."
+        },
+        {
+            "code": "E1",
+            "description": "Coat/closet/storage areas shown near the bath/hall in the plan are not distinctly or correctly represented (closet boundaries/doors simplified or absent)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: central hall/closet run and adjacent room widths appear compressed, affecting the relative sizes of bedrooms vs circulation compared to the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated architectural styling elements (curved/arched portals and curved wall segments) that are not present in the rectilinear 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen cabinetry/counter geometry is simplified/altered vs the plan\u2019s L-shaped configuration and exact fixture placement."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/legibility artifacts: soft edges/blur and low-detail openings reduce the ability to verify exact wall thicknesses and embedded door/window details."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan.jpg"
+}

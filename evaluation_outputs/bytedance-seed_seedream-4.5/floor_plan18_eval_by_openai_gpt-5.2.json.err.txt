@@ -1,0 +1,46 @@
+{
+  "spatial_accuracy": {
+    "score": 18,
+    "max": 40,
+    "notes": "Overall room zoning roughly matches (bedroom top-left, living/dining center-left, kitchen/utility right, balcony left, foyer bottom). However, several critical plan-to-render mismatches exist: the main entry/foyer connection appears relocated on the exterior facade (not clearly at the bottom-right as in plan) (E2/E3). Toilet is materially re-proportioned (plan 4'9\"x8'0\" vs render ~4'8\"x6'0\") causing corridor/bath geometry distortion (E4). Window placements on exterior walls do not match the plan’s limited/located openings; render uses large continuous glazing that is not indicated in plan (E2/E5)."
+  },
+  "structural_fidelity": {
+    "score": 16,
+    "max": 25,
+    "notes": "Primary adjacency is mostly preserved (toilet near bedroom/kitchen; utility adjacent to kitchen; balcony off living). Wall thickness looks fairly consistent, but door integration is inconsistent where the entry and internal openings do not align cleanly with the 2D layout (E2/E3). The toilet/foyer dimensional changes alter internal wall runs and reduce fidelity to the drawn boundary lengths (E4). The small duct/shaft next to the toilet shown in plan is not clearly modeled (E1). No extra rooms are introduced."
+  },
+  "furniture_mapping": {
+    "score": 5,
+    "max": 10,
+    "notes": "Key furniture is present (bed, sofa, dining, kitchen fixtures), but placement and scale are only loosely aligned with the plan symbols. Dining set/table appears oversized/shifted relative to the 2D placement, and kitchen fixture layout is simplified compared to plan (E2/E4)."
+  },
+  "aesthetic_quality": {
+    "score": 19,
+    "max": 25,
+    "notes": "Isometric presentation is clear with good lighting and generally clean geometry. However, the render reads more like a stylized architectural visualization than a faithful orthographic/isometric translation of the 2D plan—especially due to exaggerated window/glazing treatment and softened dimensional accuracy (E6)."
+  },
+  "total_score": 58,
+  "detected_errors": [
+    {
+      "code": "E4",
+      "description": "Toilet size/proportion does not match plan (plan 4'9\"x8'0\"; render shows ~4'8\"x6'0\"), altering internal wall lengths and circulation."
+    },
+    {
+      "code": "E2",
+      "description": "Main entrance/foyer door placement appears shifted on the exterior facade compared to the plan’s bottom-right entry location."
+    },
+    {
+      "code": "E3",
+      "description": "Door orientation/swing and opening alignment are inconsistent for the entry and at least one internal doorway (foyer/kitchen zone) relative to the 2D plan."
+    },
+    {
+      "code": "E1",
+      "description": "Duct/shaft element adjacent to the toilet shown in the 2D plan is missing or not clearly represented in the 3D model."
+    },
+    {
+      "code": "E5",
+      "description": "Hallucinated/exaggerated exterior glazing: large continuous windows on exterior walls are not supported by the specific window placements implied in the 2D plan."
+    },
+    {
+      "code": "E4",
+      "description": "Foyer dimensioning/proportions differ from the plan (plan indicates ~4'6\"x3

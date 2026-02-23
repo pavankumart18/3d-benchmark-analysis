@@ -1,0 +1,116 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the entrance area and bathroom layout are significantly altered. Wall alignment shows discrepancies, particularly around the entrance and bedroom walls. Door placements and orientations are frequently incorrect. Windows are missing or inaccurately placed. Room proportions are distorted in several areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not correctly embedded; many are rendered as simple cutouts. Adjacency relationships are incorrect for the bathroom, entrance, and kitchen areas. Several rooms are effectively missing or heavily altered (e.g., closet, parts of the bathroom/entrance). Hallucinated wall segments exist."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally off. Many items are missing or misplaced. Scale consistency of furniture is questionable, with some items appearing oversized or undersized relative to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair. Lighting quality is dull and lacks definition. Geometry is clean but simplistic. Visual clarity is good, but composition is uninspired."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 'CLOSET' adjacent to the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 'COAT' closet in the entrance area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing small closet in Rachel's bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet in Monica's bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in Rachel's bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in Monica's bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing smaller windows in the living room area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bathroom fixtures (e.g., sink by the entrance, shower/tub in both bathrooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom layout significantly altered and compressed, rendering it unrecognizable from the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance area walls and door placement are incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from the main hall to the combined bathroom/utility area is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Rachel's bedroom is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Monica's bedroom is misplaced and incorrectly oriented."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Chandler & Joey's Apartment is missing and its wall is inaccurately represented."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen wall layout and appliances are misplaced and reconfigured."
+        },
+        {
+            "code": "E2",
+            "description": "Main living room window is simplified and incorrectly placed/sized compared to the bay window in the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bed in Rachel's room is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bed in Monica's room is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in the bathroom and entrance areas."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the kitchen and dining area are somewhat distorted."
+        },
+        {
+            "code": "E5",
+            "description": "Multiple hallucinated wall segments and reconfigurations, particularly around the kitchen/entrance/bathroom complex."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated low wall/counter between dining and bath area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan.jpg"
+}

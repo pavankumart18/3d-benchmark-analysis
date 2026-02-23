@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "Room placement is mostly correct. Wall alignment is generally good, but some minor misalignments observed, specifically around the kitchen, utility, and servant's room areas. Door placement and orientation are mostly accurate, with minor discrepancies. Window placement is consistent with the floor plan. Room proportions are largely preserved with minor distortions."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Wall thickness shows some minor inconsistencies, particularly around the kitchen and servant's room. Door embedding is mostly correct. Adjacency relationships are well-maintained. No missing or hallucinated rooms were identified."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate and consistent with the floor plan. Furniture scale is also well-preserved."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle is correct, and orthographic projection is generally accurate. Lighting quality is good. There are some minor clean geometry issues, specifically in the thickness of some walls and the edges of the balconies. Visual clarity and composition are good overall."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor wall alignment discrepancies around kitchen, utility, and servant's room."
+        },
+        {
+            "code": "E4",
+            "description": "Minor room proportion distortions, especially noticeable in Balconies dimensions compared to plan."
+        },
+        {
+            "code": "E2",
+            "description": "Minor inconsistencies in wall thickness, particularly in the lower left section of the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Slight imperfections in wall geometry and balcony edges, leading to less clean geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan17.jpg"
+}

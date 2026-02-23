@@ -1,0 +1,132 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but wall alignment is poor in several areas. Door placements are incorrect in multiple rooms, and window placements are frequently inaccurate or missing. Room proportions are distorted in some areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Doors are not embedded correctly (some appear as openings, others are placed without proper wall cuts). Adjacency relationships are mostly correct, but hallways and some rooms merge. There are missing rooms and hallucinated structural elements."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally off, with several items missing or misplaced significantly. Scale consistency is poor for some furniture items."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera and orthographic projection are generally good. Lighting quality is acceptable. Geometry has distortions and unclean edges. Visual clarity is moderate due to some missing elements and structural inaccuracies."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall misalignment at the entrance area and along the main corridor."
+        },
+        {
+            "code": "E2",
+            "description": "Inner door in the far-left room (bedroom) is misplaced, rotated, and does not align with the wall."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the bathroom is misplaced and rotated."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the far-right room (bedroom/office) is misplaced and rotated."
+        },
+        {
+            "code": "E1",
+            "description": "Missing outer door at the entrance."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the far-left room are not present; instead, there is a single window in an incorrect location."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the far-right room are misplaced and inconsistent with the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen window is too large and misplaced."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the main living area, which appears wider than in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the far-right room, appearing narrower than in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness throughout the model."
+        },
+        {
+            "code": "E6",
+            "description": "Doors are rendered as simple openings or unaligned solids rather than properly embedded elements."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wall separating the entrance hallway from the main living space in the 3D model, creating an open-plan layout not present in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior door in the far-right room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wardrobe in the middle-left bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Beds in the far-left bedroom are misplaced and rotated."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom fixtures (toilet, sink, shower) are inaccurately placed."
+        },
+        {
+            "code": "E2",
+            "description": "Desk and chair in the middle-right room are misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Beds in the far-right room are misplaced."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wardrobe in the far-right room."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa and armchairs in the living area are misplaced and scaled incorrectly."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bookshelf/cabinet in the living area."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs are slightly off-center and not fully aligned with the kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Washing machine and dryer are misplaced."
+        },
+        {
+            "code": "E6",
+            "description": "Jagged and unclean geometry on several wall edges and corners."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan2.png"
+}

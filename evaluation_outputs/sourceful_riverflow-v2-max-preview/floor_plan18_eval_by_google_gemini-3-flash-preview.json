@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General floor plan layout is followed, but several door and window orientations are incorrect. The transition from the utility area to the kitchen is handled as a window rather than an open entrance, and the balcony access door is missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Missing the 'Utility' room enclosure as defined in the 2D plan; it has been integrated improperly. The foyer wall partitioning is slightly distorted compared to the plan's clean right angles."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture mostly aligns with the plan (bed, dining table, kitchen counters). Wardrobe in bedroom is placed on the opposite wall intended for the closet. Dining chairs increased from 2 to 6, violating the plan's spatial economy."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High quality isometric rendering with consistent lighting and clean geometry. The orthographic projection is well-executed."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry door from the balcony to the living area."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door swings into the living space instead of being tucked toward the hallway entrance as per plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom wardrobe is placed against the far wall instead of the designated niche wall."
+        },
+        {
+            "code": "E4",
+            "description": "Dining furniture set is over-scaled (6 chairs vs 2 in plan), crowding the living area."
+        },
+        {
+            "code": "E5",
+            "description": "The 'Utility' space is hallucinated as a window view rather than a functional interior room extension."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan18.jpg"
+}

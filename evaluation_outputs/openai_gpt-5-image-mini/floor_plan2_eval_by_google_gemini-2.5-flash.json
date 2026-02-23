@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the entrance area in the bottom left is significantly altered. Wall alignment shows several discrepancies. Door placements are largely incorrect, and many doors are missing. Window placements are also incorrect. Room proportions are significantly distorted in several areas, especially the living room and kitchen."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Door embedding is incorrect, and many doors are missing. Adjacency relationships are altered due to missing walls and rooms. Major rooms in the kitchen/dining/living area are missing walls. No hallucinated rooms, but major structural elements are missing."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is significantly altered from the plan. Many furniture items are missing or are replaced with different types. Scale consistency is poor for some items."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair. Lighting quality is decent. Geometry is clean with no major distortions. Visual clarity and composition are good."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing wall separating the living room from the kitchen/dining area. The distinct L-shaped wall is absent."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a wall and door for the entrance area in the bottom-left."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all doors, except for one in the bathroom. Only empty door frames are present."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bedroom on the right. It is placed on the wrong wall and has incorrect orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bathroom. It is shifted from its original position."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced vanity in the bathroom, moved to the opposite wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced shower in the bathroom. It is a stand-alone unit, while the floor plan shows a shower area integrated with walls."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced toilet in the bathroom, rotated and shifted."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect windows. Windows in the top-left bedroom are on a different wall than shown in the plan. Windows in the top-right bedroom are also on different walls."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced office desk and chair in the top-right bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and altered kitchen appliances. The sink is now part of an island, and the stove/oven is integrated differently."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dining table and chairs in the top-right bedroom from the original layout concept (appears as office space)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing shelves and cabinets in various rooms (e.g., bedrooms, kitchen)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing fan elements in the living area and entrance."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the living room and kitchen area, appearing more open plan than indicated by the walls in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportional distortion of the entrance area in the bottom left, being much smaller and lacking a wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island counter. The original plan shows a more typical L-shaped kitchen counter arrangement."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated plant in the living area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated TV and TV stand in the bottom-left bedroom (original plan has only beds and wardrobe)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated end tables/nightstands in bedrooms."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan2.png"
+}

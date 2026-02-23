@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Overall layout does not match the long, linear 3BHK plan. The 3D render shows a compact, near-square footprint with a central living zone, whereas the 2D plan has a long central living/dining with two distinct wide passages and rooms spread left-to-right. Bedroom locations and adjacencies are inconsistent (master/bedroom-1/bedroom-2 positions do not align). Door locations and openings are largely not where the plan indicates. Window placement does not correspond to the plan\u2019s exterior wall openings and balcony glazing."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Several required spaces are missing (multiple toilets, utility, balconies, and the defined passages). Adjacency relationships are incorrect (e.g., kitchen/utility connection and bedroom-toilet relationships are not preserved). Wall thickness and partitioning appear generic and do not follow the plan\u2019s structural walls/shafts. The 3D introduces partitions/voids that do not exist in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and not mapped to the plan: living/dining arrangement and kitchen layout do not reflect the 2D plan\u2019s fixtures. Bedroom furniture count appears inconsistent with the 3BHK labeling and sizes. Scales are plausible visually but not consistent with the plan\u2019s room dimensions/proportions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean and readable with decent lighting and an isometric-like view. However, it is not an accurate architectural translation of the plan and reads more like a generic apartment model. Some openings/geometry look simplified (few doors, simplified window types), reducing orthographic/architectural fidelity."
+    },
+    "total_score": 36,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Global footprint/proportions distorted: 2D plan is a long linear apartment; 3D render is a compact square-like layout."
+        },
+        {
+            "code": "E1",
+            "description": "Missing balconies: 2D shows at least two balconies (living and master side); 3D shows none clearly modeled."
+        },
+        {
+            "code": "E1",
+            "description": "Missing utility space adjacent to kitchen (present in 2D, not represented in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple toilets/bathrooms: 2D includes several toilets (including attached/common and a powder/toilet); 3D shows none or not properly enclosed/placed."
+        },
+        {
+            "code": "E2",
+            "description": "Bedrooms misplaced: master/bedroom-1/bedroom-2 positions and their relationships to passages and toilets do not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen misplaced/reshaped: 2D kitchen is on the right with a specific rectangular proportion and adjacency to utility; 3D kitchen appears as a different footprint and location within the compact plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation incorrect: 2D indicates specific door locations along passages and into rooms; 3D shows fewer doors and openings not aligned to those positions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement incorrect: 3D windows do not correspond to the 2D plan\u2019s exterior openings (notably along balcony edges and bedroom exterior walls)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated internal partitions/niches: 3D includes wall segments/room shaping not present in the 2D plan (e.g., extra recesses and altered corridor structure)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect adjacency: 2D has two wide passages connecting zones; 3D lacks the defined passage system and reroutes circulation through a different topology."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan15.webp"
+}

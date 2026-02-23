@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is correct. Minor issues with door swing orientations in bedrooms and the specific alignment of the WC/Bath wall compared to the primary hallway."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent room adjacency. All core rooms and stairs are present. Wall thicknesses are consistent, though the recessed 'LINEN' area near the center is slightly simplified."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement matches the schematic well. Minor hallucination of an entertainment unit in the Activity room that was not in the 2D plan, and the balcony table is added."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "High-quality isometric render. Lighting is clean, geometry is sharp, and the orthographic projection is perfectly maintained."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Door swing orientations in Bed 2, 3, and 4 do not match the specific arc directions shown in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated television and console unit in the Activity room not present in the 2D original."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Linen' cupboard in the hallway is rendered as a recessed architectural nook rather than a boxed cabinet as per the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan12.png"
+}

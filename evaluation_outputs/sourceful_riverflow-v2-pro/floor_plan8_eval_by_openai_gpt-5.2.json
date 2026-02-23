@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "notes": "Major spatial deviation around the pantry/core: the 2D plan shows a small pantry room adjacent to the kitchen, but the 3D render introduces a large central enclosed block that shifts/consumes the central circulation area. Primary zones (living bottom-left, dining bottom-center, kitchen right, playroom top-right, stairs top-center) are broadly in the correct quadrants, but internal wall layout and room sizing do not match the plan. Multiple door and window positions do not align with the 2D drawing, and room proportions (especially pantry vs. living/dining) are distorted."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Exterior shell is roughly similar, but internal structure fidelity is weak due to the added/incorrect central block and the missing/incorrect pantry enclosure. Adjacencies are partially preserved (kitchen adjacent to playroom; living adjacent to dining), but the pantry and central circulation relationship to stairs/kitchen is incorrect. Doors are generally embedded in walls, but several are placed/oriented differently than the plan indicates."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen fixtures (sink run and cooktop on island) generally correspond to the plan\u2019s intent, and dining/living furniture is plausibly placed. However, because the pantry/circulation core is incorrect, furniture ends up mapped into a distorted interior footprint. Furniture scale appears consistent overall."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric with consistent lighting and generally tidy geometry. Camera is appropriately isometric-like and composition is clear. Main aesthetic penalty is from the structurally confusing central block/void and some awkward door swings that reduce clarity of the intended plan."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Pantry room from the 2D plan is not represented as a correctly sized/enclosed pantry adjacent to the kitchen (missing/failed translation of the pantry enclosure)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated large central enclosed block/void-like structure appears in the 3D render; no such large central room/box exists in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Internal wall layout around the kitchen/pantry/stair core is misplaced relative to the 2D plan, altering circulation paths and room boundaries."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: the central area is overbuilt, compressing/reshaping the living/dining open area compared to the 2D plan\u2019s more open center."
+        },
+        {
+            "code": "E2",
+            "description": "Several door positions do not match the 2D plan (notably around the kitchen/dining connection and the core rooms), changing intended access points."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation inconsistencies: multiple doors in 3D appear to swing/open in directions that do not correspond to the 2D door arcs."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count inconsistencies: window groupings along exterior walls (particularly living/kitchen sides) do not reliably match the 2D plan\u2019s indicated window locations."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room 'WC' is missing in the 3D render. The 'Utility Room' and 'Central Hall' layout is incorrectly represented, specifically the wall separating them and the door positions. The 'Kitchen' and 'Pantry' are missing. The 'Dining Room' is correctly placed but its external wall form is incorrect. 'Breakfast Screen Porch' missing. Window placements are largely inaccurate or missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing WC, Kitchen, Pantry, and Breakfast Screen Porch rooms (E1). Hallucinated wall and room arrangement in the central area (E5). Incorrect adjacency between Central Hall and Utility Room. Door embeddings are mostly correct where doors exist, but many doors are missing or misplaced."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Almost all furniture from the 2D plan is missing. Hallucinated furniture is present in some rooms where furniture was not specified in the 2D plan (E5)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy seems appropriate for an isometric view. Lighting is adequate. Geometry is clean with no significant distortions."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing WC room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Kitchen room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Breakfast Screen Porch."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment between Central Hall and Utility Room."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for Utility Room and Central Hall."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect external wall shape for the Dining Room."
+        },
+        {
+            "code": "E2",
+            "description": "Numerous incorrect or missing window placements throughout the structure."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the central area affecting the hallway and utility room layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall and room structure in the central part of the building."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture not present in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all specified furniture from the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan11.png"
+}

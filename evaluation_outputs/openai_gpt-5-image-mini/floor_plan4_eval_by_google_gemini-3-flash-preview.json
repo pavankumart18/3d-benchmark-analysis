@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe layout deviation. Kitchen and Living room positions are swapped relative to the original plan. Window placement on the right wall does not match the 2D layout. Entry hall sequence is incorrectly represented."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Bathroom is entirely missing from the 3D render. Closet partitions are non-existent. Bedroom 1 and 2 adjacency is corrupted; Bedroom 1 has been moved to the top-left where the Kitchen/Dining should be."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Dining table is undersized and moved to the hallway area. Living room furniture orientation is flipped 180 degrees. Laundry appliances are in the correct general zone but the room structure is open."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution and lighting. The model is clean with high visual clarity, despite the architectural inaccuracies. Orthographic projection is consistent."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen and Master Bedroom locations are swapped relative to the 2D floor plan layout."
+        },
+        {
+            "code": "E1",
+            "description": "The main bathroom (126 sq ft) is completely absent in the 3D representation."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table relocated from the top-left kitchen zone to the central transition/hallway area."
+        },
+        {
+            "code": "E4",
+            "description": "Dining table and chairs scale is significantly smaller than the architectural proportions suggest."
+        },
+        {
+            "code": "E3",
+            "description": "Living room seating arrangement faces the interior instead of being oriented per the plan layout."
+        },
+        {
+            "code": "E1",
+            "description": "Multiple interior storage closets missing from the laundry and entrance areas."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan4.jpg"
+}

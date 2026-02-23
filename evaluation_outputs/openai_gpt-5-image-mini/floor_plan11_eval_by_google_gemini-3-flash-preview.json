@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major structural deviations identified. The distinct bay window/window seat on the right wall is missing, replaced by flat windows. The stairs (up) located in the center-left of the blueprint are completely omitted and replaced by an open walkway or hallway hallway. Room proportions are significantly squat compared to the blueprint's elongated kitchen/pantry layout."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The Utility Room and WC area in the top-left are merged into generic spaces without correct masonry/partition walls. Adjacency for the 'Pantry' is lost as it's rendered as standard counter space. Missing the 'Crawlspace Access' wall segment."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Dining table and chairs are added (hallucinated) where the blueprint shows an open dining area with specific architectural joist callouts. The kitchen island/counter is scaled incorrectly and lacks the specific 'Pantry' 'Ref' enclosure symmetry shown in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The 3D model is visually clean with excellent lighting, consistent wall thickness, and a correct orthographic/isometric camera projection. Geometry is manifold and clear."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase ('UP') and central structural partitions."
+        },
+        {
+            "code": "E1",
+            "description": "Missing architectural bay window with 'Window Seat' on east elevation."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen sink and counter placement ignores the specific 'Pantry' and 'Laundry/Utility' wall boundaries."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen length is compressed relative to the deep 'Breakfast' and 'Kitchen' zone in the blueprint."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated dining table set and floating wall cabinets not specified in the primary layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan11.png"
+}

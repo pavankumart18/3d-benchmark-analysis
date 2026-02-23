@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Significant geometric distortions in external walls; the diagonal wall in the living room area does not match the orthographic blueprint. Window counts are significantly reduced or merged."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The central pantry/island structure is misinterpreted as a solid room block. The staircase lacks the correct flight directionality. Adjacency for the foyer and closets is lost to generic open volumes."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island and table elements are represented as generic blocks without detail. Scale is largely inconsistent with the floor plan annotations."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Good use of isometric perspective and soft lighting, but geometry is 'muddy' and lacks the sharp definition required for architectural verification."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple windows shown on the plan, specifically in the dining and living areas."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the overall footprint; the right-side kitchen extension is flattened."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom/foyer closet configuration; the internal logic of the entrance is non-functional."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated diagonal exterior walls on the bottom-right and top-left that do not exist in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts where wall thicknesses merge and lose distinction near the central core."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan8.jpg"
+}

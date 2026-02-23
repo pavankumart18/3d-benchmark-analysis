@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 11,
+        "max": 40,
+        "notes": "Major layout mismatches. (E2/E4) Kitchen zone in the 2D plan (top-left open kitchen with L-shaped counters) is not represented as a kitchen in the 3D render; it reads as open living space with minimal cabinetry. (E2/E3) Main circulation/foyer and interior door locations do not align with the plan\u2019s bottom-center entry and adjacent closets/baths. (E2) The right-side connection wall/door location (\"Chandler & Joey's apartment\" door on living room right wall) is not clearly present in the 3D. (E2/E4) Wall geometry shows smoothed/angled/curved partitions that do not match the plan\u2019s orthogonal, stepped perimeter and room corners. (E2) Window locations don\u2019t match the plan: the plan\u2019s specific window runs/placements (large living room window on the top wall and other room windows) are not consistently mirrored; the 3D appears to introduce/shift window placement and sizing."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Adjacency and enclosure fidelity are weak. (E1) Several plan-defined subspaces (closets/coat closet/entry storage) are missing or not clearly modeled as separate enclosed rooms. (E1/E2) Bathroom count/placement does not reliably match the 2D plan (which indicates multiple wet areas/fixtures across two bath zones); the 3D suggests fewer or relocated bath partitions. (E2) Bedroom placement/room boundaries differ from plan: the left bedroom suite and its relationship to the left bath/coat area is not preserved. (E4) Wall thickness and stepped perimeter offsets from the plan are not consistently preserved; multiple walls appear simplified."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "(E2) Dining/living furniture roughly resembles the plan conceptually (table + seating + sofa zone) but positions are shifted relative to kitchen edge and circulation. (E1/E2) Kitchen appliances/counters from the 2D plan are largely absent or replaced with minimal generic cabinetry. (E4) Some furniture appears scaled/placed to fit the altered room proportions rather than matching plan-driven dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is visually clean and coherent but not plan-faithful. Isometric camera is acceptable and composition is clear. Lighting is soft and consistent. Geometry is mostly clean, though several walls are oddly curved/angled compared to the plan, which reads as modeling distortion relative to the source rather than intentional design."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen build-out: L-shaped counters/appliances shown in the 2D plan are not modeled as a distinct kitchen layout in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced/unclear exterior/inter-apartment door: the 2D plan shows a door on the living room right wall (to Chandler & Joey\u2019s), but the 3D render does not clearly show it in the correct location."
+        },
+        {
+            "code": "E1",
+            "description": "Missing or not clearly separated closets/coat closet/entry storage areas that are explicitly labeled in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom placement/count does not match the 2D plan\u2019s wet-area zoning; the 3D appears to simplify and/or relocate bathroom partitions/fixtures."
+        },
+        {
+            "code": "E4",
+            "description": "Perimeter and internal wall geometry is simplified and/or distorted: the 2D plan\u2019s stepped orthogonal outline and corners are replaced with angled/curved walls in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement and sizing do not consistently match the 2D plan; at least some window runs appear shifted or introduced differently in the 3D."
+        },
+        {
+            "code": "E3",
+            "description": "Several interior door swing/orientations implied by the 2D plan are not respected; openings in the 3D do not match the plan\u2019s door positions and directions."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom boundaries/adjacency (especially the left-side bedroom suite relative to nearby bath/coat zone) are altered compared to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan.jpg"
+}

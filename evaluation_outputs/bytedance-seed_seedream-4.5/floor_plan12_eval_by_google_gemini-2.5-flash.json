@@ -1,0 +1,120 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Room placements are generally correct but there are significant issues. The Activity room is severely distorted and has incorrect wall placements. The Balcony is completely missing. Door and window placements are incorrect in multiple instances. Room proportions are not preserved, especially for the Activity room and Bedroom 2."
+    },
+    "structural_fidelity": {
+        "score": 2,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Several rooms are missing (Balcony, WC, storage inside recess). Doors are not correctly embedded in all cases. The Activity room is severely distorted, impacting adjacency relationships. There are hallucinated elements such as an entire additional external wall section and a window not present in the plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor, many elements are missing or misplaced. The scale of the furniture is inconsistent or not clear."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera position is good. Orthographic projection seems accurate. Lighting quality is acceptable, providing good contrast. Geometry is mostly clean with minor distortion, although the structural inaccuracies significantly impact perceived clarity. Composition is clear. However, architectural discrepancies affect the overall aesthetic."
+    },
+    "total_score": 40,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony room is entirely missing."
+        },
+        {
+            "code": "E1",
+            "description": "WC room is entirely missing."
+        },
+        {
+            "code": "E1",
+            "description": "Recess/storage room is missing."
+        },
+        {
+            "code": "E2",
+            "description": "The wall between the Activity room and Bedroom 2 is significantly misplaced, creating a large, incorrect open space."
+        },
+        {
+            "code": "E2",
+            "description": "The wall for the stairwell section is incorrectly placed and shaped, leading to an open-air area that should be enclosed."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Bath is misplaced relative to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door to BED 4 is misplaced relative to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door to BED 3 is misplaced and incorrectly oriented relative to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door to BED 2 is entirely missing."
+        },
+        {
+            "code": "E2",
+            "description": "Door from staircase area to Activity is missing."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Activity room (left side) is misplaced and too high."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Activity room (front side) is misplaced and appears as two separate windows instead of one large one."
+        },
+        {
+            "code": "E2",
+            "description": "Window in BED 4 is incorrectly placed. The plan shows a single large window, but the render shows two smaller windows and a missing wall opening for the robe."
+        },
+        {
+            "code": "E2",
+            "description": "Window in BED 3 is incorrectly placed. The plan shows a single large window, but the render shows two smaller windows and a missing wall opening for the robe."
+        },
+        {
+            "code": "E2",
+            "description": "Window shown in WC/LINEN area is not on the plan for that section."
+        },
+        {
+            "code": "E3",
+            "description": "Door leading into Activity room from what should be the balcony area is incorrectly oriented and placed."
+        },
+        {
+            "code": "E4",
+            "description": "The Activity room's proportions are severely distorted; it is much wider and shorter than depicted in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom 2's proportions are distorted due to the misplaced wall with the Activity room."
+        },
+        {
+            "code": "E5",
+            "description": "A window is hallucinated on the left exterior wall of the Activity room where none exists on the plan."
+        },
+        {
+            "code": "E5",
+            "description": "An entire section of external wall with a window is hallucinated on the lower left of the render, not present in the plan's footprint."
+        },
+        {
+            "code": "E5",
+            "description": "The presence of two doors into the Activity area from the outside, only one being indicated (door to Balcony)."
+        },
+        {
+            "code": "E1",
+            "description": "Most of the internal furniture (beds, robes, bath, toilet) is missing or abstractly represented."
+        },
+        {
+            "code": "E2",
+            "description": "The bath tub is present but appears to be in an open space rather than within the enclosed Bath room."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan12.png"
+}

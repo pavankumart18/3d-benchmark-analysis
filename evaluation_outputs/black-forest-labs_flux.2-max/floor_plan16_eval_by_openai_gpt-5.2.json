@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Overall layout roughly matches (Living/Dining left, Kitchen top-left, Utility top-right, Toilet mid-right, Bedroom bottom-right, Balcony bottom-left), but several spatial deviations exist: (E5) an extra narrow tiled room/compartment appears to the right of Toilet-1 where the 2D plan shows a non-room/shaft/closet-like zone (dashed X area), altering the right-side massing. (E1/E2) Balcony opening/door treatment is incorrect: the 2D plan implies a defined opening/slider on the living-to-balcony edge; the 3D shows a wide open gap without a clear door system. (E2) Window placement is not faithfully represented\u2014plan-indicated windows/openings on exterior walls are not consistently visible or are simplified/omitted. (E4) Some proportion drift: the balcony depth/opening and the bathroom/utility partitioning appear scaled differently than the 2D intent."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent, and primary adjacencies mostly hold (Kitchen adjacent Living; Utility adjacent Kitchen; Bedroom adjacent Toilet zone). However: (E5) the added right-side tiled compartment functions like a hallucinated room, changing the plan's intended right-side non-occupiable space. (E1) The plan\u2019s implied shaft/closet/duct zone is not represented as such. (E2/E3) Door embedding and openings are simplified\u2014most notably the living-to-balcony connection lacks the correct door element and reads as an unframed opening."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Living/Dining furniture and bedroom bed placement broadly match the plan\u2019s intent. Minor mismatches: (E2) seating/table positions are approximated rather than matching the 2D locations precisely, and (E4) some furniture appears slightly oversized relative to circulation clearances shown in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Camera is a reasonable isometric-like perspective (not truly orthographic), with good lighting and generally clean geometry. Minor issues: slight perspective distortion relative to a strict isometric/orthographic requirement, and simplified openings/windows reduce visual clarity of architectural intent."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated narrow tiled compartment/room to the right of Toilet-1; the 2D plan shows a dashed-X non-room zone (likely shaft/duct/closet), not a usable room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing faithful representation of the plan\u2019s right-side dashed-X space as a non-occupiable shaft/duct/closet-like element (render instead creates a room-like space)."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony door/opening system is missing as a defined door/slider element; render shows an open gap without clear framing/door panels."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is not mapped consistently from the 2D plan; exterior wall windows/openings appear omitted or overly simplified in the 3D."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the balcony opening/depth and the right-side wet-area/utility partitioning compared to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan16.avif"
+}

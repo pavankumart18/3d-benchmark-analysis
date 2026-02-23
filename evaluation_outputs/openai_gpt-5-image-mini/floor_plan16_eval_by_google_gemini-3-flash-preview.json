@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major spatial failures. The kitchen has been moved to the left wall (originally top), the toilet has replaced the Bedroom 1 location, and the bedroom has been moved to the bottom right. Window placement is completely incorrect relative to the source floor plan."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Adjacency relationships are broken; the 'Utility' room is missing entirely. The balcony has been converted into a generic open living extension."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture count is roughly maintained, but placement is governed by the incorrect room layout. Scale is relatively consistent within the hallucinated frame."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render is high quality with clean lighting, correct isometric projection, and consistent materials, though it ignores the source blueprint."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen relocated from top wall to left wall."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom and Bathroom swapped locations."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room missing."
+        },
+        {
+            "code": "E2",
+            "description": "Door to bedroom is in the wrong wall/position."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window on the far left wall where the entry door should be."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan16.avif"
+}

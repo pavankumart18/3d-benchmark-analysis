@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the 'foyer' and 'dining room' areas are not clearly delineated as separate rooms in the render due to missing walls. Wall alignment has some inaccuracies, particularly in the living room and entryway. Door placement and orientation are incorrect for several doors. Windows are missing entirely. Room proportions are distorted, especially the living room and dining room."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, some walls are completely missing. Doors are not properly embedded, and some are floating or incorrectly positioned. Adjacency relationships are mostly maintained, but the missing walls affect some relationships. No missing rooms, but room definitions are vague due to missing walls. No hallucinated rooms, but some structural elements are missing."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate relative to the render's interpretation of rooms. Scale consistency varies, some furniture appears too large or too small for the spaces."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair. Lighting quality is decent but lacks distinct shadows. Geometry is clean, but the overall lack of detail and structural elements reduces visual clarity. Composition is clear."
+    },
+    "total_score": 30,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing walls for Foyer, separating it from Living Room. Missing wall separating Dining Room from Living Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing all windows."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to W/C from Foyer area is misplaced and incorrectly oriented. It should be a swing door, not a sliding/pocket door indication."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to Foyer from outside is misplaced; it's shown as an internal door in the render. The entire entrance area is structurally different."
+        },
+        {
+            "code": "E2",
+            "description": "Door to pantry is incorrectly placed and oriented. It should open into the pantry from the kitchen side."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from Playroom to outside is completely different in placement and type (missing double doors)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to the W/C closet."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Living Room and Dining Room due to merging and lack of defining walls."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the entrance area/foyer."
+        },
+        {
+            "code": "E5",
+            "description": "A second set of stairs is hallucinated near the dining room entrance in the render. Only one set of stairs is indicated in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated entry/landing structure near the dining room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entry steps and outside landing areas indicated by the plans."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet near playroom entrance."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan8.jpg"
+}

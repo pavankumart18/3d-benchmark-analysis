@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe structural layout failure. The central corridor/hallway logic is lost. Bedroom clusters are merged or misplaced. The door and window layout does not follow the technical drawings at all."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing the Master Bath, Walk-in Closet, and Utility room. Hallucinated a second garage door opening in the rear. Wall thickness is uniform but doesn't respect the internal load-bearing or utility walls shown in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island and couch are generic hallucinations not following the kitchen's 'L' shape or the specific sink/DW placement from the blueprint."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "High quality 3D rendering with clean orthographic projection and soft lighting. Geometry is manifold and clean, though it represents the wrong house."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Master Bath, Walk-in Closet, and Utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter is straight/island rather than the angled 'L' shape with pantry shown."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room and Study area walls are incorrectly merged with the main living space."
+        },
+        {
+            "code": "E4",
+            "description": "Garage is significantly undersized compared to the 2-car dimensions in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior furniture that does not match the room labels or fixtures."
+        },
+        {
+            "code": "E6",
+            "description": "Exterior walls feature window openings where solid walls/fireplaces should be."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan9.png"
+}

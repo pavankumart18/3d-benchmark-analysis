@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 4,
+        "max": 40,
+        "notes": "Major mismatch between the 2D plan (large multi-room house with garage/alfresco/theatre/study/4 beds) and the 3D render (small simplified layout with only a few rooms). Room placement does not correspond (E2), wall layout does not match the plan perimeter or internal partitions (E2), doors are not located/oriented per plan (E2/E3), windows do not match the plan\u2019s openings (E2), and overall proportions/scale are severely distorted vs the plan (E4)."
+    },
+    "structural_fidelity": {
+        "score": 2,
+        "max": 25,
+        "notes": "Adjacency relationships are largely incorrect (e.g., no clear kitchen\u2013pantry\u2013living\u2013alfresco chain; no bedroom wing and wet-area core as shown) (E2). Multiple rooms from the plan are missing (E1) and the 3D introduces an alternate apartment-like configuration not present in the plan (hallucinated/incorrect room set) (E5). Door embedding is inconsistent with plan (E2/E3). Wall thickness appears visually consistent internally, but does not correspond to the planned structure (limited credit)."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "notes": "Furniture does not map to the labeled rooms/functions in the 2D plan (e.g., no identifiable theatre setup, study, correct bedroom count) (E2/E1). Scales look plausible within the render but are not faithful to plan room sizes because the room sizes/layout are not faithful (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and the scene is readable. Lighting is clean and geometry is mostly artifact-free. However, it is not a faithful architectural/isometric translation of the provided plan (projection/scene intent mismatch), and some wall/door alignments look simplified rather than precise. Visual clarity is decent, but composition represents the wrong building."
+    },
+    "total_score": 23,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing GARAGE (present in 2D plan, absent in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing ALFRESCO outdoor area (present in 2D plan, absent in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing THEATRE room (present in 2D plan, absent in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing STUDY and ENTRY/PORTICO/VERANDAH sequence (present in 2D plan, absent in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple bedrooms and associated robes/WIRs (2D shows Master + Bed 2 + Bed 3 + Bed 4; 3D does not show this set)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wet areas as specified: ENSUITE, main BATH, multiple WCs, and LAUNDRY are not represented per plan count/positions."
+        },
+        {
+            "code": "E2",
+            "description": "Overall room placement and zoning do not match the 2D plan (render depicts a different layout footprint and internal partitioning)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/pantry configuration from the plan (central kitchen with pantry recess) is not faithfully represented; adjacency to living/alfresco is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements and swing/orientation do not correspond to the plan\u2019s door locations (e.g., bedroom/bath core and entry connections)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placements do not match the plan\u2019s exterior openings (missing/relocated windows)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: the 3D model represents a much smaller/condensed dwelling than the large multi-room plan, invalidating relative room sizes."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/alternate apartment-like layout and rooms not present in the 2D plan (the rendered configuration does not correspond to the specified house plan)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan10.png"
+}

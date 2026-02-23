@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "The 3D render fails to represent the majority of the floor plan footprint. The single-block structure does not correspond to the complex multi-room layout of the 2D plan. Door and window placements are non-existent or logically inconsistent with the source image."
+    },
+    "structural_fidelity": {
+        "score": 2,
+        "max": 25,
+        "notes": "Severe structural failure. The render illustrates a generic small enclosure whereas the floor plan specifies a large residence with a double garage, multiple bedrooms, and a kitchen wing. Adjacency relationships are completely lost."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "No furniture from the floor plan (kitchen island, bathroom fixtures, beds) is accurately modeled or placed."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the lighting and orthographic projection are technically clean, the geometry is simplistic and does not reflect the architectural intent of the source."
+    },
+    "total_score": 22,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing major zones: 2-car garage, multiple bedrooms, study, living room, and kitchen wing are entirely absent."
+        },
+        {
+            "code": "E4",
+            "description": "The entire scale and proportion of the house have been reduced to a single studio-like cube."
+        },
+        {
+            "code": "E5",
+            "description": "The internal wall configuration is a complete hallucination that does not match any sector of the provided blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Misplacement of the main entrance and internal circulation paths."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan9.png"
+}

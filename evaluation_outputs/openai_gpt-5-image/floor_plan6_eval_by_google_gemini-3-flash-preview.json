@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major wall alignment and door placement errors. Several doors have been converted into open archways. The kitchen island is merged into a single wall-mounted counter, losing the 'L' shape and island separation."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The internal closet/wardrobe spaces in the bedroom are missing or merged. The stairway geometry is correctly placed but the specific wall partitions surrounding the bathroom and entrance are simplified and inaccurate."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture generally follows the layout but scale is inconsistent, particularly the dining chairs and the coffee table appearing too small relative to the room."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution and lighting. Materials are clean and the geometry is well-defined, despite the architectural inaccuracies."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen island from 2D plan is misplaced/merged into the main perimeter wall cabinetry."
+        },
+        {
+            "code": "E1",
+            "description": "Inner partition doors for bedroom and bathroom are missing or represented as open transitions."
+        },
+        {
+            "code": "E4",
+            "description": "Dining area proportions are distorted; the table is rotated and chairs are undersized compared to the couch."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom layout is flipped/rotated compared to the 2D technical drawing."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the window on the far left wall (living room side) as indicated in the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan6.jpg"
+}

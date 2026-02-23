@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placements are generally correct, but 'TOILET-1' and 'BEDROOM-1' proportions are significantly distorted. Wall alignment for the external balcony is completely missing. Door placements are largely incorrect, and all windows are missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing numerous structural elements including the balcony walls, and the external walls of the 'TOILET-1' and 'BEDROOM-1' are fundamentally altered in the render. No missing rooms, but significant alteration to existing structures. Door embeddings are incorrect for all doors."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement is significantly altered in multiple rooms (e.g., 'KITCHEN', 'LIVING & DINING', 'BEDROOM-1'). Scale consistency is poor for many items, and some elements are entirely missing or appear in incorrect locations."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and there's an attempt at orthographic projection. Lighting is basic. Geometry is clean, but the overall composition is poor due to numerous missing elements and structural inaccuracies."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing all windows."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entire balcony structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing utility room appliances (washer/dryer)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilet-1 fixtures (toilet, sink, shower)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bedroom-1 wall wardrobe."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen sink and stove/oven."
+        },
+        {
+            "code": "E2",
+            "description": "Doors for 'TOILET-1' are misplaced and not aligned with walls."
+        },
+        {
+            "code": "E2",
+            "description": "Door for 'BEDROOM-1' is misplaced much further into the room."
+        },
+        {
+            "code": "E2",
+            "description": "Door connecting 'LIVING & DINING' to 'KITCHEN' is misplaced."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the door entering 'BEDROOM-1' is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'TOILET-1', significantly widened and shortened."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'BEDROOM-1', appears narrower than on floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of 'UTILITY', appearing wider and shorter."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partition wall in 'LIVING & DINING' area separating living and dining."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated door between 'KITCHEN' and 'UTILITY' leading to nowhere."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated door in 'LIVING & DINING' leading to the exterior."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table and chairs in 'LIVING & DINING' are positioned incorrectly and partially blocking the kitchen entrance."
+        },
+        {
+            "code": "E2",
+            "description": "Living room sofa and coffee table are shifted significantly compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bed and side tables in 'BEDROOM-1' are misplaced and oriented incorrectly."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan16.avif"
+}

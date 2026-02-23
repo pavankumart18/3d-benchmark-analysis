@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall layout resembles the plan (garage at bottom-right, large living/kitchen to left, bedroom wing to right), but multiple spatial mismatches are present. Living room window wall shows an incorrect count/spacing vs plan (extra/misaligned openings). Covered patio areas from the plan are not modeled as distinct exterior/covered spaces, affecting major adjacency cues. Several interior door locations/orientations do not match the plan (notably study entry style and some hall/bedroom openings). Room proportions are distorted: living area appears oversized relative to adjacent rooms, and the central hall/utility/bath cluster geometry does not preserve the plan\u2019s clear corridor widths and offsets."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness is generally consistent, but key architectural elements from the plan are missing or simplified (both covered patios not represented as defined spaces; several openings appear shifted). Some adjacency relationships are weakened by altered partitions in the central hall/service core (bath/utility/bedroom #4 zone) and by the simplified nook/patio connection. No obvious fully hallucinated new rooms, but several partitions/doors/windows appear invented or relocated relative to the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Only partial kitchen cabinetry/peninsula is represented. Bathrooms lack fixtures (toilet/vanity/tub/shower), bedrooms lack closets/built-ins from the plan, and dining/study/living furnishings are not mapped. Scale of the shown kitchen elements is plausible, but the overall interior is largely unfurnished compared to the plan\u2019s fixture intent."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is clean and readable with decent lighting and consistent materials. Camera is a perspective/isometric-like view but not truly orthographic/isometric. Geometry is mostly clean with minimal artifacts, though some openings and wall junctions look simplified and reduce plan legibility."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Top-left covered patio from the 2D plan is not modeled as a distinct covered exterior space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Bottom (central) covered patio from the 2D plan is not modeled as a distinct covered exterior space in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Living room north/top exterior window set does not match the 2D plan (count/spacing appears different; render shows a longer row of windows than indicated)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement on the nook/bay area appears inconsistent with the 2D plan\u2019s nook geometry and opening locations."
+        },
+        {
+            "code": "E3",
+            "description": "Study entry is shown as a single door in the 3D render, while the 2D plan indicates a wider/double-door style opening."
+        },
+        {
+            "code": "E1",
+            "description": "Several plan-specified interior doors/openings (notably in the hall/service core around bath/utility/bedroom #4) are missing or not clearly represented as located in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Central hall/utility/bath partitioning is rearranged/simplified relative to the 2D plan, altering corridor offsets and room boundaries."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: living room volume appears oversized relative to dining/study and the bedroom wing compared to the 2D plan proportions."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room exterior window location/visibility does not clearly match the 2D plan (appears missing or shifted)."
+        },
+        {
+            "code": "E1",
+            "description": "Bathroom fixture layouts (master bath and hall bath) shown in the 2D plan are not modeled in 3D (tub/vanities/toilets/showers absent)."
+        },
+        {
+            "code": "E1",
+            "description": "Closet/interior built-in indications (e.g., WIC detailing and secondary bedroom closet partitions) are simplified or missing compared to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan9.png"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 17,
+        "max": 40,
+        "notes": "Overall massing roughly resembles the 2D plan (central living/dining with bedrooms around), but multiple spatial mismatches exist. (E2/E4) Bedroom-to-toilet/deck relationships are not consistently preserved (top-right suite area appears simplified). (E1/E2) Several small rooms (multiple toilets + HO) are not clearly represented as distinct enclosed spaces, altering circulation. (E2/E3) Door locations/orientations are not faithfully matched (many openings appear generic without matching the 2D door positions and swings). (E2) Window placements from the plan (numerous exterior windows) are largely absent/unclear in the 3D model. (E4) Room proportions look compressed/normalized (living/dining and kitchen/utility appear re-proportioned compared to the labeled dimensions)."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Structural partitioning is simplified relative to the plan. (E1) Not all toilets shown in 2D are represented as separate enclosed bathrooms in 3D (plan indicates multiple: Toi-1, Toi-4, C.Toi, and an additional small toilet). (E1) HO (home office) room is not clearly present as a distinct room. (E2) Adjacency fidelity is weakened where service core partitions (toilets/utility/HO) are merged or rearranged. (E6) Wall thickness/door embedding appears inconsistent (some openings read as gaps without proper framed doors). (E5) Some internal wall runs/corridor edges appear added/reshaped to suit the 3D layout rather than matching the 2D partition geometry."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Major furniture types exist (beds, living seating, dining table, kitchen counters), but mapping to the exact 2D arrangement is approximate. (E2) Living/dining furniture placement does not clearly match the plan\u2019s layout (sofa/TV/center table positioning differs). (E4) Scale consistency is mixed: several rooms appear to use similarly sized bed/furniture footprints despite differing room dimensions in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric presentation is generally clean with acceptable lighting and readability, but it is not a strict architectural/orthographic match. (E6) Some geometry reads softened/simplified (edges and openings not crisply defined). Camera is broadly isometric but not perfectly orthographic-accurate relative to the plan. Overall composition is clear, but fidelity issues reduce technical quality."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing/unclear representation of multiple bathrooms shown in the 2D plan (Toi-1, Toi-4, C.Toi, and the additional small toilet are not all distinctly enclosed in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "HO (home office) room shown near the bottom-center of the 2D plan is not clearly present as a separate room in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Door placement does not match the 2D plan; several openings appear generic and not located where the plan indicates (notably around the service core and bedroom entries)."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientations/swing directions are not preserved; 3D openings lack the specific hinge/swing logic shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement from the 2D plan (numerous exterior windows) is largely missing or not identifiable in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of key spaces (living/dining vs. kitchen/utility and some bedrooms) appear normalized/compressed compared to the 2D plan\u2019s labeled dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/reshaped internal partitions and corridor edges appear in 3D where the 2D plan shows different wall runs, indicating structural reinterpretation rather than faithful translation."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering/geometry simplification: inconsistent wall thickness cues and door embedding; some openings read as gaps without proper frames."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan19.webp"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Fundamental failure in spatial mapping. The dining room window seat (bay window) is entirely missing on the right facade. The central hall and staircase layout from the plan do not correlate with the bedroom-centric layout shown in the 3D render."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The utility room and WC placement are hallucinated as bedroom/living spaces. Wall thicknesses are inconsistent with the technical specifications in the CAD drawing. Windows on the bottom facade are missing or misplaced."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Large beds have been added to rooms designated as 'Utility' and 'WC'. The kitchen cabinetry and appliance layout (REF, Pantry) shown in the plan are not reflected in the 3D model."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While structurally inaccurate, the render maintains a clean isometric perspective with soft ambient lighting and consistent material textures."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Window Seat (bay window) and staircase element from the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements do not align with the centralized entries shown in the blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "Substantial proportion distortion in room sizing compared to the 2x12 joist spans indicated."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated bedroom furniture in industrial/utility zones (Utility Room)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan11.png"
+}

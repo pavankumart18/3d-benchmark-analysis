@@ -1,0 +1,108 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Laundry/WC area is significantly altered. Wall alignment shows discrepancies, particularly in the kitchen/laundry area and the main living space. Door placements are largely incorrect or missing. Window placements are incorrect. Room proportions are distorted, especially the kitchen, laundry, and bathroom areas."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in certain areas. Door embedding is incorrect, with many doors missing or misplaced. Adjacency relationships are disturbed due to room alterations. Multiple rooms are missing (Balcony, WC, Linen closet, Garage). The layout of the Kitchen/L'dry/Bathroom/WC is completely hallucinated in the render compared to the floor plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement accuracy is low; items are present but not in the correct rooms or configurations (e.g., car in bedroom, furniture in dining area is different). Furniture scale consistency is poor for some items."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection appear correct. Lighting quality is decent. Geometry is generally clean, though there are structural inaccuracies. Visual clarity is good in the render itself, but the composition shows a complete disregard for the original floor plan."
+    },
+    "total_score": 33,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony."
+        },
+        {
+            "code": "E1",
+            "description": "Missing WC room entirely."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Linen closet."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Garage room with car."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced car element in Bedroom 1."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 1 (should be from kitchen/laundry area, not living area)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bedroom 2 (further into the room, not at the corner)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to Bathroom (should open into the bathroom from the side, not the current wall)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Dining/Lounge area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in Bedroom 1."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the bathroom door is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the Bedroom 1 door is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Kitchen, significantly smaller in render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Laundry area, combined and altered significantly."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Bathroom, appears smaller and reconfigured."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the main living/dining area, rendered with different wall shapes."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall dividing the Lounge/Dining area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated layout for Kitchen/Laundry/Bathroom area, entirely different from floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated entry configuration, missing the small wall section."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture and objects not present in the floor plan, or significantly different."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Generally good room placement, but significant errors in door orientation and several missing internal doors. Window placements are mostly consistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Internal wall segments are included but many door openings (archways) are rendered as solid wall gaps without door frames or consistent orientation. Adjacency is preserved."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Highly accurate furniture replication including kitchen islands, dining arrangements, and bedroom layouts. Excellent scale consistency."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Clean isometric projection with consistent lighting and professional-grade geometry. Minimal rendering artifacts."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing swing doors for several rooms (bathroom and bedroom entrances), rendered as open gaps."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the entrance door at the bottom of the plan; rendered as a divided opening rather than a double-swing entry."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen countertop depth and island placement slightly deviated from the layout proportions."
+        },
+        {
+            "code": "E5",
+            "description": "Small hallucinated wall segment near the top center bathroom/bedroom partition."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan5.jpg"
+}

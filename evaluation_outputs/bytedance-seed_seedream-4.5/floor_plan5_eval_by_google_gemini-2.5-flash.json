@@ -1,0 +1,116 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some walls are misaligned. Door placements are largely incorrect or missing. Window placements show significant errors. Room proportions are generally preserved but some areas show distortion."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially for internal walls. Door embedding is incorrect, often featuring floating doors or doors that don't fit openings. Adjacency relationships are mostly maintained but inaccuracies exist. There are missing rooms and hallucinated structural elements."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement shows some inaccuracies with items being moved or scaled incorrectly. Furniture scale consistency is somewhat maintained but some items appear disproportionate to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy struggles due to structural inaccuracies. Lighting quality is acceptable but could be improved for clarity. Geometry is not clean, showing distortions and incorrect wall thicknesses. Visual clarity and composition are hampered by structural errors."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing outdoor patio/deck on the bottom left and top right."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the master bedroom on the left side."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the bathroom accessible from the master bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the storage room near the dining area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the smallest bedroom on the right."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door leading from the living area to the outdoor space on the top left. It should be a window on the adjacent wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for the entrance on the bottom side. It should be a single door, but a double door-like structure is rendered."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom door on the top right bedroom. It's positioned on the wrong wall."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bathroom next to the kitchen. It should be further left."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the kitchen area. It's on the wrong wall vs. the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the living room area on the bottom left, it faces outside instead of connecting to another room."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the main living space facing the front, not matching the plan's location."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows in the master bedroom, on the wrong wall."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the entrance door on the bottom side."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to the rightmost bedroom overlooking the patio."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the top-left patio area, rendered smaller and with a door instead of a window."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the bathroom next to the kitchen, appearing smaller in the render."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the outdoor area on the far right, it's significantly smaller than shown in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior door on the left side of the main living area, where a window should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment separating the kitchen from the living room, not present in the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segment near the bottom entrance, creating an unnecessary partition."
+        },
+        {
+            "code": "E6",
+            "description": "Uneven wall thickness throughout the model, particularly noticeable for internal partitions."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan5.jpg"
+}

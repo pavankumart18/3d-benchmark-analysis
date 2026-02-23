@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Walls in the top-left bedroom are incorrectly aligned. Left-most walls are too far apart, making the room much wider. The bottom-left room has incorrect wall alignment and proportions (too wide). The top-right bedroom is too wide. Missing a door near the entrance. Doors in the bathroom and bedroom area are incorrectly placed and oriented. No windows are present in the render."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing rooms: The bottom-left room from the floor plan is not a fully enclosed room in the render, lacking a defined back and right wall. This area is drastically altered. Hallucinated walls are present in the kitchen/dining area and near the entrance. Incorrect wall thicknesses are present throughout the structure. Door embeddings are incorrect due to misaligned walls and missing doors."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "The top-left bedroom has furniture that is completely different. The bottom-left room has incorrect furniture. The top-right bedroom has furniture that is mostly incorrect, including an additional bed. The kitchen appliances are not accurately mapped. Furniture scale consistency is poor due to distorted room proportions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is good. Lighting quality is acceptable. Geometry is clean with no significant distortions apparent in the rendering itself, although the geometry itself is incorrect. Visual clarity and composition are good."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Top-left bedroom: significantly wider than in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bottom-left room: significantly wider, entire layout and wall definition are distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Top-right bedroom: wider than in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door near the main entrance is missing from the render."
+        },
+        {
+            "code": "E2",
+            "description": "Doors in the bathroom and connected bedroom area are misplaced and have incorrect orientations."
+        },
+        {
+            "code": "E1",
+            "description": "All windows present in the floor plan are missing from the render."
+        },
+        {
+            "code": "E1",
+            "description": "The bottom-left room is not fully enclosed as per the floor plan; it is an open area with missing walls."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segments in the kitchen/dining area and near the main entrance."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness throughout the render."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect furniture placement, type, and quantity in the top-left bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect furniture placement, type, and quantity in the bottom-left area."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect furniture placement, type, and quantity in the top-right bedroom (extra bed and different desk setup)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen appliances are not accurately mapped or are missing/different."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan2.png"
+}

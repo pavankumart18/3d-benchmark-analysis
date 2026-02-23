@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "The 3D render significantly deviates from the 2D layout. The main entrance area is incorrectly represented, and the large deck area behind the living room is missing, replaced by solid walls and a small window. Bedroom and bathroom placements are roughly correct but several openings and connectivity paths are modified."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The utility room adjacent to the kitchen is missing. The deck structure is entirely omitted. Several wall segments in the central living area do not match the floor plan's structural boundaries."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture scale is generally consistent, though the dining/living arrangement is mirrored or rotated incorrectly relative to the sliding door entrance. The office/maid's room desk placement is accurate."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render is high quality with clean geometry, consistent materials, good lighting, and a correct orthographic isometric projection."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Large outer deck/balcony missing from the rear of the living area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing utility room adjacent to the kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Sliding doors and windows in the living area are misplaced compared to the original floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall and window where a large deck opening should be."
+        },
+        {
+            "code": "E4",
+            "description": "The lobby/entrance corridor dimensions and wall returns are distorted."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan20.avif"
+}

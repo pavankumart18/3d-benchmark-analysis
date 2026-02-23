@@ -1,0 +1,104 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "notes": "Room placements are mostly correct but some proportions are off. Wall alignment has several discrepancies, especially in the central living area and around doorways. Door placement and orientation issues are notable in multiple rooms. Window placements are frequently incorrect or missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent in various sections, particularly internal walls. Door embedding is sometimes shallow or misaligned. Adjacency relationships are broadly correct but structural elements like recesses and protruding sections are not always maintained. Several windows are missing, and some rooms exhibit non-existent structural elements (hallucinations) like modified wall sections or missing recesses."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate for major items, but many smaller items are missing. Scale consistency of furniture is mostly acceptable, but some items appear undersized or oversized relative to the rooms or other furniture."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection are good. Lighting quality is decent but lacks depth and variation. Geometry is clean with no major distortions. Visual clarity is good, and the composition effectively showcases the layout."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced door in the top-right bathroom."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door between the central living area and the top-right bedroom's antechamber."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the top-left bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the top-right bedroom, shifted to a side wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in the two bathrooms in the top-right section."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window in the bottom-right bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window in the bottom-left bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window facing outwards from the kitchen dining area."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading to the lower-left exterior area is shifted and incorrectly embedded."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall section/recess adjacent to the kitchen island area is not present in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the central living area, appearing slightly wider than in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the top-left bedroom, appearing slightly narrower."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment issues in the central corridor leading to the bedrooms on the right."
+        },
+        {
+            "code": "E1",
+            "description": "Many smaller furniture items and fixtures are missing (e.g., in bathrooms, decor in living areas)."
+        },
+        {
+            "code": "E2",
+            "description": "The exterior patio area in the bottom left is shifted and slightly distorted compared to the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "An additional wall segment is present near the bottom-right bedroom entrance not shown in the floorplan."
+        },
+        {
+            "code": "E2",
+            "description": "The door to the bottom-right bedroom is pushed further into the room than indicated in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating the two rightmost bathrooms has incorrect alignment and appears thinner than other walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior patio/balcony and associated door in the top-right corner."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan5.jpg"
+}

@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is generally correct for the main areas (Kitchen/Living, Bedroom, Bathroom), but the entry area and stairs are significantly distorted. Wall alignment for the exterior is fair, but interior walls, especially around the bathroom and stairs, are misaligned and proportioned incorrectly. Doors are mostly missing or incorrectly placed/oriented. Window placements are largely inaccurate and missing in several locations."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially for interior walls which appear overly thick or thin in places. Door embedding is incorrect as many doors are missing. Adjacency relationships are mostly preserved, but the entry area and stairwell's relationship to other rooms is flawed. No missing rooms, but the bathroom and staircase are structurally altered. No hallucinated rooms, but significant hallway/entryway alterations."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is highly inaccurate; for example, the kitchen countertop and sink are misplaced, and the living room sofa/table layout is incorrect. Furniture scale is inconsistent, with some items appearing too large or too small relative to the room."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is acceptable, and there's a basic orthographic projection. Lighting is flat. Geometry is relatively clean with no major distortions, but the visual clarity and overall composition suffer due to the numerous architectural inaccuracies, making it difficult to discern the original layout accurately."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bathroom door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bedroom door."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door between kitchen/living and hallway."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen island/countertop."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced living room couch and coffee table."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect proportion for bathroom fixtures (sink, toilet)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows on multiple exterior walls."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the bedroom furniture within the room."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the bathroom, making it appear wider and shorter than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the hallway and stairwell, which is significantly altered in shape and size."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the kitchen countertops and cabinets against the wall."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the main entry area, which is significantly larger and differently shaped."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall segments and changed layout in the entry/stairwell area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall separating stairs from the main living area where an open railing should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated decorative elements (plants/vases) not present in the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Lack of realistic lighting and shadows contributes to a flat aesthetic."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan6.jpg"
+}

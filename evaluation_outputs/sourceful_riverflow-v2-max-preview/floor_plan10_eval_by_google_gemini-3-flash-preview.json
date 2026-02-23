@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General room layout is highly accurate. However, the window placement in the garage is missing, and several interior door swings (notably the Garage-to-Entry and Bed 2) are omitted or incorrectly represented as simple openings."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Wall thicknesses are mostly consistent. The Pantry and Kitchen storage adjacency is preserved. The Garage is missing the internal vehicle rendering and the specific step-down/threshold details. The Alfresco area lacks the specific pillar-wall connection shown in the plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent furniture mapping, particularly the Theatre sectional and the Study desk layout. The Alfresco furniture is slightly simplified compared to the circular/square mix on the plan."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "High-quality isometric rendering with clean geometry and consistent soft lighting. Orthographic projection is nearly perfect with very little perspective distortion."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing vehicle in Garage and missing windows on the right-hand Garage wall."
+        },
+        {
+            "code": "E2",
+            "description": "Hallway door to Bed 2 and Activity room are represented as open voids rather than hinged elements."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the toilet in the Ensuite is rotated 90 degrees relative to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The WIR (Walk-in-Robe) proportions are slightly narrow compared to the Master Suite width."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan10.png"
+}

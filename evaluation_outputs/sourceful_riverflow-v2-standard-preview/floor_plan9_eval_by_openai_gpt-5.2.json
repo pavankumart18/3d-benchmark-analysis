@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 7,
+        "max": 40,
+        "notes": "Major footprint/layout mismatch: the 2D plan is an irregular shape with a large 2-car garage mass on the right and two covered patios; the 3D render shows an almost rectangular perimeter without the garage/patio massing. The master suite region (top-right in plan, with angled/tray geometry and WIC/master bath arrangement) is not reproduced with the same room shapes or placement. Hallway network and room placements (study/dining/kitchen/nook relationships) do not align to the plan. Door locations/orientations are largely not evidenced in the render and do not appear to match the plan\u2019s patio/room connections. Window runs (notably the long band across the living room side in plan) are not placed/quantified consistently, and several exterior openings appear in different positions. Overall room proportions and adjacency lengths are significantly distorted by the simplified rectangular shell."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness appears relatively uniform in the render, but the structural layout does not preserve required adjacencies (garage-to-utility, utility-to-hall, master bed-to-master bath/WIC). Multiple plan-defined spaces are absent, and the exterior massing is altered (rectangularized), indicating structural non-fidelity. Several interior partitions appear invented/simplified relative to the plan, creating rooms/corridors that do not correspond to the 2D diagram."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is generic and only loosely suggests a living/dining zone and bedrooms; it does not map to the plan\u2019s specific room identities (study, nook, kitchen work triangle/peninsula, utility) or their exact locations. Scale feels approximate, but without matching room geometry the furniture-to-room correspondence is largely unreliable."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Isometric camera is acceptable and the model reads as a coherent interior. However, the render is blurry/low-detail with soft, smeared textures and limited edge definition (artifact-like). Lighting is serviceable but flat. Geometry is mostly clean, though overall presentation lacks crispness and clear architectural features (doors/frames/openings)."
+    },
+    "total_score": 29,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage mass/space from the 2D plan (right-side large garage volume not present in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing covered patios (top-left covered patio and bottom covered patio are not represented as exterior/covered spaces in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear dedicated Study room (bottom-left in plan) as a distinct, correctly placed room in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/Dining/Nook cluster placement does not match the plan\u2019s left-side arrangement (openings and partitions appear shifted/simplified)."
+        },
+        {
+            "code": "E2",
+            "description": "Master suite layout is misplaced/reshaped: master bedroom angled/tray geometry and the master bath + WIC configuration are not preserved."
+        },
+        {
+            "code": "E4",
+            "description": "Severe proportion/footprint distortion: plan\u2019s irregular outline with right-side garage extension is rendered as an almost rectangular shell."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: long window banding and specific exterior window locations in the plan are not consistently reproduced in the 3D exterior walls."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation cannot be reconciled with the plan (patio access and interior door swings are not shown or appear inconsistent with expected openings)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallway/room partitions appear hallucinated/synthesized to fit the rectangular shell, creating interior segmentation not present in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts/low clarity: noticeable blur/softness reduces legibility of openings, edges, and room boundaries."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan9.png"
+}

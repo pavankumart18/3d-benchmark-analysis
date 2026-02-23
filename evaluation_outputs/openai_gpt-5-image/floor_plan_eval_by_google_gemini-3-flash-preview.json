@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major wall alignment errors; the central hallway structure is significantly altered. The closet/balcony area at the top is missing. Door placement for the right bedroom and bathroom is incorrect relative to the kitchen/hallway adjacency."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing the entire upper-left closet/outdoor section. Several internal door openings are missing or placed on the wrong walls (e.g., the front entrance is missing). Wall thickness is consistent but structural mapping is poor."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Dining table is rotated 90 degrees and has fewer chairs. Kitchen counters are incomplete and miss the 'L' shape return shown in the floor plan. Bed orientations are correct but scale is slightly off."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent rendering quality with soft lighting and clean geometry. The isometric projection is perfectly executed with pleasing colors, providing high visual clarity despite structural inaccuracy."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing closet and balcony area at the top of the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing secondary bathroom/powder room adjacent to the laundry/coat area."
+        },
+        {
+            "code": "E2",
+            "description": "The main entry door (bottom center) is missing or relocated."
+        },
+        {
+            "code": "E3",
+            "description": "Dining table oriented vertically instead of horizontally as indicated in the blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door placed in the hallway rather than through the bedroom/vestibule connection as shown."
+        },
+        {
+            "code": "E4",
+            "description": "The living area window is oversized compared to the wall section in the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan.jpg"
+}

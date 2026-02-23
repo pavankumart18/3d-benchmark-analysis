@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "General layout is recognizable, but significant window and door data is lost. The kitchen and utility area wall divisions are simplified, and the distinct deck geometry on the top right is flattened."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Wall thicknesses are inconsistent. Major omission of the balcony/deck railing systems from the original. Entrance foyer walls are significantly shortened, losing the structural intent of the 'HO' and 'TOI' area at the bottom."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living room furniture and bed placements generally follow the plan. However, the dining table scale is reduced and the kitchen counter detail is abstracted into simple blocks."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent isometric rendering with clean lighting and minimal artifacts. The visual style is cohesive, though the labels from the original floor plan have hallucinated into unreadable textures on the floor."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple interior doors and precise window openings shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room and kitchen partition walls are misplaced or merged compared to the technical drawing."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion of the entrance foyer and bottom-most rooms (HO/TOI) is significantly compressed."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated illegible text textures on the floor surface throughout the 3D model."
+        },
+        {
+            "code": "E6",
+            "description": "Wall junctions near the top-right deck show merging artifacts where distinct angles should exist."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan19.webp"
+}

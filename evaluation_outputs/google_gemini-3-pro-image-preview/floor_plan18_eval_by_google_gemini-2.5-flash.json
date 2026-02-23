@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Foyer and Kitchen border is misaligned. Wall alignment in several places, e.g., the wall separating living/dining from the bathroom/utility, is incorrect. Door placement has several errors, especially for the utility and toilet. Window placement is partially incorrect. Room proportions are distorted for the WC in the toilet, and the utility area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly noticeable around the balcony and utility area. Door embedding is incorrect for the utility and toilet doors as they are not properly embedded into walls. Adjacency relationships are mostly correct, but the Foyer's adjacency to the living room is distorted. No missing rooms, but the balcony railing is missing. No hallucinated rooms, but some structural elements within rooms are hallucinated or incorrectly placed."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate for major items like the bed and dining table. Furniture scale consistency is an issue for some smaller items like side tables and the sofa."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair, but some angles seem slightly off. Lighting quality is decent but lacks depth. Geometry is generally clean but some edges appear soft or indistinct. Visual clarity is good, but the overall composition could be improved, particularly with shadows."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misaligned wall between Foyer and Kitchen, and also between Living/Dining and Utility/Toilet."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the Utility area. Door opening is also incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the Toilet. Door opening is also incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the WC unit within the Toilet, appears undersized."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the Utility area, appears narrower than indicated."
+        },
+        {
+            "code": "E1",
+            "description": "Missing balustrade/railing for the Balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placement in the bedroom. The two small windows are represented as one large window."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and design of the shelving unit near the bedroom door."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the toilet door is incorrect."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation of the utility door is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Wall thickness inconsistency, particularly around the balcony and utility area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated small counter/shelf in the Foyer area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced sink in the kitchen, it's not aligned with the wall as indicated in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The refrigerator in the kitchen is depicted as a smaller, embedded unit, differing from the floor plan's representation."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Kitchen/Living area is significantly distorted. Wall alignment is inconsistent, particularly in the Kitchen/Living and bedroom areas. Doors are either missing or incorrectly placed/oriented. Windows are missing or incorrectly placed. Room proportions are severely distorted, especially the Kitchen/Living area and the bathroom."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent\u2014some walls are much thicker than others, and some are non-existent where they should be (e.g., separating the Kitchen/Living from the exterior). Doors are largely missing. Adjacency relationships are incorrect due to missing walls and rooms. Major rooms like the bathroom and most of the kitchen area are missing. The staircase area is significantly different. There are multiple hallucinated interior walls and architectural features, particularly in the Kitchen/Living space and the staircase."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement is inaccurate; most furniture from the floor plan is either missing or misplaced. The scale of the furniture that is present is inconsistent with the distorted room proportions, making it hard to assess accurately."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct, but the orthographic projection is sometimes off due to distorted geometry. Lighting is basic and lacks detail, making the render flat. Geometry is distorted and not clean, with many jagged edges and inconsistent wall thicknesses. Visual clarity is poor due to numerous structural inaccuracies and missing elements, making it difficult to recognize the original floor plan. There are also hallucinated elements like the stairs changing direction halfway and the wall next to it."
+    },
+    "total_score": 27,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen island, sink, stove, toilet, shower, all doors, and significant portions of cabinetry."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bedroom furniture (bed, nightstands). Misplaced couch and coffee table in a different orientation and room."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the sofa and chairs compared to the floorplan. All doors are effectively missing so no orientation can be assessed."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion in the Kitchen/Living area, making it appear much smaller and narrower. The bedroom is wider. The bathroom is almost entirely missing. The staircase area's proportions are also distorted."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior wall in the 'Kitchen/Living' area splitting the space awkwardly. Hallucinated step/platform-like structure in the middle of the 'Kitchen/Living' area. Hallucinated change in direction of the stairs."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thicknesses leading to uneven surfaces and a cluttered appearance. Jagged edges and poor geometric resolution."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan6.jpg"
+}

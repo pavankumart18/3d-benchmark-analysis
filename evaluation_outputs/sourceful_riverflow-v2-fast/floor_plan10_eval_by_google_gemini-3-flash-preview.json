@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major spatial failures include the Garage significantly shortened, the Alfresco area enclosed by phantom walls, and Bedrooms 3 & 4 lacking correct window alignments. The central corridor proportions are slightly stretched compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Severe errors in wall continuity. Several internal doors are missing (E1) or rendered as solid walls. The Verandah and Portico at the entrance are simplified into a single generic slab without the specified columns."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture scale is inconsistent; the car in the garage is undersized. Dining tables and sofa sets are present but do not match the specific counts/orientations shown in the architectural plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the lighting is soft and pleasant, the geometry contains artifacts. The isometric camera is slightly off-axis, leading to perspectival distortion rather than a true orthographic projection."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry door and internal passage doors between living and bed zones."
+        },
+        {
+            "code": "E2",
+            "description": "Alfresco dining set is misplaced relative to the living room egress."
+        },
+        {
+            "code": "E4",
+            "description": "Garage depth is severely reduced, truncating the footprint."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall enclosing the Alfresco area which should be open-air."
+        },
+        {
+            "code": "E6",
+            "description": "Wall thickness flickering and non-manifold geometry in the Laundry/WC cluster."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan10.png"
+}

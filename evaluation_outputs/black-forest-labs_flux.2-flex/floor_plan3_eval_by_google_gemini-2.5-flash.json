@@ -1,0 +1,80 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "Severe discrepancies in room placement, wall alignment, door and window placements, and room proportions. The rendered layout is entirely different from the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Complete lack of structural fidelity. Missing the 'Kitchen', 'Dining Room', 'Living Room', and 'Bathroom' as depicted in the floor plan. Instead, multiple new rooms and structures are hallucinated. Wall thickness consistency is not maintained due to fundamental structural changes. Adjacency relationships are completely incorrect."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "No furniture from the floor plan is present (which shows no furniture). The rendered image introduces entirely new furniture elements that do not correspond to the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric camera angle is generally correct, and lighting is decent. However, orthographic projection accuracy cannot be fully assessed due to the structural deviations making comparisons difficult. Geometry is clean, but the overall composition is poor due to the total lack of adherence to the source plan, resulting in a low score for visual clarity and composition from a verification standpoint."
+    },
+    "total_score": 15,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Dining Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Living Room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bathroom as per floor plan specifications (size 3'x2')."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'Bedroom' area (bed, nightstands)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'Bathroom' area with full bathtub and vanity, not matching floor plan layout or dimensions."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated 'Kitchen' area with island and sink, not matching floor plan layout or appliances."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated entry area/living room area with sofa and TV console, not matching floor plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "Significant proportion distortion for all rooms; the rendered rooms do not match the dimensions or shapes in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and orientation of all doors. No door matches the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of all windows. Windows are added in places not specified or are missing from specified locations."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase placement is incorrect and its structure is different."
+        },
+        {
+            "code": "E2",
+            "description": "Overall floor plan layout is completely different; rooms are repositioned and re-partitioned extensively."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan3.jpg"
+}

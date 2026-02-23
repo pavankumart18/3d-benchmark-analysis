@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major wall-layout mismatch vs the 2D plan: the original is predominantly orthogonal with a simple rectangular footprint + small entry recess, while the 3D model introduces multiple angled/diagonal wall segments and a distorted perimeter (E4/E2). The hall/corridor geometry is significantly different, affecting room placement and circulation (E2). Bathroom enclosure/placement reads incorrect: the large oval tub-like element appears in/too close to the corridor rather than clearly inside the bathroom volume shown on the plan (E2). Several door positions and swing/orientation do not match the plan\u2019s door locations along the hall/corridor (E2/E3). Window count/placement along the long top wall and right wall does not clearly align with the plan\u2019s window locations and spacing (E2). Room proportions (living vs hall vs bathroom) appear distorted relative to labeled areas (E4)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is somewhat consistent, but the wall network deviates from the plan with non-matching angles and offsets (E4). Adjacency relationships are partially preserved (kitchen/dining connected to living; bedrooms on right), but the hall/bath/closet cluster is not faithfully reproduced (E2). At least one closet is not clearly present as a discrete enclosed room/volume as in the plan (laundry-side closet and/or the small central closet are ambiguous/missing) (E1). The apparent exposed tub/fixture in the corridor constitutes an element that does not match the plan\u2019s enclosed bathroom layout (E5/E2)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen counters and dining table roughly correspond to the plan\u2019s kitchen/dining zone, but the living room furniture arrangement does not match the plan\u2019s sofa/seat layout (E2). Bedroom 1 contains a bed, but Bedroom 2 furniture appears inconsistent/unclear compared to the plan (E2). Some furniture scales (e.g., oversized tub-like element relative to corridor width) appear inconsistent (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric camera is generally correct and readable. Lighting is soft and coherent. Geometry is mostly clean, but the non-orthogonal/warped wall layout (relative to the source plan) reduces perceived correctness. Visual clarity is decent, though key partitions (bath/closets) are not clearly communicated."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Perimeter/footprint is distorted: 3D model introduces angled/diagonal exterior walls inconsistent with the mostly rectangular 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Hall/corridor layout is misplaced and reshaped, changing circulation compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom enclosure/placement does not match: tub/fixture appears positioned in or spilling into corridor area rather than clearly within the bathroom as drawn."
+        },
+        {
+            "code": "E1",
+            "description": "One or more closets from the 2D plan are missing or not represented as distinct enclosed rooms (laundry-side closet and/or the small central closet)."
+        },
+        {
+            "code": "E2",
+            "description": "Door locations along the hall/corridor do not match the 2D plan (notably around bath/bedroom/utility transitions)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing/orientation cues appear inconsistent with the 2D plan\u2019s door swings."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count is unclear or inconsistent relative to the 2D plan (top wall and right-side bedroom windows)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/incorrect interior element: oversized oval tub-like object appears outside the bathroom context implied by the plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan4.jpg"
+}

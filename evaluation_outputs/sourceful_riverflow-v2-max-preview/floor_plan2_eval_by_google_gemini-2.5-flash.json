@@ -1,0 +1,152 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the lower left room in the 2D plan is represented as a hallway/entrance in the 3D render. Wall alignments show some discrepancies, particularly in the lower left section. Door placement and orientation are incorrect for several doors, especially in the bathroom and the lower left area. Window placement is generally poor; many windows from the 2D plan are missing, and some are misplaced. Room proportions are distorted in several areas, particularly the bathroom and the upper right bedroom which appears larger."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is not consistently preserved; some walls appear thinner or thicker without clear reason. Door embeddings are incorrect for multiple doors, either not fully embedded or facing the wrong direction. Adjacency relationships are mostly correct for enclosed rooms but fail for the open-plan areas. There is a missing room (the entire lower left room from the 2D plan is rendered as an open entrance/hallway). No hallucinated rooms, but significant alteration of existing spaces."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture placement accuracy is very low; many items are missing, misplaced, or have different types (e.g., different beds, different desk configurations). Furniture scale is inconsistent in many places, with some items appearing oversized or undersized for the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy is fair, but perspective seems slightly exaggerated. Lighting quality is dull and lacks contrast. Geometry is clean with no obvious distortions. Visual clarity is good, but composition is hindered by the structural and spatial inaccuracies."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing two beds in the upper left bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wardrobe in the upper left bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing shower stall in the bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing ventilation fan in the bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing wardrobe in the upper right bedroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing shelf/storage unit in the upper right bedroom/office area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sofa/seating in the lower left room (rendered as hallway)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing cabinet/storage unit in the lower left room (rendered as hallway)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing oven/stove element in the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing several windows from the 2D plan, especially along the bottom and right walls."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced toilet in the bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced sink in the bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced desk and chair in the upper right bedroom/office."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced dining table and chairs."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced refrigerator."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced sink unit in the kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced living room couch and chair."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced entrance door and internal door in the lower left section."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect type of bed in the upper left bedroom (single bed instead of two singles)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and incorrect type of bed in the upper right bedroom (double bed instead of two singles)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the bathroom door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the door to the upper right bedroom."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of the internal door in the lower left section."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the bathroom are distorted, appearing smaller and differently shaped."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the upper right bedroom are distorted, appearing larger."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the lower left room are completely lost as it is rendered as a hallway."
+        },
+        {
+            "code": "E4",
+            "description": "General distortion in wall alignment and room sizes in various parts of the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall splitting the upper left bedroom into two smaller sections."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall in the kitchen area behind the dining table."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated radiator elements in bedrooms and kitchen area not present in 2D."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan2.png"
+}

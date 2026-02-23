@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major structural deviations present. Door orientations in the hallway and master bedroom do not match the source. Window placement along the right-side wall in bedrooms #2 and #3 is inconsistent with the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The garage has been completely hallucinated into a living/dining room area with furniture. The utility room and laundry connections are missing. Wall thickness varies significantly across the model."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Significant hallucinations. Furniture placed in the garage area (E5). Kitchen island and counter geometry roughly match, but scale is inconsistent with the floor plan annotations."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Aesthetic quality is high with clean clay-render styling and good orthographic projection. Lighting is soft and professional, though some geometric flickering occurs at wall joints."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucination of a living area and dining table inside the designated 2-car garage space."
+        },
+        {
+            "code": "E1",
+            "description": "Missing utility room walls and laundry appliance fixtures."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error for several interior doors, specifically the entry to Bedroom #4 and the Master Suite."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the Study and front Covered Patio is elongated compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom fixtures; the Master Bath layout is simplified and deviates from the architectural lines."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan9.png"
+}

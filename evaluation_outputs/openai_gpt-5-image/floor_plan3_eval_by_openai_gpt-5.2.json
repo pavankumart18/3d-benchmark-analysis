@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Kitchen is generally in the upper-left zone, stairs are on the left, and a small bathroom core exists near the center; however, major deviations exist: the entrance is not centered on the bottom wall as in plan, exterior door locations do not match, top-wall openings shown in plan are not represented, and window locations/count differ substantially. Stair geometry/enclosure differs from the U-shaped stair block in plan. Bathroom footprint/door sides do not match the plan\u2019s centered bathroom layout. Overall room proportions and opening placement are not preserved."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Exterior wall loop is present but internal partitions do not faithfully reproduce the plan: the stair core boundaries and adjacent partitioning are different, and the bathroom is simplified and not embedded as shown. Adjacency is partially correct (kitchen-left, large open living/dining-right), but key plan-defined openings are missing and multiple unplanned openings are added. Wall thickness appears mostly consistent, but door embedding/orientation does not follow plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Only a minimal kitchen counter/sink is modeled; no dining or living furniture appears, so mapping to the labeled dining/living areas cannot be verified. Kitchen fixture placement is plausible but not clearly aligned to the plan\u2019s full counter/appliance layout."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with consistent materials and generally good lighting. Projection is slightly perspective rather than strict orthographic isometric. Geometry is mostly clean with no major mesh artifacts, but the scene is sparse (limited interior detail), reducing clarity for verification."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Entrance door placement is incorrect: plan shows a centered bottom-wall entrance; render places prominent exterior doors on different bottom-wall locations."
+        },
+        {
+            "code": "E1",
+            "description": "Missing exterior door/openings on the top wall: plan indicates openings/doors along the top edge (kitchen/top and dining/top), which are not present in the render."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior doors: render includes additional exterior doors (notably on the lower faces) that are not indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: plan shows multiple windows (notably along bottom and right walls and additional positions), while the render has fewer windows and at different positions."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bottom-wall window banding: plan shows long window segments along the bottom wall; render does not reproduce these."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom layout/position fidelity issue: the plan\u2019s centered bathroom footprint and door placements do not match the simplified bathroom block and door positions in the render."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom proportion distortion: the bathroom appears significantly different in size/shape relative to surrounding space compared to the plan\u2019s compact but clearly defined bathroom zone."
+        },
+        {
+            "code": "E2",
+            "description": "Stair geometry mismatch: plan indicates a larger U-shaped stair run occupying much of the left side; render shows a shorter L-shaped stair with different enclosure/wall alignment."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/swing not represented: the plan specifies door swing directions; the render uses simplified doors without matching swing/orientation to the plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Overall zoning resembles the plan (central hall left, dining lower-left, kitchen/right), but multiple key spaces are omitted/merged. E2/E4: Kitchen\u2013dining\u2013breakfast boundaries and wall lines do not match the 2D plan (plan shows a more defined kitchen with adjacent utility/pantry; render reads as a large open area). E2/E3: Several interior door locations/orientations do not match the plan\u2019s indicated door swings, especially around the hall-to-service-area connections. E2: Window placement/count on the right/east exterior wall does not match the plan\u2019s specific openings (plan indicates a window-seat/bay condition; render substitutes a different window grouping). E4: Room proportions are distorted\u2014kitchen/breakfast area appears oversized relative to dining and hall compared with the dimensioned plan."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "E1: Missing WC (powder room) shown at top/center of plan. E1: Missing Utility Room (with W/D, WH) and HVAC/service closets shown between hall and kitchen in plan. E1: Missing Pantry as a distinct enclosed/defined element (render shows cabinetry but not the plan\u2019s pantry volume). E2: Adjacency relationships are incorrect because service core (WC/utility/HVAC) that should buffer hall and kitchen is not present, changing circulation and wall topology. Wall thickness is visually consistent in the render, but door embedding/partition continuity diverges from plan due to omitted walls."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "E2: Kitchen cabinetry/island configuration does not correspond to the plan (plan indicates specific appliance placements incl. REF and pantry wall; render uses a different L-layout and island proportions). E2/E4: Dining table placement is plausible but not mapped to plan features (window/door relationships differ). E4: Some furniture scales (island/table clearances) appear inconsistent with the plan\u2019s tighter service-core constraints."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric presentation is clean and readable with decent lighting and materials. However, E6: Text decals on floors (e.g., room labels) reduce realism/clarity. Orthographic/isometric accuracy is acceptable but not strict-architectural (camera feels slightly perspective). Geometry is mostly clean, but the substituted window/bay compositions weaken fidelity to the source."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "WC/powder room shown on the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room (with W/D/WH) shown on the 2D plan is missing/merged into other space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "HVAC/service closet area shown on the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry as a defined space/element from the 2D plan is not represented correctly in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Interior wall layout between hall and kitchen differs from the plan (omitted partitions create an overly open connection)."
+        },
+        {
+            "code": "E2",
+            "description": "Door positions around the central hall and toward the service/kitchen zone do not match the plan\u2019s locations."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing/orientation cues implied by the plan are not respected (doors appear flipped or relocated)."
+        },
+        {
+            "code": "E2",
+            "description": "Right/east exterior window placement/count differs from the plan, including the plan\u2019s window-seat/bay condition being replaced by different window groupings."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: kitchen/breakfast zone appears significantly larger relative to dining/hall than in the dimensioned 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hall/kitchen area includes simplified or added open spans not present in the 2D plan (hallucinated openness due to missing partitions)."
+        },
+        {
+            "code": "E6",
+            "description": "Floor text labels (e.g., 'KITHHC', 'BREAKFAST') are rendering artifacts that reduce architectural clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan11.png"
+}

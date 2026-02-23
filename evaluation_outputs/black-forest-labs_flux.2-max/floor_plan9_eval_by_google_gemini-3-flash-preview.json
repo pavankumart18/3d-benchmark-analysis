@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major structural deviations identified. The 2-car garage has been entirely hallucinated as a oversized secondary master suite. The Study has been replaced by a bathroom. Door swing orientations and the foyer entry sequence do not match the source plan."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Severe fidelity failure. While some interior wall perimeters are maintained, the conversion of utility/functional zones (garage) into living space constitutes a critical failure. Several interior doors have been replaced by open archways or solid walls."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture in the kitchen and master bedroom is reasonably placed, but the addition of beds in non-bedroom areas (garage hallway) and incorrect furniture in the study/dining zones reduces the score."
+    },
+    "aesthetic_quality": {
+        "score": 21,
+        "max": 25,
+        "notes": "High visual quality. Lighting is realistic and the isometric camera projection is consistent. Geometry is clean despite the plan inaccuracies."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated second master bedroom replacing the 2-car garage."
+        },
+        {
+            "code": "E1",
+            "description": "Missing garage doors and utility room infrastructure."
+        },
+        {
+            "code": "E2",
+            "description": "The Study in the lower-left corner has been incorrectly rendered as a bathroom/wet room."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect door orientation in the central hall and foyer entrance."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the bedroom wing; hallways are wider than the blueprint specifications."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact in the 'Maternal Door' area leading to Bedroom #3; wall is partially phased out."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan9.png"
+}

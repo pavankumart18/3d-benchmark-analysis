@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Room placement is broadly correct, but wall alignment is poor, and many doors/windows are misplaced or missing. Room proportions are not preserved for the 'L' shaped kitchen/stairwell area."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, particularly around the kitchen and stairwell area, which is poorly defined. The stairwell structure is entirely missing. There are missing rooms (stairwell area is not rendered as such) and the bathroom is not fully enclosed as indicated. The 'L' shaped internal wall is not correctly L-shaped in 3D."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture placement is mostly incorrect compared to the floor plan's implicit room divisions. Scale consistency is poor, especially for kitchen appliances and bathroom fixtures, many of which are E1 and E2."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "Isometric camera correctness seems acceptable. Orthographic projection accuracy is questionable due to significant structural deviations. Lighting is flat, and geometry has distortions, particularly visible in the walls. Visual clarity is moderate, but composition is lacking due to discrepancies."
+    },
+    "total_score": 25,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing stairwell structure and steps."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door for the main entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing door separating the kitchen/stairwell from the living/dining room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing appliance (stove/oven) in the kitchen."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window on the left side of the living/dining room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window next to the main entrance."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the bathroom. It's closer to the side wall in 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior wall defining the kitchen and stairwell area. The 'L' shape is distorted."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows on the top wall (kitchen side) and bottom wall (entrance side)."
+        },
+        {
+            "code": "E2",
+            "description": "Window on the top right (dining room) is not centered as in the floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing for the bathroom door is not correctly rendered, or it is a pocket door in the rendering, which contradicts the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the kitchen area and its walls, especially the 'L' shape."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the bathroom, which appears larger and not fully enclosed by walls as per the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior division/half-wall in the stairwell area, where there should be steps."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture (e.g. sofas, chairs, tables) placement not aligned with distinct room areas from the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen cabinet/counter structure that does not match the floor plan's appliance layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan3.jpg"
+}

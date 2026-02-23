@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Foyer and Balcony are incorrectly proportioned and integrated. Wall alignment has some inaccuracies, particularly around the Foyer and Kitchen. Door placement and orientation issues are noted for the Foyer and Balcony entry, as well as the Bathroom door. Window placement is missing for the Balcony and distorted in the Bedroom and Living/Dining area. Room proportions are significantly distorted for the Foyer and Balcony."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially around the Foyer and Balcony area. Door embedding is incorrect for the Foyer and Balcony, which are not clearly defined as separate rooms as in the floor plan. Correct adjacency relationships are not fully maintained due to the Foyer and Balcony issues. The Balcony room is effectively missing or incorrectly rendered, and the Foyer is significantly altered. No hallucinated rooms are present."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement accuracy is poor, particularly in the Living/Dining area where a sofa is present instead of a dining table. The bed in the bedroom is also incorrectly scaled and oriented. Furniture in the Kitchen and Toilet show some inaccuracies in placement and type (e.g., sink in toilet, kitchen counter layout)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection are generally good. Lighting quality is acceptable but could be improved for better feature definition. Geometry contains some distortions, especially around the Foyer and Balcony areas where walls are not clearly defined. Visual clarity is moderate; the missing Balcony and distorted Foyer reduce overall comprehension."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Foyer dimension and proportion distortion in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony room is effectively missing or rendered as an indistinguishable part of the main structure."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and orientation for the Foyer entry and Balcony access."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window for the Balcony."
+        },
+        {
+            "code": "E4",
+            "description": "Window proportions distorted in the Bedroom and Living/Dining area."
+        },
+        {
+            "code": "E3",
+            "description": "Sofa in Living/Dining area is oriented incorrectly relative to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect furniture placement in Living/Dining (sofa instead of dining table)."
+        },
+        {
+            "code": "E4",
+            "description": "Bed proportions and placement in the Bedroom are inaccurate."
+        },
+        {
+            "code": "E6",
+            "description": "Inconsistent wall thickness, notably around the Foyer and Balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout and sink placement differ from the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door placement is slightly off-center compared to the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan18.jpg"
+}

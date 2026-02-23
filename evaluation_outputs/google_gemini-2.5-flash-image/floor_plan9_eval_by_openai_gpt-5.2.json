@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major layout mismatch: Bedroom #4 area in the 2D plan (bottom-center/left of hall, adjacent to covered patio) is not represented as a bedroom in the 3D; that zone appears repurposed into a dining area. Dining room placement also shifts relative to the 2D plan, altering the left/bottom wing organization. Core zones (living/kitchen/master suite/garage) are broadly in the correct regions, but several interior partitions around hall/utility/bedroom wing do not match exactly. Door and window positions are partially consistent but with noticeable count/placement deviations (notably along the top living/master exterior walls). Room proportions for the left/bottom wing are distorted due to the Bedroom #4 vs dining swap."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "notes": "Adjacency relationships are weakened by the Bedroom #4 omission/repurpose: the 2D requires a bedroom accessed from the hall with a closet and proximity to the lower covered patio; the 3D instead shows an open dining setup, changing intended circulation and function. Several partitions/door openings around hall/utility differ from the plan\u2019s exact geometry. Wall thickness appears generally consistent and doors are mostly embedded in walls, but functional room set fidelity is not maintained due to the missing bedroom."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living room and kitchen furniture placement is plausible and roughly matches intended usage (seating cluster in living, island/peninsula in kitchen). However, furniture implies a dining function in the location where the 2D plan specifies Bedroom #4, indicating mapping inconsistency. Some furniture scales (notably beds vs room clearances) look only approximately aligned with the 2D dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Render is clean and readable with decent lighting and materials, but it is not a true isometric view (it is closer to a top-down/orthographic presentation). Geometry is mostly clean with minimal artifacts. Visual clarity is good, but camera/projection criteria for isometric are not met."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Bedroom #4 (bottom-center, off hall, near lower covered patio) is missing as a bedroom in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Dining function/area appears relocated into the zone where the 2D plan specifies Bedroom #4, altering room placement of the left/bottom wing."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions in the left/bottom wing are distorted due to the Bedroom #4 vs dining swap, affecting the intended sizes and separations of adjacent spaces."
+        },
+        {
+            "code": "E2",
+            "description": "Interior partition alignment around the hall/utility/bedroom wing does not precisely match the 2D plan geometry (several wall segments and openings are shifted/simplified)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count along the top exterior walls (living/master side) appears inconsistent with the 2D plan\u2019s window layout."
+        },
+        {
+            "code": "E6",
+            "description": "Camera/projection mismatch: output is not presented in a true isometric view as required (appears largely top-down/orthographic)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan9.png"
+}

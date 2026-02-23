@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Overall zoning is loosely similar (living/dining left, bedroom right, toilet near center-right, utility near kitchen), but the exterior footprint and several key openings do not match the 2D plan. The balcony is absent, the living area proportions/shape are changed, kitchen geometry is not the L-shaped counter shown, and multiple doors/openings (main entry, bedroom access, balcony opening) are missing or incorrect. Window/opening locations do not align reliably with the plan."
+    },
+    "structural_fidelity": {
+        "score": 16,
+        "max": 25,
+        "notes": "Wall thickness and basic construction look consistent in the render, and major adjacencies (kitchen-living, utility-kitchen, toilet-bedroom side) are broadly maintained. However, the plan\u2019s required balcony space is missing, door elements are not faithfully embedded/placed (several absent), and the utility/toilet access conditions do not match the 2D layout (utility appears as an open alcove; toilet door position/orientation differs)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture types roughly correspond (sofa/coffee table, dining table, bed), but the arrangement does not match the 2D plan (living seating placement and circulation differ; bedroom entry/circulation implied by furniture differs). Scale is generally plausible and consistent."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean, readable isometric presentation with good lighting and generally distortion-free geometry. Camera is appropriately isometric-like, though the render prioritizes visual staging over strict plan-accurate orthographic/isometric fidelity. Composition is clear."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony space (7'10\" x 3'5\") is missing entirely in the 3D render."
+        },
+        {
+            "code": "E4",
+            "description": "Exterior footprint/proportions are distorted: the plan\u2019s balcony projection and overall living/dining outline are not preserved."
+        },
+        {
+            "code": "E1",
+            "description": "Main entry door at the top-left of the 2D plan is not present in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Balcony opening/door from living area (bottom side in 2D plan) is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Bedroom access door shown in the 2D plan is not clearly modeled as a door in the 3D render (appears as an open gap/partition condition)."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet door placement does not match the 2D plan location (render shows a door on the toilet\u2019s left side facing the living area rather than the plan\u2019s indicated access position)."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation is not represented per the 2D plan (no visible swing logic for key doors; bathroom door orientation differs)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout is incorrect: 2D plan shows an L-shaped kitchen with specific counter placement; 3D render shows a long straight run along the left wall."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room appliance/detail (washing machine indicated in the 2D plan) is missing in the 3D render (replaced by generic cabinetry/empty alcove)."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placement is inconsistent: 3D render adds/positions a large window along the left wall over the kitchen run, which does not clearly correspond to the 2D plan\u2019s shown openings."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partitioning: the 3D render introduces partial-height/extra partition walls (notably around the bedroom edge) that are not indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Living/dining furniture placement and circulation paths do not match the 2D plan\u2019s depicted arrangement (sofa/TV seating zone and dining position differ)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan16.avif"
+}

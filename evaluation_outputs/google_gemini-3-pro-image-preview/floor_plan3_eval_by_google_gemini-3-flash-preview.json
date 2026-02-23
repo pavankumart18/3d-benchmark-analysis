@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Door and window placements are significantly inconsistent. The top-right double door was converted to a single window. The side door in the kitchen was converted to a window. The bathroom door orientation is mirrored."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The internal wall segment extending from the stairs into the living area is missing. The bathroom dimensions appear larger than the specified 3'x2' relative to the overall footprint."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture generally aligns with labels, though added living room furniture (sofa/coffee table) fills space not explicitly detailed in the 2D schematic."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High-quality isometric rendering with clean geometry, consistent lighting, and professional orthographic projection."
+    },
+    "total_score": 68,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing wall partition between the stairs and the main open area."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen side entrance (left wall) replaced with a window."
+        },
+        {
+            "code": "E2",
+            "description": "Upper-right double door replaced with a standard window."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door swing/orientation is incorrect compared to floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom size is significantly larger than the 3'x2' annotation indicates."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen windows behind the stovetop not present in 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan3.jpg"
+}

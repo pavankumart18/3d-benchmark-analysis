@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Severe errors in opening placements. The kitchen door is shifted, and multiple additional doors were added where windows should be. The entrance is misplaced relative to the bathroom core."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The bathroom core is incorrectly divided into multiple chambers. The staircase is represented as a solid block with a hallway rather than a flight of stairs. Significant hallway hallucination between the kitchen and entrance."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While furniture is present, the kitchen appliances are missing, replaced by generic tables. Living room seating does not align with the open-plan layout provided in the 2D sketch."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The isometric camera and lighting are consistent and high quality. The geometry is clean, despite being structurally incorrect."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase geometry; replaced with solid walls and a corridor."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door shifted significantly to the left of the bathroom partition."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated internal walls creating a foyer area not present in the open-plan original."
+        },
+        {
+            "code": "E2",
+            "description": "Windows on the right wall converted into a door and a shelf/cabinet unit."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom door orientation and internal partition do not match the 3'x2' specified layout."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen area is compressed to accommodate an unnecessary hallway."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant deviations in window and door counts. The dining room bay window array (3 windows) is reduced to a single door. The living room side windows are misrepresented. Staircase orientation relative to the pantry is flipped or incorrectly truncated."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The central 'Pantry' logic is failed; it has been rendered as a semi-open kitchen island structure rather than a distinct enclosed room. The playroom/kitchen wall segment is missing its doorway transition. Large exterior window groupings are consolidated incorrectly."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen cabinetry follows the general L-shape and island concept, but the fireplace/foyer desk area is hallucinated as a generic block. Scale of the bathroom fixtures is disproportionately small."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric execution and neutral lighting. Geometry is clean and render noise is nonexistent. High visual clarity despite structural inaccuracy."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple window units in the dining room and living room bay areas."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement of the entrance door relative to the foyer closet."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated kitchen island configuration that ignores the enclosed pantry walls."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the staircase width and landing height compared to plan dimensions."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error in the swing direction of the interior bathroom and playroom doors."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan8.jpg"
+}

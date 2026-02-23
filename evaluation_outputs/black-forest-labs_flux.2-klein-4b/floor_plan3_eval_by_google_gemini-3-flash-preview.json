@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "The 3D render fails to follow the 2D layout. The open-plan Kitchen/Dining/Living area is replaced by a compartmentalized four-room layout. Door and window placements do not align with the source floor plan."
+    },
+    "structural_fidelity": {
+        "score": 4,
+        "max": 25,
+        "notes": "The stairs are entirely missing. The central bathroom is removed and replaced with a hallway and multiple internal walls. Adjacency relationships are completely disregarded."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Hallucinated furniture (beds, desks, couches) that do not exist in the floor plan's functional zones. Scale is inconsistent with the original 16'x12' and 13'x24' room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While architecturally inaccurate, the render has good isometric framing, clean textures, and soft lighting. However, the internal geometry is generic and does not reflect a custom model of the provided plan."
+    },
+    "total_score": 29,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase element as indicated in the bottom-left of the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated internal walls creating four separate rooms instead of the large open-concept area shown in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door is shifted and bathroom is removed from the central position."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the external shell appears square, whereas the floor plan is significantly rectangular (24ft width vs height)."
+        },
+        {
+            "code": "E6",
+            "description": "Furniture choice (beds) suggests the model interpreted the plan as a multi-bedroom apartment rather than a living/kitchen area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan3.jpg"
+}

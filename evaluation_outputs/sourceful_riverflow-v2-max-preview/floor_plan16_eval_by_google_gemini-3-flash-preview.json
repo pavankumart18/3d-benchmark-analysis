@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved, but window placement is incorrect; the 3D model adds windows to the left living room wall not present in the plan. Door orientation for the main entrance is vague."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "All rooms are present and adjacent correctly. However, wall thickness is inconsistent, and the transition between the living area and utility appears structurally distorted."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture scale is largely accurate, but the orientation of the dining table and the arrangement of the living room seating has been slightly altered compared to the 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good isometric perspective and clean lighting. The text rendering on the floors is a significant visual artifact."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated windows on the left exterior wall of the living/dining area."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the balcony depth compared to the original 7'10'' x 3'5'' dimensions."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifacts present as garbled, non-functional text labels on the floor surfaces."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific kitchen appliance details such as the stovetop burners shown in the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Orientation error regarding the main entrance door wing and swing path."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan16.avif"
+}

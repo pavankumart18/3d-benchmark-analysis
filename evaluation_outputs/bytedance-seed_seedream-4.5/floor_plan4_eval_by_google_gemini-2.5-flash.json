@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but Bathroom 2 is missing. Wall alignment has minor inconsistencies. Door placement and orientation issues are noted in Laundry, Closet, and Bedroom 2. Window placement is significantly incorrect with many windows misplaced or missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness appears consistent. Door embedding is incorrect for some doors (Laundry, Closets, Bathroom 2, Bedroom 2). Adjacency relationships are mostly maintained, but a missing Bathroom 2 affects this. One room (Bathroom 2) is missing from the render. No hallucinated rooms, but some hallucinated structural elements like extra walls/columns are present."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate, but some items are slightly off-center. Furniture scale appears consistent."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is reasonable. Lighting quality is fair, but interior lighting seems somewhat flat. Geometry is clean with no major distortions. Visual clarity and composition are good overall."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bathroom 2 room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing windows in Kitchen/Dining, Living Room, Bedroom 1, Hall, and Bathroom 1."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for Laundry room (rotated 90 degrees and shifted)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced left Closet door (shifted right)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door for Bedroom 2 (shifted right)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows in Bathroom 1 (shifted right wall) and Laundry room (shifted right wall)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced furniture in Living Room (rug and coffee tables shifted)."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect orientation of Laundry room door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect swing direction of Hall closet door."
+        },
+        {
+            "code": "E3",
+            "description": "Incorrect swing direction of Hall to Living Room door."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated structural column/wall segment in the Hallway, extending from the Bathroom 1 wall."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated wall section extending from the exterior wall near Bedroom 2 window."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Overall footprint and major zones (garage bottom-right, large living area right, alfresco top-right, two bedrooms along top) are roughly aligned, but multiple internal-layout mismatches are present. Wet-area cluster on left (Bath/WC/Laundry/WIL) does not match the 2D plan\u2019s partitioning and room extents (E2/E4). The central circulation/entry sequence is simplified and several openings do not correspond to the plan (E2/E3). The alfresco appears oversized and more square than the 2D proportions (E4). Window placement is largely unverified/incorrect because the 3D model shows generic wall openings/glazing not matching the 2D window distribution (E2)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thickness looks broadly consistent, but door embedding/opening logic is inconsistent with the 2D plan (several planned hinged doors are missing or replaced by wide openings) (E2/E3). Adjacency is partly correct (living-kitchen, living-alfresco, garage-entry vicinity), but the left-side service core (Laundry/WIL/Bath/WC) is not faithfully reproduced (E2). At least one labeled space from the plan is not clearly represented as a distinct room in the 3D (notably WIL and the pantry definition), and some rooms appear merged or reduced into alcoves (E1/E2)."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Basic furniture exists (beds, living seating, dining table, kitchen island), but it does not reliably correspond to the 2D placements (e.g., theatre seating is not clearly mapped to the dedicated THEATRE room; study furniture/room definition is ambiguous) (E2). Some scales read inconsistently (alfresco and living furnishings relative to room sizes suggest proportion drift) (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Camera is a readable top-down isometric, but it is closer to a perspective render than a true orthographic isometric (minor projection inconsistency). Lighting is acceptable and geometry is mostly clean with no major mesh artifacts. Visual clarity is decent, though the lack of door/window detail reduces interpretability versus the plan."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Left-side wet/service zone (BATH + separate WC + LAUNDRY + WIL) is not partitioned or sized to match the 2D plan; rooms appear merged/simplified."
+        },
+        {
+            "code": "E1",
+            "description": "WIL (walk-in linen) is not clearly present as its own enclosed space as shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "PANTRY is not clearly represented as a distinct enclosed room adjacent to the kitchen per the 2D plan (appears missing or reduced to a small niche)."
+        },
+        {
+            "code": "E2",
+            "description": "Entry/corridor layout near the center-bottom does not match the 2D plan\u2019s entry, study access, and internal door locations (circulation simplified)."
+        },
+        {
+            "code": "E3",
+            "description": "Several planned hinged door locations/orientations are not represented (replaced by open passages or shifted openings), especially around the service core and entry/study transitions."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is inconsistent/underspecified in the 3D render; glazing/openings do not correspond to the 2D plan\u2019s window distribution on exterior walls."
+        },
+        {
+            "code": "E4",
+            "description": "ALFRESCO proportions appear distorted (rendered as a large near-square terrace) relative to the 2D dimensions and its relationship to adjacent rooms."
+        },
+        {
+            "code": "E2",
+            "description": "THEATRE room is not convincingly mapped with correct boundaries and furniture arrangement as indicated in the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan10.png"
+}

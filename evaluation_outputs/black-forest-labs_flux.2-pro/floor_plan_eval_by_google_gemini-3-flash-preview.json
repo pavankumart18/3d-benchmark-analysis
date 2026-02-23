@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is strong. However, the kitchen peninsula length is slightly over-extended compared to the blueprint. The distance between the entrance door and the living area is compressed."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms are present and correctly adjacent. Most doors are represented, though the bathroom door for Monica's room shows a strange orientation/geometry. Hallucination detected in the entryway with an extra wall segment."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent mapping of the iconic living room and kitchen set. The dining table chair count and orientation are accurate. Bedroom furniture follows the blueprint closely."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering with clean clay-shader aesthetic. Soft lighting and shadows provide clear depth. Minor geometry clipping on some door frames."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen peninsula extends further into the living space than indicated on the 2D floor plan."
+        },
+        {
+            "code": "E3",
+            "description": "Secondary bathroom door shows inward-folding geometry not represented in the swing arc of the blueprint."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partial wall/divider introduced near the main entrance leading to Chandler & Joey's apartment."
+        },
+        {
+            "code": "E4",
+            "description": "The window in Rachel's bedroom is wider than the specified dimension in the structural drawing."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact on the top of the central storage unit/closet wall appearing as non-manifold geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan.jpg"
+}

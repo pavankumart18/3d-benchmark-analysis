@@ -1,0 +1,56 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatch: the kitchen is not placed as in the 2D plan (plan shows kitchen on the left side adjacent to bath/closet; 3D places a full kitchen run on the right wall near the Chandler/Joey door and also shows an additional/duplicated counter run near the dining area). Exterior wall stepping/jogs on the left side are simplified, altering room footprints. Several door locations/swing orientations are approximate rather than matching the plan precisely. Windows do not match the plan (extra windows added on the south/west exterior; Monica bedroom window on the east wall appears missing). Room proportions are distorted by the simplified outer shell and shifted kitchen."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "Adjacency relationships are violated by relocating/duplicating the kitchen (kitchen should adjoin the bath/coat zone and left wall geometry as drawn). At least one required opening (Monica bedroom exterior window) is missing, while additional exterior windows are hallucinated. The left-side stepped boundary present in the 2D plan is not faithfully reproduced in 3D, changing wall alignments and implied wall lengths. Door embedding is inconsistent (some openings appear as arched/rounded cutouts not consistent with the plan\u2019s standard hinged doors)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Living room seating roughly matches the general intent (sofa area and coffee table), but the kitchen cabinetry/appliances are not mapped to the 2D plan and appear duplicated. Bedroom furniture orientation/placement is not reliably consistent with the 2D plan (notably Rachel\u2019s bedroom arrangement). Scale is stylized and not clearly dimension-faithful."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean, readable isometric with good lighting and generally neat geometry. However, several openings use stylized rounded cutouts and simplified massing that reduce technical clarity versus an orthographic-faithful architectural model. Overall composition is strong despite plan inaccuracies."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen is misplaced: 2D plan kitchen is on the left adjacent to bath/closet; 3D shows a primary kitchen run on the right wall near the Chandler & Joey door."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/duplicated kitchen elements: 3D includes both a right-wall full kitchen (fridge/sink/cabinets) and an additional counter run near the dining area that does not match the single kitchen footprint in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Exterior wall geometry/proportions distorted: left-side stepped/jogged boundary in the 2D plan is simplified in 3D, altering room footprints and wall lengths."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: 3D adds extra exterior windows on the south/west wall area that are not indicated in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window: Monica\u2019s bedroom exterior window on the east wall shown in the 2D plan is not present in the 3D render."
+        },
+        {
+            "code": "E3",
+            "description": "Door style/orientation inconsistency: several openings in 3D appear as rounded/arched cutouts and/or hinge swings that do not match the plan\u2019s hinged door conventions and placements."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture layout mismatch in bedrooms: bed orientation/placement (notably Rachel\u2019s bedroom) does not clearly follow the 2D plan arrangement."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan.jpg"
+}

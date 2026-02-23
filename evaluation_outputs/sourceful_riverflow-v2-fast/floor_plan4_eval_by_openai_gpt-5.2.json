@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 20,
+        "max": 40,
+        "notes": "Overall layout resembles the plan (open kitchen/dining at left, living central, two bedrooms at right, bath near center-right), but several spatial mismatches exist. Notable deviations include a staircase/level-change element inserted in the living area, inconsistent interior wall segment lengths (especially around hall/bath/bedroom junction), and multiple door locations/orientations that do not match the 2D swings. Window distribution and sizes also diverge from the plan (fewer/different openings, several rendered as large glazed units). Room proportion balance is altered (living/hall and bath zone read differently sized than in plan)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is mostly consistent and doors are generally embedded, but fidelity to the 2D partitioning is reduced around the service core (laundry/closets/bath). Adjacency is mostly correct at a high level, yet at least one closet/service space from the plan is not clearly represented as a distinct enclosed room. A non-plan element (stairs/steps) is introduced, constituting a structural hallucination."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Major furniture types broadly align (dining table in kitchen/dining, sofa/coffee table in living, beds in bedrooms, tub in bathroom), but exact placement and orientation do not follow the 2D symbols closely. Some items (laundry equipment/storage/closet fittings) are missing or not identifiable, and a few scales feel inconsistent with the implied room sizes (living circulation feels constrained relative to furniture)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean isometric-style presentation with generally good lighting and readable composition. Minor issues: projection is slightly perspective rather than strict orthographic isometric; some geometry reads simplified (door/window detailing and openings) and the inserted stair/step element reduces visual/architectural credibility relative to the source plan."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated staircase/steps/level-change element placed in the living area; the 2D plan shows a single-level floor with no stairs."
+        },
+        {
+            "code": "E2",
+            "description": "Service-core partitioning around hall/bath/closet differs from the plan (interior wall segments and room boundaries do not align to the 2D layout)."
+        },
+        {
+            "code": "E1",
+            "description": "One or more closets shown in the 2D plan are not clearly present as distinct enclosed closet rooms in the 3D render (closet count/definition appears reduced/merged)."
+        },
+        {
+            "code": "E2",
+            "description": "Laundry room depiction does not clearly match the 2D plan\u2019s dedicated laundry space and its exact enclosure/shape; appears simplified/relocated relative to the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple door positions do not match the 2D plan precisely (notably around bedroom/bath/hall connections); some door leaf placement/swing orientation is inconsistent with the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count does not match the 2D plan: several planned exterior windows are missing or resized, and some are rendered as larger glazed openings not indicated in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: the living/hall circulation and the bath zone read as different relative sizes than in the 2D plan (circulation widths and room depth relationships altered)."
+        },
+        {
+            "code": "E3",
+            "description": "Bathroom fixture orientation/layout appears changed relative to the 2D plan (tub/vanity/toilet arrangement not matching the drawn configuration)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan4.jpg"
+}

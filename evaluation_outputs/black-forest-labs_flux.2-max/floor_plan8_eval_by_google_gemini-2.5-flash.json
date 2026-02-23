@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Poor spatial accuracy. Significant discrepancies in room placement and proportions. Living Room, Dining Room, and Kitchen's shared wall is completely misinterpreted. The Foyer has an incorrect wall structure. The 'W/C' and Closet area is distorted. There are misinterpretations of window and door placements."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Major structural deviations. The Kitchen is fully enclosed, contrary to the open plan. The Playroom, W/C, and Closet are merged with other spaces and also significantly altered. New rooms (bedrooms) are hallucinated. Existing rooms are missing or completely repurposed."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "No furniture from the original plan is present. Furniture is hallucinated in incorrect locations and configurations."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The isometric view is mostly correct, and geometry is clean. However, the orthographic projection is not applied, and the visual clarity is hampered by structural inaccuracies."
+    },
+    "total_score": 30,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Foyer wall structure is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in W/C and Closet area."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and type for various rooms (e.g., entrance to Living Room, Kitchen, Playroom)."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window placements; many windows from the floor plan are missing, and new ones are hallucinated."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Pantry room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing closet near the Foyer and inside the 'W/C' area; instead, part of the closet is combined into a toilet area."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated rooms (bedrooms) in the area that should be 'Playroom' and 'W/C/Closet'."
+        },
+        {
+            "code": "E1",
+            "description": "Playroom is missing and replaced by hallucinated bedrooms."
+        },
+        {
+            "code": "E1",
+            "description": "Original furniture (kitchen appliances, sink, toilet, bath) from the floor plan is completely missing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated furniture (beds, sofas, tables) not present in the original floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct. However, there are significant door placement errors: the kitchen entry door is missing, and the bedroom door is placed on the wrong wall relative to the living room adjacency. Window placement in the toilet area deviates from the plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The utility room partition is awkwardly rendered and lacks a defined portal. The wall separating the bedroom from the living room has an incorrect opening (E2). The niche for the toilet entrance is missing its architectural definition."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture assets, including the specific coffee table, circular dining table, and bedroom wardrobe placement."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality orthographic projection and clean architectural materials. Consistent wall thickness and professional lighting. Minor clipping on the balcony railing."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing main entrance door and kitchen door swing."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom door is misplaced on the internal partition instead of being aligned with the hallway/toilet cluster."
+        },
+        {
+            "code": "E3",
+            "description": "Toilet fixtures (sink/toilet) are inverted or oriented differently than the 2D layout."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact where the balcony wall meets the living room floor plane."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan16.avif"
+}

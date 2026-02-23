@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained. However, several windows on the exterior-facing walls (Bed 2 and Bed 1) are hallucinated or incorrectly sized compared to the floor plan's specific window markers. Door swing directions for TOI-1 and Bedroom 1 are slightly skewed."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Missing the specific exterior utility deck wall enclosure on the bottom-left. The small deck attached to Bed 1 shows text '58 x 46' instead of '5'8\" x 4'5\"'. Hallucinated exterior windows on the lower-left and bottom-right edges of the model not present in the 2D architectural lines."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent furniture mapping, including the dining set, couch arrangement, and rugs. Wardrobe placements match the floor plan sketches exactly."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric projection and clean geometry. Text labels are preserved as textures which increases clarity but introduces some OCR-style artifacts in the rendering of dimensions."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior windows on the south and west primary walls not indicated in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Text distortion on the secondary deck dimensions ('66x46' instead of '5'8x4'5')."
+        },
+        {
+            "code": "E2",
+            "description": "The utility area at the bottom left is rendered as an open platform/deck rather than an enclosed utility room with high windows as suggested by the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation into Bed-1 and C.TOI slightly deviates from the swing paths indicated in the 1/4 arc lines of the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan14.webp"
+}

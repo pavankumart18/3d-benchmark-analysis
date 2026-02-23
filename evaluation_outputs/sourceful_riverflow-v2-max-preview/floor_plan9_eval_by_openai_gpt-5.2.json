@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Overall layout is recognizable (living/kitchen left, bedroom wing right, garage bottom-right), but several plan-to-render mismatches remain: (E4) Garage appears disproportionately large relative to the main house compared to the 2D plan. (E2) Central hall/bath/utility cluster shows shifted wall positions and corridor widths that do not cleanly match the plan\u2019s hall geometry. (E2/E3) Multiple interior door locations/swing orientations in the hall/bedroom wing do not align exactly with the 2D door placements (notably around Bedroom #2/#3 entries and the hall junction). (E2) Window counts/spacing along the long living-room exterior wall appear simplified/altered versus the plan\u2019s repeated window rhythm."
+    },
+    "structural_fidelity": {
+        "score": 17,
+        "max": 25,
+        "notes": "Primary adjacencies mostly correct (kitchen\u2194nook/living, bedrooms\u2194hall, garage\u2194utility), but fidelity issues: (E4) Wall thickness/partition proportions are inconsistent (some interior walls read thicker/thinner than expected, especially around the master suite and hall core). (E2) Door embedding is inconsistent in a few spots (doors appear to open into tighter clearances than the plan indicates, especially in the right-side bedroom wing). (E1) Pantry/closet definition near the kitchen reads under-defined compared to the plan\u2019s clearly labeled PAN enclosure. (E5) Extra/odd short wall returns/closet-like partitions appear in the hall/core that are not clearly present in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The 2D plan provides limited furniture beyond fixtures/cabinet intent, while the 3D render uses generic furniture. (E2) Kitchen peninsula/working triangle is only loosely matched to the plan\u2019s angled counter run. (E4) Some furniture scales (beds/sofas) read slightly oversized relative to room widths, amplifying the proportion discrepancies (notably the large garage-to-house balance and some bedroom clearances)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Camera is a correct isometric-style view with good readability. Minor issues: (E6) Slight rendering softness and uniform materials reduce edge definition; some door leaf intersections and wall corners look slightly imprecise. Lighting is adequate but flat, and the render is not strictly orthographic (mild perspective feel). Overall clean and clear, but not highly precise for verification."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Garage is disproportionately large compared to the 2D plan\u2019s relative massing (dominates the composition more than expected)."
+        },
+        {
+            "code": "E2",
+            "description": "Central hall/bath/utility wall alignment and corridor widths are shifted versus the 2D plan\u2019s hall geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Several interior door positions (especially in the Bedroom #2/#3 hall area) do not precisely match the 2D plan locations."
+        },
+        {
+            "code": "E3",
+            "description": "Some door swing/orientation appears inconsistent with the 2D plan (open direction/hinge side differs in parts of the bedroom wing)."
+        },
+        {
+            "code": "E2",
+            "description": "Living-room exterior window rhythm (count/spacing) appears simplified or altered compared to the 2D plan\u2019s repeated window set."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen pantry enclosure (PAN) is not clearly realized as a distinct room/closet volume as shown in the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Additional short wall returns/closet-like partitions appear in the core hall area that are not clearly indicated on the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen counter geometry (angled peninsula/run) is only an approximate match; proportions and angles differ from the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Minor geometry/render artifacts: slightly imprecise door-to-wall intersections and softened edges reduce drafting-level clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan9.png"
+}

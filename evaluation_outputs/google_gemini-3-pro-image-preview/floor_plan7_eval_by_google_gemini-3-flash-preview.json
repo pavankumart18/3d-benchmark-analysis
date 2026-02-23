@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General room placement is correct, but window and door orientations vary significantly from the plan. The staircase orientation is reversed compared to the floor plan's 'UP' direction."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "While rooms are present, door openings are missing or incorrectly represented as wall gaps. The wall between the bedroom and wash area is misplaced."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture types are mostly mapped correctly, but a breakfast table has been hallucinated in the kitchen area which was not in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High-quality isometric rendering with clean geometry and consistent lighting. Accurate orthographic projection."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Staircase orientation is reversed; steps ascend in the opposite direction indicated by the plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated central dining table inside the kitchen area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing swing doors; entrances are rendered as open wall segments without frames or panels."
+        },
+        {
+            "code": "E2",
+            "description": "The window in the living room is misplaced relative to the entrance door position."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom dimensions appear elongated compared to the square proportions in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan7.jpg"
+}

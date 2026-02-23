@@ -1,0 +1,76 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Major layout mismatch. The 2D plan is a 4-bedroom unit with multiple toilets, dress area, foyers, utility, and two balconies; the 3D render shows a simplified 3-bedroom-like layout with large open space and fewer partitions. Exterior footprint differs (render has a chamfered/angled corner and simplified perimeter). Adjacencies and circulation (foyer-to-living, bedroom corridor, wet-core clustering) do not match. Door and window positions are largely inconsistent with the 2D plan, and room proportions are not preserved (living/dining and bedroom sizes/locations are notably distorted)."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Walls are modeled with consistent thickness, but the partition network is substantially different from the floor plan. Multiple required rooms/spaces are missing and several expected adjacencies are broken (e.g., master bed + dress + attached toilet suite, utility/servant cluster, balcony connections). Several rooms in the render appear as generic empty cells without matching the plan\u2019s wet areas, indicating both missing elements and hallucinated/simplified spaces."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not correspond to the 2D plan\u2019s specific living seating layout, dining size/position, or bedroom furnishings. Kitchen is present but simplified; toilets/baths lack fixtures. Scale appears plausible but mapping to the plan is largely inaccurate."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Clean, readable isometric-style render with coherent lighting and minimal geometry artifacts. However, it is not a true orthographic/isometric technical match (noticeable perspective and simplified architectural detailing). Composition is clear, but architectural fidelity is low."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bedroom 4 (present in 2D plan along corridor near dining; not represented as a distinct bedroom in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing balconies (large living balcony and master bedroom balcony in 2D; not modeled in 3D)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dress room/area attached to master bedroom (2D shows 'DRESS'; 3D has no corresponding space)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple toilets/bathrooms and wet-core layout (2D shows several toilets incl. powder/attached; 3D lacks correct rooms and fixtures)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing foyer and entry sequencing (2D has a defined foyer; 3D enters directly into a simplified open area)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing servant room and utility area (both present in 2D near kitchen; not represented in 3D)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced living/dining relationship and central circulation (2D has dining near bedroom corridor with specific openings; 3D places dining centrally with different corridor geometry)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen footprint and adjacency (2D kitchen connects to utility and near foyer; 3D kitchen is simplified without correct adjacent rooms)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement inconsistent (2D shows multiple exterior openings aligned to rooms/balconies; 3D shows few windows not matching locations/count)."
+        },
+        {
+            "code": "E3",
+            "description": "Door placement/orientation incorrect or omitted (2D shows many hinged door swings and specific openings; 3D uses generic openings/doors in different positions)."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion: room sizes and corridor widths do not preserve 2D dimensions (notably bedrooms, wet areas, and living/dining extents)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated/altered exterior geometry (render includes a chamfered/angled exterior corner and simplified perimeter not shown in 2D)."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan17.jpg"
+}

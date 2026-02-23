@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "General floor plan layout is heavily altered. The 2-car garage is missing entirely. Room adjacencies between the kitchen, living room, and master wing do not match the blueprint. Door and window counts are inconsistent with the 2D reference."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major structural failure: the garage and utility areas are hallucinated or removed. Wall thickness is inconsistent with external perimeter walls and internal partitions. The complex footprint of the master bath and walk-in closets is simplified into generic squares."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture does not follow the specific layout of the 'Nook', 'Kitchen' island, or 'Dining' areas. Scale is off, particularly in the living room where a small sofa replaces a large open living space."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The render is visually clean with a pleasing color palette and consistent orthographic lighting. However, 'cut-away' wall artifacts and non-architectural roofline slopes diminish the technical accuracy."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage, secondary bedrooms (Bedroom #2, #3), and utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and Dining areas are merged and misplaced relative to the original front entrance."
+        },
+        {
+            "code": "E4",
+            "description": "The living room is severely shrunken; the scale of the rooms does not reflect the square footage noted in the blueprint."
+        },
+        {
+            "code": "E5",
+            "description": "Randomized room placement on the right side of the plan where the garage and Bedrooms #2 and #3 should be."
+        },
+        {
+            "code": "E6",
+            "description": "Floating furniture elements and nonsensical wall height cutoffs (jagged wall edges)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan9.png"
+}

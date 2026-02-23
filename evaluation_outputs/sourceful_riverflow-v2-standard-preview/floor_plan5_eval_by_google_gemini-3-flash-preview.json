@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is maintained, but minor door orientation issues and window placement shifts occur in the transition from 2D to 3D. The central entrance doors are rendered differently than the double-door swing indicated in the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Adjacency is highly accurate. All rooms from the 2D plan are present. Wall thicknesses are consistent throughout the model."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture types; the kitchen island, dining set, and bedroom configurations match the plan's intent precisely."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "High-quality orthographic/isometric perspective. Lighting is consistent and geometry is clean with no significant rendering artifacts."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Main entrance double doors in the 2D plan are replaced with a different glass sliding/fixed panel configuration in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Minor shifts in window positions relative to wall centerlines, particularly in the top right bathroom and bedroom."
+        },
+        {
+            "code": "E3",
+            "description": "Interior doors into the bedrooms show different swing directions than those specified in the architectural drawing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan5.jpg"
+}

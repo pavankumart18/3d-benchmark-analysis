@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Major spatial mismatches between plan and render. The bottom-right room labeled \"Monica's Bedroom\" in the 2D plan is rendered as an office/dining-like room with a large table and no clear bed (E1/E2). A bed appears in the bottom-center area instead, shifting bedroom location relative to the plan (E2). Bottom fa\u00e7ade window/door layout is inconsistent: the 3D shows extended/continuous glazing along the bottom-left and a large opening at the bottom-right that are not indicated in the plan (E2/E5). Several interior door locations/hinges do not align with the plan\u2019s swing/placement, especially around the central hall/den zone (E2/E3). Room proportions are noticeably altered (living/central hall widened; bedroom footprints not preserved) (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Adjacency relationships are partially preserved (living/kitchen zone generally top, wet areas left/center), but key program fidelity fails: Monica\u2019s bedroom is effectively missing as a bedroom program (E1) and replaced by a different room use (E5). Wall thickness is mostly consistent, but several partitions/returns differ from the plan in the entry/den corridor and bedroom separations (E2/E4). Door embedding and orientation appear inconsistent with the plan in multiple locations (E2/E3). Multiple exterior openings appear hallucinated or relocated relative to the plan (E5/E2)."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not reliably match the 2D plan. The right-side bedroom\u2019s bed/nightstands layout is not represented; instead, a large table/desk arrangement appears (E1/E5). Bed placement appears shifted to a different room footprint than shown in plan (E2). Several furniture scales (table vs room size, seating group spacing) are inconsistent with the plan\u2019s implied clearances (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Render is clean and readable with generally correct isometric viewpoint. Lighting is soft and consistent; geometry is mostly clean. Minor issues: some openings/frames look simplified and a few wall/door intersections feel imprecise (E6). Projection is not perfectly orthographic (slight perspective feel), but overall composition is clear."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Monica's Bedroom (bottom-right in plan) is not rendered as a bedroom; the bed/nightstands shown in plan are missing."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom program appears relocated: a bed is placed in a different bottom-area room footprint than the plan indicates for Monica's Bedroom."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated room use: bottom-right room contains a large table/office/dining-like setup not supported by the 2D plan labeling/furniture layout."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior opening layout mismatch: bottom fa\u00e7ade shows extended glazing/large openings in 3D that do not correspond to the plan\u2019s window placements."
+        },
+        {
+            "code": "E5",
+            "description": "Possible hallucinated large exterior opening/door at the bottom-right wall not indicated on the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple interior doors around the central hall/den area are positioned differently than in the plan."
+        },
+        {
+            "code": "E3",
+            "description": "Several door swing/orientation directions differ from the plan (hinge side and opening direction inconsistencies)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortions: bedroom footprints and central circulation/den proportions do not match the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Minor rendering/geometry artifacts: simplified door/window frames and slightly imprecise wall-door junctions."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan.jpg"
+}

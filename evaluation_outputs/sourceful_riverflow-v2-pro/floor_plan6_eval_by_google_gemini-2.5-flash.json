@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Door placement and orientation are incorrect for several doors. Windows are significantly misplaced and some are missing. Room proportions are distorted, particularly for the Kitchen/Living area and the hallway/bathroom."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent. Door embedding is incorrect for most doors. Adjacency relationships are mostly correct, but the internal structure of the bathroom and surrounding hallway is significantly different. No missing or hallucinated rooms, but internal subdivisions are altered."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate for major items, but some items are missing. Scale seems generally consistent."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection is accurate. Lighting quality is decent. Geometry is clean with no major distortions. Visual clarity is good."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Door leading to bedroom is misplaced further into the hallway."
+        },
+        {
+            "code": "E3",
+            "description": "Door leading to bathroom is reversed in orientation."
+        },
+        {
+            "code": "E1",
+            "description": "Door leading to the main entrance/stairwell is missing in the render."
+        },
+        {
+            "code": "E2",
+            "description": "Multiple windows on the exterior walls are either missing or significantly misplaced compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The proportion of the Kitchen/Living area is altered, appearing wider than in the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The hallway and bathroom area's proportions and internal subdivisions are significantly distorted."
+        },
+        {
+            "code": "E1",
+            "description": "Some smaller furniture items like chairs at the kitchen island and plants are missing."
+        },
+        {
+            "code": "E2",
+            "description": "The internal wall segment in the bathroom dividing the toilet and sink is misplaced/reshaped."
+        },
+        {
+            "code": "E1",
+            "description": "The balcony railing on the left side is missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan6.jpg"
+}

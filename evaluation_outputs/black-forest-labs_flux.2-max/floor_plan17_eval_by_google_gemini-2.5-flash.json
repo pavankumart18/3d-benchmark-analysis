@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but some walls are misaligned. Door placements are largely accurate for main rooms but some interior doors are missing or misplaced. Windows are entirely missing. Room proportions show some minor distortions, especially in utility areas and some bathrooms."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Wall thickness is somewhat inconsistent. Several doors are missing or incorrectly embedded, particularly for toilets and service areas. Adjacency relationships are mostly correct. No hallucinated rooms, but several internal elements like toilets and wardrobes are missing or simplified. The 'Ser. Rm' and its associated toilet are missing walls."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate for living, dining, and bedrooms. However, furniture scale consistency is poor in several areas, with some pieces appearing oversized or undersized relative to the room dimensions. Kitchen appliances, toilet fixtures, and wardrobe layouts are often simplified or incorrect."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness and orthographic projection are good. Lighting quality is decent. Geometry is mostly clean, but some minor distortions are present, particularly in the utility and service room areas. Visual clarity and composition are generally good, but the rendering feels a bit flat due to simplified textures and lack of details like window frames."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "All exterior windows are missing."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a door for Toilet in M.BED RM."
+        },
+        {
+            "code": "E1",
+            "description": "Missing interior walls and a door for 'SER. RM'."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a door for the larger Toilet near Bed Room 4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a door for the smaller Toilet near Bed Room 4."
+        },
+        {
+            "code": "E1",
+            "description": "Missing a partition wall and door for the kitchen's small toilet."
+        },
+        {
+            "code": "E2",
+            "description": "The door to the 'DRESS' room is incorrectly placed and oriented."
+        },
+        {
+            "code": "E2",
+            "description": "The door for Bedroom 4 is misplaced and incorrectly oriented compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The wall between 'SER. RM' and 'UTILITY' is misaligned and lacks definition."
+        },
+        {
+            "code": "E2",
+            "description": "The wall separating 'DRESS' from the master bedroom is misaligned."
+        },
+        {
+            "code": "E3",
+            "description": "The main entrance door at the 'FOYER' is incorrectly oriented and appears as a solid wall."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the 'UTILITY' area, looking narrower than indicated."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in some toilet areas, appearing smaller or reconfigured."
+        },
+        {
+            "code": "E5",
+            "description": "The 'UTILITY' space has a hallucinated partial wall not present in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Small partition walls are hallucinated inside the bathrooms, not present in the floor plan (e.g., near toilet fixtures)."
+        },
+        {
+            "code": "E6",
+            "description": "Some wall intersections and corners show minor rendering artifacts or lack crispness."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan17.jpg"
+}

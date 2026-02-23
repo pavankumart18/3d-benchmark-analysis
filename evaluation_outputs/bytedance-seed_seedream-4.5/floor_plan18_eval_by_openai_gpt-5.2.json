@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall room layout roughly matches (bedroom top-left, living/dining center-left, kitchen/utility right, toilet between). Major dimensional/proportion drift: foyer labeled 4'9\"x3'0\" in 3D vs 4'6\"x3'10\" in plan (E4); toilet labeled ~4'8\"x6'0\" in 3D vs 4'9\"x8'0\" in plan, significantly shortening the room (E4). Door placement/orientation is inconsistent: main entry/foyer boundary treatment and interior door swings do not consistently match the 2D swing directions and locations (E2/E3). Window placements are not faithfully mapped: 3D shows large exterior glazing on faces that do not match the plan\u2019s smaller window positions and counts (E2/E4)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Adjacency relationships are mostly preserved (living connects to bedroom/toilet; kitchen connects to utility; balcony off living). Wall thickness is inconsistent between exterior and interior partitions compared to the plan (E4). The OTS/shaft indicated near the toilet in the 2D plan is not clearly present in the 3D model (E1). Several openings/doors appear embedded differently than the plan (alignment to wall segments and swing depiction) (E2/E3). No extra rooms are added, but multiple window elements appear exaggerated beyond plan intent (borderline hallucinated glazing magnitude) (E5/E4)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Bedroom bed/wardrobe placement is broadly consistent with the plan. Living/dining furniture mapping is not faithful: the dining table/chairs arrangement does not match the 2D layout (shape/position), and overall furniture scale (especially dining element) looks oversized relative to circulation clearances (E2/E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric viewpoint is clear and visually readable; lighting is clean and geometry is mostly crisp. However, glazing scale and some wall/door detailing look stylized rather than plan-accurate, and the projection feels more perspective-isometric than strict architectural orthographic (minor) (E6)."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Toilet proportions incorrect: 3D shows ~4'8\"x6'0\" vs plan 4'9\"x8'0\" (room length significantly reduced)."
+        },
+        {
+            "code": "E4",
+            "description": "Foyer dimensions/proportions incorrect: 3D label 4'9\"x3'0\" vs plan 4'6\"x3'10\"."
+        },
+        {
+            "code": "E1",
+            "description": "OTS/shaft element adjacent to the toilet (shown in 2D plan) is not clearly modeled/present in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count mismatch: 3D exterior windows do not correspond to the plan\u2019s window positions and appear redistributed across facades."
+        },
+        {
+            "code": "E4",
+            "description": "Window scale distortion: 3D uses large floor-to-ceiling style glazing that exceeds the plan\u2019s implied window sizes."
+        },
+        {
+            "code": "E2",
+            "description": "Several door locations/opening extents do not align precisely with the plan\u2019s wall segments (notably around foyer-to-living/kitchen junction)."
+        },
+        {
+            "code": "E3",
+            "description": "Door swing/orientation depiction differs from the 2D plan for interior doors (toilet/bedroom/foyer transitions)."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness consistency differs from plan intent (interior partitions appear variably thick in 3D)."
+        },
+        {
+            "code": "E2",
+            "description": "Living/dining furniture arrangement (dining table/chairs) is misplaced compared to the 2D plan layout."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan18.jpg"
+}

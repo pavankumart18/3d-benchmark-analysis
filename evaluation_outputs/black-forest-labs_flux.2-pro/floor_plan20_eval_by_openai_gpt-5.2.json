@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "notes": "Overall layout roughly matches (3 bedrooms positioned left/right with central living-dining and kitchen/utility cluster), but there is a major deviation at the bottom-left where the 2D plan\u2019s Home Office/Maid\u2019s Room + lobby area is not represented correctly. Several openings (doors/windows) do not clearly correspond to the 2D plan, and exterior openings/railings are not consistently placed as shown."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Core adjacency is mostly preserved (Living/Dining adjacent to Kitchen; Bedroom-2 near Toilet-2; Bedroom-1 near Toilet-1), but a critical program element (Home Office/Maid\u2019s Room) appears missing/changed and replaced by an exterior balcony-like volume. This also introduces an extra exterior mass that is not present in the 2D plan. Wall/door modeling is generally clean, but fidelity to the plan\u2019s partitioning at the entry/lobby zone is poor."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Living/dining and bedroom furniture broadly aligns with the intended room functions, but the missing/altered Home Office/Maid\u2019s Room prevents correct furniture mapping there. Some furniture scaling/spacing appears approximate rather than plan-accurate."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric view is coherent and readable, with generally clean geometry and decent lighting. Minor issues: openings/windows are not clearly defined to match the plan, and some elements (railings/exterior edges) look simplified, reducing architectural clarity."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Home Office / Maid\u2019s Room (bottom-left in 2D plan) is not correctly represented in the 3D render (appears missing or replaced)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior balcony/terrace-like volume at the bottom-left of the 3D render that does not exist in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Entry/lobby zone partitioning and openings do not match the 2D plan layout; the bottom-left circulation/room boundary configuration is misplaced."
+        },
+        {
+            "code": "E2",
+            "description": "Window/opening placements on exterior walls are not consistently mapped to the 2D plan (openings appear simplified and do not clearly align with indicated window positions)."
+        },
+        {
+            "code": "E3",
+            "description": "Several door orientations/placements (notably around the modified bottom-left area and some interior transitions) do not clearly match the 2D plan\u2019s swing/position intent."
+        },
+        {
+            "code": "E4",
+            "description": "Local proportion distortion around the entry/lobby/bottom-left block due to the substituted balcony mass, altering the footprint compared to the 2D plan."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan20.avif"
+}

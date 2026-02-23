@@ -1,0 +1,64 @@
+{
+    "spatial_accuracy": {
+        "score": 16,
+        "max": 40,
+        "notes": "Overall massing roughly resembles a 4-bedroom unit with central living/dining, but multiple plan-to-render mismatches: deck layout is not faithfully segmented (E2/E4), bottom-right exterior projection/balcony appears that is not on the 2D plan (E5), service core (kitchen/utility/toilet/HO cluster) is rearranged (E2) and several internal walls/partitions do not align to the 2D wall grid (E2). Door locations and circulation paths appear simplified/shifted vs the plan (E2/E3). Window/slider placements along the deck edge are generalized rather than matching the plan\u2019s openings (E2). Room proportion relationships (living vs bedrooms vs kitchen depth) are not preserved (E4)."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "notes": "Wall thicknesses are visually consistent, but plan adjacency fidelity is weak: the kitchen/utility/HO/toilet grouping does not match the 2D arrangement (E2), and at least one service room (utility and/or HO) is missing or merged into other spaces (E1). Bathroom placements appear altered (some read as attached where the plan shows common access, and vice-versa) (E2/E3). A non-plan exterior element at bottom-right indicates hallucination (E5)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is plausible but not mapped to the 2D intent: dining table placement/orientation is not consistent with the plan\u2019s dining zone (E2), living seating layout is generic and not aligned to the plan\u2019s shown arrangement (E2), and some bedroom furniture appears uniformly scaled irrespective of room sizes (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "notes": "Clean isometric-style presentation with good lighting and generally tidy geometry. Minor penalties for semi-perspective feel (not strictly orthographic/isometric) and simplified openings/trim that reduce clarity of doors/windows. No major rendering artifacts."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior balcony/protruding platform at the bottom-right of the 3D render that is not present on the 2D plan (plan decks are only along the top edge)."
+        },
+        {
+            "code": "E2",
+            "description": "Deck/terrace configuration is not faithfully reproduced: the plan shows two distinct decks (long deck off living/dining and separate deck off Bed-1), while the 3D shows a more continuous/redistributed terrace edge."
+        },
+        {
+            "code": "E1",
+            "description": "Utility room (labeled 'UTILITY 5' x 11'' on the 2D plan) is missing or not clearly delineated as a separate enclosed space in the 3D."
+        },
+        {
+            "code": "E1",
+            "description": "HO (small room labeled near bottom-center of the 2D plan) is missing or merged/repurposed in the 3D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Service core (kitchen + adjacent small toilets/partitions) is rearranged: internal wall alignments and room boundaries around the kitchen/utility/toilets do not match the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom placements and access appear inconsistent with the plan (some bathrooms read as attached/common differently than shown in the 2D plan)."
+        },
+        {
+            "code": "E2",
+            "description": "Door placements/openings are simplified and shifted; several planned door positions/orientations (including bedroom-to-corridor and deck access) are not verifiable/matching in the 3D."
+        },
+        {
+            "code": "E2",
+            "description": "Window/slider placement is generalized along exterior walls (especially along deck edges) and does not match the discrete openings in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted: relative sizes/depths of living/dining vs kitchen/service corridor and some bedrooms do not preserve the 2D plan\u2019s dimensioned relationships."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan19.webp"
+}

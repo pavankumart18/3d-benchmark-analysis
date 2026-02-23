@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the Laundry is mispositioned. Wall alignment has some inaccuracies, particularly around the Bath/WC area and the Kitchen. Door placement and orientation are significantly incorrect for the main entrance, bedroom 2, WC, and Laundry. Window placement is generally poor, with many windows missing or placed incorrectly relative to the floor plan. Room proportions show some distortion, notably in the Lounge/Dining area and the Laundry."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent, especially visible in the exterior walls and interior partitions. Door embedding is incorrect for several doors, particularly the main entry. Adjacency relationships are mostly correct for major rooms but are off for the Laundry and WC. No missing rooms are evident, but the 'Linen' closet is not rendered. No hallucinated rooms, but a hallucinated window appears in the hallway near WC."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is mostly inaccurate, with many items either missing (e.g., dining furniture, bed in Bedroom 2, WC fixtures) or placed differently than implied in the 2D plan (e.g., kitchen appliances, washing machine). Furniture scale consistency is poor; for example, the washing machine appears too large for the Laundry space."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is acceptable. Orthographic projection accuracy shows some perspective distortion. Lighting quality is decent but could be improved for better feature highlight. Geometry generally appears clean, but some minor distortions are present around doorways and wall junctions. Visual clarity is good, but the composition could be more balanced."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Laundry room is misplaced, shifting its position relative to the Kitchen and Bedroom 1."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door is missing its exact position and orientation."
+        },
+        {
+            "code": "E3",
+            "description": "Door to Bedroom 2 has incorrect orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Door to WC is misplaced and has incorrect orientation."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Laundry is misplaced and has incorrect orientation."
+        },
+        {
+            "code": "E1",
+            "description": "Many windows indicated on the floor plan are missing in the 3D render, e.g., in Lounge, Dining, Bedroom 1, Bedroom 2."
+        },
+        {
+            "code": "E2",
+            "description": "Windows that are present are often incorrectly placed."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Lounge/Dining area, appearing less elongated than the floor plan suggests."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the Laundry room, appearing different in size and shape from the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Linen closet near the Entry is not rendered."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window in the hallway segment near the WC."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, particularly noticeable for exterior walls and some interior partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Wall alignment inaccuracies, especially around the Bath/WC complex and kitchen perimeter."
+        },
+        {
+            "code": "E1",
+            "description": "Missing dining room furniture."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bed in Bedroom 2."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen appliances are generally misplaced or reimagined."
+        },
+        {
+            "code": "E4",
+            "description": "Washing machine appears oversized for the Laundry space."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan13.jpg"
+}

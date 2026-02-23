@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement for Dining Room and Living Room is inverted. The Bathroom moved from the interior of the house to the exterior, replacing the stairs. Door placement and orientation are incorrect for several rooms. Window placement differs significantly from the floor plan in the Kitchen and Dining/Living rooms."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Missing the entire staircase structure. Hallucinated a second bathroom in place of the stairs. Hallucinated a wall separating the Dining Room from the Living Room which was open concept in the floor plan. Wall thickness consistency is poor in some areas. Adjacency relationships are incorrect due to room repositioning."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture for the Dining Room is present and scaled appropriately, but furniture for the Kitchen and Bathroom(s) is missing. The Kitchen's appliances are not properly represented."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Isometric camera correctness is good. Orthographic projection accuracy is fair, though the 3D model deviates from the 2D plan. Lighting quality is decent. Geometry is mostly clean with some minor issues. Visual clarity is good."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Dining Room and Living Room are swapped."
+        },
+        {
+            "code": "E2",
+            "description": "Small bathroom is misplaced, moved to where the stairs should be initially."
+        },
+        {
+            "code": "E1",
+            "description": "Staircase is completely missing."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a second bathroom in the location of the stairs indicated in the floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated a dividing wall between the Dining Room and Living Room. The floor plan shows an open concept."
+        },
+        {
+            "code": "E2",
+            "description": "Door to Kitchen is present but its orientation is incorrect (swing direction). The door to the Bathroom is also incorrect in position and orientation. A new door opening has been added to the 'Living Room' that wasn't on the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "Windows at the top of the Dining Room/Living Room are consolidated into two large windows instead of multiple smaller ones."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen window is a single large window instead of two smaller ones shown on the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen sink, oven, and refrigerator details."
+        },
+        {
+            "code": "E1",
+            "description": "Missing toilet and sink in the original bathroom."
+        },
+        {
+            "code": "E4",
+            "description": "Proportions of the 'Living Room' (originally Dining Room) appear distorted, showing a much larger area for the table than visually suggested by the 2D plan for the dining area."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan3.jpg"
+}

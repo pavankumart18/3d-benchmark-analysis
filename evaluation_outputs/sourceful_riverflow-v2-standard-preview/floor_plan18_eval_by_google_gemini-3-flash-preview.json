@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is maintained, but window and door placements show significant deviations from the plan. The balcony access window is converted to a solid wall/low window incorrectly."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms are present and correctly adjacent. However, door swings and specific wall openings in the kitchen/utility area are simplified or altered."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture types are correct but placements are skewed; the dining table is shifted centrally despite the plan showing a more open circulation path, and the bedroom wardrobe placement differs from the floor plan's recess."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent isometric rendering. Lighting is consistent and geometry is very clean with a professional orthographic feel."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The window in the bedroom and living area do not match the specific spans shown on the 2D plan."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom door orientation/hinge side is reversed compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Utility room proportions are slightly narrowed compared to the kitchen width."
+        },
+        {
+            "code": "E2",
+            "description": "Dining table is placed in the center of the walkway rather than being oriented towards the wall as per the 2D layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan18.jpg"
+}

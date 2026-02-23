@@ -1,0 +1,72 @@
+{
+    "spatial_accuracy": {
+        "score": 9,
+        "max": 40,
+        "notes": "Overall layout does not match the 2D plan. The 2D plan\u2019s left-side lounge/dining + top-left balcony + central kitchen/laundry core + central bath/WC + two right-side bedrooms are not reproduced with correct placement. Circulation/entry is relocated, and major spaces (kitchen, balcony) are absent or unrecognizable. Bedroom zoning and corridor geometry differ substantially. Room proportions are also significantly distorted (living area and garage-side volume oversized relative to the plan)."
+    },
+    "structural_fidelity": {
+        "score": 6,
+        "max": 25,
+        "notes": "Adjacency relationships are incorrect (garage appears attached/accessible in the render, while the 2D plan shows a separate garage block with no clear internal connection). Multiple plan rooms/elements are missing (balcony, kitchen/laundry/robe/linen). Several interior partitions are hallucinated (e.g., green divider) and do not correspond to plan walls. Door openings do not match plan locations or swing/orientation."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not map to the plan\u2019s room functions (no identifiable kitchen cabinetry/appliances, dining set missing, bathroom fixtures mostly missing). Bedroom furniture appears only for one bedroom; the second bedroom is not clearly furnished/defined. Scale appears plausible in isolation but is not anchored to correct room sizes from the plan."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Isometric camera is generally correct and the render is clean with acceptable lighting and materials. However, clarity suffers because major plan elements are missing or replaced, and there are some geometry inconsistencies (oversimplified walls/voids) that reduce architectural legibility relative to the source plan."
+    },
+    "total_score": 34,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Balcony at top-left of the plan is missing in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Kitchen (including counters/appliances) and the adjacent Laundry/WM zone from the plan are missing/unmodeled in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Linen cupboard near the entry (plan bottom-left) is missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Main entry location is incorrect: plan entry is bottom-left; render shows primary exterior door on the right-side wall near the garage-side volume."
+        },
+        {
+            "code": "E3",
+            "description": "Interior door placements/orientations do not match the plan (bedroom/bath/WC access points are not in the same positions or swings as shown in 2D)."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom layout is incorrect: the plan has two bedrooms on the right with specific proportions; the render depicts only one clearly defined bedroom and different partitioning."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated interior partition (green divider wall) appears in the render and does not correspond to any wall in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom/WC core placement and geometry do not match the 2D plan (plan shows separate Bath and WC centrally; render shows a simplified small wet area and different corridor configuration)."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement/count does not match the 2D plan (openings appear in different locations and do not reflect balcony-facing/living or bedroom window arrangement)."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportions are distorted relative to labeled plan dimensions (living area and right-side volume appear oversized; the central service core is undersized/simplified)."
+        },
+        {
+            "code": "E5",
+            "description": "Garage relationship is hallucinated/altered: render implies an attached or directly accessible garage-side structure, whereas the plan shows a separate garage block."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan13.jpg"
+}

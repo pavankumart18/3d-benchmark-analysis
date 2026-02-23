@@ -1,0 +1,88 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The overall room placement is mostly correct, but the bathroom and staircase area have significant deviations. The wall dividing the bedroom from the bathroom/hallway is shifted, affecting the bedroom's size. The exterior wall on the right side of the plan is also extended incorrectly in the render. Door placements are largely incorrect, and numerous windows are missing."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "There are significant structural deviations. The entire bathroom structure, including walls and door, is incorrectly rendered. The staircase area is completely missing from the 3D render. Adjacency relationships around the bathroom and staircase are incorrect. The number of external doors differs from the plan."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Some furniture is placed but its orientation and exact positions are not accurate, especially the kitchen island and dining area. The bed and sofa are present but not perfectly aligned."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection appear correct. The lighting is even and geometry is clean with no obvious distortions. Overall visual clarity is good."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bathroom sink, toilet, and shower/tub."
+        },
+        {
+            "code": "E1",
+            "description": "Missing numerous windows from the living room and bedroom walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing outdoor patio areas and planters."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior wall between bedroom and bathroom/hallway - shifted, reducing bedroom size and altering bathroom dimensions."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect placement and design of the bathroom door."
+        },
+        {
+            "code": "E2",
+            "description": "The external door/entrance on the right side of the plan is completely altered/misplaced in the render."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen island/peninsula is incorrectly rendered as a single counter run."
+        },
+        {
+            "code": "E2",
+            "description": "The dining table and chairs are not accurately placed or oriented as per the plan."
+        },
+        {
+            "code": "E3",
+            "description": "The orientation of the bathroom door swinging direction is incorrect."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the bathroom, appearing smaller and differently shaped than on the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion of the large bedroom due to wall shift."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated solid wall where an open entrance to the staircase should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated exterior wall extension on the right side, where the staircase is."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated window in the bedroom where none exists in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan6.jpg"
+}

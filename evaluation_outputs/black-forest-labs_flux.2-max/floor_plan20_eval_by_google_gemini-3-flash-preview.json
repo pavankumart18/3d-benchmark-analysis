@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General floor plan layout is preserved, but window/opening placement on the bottom wall is inconsistent with the plan (added multiple small windows in kitchen/utility area not present in 2D). Door swings are mostly correct but some thresholds are merged."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Excellent room adjacency adherence. All major rooms including the maid's room, utility, and all toilets are accounted for. Wall thickness is consistent."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Highly accurate mapping of specific furniture items (e.g., the distinct rug in the living room, the round table in Bedroom 1, and the L-shaped desk in the home office)."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Professional isometric render with clean lighting and high geometric clarity. Perspective is slightly off in the far corner balcony but visually pleasing."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Redundant small window openings added to the bottom kitchen/utility wall that do not exist in the 2D architectural plan."
+        },
+        {
+            "code": "E3",
+            "description": "The balcony railing style at the top right (Bedroom 2) deviates from the solid wall/glass combination shown in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Minor distortion in the proportions of the entrance lobby corridor, appearing slightly wider than the '4 feet 11 inches' scale suggests."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan20.avif"
+}

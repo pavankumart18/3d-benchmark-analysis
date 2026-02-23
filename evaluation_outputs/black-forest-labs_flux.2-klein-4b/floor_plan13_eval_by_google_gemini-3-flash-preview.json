@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe inversion of the floor plan layout. The garage is attached to the side wall instead of being detached. Room sequence is mirrored or incorrectly mapped relative to the entry."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing the specific separate WC and Laundry zones. Wall topology does not match the 2D compartmentalization. Door placements are largely hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Generic furniture used; kitchen counters and appliances are missing or replaced by abstract shapes. Car is floating/attached to an exterior wall."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good lighting and isometric camera angle, but structural distortions (like the car on the wall) significantly detract from visual clarity."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Laundry room, separate WC room, and Balcony."
+        },
+        {
+            "code": "E2",
+            "description": "Garage merged into the main structure incorrectly; car is placed on a vertical wall."
+        },
+        {
+            "code": "E4",
+            "description": "Entry hallway proportion is stretched and distorted compared to the 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated green partition wall in the kitchen/living area not present in plan."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering artifact: Car geometry is clipping through or mounted to the exterior side wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan13.jpg"
+}

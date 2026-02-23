@@ -1,0 +1,52 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major failures in door placement and window interpretation. The balcony doors are rendered as solid wall gaps without frames. The interior door to the bedroom and bathroom are misplaced or missing. Window positions on the right and bottom facades do not align with the plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The internal bathroom/closet core is structurally fragmented and does not match the floor plan's enclosed geometry. The staircase on the right is rendered as a flat ramp/shelf rather than a functional stair element. Significant missing wall segments."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island is misplaced and missing the sink element. Living room furniture scale is inconsistent with the floor plan footprint. Bed placement is correct but lacks the surrounding desk/cabinet layout."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Visual clarity is decent with a consistent clay-render style, but geometry is 'melted' in areas (stairs and kitchen). Orthographic projection is reasonably maintained."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing bathroom interior walls and fixtures."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island shifted away from the designated wall cavity."
+        },
+        {
+            "code": "E3",
+            "description": "Bedroom door orientation and location do not match the swing indicated on the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Staircase proportions and step counts are completely distorted into a ramp-like structure."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated partial wall segments near the bottom entrance area."
+        },
+        {
+            "code": "E6",
+            "description": "Wall thickness is inconsistent, particularly around the central utility core."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,60 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "notes": "Major layout mismatches between the 2D plan and the 3D render. (E2/E4) The 2D plan has clearly separated zones (Living Room left, Dining bottom-center, Kitchen right-center, Playroom top-right, Foyer/Closets/WC top-left, Stairs top-center). In the 3D render, several of these areas appear merged or not spatially separated as in plan, especially the Dining/Kitchen/Playroom relationships. (E2) The Pantry enclosure near the center is not clearly located/formed as shown in plan. (E3/E2) Door locations and swing/orientation shown in plan (foyer entry, closet/WC doors, pantry door, openings between dining/kitchen) are largely absent or represented as open voids without correct placement. (E2) Window placement does not match the plan\u2019s distributed perimeter windows; the 3D uses large glazed openings concentrated on certain walls. (E4) Room proportions (notably the bottom dining projection and right-side kitchen/playroom extents) appear distorted relative to the 2D footprint."
+    },
+    "structural_fidelity": {
+        "score": 9,
+        "max": 25,
+        "notes": "(E1) Several small program elements from the 2D plan are missing or not credibly modeled: the labeled Foyer/Closet/WC cluster at top-left and the Pantry as a defined room. (E2) Adjacencies are inconsistent: the 2D plan shows a distinct Playroom directly adjacent to the Kitchen with defined walls; the 3D render does not preserve this clear separation. (E3) Doors are not embedded as shown (no clear jambs/leafs; openings are simplified and do not match plan positions). (E4) Wall alignment/offsets and the plan\u2019s specific jogs/projections (notably around Dining and the Living Room perimeter) are only loosely approximated. No obvious extra (hallucinated) room is added, but multiple intended rooms are effectively omitted via merging."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "(E2) Furniture does not map to the 2D plan\u2019s fixtures: the plan indicates kitchen counters/appliances and a defined dining area; the 3D shows generic blocks and cabinetry not placed per the plan. (E4) Furniture scale is inconsistent (oversized/underspecified blocks) and does not reflect the plan\u2019s room functions (e.g., dining arrangement not represented)."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "notes": "Isometric presentation is generally clean with acceptable lighting and legibility. However, (E6) the render is more perspective than true orthographic/isometric accuracy, and glazing/door representations are visually inconsistent with architectural openings. Geometry is mostly clean, but the simplified openings and inconsistent transparency reduce clarity."
+    },
+    "total_score": 41,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Foyer/closet/WC cluster from the top-left of the 2D plan is missing or not clearly modeled as separate rooms."
+        },
+        {
+            "code": "E1",
+            "description": "Pantry room near the center (between dining/kitchen circulation) is missing or not represented as an enclosed space."
+        },
+        {
+            "code": "E2",
+            "description": "Playroom\u2013Kitchen separation and placement do not match the 2D plan; spaces appear merged or re-shaped."
+        },
+        {
+            "code": "E3",
+            "description": "Door placements and orientations (swing directions and specific door locations for WC/closets/pantry and main transitions) are not faithfully represented."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement is incorrect: the 3D render uses large glazed openings that do not match the plan\u2019s perimeter window locations and distribution."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in key areas (notably the dining projection and right-side extents) compared to the 2D footprint and room sizing."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture/fixtures are generic and do not align with the 2D plan\u2019s kitchen/dining fixture layout."
+        },
+        {
+            "code": "E6",
+            "description": "Rendering uses perspective-like camera/projection and simplified opening geometry, reducing orthographic/isometric fidelity and architectural clarity."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan8.jpg"
+}

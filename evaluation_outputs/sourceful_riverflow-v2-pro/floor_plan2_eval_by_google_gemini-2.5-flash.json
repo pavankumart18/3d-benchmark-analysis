@@ -1,0 +1,84 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placement is mostly correct, but the bathroom wall layout differs significantly. Wall alignment accuracy is poor in several areas, especially around the bathroom and the entrance. Door placement is incorrect for the bathroom and the entrance, and their orientations are not consistent with the floor plan. Window placement is generally incorrect, with many windows added where none exist and existing windows being misplaced. Room proportions are significantly distorted, particularly in the living room and kitchen areas, which appear much wider in the 3D render."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout the render. Door embedding is incorrect, often showing unnecessary frames or not being flush with walls. Adjacency relationships are incorrect for the bathroom layout. No missing rooms are observed. However, the external wall of the living room has an unnecessary protrusion, and the left side of the house in the render is much wider than on the plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is generally approximated but not accurate, with many items shifted. Furniture scale is inconsistent, with some items appearing too large or small relative to the rooms, especially kitchen appliances."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Isometric camera correctness is fair, but the perspective seems slightly off. Orthographic projection accuracy is acceptable. Lighting quality is basic and uniform, lacking depth. Geometry is generally clean with some minor distortions. Visual clarity is good, but the composition is impacted by the structural inaccuracies."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced bathroom interior walls, changing the layout significantly."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced doors for the bathroom and main entrance, and incorrect swing direction."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated windows in multiple rooms where none exist on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows throughout the kitchen, living room, and bedrooms."
+        },
+        {
+            "code": "E4",
+            "description": "Proportion distortion in the living room and kitchen, making them wider than depicted."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent wall thickness, particularly noticeable around door frames and corners."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect embedding of doors, showing extra frames not present in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect adjacency relationships due to modified bathroom layout."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated external wall protrusion to the left of the living room."
+        },
+        {
+            "code": "E2",
+            "description": "Inaccurate furniture placement throughout all rooms."
+        },
+        {
+            "code": "E4",
+            "description": "Inconsistent furniture scale, especially kitchen appliances."
+        },
+        {
+            "code": "E1",
+            "description": "Missing sink in the bathroom."
+        },
+        {
+            "code": "E1",
+            "description": "Missing countertop section in kitchen below window."
+        },
+        {
+            "code": "E2",
+            "description": "The double beds in the left bedroom are rotated 90 degrees compared to the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan2.png"
+}

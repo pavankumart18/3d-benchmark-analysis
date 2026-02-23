@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 6,
+        "max": 40,
+        "notes": "Overall footprint and room geometry do not match the 2D plan. The 2D plan is predominantly rectilinear with clear rectangular rooms and a central living/dining zone; the 3D render shows a largely irregular/polygonal outline with multiple curved/angled interior partitions. Major room placement mismatch: the kitchen zone shown in the 2D (bottom-left with counters/island) is not represented in the same location or configuration; the central dining table area in the 2D is not mapped as a dining space in the 3D. Doors and windows are not placed according to the plan, and room proportions/relationships are heavily distorted."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Wall topology does not preserve the 2D plan: many walls are curved/angled where the plan has straight walls, creating incorrect adjacency relationships. Several openings appear as wide portal gaps rather than door leaves consistent with the plan\u2019s hinged doors. Multiple rooms from the 2D layout (kitchen, defined dining area, specific bathroom/closet partitions) are missing or merged, and there appear to be extra/altered partitioned niches not present in the plan."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not correspond to the 2D layout: the 2D shows a clear dining table set in the center and a defined kitchen with counters/island; the 3D shows a central lounge seating arrangement and scattered beds/side tables that do not match the plan\u2019s furniture positions. Scale/spacing is inconsistent with the intended room sizes (e.g., beds and seating appear placed in reshaped rooms that do not exist in the plan)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "notes": "Render is visually clean with coherent materials, soft lighting, and a generally correct isometric-style presentation. However, geometry contains non-planar/curved wall choices (architecturally inconsistent with the source), and the camera/projection reads more like a perspective isometric rather than a strict orthographic isometric. Composition is clear but fidelity-driven distortions reduce technical quality."
+    },
+    "total_score": 30,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Global footprint distortion: 3D outline is irregular/polygonal, while the 2D plan footprint is largely rectilinear with orthogonal corners and defined extensions."
+        },
+        {
+            "code": "E2",
+            "description": "Room placement mismatch: the central living/dining area in the 2D plan (with dining table centered) is not represented as the same functional/positional space in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen layout: the 2D bottom-left kitchen with continuous counters and island is not reconstructed in the same location/configuration in the 3D render."
+        },
+        {
+            "code": "E1",
+            "description": "Missing/unclear dining area: the 2D plan\u2019s dining table zone in the main central space is not present (replaced by lounge seating)."
+        },
+        {
+            "code": "E4",
+            "description": "Interior wall alignment distortion: multiple 3D interior partitions are curved/angled where the 2D plan shows straight walls, changing room boundaries and sizes."
+        },
+        {
+            "code": "E3",
+            "description": "Door orientation/representation errors: several openings in 3D appear as wide doorless portals or differently oriented openings compared to hinged door swings shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement mismatch: perimeter windows visible in the 3D do not align in count/position with the 2D plan\u2019s window locations along the exterior walls."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect adjacency relationships: bedrooms/bathrooms/circulation in 3D do not maintain the same neighboring-room connections as the 2D plan (hall/corridor structure is altered)."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated architectural elements: added angled/curved wall segments and niche-like partitions not present in the rectilinear 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Room proportion distortion: bedroom and living areas in 3D appear resized/reshaped relative to the 2D plan dimensions, altering usable floor area and layout balance."
+        }
+    ],
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan5.jpg"
+}

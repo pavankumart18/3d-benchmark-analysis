@@ -1,0 +1,92 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Room placements are mostly correct, but the overall shape of the structure deviates significantly. Wall alignment accuracy is poor in several areas, particularly the home office/maid's room and the kitchen/utility area. Door placements and orientations frequently deviate (E2, E3). Window placements are largely missing or incorrect (E1, E2). Room proportions are distorted, especially the kitchen and the area around the home office/maid's room (E4)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Wall thickness is inconsistent throughout the render (E4). Door embedding is incorrect in many instances, with doors floating or misaligned with walls (E2). Adjacency relationships are mostly maintained, but the altered structural shape affects this. No missing rooms, but the 'Deck' area is significantly altered. No hallucinated rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture placement is generally aligned with the floor plan, but there are instances of misplaced items (e.g., Bedroom-1, Bedroom-2). Furniture scales appear mostly consistent, but some items look slightly off (E4)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The isometric camera angle and orthographic projection are well-executed. Lighting quality is good, providing clear visibility of the interior. Geometry appears clean with minimal distortions, except for the overall structural inaccuracies. Visual clarity and composition are good."
+    },
+    "total_score": 50,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The entire left structure with Bedroom-3 and Home Office/Maid's Room is shifted inwards and misaligned with the rest of the building plan."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Deck' area is rendered as an enclosed space, rather than an open deck, and its dimensions are significantly reduced."
+        },
+        {
+            "code": "E2",
+            "description": "Entry point/Lobby area is substantially altered in shape and depth."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom-3 door is misplaced and oriented incorrectly. Its position in the wall is shifted towards the corner."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet-3 door is misplaced and oriented incorrectly, opening the wrong way relative to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Toilet-4 door is misplaced and appears to open into the Home Office/Maid's Room instead of towards the corridor."
+        },
+        {
+            "code": "E2",
+            "description": "Door leading from the Home Office/Maid's Room to the outside corridor is misplaced and oriented incorrectly."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen entrance door is missing. The opening is present, but the door leaf is absent (E1)."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room door is misplaced; it is flush with the wall in the render, but recessed in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom-2 toilet door (Toilet-2) is oriented incorrectly, opening inward instead of outward."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom-2 entrance door is slightly misplaced relative to the wall segment."
+        },
+        {
+            "code": "E1",
+            "description": "Windows are largely missing throughout the rendered model. For example, windows in Bedroom-3, Bedroom-2, Bedroom-1, and the Living/Dining area are absent."
+        },
+        {
+            "code": "E1",
+            "description": "Balconies for Bedroom-2 and Bedroom-1 appear to be missing walls or railings on the outside, or are rendered as simple extensions of the floor without defined boundaries as per the plan."
+        },
+        {
+            "code": "E4",
+            "description": "The 'HOME OFFICE / MAID'S ROOM' and its adjacent spaces show significant proportion distortion and structural alteration, making the room narrow and elongated compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen layout and proportions are distorted, making it appear wider and shorter than indicated in the plan. The counter and sink placement also deviates."
+        },
+        {
+            "code": "E4",
+            "description": "Wall thickness is inconsistent, with some walls appearing thicker or thinner than others without architectural justification."
+        }
+    ],
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan20.avif"
+}
