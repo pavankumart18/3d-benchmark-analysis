@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room placement align well. However, the entrance door has been misinterpreted as a solid wall/door unit and shifted. The window placement in the kitchen is altered (moved to center of rear wall instead of offset on side wall). Proportion of the staircase area relative to the living room is slightly elongated."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to cutaway view and the exclusion of UI/text labels. The background is correctly dark and neutral. Minor hallucination in the toilet area where a separation wall/door was added between the wash area and the toilet fixtures."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "High fidelity in block-style furniture placement. The dining set, kitchen counters, bedroom 1 furnishings, and living room seating are almost exact mappings of the 2D plan in 3D space."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. The model uses flat-shaded, low-poly geometry without textures. Lighting is soft and ambient with no dramatic shadows, and the camera is correctly set to an isometric orthographic view."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen window moved from the top-left corner orientation to a centered orientation on the rear wall."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated an internal partition door within the bathroom area separating the sink from the toilet."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door orientation and placement is slightly distorted compared to the open landing shown in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan7.jpg"
+}

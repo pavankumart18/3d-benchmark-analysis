@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 3,
+            "dimensional_scaling": 5
+        },
+        "notes": "Room count matches. Adjacencies mostly preserved, except Activity room's south wall location. Overall footprint shape varies slightly. Wall positions are generally good, but the south wall of the Activity room and north wall of Bed 4 show discrepancies. All doors are present, but the door to Bed 3 is swapped with a window. The door to Bed 2 also appears to be missing. Window count matches, but their placement and sizing are not always accurate (e.g., Bed 3 window moved, Balcony windows). Consistent scale seems to be applied."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is completely removed, interior walls fully visible. All major structural elements appear present. No extra rooms or architectural features were added. However, text labels '30c CL', '3310 x 4700', 'RECESS', 'BED 4', 'A/C', 'WC', 'BATH', 'ROBE', 'LINEN', 'BED 2', 'BALCONY', 'BALUSTRADE', 'WALL TO 21c AFL', '13c HIGH CAPPED WALL', 'DN' are present in the render, severely impacting UI Cleanliness. The background is not a dark neutral, and there is a visible ground plane."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms (beds in bedrooms, sofa in activity). Bathroom and kitchen fixtures are present and correctly placed. However, the sofa in Activity room is rotated/repositioned. Robes are present but simplified and sometimes slightly repositioned. Beds are present but some are reversed or slightly rotated from the plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is low-poly and simplified, with flat shaded surfaces and clean edges. There are no obvious textures, only solid colors. Lighting is soft ambient with some minimal shadows which is acceptable. Colors are distinguishable. However, the overall composition is not a true 45\u00b0 rotated plan view, and the perspective seems slightly off-isometric (perspective distortion detected). It lacks the strict orthographic look of a true isometric view."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the rendered model. Includes '30c CL', '3310 x 4700', 'RECESS', 'BED 4', 'A/C', 'WC', 'BATH', 'ROBE', 'LINEN', 'BED 2', 'BALCONY', 'BALUSTRADE', 'WALL TO 21c AFL', '13c HIGH CAPPED WALL', 'DN'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric view; subtle perspective distortion is noticeable.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "South wall of Activity room is significantly misaligned/shifted south relative to the plan, causing the Balcony to be disproportionately narrow. North wall of Bed 4 is also bowed / misplaced.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door to Bed 3 is replaced by a window. Door to Bed 2 appears missing. Overall misplacement or alteration of 2 doors.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Balcony windows are different in count/size and a window in Bed 3 is moved from its original position.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Background is not a dark neutral and includes a visible ground plane/shadows extending to infinity.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 70,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely adheres to the 2D floor plan's structural and spatial layout, though it suffers from significant UI clutter with text labels and minor geometric inaccuracies in wall and door placements. The render would benefit from strict adherence to isometric projection and cleaner presentation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan12.png"
+}

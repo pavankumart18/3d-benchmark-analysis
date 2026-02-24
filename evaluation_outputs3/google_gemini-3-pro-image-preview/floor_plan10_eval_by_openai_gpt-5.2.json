@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is an angled cutaway/isometric render with extruded walls (height + thickness), visible floor plane, and exposed interior spaces due to roof/ceiling removal."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; good isometric view; cutaway is clean. Minor simplification at some wall junctions and openings."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room set and adjacency largely match (bedroom cluster + baths near top/left, open living/kitchen center-right, alfresco right, garage front/right). Some proportional/layout deviations and simplified partitions/openings; exterior/entry/verandah/portico areas appear simplified."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (multiple beds, living seating, dining tables, kitchen island). Bathrooms present but fixtures are simplified; some room-specific elements (e.g., theatre/study detailing) appear generalized."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render, good separation of walls/floors, interiors visible, minimal artifacts. Materials are consistent; background is uncluttered and no text labels."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Some room proportions and partition placements are simplified compared to the 2D plan (notably around entry/front rooms and some internal corridors)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Door/window opening sizes/placements are not fully verifiable and appear generalized (several openings rendered as simplified gaps/sliders)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "low",
+            "description": "Furniture is plausible but not consistently mapped to named rooms (e.g., theatre/study and wet-area fixture specificity is reduced)."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout correspondence, though several partitions/openings and some room proportions are simplified versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan10.png"
+}

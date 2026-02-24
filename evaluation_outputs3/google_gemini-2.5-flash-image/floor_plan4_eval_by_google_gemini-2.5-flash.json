@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is evident, the view is angled, and the roof is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness, floors are distinct, interior volume is clear, and corner geometry is mostly good. The viewing angle is appropriate, interior visible, but some minor perspective distortion is present. The roof is removed cleanly, and interior spaces are fully visible, with clean geometry."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The correct number of rooms and adjacency relationships are maintained. Relative room proportions are largely preserved. Major wall positions align well with the 2D plan, and wall lengths are proportional. Internal partitions are mostly correct, though the 'Hall' wall between Laundry and Bathroom is missing. Doors are present and on correct walls. Windows are also mostly present and on correct walls, though some are generalized rectangles and not specific window types, and the Laundry room window is missing. Openings are proportionally sized and oriented."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) is present and recognizable. Kitchen and bathroom fixtures are also present. Furniture is placed in correct rooms and its scale is reasonable relative to the room. Orientation is logical relative to the layout."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. The geometry is readable and not visually confusing. The interior is clearly visible with good lighting. Material usage is consistent, and there are no major rendering artifacts. The background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Laundry room window is missing."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Missing a section of the wall between the 'Hall' and the 'Laundry'/'Bathroom' area."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D floor plan into an isometric view, demonstrating good geometric accuracy and retaining interior elements, with only minor discrepancies in wall geometry and window representation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan4.jpg"
+}

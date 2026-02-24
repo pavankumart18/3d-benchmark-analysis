@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion is a successful isometric 3D model with clear vertical extents."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent 3D projection and clean cutaway logic; minimal distortion."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Major layout discrepancies: the 3D model flips/mirrors aspects of the plan. The distinctive angled 'Window Seat' from the 2D plan is missing entirely in the 3D render."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Furniture is present but does not strictly follow the specific kitchen/dining layout of the technical drawing."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "High rendering quality with clean geometry, though some internal wall openings are vague."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "High",
+            "description": "The distinctive bay window/window seat on the right of the plan is replaced with a flat wall in 3D."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "Internal wall partitions for the WC and Utility room are simplified and resized, losing the original technical proportions."
+        }
+    ],
+    "total_score": 74,
+    "verdict": "PASS",
+    "summary": "A clean 3D transformation that fails on high-fidelity geometric accuracy, missing key architectural features like the angled bay window.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan11.png"
+}

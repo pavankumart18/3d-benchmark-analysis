@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 2,
+            "windows": 1,
+            "dimensional_scaling": 1
+        },
+        "notes": "Layout topology is largely correct, but significant deviations in room sizes and shapes. Wall positions are off by more than 5% in multiple areas, particularly the kitchen, adjacent rooms, and the 'DRESS' area. Many doors are missing or misplaced. Windows are also frequently missing or incorrectly placed. Overall scaling appears inconsistent with noticeable aspect ratio distortions, particularly in room depths/widths. E1-CRIT: The 'Foyer', 'Balcony (6'0\" WIDE)', 'Dressing Room', 'Toilet (8'0\"X6'0\" for Bed Rm 2)', 'Toilet (7'0\"X5'0\" for Bed Rm 4)', and 'Service Room' are either entirely missing or severely misrepresented and unusable. The 'UTILITY 5'0 WIDE' is also incorrect/missing. Rooms like 'BED ROOM 2', 'BED ROOM 3', and 'BED ROOM 4' are merged or have missing walls."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 0,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Ceiling fragments are visible, indicating an incomplete cutaway. Multiple rooms/areas are missing (Foyer, Balcony (6'0\" WIDE), Dressing, several Toilets, Service Room, Utility). The render displays text directly on the model (e.g., 'BALCONY 5'0\" WIDE', 'DRESS 10'0\"X5'0\"'). This is a critical violation for UI/Annotation Cleanliness. The background is dark gray, and the model is elevated, but shadows are not well controlled. 'UTILITY' is written incorrectly in generated render."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Many major furniture pieces are missing, especially in bedrooms and bathrooms. Kitchen fixtures are largely absent. Furniture that is present is often incorrectly scaled or placed, not matching the 2D plan. Entire rooms are missing, so their furniture cannot be present."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly forms and flat shaded surfaces are present, but there are some hints of textures (e.g., floor patterns, balcony glass). Lighting is soft and ambient. The view approximates an isometric projection but shows some minor signs of perspective distortion when looking at distant corners, and the rotation is not perfectly 45 degrees. The model is centered and zoomed appropriately."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms/areas are missing or severely misrepresented: Foyer, Balcony (6'0\" WIDE), Dressing Room, Toilet (Bed Rm 2), Toilet (Bed Rm 4), Utility, Service Room. Rooms 'BED ROOM 2', 'BED ROOM 3', and 'BED ROOM 4' are merged or have missing walls, making them effectively different rooms.",
+            "point_deduction": 20
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Multiple rooms/areas are missing from the 3D model, including Foyer, multiple balconies, toilets, utility, and service room. Walls are missing between bedrooms.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels are directly present on the 3D model ('BALCONY 5'0\" WIDE', 'DRESS 10'0\"X5'0\"', 'UTILITY').",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant wall misalignments and shape deformations in multiple areas, including kitchen, main bedroom, and adjacent living/dining areas. The overall footprint shape is distorted.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Doors and windows are frequently missing or misplaced/mis-sized.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Many major furniture pieces and kitchen/bathroom fixtures are missing or incorrectly placed/scaled.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces show subtle textures or patterns instead of solid flat colors (e.g., floor patterns, balcony railings/glass).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Small perspective distortions observed, not true isometric.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 22,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to numerous critical and major inaccuracies in spatial arrangement, missing structural elements, and the presence of text labels on the model.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan17.jpg"
+}

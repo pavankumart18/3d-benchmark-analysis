@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 6,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Bathroom wall geometry is significantly altered in the 3D render. The external wall of the utility room is missing. The Kitchen's north-west corner is truncated. Balcony dimensions are altered. Doors are generally present but swing directions for some are not clearly indicated or are incorrect. Window for Bedroom-1 is missing. No window for Utility or Toilet-1 in 2D, but 3D shows a small opening in Toilet-1. Overall footprint is largely maintained, but several internal wall positions are inaccurate, particularly around the bathroom and utility."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 1,
+            "hallucination_control": 2,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The roof is mostly removed, but fragments appear to be present above the Kitchen, Utility and Bathroom, infringing on full interior wall visibility. The external wall of the utility room is completely missing. Text labels are present on the original 2D plan, but are rendered in the 3D output as part of the model's surfaces, which counts as UI/annotation. The 3D render is embedded with labels, which is a critical violation of UI cleanliness. A small opening, likely a fan outlet or window, is hallucinated in the bathroom. The background is dark and neutral. Model is floating, but there are some shadows that extend slightly from the base."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present, though some are highly simplified. The dining table and chairs are present but the chairs are oriented differently. The living room furniture is present but the coffee table is simplified and has an added graphic. Kitchen and bathroom fixtures are present but some details are different (e.g., bathroom sink shape, toilet position in bathroom). One of the bedroom nightstands / side desks from 2D is missing in 3D. A shelving unit is added in the living room area next to the bedroom door, which is not present in 2D."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses simplified forms, but some surfaces are not flat shaded and exhibit some degree of subdivision/smoothness. There are textures/patterns on the bed and some furniture rather than solid flat colors. Lighting is soft, but there are distinct highlights and shadows indicating directional light sources rather than just ambient. Colors are distinguishable. The camera view is isometric, but the rotation seems slightly off from a pure 45-degree angle. Framing is generally centered and zoomed appropriately. The presence of textures on furniture and some subtle material sheen on objects like kitchen counters and bathroom fixtures deviates from the 'no textures (solid flat colors only)' rule. Overall, the rendering pushes beyond a purely 'flat shaded' style."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/annotation from the 2D plan are rendered into the 3D model, specifically 'LIVING & DINING', 'KITCHEN', 'UTILITY', 'TOILET-1', 'BEDROOM-1', 'BALCONY'. This leads to an automatic 0/5 for UI/Annotation Cleanliness and contributes greatly to the low overall score.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Utility room's outer wall is completely missing. Bathroom's internal wall separating it from the Bedroom has been significantly altered in position and length. Kitchen's north-west wall is inaccurately represented.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom-1's window is missing from the 3D model. Balcony dimensions are significantly altered.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MAJ",
+            "severity": "MAJOR",
+            "category": "aesthetic_quality",
+            "description": "Presence of patterns/textures on beds, carpets, and subtle material variations on kitchen/bathroom fixtures, instead of solid flat colors. This deviates from the low-poly, flat-shaded, no-texture specification.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "One nightstand/desk in Bedroom-1 is missing. A shelving unit is added in the living room.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some door swing directions are not clearly matching the 2D plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 47,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render fails due to several critical errors, primarily the presence of 2D text annotations rendered within the 3D model, significant geometric inaccuracies particularly in the utility and bathroom areas, and the use of textures and patterns that violate the strict aesthetic guidelines.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan16.avif"
+}

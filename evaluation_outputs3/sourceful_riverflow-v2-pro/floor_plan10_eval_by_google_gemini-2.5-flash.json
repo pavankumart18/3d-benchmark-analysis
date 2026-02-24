@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows vertical walls, visible wall thickness, and an interior volume. The viewing angle is isometric, and the roof/ceiling is removed to reveal the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5), floors are distinct from walls (3), interior volume is clear (4), 3D wall corner geometry is good (3). Viewing angle is angled (5) and interior is visible from an elevated perspective (3), with minimal distortion (2). Roof/ceiling is cleanly removed (5) and interior spaces are visible (3), but there are some minor broken sections around the verandah/portico area (0/2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The number of rooms is correct (3), adjacency relationships are mostly correct, though some openings are missing/changed (3/4). Relative room proportions are preserved (3) and major room identities match (2). Major wall positions align well (5), wall lengths are proportional (3), and internal partitions are generally correct (2). Doors are mostly present and on correct walls, but some are missing or altered (3/4). Windows are generally missing (0/2), and openings are not consistently sized or oriented due to missing elements (1/2)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present, including beds, sofas, and tables (4). Kitchen elements are present (2) and bathroom fixtures are present (2). Furniture is placed in correct rooms (3), furniture scale is reasonable (1/2 \u2013 some elements like the car seem slightly small), and orientation is logical (1/2 \u2013 some couches/chairs oriented oddly)."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3) and lighting does not obscure geometry (3). Material usage is consistent (2), but there are some minor artifacts/broken meshes around the exterior porch areas (1/2). Background is clean (1/2 \u2013 slightly dark, but not cluttered)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Missing windows throughout the entire plan, affecting external wall appearance and some internal visibility. Some door positions are altered or appear missing (e.g., WC in Bath, closet doors)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "Minor",
+            "description": "Minor broken geometry or unrefined edges in the exterior verandah and portico areas. Lighting makes the car look a bit small."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transformed the 2D floor plan into a detailed isometric model, accurately depicting room layouts, but has some minor issues with missing windows and slightly imprecise exterior geometry.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan10.png"
+}

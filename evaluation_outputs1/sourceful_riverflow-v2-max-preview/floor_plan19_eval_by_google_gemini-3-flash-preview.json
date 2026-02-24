@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout deviation. The complex staggered footprint of the original plan (specifically the protruding Bed-2 and the angular deck) has been simplified into a strictly rectangular bounded box. Door swings are mostly missing or poorly defined."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model lacks the primary exterior balcony/deck structure. While the roof is removed and there is a dark background, the structural reinterpretation into a square perimeter is a major failure. No UI/text present."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Blocky furniture is used, but the quantity of beds does not accurately match the 4-bedroom plan. The dining table and kitchen counter placements are vague and lack proper scaling."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to aesthetic constraints. Low-poly, flat shading, and isometric orthographic view are perfectly executed. No textures or photorealistic lighting are present."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Footprint distorted from an L-shaped/staggered layout into a perfect rectangle."
+        },
+        {
+            "code": "E1",
+            "description": "Large exterior Deck/Balcony area from the top of the plan is entirely missing."
+        },
+        {
+            "code": "E4",
+            "description": "Structural reinterpretation of the exterior wall layout to eliminate architectural protrusions (e.g., Bed-2 area)."
+        },
+        {
+            "code": "E1",
+            "description": "Internal door openings are mostly decorative indentations rather than functional architectural gaps."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan19.webp"
+}

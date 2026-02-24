@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": true,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "Second image is rendered from a near/pure top-down view with no clearly visible vertical wall faces; thickness is visible but height/volume and multi-surface wall geometry are not perceptible, triggering automatic rejection (pure top-down orthographic-like view)."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Rejected at Stage 1 (no acceptable angled/isometric 3D presentation and no clearly visible wall height/side faces)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "FATAL",
+            "description": "No qualifying 3D conversion view: camera is essentially top-down/orthographic-like with insufficient visible wall height and side faces, so interior volume is not convincingly 3D."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The second image is a top-down 2.5D-style render without an angled/isometric perspective and without clearly visible wall height/side faces, so it fails mandatory true-3D verification.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan5.jpg"
+}

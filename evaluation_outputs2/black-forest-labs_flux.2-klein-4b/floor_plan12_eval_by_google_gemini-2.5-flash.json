@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 2,
+            "wall_geometry": 3,
+            "doors": 3,
+            "windows": 1,
+            "dimensional_scaling": 1
+        },
+        "notes": "Room count matches, but room adjacencies are significantly altered. The geometry of the walls is broadly similar but lacks precision. Doors are inaccurately placed, and windows are not representative."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is correctly removed, and interior walls are visible. However, multiple structural elements are missing (stairs, balcony, linen closet). The model contains significant areas of hallucination (new wall shapes, changed room layouts, no balcony). The clean UI is good. The background is not ideal, and there's a ground plane."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "No furniture from the 2D plan is present in the 3D render. The generated 3D render has its own set of furniture which does not map to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses simplified forms and flat-shaded surfaces, but some textures are present. The lighting is generally soft ambient. The view is isometric, but the framing and zoom could be better to show the full extent of the model correctly without cutting off parts."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms missing or fundamentally altered. The bathroom layout is completely different. WC is not a separate room. The 'Activity' room is heavily modified. Balcony is missing entirely.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls are misplaced or incorrect. The entire layout of the bathroom, WC, and 'Activity' area is geometrically incorrect, creating new, non-existent spaces and removing others.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Significant hallucination: New wall structures, curved walls, and a new room configuration that does not exist in the 2D plan. The balcony is entirely absent.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "All furniture and fixtures from the 2D plan are missing. The 3D render contains completely different, hallucinated furniture/fixtures.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Some textures present on doors, windows, and certain furniture elements (e.g., curtains, rug patterns, wooden door grain). This is a violation of 'solid flat colors only'.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The stairs and linen closet are missing. A/C units and robes are also missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door placements are incorrect or significantly altered. E.g., absence of door to WC, different door position for Bed 2 entrance, door for 'Activity' room is different.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window placements are incorrect (e.g., window in Bathroom is not represented, window in Bed 4/Activity Room is different in size/placement).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Ground plane and visible horizon line break the 'model appears floating/isolated' rule.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 30,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render demonstrates significant deviations from the 2D floor plan, with critical errors in spatial accuracy, structural fidelity (missing and hallucinated elements), and furniture mapping. Aesthetic quality also suffers due to unintended textures.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan12.png"
+}

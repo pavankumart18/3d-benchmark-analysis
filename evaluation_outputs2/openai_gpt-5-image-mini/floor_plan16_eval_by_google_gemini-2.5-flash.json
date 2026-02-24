@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Living & Dining, Kitchen, Bedroom, Toilet are present. Utility room and Balcony are missing. Room adjacencies mostly preserved, but overall footprint is simplified. Wall positions are generally good, but the external wall of the balcony and utility area are missing. Door swings are not clearly depicted in the 3D render. Window presence is good, placement is acceptable, but the size/proportion of the kitchen window is off. Scaling is mostly consistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Roof is removed, interior walls are visible. However, the Utility room and Balcony are entirely missing, along with their external walls, leading to significant incompleteness and hallucination of a simpler exterior. UI is clean with no text or lines. Presentation context is good, dark background, floating model."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture in Living & Dining and Bedroom are present (dining table & chairs, sofa, bed). Kitchen fixtures (counters, stove, sink) are present. Bathroom fixtures (toilet, sink) are present. Placement in Living & Dining and Bedroom is reasonable. Utility room appliances (washer/dryer) are missing due to missing room. Bathroom shower/tub is missing. Balcony plants are missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly, simplified forms with flat shaded surfaces are present. Some minimal textures are present on the floor and bedroom walls. Solid flat colors are largely used. Soft ambient lighting with minimal shadows. Colors are distinguishable. True isometric projection, 45\u00b0 plan view, centered framing, good zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Utility room entirely missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Balcony entirely missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "hallucination_control",
+            "description": "The exterior footprint of the house is simplified, effectively removing the utility and balcony areas and altering the overall shape of the structure.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels from the 2D plan are present in the second image.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floor has a basic tile pattern texture, and bedroom walls have a subtle color gradient/texture, deviating from solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen window size proportionality is inaccurate compared to 2D plan.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 62,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to missing critical structural elements (Utility, Balcony), slight texture usage, and some furniture/appliance omissions, preventing it from meeting the geometric fidelity requirements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan16.avif"
+}

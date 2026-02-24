@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacencies are correct. However, doors and windows are missing their functional openings, represented only by wall gaps or solid blocks. Scaling of the lobby and entrance area is slightly elongated compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Roof is removed and all rooms are accounted for. The model correctly sits on a dark neutral background without text/labels. Note that Bedroom-2's balcony has been simplified into a regular room space without a distinction in floor level or railing."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the plan, including the specific sofa arrangement and desk positions. Scale is consistent, though some details like the 'Home Office' desk are simplified."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints. Low-poly geometry, flat shading, soft ambient lighting, and a perfect isometric orthographic camera angle."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific door swing geometry and sliding door frames for the deck and balconies."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony attached to Bedroom-2 lacks clear architectural definition as an outdoor space compared to the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Minor structural reinterpretations where complex wall intersections are simplified into single blocks."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan20.avif"
+}

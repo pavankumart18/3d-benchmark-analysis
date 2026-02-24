@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric-style render: walls extruded with thickness, multiple faces visible, and interior volumes readable from an elevated angle with the ceiling/roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; clean cutaway. Minor simplification in some edge/corner detailing and small-space geometry."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency match the 2D plan (living/dining central, kitchen bottom/center, bedrooms around perimeter, decks at top/top-right). Minor proportion/partition deviations in service/toilet corridor areas and some opening placements/sizes appear simplified."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present and placed plausibly (beds in bedrooms, sofa/living set, dining table, kitchen counters, bathrooms with fixtures). Some secondary elements are simplified or omitted."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Geometry is readable with consistent materials and good visibility; minor softness/blur and simplified window/door detailing reduce structural clarity slightly. Background is clean and no UI/text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows/openings are present but some placements and proportions appear simplified compared to the 2D plan (not all swings/frames match exactly)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Small-room/service-core partitioning (toilet/utility/corridor zones) shows minor proportional/layout drift from the 2D plan, though overall adjacency remains consistent."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A genuine 3D cutaway conversion with strong overall layout fidelity and furnishing, with only minor-to-moderate inaccuracies in smaller partitions and opening details.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan19.webp"
+}

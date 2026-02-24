@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: extruded walls with thickness, visible top/side faces, angled perspective, and ceiling/roof removed to reveal interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable room volumes; angled view is correct. Cutaway is mostly clean, with minor softness/ambiguity at some wall edges."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room count and adjacency largely match the 2D plan (central living/dining, kitchen/utility zone, 4 bedrooms, toilets, and deck). Some small-partition geometry and opening placements (doors/windows) appear simplified/less exact."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present (beds, living seating, dining table) and kitchen counters are represented. Bathroom fixtures/door details are simplified and not always clearly verifiable."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Geometry is generally readable with decent lighting and contrast. Minor UI/text labels appear in the render, and some elements (windows/doors) are not crisply defined."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are partially simplified; exact swing/orientation and some opening positions are not fully verifiable against the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Minor proportional/partition deviations in small service areas (toilets/utility/foyer cluster) compared to the 2D layout; main zoning remains consistent."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text labels are present in the 3D image, reducing presentation cleanliness."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Slightly soft/low-detail rendering makes some structural edges and openings less distinct."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D conversion with strong overall layout fidelity, but with simplified/somewhat ambiguous doors/windows and minor partition/proportion mismatches in smaller service zones.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan19.webp"
+}

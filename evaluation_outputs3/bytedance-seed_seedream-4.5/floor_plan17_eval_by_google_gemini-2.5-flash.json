@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Minimal perspective distortion is evident in some areas, but overall good."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Very high fidelity in room configuration and wall geometry. Doors are present but windows are often represented as openings rather than distinct windows."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "All major furniture and fixtures are present, correctly placed, and scaled reasonably."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Geometry is clear and easily distinguishable. Lighting is good. The background is clean but some text labels are present, slightly reducing presentation points."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Windows are mostly represented as simple openings rather than distinct windows with sills, frames, etc., in the 3D render, reducing detail compared to potential."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Text labels from the 2D plan are present in the 3D render, affecting aesthetic coherence and presentation."
+        }
+    ],
+    "total_score": 95,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D conversion is geometrically faithful with excellent fidelity to the 2D floor plan, showcasing clear 3D transformation and interior layout, despite minor visual issues with window rendering and text labels.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan17.jpg"
+}

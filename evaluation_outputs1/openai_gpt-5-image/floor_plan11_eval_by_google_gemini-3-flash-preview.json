@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant layout distortion. The breakfast nook area has been completely reconfigured into a larger open space, missing the specific bay window geometry. Central rooms (Utility/WC) are merged or incorrectly partitioned. Window counts and door swings do not match the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Failed the negative constraint: model contains garbled text labels ('KITIHCH', 'TACAL'). While the roof is removed and the background is neutral, there are significant hallucinations of structural wall openings that don't exist in the plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is placed in approximate zones but scales are inconsistent. A large kitchen island was hallucinated where the pantry and utility wall should be. The dining set is oversized for the central area compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Adheres well to the low-poly, flat-shaded style. The isometric camera angle is correct and the lighting is soft/ambient as requested. No photorealism or complex textures detected."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Presence of hallucinated text labels ('DINING', 'KITIHCH', 'CENTRAL MALL') within the 3D space."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated kitchen island and layout reorganization in the Breakfast/Kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced walls and doors; the Utility and WC rooms at the top are structurally incoherent compared to the technical drawing."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific bay window geometry on the right side of the plan; replaced with standard flat windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan11.png"
+}

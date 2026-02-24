@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion successfully transforms the 2D architectural drawing into an isometric 3D cutaway model."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D depth and wall geometry. The top surfaces of the walls are clearly visible, and the isometric angle is well-implemented."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Major layout geometry is accurate, including the bay window/window seat area. However, some internal partitions near the utility/stair core are simplified or slightly shifted."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Kitchen cabinetry and major structural furniture are present and placed correctly. Some minor bathroom fixtures are less distinct."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High clarity with soft, effective lighting. Background is clean and free of UI elements or text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MODERATE",
+            "description": "Simplified partition geometry in the central utility/staircase area compared to the complex 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Small window openings on the left side of the plan are missing or merged."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A highly successful architectural conversion that faithfully translates complex floor plan details into a clean, geometrically accurate 3D isometric model.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan11.png"
+}

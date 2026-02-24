@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent room adjacency and wall alignment. High score for preserving complex layout features. However, the kitchen wall opening for the utility area is wider than indicated on the 2D plan, and the exterior deck proportions are slightly compressed relative to internal room sizes."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to structural constraints. No missing rooms, no hallucinations, and strictly no text/measurements. Floating effect on neutral background is correctly executed."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate, matching rugs, bed layouts, and seating arrangements. Scale is consistent, though the kitchen stovetop orientation is rotated compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent isometric orthographic perspective. Lighting is soft and appropriate. Point deduction for slight texture-like noise/grain in the shading instead of perfectly flat vector-style fills, though it maintains the low-poly aesthetic well."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the utility access area and deck width."
+        },
+        {
+            "code": "E6",
+            "description": "Subtle gradients and shadows used which lean slightly away from 'strictly flat' shading, though not photorealistic."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan14.webp"
+}

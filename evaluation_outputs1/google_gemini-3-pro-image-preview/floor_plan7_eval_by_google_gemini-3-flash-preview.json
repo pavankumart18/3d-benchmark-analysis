@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General floor plan layout is preserved and room adjacencies are correct. However, door placement is inconsistent (missing the swinging door to the Wash Area), and window scaling is slightly oversized in the Bedroom compared to the plan's proportions."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to cutaway view and background requirements. No UI elements or text. Lost minor points for structural reinterpretation of the stairs; the model adds a landing/opening not clearly defined in the original sketch."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is well-placed and scaled generally well. Minor points deducted for E4: the kitchen contains a hallucinated central table/island not shown in the original 2D floor plan, and the living room lacks the specific armchair count/orientation of the drawing."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect execution of the low-poly style. Flat shading is consistent, lighting is soft and ambient, and the isometric orthographic camera angle is exactly as requested."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing physical door between the central hallway and the wash/toilet area."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated kitchen island/table that is not present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase geometry reinterpreted with a different landing style than the suggested path in the 2D sketch."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan7.jpg"
+}

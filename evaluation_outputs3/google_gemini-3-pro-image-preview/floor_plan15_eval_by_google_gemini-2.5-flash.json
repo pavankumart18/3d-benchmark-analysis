@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior spaces are perceivable. The view is angled, and the roof is removed to show the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness, floors are distinct planes, and interior volume is well perceivable. 3D wall corner geometry is generally good, though some railings are less defined. The angled view is clear, and interior is visible. The roof is cleanly removed, exposing the interior fully. No significant broken geometry observed."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency relationships are mostly correct. Relative room proportions are largely preserved. Major wall positions align well. Doors are present and correctly placed. Windows are also visible and in their correct locations, though some are represented as solid blocks rather than glazed openings."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, dining table) is present, along with kitchen and bathroom fixtures. Furniture is placed in correct rooms and their scale is reasonable. Orientations are logical. Minimal furniture is missing."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Structural elements like walls, floors, and openings are clearly distinguishable. The geometry is readable. Lighting clearly illuminates the interior without obscuring details. Material usage is consistent. No major rendering artifacts or broken meshes are present. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some windows are rendered as solid blocks rather than openings with glazing, slightly affecting the accuracy of opening representation on the walls."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "The 3D render is a good and largely faithful transformation of the 2D floor plan, demonstrating strong foundational 3D conversion and geometric accuracy, with only minor discrepancies in window representation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan15.webp"
+}

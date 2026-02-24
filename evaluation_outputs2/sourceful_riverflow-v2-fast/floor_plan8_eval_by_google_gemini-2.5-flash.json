@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Living Room/Dining Room adjacency is off; the opening is not present. Pantry walls are missing. Foyer shape not perfectly matched. Overall footprint shape deviates from original, especially around dining room and kitchen balcony/exit. Several minor wall misalignments and corner angle issues. Stairs are represented but not accurately with steps. Kitchen layout substantially altered."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "No text labels present which is good. Missing pantry walls. Hallucinated a second sink in the kitchen island, and a dishwasher unit. Also seems to have hallucinated a small additional wall segment/countertop in the kitchen area near the window. The kitchen exit wall/door from the plan is replaced with a window and a small exterior balcony which is a hallucination. The 'up/down' stairway is modeled as a simple ramp, which is a significant structural deviation."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major pieces like sofas, beds (implied in playroom), and kitchen island/counters are present. However, placement often does not match 2D plan, especially in the living room and kitchen. Dining room explicitly lacks a dining table/chairs. W/C (bathroom) fixtures are present but in different configuration. Pantry is entirely missing from render. Kitchen fixtures are present but rearranged and some added."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is low-poly and flat shaded, which matches. Textures are solid colors which is good. Lighting is too dramatic with heavy shadows, not soft ambient. The view is not a true isometric projection, showing some perspective distortion (E3-CRIT violation). The model is not rotated 45 degrees relative to the camera as requested for a top-down isometric view but is more of a corner isometric."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire pantry room is missing walls in the 3D render.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric view; perspective distortion detected. Parallel lines converge slightly.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated a small exterior balcony/deck structure off the kitchen and converted original door to window. Also added a secondary kitchen sink.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Missing large opening/archway between Living Room and Dining Room. Kitchen wall layout significantly modified.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table and chairs missing from dining room. Living room furniture not matching layout.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several internal walls (e.g., Foyer/Living Room, Kitchen/Playroom) have minor position or angle discrepancies.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 59,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant spatial and structural inaccuracies, particularly regarding wall geometry, missing elements like the pantry, and hallucinated features. The view is also not a true isometric one.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan8.jpg"
+}

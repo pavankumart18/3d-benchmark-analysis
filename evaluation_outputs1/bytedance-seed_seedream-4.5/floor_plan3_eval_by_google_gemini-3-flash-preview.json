@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortion. Kitchen is isolated by an incorrect internal wall. The central bathroom unit layout is misinterpreted with floating floor decals. Door and window placements are shuffled; for example, a window is added to the kitchen west wall which is not in the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major violation: text labels ('KITCHEN', 'LINING ROOM', 'BATHROOM') are baked into the 3D model, contradicting strict constraints. Hallucinated internal partitions added to separate rooms that were open-plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen counters and stove are present but scaled poorly. Added a dining table not explicitly detailed in the floor plan. Stairs are rendered as a floor texture rather than 3D geometry."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Good isometric angle and floating model execution. However, the presence of text labels and floor decals significantly detracts from the 'clean' architectural render goal. Lighting is slightly more dramatic than 'flat shading'."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Strict violation: 3D render contains large text labels for room names."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated internal walls transforming open-plan dining/kitchen into closed rooms."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door to the kitchen and incorrect window placement on the far left wall."
+        },
+        {
+            "code": "E1",
+            "description": "Missing physical 3D geometry for the stairs; they are rendered as a flat floor texture."
+        },
+        {
+            "code": "E6",
+            "description": "Style violation: use of floor-plan decals and labels instead of purely structural simplified geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan3.jpg"
+}

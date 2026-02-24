@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacency are correct. However, doors are depicted as open slabs rather than maintaining the swing orientation from the plan. Window sizing on the bottom exterior wall is slightly oversized compared to the plan's proportions."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. Roof is removed, all rooms are present, and the model is floating on a dark background. Points deducted for slight reinterpretation of the balcony accessibility (glass wall instead of open balustrade)."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Clean block-style furniture is used. Beds, sofas, and bathroom fixtures are correctly mapped. Minor deduction for adding a coffee table in the Activity area not present in the original plan."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Perfect isometric orthographic alignment and low-poly aesthetic. Flat shading is used appropriately. One point deducted for subtle wood-grain-like floor planking which leans slightly away from pure flat color."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated coffee table in Activity room."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony design changed from open balustrade to a glass storefront-style wall."
+        },
+        {
+            "code": "E2",
+            "description": "Door swing orientation is not clearly defined; door slabs are rendered in static semi-open positions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan12.png"
+}

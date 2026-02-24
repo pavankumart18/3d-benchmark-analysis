@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches. Adjacencies are mostly preserved but the main bathroom entrance is incorrect. Relative room sizes are generally proportional. Overall footprint is maintained. Wall positions are mostly accurate, but some internal walls have minor offset/length issues. Wall heights seem uniform. Corner angles preserved. Doors: Not all doors are present. Missing closet door in Laundry room and Hall. Bathroom door is a sliding door in render, but swing door in plan. Bedroom 1 and 2 doors are not on correct walls nor is the main bathroom door. Windows: All windows present but their positions are slightly off. Scaling is generally consistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is compliant, roof removed and interior walls visible. Completeness is affected by missing structural elements (bathroom fixtures, some closet walls are missing). Hallucination: A wall is added between Kitchen/Dining room and Living Room, where none exists on the 2D plan. UI/Annotation Cleanliness: FAILED, original 2D floor plan text like 'Nordic Homes', 'Kitchen / Dining 187 sq ft', 'Living Room 245 sq ft' and the smaller text regarding 'accurate plan' are present in the second image. Presentation context: Background is dark neutral. Model appears floating. No ground plane observed."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Furniture presence: Major pieces are present (beds, dining table, sofa, coffee table), but kitchen and bathroom fixtures are not fully represented or are inaccurately placed. Bathroom is completely empty in 3D render. Laundry room has a washing machine but is missing the sink. Kitchen layout is significantly different, missing appliances from the plan and has added cabinets/counters in different positions. Furniture accuracy: Dining table and chairs are in the correct room but rotated. Living room furniture is present but arrangement is different. Beds are present but layout within bedrooms is different. Missing closet furniture."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly simplified forms, flat shaded surfaces, clean edges, solid flat colors \u2013 all compliant. Soft ambient lighting, flat shading with minimal shadows, no dramatic contrasts. Colors are distinguishable. True isometric projection, 45\u00b0 rotated plan view, centered framing, appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text overlays present. The original 2D plan's text labels (room names, areas, branding, disclaimer) are directly visible in the 3D render, indicating screenshot or overlay rather than a clean 3D generation.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Bathroom is entirely empty of fixtures, missing sink, toilet, and bathtub from the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Hallucinated wall added in the Kitchen/Dining area, creating a partial separation from the Living Room where none exists in the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are either missing (closets), on incorrect walls (Bedroom 1, Bedroom 2, Main Bathroom), or have incorrect type (Main Bathroom is sliding in 3D but swing in 2D).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen fixtures are significantly different from the plan (missing oven, different counter layout, no sink).",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window placements are slightly off in several rooms (Living Room, Bedroom 1, Bedroom 2).",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely fails due to multiple critical spatial accuracy issues concerning wall placements and opening details, significant inaccuracies in furniture and fixture representation, and a critical error of rendering UI text from the 2D plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan4.jpg"
+}

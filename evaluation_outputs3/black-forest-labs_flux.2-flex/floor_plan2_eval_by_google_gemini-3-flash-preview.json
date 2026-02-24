@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "True 3D isometric cutaway transformation successfully achieved."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent wall geometry and volumetric representation. Clean isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "High fidelity in layout. Missing one bed in the left bedroom (single instead of twin) and flipped bathroom layout."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Most major furniture corresponds well in scale and placement. Kitchen and dining areas are accurately located."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Very clean rendering. Great contrast and lighting. Consistent material application."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Left bedroom shows only one bed; 2D plan depicts two beds."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Moderate",
+            "description": "Internal fixtures in the bathroom are mirrored/swapped compared to the source drawing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Door swing direction in the master bedroom is inverted."
+        }
+    ],
+    "total_score": 93,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and aesthetically clean 3D conversion that maintains almost all structural and spatial logic from the 2D floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan2.png"
+}

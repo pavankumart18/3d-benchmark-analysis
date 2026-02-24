@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 0,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "The generated 3D model bears no resemblance to the 2D floor plan. It is a completely different layout, room count, and structure. None of the rooms from the 2D plan are present in the 3D render. The 3D render shows a garage area and an open-concept living/dining/kitchen, which are not depicted in the source 2D plan. The 2D plan is of a second floor with 3 bedrooms, a bath, activity area, and a balcony. The 3D model presents a ground floor layout. This is a complete failure in structural and layout replication."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "While the cutaway view is correctly rendered (roof removed, interior visible), the model displays extreme hallucination, creating an entirely different structure and floor plan. UI/Annotation Cleanliness failed due to text/measurements in the 2D source, but this part of the rubric applies to the *generated* 3D model, which is clean. However, 'Presentation Context' is not fully met as there are shadows potentially extending to infinity."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "No furniture from the 2D floor plan (beds, bathroom fixtures) is present in the 3D model. The 3D model introduces new furniture (sofa, dining table, kitchen counters, a car) which are not in the source 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 5,
+            "camera_composition": 0
+        },
+        "notes": "The geometry style correctly uses low-poly, flat-shaded forms with solid colors and no textures. Lighting is soft, but shadows are quite distinct. The camera view is a perspective projection, not an isometric one, which is a critical failure. The model is not centered, and the zoom level could be better."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room layout missing; the generated 3D model portrays a completely different floor plan than the 2D reference.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated an entire different house layout not present in the 2D plan. All rooms in the 3D model are invented.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not an isometric view (perspective distortion evident).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "No furniture from the 2D plan is present; entirely new furniture introduced in different rooms.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Presence of a vehicle and garage, along with an open-plan kitchen and living area, are entirely new architectural features not in the 2D source.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Presentation Context not fully met; shadows extend to infinity and are not neutral/isolated.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 20,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is a complete failure in replicating the 2D floor plan, presenting an entirely different house layout and non-isometric camera view. It exhibits severe hallucination with no spatial or furniture correlation to the source.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan12.png"
+}

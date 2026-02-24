@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows height and thickness for walls, an isometric angled view, and a cutaway roof exposing the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5). Floors are clear (3). Interior volume is perceivable (4). Proper 3D wall corners (3). Angled view (5). Interior visible (3). Minimal perspective distortion (2). Roof removed cleanly (5). Interior spaces fully visible (3). Clean geometry, no broken sections (2)."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Correct number of rooms (3). Adjacency issues (missing closet, bathroom layout shift) (2). Relative room proportions preserved (3). Major room identities match (2). Major wall positions aligned, some minor discrepancies (4). Wall lengths mostly proportional (2). Internal partitions mostly correct, some missing/shifted (1). Doors are present and on correct walls, but styles vary (3). Windows are present and on correct walls (2). Openings proportionally sized and oriented, but some missing (1)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (4). Kitchen elements present (2). Bathroom fixtures present (2). Furniture placed in correct rooms (3). Furniture scale reasonable (1). Orientation logical (0) - Many furniture items are just outlined, not 3D models."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls, floors, openings clearly distinguishable (4). Geometry readable (4). Interior clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (0) - Mix of 3D and 2D outlines for furniture. No major rendering artifacts (0) - Some outlines are not crisp. Clean background (0) - Dark, but furniture outlines are not aligned properly."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The bathroom layout has been significantly altered, and a small closet/storage space next to the bathroom and office is missing in the 3D model."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Windows are missing in one bedroom and in the living room/dining area. The door to the office/bedroom is a solid door in 3D, but a glass door in 2D. The main entrance door in 3D faces inward, while in 2D it appears to face outward."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Major",
+            "description": "Most furniture (beds, sofas, tables, kitchen appliances, bathroom fixtures) are represented as flat 2D outlines placed on the floor, not as true 3D models. Their orientation is also incorrect (e.g., beds at an angle)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "Minor",
+            "description": "Inconsistent rendering style: some fixtures are 3D models (toilet, sink in bathroom), while most furniture are 2D outlines. This affects the overall visual coherence."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D floor plan into a 3D cutaway model with good structural clarity, but suffers from inconsistencies in geometric accuracy for interior layouts and a mixed representation of interior elements (3D fixtures vs. 2D furniture outlines).",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan2.png"
+}

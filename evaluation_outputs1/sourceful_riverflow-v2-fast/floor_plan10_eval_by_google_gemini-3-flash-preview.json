@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacency are highly accurate. Most doors are correctly placed, though some swing directions are simplified. Window apertures are present but lack precise glass-pane resolution. Scalability is well-maintained throughout the model."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "The roof is correctly removed with all internal walls visible. No rooms are missing. The model is correctly floating on a dark background. Points deducted for minor wall thickness inconsistencies and slight rounding of structural corners."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of block-style furniture. The kitchen island, sofas, and beds are positioned according to the floor plan. The car in the garage is a significant fidelity win."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Adheres to the low-poly, flat-shaded requirement. No textures or photorealism present. The camera is isometric, though slightly narrower field of view than a perfect 45-degree orthographic projection."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor distortion in the entry portico and verandah alignment compared to the exact plan lines."
+        },
+        {
+            "code": "E4",
+            "description": "Slight structural reinterpretation of the laundry and walk-in-linen area wall junctions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan10.png"
+}

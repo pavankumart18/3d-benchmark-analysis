@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 26,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 6,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count is largely correct, but adjacencies are off in places. The 'Utility Room' is missing entirely. The 'WC' and 'Hall' are combined into 'Central Hall' in the 3D model, losing the WC partition. The 'Alcove' area is misrepresented, and the stairs are not matching the plan. Overall footprint shape deviates from original. Several walls are misaligned or missing. Doors are generally present but placement tolerances are exceeded in multiple instances and swing directions are often incorrect or ambiguous. Windows are present but counts do not always match and proportional sizing is off."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is correctly rendered, and the model is presented on a dark neutral background, floating. However, there is significant hallucination and missing structural elements. The WC is missing, integrated into Central Hall. The Utility Room is entirely missing. Room labels are present, leading to a 0 for UI cleanliness."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 2
+        },
+        "notes": "Furniture presence and accuracy are poor. The Kitchen and Dining Room have some furniture, but much is missing (e.g., in WC, Utility Room) or incorrect (e.g., dining chairs count). The 'Window Seat' is also missing. The Kitchen layout does not match the plan, especially the island and counter layout."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly simplified forms and flat-shaded surfaces are correctly used. No textures or high-res meshes. Lighting is soft ambient. Colors are distinguishable. Camera composition is almost true isometric, but the rotation seems slightly off from 45 degrees. The aspect ratio of the rooms seems slightly compressed horizontally compared to the floor plan."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Utility Room is entirely missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "WC room is missing, integrated into Central Hall.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Room labels (CENTRAL HALL, KITIHC, BREAKFAST, DINING, TACAL) are present in the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls are misaligned or missing (partition between WC and Central Hall, Alcove wall, Utility Room walls). Kitchen layout significantly differs from plan, especially the position of the island and counters.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The 'Tacal' area near the kitchen is an invented architectural feature, possibly attempting to represent a window seat, but inaccurate.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door placements are off (e.g., Entrance to Central Hall, door to Breakfast nook). Swing directions for doors are not matched or are ambiguous.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing 'REF' (refrigerator) in Kitchen, missing 'WH' and 'W/D' in Utility Room (which is also missing). Missing window seat.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 58,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant discrepancies in spatial accuracy, including missing rooms and substantial wall misalignments. The presence of text labels is a critical violation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan11.png"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls are extruded with visible thickness, multiple wall faces are shown, interior volume is readable from an elevated angled view, and the ceiling/roof is removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable corners and floor/wall separation; cutaway is clean. Slight softness/ambiguity at some wall junctions and openings reduces precision."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Overall macro-zoning resembles the 2D plan (kitchen run at top-right, small WC near top-center, utility/mechanical cluster near center-right, dining area with right-side bay). However, several internal partitions and exact wall lengths/offsets do not tightly match the 2D, and the breakfast/pantry/doorway relationships are simplified."
+        },
+        "interior_elements": {
+            "score": 6,
+            "max": 15,
+            "notes": "Kitchen cabinetry/counters and a toilet are present, but most room-defining furniture/fixtures (dining set, utility/HVAC details, doors) are missing or overly abstract, limiting verification of room identity."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Clean render with good readability of walls vs floors and adequate lighting. Some openings (doors/windows) are not clearly defined, reducing structural clarity for verification."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity is approximate: several partition placements and proportions appear simplified relative to the 2D plan, reducing confidence in exact room boundaries and adjacencies."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are not consistently modeled (many door locations/opening sizes are absent or ambiguous compared to the 2D plan)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Non-kitchen furnishings/fixtures are largely missing, limiting room-identity confirmation (e.g., dining/utility details)."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "This is a valid cutaway 3D conversion with strong wall/volume depiction, but the plan-to-model geometric fidelity is only moderate due to simplified partitions and incomplete/unclear door-window detailing.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan11.png"
+}

@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent room adjacency and wall alignment. The footprint accurately reflects the complex polyline of the floor plan. Minor issues with the exact width of the foyer and kitchen entry walls, and some door swings are missing or represented as open gaps."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "All rooms accounted for. Correctly floating on a dark background with no UI or text. One point deducted for slight reinterpretation of the kitchen island/counter transition compared to the floor plan's specific L-shape boundary."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Table, sofas, and beds are correctly mapped to their respective rooms. Kitchen counters and utility fixtures are in the right places. Scaling is mostly consistent."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The style is not strictly low-poly flat-shaded; it contains realistic textures (wood grain, marble, fabric rugs) and dramatic ambient occlusion shadows, which violates the 'no textures' and 'flat shading' constraints. Camera angle is correct isometric."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E6",
+            "description": "Render contains realistic textures (wood, marble) and soft shadows rather than flat colors and simple shading."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout slightly deviates from the technical lines shown in the 2D plan regarding the peninsula segment."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan19.webp"
+}

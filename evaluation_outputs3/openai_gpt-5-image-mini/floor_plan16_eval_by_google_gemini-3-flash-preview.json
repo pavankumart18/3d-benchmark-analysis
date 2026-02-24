@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D depth and wall thickness representation. Minimal perspective distortion."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "General layout is preserved, but the utility room and bedroom-1 wall depth have been simplified/merged. The balcony is rendered as a low-walled extension."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture represents 2D plan types well, though the kitchen counter has flipped to the opposite wall (window side) compared to the plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High clarity and clean rendering. No text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MODERATE",
+            "description": "Kitchen counter is mirrored/placed on the window wall instead of the top wall as shown in the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "LOW",
+            "description": "Utility room and toilet wall configuration simplified, losing the exact notch geometry of the original plan."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "A clean and accurate 3D transformation that preserves the primary room logic, though it deviates slightly on specific kitchen and utility room wall details.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan16.avif"
+}

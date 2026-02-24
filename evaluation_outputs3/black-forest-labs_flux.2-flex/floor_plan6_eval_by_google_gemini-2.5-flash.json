@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Excellent conversion fundamentals. Walls have clear height and thickness, floors are distinct, interior volume is highly perceivable, and corner geometry is correct. The angled view is perfect for an isometric cutaway, and the roof is cleanly removed allowing full interior visibility."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Major wall positions, room count, and adjacencies are mostly accurate. However, the kitchen/living area layout is significantly reconfigured, and the small room next to the stairs has different internal partitioning. While major openings are present, some doors and windows have slightly different placements or proportions."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Most major furniture pieces are present and in the correct rooms, including kitchen and bathroom fixtures. However, the specific layout and types of furniture within the main living area and near the stairs differ substantially from the 2D plan, and some items are not proportionally faithful to the 2D representation."
+        },
+        "visual_clarity": {
+            "score": 20,
+            "max": 20,
+            "notes": "Exceptional visual clarity. Geometry is highly readable, distinct, and well-lit. There are no rendering artifacts, and the presentation is clean and professional."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Significant distortion in the layout of the kitchen/living area and the small room near the stairs. The 2D shows a separate 'kitchen' section but the 3D integrates it more into a single open space, with different countertop configurations."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "The exact placement and opening directions of some doors and windows vary from the 2D plan. The windows on the bottom and left sides are different in number and spacing."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "The specific furniture layout and types in the kitchen/living area and the small room next to the stairs differ from the 2D input. For example, the 3D render shows a bed in the small room next to the stairs, which is not indicated in the 2D. The living room seating is also different."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "This is an excellent 3D conversion with strong fundamentals and visual clarity, despite some notable reinterpretation of the interior layout and furniture placement compared to the original 2D plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan6.jpg"
+}

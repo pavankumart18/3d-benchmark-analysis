@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Rachel's Bedroom and Monica's Bedroom are swapped. The wall for the closet near the entrance is significantly shorter in 3D. The bathroom next to Monica's bedroom has an internal wall missing. Various wall positions slightly off. Overall footprint preserved, but some internal walls have significant deviations."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "No missing rooms, but a wall in the bathroom near Monica's bedroom is missing. No extra rooms or architectural features. UI/Annotation Cleanliness failed due to text in the 2D plan being rendered in the evaluation image. Background is dark but not a perfect gradient, and model is not perfectly isolated."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Furniture for the main living area (sofa, dining table, chairs) is present and roughly accurate. Kitchen fixtures are present. Bathroom fixtures are present. However, the bedrooms are swapped, so the furniture placement relative to the original plan is incorrect for those rooms. Scale is generally appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly simplified forms and flat-shaded surfaces are generally present, but some elements like the window frames and window sills show slightly more detail than strictly 'flat shaded surfaces'. Colors are distinguishable, lighting is soft. True isometric projection, 45-degree rotation, and centered framing are maintained."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/annotations from the source 2D plan are visible in the provided image (not the 3D render itself, but the overall image for evaluation includes them). This implies the ground truth image itself, which is presented for evaluation, contains text within the bounding box where the 2D plan is presented for direct comparison. However, assuming the JSON format refers to the 3D GENERATION as not having text, no text is present on the 3D render. Re-evaluating based on the 3D render itself having no text.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Rachel's Bedroom and Monica's Bedroom are entirely swapped with their contents.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Inner wall for the closet near the entrance is significantly shorter; inner wall in one bathroom is missing. Several other walls slightly off from 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture in 'Monica's Bedroom' (intended for Rachel's) and 'Rachel's Bedroom' (intended for Monica's) is misplaced due to room swap.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits several significant spatial inaccuracies, including a full swap of two bedrooms and some wall geometry issues, leading to a failing score despite decent rendering quality and fidelity to core structural elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan.jpg"
+}

@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 5,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "One room on the far right (bedroom) is missing. The small room at the bottom-right corner is also missing. The far-left room's interior wall is incorrect; it's a single open space in the 3D model, but the 2D plan indicates two distinct areas with an interior wall separating them. The small room next to the kitchen on the 2D plan is missing in the 3D model. Adjacencies are mostly preserved for existing rooms, but layout and room count are significantly off. Overall footprint shape for the main structure is maintained, but missing external extensions. Windows are generally present on correct walls, but their count is less than the plan for existing rooms."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "The roof is removed and interior walls are visible. However, several rooms and structural elements (like the small bathroom near the kitchen, the small storage/utility room near the far-right bedroom, and the far-right bedroom itself) are missing entirely, indicating poor completeness. The 3D model also hallucinates an open archway where a wall and door should be, creating a larger room. UI/annotation is clean. Presentation context is good. Major deductions for 'completeness' and 'hallucination control' due to missing rooms and altered layout."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces like beds, sofas, and dining tables are present in the corresponding existing rooms. Kitchen fixtures are present, but simplified. Bathroom fixtures are missing for the existing bathroom near the top-right and entirely missing for the removed small bathroom. Placement is generally accurate within existing rooms, but significant issues due to missing rooms and altered layouts mean furniture cannot be mapped for those areas."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The geometry consists of low-poly, simplified forms with flat shading and clean edges, without textures, perfectly complying with the style guidelines. Lighting is soft ambient with minimal shadows. Colors are distinguishable. The camera view is a true isometric projection, demonstrating true parallel lines, with a 45\u00b0 rotated plan view, centered framing, and appropriate zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire bedroom missing on the far right. Small room at the bottom right is missing. Small bathroom/utility room next to the kitchen is missing.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated an open archway and combined two distinct areas on the far left, creating an inaccurate open-plan space. This also contributes to missing walls and altered room functionality. This is a significant deviation from the 2D plan.",
+            "point_deduction": 20
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple interior walls missing, specifically the one dividing the living/dining area on the far left, and walls creating the small bathroom/utility room next to the kitchen. Also, walls defining the far-right bedroom are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing bathroom fixtures for the existing bathroom and for the missing ones. Missing some smaller furniture pieces in the remaining rooms.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 70,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render adheres perfectly to aesthetic and technical quality specifications, but significantly fails on spatial accuracy and structural fidelity due to multiple missing rooms, altered layouts, and misplaced architectural elements despite generally preserving adjacencies for the existing structure.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan5.jpg"
+}

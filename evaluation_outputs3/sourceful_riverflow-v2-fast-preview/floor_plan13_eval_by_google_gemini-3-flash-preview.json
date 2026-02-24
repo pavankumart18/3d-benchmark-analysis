@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful 3D isometric cutaway transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent volume and perspective; cutaway is clean and professional."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Significant layout divergence. The 3D model adds rooms/partitions not present in the 2D plan and misses the specific laundry/bath/WC sequence."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture is present and scaled appropriately, though placement follows the altered room layout rather than the original plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very high rendering quality; light and materials are clear with no text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "High",
+            "description": "The 3D model partitions the space differently than the 2D plan (e.g., extra rooms in the front-left and different bathroom layout)."
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "High",
+            "description": "The garage/external structure from the plan is entirely missing from the 3D render."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D render that fails on strict geometric fidelity by altering room configurations and omitting the garage.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan13.jpg"
+}

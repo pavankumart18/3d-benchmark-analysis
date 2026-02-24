@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion is a genuine 3D isometric cutaway model."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent treatment of 3D geometry, wall thickness, and interior volume."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Room layout is largely faithful. Minor discrepancies in garage orientation and exact partition placement for the WIR/Ensuite area."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "High correlation in furniture placement including kitchen island and bathroom fixtures."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clear rendering with logical lighting; minor window geometry repetition artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "The garage vehicle is oriented perpendicular to the plan's indicated position; external entry point for garage shifted."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Low",
+            "description": "Window counts on the left elevation differ slightly from the 2D architectural openings."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D transformation that preserves the complex interior layout and furniture mapping of the original floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": false,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "Second image appears to be a top-down rendered/colored floor plan with soft shading; it does not show vertical wall faces, true wall height, or an angled/isometric viewpoint."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Automatic rejection (E0-FATAL): no true 3D wall height/side surfaces and view remains pure top-down."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "fatal",
+            "description": "Not a true 3D conversion: no visible wall height or multi-surface wall geometry; rendered image remains an orthographic top-down plan."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The second image is a top-down stylized render of the 2D plan rather than a geometrically faithful 3D cutaway with visible wall height and angled perspective.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan12.png"
+}

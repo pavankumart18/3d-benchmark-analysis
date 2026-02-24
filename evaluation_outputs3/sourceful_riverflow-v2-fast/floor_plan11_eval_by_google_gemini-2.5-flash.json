@@ -1,0 +1,66 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model clearly shows walls with height and thickness, a perceptible interior volume, and an angled view. The roof has been removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness, floors are distinct. Interior volume is clear. Proper 3D wall corner geometry is mostly good, but some internal corners (like near the stairs or utility room) are a bit blocky. Viewing angle is good, and the interior is visible from an elevated perspective. Minimal perspective distortion. Roof is removed cleanly, and interior spaces are fully visible. The geometry is mostly clean, only minor blockiness in some areas."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency are mostly correct. However, some room proportions are off, especially the central hall and the utility room seem narrower. The major wall positions align, but some internal partitions are simplified or slightly misplaced (e.g., the break between kitchen and dining is just a wall, not a pantry/wall combination). Doors are present on most correct walls, but some are missing (e.g., to WC, utility room). Windows are present but some are simplified, and their proportional sizing isn't always accurate."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture (kitchen counters, appliances) is present and correctly placed in the kitchen. Bathroom fixtures are missing, and no other furniture is present. The scale of the kitchen furniture seems reasonable relative to the room."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. The geometry is readable. Lighting is good, and the interior is clearly visible without obscuring geometry. The aesthetic is coherent with consistent material (untextured gray). No rendering artifacts or broken meshes. The background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Some internal room proportions are distorted, particularly the central hall and utility room."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Simplification of the pantry/wall structure between the kitchen and dining room."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Missing doors to WC and Utility Room."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Windows are present but simplified and sometimes not proportionally accurate to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Missing bathroom fixtures and other major furniture items (bed, sofa, dining table)."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transformed the 2D floor plan into a 3D cutaway model with good fundamental 3D representation and visual clarity, though it exhibits some notable geometric inaccuracies in room proportions, wall details, and the absence of several interior elements from the original plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan11.png"
+}

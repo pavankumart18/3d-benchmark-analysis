@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct. Door swings in the hallway/laundry area are slightly distorted compared to the plan. Window placement in bedrooms is maintained."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major violation of constraint: Multiple text labels ('Bath', 'WC', 'L'dry', 'Garage', 'LINEN', 'ROBE') and arrow markings are visible on the 3D model. This is a significant failure of the 'No text labels' rule."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent block-style furniture placement for beds and sofas. Scale is consistent with the architectural footprint."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "The render uses textures (carpet pattern, wood-look cabinets) and realistic lighting/shadows, violating the 'flat shading/no textures' requirement. Camera is correctly isometric."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Critical failure: 3D model contains numerous text labels and measurement markers from the source plan."
+        },
+        {
+            "code": "E6",
+            "description": "Style violation: Model uses realistic textures (carpet, materials) and dynamic lighting rather than simple flat colors and low-poly shading."
+        },
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the laundry/kitchen transition area relative to the wall thickness in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan13.jpg"
+}

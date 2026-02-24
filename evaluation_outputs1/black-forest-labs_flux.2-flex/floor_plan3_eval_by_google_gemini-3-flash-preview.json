@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe layout deviation. The 3D render significantly rearranges the floor plan: the central bathroom is replaced by structural partitions, the staircase is moved to the opposite side, and the open-plan kitchen/dining flow is completely lost."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the model is a correctly formatted floating isometric cutaway with no UI/text, it fails significantly due to hallucinated internal walls and the misplacement of the primary staircase structure."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is low-poly but inaccurately placed relative to the plan. A hallucinated bathtub and bed are present which were not in the 2D plan, and the kitchen counters/stove are relocated or misinterpreted."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to the requested visual style: low-poly geometry, flat shading, and a dark neutral background. The isometric camera angle is precise."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Major layout distortion: staircase moved from south-west corner to north-east wall."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated bedroom furniture and bathtub not present in the original floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Central 3' x 2' bathroom unit is missing/replaced by arbitrary wall partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Window and door counts do not match the fenestration pattern on the south and east walls of the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 6,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint shape is significantly altered, particularly the north-east corner and the southern bedroom areas. Room adjacency is compromised. The bathroom next to Rachel's bedroom is completely missing. Many walls are not accurate. The dining area is much smaller and shifts. There are 2 windows in the 3D render instead of 3 in the 2D plan, with one being placed incorrectly (in the kitchen instead of the bathroom). The kitchen layout is significantly different. The second bathroom (between Monica's and Rachel's bedrooms) is missing most of its walls and is combined with the original kitchen space."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Multiple major structural elements are missing, notably the second bathroom entirely, and the 'closet' near the entrance. The south-east wall of the living room/dining area is heavily simplified and misses the window indentations and the door to Chandler & Joey's apartment. The entry hall layout is completely different. There is a strange, extended 'ground plane' shadow in the render, violating presentation context rules. The dark neutral background is poorly executed with noticeable reflections/gradients on what appears to be a plane."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "The second bathroom (between bedrooms) is completely missing, so its fixtures are also missing. The kitchen layout is significantly altered, with an island and a different counter/appliance configuration. The master bedroom (Monica's) has a bed, but the desk and chair are missing. Rachel's bedroom has a bed but no desk/chair. The living room/dining area's furniture is generally present but heavily rearranged and simplified, with a couch, dining set, and coffee table."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry uses low-poly simplified forms and flat-shaded surfaces, though some 'smooth shading' is evident on objects like the couch and beds. No textures are present, adhering to the solid flat colors. Lighting is soft and ambient. The camera is isometric and well-composed. However, several furniture pieces (couch, beds) appear to have smooth normals applied, hinting at a higher poly count or material definition than 'flat shaded' implies."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire bathroom next to Rachel's bedroom (labeled 'BATH') is missing.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "The 'COAT' closet and the adjacent entry area are completely absent in the 3D model, replaced by a much simpler opening.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant changes to the overall footprint shape, particularly the south-east corner of the living room (indentations for windows, door to neighbor are missing), and the north-east corner wall (flattened).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen layout is heavily altered. Sink placement and counter configuration do not match the 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The number and placement of windows are incorrect. Only two windows are present in the 3D render vs. three in the 2D plan - one is missing and one is misplaced in the kitchen.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The door to Chandler & Joey's apartment is missing in the 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing desk/chair in Monica's Bedroom",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing desk/chair in Rachel's Bedroom",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some furniture items (beds, couch) exhibit smooth shading beyond what 'flat shaded surfaces' implies, suggesting higher poly count or smoothed normals.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The background is not a pure dark neutral background. It appears to be a plane that casts a shadow or has a gradient, violating the 'model appears floating/isolated' and 'no ground plane/shadows extending to infinity' rules.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 48,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits critical structural and spatial inaccuracies, including missing rooms and significant layout deviations, resulting in a failing score despite good rendering style.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan.jpg"
+}

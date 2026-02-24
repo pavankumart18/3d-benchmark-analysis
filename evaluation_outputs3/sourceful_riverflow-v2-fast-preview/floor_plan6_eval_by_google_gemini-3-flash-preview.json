@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway rendering with consistent geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent dimensional extraction; walls and floors are clearly defined with minimal perspective distortion."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Core room configuration and stairs are accurate; however, the dining area and kitchen island placement show minor shift compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture is well-placed and scaled; kitchen cabinetry is slightly abstracted compared to the detailed plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High clarity and clean presentation; consistent lighting and material usage enhance readability."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "The kitchen island/peninsula geometry is simplified and its orientation slightly differs from the L-shape in the source."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Low",
+            "description": "Some window openings on the left wall lack the specific frame detail shown in the architectural plan."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A highly faithful 3D transformation that accurately preserves the layout, stairs, and room proportions of the original 2D architectural drawing.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan6.jpg"
+}

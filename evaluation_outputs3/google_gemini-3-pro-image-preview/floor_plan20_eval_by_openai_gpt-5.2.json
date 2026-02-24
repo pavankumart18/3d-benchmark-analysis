@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a cutaway 3D model: walls have height and thickness, multiple wall faces are visible, interiors read as volumes, and the camera is elevated/angled rather than pure top-down."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion with consistent wall thickness and readable corners; clear floor/wall separation; clean cutaway. Minor simplification/flatness in some wall top edges and limited ceiling/roof detailing."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Core apartment zones generally match (3 bedrooms, central living/dining, kitchen/utility, office). However, exterior spaces from the plan (large deck and balconies) are not represented, and some bathroom/partition placements and proportions appear simplified relative to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture is present in bedrooms and living/dining; kitchen counters and bathroom fixtures are shown. Placement mostly matches expected rooms with generally reasonable scale; some elements are simplified blocks."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean, readable rendering with distinct walls/floors and good visibility; minimal artifacts. Window/door detailing is simplified and some openings are hard to verify precisely."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Exterior areas in the 2D plan (deck and balconies) are largely missing/not modeled as spaces in the 3D render, reducing layout fidelity."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Some internal partition/bathroom geometry appears simplified and may not precisely match the 2D plan\u2019s exact wall runs and proportions."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window positions and sizes are present but not fully verifiable against the 2D plan due to simplified openings and limited detail."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D conversion with solid volumetric walls and readable interiors, but with notable layout-fidelity loss from missing deck/balconies and some simplified internal partitions.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Major layout distortions detected. The entry/linen alcove has been moved to the center of the plan, breaking the hallway logic. Bedroom 1 and Bedroom 2 have swapped relative positions or been significantly re-scaled. Door placements for the bathroom and WC are missing or closed in a way that obscures their plan-truth orientation. Window in the lounge is missing."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "While the style is compliant (no text/labels, floating model), the structural reinterpretation of the central wall as a zig-zag is a significant deviation from the flat hallway in the 2D plan. The garage is detached as requested but the main unit walls are Simplified to the point of losing room definition for the Laundry/Washing Machine area."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is clean and block-style. Scaling is generally consistent, but the placement of the beds and lounge furniture does not follow the sparse 2D plan (which had no interior furniture shown) and creates a generic interior rather than a space-accurate mapping."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints: low-poly geometry, flat shading, no textures, isometric camera angle, and neutral dark background."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Entry and linen cupboard area moved from the bottom left corner to the center-bottom of the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The central hallway wall is reinterpreted as a jagged zig-zag rather than the straight wall shown in the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing lounge window and specific laundry room partitioning."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom 2 (bottom right) is severely undersized compared to the 2D dimensions provided."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan13.jpg"
+}

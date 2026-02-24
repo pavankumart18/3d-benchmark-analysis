@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully renders as an isometric 3D cutaway with consistent structural depth."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clear wall thickness and volume. Minor perspective jitter on some wall caps."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "High fidelity in room adjacencies. Balcony/Closet area correctly positioned. Doorways and partitions align well with the source 2D plan."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture matches the 2D layout significantly (sofas, beds, dining table). Kitchen and bathroom fixtures are present in correct locations."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Rendering is clean, but garbled text 'labels' on the floor detract from presentation points."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Garbled pseudo-text remnants from the floor plan appear on the 3D floor surface."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some internal door openings are rendered as open gaps without visible frames."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A highly accurate 3D transformation that faithfully replicates the complex geometry and furniture layout of the original floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan.jpg"
+}

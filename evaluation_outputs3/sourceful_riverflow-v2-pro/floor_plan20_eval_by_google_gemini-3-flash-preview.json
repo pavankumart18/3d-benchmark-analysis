@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model presents a consistent axonometric cutaway view with visible wall geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clearly defined vertical surfaces and clean cutaways."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Adjacency is mostly correct, though Bedroom 1 and Bedroom 2 positions are slightly adjusted/swapped relative to the original plan's right-hand wing; wall counts align with the complex layout."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Very high fidelity in furniture placement, including specific items like the dining chairs, L-shaped kitchen, and bathroom fixtures."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "High clarity, but points deducted for heavy text label contamination on the 3D geometry and floor."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Floor and walls contain printed text labels (TOILET-3, DECK, etc.) which clutter the 3D presentation."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "The layout on the right side of the plan (Bedroom 1/2) has been condensed and slightly mirrored compared to the 2D source."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D cutaway that preserves the vast majority of the complex floor plan's structural and interior logic despite minor layout shifts and UI clutter.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan20.avif"
+}

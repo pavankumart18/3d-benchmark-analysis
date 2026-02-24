@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image shows extruded walls with thickness, visible floor plane, and an elevated angled view with the ceiling removed to reveal interior spaces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear 3D extrusion with readable wall corners and interior volume; cutaway is clean. View is slightly near-top-down but still angled and volumetric."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Overall room layout matches: foyer/closets at left, living room bottom-left, dining bottom-center, pantry central, kitchen right, playroom top-right, stairs top-center. Minor proportional/edge alignment differences on some exterior jogs and openings."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures present: living seating, dining table, kitchen counters/island, playroom seating; bathroom/WC represented. A few elements are simplified and not fully detailed."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is readable with distinguishable walls/floors/openings, but lighting is somewhat flat/soft and text labels inside rooms reduce presentation cleanliness."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some door/window/opening placements and/or proportions appear simplified compared to the 2D plan (not all swings/details are represented)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Minor layout/proportion drift on certain exterior wall jogs and a few internal partition extents versus the 2D plan (overall adjacency preserved)."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Room name text labels are visible in the 3D render, reducing presentation cleanliness."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D conversion with strong overall layout fidelity and furnishings, with only minor proportional and opening-detail mismatches plus visible text labels.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan8.jpg"
+}

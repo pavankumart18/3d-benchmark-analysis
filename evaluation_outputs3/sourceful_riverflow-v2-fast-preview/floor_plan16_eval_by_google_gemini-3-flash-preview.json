@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion represents a legitimate 3D isometric cutaway model."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent isometric projection and clean structural definition."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "Major layout failure: The 3D model flips the horizontal layout. Kitchen/Utility/Balcony sequence is missing or merged into a generic rectangular volume."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Furniture is present as geometric blocks, but does not align with the room functions defined in the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "The render is clean and readable, but does not incorporate materials or windows from the source plan."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "CRITICAL",
+            "description": "Layout is mirrored or incorrectly oriented; 'L' shape of the original building footprint is lost to a simple rectangle."
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "HIGH",
+            "description": "The balcony and utility sections are missing entirely from the exterior 3D profile."
+        }
+    ],
+    "total_score": 69,
+    "verdict": "PASS",
+    "summary": "While the 3D rendering technique is clean and professional, the model fails to accurately reflect the specific room layout and geometric footprint of the provided 2D plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan16.avif"
+}

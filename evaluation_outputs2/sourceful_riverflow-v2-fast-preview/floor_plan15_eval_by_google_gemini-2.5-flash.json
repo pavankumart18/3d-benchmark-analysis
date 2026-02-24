@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 8,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Main structural walls are largely preserved. Room count matches. Overall footprint is good. However, door swings aren't matched and some windows are missing. Dimensional scaling seems off for some elements."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 4,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "The cutaway view shows a roof fragment, which is a deduction. UI cleanliness fails due to the visible roof fragment. Completeness is generally good for structural elements, no major hallucinations seen. Presentation context is decent."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table) are present. Kitchen and bathroom fixtures are present. Placement generally matches, but some scaling seems off, especially in the kitchen/utility area and one of the toilets."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is largely low-poly and flat shaded, no textures to be seen. Lighting is soft, but shadows are quite noticeable in some areas. Camera composition is not a true isometric projection, with some perspective distortion visible, especially on the far walls and the 'roof' plane. The 45-degree rotation isn't exact either."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions not matched to plan in multiple instances.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some windows are missing, notably in the M.Bedroom toilet and Bedroom-2, and the utility area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Dimensional scaling appears inconsistent for certain elements, e.g., the proportions of the kitchen counter/sink appear different, and some toilet layouts are compressed.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Partial roof fragment is visible, obscuring the view and violating the cutaway view compliance.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric projection; minor perspective distortion detected. Lines that should be parallel (e.g., floor edges vs. roof edges) are converging slightly.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Overall proportion of furniture relative to rooms appears inconsistent in some areas, like the utility room and smaller toilets.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 65,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render represents the 2D floor plan with reasonable geometric accuracy but fails on strict structural fidelity and aesthetic quality due to a visible roof fragment and non-isometric camera view. Further refinement needed for compliance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan15.webp"
+}

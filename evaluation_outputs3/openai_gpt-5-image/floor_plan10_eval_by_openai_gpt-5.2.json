@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a roof-removed cutaway with extruded walls (height/thickness visible) and perceptible interior volume; view is slightly angled/axonometric rather than a flat 2D recolor."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Scoring skipped due to automatic rejection condition (major room set missing vs 2D plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Scoring skipped due to automatic rejection condition (major room set missing vs 2D plan)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Scoring skipped due to automatic rejection condition (major room set missing vs 2D plan)."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Scoring skipped due to automatic rejection condition (major room set missing vs 2D plan)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "More than half of the rooms/spaces present in the 2D plan are not represented in the 3D model (e.g., multiple bedrooms/bath/WC/laundry/pantry/activity/alfresco/verandah/portico are missing or collapsed into fewer generic spaces), breaking layout fidelity."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is a true 3D cutaway, it omits/merges a majority of the 2D plan\u2019s rooms, failing the required layout completeness threshold.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan10.png"
+}

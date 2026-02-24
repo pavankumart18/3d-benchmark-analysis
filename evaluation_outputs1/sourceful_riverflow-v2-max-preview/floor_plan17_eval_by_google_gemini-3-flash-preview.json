@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacency are well-preserved. However, some wall thicknesses are inconsistent, and the specific orientation of some internal doors (particularly in the bedroom corridor) is inaccurately depicted compared to the source blueprint."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The render violates the strict 'NO text labels' constraint by including hallucinated, illegible text overlays throughout the rooms. The balcony structures are simplified and missing some railing detail from the 2D plan. The floating model requirement and roof removal are correctly followed."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate and matches the floor plan's zones (living, dining, bedrooms). There is some minor scale distortion in the kitchen area where fixtures appear merged or under-detailed."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good isometric perspective and clean low-poly style. Points deducted for the presence of 'ghost' text artifacts which break the clean aesthetic and for slight shadows that stray from strictly flat shading."
+    },
+    "total_score": 69,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Critical violation: The render contains numerous hallucinated text labels/measurement indicators on the floor surfaces."
+        },
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the kitchen and utility area connectivity."
+        },
+        {
+            "code": "E6",
+            "description": "Aesthetic violation: Presence of illegible text overlays and slightly more complex shading than flat coloring requires."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan17.jpg"
+}

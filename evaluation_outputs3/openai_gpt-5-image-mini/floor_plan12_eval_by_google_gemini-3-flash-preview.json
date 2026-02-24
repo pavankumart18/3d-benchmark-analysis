@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model is a 3D isometric cutaway but fails to match the provided layout."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Solid isometric rendering with clear wall thickness and volume."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Complete layout mismatch. The 2D plan is an upper floor with 3 bedrooms and a balcony; the 3D model is a ground floor with a garage, kitchen, and dining area."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Furniture does not correspond to the rooms indicated in the source 2D plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Rendering is clean and legible, though content is incorrect."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "FATAL",
+            "description": "The 3D model represents a different floor/plan entirely (Garage/Kitchen vs Bedrooms/Balcony)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "HIGH",
+            "description": "Zero correlation between 2D wall partitions and 3D rendered walls."
+        }
+    ],
+    "total_score": 50,
+    "verdict": "FAIL",
+    "summary": "While technically a 3D conversion of 'a' floor plan, it bears no geometric or architectural relationship to the specific 2D source provided.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan12.png"
+}

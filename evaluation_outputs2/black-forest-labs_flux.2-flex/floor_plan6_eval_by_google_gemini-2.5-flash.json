@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 3,
+            "doors": 5,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall footprint is maintained, but significant wall geometry issues exist, especially with the 'Kitchen/Living' area's internal configuration. The bedroom appears to have a different aspect ratio in the 3D model. There's a severe discrepancy in the 'Kitchen/Living' room's internal layout, with a missing wall creating a new 'room' in the 3D model, and a 'room' added next to the stairs. The 'Kitchen/Living' area's furniture layout and wall structure are substantially altered. There is a new room next to the stairs that is not present in the 2D plan. The 2D plan shows an L-shaped kitchen/living space, but the 3D render presents a more enclosed, rectangular kitchen with a separate living area. The wall between the bathroom and the added room next to the stairs is also inaccurate, appearing as a partition in the 3D vs. a full wall in 2D."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The interior walls are mostly visible, but there are multiple missing rooms (the actual L-shaped kitchen/living area) and hallucinated rooms (the extra room next to the stairs, and the distinct separation of kitchen and living). Critical failure on UI cleanliness due to text labels. One main room (the L-shaped kitchen/living) is inaccurately represented with a new wall dividing it, and an entirely new, smaller room is present next to the stairs that doesn't exist in the 2D plan. This results in missing completeness and hallucination control points. Hallucinated new wall and an extra room next to the stairs."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "The Kitchen/Living area has significant furniture discrepancies. The kitchen counter layout is entirely different. A wall is present in the 3D model that makes the Kitchen/Living area rectangular, whereas it is L-shaped in the 2D plan. The living room's sofa and square table are replaced by a bed and storage in the 3D model. There's a new bed in the 'living' area and a small table, totally different from the sofa and coffee table in the 2D plan. The bathroom fixtures also differ; for example, the toilet and sink are swapped, and the full shower/tub is replaced by a shower stall."
+    },
+    "aesthetic_quality": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 0,
+            "camera_composition": 0
+        },
+        "notes": "This render is photorealistic with textures, reflections, and advanced lighting/shadows, directly violating multiple criteria for geometry style and rendering. The camera view is close to isometric but has slight perspective distortion, and the textures and lighting are explicitly disallowed. The absence of solid flat colors and presence of realistic materials and shadows lead to 0 points in this category."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room configuration for 'Kitchen/Living' area is fundamentally altered by a new wall, and a new room is hallucinated next to the stairs where there should be only a small void/hallway.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('Bedroom', 'Kitchen/Living') are present in the 2D plan and are not carried over to the 3D model, but the instruction is 'ZERO text labels present' for the 3D render. However, the evaluation is for 'hallucination control' which refers to the 3D model not having additional text.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering with textures, reflections, and advanced lighting/shadows.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Although mostly isometric, slight perspective distortion is noticeable, which means it is not a true isometric projection (parallel lines converge slightly).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural features, including a new dividing wall in the Kitchen/Living area and an entirely new room next to the stairs.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned. The internal wall structure of the Kitchen/Living area is completely different, with a new wall created and the overall L-shape not preserved. The wall defining the new room next to the stairs is also a major misalignment.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not consistent with the 2D plan where indicated (e.g., the bathroom door).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Significant furniture discrepancies and missing items. The living room furniture is completely different (sofa replaced by bed). Kitchen counter layout is altered. Bathroom fixtures changed (toilet/sink placement, tub vs. shower).",
+            "point_deduction": 10
+        }
+    ],
+    "total_score": 31,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails significantly due to critical issues in structural fidelity, hallucination control, exact geometry of rooms, furniture mapping, and aesthetic quality, especially regarding the forbidden photorealistic rendering and text violations.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan6.jpg"
+}

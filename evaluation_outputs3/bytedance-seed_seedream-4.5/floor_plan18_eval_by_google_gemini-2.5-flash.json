@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met, indicating a successful transformation from 2D to 3D."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent dimensional transformation, clear viewing angle, and very clean cutaway. There is a slight visible artifact on one wall corner."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Room configuration, adjacency, and wall positions are highly accurate. Doors and windows are mostly correct, though some minor proportional differences exist (e.g., utility door size)."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present and correctly placed in their respective rooms with logical orientation. Scale is generally reasonable, although the dining table feels slightly small."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Structure is clear, and geometry is readable. Lighting is good, maintaining visibility. However, the presence of text labels (room names, dimensions) carried over from the 2D plan clutters the aesthetic and reduces the 'clean background' score. The kitchen label is also misspelled as 'KOYHEN'."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E5-STYLE",
+            "severity": "MAJ",
+            "description": "Text labels (room names, dimensions) from the 2D plan are present in the 3D render, reducing visual clarity and aesthetic coherence."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MIN",
+            "description": "Kitchen label is misspelled as 'KOYHEN'."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MIN",
+            "description": "Minor proportional differences in some door/window openings compared to 2D plan (e.g., utility door)."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D render is an excellent and geometrically faithful conversion of the 2D floor plan, accurately representing the layout and interior elements with high structural clarity, though marred slightly by the presence of 2D text labels.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan18.jpg"
+}

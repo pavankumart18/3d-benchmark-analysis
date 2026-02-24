@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": false,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": false,
+        "notes": "The second image remains a top-down 2D floor plan style graphic (recolored/cleaned), with no visible wall elevation, thickness, or multi-face 3D geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Rejected: no true 3D extrusion, no angled/isometric view, no cutaway volume."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to automatic rejection (not a valid 3D conversion)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to automatic rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to automatic rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "fatal",
+            "description": "Second image is not a 3D isometric/cutaway render; it is a flat, top-down 2D plan without wall height or thickness."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Rejected because the output is still a 2D top-down floor plan with no visible 3D wall height, thickness, or cutaway interior volume.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan20.avif"
+}

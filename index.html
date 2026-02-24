@@ -59,7 +59,8 @@
         <div class="mx-auto mb-4 text-center text-muted"
             style="max-width: 750px; font-size: 0.95rem; line-height: 1.5;">
             This analytical dashboard presents strict architectural verification metrics comparing generative 3D renders
-            against original 2D floor plans. We track layout inaccuracies, structural fidelity, and spatial distortions
+            against original 2D floor plans. We track 3D conversion fundamentals, geometric accuracy, interior elements,
+            and visual clarity
             across multiple models.
         </div>
 
@@ -92,24 +93,26 @@
                     <div class="col-md-6">
                         <div class="d-flex align-items-start">
                             <span class="badge bg-primary rounded fs-6 me-3 p-2 shadow-sm text-center"
-                                style="min-width: 50px;">40%</span>
+                                style="min-width: 50px;">35%</span>
                             <div>
-                                <div class="fw-bold text-dark d-flex align-items-center mb-1">Spatial Accuracy</div>
-                                <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.4;">Room
-                                    placement
-                                    (10), wall alignment (10), doors (10), windows (5), and proportions (5).</div>
+                                <div class="fw-bold text-dark d-flex align-items-center mb-1">3D Conversion Fundamentals
+                                </div>
+                                <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.4;">Walls have
+                                    appropriate height and thickness, perceivable interior volume, proper 3D wall corner
+                                    geometry, angled view, roof correctly removed, minimal perspective distortion.</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-flex align-items-start">
                             <span class="badge bg-success rounded fs-6 me-3 p-2 shadow-sm text-center"
-                                style="min-width: 50px;">25%</span>
+                                style="min-width: 50px;">30%</span>
                             <div>
-                                <div class="fw-bold text-dark d-flex align-items-center mb-1">Structural Fidelity</div>
-                                <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.4;">Wall
-                                    thickness
-                                    (5), correct embedding (5), adjacency (5) and no hallucinated/missing rooms (10).
+                                <div class="fw-bold text-dark d-flex align-items-center mb-1">Geometric Accuracy</div>
+                                <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.4;">Number of
+                                    rooms correct, adjacency relationships preserved, major wall positions align well,
+                                    proportional sizes, internal partitions, doors and windows present and correctly
+                                    placed.
                                 </div>
                             </div>
                         </div>
@@ -117,25 +120,25 @@
                     <div class="col-md-6">
                         <div class="d-flex align-items-start">
                             <span class="badge bg-warning text-dark rounded fs-6 me-3 p-2 shadow-sm text-center"
-                                style="min-width: 50px;">10%</span>
+                                style="min-width: 50px;">15%</span>
                             <div>
-                                <div class="fw-bold text-dark d-flex align-items-center mb-1">Furniture & Interior
-                                    Mapping
+                                <div class="fw-bold text-dark d-flex align-items-center mb-1">Interior Elements
                                 </div>
-                                <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.4;">Are major
-                                    furniture items scaled (5) and positioned accurately (5)?</div>
+                                <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.4;">Major
+                                    furniture, kitchen elements, and bathroom fixtures present. Furniture placed in
+                                    correct rooms with reasonable scales and logical orientation.</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-flex align-items-start">
                             <span class="badge text-white rounded fs-6 me-3 p-2 shadow-sm text-center"
-                                style="min-width: 50px; background-color: #0dcaf0;">25%</span>
+                                style="min-width: 50px; background-color: #0dcaf0;">20%</span>
                             <div>
-                                <div class="fw-bold text-dark d-flex align-items-center mb-1">Aesthetic Quality</div>
-                                <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.4;">Isometric
-                                    camera
-                                    (5), projection (5), lighting (5), clean geometry (5), and visual clarity (5).</div>
+                                <div class="fw-bold text-dark d-flex align-items-center mb-1">Visual Clarity</div>
+                                <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.4;">Walls,
+                                    floors, and openings clearly distinguishable. Readable geometry, clear interior
+                                    visibility, non-obscuring lighting, consistent materials, no major artifacts.</div>
                             </div>
                         </div>
                     </div>
@@ -170,12 +173,13 @@
                     <thead class="table-dark sticky-top">
                         <tr>
                             <th scope="col" class="sortable text-center text-nowrap" data-sort="model">Model</th>
-                            <th scope="col" class="sortable text-end text-nowrap" data-sort="spatial">Spatial (40)</th>
-                            <th scope="col" class="sortable text-end text-nowrap" data-sort="structural">Structural (25)
+                            <th scope="col" class="sortable text-end text-nowrap" data-sort="fundamentals">Fundamentals
+                                (35)</th>
+                            <th scope="col" class="sortable text-end text-nowrap" data-sort="geometry">Geometry (30)
                             </th>
-                            <th scope="col" class="sortable text-end text-nowrap" data-sort="furniture">Furniture (10)
+                            <th scope="col" class="sortable text-end text-nowrap" data-sort="interior">Interior (15)
                             </th>
-                            <th scope="col" class="sortable text-end text-nowrap" data-sort="aesthetic">Aesthetic (25)
+                            <th scope="col" class="sortable text-end text-nowrap" data-sort="clarity">Clarity (20)
                             </th>
                             <th scope="col" class="sortable text-end fw-bold text-nowrap" data-sort="total">Total Score
                                 (100)</th>
@@ -226,6 +230,41 @@
                         <!-- Populated via JS -->
                     </thead>
                     <tbody id="evaluator-tbody">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Appendix Section -->
+        <section class="mb-5">
+            <h2 class="section-title h3 mb-3">Appendix: Complete Scores</h2>
+            <p class="text-muted">A fully sortable list of all individual evaluations. Click any row to view its proof
+                in the modal.</p>
+            <div class="bg-body rounded shadow-sm border" style="max-height: 500px; overflow-y: auto;">
+                <table class="table table-sm table-hover align-middle mb-0" id="appendix-table"
+                    style="font-size: 0.8em;">
+                    <thead class="table-dark sticky-top">
+                        <tr>
+                            <th scope="col" class="sortable text-nowrap" data-sort="prompt">Floor Plan <i
+                                    class="bi bi-arrow-down-up ms-1 text-secondary"></i></th>
+                            <th scope="col" class="sortable text-nowrap" data-sort="model">Model <i
+                                    class="bi bi-arrow-down-up ms-1 text-secondary"></i></th>
+                            <th scope="col" class="sortable text-nowrap" data-sort="evaluator">Evaluator <i
+                                    class="bi bi-arrow-down-up ms-1 text-secondary"></i></th>
+                            <th scope="col" class="sortable text-end text-nowrap" data-sort="fund">Fund (35) <i
+                                    class="bi bi-arrow-down-up ms-1 text-secondary"></i></th>
+                            <th scope="col" class="sortable text-end text-nowrap" data-sort="geom">Geom (30) <i
+                                    class="bi bi-arrow-down-up ms-1 text-secondary"></i></th>
+                            <th scope="col" class="sortable text-end text-nowrap" data-sort="int">Int (15) <i
+                                    class="bi bi-arrow-down-up ms-1 text-secondary"></i></th>
+                            <th scope="col" class="sortable text-end text-nowrap" data-sort="clarity">Clar (20) <i
+                                    class="bi bi-arrow-down-up ms-1 text-secondary"></i></th>
+                            <th scope="col" class="sortable text-end fw-bold text-nowrap" data-sort="total">Total Score
+                                <i class="bi bi-arrow-down-up ms-1 text-secondary"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="appendix-tbody">
                         <!-- Populated via JS -->
                     </tbody>
                 </table>
@@ -364,25 +403,27 @@
                 <div class="modal-body p-4 text-dark text-start" style="background-color: #f8f9fa;">
                     <div class="p-3 border rounded shadow-sm bg-white"
                         style="white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.85rem; line-height: 1.6;">
-                        You are a strict architectural verification engine.
+                        You are an architectural 2D-to-3D conversion verification engine.
+
+                        Your task is to rigorously evaluate whether a true and geometrically faithful 3D transformation
+                        has occurred.
 
                         You are given:
                         1. Original 2D floor plan (first image)
-                        2. Generated 3D isometric render (second image)
+                        2. Generated 3D render (second image)
 
-                        Your task:
-                        Compare the 3D render against the 2D floor plan.
+                        You must verify a true 3D transformation occurred (walls have height, interior volume
+                        perceptible, angled view). Reject immediately if the output is just a 2D plan.
 
-                        You must:
-                        - Identify spatial inaccuracies
-                        - Identify missing rooms
-                        - Identify incorrect door placement
-                        - Identify incorrect window placement
-                        - Identify proportion distortion
-                        - Identify hallucinated elements
-                        - Evaluate aesthetic quality separately
+                        Use the weighted rubric:
+                        1. 3D Conversion Fundamentals (35 points): Dimensional transformation, viewing angle, cutaway
+                        treatment.
+                        2. Geometric Accuracy (30 points): Room configuration, wall geometry, doors and windows.
+                        3. Interior Elements (15 points): Furniture presence, scaling and mapping to rooms.
+                        4. Visual Clarity (20 points): Readability, lighting, minimal artifacts.
 
-                        Use the weighted rubric below. Be strict. Do not be lenient. Penalize structural deviations
+                        Provide specific JSON outputs for `scores` mapping to these criteria. Be strict. Do not be
+                        lenient.
                         heavily.</div>
                 </div>
             </div>

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortion. Toilet numbering is completely shuffled (Toilet-2 and Toilet-4 are swapped spatially). The entrance lobby/foyer is missing, and the maid's room is directly accessible from a hallway that doesn't exist in the plan. Window and door placements are inconsistent with the 2D source."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major violation of strict instructions: model includes floating text labels (DECK, BALCONY, TOILET-2). While the roof is removed and the model is on a neutral background, the presence of text labels is a severe penalty as per instructions."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture generally matches room types but faces scale issues. The living area configuration is altered from a multi-sofa setup to a more generic L-shape and table arrangement."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High adherence to visual style. Excellent low-poly execution, flat shading, and isometric camera angle. Soft lighting is well-implemented without being photorealistic."
+    },
+    "total_score": 57,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Strict violation: The 3D render contains text labels (DECK, LIVING & DINING, etc.) which were explicitly forbidden."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced rooms: Toilet-2 and Toilet-4 are swapped; the entrance lobby is entirely removed and replaced with a direct wall/door into the living area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing element: The specific entry foyer/lobby indicated by the red arrow and specific wall sequence in the 2D plan is gone."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination: Additional doorways and hallway structures created near the Utility and Maid's room that do not exist in the source plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan20.avif"
+}

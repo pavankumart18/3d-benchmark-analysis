@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height and thickness, rooms read as volumes, and the view is an elevated/isometric angle with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear 3D extrusion with coherent corners, visible floor plane, and clean cutaway. Minor simplification in some wall junctions/trim."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall layout matches: detached garage on right, two bedrooms on right side, living/dining on left, kitchen/bath core near center. Some plan features appear simplified/omitted (e.g., balcony/entry detailing and small service areas), and a few wall lengths/room proportions look approximate rather than dimension-faithful."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Kitchen counters/sink are present, but most furniture (beds/sofas/tables) and bathroom fixtures are largely absent or extremely minimal, limiting room identity verification."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean rendering with readable walls/openings and good visibility. Materials are consistent and background is uncluttered; minor ambiguity in some door/opening details due to simplification."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Some layout/proportion simplifications vs the 2D plan (notably small ancillary/edge features such as balcony/entry/service details) reduce strict dimensional fidelity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Several doors/windows are simplified; exact placement/swing/orientation cannot be confirmed for all openings against the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Most major furniture and bathroom fixtures are missing, limiting verification of room functions beyond the core layout."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A genuine, clean 3D cutaway that broadly matches the 2D layout, with moderate geometric simplification and limited interior fixtures/furnishings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan13.jpg"
+}

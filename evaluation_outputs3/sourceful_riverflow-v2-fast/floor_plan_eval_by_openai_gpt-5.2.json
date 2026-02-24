@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height and thickness, multiple faces are visible, and the view is an angled/isometric perspective with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear 3D extrusion of walls with readable corners and interior volume; clean cutaway with consistent wall heights. Minor simplification of some wall edges/openings reduces geometric rigor slightly."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall apartment massing and main zones (living/dining/kitchen + two bedroom wings + central hall) match the 2D plan, but several internal partitions/door placements appear simplified and some secondary rooms (closets/bath partitioning) are not clearly faithful."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Living/dining and kitchen elements are present (table, seating, kitchen run). Bedrooms and some ancillary spaces appear largely unfurnished/under-detailed compared to the 2D plan; bathroom fixture completeness is unclear/inconsistent across all wet areas."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Readable walls/floors/openings with neutral materials and a clean background; lighting is adequate though some areas are dim and low-contrast, making smaller partitions/openings harder to verify."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Noticeable simplification/possible misalignment of some interior partitions and secondary spaces (closets/bath subdivisions) relative to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "medium",
+            "description": "Doors/openings are not consistently verifiable on the same walls as in the 2D plan (some appear omitted or relocated)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "medium",
+            "description": "Bedrooms and some rooms lack the major furniture shown/implied in the 2D plan, reducing room identity confirmation."
+        }
+    ],
+    "total_score": 75,
+    "verdict": "GOOD",
+    "summary": "A valid cutaway 3D conversion with strong 3D fundamentals and broadly correct zoning, but with simplified partitions/openings and missing room furniture that limit strict plan fidelity verification.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan.jpg"
+}

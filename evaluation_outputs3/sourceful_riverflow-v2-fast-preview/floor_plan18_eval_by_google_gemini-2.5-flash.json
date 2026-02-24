@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All checks passed; genuine 3D conversion detected."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Good dimensional transformation with visible height, thickness, and volume. The viewing angle is appropriate and the cutaway is clean, though some geometric lines appear slightly broken at the cut."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Room configuration is largely accurate with correct adjacencies and proportions. Wall geometry is good. However, the door to the toilet is missing, and some windows are either missing or not clearly represented as windows (e.g., in the kitchen)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Most major furniture items are present and in the correct rooms, with reasonable scale and orientation. However, the dining table and chairs are significantly different in style and placement from the 2D, and general fidelity of fixtures could be higher."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Excellent structural clarity with distinguishable elements. Lighting effectively illuminates the interior without obscuring geometry. Aesthetic coherence is high with consistent materials and no major artifacts, though the wireframe effect could be distracting if not intended."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door to the toilet is missing in 3D render."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows are either missing or visually ambiguous in the 3D render (e.g., kitchen)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Dining table and chairs in 3D are significantly different in style and placement compared to the 2D plan."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is highly successful, presenting a geometrically faithful and clear representation of the 2D floor plan with only minor discrepancies in smaller details like doors, windows, and some furniture specifics.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan18.jpg"
+}

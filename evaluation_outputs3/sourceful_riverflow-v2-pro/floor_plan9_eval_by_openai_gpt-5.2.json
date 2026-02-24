@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is an angled cutaway with extruded walls (height + thickness), visible room volumes, and the ceiling/roof removed to reveal interiors."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall extrusion and cutaway; corners read as 3D. View is elevated/angled with minimal distortion; some walls/openings simplified."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "Overall macro-zoning matches (living/kitchen left, master suite top-right, secondary bedrooms right, garage bottom-right). However, patios/covered patio areas are not represented as distinct spaces, and several partitions/door locations appear simplified or shifted."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (beds, sofas, dining tables) and kitchen island/counters shown. Bathroom/utility fixtures are partially represented but simplified; some rooms have minimal or ambiguous fixture detail."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Readable walls/floors and consistent materials. Lighting is adequate for layout comprehension; some openings/doorways are hard to distinguish due to simplification."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Exterior/patio areas from the 2D plan are largely omitted or not modeled as distinct spaces, reducing full layout fidelity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are simplified; several door placements and opening proportions are not clearly matched to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Some rooms (bath/utility/hall) have simplified or incomplete fixture/furnishing representation, making room identity less explicit."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall zoning and volumes, but with notable simplification/omission of patio/exterior spaces and some door/opening fidelity loss.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan9.png"
+}

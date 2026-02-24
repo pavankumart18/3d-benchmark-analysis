@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Excellent layout preservation and room adjacency. Door and window placements are largely accurate, though some door swings are simplified or reversed. Scalings and proportions are highly consistent with the source plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Structural geometry is correct, but failed the strict 'no text labels' constraint significantly. Every room contains hallucinated legibility-style text and measurement lines carried over from the source image. The background and floating model requirements were met successfully."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent blocky furniture mapping. Sofa sets, dining group, and bedroom layouts are accurately placed. Only minor simplification in the kitchen counter details noted."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Clean low-poly aesthetic with flat shading and soft ambient light. Camera is correctly isometric. Points deducted for the presence of text which breaks the architectural visualization style requested."
+    },
+    "total_score": 76,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Critical violation: Hallucinated text labels and pseudo-measurements present in every room of the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Slight distortion in the kitchen area wall thickness compared to the foyer entrance."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan17.jpg"
+}

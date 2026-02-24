@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout and wall geometry are excellent. All rooms are present and adjacencies are preserved. Relative room sizes and overall footprint are maintained. Wall positions are accurate. Corner angles are preserved. Doors are mostly accurate in placement; however, the utility room and foyer doors are missing their swing direction. The entrance door to the unit (from foyer) is missing completely. All windows are present and correctly placed. Consistent scale is applied."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is completely removed and interior walls are visible. No missing structural elements or hallucinated rooms/features. However, UI is not clean, as there are text labels (bed, sofa, etc.) which are not part of the 3D model geometry. The background is dark, but the model is not floating/isolated, as there is a floor plane and distinct shadows."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 5
+        },
+        "notes": "Most major furniture and fixtures are present and accurately placed. Bedroom: bed and side tables present. Living/Dining: sofa, coffee table, and dining table present. Kitchen: counters, sink, stove, and refrigerator present. Toilet: toilet, sink, shower present. Utility has no clear fixtures in the 2D plan and none are present in 3D. The Balcony has a small table and chair which is not present in 3D, leading to a minor deduction."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Geometry uses low-poly simplified forms with flat-shaded surfaces and clean edges, without textures. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. Camera uses a true isometric projection at an appropriate 45-degree rotated plan view, centered and zoomed correctly."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Small table and chair missing from balcony.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels showing object types (e.g., 'BEDROOM', 'LIVING / DINING') and measurements ('10'0\"X12'0\"') are rendered on the floor plane, violating UI cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Ground plane and distinct shadows are present, violating presentation context.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing front door to the unit (from foyer) in the 3D render.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 87,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates high spatial accuracy and aesthetic quality, successfully translating most geometric elements and furniture. However, it fails on structural fidelity due to the presence of text labels and a ground plane, and misses some door details.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan18.jpg"
+}

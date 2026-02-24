@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a true isometric 3D cutaway with consistent wall height and interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clear wall thickness and clean geometry; slight minor perspective distortion at the far edges."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "High layout fidelity; all rooms/partitions match the 2D layout. Entrance doors and window placements are highly accurate."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement is nearly 1:1 with the floor plan, including correctly oriented beds, dining sets, and bathroom fixtures."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean clay-style render; lighting provides great depth. Minus points for some slight 'blocky' artifacts in furniture corners."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "The kitchen island/breakfast bar area is slightly simplified compared to the complex cabinetry shown in the CAD drawing."
+        }
+    ],
+    "total_score": 94,
+    "verdict": "EXCELLENT",
+    "summary": "This is a geometrically faithful and high-quality 3D conversion that accurately maps the complex CAD layout into a clean isometric model.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan5.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacencies are correct. Minor inaccuracies in door hinge orientation (Bedroom 1 door opens outward instead of inward). Window placement is mostly faithful, though the window in the stairwell is missing a pane divider."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to cutaway view and background constraints. Deduction taken for the 'UP' staircase landing being rendered as a hole/void rather than a solid continuation of the floor structure as indicated in the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate, specifically in the kitchen and dining areas. The sofa arrangement in the living room is slightly simplified compared to the specific U-shape indicated in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly geometry, flat shading, soft ambient lighting, and an orthographic isometric camera angle are all present."
+    },
+    "total_score": 91,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bedroom 1 door leaf orientation is reversed compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The stairwell floor contains a black void/hole not present in the architectural intent."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific detail in living room furniture (individual armchairs replaced by a simpler modular block)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan7.jpg"
+}

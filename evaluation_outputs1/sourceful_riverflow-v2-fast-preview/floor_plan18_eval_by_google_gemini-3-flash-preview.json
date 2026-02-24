@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacency are well-preserved. However, there is a major door orientation error: the balcony door opens toward the living room rather than the balcony. The kitchen-to-living transition is slightly wider than scaled in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No missing rooms and no text/labels. Deducted points for minor hallucination of a vertical pillar/duct element in the kitchen-foyer junction not clearly defined in the plan."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate, matching the block style. The dining table, sofa, and bed align perfectly with the source layout."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The model follows the low-poly, no-texture requirement. However, the lighting is slightly more dramatic/directional than 'flat shading', creating deep shadows in the bedroom and foyer area. Camera is orthographic isometric as requested."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Inverted balcony door swing direction; door opens into the living area instead of out or along the balcony wall as indicated by the plan's arc."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated structural pillar or box element at the corner of the kitchen entrance and foyer."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting is somewhat dramatic with visible gradients and shadows rather than purely flat ambient shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan18.jpg"
+}

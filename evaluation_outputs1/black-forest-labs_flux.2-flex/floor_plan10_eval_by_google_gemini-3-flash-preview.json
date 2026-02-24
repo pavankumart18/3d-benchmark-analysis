@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "General floor plan layout is largely followed, but there are dimensional distortions. The Bed 3/Bed 4 area is compressed. The master suite and ensuite walls do not perfectly align with the 2D plan's complex partitions."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The roof is correctly removed and the model floats on a dark background. However, the 'Alfresco' area has been enclosed with solid walls instead of being an open terrace, which is a structural reinterpretation."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the blueprints, including the island bench, seating in the living area, and bed orientations. Scale is consistent."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent low-poly aesthetic and flat shading. Lighting is soft and ambient as requested. The camera view is isometric, though slightly narrower than a true 45-degree orthographic projection."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The Alfresco area is rendered with full-height walls instead of the open-air layout shown in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Alignment of the pantry and kitchen island is slightly shifted compared to the theatre wall alignment."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated solid exterior walls in the Portico/Verandah zones which should be open pillars or low-walled."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 5
+        },
+        "notes": "Room count matches. Adjacency is mostly preserved although one balcony connection is missing. Relative room sizes are generally proportional. Overall footprint shape maintained. Wall positions have some inaccuracies, especially around the utility room and service room. Corner angles preserved. Doors mostly present and on correct walls, but swing directions aren't uniformly maintained from the 2D plan. Windows are present and on correct walls. Consistent scale factor and no aspect ratio distortion."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 0,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is incomplete, showing partial ceilings/soffits, especially visible in bedrooms and the living area. The roof is not fully removed. All rooms and structural elements are present. No extra rooms or architectural features were added. UI/annotations are present (room names, dimensions). The background is dark, but there's a visible ground plane under the model."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present. Kitchen and bathroom fixtures are also mostly indicated, though some specific details like the toilet in Bed Room 2's toilet and the toilet near Bed Room 4 are missing from the 3D. Placement of furniture is generally off, with many pieces shifted from the 2D plan, for example, the bed in M. Bed Rm, the dining table, and various sofas in the living room. Scales seem appropriate but placement is a significant issue."
+    },
+    "aesthetic_quality": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 0,
+            "camera_composition": 5
+        },
+        "notes": "The geometry uses textures/materials (wood floors, rugs, tiled bathrooms, patterned walls) and includes details beyond low-poly simplified forms. Surfaces are not flat shaded but show reflections and material properties. The rendering includes significant shadows, reflections, and material definition, indicating a deviation from flat colors and minimal lighting. The camera view is isometric, 45-degree rotated, well-centered, and appropriately zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels and dimensions are present in the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering with textures, reflections, and detailed materials is used.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Roof not fully removed; partial ceilings/soffits are visible, especially in bedrooms and living area.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Multiple furniture pieces are significantly misplaced from the 2D plan (e.g., master bedroom bed, dining table, living room sofas).",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Specific fixtures (e.g., toilet in Bed Room 2's toilet, toilet near Bed Room 4) are missing.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors have incorrect swing directions compared to the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Visible ground plane beneath the model.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall position inaccuracies in utility room and service room.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 40,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to the presence of text labels, photorealistic rendering with textures, and an incomplete cutaway view, significantly impacting structural fidelity and aesthetic quality. While spatial accuracy is fair, furniture placement and several critical rendering constraints are not met.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan17.jpg"
+}

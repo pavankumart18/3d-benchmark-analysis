@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology is mostly preserved. Wall geometry is good overall, but some minor misalignments exist. Doors are accurately placed and mostly match swing. Windows are underrepresented in the 3D model, with several missing. Dimensional scaling appears consistent."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "Cutaway view is excellent, showing interior walls clearly. Completeness is good, no major structural elements are missing. Hallucination control is strong, no extra rooms or features. UI/Annotation Cleanliness is poor due to the 'RECESS' text. Presentation context is decent, but the ground plane beneath the garage extends slightly."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture and fixtures are present and placed in corresponding rooms. However, some specific items like the washer/dryer are missing, and some furniture is generic rather than matching specific types (e.g., bedroom 2 furniture is absent). Placement and scale are generally appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style adheres to low-poly, flat-shaded forms, though there are subtle reflections/gradients on some surfaces. Lighting is soft ambient with minimal shadows, but some direct light is evident. Camera composition is good, with a true isometric projection, but the 45\u00b0 rotation is slightly off-axis."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Washer/dryer missing from laundry room.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture missing from BED 2.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text 'RECESS' present on a wall in the 3D render.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some windows are missing from exterior walls (e.g., Activity, Bed 3, Bed 4, Theatre, Master Suite).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle reflections/bevels visible on certain furniture pieces and wall tops, indicating non-flat shading.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Recess' area on the north wall of Living/Alfresco is slightly misrepresented/offset.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane extends slightly beyond Garage area.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 82,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully translates the 2D floor plan with high spatial accuracy and structural fidelity, maintaining a consistent low-poly aesthetic. Key deductions are due to missing windows, some furniture incompleteness, and a critical violation of UI cleanliness (text presence).",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan10.png"
+}

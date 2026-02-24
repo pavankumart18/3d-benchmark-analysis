@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion verification checks passed. The generated image is a true 3D isometric cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have clear height, thickness, and proper 3D corner geometry. Interior volume is well-perceivable. The viewing angle is an excellent angled/isometric view, providing good visibility into the interior. The roof/ceiling is cleanly removed, exposing all interior spaces. Minimal perspective distortion. Scored 5/5 for cutaway treatment, 15/15 for dimensional transformation, and 10/10 for viewing angle."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "The room configuration, adjacency, and relative proportions are largely preserved. The number of rooms and their identities (bedroom, living/dining, kitchen, toilet, balcony) match the 2D plan. Major wall positions and internal partitions are correct. Wall lengths appear proportional. Doors are mostly present and on correct walls, but the utility door is missing. Windows are present, on correct walls, and their sizing is reasonable."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture (bed, sofa, dining table) and kitchen elements (sink, counter, stove) are present. Bathroom fixtures (toilet, sink, shower) are present. Furniture is placed in correct rooms, and their scale is reasonable relative to the room size. The orientation of furniture is logical."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. The geometry is readable and not visually confusing. Interior is clearly visible with good lighting that does not obscure geometry. The materials are consistently applied with a clean aesthetic. There are no major rendering artifacts or broken meshes. The background is clean and facilitates clear presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "The door to the 'UTILITY' area shown in the 2D plan is missing in the 3D render."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "The conversion from 2D to 3D is highly successful, demonstrating excellent geometric fidelity and clear representation of interior spaces with only a minor omission of one door.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan18.jpg"
+}

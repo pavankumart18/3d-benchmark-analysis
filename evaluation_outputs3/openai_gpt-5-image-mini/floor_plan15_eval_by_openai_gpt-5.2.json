@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D isometric/cutaway model: walls have height and thickness, multiple faces are visible, and the ceiling/roof is removed to expose interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Clear 3D extrusion with readable corners and volumes; isometric view is correct and the cutaway is clean. Minor simplification of architectural detailing and openings."
+        },
+        "geometric_accuracy": {
+            "score": 10,
+            "max": 30,
+            "notes": "Overall apartment footprint and a central living space are suggested, and three bedrooms are present, but the 2D plan\u2019s key program/layout is not faithfully reproduced: multiple toilets/baths, utility, and balcony placements do not match; internal partitions and circulation (wide passages) are heavily altered/simplified."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Beds and living/dining furniture are present; basic kitchen counters/appliances implied. Bathroom fixtures are largely missing/unclear versus the 2D plan\u2019s multiple toilets."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean render with good readability of walls/floors and minimal artifacts. Openings are visible but not detailed enough to verify against the plan."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "high",
+            "description": "Several major plan spaces are missing or not represented correctly (multiple toilets/baths, utility area, and balcony configuration compared to the 2D plan)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "high",
+            "description": "Internal wall/partition layout and circulation relationships (passages, adjacency of wet areas to bedrooms/kitchen) are significantly distorted from the 2D drawing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "medium",
+            "description": "Door/window placement and quantity cannot be matched to the 2D plan; openings appear simplified and likely on incorrect walls."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "low",
+            "description": "Furniture is generic and does not help reliably identify all rooms (notably bathrooms), reducing room-identity fidelity."
+        }
+    ],
+    "total_score": 63,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway was produced, but the generated model significantly deviates from the 2D plan\u2019s room program and partition geometry (especially wet areas, utility, and balconies).",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan15.webp"
+}

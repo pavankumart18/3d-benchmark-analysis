@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but there are distortions in the kitchen/utility wing. Several internal door thresholds are missing or represented as open voids rather than swing doors. Window placement on the perimeter is simplified."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to cutaway view and background constraints. No text or UI elements present. Minor structural reinterpretation in the lower utility/toilet area where wall partitions are slightly simplified compared to the complex original plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture scale and placement are largely accurate, including the dining set and living room configuration. The kitchen island is a slight reinterpretation of the U-shaped counter shown in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly geometry, flat shading, no textures, and a correct isometric orthographic camera angle."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific internal door swing representations; thresholds are mostly open gaps."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout changed from U-shape/perimeter to an island configuration."
+        },
+        {
+            "code": "E4",
+            "description": "Minor simplification of the wall geometry in the bottom-right utility and bathroom cluster."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan19.webp"
+}

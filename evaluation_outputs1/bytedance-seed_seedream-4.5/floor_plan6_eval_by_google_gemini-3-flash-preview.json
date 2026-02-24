@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is highly consistent with the 2D plan. Door swings are mostly accurate. However, window placements on the bottom wall differ from the plan (the plan shows three window segments, whereas the render shows variations in spacing). The balcony thickness is also slightly exaggerated compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Roof is correctly removed and the model floats on a neutral background. However, the render severely fails the 'NO text labels' constraint by hallucinating 'Bedroom' and 'Kitchen/Living' text directly onto the 3D floor, appearing to copy the 2D plan's annotation layer into the 3D space."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent clean block-style furniture mapping. Kitchen counters, sink, stovetop, bed, dining table, and bathroom fixtures are all placed accurately at the correct scale."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Generally strong isometric presentation with low-poly geometry. Some sub-surface scattering or soft shadows make it lean slightly more towards 'stylized 3D' than pure 'flat-shaded 2D', but it remains non-photorealistic. Correct orthographic camera angle."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated text labels ('Bedroom', 'Kitchen/Living') rendered onto the floor of the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Minor window spacing discrepancy on the bottom exterior wall compared to the source floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Plants on the balcony are stylized but more detailed than the 'clean block-style' architecture suggests."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Severe layout architectural drift. The kitchen area is partitioned into small rooms not present in the plan. The unique central bathroom block is enlarged and merged with additional interior walls. Window and door counts do not match the source."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model successfully removes the roof and uses a dark background. However, it hallucinates multiple interior walls and additional rooms (E4), and fails to correctly render the staircase structure shown in the plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Includes blocky furniture, but the placement is arbitrary and does not follow the kitchen counter layout or defined living spaces in the 2D plan. Scale is inconsistent across rooms."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good adherence to the low-poly, flat-shaded style. The isometric camera angle is correct. Lighting is soft and non-photorealistic as requested."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated multiple interior partitions and extra rooms not present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Central bathroom block is misplaced and scaled incorrectly; staircase is partially missing or incorrectly rendered as a generic room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific door placements and window counts from the perimeter walls."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout does not match the 'L' shape and stove placement provided in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan3.jpg"
+}

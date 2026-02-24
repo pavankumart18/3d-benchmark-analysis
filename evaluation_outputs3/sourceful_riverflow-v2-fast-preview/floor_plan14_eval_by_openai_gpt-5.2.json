@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "The second image appears to be a 3D model/cutaway, but it is presented in an almost pure top-down orthographic view rather than an angled/isometric perspective, triggering automatic rejection per rubric."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Rejected due to near/pure top-down orthographic presentation."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "FATAL",
+            "description": "Automatic rejection condition met: the 3D render is shown in a (near) pure top-down orthographic view rather than an angled/isometric cutaway view."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Despite 3D-like elements (thickness, furniture, cutaway), the output is presented in a near/pure top-down orthographic view, failing the required angled/isometric 3D conversion criterion.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan14.webp"
+}

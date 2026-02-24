@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General wall layout and room adjacency are well preserved. Major deductions for the dining room area which features external stairs not present in the plan and the pantry which has been reinterpreted as a secondary bathroom/storage hybrid."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Model is correctly floating on a dark background with walls visible. However, structural hallucinations are present: exterior stairs added to the bottom wall (Dining Room) and the pantry walls were altered to accommodate distinct fixtures not in the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen counters and island are well placed. Playroom and living room furniture is added (hallucinated) as the plan was largely empty, but they maintain appropriate low-poly scaling."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to the low-poly, flat-shaded aesthetic. Camera angle is correct isometric. Lighting is soft and non-dramatic as requested."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated exterior staircase at the dining room entrance."
+        },
+        {
+            "code": "E2",
+            "description": "Internal pantry layout distorted and reinterpreted with additional fixtures."
+        },
+        {
+            "code": "E4",
+            "description": "Furniture added to the living room and playroom that was not indicated in the original floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan8.jpg"
+}

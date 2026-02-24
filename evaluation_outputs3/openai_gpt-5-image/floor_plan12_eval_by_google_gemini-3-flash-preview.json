@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "A valid 3D transformation occurred, but the spatial content does not match the input plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Solid 3D execution with clear wall height, thickness, and isometric perspective."
+        },
+        "geometric_accuracy": {
+            "score": 5,
+            "max": 30,
+            "notes": "Critical failure. The 3D render represents an entirely different floor plan (kitchen/living/garage) compared to the input (3-bedroom apartment/upper floor)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Furniture (dining table, sofas, car) bears no resemblance to the programmed rooms in the 2D plan (beds, bathroom fixtures, stairs)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "The render itself is clean and readable, but functionally irrelevant to the source."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "FATAL",
+            "description": "The layout is completely uncorrelated; 3D contains a garage and kitchen not present in the 2D plan; 2D bedrooms and balcony are missing."
+        }
+    ],
+    "total_score": 52,
+    "verdict": "FAIL",
+    "summary": "While a high-quality 3D render was generated, it represents a completely different floor plan than the one provided in the source image.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan12.png"
+}

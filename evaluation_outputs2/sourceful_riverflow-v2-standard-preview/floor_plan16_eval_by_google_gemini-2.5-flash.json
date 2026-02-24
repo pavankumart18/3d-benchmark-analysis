@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is largely correct, but the Utility room is completely missing. Wall geometry shows significant misalignment in the kitchen/utility area. Door placements are mostly accurate, but the utility door and bedroom closet doors are missing. Window presence is partially matched. Consistent scaling is observed despite geometric inaccuracies."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 0,
+            "hallucination_control": 3,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is mostly compliant, but some exterior walls extend unusually high. Completeness suffers due to the entirely missing Utility room and missing closet in the bedroom. No major hallucinations, but the balcony railing is simplified. UI cleanliness is perfect. Presentation context is poor with a ground plane and extended shadows."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. Kitchen and bathroom fixtures are present. However, the bedroom closet is completely missing, and the utility room's appliances are absent. Furniture placement within rooms is generally accurate, but some items are slightly off."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style uses low-poly forms and flat shading, but some surfaces show gradients/slight textures, particularly on the kitchen countertops and balcony railing. Lighting is soft, but shadows are a bit more pronounced than 'minimal'. The camera view appears to be a true isometric projection, but the 45-degree rotation from plan view is not exact (more like 30-40 degrees), and the model is not perfectly centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'Utility' room is missing from the 3D render.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The kitchen's wall layout, particularly where it connects to the Utility area, is significantly altered/missing due to the missing room. The kitchen's left wall geometry is not accurately preserved.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Numerous furniture/fixture items missing: appliances from utility, closet/wardrobe in bedroom.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle textures/gradients perceived on kitchen countertops and balcony railing, impacting 'solid flat colors only' rule.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Exterior walls extend too high in the render, not a pure cutaway.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera angle not precisely 45-degree rotated plan view; model not perfectly centered within the frame.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Presence of a visible ground plane and extended shadows beneath the model.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely fails to meet the architectural verification standards primarily due to the critical omission of an entire room and several wall geometry inaccuracies. While UI is clean and basic forms are present, the pervasive structural incompleteness and some non-compliant aesthetic choices lead to a 'FAIL' verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan16.avif"
+}

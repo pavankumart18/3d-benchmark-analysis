@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible interior volume, and an angled/isometric-like camera with ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and room volume; clean cutaway. Minor simplification of some wall cap/top-face treatment and openings."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall layout broadly matches (large living area, kitchen zone, central hall, garage block, master suite zone). Some exterior/edge conditions (covered patios/nook geometry) appear simplified/omitted, and several partitions/openings do not precisely match the 2D plan."
+        },
+        "interior_elements": {
+            "score": 4,
+            "max": 15,
+            "notes": "Only minimal interior elements are modeled (notably kitchen cabinetry/counter). Bedrooms/baths lack key fixtures/furniture expected from the plan."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean, readable model with consistent materials and good visibility; no label/UI clutter. Some openings/door details are visually generic."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Several plan-specific boundary features (e.g., covered patio areas and some nook/exterior shaping) appear simplified or missing, reducing strict layout fidelity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placement and sizing are partially generic; multiple openings do not clearly correspond to the exact walls/locations shown in the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "major",
+            "description": "Furniture/fixtures are largely absent (bath fixtures, bedroom furniture, living/dining items), limiting verification of room identity and scale."
+        }
+    ],
+    "total_score": 74,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway with strong volumetric conversion, but only moderate plan-accuracy and very sparse interior elements/opening fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan9.png"
+}

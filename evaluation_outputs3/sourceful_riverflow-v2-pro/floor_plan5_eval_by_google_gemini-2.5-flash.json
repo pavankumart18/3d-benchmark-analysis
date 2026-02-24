@@ -1,0 +1,40 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "The viewing angle is very close to top-down orthographic, lacking significant angling despite exhibiting 3D elements."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 25,
+            "max": 35,
+            "notes": "Walls have height and thickness, floors are distinct, and interior volume is perceivable. However, the view is almost entirely top-down, diminishing the angled view and elevated perspective scores. Wall corners are properly rendered in 3D. Roof is cleanly removed and interior is visible. The viewing angle is not truly angled."
+        },
+        "geometric_accuracy": {
+            "score": 30,
+            "max": 30,
+            "notes": "All rooms from the 2D plan are present, and their adjacency relationships are perfectly maintained. Relative room proportions appear to be perfectly preserved. Major wall positions and internal partitions align accurately with the 2D plan, and wall lengths are proportional. Doors are present and correctly placed. Windows are also present and on correct walls, and their sizes and orientations are proportional."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "Major furniture items like beds, sofas, and tables are present. Kitchen elements (island, stove, sink) and bathroom fixtures (toilets, sinks, showers) are included. All furniture is placed in the correct rooms, and their scale is reasonable relative to the room size. Their orientation is logical and matches the inferred layout from the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. The geometry is readable and not visually confusing, with a clean and clear presentation. Interior is perfectly visible due to the lighting. There are no major rendering artifacts or broken meshes. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully translates the 2D floor plan into a geometrically accurate 3D model, maintaining layout fidelity and interior elements, though the viewing angle is very close to a top-down orthographic perspective.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan5.jpg"
+}

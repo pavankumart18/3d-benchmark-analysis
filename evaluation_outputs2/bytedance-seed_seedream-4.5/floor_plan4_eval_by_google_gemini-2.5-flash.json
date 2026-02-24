@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall room count and adjacency are correct. One wall in Laundry room appears slightly thicker than reference. Closet door in Hall shown as swing door in 2D but appears as sliding door in 3D. Some furniture notably oversized affecting relative room sizes. Minor scaling inconsistency: Hallway seems wider than proportional."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is correctly removed, and all interior walls are visible. No additional rooms or architectural features are hallucinated. However, text labels are prominently present inside the rendering, and the background is a solid color rather than a dark neutral gradient with a floating model presentation."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces including beds, sofas, dining table, kitchen counters, and bathroom fixtures are present. However, the scale of some furniture, particularly the dining set and Living Room sofas, appears overly large for the designated spaces, impacting the sense of room size. The single armchair in Bedroom 2 is missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 2,
+            "lighting_rendering": 8,
+            "camera_composition": 5
+        },
+        "notes": "The geometry uses simplified forms and clean edges. However, the surfaces are not solid flat colors; there's a noticeable texture/material applied to walls and floors, and the windows emit light, indicating a more complex rendering approach than 'flat shaded'. Lighting is generally soft ambient, but the illuminated windows add significant contrast. The camera composition is an accurate isometric perspective with appropriate framing and zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels (room names and square footage) are present inside the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Surfaces exhibit subtle textures and shading beyond solid flat colors (e.g., floor texture, lighted windows).",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Armchair in Bedroom 2 is missing.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Closet door in Hallway rendered as sliding door instead of swing door.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural integrity, but fails to meet stringent aesthetic and UI cleanliness requirements due to text overlays and non-flat shading.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway/isometric 3D model: walls extruded with visible thickness, multiple wall faces (top/side) visible, interior volumes readable, and ceiling/roof removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion with clear wall height/thickness and readable corner geometry; isometric-like camera and clean cutaway. Minor simplifications in wall detailing/openings."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall layout matches (living/dining core, kitchen+utility to left/bottom, bedroom wing to right). Some room/bath subdivisions and proportional relationships appear simplified versus the 2D plan, and not all openings/partitions are clearly verifiable as exact."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (living seating, dining table, beds) and kitchen/bath fixtures exist, but some fixtures/room-specific detailing (e.g., dress/toilet segmentation) appears generalized."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is readable with good contrast and lighting. Room text labels are present (UI contamination) and slightly reduce presentation cleanliness; glazing/wall materials sometimes reduce edge clarity."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Some room proportions and internal partitioning (notably bathroom/dress/ancillary segmentation) appear simplified compared to the 2D plan, reducing strict layout fidelity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows/opening placements are not fully traceable to the 2D plan; several openings look generalized or not clearly aligned to specific walls."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels are visible in the 3D render, reducing presentation cleanliness per rubric."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A clearly valid 3D cutaway conversion with strong spatial readability and mostly faithful layout, but with noticeable simplification in partitions/proportions and non-verifiable door/window accuracy.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan17.jpg"
+}

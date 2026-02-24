@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major layout distortions detected. The entire top wing (Bed 3, Bed 4, Bath) has been compressed or merged incorrectly. Bed 2 is significantly oversized compared to the plan. Door placements are largely hallucinated or missing standard hinged representations."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Failed strict UI constraint: 'RECESS' text label is visible in the bathroom area. The 'Alfresco' area is missing the outer structural columns and defined boundary. The laundry/WIL/WC zone is structurally reinterpreted into a single open-plan bathroom space."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Living room and Theatre furniture approximate the plan, but the kitchen island is missing, and study furniture is incorrectly oriented. Car placement in garage is accurate."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "General low-poly style and isometric camera are correct. However, lighting is slightly more dramatic than 'flat shading' requires, and the text overlay significantly penalizes this section under strict adherence."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Text label 'RECESS' present on the model floor."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bed 3 and Bed 4 individual room partitions and the Kitchen island/breakfast bar."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion: The Alfresco area and Dining area are merged and lack proper wall boundaries."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated shelving and decorative objects in the master suite area not present in 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan10.png"
+}

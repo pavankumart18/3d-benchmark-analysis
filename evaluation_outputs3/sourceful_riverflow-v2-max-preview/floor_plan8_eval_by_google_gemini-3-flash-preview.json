@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully creates a 3D cutaway representation with consistent wall thickness and depth."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent isometric conversion; walls and floors are clearly defined with proper cutaway logic."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Layout is largely faithful. Note: The angled bump-out in the living room and stairs are correctly placed, but some interior door swings are simplified."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Kitchen island and major plumbing fixtures are represented as block geometry in correct locations."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean rendering; lighting provides clear readability of the structure without UI contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Some door swing indicators from the 2D plan are rendered as simple openings or partial walls."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A high-fidelity 3D transformation that accurately preserves the complex spatial layout of the original floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan8.jpg"
+}

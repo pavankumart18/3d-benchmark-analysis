@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 7,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches. Adjacencies are mostly preserved. Relative room sizes are proportional, though some wall thicknesses seem exaggerated in 3D. The overall footprint is maintained. Wall positions are generally accurate but there are variations in thickness and some slight misalignments. Corner angles are preserved. Two doors are missing. Door placements are mostly correct for existing doors, but swing direction is not clear for some. Window presence and placement are mostly good for the balcony area, but other windows from the 2D plan (e.g. in bedroom, toilet, kitchen) are not present or not clearly visible. Scaling appears mostly consistent, but wall thickness distortion slightly impacts score."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 1,
+            "presentation_context": 1
+        },
+        "notes": "Roof is completely removed, and interior walls are fully visible. One door is missing (between living/dining and bedroom, and utility door). No extra rooms or architectural features added. UI/Annotation Cleanliness major deduction due to significant text present in the image plane (on the bottom left corner). Presentation context is okay, but shadows extend somewhat, and some elements hover. Background is dark."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "The bed, sofa, and dining table are present. Kitchen counters and sink are present. Toilet fixtures are present. Many cabinets/storage units are missing, particularly in the bedroom and utility. The placement of existing furniture roughly matches the plan, but the dining table is a single elongated object instead of a table with chairs, and its orientation is different. The sofa's orientation is also different. Kitchen fixtures are mostly present but exact details vary. Bathroom fixtures are present and correctly placed."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "Not low-poly, surfaces are not flat shaded (there is some shading/smoothness). Edges are generally clean. Some textures/gradients are present on floor and furniture, not solid flat colors. Lighting is not strictly ambient, directional lighting with noticeable shadows is present. Colors are distinguishable. True isometric projection, centered framing, and appropriate zoom. The overall rendering style leans slightly more towards semi-realistic than the specified low-poly, flat-shaded style."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the bottom left corner of the image.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing door between living/dining and bedroom.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing door to the utility area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing a majority of windows from the 2D plan, only balcony window is clear.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some textures/gradients on surfaces and furniture, not solid flat colors.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Many furniture pieces (cabinets, storage) from the 2D plan are missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table is represented as a single block and has a different orientation.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 56,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render provides a generally accurate layout but suffers from missing doors, windows, and furniture, as well as critical violations in UI cleanliness and subtle deviations from the specified aesthetic style, leading to a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Lounge/Dining area combined into one large space, making it difficult to assess relative sizes precisely. Balcony completely missing. Entry area significantly different. Garage structure is not attached to the main building. One bedroom wall is missing a window that is present on the 2D plan. Door swing directions are often incorrect or not clearly identifiable. Overall footprint shape has been significantly altered, especially around the entry and balcony areas."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 2,
+            "hallucination_control": 3,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The balcony and laundry room are completely missing as separate entities. The garage is detached and presented as a separate module. Presentation context is violated with a clear ground plane shadow. The 'Linen' closet from the 2D plan is missing or generalized."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 1
+        },
+        "notes": "Missing all major furniture for Lounge, Dining, and Bedrooms. Kitchen has some appliances and counters, but layout is simplified. Bathroom and WC fixtures are present but not accurately mapped from the 2D plan (e.g., bathtub vs. shower). Hallucinated a car in the garage. Wardrobe is present but simplified. Laundry appliances are not distinctly present where the 'L'dry' room should be."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly and flat-shaded. Lighting is acceptable. Camera composition is good. However, specific material textures are present, like the concrete floor in bedrooms and garage, and tile texture in bathroom/WC areas, which violates the 'solid flat colors only' rule. This is a minor violation as it's not full photorealism, but it's not strictly solid colors."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Balcony is completely missing. Dining/Lounge areas are merged rather than distinct spaces.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint shape is significantly altered, particularly the entry path and the area where the balcony should be. Garage is detached and not integrated into the main structure, impacting adjacency and overall layout.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some wall positions appear to have \u00b110% deviation, especially around the Kitchen/L'dry/WC area and the main entrance.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are mostly not represented or are incorrect where implied in the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One window missing above the bed in Bedroom 1 (right bedroom's exterior wall).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Garage is presented as a separate, detached module rather than being integrated as shown in the 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "All major furniture pieces for Lounge, Dining, and Bedrooms are missing. 'Linen' closet is also missing.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Presence of concrete and tile textures on floors, violating 'solid flat colors only' rule.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, with significant deviations in overall layout, missing architectural features, and missing furniture, although the rendering style and cutaway view are mostly consistent with requirements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan13.jpg"
+}

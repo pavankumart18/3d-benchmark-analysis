@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "A 3D isometric representation was created, but it only captures a tiny, generic fragment of a layout."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 22,
+            "max": 35,
+            "notes": "Basic 3D geometry is present, but the 'cutaway' is just a floating cube rather than an architectural representation of the plan."
+        },
+        "geometric_accuracy": {
+            "score": 2,
+            "max": 30,
+            "notes": "Major failure. The 3D model represents a simple 3-4 room configuration that bears no resemblance to the complex multi-room large-scale house plan provided."
+        },
+        "interior_elements": {
+            "score": 1,
+            "max": 15,
+            "notes": "Missing almost all furniture, fixtures, and appliances shown in the original plan."
+        },
+        "visual_clarity": {
+            "score": 4,
+            "max": 20,
+            "notes": "The render is clean but fails as an architectural visualization because it does not represent the source material."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "FATAL",
+            "description": "More than 80% of rooms from the 2D plan are missing; the 3D model is a generic block unrelated to the input layout."
+        }
+    ],
+    "total_score": 29,
+    "verdict": "REJECTED",
+    "summary": "The 3D render is a generic isometric room cluster that fails to replicate the specific geometry, complexity, or layout of the provided architectural floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan9.png"
+}

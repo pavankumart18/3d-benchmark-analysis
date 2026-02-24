@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is evident, the view is isometric, and the roof/ceiling is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5), floors are separate (3), interior volume is clear (4), proper 3D wall corner geometry (3). Angled view is good (5), interior visible from elevated perspective (3). Roof removed cleanly (5), interior spaces fully visible (3)."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "Correct number of rooms (3), adjacency relationships generally correct but one room in the 2D (stairs area) is missing its full enclosure in 3D (2/4). Room proportions are mostly preserved (3). Major room identities match (2). Major wall positions align (5). Wall lengths proportional (3). Internal partitions have some mismatches, particularly around the bathroom and staircase area (1/2). Doors are present, but the bathroom door is missing, and the main entrance door is missing (2/4). Windows are present and on correct walls, but a window on the exterior left wall is missing (1/2). Openings are proportionally sized and oriented, though some are missing (1/2)."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture present (4). Kitchen elements present (2). Bathroom fixtures present (2). Furniture is placed in correct rooms (3). Furniture scale reasonable relative to room (2). Orientation logical relative to layout (2)."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Walls, floors, openings are clearly distinguishable (4). Geometry is readable and not confusing (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background / presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "The staircase area, which appears to be a separate volume in the 2D plan, is not fully enclosed or clearly defined as a room in the 3D render. The main entrance door and the bathroom entrance are also missing."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Internal partitions around the bathroom and the staircase area show discrepancies or missing walls compared to the 2D plan. The bathroom entrance is completely open/missing a wall."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "The main entrance door and the bathroom door are missing. A small window on the leftmost exterior wall in the 2D plan is not present in the 3D render."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is generally good with clear volumetric representation, but there are notable geometric inaccuracies in room enclosure and door/window representation, particularly around the bathroom and staircase area.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan6.jpg"
+}

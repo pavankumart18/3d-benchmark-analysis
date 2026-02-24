@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clear wall thickness and volume. Minor perspective jitter on some external glass panes."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Higher-than-average fidelity. The utility room and WC placement are accurate. The bay window (window seat) is correctly modeled. The stair landing orientation shows slight distortion compared to the plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Kitchen appliances and bathroom fixtures are correctly localized. Furniture in the living area is added logically though not explicitly detailed in the original 2D plan beyond layout markers."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean aesthetic with clay-style rendering. Some text remnants ('WAC') are visible on 3D surfaces which impacts the professional finish."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "Minor",
+            "description": "Text labels from 2D plan ('WAC') baked onto the 3D floor texture."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "Stairwell geometry and railing spacing do not perfectly align with the count indicated on the architectural drawing."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A highly faithful 3D conversion that preserves complex internal partitions and the specific bay window geometry with clear structural readability.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan11.png"
+}

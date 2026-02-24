@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major structural deviations were identified. A floor-to-ceiling wall was added between the kitchen/dining and living areas which does not exist in the floor plan. The central bathroom's footprint is significantly altered and missing the separated closet/toilet stall. Window and door counts do not match the source (e.g., extra door in the dining area, missing windows on the bottom wall)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Excellent adherence to UI constraints with no text or measurement lines. However, a significant hallucinated wall was added to create a room division where an open floor plan was specified. Correct floating model on a dark background."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture style is clean and well-scaled. Sofa and coffee table are hallucinations not present in the 2D plan, but kitchen counters and bathroom fixtures align reasonably well."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect execution of the requested aesthetic. High-quality low-poly geometry with flat colors, soft ambient lighting, and an accurate isometric orthographic perspective."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated full-height wall dividing the dining room from the living room."
+        },
+        {
+            "code": "E2",
+            "description": "The bathroom structure is simplified/distorted and missing the internal partition for the toilet stall (3' x 2' area)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple windows as indicated by the orange markers on the bottom wall of the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated furniture (sofa, coffee table, and dining set) not present in the original blueprint."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement for the dining area; the plan shows two windows, but the render includes an exit door."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan3.jpg"
+}

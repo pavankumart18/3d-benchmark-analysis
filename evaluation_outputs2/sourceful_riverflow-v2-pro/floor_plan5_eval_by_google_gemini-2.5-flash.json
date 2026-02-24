@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 9,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology is good, all rooms present and adjacencies correct. Wall geometry is largely accurate, only minor deviations. Doors mostly accurate; some missing. Windows mostly accurate; some missing or misplaced. Dimensional scaling appears consistent. Deductions for minor wall discrepancies, few missing doors and windows."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "Excellent compliance. Roof is completely removed, all interior walls visible. No missing structural elements or hallucinated features. Absolutely no text, measurements, or legends. Dark neutral background and model is isolated."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 5
+        },
+        "notes": "Most major furniture pieces are present and accurately placed. Kitchen and bathroom fixtures are generally present. Minor deduction for small, missing or relocated furniture pieces (e.g., small pieces in living room, one bed table missing). Scale is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Geometry uses low-poly simplified forms with flat shaded surfaces and clean edges, no textures observed. Lighting is soft ambient with minimal shadows, colors are distinguishable. True isometric projection, 45-degree rotated view, centered and appropriately zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing a door on the small balcony/terrace leading outside on the bottom left. Missing one interior door between bedroom and bathroom on the right.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some interior walls have slight proportional differences (e.g., width of the hallway connecting all rooms is slightly wider in 3D compared to 2D).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One window missing on the left side of the house. Two small windows outside the kitchen seem slightly larger.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "One nightstand missing in the top-left bedroom. Small coffee table in the main living area slightly different in shape/size; one side table in the living area missing/combined awkwardly.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 93,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates high accuracy in spatial layout, structural fidelity, and aesthetic quality, with only minor deviations in door/window presence and furniture specifics.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan5.jpg"
+}

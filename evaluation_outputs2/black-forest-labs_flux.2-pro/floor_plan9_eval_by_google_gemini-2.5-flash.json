@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology, wall geometry, dimensional scaling are excellent. All structural elements are present and correctly positioned. Two internal doors are missing (one between master bedroom and master bath, one between hall and utility). Door swings are not clearly distinguishable in the 3D render."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is perfect, showing all interior walls. No missing structural elements or hallucinated rooms. However, there are text labels present from the original floor plan ('COVERED PATIO', 'OPTIONAL EXTERNAL DOOR OR EXTD CLOSET', 'TRAY CEILING', '2 CAR GARAGE', 'OUTLINE OF DORMER ABY', room name labels all over interior surfaces), resulting in 0 points for UI cleanliness. The presentation context shows a faint ground plane and shadows extending. These labels (Covered Patio, 2 Car Garage) should not be etched on the model."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture and fixtures are present. Kitchen appliances and bathroom fixtures are well represented. A few minor pieces of furniture are missing (e.g., dining room cabinet). Furniture placement is mostly accurate, though some smaller items in secondary bedrooms (like small desks/tables) are not directly transferable from plan to 3D. The 'Nook' area furniture differs significantly. The Study has different furniture."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry style is excellent, adhering to low-poly, flat-shaded forms with no textures or smooth shading. Lighting is generally soft, but shadows are a bit more pronounced than 'minimal shadows', pulling from the 'soft ambient lighting' points. The camera composition is almost true isometric, but the rotation is not perfectly 45 degrees, and the model is slightly off-center and not fully isolated."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing door between master bedroom and master bath. Missing utility room door.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present from the original floor plan etched onto the 3D model surfaces (e.g., 'COVERED PATIO', '2 CAR GARAGE', 'MASTER BEDROOM', 'LIVING ROOM', etc.).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Faint ground plane and extended shadows are visible in the presentation context.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Nook and Study furniture differs from plan. Small cabinet in Dining Room missing. Minor furniture inconsistencies in secondary bedrooms.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are slightly more dramatic than 'minimal'.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera rotation not perfectly 45 degrees relative to image borders, and model not perfectly centered/isolated.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 82,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render mostly maintains high spatial accuracy and structural fidelity, with excellent geometric style. However, the presence of text labels from the 2D plan on the 3D model and slight deviations in furniture mapping and presentation context lead to deductions.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan9.png"
+}

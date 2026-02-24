@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls have clear height and thickness, interior volume is visible, and the view is angled. The roof is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "All fundamental aspects of 3D conversion are well-executed. Clean geometry and cutaway."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Room configuration and wall geometry are largely accurate. Some minor discrepancies in door/window placement or type."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Most major furniture items are included and appropriately scaled, though some are missing (e.g., bathroom fixtures, certain closets)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Excellent visual clarity, legible geometry, and consistent aesthetic. No rendering artifacts or distracting elements."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Missing a closet door near the entrance. Bathroom fixtures (toilet, tub) are missing. Some windows appear where none are explicitly shown or are missing where shown."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "NONE",
+            "description": "No text labels or UI elements are present in the 3D render."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "The 2D floor plan has been transformed into a geometrically accurate and well-rendered 3D isometric cutaway model, with only minor omissions in interior details and some opening discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan4.jpg"
+}

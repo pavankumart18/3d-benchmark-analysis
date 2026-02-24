@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, angled/isometric camera, visible interior volume, and roof/ceiling removed to show rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Walls have clear height/thickness and readable corners; floor plane is distinct; elevated angled view shows multiple wall faces; cutaway is clean with only minor simplifications."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall 3BHK layout matches (central living/dining, left and right bedrooms, balconies, kitchen/utility). Some proportional/placement simplifications and openings (especially windows) are not fully verifiable or appear reduced compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present: beds in bedrooms, seating and dining in living/dining, kitchen counters, and bathroom fixtures. Minor simplification of some elements."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Geometry is readable with adequate lighting and materials. Text labels are overlaid on the 3D model, reducing presentation cleanliness; some fine details (windows/door swings) are less clear."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors appear mostly present, but window/opening placement and sizing are not consistently clear or fully matching the 2D plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text labels are present on the 3D render surfaces, reducing presentation/background cleanliness."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout fidelity, with minor discrepancies/ambiguity in openings (especially windows) and some UI/text contamination.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan15.webp"
+}

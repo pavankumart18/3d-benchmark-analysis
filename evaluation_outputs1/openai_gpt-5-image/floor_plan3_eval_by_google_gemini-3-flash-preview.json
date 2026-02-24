@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Door placement is largely incorrect: the secondary entrance near the dining area is now a solid wall, and a new hallucinated door appeared in the living area. Window distribution is inconsistent with the floor plan. Room proportions are slightly distorted."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model correctly utilizes a cutaway view and dark background. However, the stairs have been reinterpreted and shortened, and a structural column/wall segment was added near the kitchen that does not exist in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen counter and sink are generally well-placed, but bathroom fixtures are missing or reduced to simple blocks, and the stove/oven detail from the plan is absent."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints. Perfect isometric orthographic camera, neutral background, low-poly geometry, and soft flat shading without textures."
+    },
+    "total_score": 74,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing secondary exit door in the dining area."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase layout is distorted and does not match the 2D footprint."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated door and structural wall segment added to the living room perimeter."
+        },
+        {
+            "code": "E4",
+            "description": "Bathroom enclosure geometry altered from the rectangular floor plan specification."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan3.jpg"
+}

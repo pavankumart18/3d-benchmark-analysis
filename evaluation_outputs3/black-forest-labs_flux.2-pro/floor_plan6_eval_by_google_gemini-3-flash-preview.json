@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent dimensional transformation and isometric projection; walls and floors are clearly distinct."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "Highly faithful layout. Minor discrepancies in the bathroom/closet wall thicknesses compared to the primary plan."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Nearly all furniture items (sofas, beds, kitchen island, dining table) are correctly placed and scaled."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean rendering, but presence of 3D floating text labels ('Bedroom', 'Kitchen/Living') results in a small deduction in presentation score."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels from the 2D plan rendered as 3D geometry floating in the space."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "LOW",
+            "description": "Some window frame thicknesses slightly exaggerated compared to the 2D architectural lines."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and geometrically faithful 3D conversion that meticulously translates the 2D floor plan into a readable isometric model.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan6.jpg"
+}

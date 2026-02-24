@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 2,
+            "wall_geometry": 2,
+            "doors": 3,
+            "windows": 2,
+            "dimensional_scaling": 1
+        },
+        "notes": "Generated model is largely incomplete and features a significantly different layout than the 2D plan. The size and shape of the overall footprint do not match. Only a few rooms and their relative positions are somewhat preserved. Many walls are in incorrect locations or entirely missing. Missing studies, Covered Patios, Nook, Living Room, Hall, and 2 Car Garage entirely. Missing multiple doors and placement is incorrect for those present. Many windows are missing, and those present are incorrectly placed."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 1,
+            "presentation_context": 1
+        },
+        "notes": "The cutaway view is mostly compliant, with most interior walls visible, though some fragments of the roof/ceiling are visible around the edges. Model is far from complete, with major structural elements and rooms missing. There are significant hallucinations, including entirely new room configurations and missing several rooms, like the study, the living room and the garage. The UI is mostly clean, but the text on the doors is present. The background is dark, but the model is not perfectly isolated, with a slight shadow effect."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 2
+        },
+        "notes": "Minimal furniture is present, and much of it is not to scale or in the correct location. Only a few major pieces like beds and a sofa are present in some of the bedrooms. Kitchen and bathroom fixtures are only partially present, with missing elements like sinks and showers. The furniture that is present is often in significantly different locations or completely substituted."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is low-poly with flat shaded surfaces, but there are some hints of textures, as indicated by the wooden flooring. Lighting is decent. Camera composition is somewhat isometric, but the model is not perfectly centered, and not all rooms from the original plan could be visible due to the significant discrepancy in layout."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms missing: Study, Nook, Living Room, Hall, Covered Patio, 2 Car Garage. The Master Bathroom and Utility are also significantly reconfigured and hardly recognizable.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls severely misaligned or missing entirely, resulting in drastically altered room shapes and adjacencies. The overall footprint does not match.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated multiple rooms and room layouts, especially in the central and lower-left areas, and significantly altered the kitchen and master bath layouts.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text present on the doors in the generated image.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_presence",
+            "description": "Many major furniture pieces and fixtures are missing or incorrectly placed/substituted, such as kitchen appliances (DW, Sink), pantry, various toilets, and bath in the master bath.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door placements are incorrect on multiple walls, and swing directions do not match. Missing multiple doors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Wooden texture on the floor, not solid flat colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 28,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render significantly deviates from the 2D floor plan in terms of spatial accuracy, structural fidelity, and furniture mapping, resulting in a critical failure due to numerous missing rooms, misaligned walls, persistent text, and significant hallucinations.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan9.png"
+}

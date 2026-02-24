@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "True 3D transformation confirmed with visible depth and isometric perspective."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent structural translation; wall thickness and floor planes are handled with high clarity."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Layout fidelity is strong. Small inaccuracies in wall lengths in the bedroom wings and additional kitchen-like fixtures not in original plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Most furniture (beds, sofas) placed correctly. Some hall spaces populated with cabinets/kitchenettes not found in 2D."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean rendering. Score slightly impacted by floating 'text' labels on some 3D countertops."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "Hallway/recess area converted into a kitchen/countertop space not present in 2D."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "Low",
+            "description": "Text-like artifacts visible on the top of some 3D surfaces."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D conversion that maintains core structural integrity despite adding some unauthorized interior furnishings.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan12.png"
+}

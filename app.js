@@ -28,15 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Aggregate by generated_model over all evaluators and prompts
     const summaryData = models.map(model => {
         const modelData = rawData.filter(d => d.evaluated_model === model);
-        const avg = (key) => d3.mean(modelData, d => d[key]?.score || 0).toFixed(1);
+        const avg = (key) => d3.mean(modelData, d => d.scores?.[key]?.score || 0).toFixed(1);
         const avgTotal = d3.mean(modelData, d => d.total_score || 0).toFixed(1);
 
         return {
             model: model,
-            spatial: parseFloat(avg('spatial_accuracy')),
-            structural: parseFloat(avg('structural_fidelity')),
-            furniture: parseFloat(avg('furniture_mapping')),
-            aesthetic: parseFloat(avg('aesthetic_quality')),
+            fundamentals: parseFloat(avg('3d_conversion_fundamentals')),
+            geometry: parseFloat(avg('geometric_accuracy')),
+            interior: parseFloat(avg('interior_elements')),
+            clarity: parseFloat(avg('visual_clarity')),
             total: parseFloat(avgTotal),
             count: modelData.length
         };
@@ -73,39 +73,58 @@ document.addEventListener("DOMContentLoaded", () => {
                 return cls;
             })
             .on("click", (e, d) => {
-                // Focus modal on this model if desired, currently reserved for matrix
+                openModelModal(d.model);
             });
 
-        // Create dynamic color scale for Total Score
-        const minVal = d3.min(summaryData, d => d.total) || 0;
-        const maxVal = d3.max(summaryData, d => d.total) || 100;
-        const midVal = (minVal + maxVal) / 2;
+        const getColumnScale = (field) => {
+            const vals = summaryData.map(d => d[field]).filter(v => v !== undefined && v !== null && !isNaN(v));
+            const minV = d3.min(vals) || 0;
+            const maxV = d3.max(vals) || 100;
+            const midV = minV + (maxV - minV) / 2;
+            const cScale = d3.scaleDiverging()
+                .domain([minV, midV, maxV])
+                .interpolator(d3.interpolateRdYlGn);
 
-        const colorScale = d3.scaleLinear()
-            .domain([
-                minVal,
-                minVal + (maxVal - minVal) * 0.25,
-                minVal + (maxVal - minVal) * 0.5,
-                minVal + (maxVal - minVal) * 0.75,
-                maxVal
-            ])
-            .range(["#d7191c", "#fdae61", "#ffffbf", "#a6d96a", "#1a9641"]); // Continuous Red-to-Green
-
-        const textScale = (val) => {
-            const pct = (val - minVal) / (maxVal - minVal || 1);
-            return (pct > 0.15 && pct < 0.85) ? "#000000" : "#ffffff";
+            const tScale = (val) => {
+                if (val === null || isNaN(val)) return "transparent";
+                const bgColor = cScale(val);
+                const rgb = d3.rgb(bgColor);
+                const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
+                return luminance > 0.5 ? '#000' : '#fff';
+            };
+            return { color: cScale, text: tScale };
         };
 
-        rows.append("td").attr("class", "small text-center").html(d => `<strong>${shortName(d.model)}</strong> <br> <small class="text-muted" style="font-size: 0.7em;">${d.count} evals</small>`);
-        rows.append("td").attr("class", "text-end small heatmap-cell").style("background-color", d => colorScale(d.spatial)).style("color", d => textScale(d.spatial)).text(d => d.spatial);
-        rows.append("td").attr("class", "text-end small heatmap-cell").style("background-color", d => colorScale(d.structural)).style("color", d => textScale(d.structural)).text(d => d.structural);
-        rows.append("td").attr("class", "text-end small heatmap-cell").style("background-color", d => colorScale(d.furniture)).style("color", d => textScale(d.furniture)).text(d => d.furniture);
-        rows.append("td").attr("class", "text-end small heatmap-cell").style("background-color", d => colorScale(d.aesthetic)).style("color", d => textScale(d.aesthetic)).text(d => d.aesthetic);
+        const scales = {
+            fundamentals: getColumnScale('fundamentals'),
+            geometry: getColumnScale('geometry'),
+            interior: getColumnScale('interior'),
+            clarity: getColumnScale('clarity'),
+            total: getColumnScale('total')
+        };
+
+        const attachSummaryClick = (sel, field) => {
+            sel.on("click", (e, d) => {
+                e.stopPropagation(); // prevent row click from firing also
+                openModelModal(d.model);
+            }).style("cursor", "pointer");
+        };
+
+        const tdModel = rows.append("td").attr("class", "small text-center").html(d => `<strong>${shortName(d.model)}</strong> <br> <small class="text-muted" style="font-size: 0.7em;">${d.count} evals</small>`);
+        attachSummaryClick(tdModel, 'model');
+        const tdFund = rows.append("td").attr("class", "text-end small heatmap-cell").style("background-color", d => scales.fundamentals.color(d.fundamentals)).style("color", d => scales.fundamentals.text(d.fundamentals)).text(d => d.fundamentals);
+        attachSummaryClick(tdFund, 'fundamentals');
+        const tdGeom = rows.append("td").attr("class", "text-end small heatmap-cell").style("background-color", d => scales.geometry.color(d.geometry)).style("color", d => scales.geometry.text(d.geometry)).text(d => d.geometry);
+        attachSummaryClick(tdGeom, 'geometry');
+        const tdInt = rows.append("td").attr("class", "text-end small heatmap-cell").style("background-color", d => scales.interior.color(d.interior)).style("color", d => scales.interior.text(d.interior)).text(d => d.interior);
+        attachSummaryClick(tdInt, 'interior');
+        const tdClar = rows.append("td").attr("class", "text-end small heatmap-cell").style("background-color", d => scales.clarity.color(d.clarity)).style("color", d => scales.clarity.text(d.clarity)).text(d => d.clarity);
+        attachSummaryClick(tdClar, 'clarity');
 
         rows.append("td")
             .attr("class", "text-center fw-bold heatmap-cell small")
-            .style("background-color", d => colorScale(d.total))
-            .style("color", d => textScale(d.total))
+            .style("background-color", d => scales.total.color(d.total))
+            .style("color", d => scales.total.text(d.total))
             .text(d => d.total);
 
         // Update header icons
@@ -160,28 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .filter(function () { return d3.select(this).attr("data-sort") === breakdownSortCol; })
             .classed(breakdownSortAsc ? "sorted-asc" : "sorted-desc", true);
 
-        let allBreakVals = [];
-        models.forEach(model => {
-            rawData.forEach(d => { if (d.total_score !== undefined) allBreakVals.push(d.total_score); });
-        });
-        const minB = d3.min(allBreakVals) || 0;
-        const maxB = d3.max(allBreakVals) || 100;
-
-        const colorScale = d3.scaleLinear()
-            .domain([
-                minB,
-                minB + (maxB - minB) * 0.25,
-                minB + (maxB - minB) * 0.5,
-                minB + (maxB - minB) * 0.75,
-                maxB
-            ])
-            .range(["#d7191c", "#fdae61", "#ffffbf", "#a6d96a", "#1a9641"]);
-
-        const textScale = (val) => {
-            const pct = (val - minB) / (maxB - minB || 1);
-            return (pct > 0.15 && pct < 0.85) ? "#000000" : "#ffffff";
-        };
-
         const tbody = d3.select("#breakdown-tbody");
         tbody.html(""); // clear
 
@@ -210,6 +207,27 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
+        // Generate per-column color scales for breakdownData
+        const modelScales = {};
+        models.forEach(model => {
+            const vals = breakdownData.map(d => d[model]).filter(v => v !== null);
+            const mMin = d3.min(vals) || 0;
+            const mMax = d3.max(vals) || 100;
+            const mMid = mMin + (mMax - mMin) / 2;
+            const mColor = d3.scaleDiverging()
+                .domain([mMin, mMid, mMax])
+                .interpolator(d3.interpolateRdYlGn);
+
+            const mText = (val) => {
+                if (val === null || isNaN(val)) return "transparent";
+                const bgColor = mColor(val);
+                const rgb = d3.rgb(bgColor);
+                const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
+                return luminance > 0.5 ? '#000' : '#fff';
+            };
+            modelScales[model] = { color: mColor, text: mText };
+        });
+
         breakdownData.forEach(rowData => {
             const tr = tbody.append("tr").attr("class", "cell-click-row");
             tr.append("td")
@@ -219,11 +237,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             models.forEach(model => {
                 const avgTotal = rowData[model];
-                const td = tr.append("td")
+                const sc = modelScales[model];
+                tr.append("td")
                     .attr("class", "text-center heatmap-cell small px-1")
-                    .style("background-color", avgTotal !== null ? colorScale(avgTotal) : "transparent")
-                    .style("color", avgTotal !== null ? textScale(avgTotal) : "transparent")
+                    .style("background-color", avgTotal !== null ? sc.color(avgTotal) : "transparent")
+                    .style("color", avgTotal !== null ? sc.text(avgTotal) : "transparent")
                     .text(avgTotal !== null ? avgTotal.toFixed(1) : "-")
+                    .style("cursor", avgTotal !== null ? "pointer" : "default")
                     .on("click", () => {
                         if (avgTotal !== null) openModal(rowData.prompt, model);
                     });
@@ -253,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const lowModel = summaryData.reduce((prev, current) => (prev.total < current.total) ? prev : current);
 
         // 2. Metric Variance
-        const highSpatial = summaryData.reduce((prev, current) => (prev.spatial > current.spatial) ? prev : current);
+        const highSpatial = summaryData.reduce((prev, current) => (prev.fundamentals > current.fundamentals) ? prev : current);
 
         const insights = [
             {
@@ -267,9 +287,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 text: `<strong>${lowModel.model}</strong> shows the most difficulty adhering to the constraints, scoring mostly <strong>${lowModel.total}</strong> on average.`
             },
             {
-                title: "Spatial Champion",
+                title: "Fundamentals Champion",
                 icon: "📐",
-                text: `When it comes purely to spatial accuracy and wall alignments, <strong>${highSpatial.model}</strong> scores highest (${highSpatial.spatial}/40).`
+                text: `When it comes purely to 3D mapping fundamentals, <strong>${highSpatial.model}</strong> scores highest (${highSpatial.fundamentals}/35).`
             }
         ];
 
@@ -318,28 +338,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .filter(function () { return d3.select(this).attr("data-sort") === evaluatorSortCol; })
             .classed(evaluatorSortAsc ? "sorted-asc" : "sorted-desc", true);
 
-        let allBreakVals = [];
-        models.forEach(model => {
-            rawData.forEach(d => { if (d.total_score !== undefined) allBreakVals.push(d.total_score); });
-        });
-        const minE = d3.min(allBreakVals) || 0;
-        const maxE = d3.max(allBreakVals) || 100;
-
-        const colorScale = d3.scaleLinear()
-            .domain([
-                minE,
-                minE + (maxE - minE) * 0.25,
-                minE + (maxE - minE) * 0.5,
-                minE + (maxE - minE) * 0.75,
-                maxE
-            ])
-            .range(["#d7191c", "#fdae61", "#ffffbf", "#a6d96a", "#1a9641"]);
-
-        const textScale = (val) => {
-            const pct = (val - minE) / (maxE - minE || 1);
-            return (pct > 0.15 && pct < 0.85) ? "#000000" : "#ffffff";
-        };
-
         const tbody = d3.select("#evaluator-tbody");
         tbody.html("");
 
@@ -366,17 +364,44 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
+        // Generate per-column scales for evaluators
+        const evaluatorScales = {};
+        evaluators.forEach(ev => {
+            const vals = matrixData.map(d => d[ev]).filter(v => v !== null);
+            const evMin = d3.min(vals) || 0;
+            const evMax = d3.max(vals) || 100;
+            const evMid = evMin + (evMax - evMin) / 2;
+            const evColorScale = d3.scaleDiverging()
+                .domain([evMin, evMid, evMax])
+                .interpolator(d3.interpolateRdYlGn);
+
+            const evTextScale = (val) => {
+                if (val === null || isNaN(val)) return "transparent";
+                const bgColor = evColorScale(val);
+                const rgb = d3.rgb(bgColor);
+                const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
+                return luminance > 0.5 ? '#000' : '#fff';
+            };
+            evaluatorScales[ev] = { color: evColorScale, text: evTextScale };
+        });
+
         matrixData.forEach(rowData => {
-            const tr = tbody.append("tr");
-            tr.append("td").attr("class", "fw-bold small text-center").text(shortName(rowData.model));
+            const tr = tbody.append("tr").attr("class", "clickable-row");
+            tr.append("td").attr("class", "fw-bold small text-center").text(shortName(rowData.model)).style("cursor", "pointer").on("click", (e) => { e.stopPropagation(); openModelModal(rowData.model); });
 
             evaluators.forEach(ev => {
                 const avgTotal = rowData[ev];
+                const sc = evaluatorScales[ev];
                 tr.append("td")
                     .attr("class", "text-center heatmap-cell small px-1")
-                    .style("background-color", avgTotal !== null ? colorScale(avgTotal) : "transparent")
-                    .style("color", avgTotal !== null ? textScale(avgTotal) : "transparent")
-                    .text(avgTotal !== null ? avgTotal.toFixed(1) : "-");
+                    .style("background-color", avgTotal !== null ? sc.color(avgTotal) : "transparent")
+                    .style("color", avgTotal !== null ? sc.text(avgTotal) : "transparent")
+                    .text(avgTotal !== null ? avgTotal.toFixed(1) : "-")
+                    .style("cursor", avgTotal !== null ? "pointer" : "default")
+                    .on("click", (e) => {
+                        e.stopPropagation();
+                        if (avgTotal !== null) openModelModal(rowData.model, ev);
+                    });
             });
         });
     }
@@ -436,8 +461,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 let errorHtml = "";
                 let dataErrors = ev.detected_errors || [];
                 if (dataErrors.length) {
-                    errorHtml = `<div class="mt-2"><strong>Errors:</strong><br> ` +
-                        dataErrors.map(err => `<span class="error-tag">${err.code}</span> <span class="small text-muted">${err.description}</span><br>`).join("") +
+                    errorHtml = `<div class="mt-2 text-start"><strong>Errors:</strong><br> ` +
+                        dataErrors.map(err => {
+                            let sevClass = err.severity && (err.severity.includes('FATAL') || err.severity.includes('CRIT')) ? 'bg-danger' : err.severity && err.severity.includes('MAJ') ? 'bg-warning text-dark' : 'bg-secondary';
+                            return `<span class="badge ${sevClass} me-1" style="font-size: 0.7rem;">${err.code || 'ERR'}</span> <span class="small text-muted">${err.description}</span>`;
+                        }).join("<br>") +
                         `</div>`;
                 }
 
@@ -447,18 +475,19 @@ document.addEventListener("DOMContentLoaded", () => {
                             <strong class="text-primary">${ev.evaluator_model}</strong>
                             <span class="badge bg-secondary rounded-pill ps-3 pe-3 py-2 fs-6">Score: ${ev.total_score}/100</span>
                         </div>
+                        ${ev.verdict ? `<div class="mb-2"><span class="badge ${ev.verdict.includes('PASS') ? 'bg-success' : 'bg-danger'}">${ev.verdict}</span> <span class="small text-muted fst-italic">${ev.summary || ''}</span></div>` : ''}
                         
                         <div class="row small mb-2 text-muted">
-                            <div class="col-3">Spatial: <strong>${ev.spatial_accuracy?.score || 0}</strong>/40</div>
-                            <div class="col-3">Structural: <strong>${ev.structural_fidelity?.score || 0}</strong>/25</div>
-                            <div class="col-3">Furniture: <strong>${ev.furniture_mapping?.score || 0}</strong>/10</div>
-                            <div class="col-3">Aesthetic: <strong>${ev.aesthetic_quality?.score || 0}</strong>/25</div>
+                            <div class="col-3">Fundamentals: <strong>${ev.scores?.['3d_conversion_fundamentals']?.score || 0}</strong>/35</div>
+                            <div class="col-3">Geometry: <strong>${ev.scores?.['geometric_accuracy']?.score || 0}</strong>/30</div>
+                            <div class="col-3">Interior: <strong>${ev.scores?.['interior_elements']?.score || 0}</strong>/15</div>
+                            <div class="col-3">Clarity: <strong>${ev.scores?.['visual_clarity']?.score || 0}</strong>/20</div>
                         </div>
                         
                         <div class="small">
-                            <p class="mb-1"><strong>Spatial Notes:</strong> ${ev.spatial_accuracy?.notes || "N/A"}</p>
-                            <p class="mb-1"><strong>Structural Notes:</strong> ${ev.structural_fidelity?.notes || "N/A"}</p>
-                            <p class="mb-1"><strong>Aesthetic Notes:</strong> ${ev.aesthetic_quality?.notes || "N/A"}</p>
+                            <p class="mb-1"><strong>Fund Notes:</strong> ${ev.scores?.['3d_conversion_fundamentals']?.notes || "N/A"}</p>
+                            <p class="mb-1"><strong>Geom Notes:</strong> ${ev.scores?.['geometric_accuracy']?.notes || "N/A"}</p>
+                            <p class="mb-1"><strong>Clar Notes:</strong> ${ev.scores?.['visual_clarity']?.notes || "N/A"}</p>
                         </div>
                         
                         ${errorHtml}
@@ -522,16 +551,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     return "#dc3545"; // red
                 }
 
-                let avgSp = d3.mean(modelEvals, d => d.spatial_accuracy?.score || 0);
-                let avgStr = d3.mean(modelEvals, d => d.structural_fidelity?.score || 0);
-                let avgFur = d3.mean(modelEvals, d => d.furniture_mapping?.score || 0);
-                let avgAes = d3.mean(modelEvals, d => d.aesthetic_quality?.score || 0);
+                let avgSp = d3.mean(modelEvals, d => d.scores?.['3d_conversion_fundamentals']?.score || 0);
+                let avgStr = d3.mean(modelEvals, d => d.scores?.['geometric_accuracy']?.score || 0);
+                let avgFur = d3.mean(modelEvals, d => d.scores?.['interior_elements']?.score || 0);
+                let avgAes = d3.mean(modelEvals, d => d.scores?.['visual_clarity']?.score || 0);
 
                 let mainEval = modelEvals[0];
                 let otherEvals = modelEvals.slice(1);
 
                 function renderMetric(name, score, max, metricKey, isLast = false) {
-                    let note = mainEval && mainEval[metricKey] ? mainEval[metricKey].notes : "N/A";
+                    let note = mainEval && mainEval.scores && mainEval.scores[metricKey] ? mainEval.scores[metricKey].notes : "N/A";
                     let evalName = mainEval ? shortName(mainEval.evaluator_model) : "";
                     let color = getBadgeColor(score, max);
                     let textColor = color === '#ffc107' ? '#000' : '#fff';
@@ -555,7 +584,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     let errorHtml = "";
                     let dataErrors = ev.detected_errors || [];
                     if (dataErrors.length) {
-                        errorHtml = `<div class="mt-2 text-start text-danger" style="font-size: 0.75rem;"><strong>Errors:</strong> ${dataErrors.map(err => err.description).join(", ")}</div>`;
+                        errorHtml = `<div class="mt-2 text-start" style="font-size: 0.75rem;"><strong>Errors:</strong><br>${dataErrors.map(err => {
+                            let sevClass = err.severity && (err.severity.includes('FATAL') || err.severity.includes('CRIT')) ? 'bg-danger' : err.severity && err.severity.includes('MAJ') ? 'bg-warning text-dark' : 'bg-secondary';
+                            return `<span class="badge ${sevClass} me-1" style="font-size: 0.65rem;">${err.code || 'ERR'}</span> <span class="text-muted">${err.description}</span>`;
+                        }).join("<br>")}</div>`;
                     }
                     return `
                         <div class="card mb-3 shadow-sm border-0 bg-light p-3 text-start border shadow-sm">
@@ -563,17 +595,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <strong class="text-primary small">${shortName(ev.evaluator_model)}</strong>
                                 <span class="badge bg-secondary rounded-pill ps-2 pe-2 py-1 shadow-sm" style="font-size: 0.75em;">Score: ${ev.total_score}/100</span>
                             </div>
+                            ${ev.verdict ? `<div class="mb-2" style="font-size: 0.75rem;"><span class="badge ${ev.verdict.includes('PASS') ? 'bg-success' : 'bg-danger'}">${ev.verdict}</span> <span class="text-muted fst-italic">${ev.summary || ''}</span></div>` : ''}
                             <div class="row small mb-2 text-muted" style="font-size: 0.75em;">
-                                <div class="col-6">Sp: <strong>${ev.spatial_accuracy?.score || 0}</strong>/40</div>
-                                <div class="col-6">Str: <strong>${ev.structural_fidelity?.score || 0}</strong>/25</div>
-                                <div class="col-6">Furn: <strong>${ev.furniture_mapping?.score || 0}</strong>/10</div>
-                                <div class="col-6">Aes: <strong>${ev.aesthetic_quality?.score || 0}</strong>/25</div>
+                                <div class="col-6">Fund: <strong>${ev.scores?.['3d_conversion_fundamentals']?.score || 0}</strong>/35</div>
+                                <div class="col-6">Geom: <strong>${ev.scores?.['geometric_accuracy']?.score || 0}</strong>/30</div>
+                                <div class="col-6">Int: <strong>${ev.scores?.['interior_elements']?.score || 0}</strong>/15</div>
+                                <div class="col-6">Clar: <strong>${ev.scores?.['visual_clarity']?.score || 0}</strong>/20</div>
                             </div>
                             <div class="small" style="font-size: 0.8em; line-height: 1.4;">
-                                <p class="mb-1"><strong>Sp:</strong> ${ev.spatial_accuracy?.notes || "N/A"}</p>
-                                <p class="mb-1"><strong>Str:</strong> ${ev.structural_fidelity?.notes || "N/A"}</p>
-                                <p class="mb-1"><strong>Fur:</strong> ${ev.furniture_mapping?.notes || "N/A"}</p>
-                                <p class="mb-1"><strong>Aes:</strong> ${ev.aesthetic_quality?.notes || "N/A"}</p>
+                                <p class="mb-1"><strong>Fund:</strong> ${ev.scores?.['3d_conversion_fundamentals']?.notes || "N/A"}</p>
+                                <p class="mb-1"><strong>Geom:</strong> ${ev.scores?.['geometric_accuracy']?.notes || "N/A"}</p>
+                                <p class="mb-1"><strong>Int:</strong> ${ev.scores?.['interior_elements']?.notes || "N/A"}</p>
+                                <p class="mb-1"><strong>Clar:</strong> ${ev.scores?.['visual_clarity']?.notes || "N/A"}</p>
                             </div>
                             ${errorHtml}
                         </div>
@@ -603,10 +636,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                                 <div class="small text-muted mb-4" style="font-size: 0.75rem;"><i class="bi bi-zoom-in"></i> Click to view full size</div>
                                 
-                                ${renderMetric("Spatial Accuracy (40)", avgSp, 40, "spatial_accuracy")}
-                                ${renderMetric("Structural Fidelity (25)", avgStr, 25, "structural_fidelity")}
-                                ${renderMetric("Furniture Mapping (10)", avgFur, 10, "furniture_mapping")}
-                                ${renderMetric("Aesthetic Quality (25)", avgAes, 25, "aesthetic_quality", true)}
+                                ${renderMetric("3D Fundamentals (35)", avgSp, 35, "3d_conversion_fundamentals")}
+                                ${renderMetric("Geometric Accuracy (30)", avgStr, 30, "geometric_accuracy")}
+                                ${renderMetric("Interior Elements (15)", avgFur, 15, "interior_elements")}
+                                ${renderMetric("Visual Clarity (20)", avgAes, 20, "visual_clarity", true)}
                                 
                                 <div class="mt-auto pt-3">
                                     ${otherNotesBtn}
@@ -622,8 +655,162 @@ document.addEventListener("DOMContentLoaded", () => {
         detailModal.show();
     }
 
+    function openModelModal(model, evaluator = null) {
+        document.getElementById("detailModalLabel").innerText = `Model Performance: ${shortName(model)}`;
+        document.getElementById("modal-subtitle").innerText = evaluator ? `Filtered by Evaluator: ${shortName(evaluator)}` : `Aggregate over all Evaluators`;
+        const body = d3.select("#modal-body-content");
+        body.html("");
+
+        let html = `
+            <div class="alert py-2 mb-4 shadow-sm border" style="font-size: 0.9rem; background-color: #d1ecf1; border-color: #bee5eb; color: #0c5460;">
+                <i class="bi bi-stack me-2"></i> <strong>Performance breakdown of ${shortName(model)} across all evaluated floor plans.</strong> Click any image to open the full resolution comparison.
+            </div>
+            <div class="row g-3">
+        `;
+
+        let modelData = rawData.filter(d => d.evaluated_model === model);
+        if (evaluator) modelData = modelData.filter(d => d.evaluator_model === evaluator);
+
+        let fpAverages = prompts.map(p => {
+            let fpEvals = modelData.filter(d => d.input_file === p);
+            let avg = fpEvals.length ? d3.mean(fpEvals, d => d.total_score) : 0;
+            return { prompt: p, avg: avg, evals: fpEvals };
+        }).filter(fpa => fpa.evals.length > 0);
+
+        fpAverages.sort((a, b) => b.avg - a.avg);
+
+        fpAverages.forEach((fpa, idx) => {
+            let p = fpa.prompt;
+            let fpEvals = fpa.evals;
+            const inputImg = "input/" + p;
+            const genImg = "batch_outputs/" + fpEvals[0].generated_file;
+            const avgTotal = fpa.avg;
+
+            function getBadgeColor(val, max) {
+                let pct = val / max;
+                if (pct >= 0.7) return "#198754";
+                if (pct >= 0.5) return "#ffc107";
+                return "#dc3545";
+            }
+
+            let avgSp = d3.mean(fpEvals, d => d.scores?.['3d_conversion_fundamentals']?.score || 0);
+            let avgStr = d3.mean(fpEvals, d => d.scores?.['geometric_accuracy']?.score || 0);
+            let avgFur = d3.mean(fpEvals, d => d.scores?.['interior_elements']?.score || 0);
+            let avgAes = d3.mean(fpEvals, d => d.scores?.['visual_clarity']?.score || 0);
+
+            let badgeColor = getBadgeColor(avgTotal, 100);
+            let badgeTextColor = badgeColor === '#ffc107' ? '#000' : '#fff';
+
+            html += `
+                <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+                    <div class="card shadow-sm w-100 border-0 shadow">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center border-bottom pb-2 pt-3" style="cursor: pointer;" onclick="window.openModal('${p}', '${model}')">
+                            <strong class="fs-6 text-dark text-truncate" style="max-width: 80%;"><i class="bi bi-file-earmark-image me-2 text-primary"></i>${shortName(p)}</strong>
+                            <span class="badge shadow-sm" style="background-color: ${badgeColor}; color: ${badgeTextColor}; font-size: 0.9rem;">${avgTotal.toFixed(1)}</span>
+                        </div>
+                        <div class="card-body text-center d-flex flex-column pt-3 px-3">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="col-6 p-1 border rounded shadow-sm d-inline-block mx-1 bg-white" style="cursor: pointer;" onclick="window.openLightbox('${inputImg}', null, 'Original 2D Plan', null)">
+                                    <img src="${inputImg}" style="max-height: 120px; width: auto; max-width: 100%; object-fit: contain;">
+                                </div>
+                                <div class="col-6 p-1 border rounded shadow-sm d-inline-block mx-1 bg-white" style="cursor: pointer;" onclick="window.openLightbox('${inputImg}', '${genImg}', 'Original 2D Plan', '3D Render: ${shortName(model)}')">
+                                    <img src="${genImg}" style="max-height: 120px; width: auto; max-width: 100%; object-fit: contain;" onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Found'">
+                                </div>
+                            </div>
+                            
+                            <div class="text-start small mt-auto">
+                                <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Fund (35):</span> <strong class="text-dark">${avgSp.toFixed(1)}</strong></div>
+                                <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Geom (30):</span> <strong class="text-dark">${avgStr.toFixed(1)}</strong></div>
+                                <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Int (15):</span> <strong class="text-dark">${avgFur.toFixed(1)}</strong></div>
+                                <div class="mb-1 d-flex justify-content-between"><span>Clar (20):</span> <strong class="text-dark">${avgAes.toFixed(1)}</strong></div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary mt-3 border" onclick="window.openModal('${p}', '${model}')">View Detailed Breakdowns</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        html += `</div>`;
+        body.html(html);
+        detailModal.show();
+    }
+
     // ------------- 6. EXPORT MODAL HANDLERS TO GLOBAL -------------
     window.openModal = openModal;
+    window.openModelModal = openModelModal;
+
+    // ------------- 7. APPENDIX: COMPLETE SCORES -------------
+    let appendixSortCol = 'total';
+    let appendixSortAsc = false;
+    let appendixData = [...rawData];
+
+    function renderAppendix() {
+        if (appendixSortCol) {
+            appendixData.sort((a, b) => {
+                let valA, valB;
+                if (appendixSortCol === 'prompt') { valA = a.input_file; valB = b.input_file; }
+                else if (appendixSortCol === 'model') { valA = a.evaluated_model; valB = b.evaluated_model; }
+                else if (appendixSortCol === 'evaluator') { valA = a.evaluator_model; valB = b.evaluator_model; }
+                else if (appendixSortCol === 'total') { valA = a.total_score; valB = b.total_score; }
+                else if (appendixSortCol === 'fund') { valA = a.scores?.['3d_conversion_fundamentals']?.score || 0; valB = b.scores?.['3d_conversion_fundamentals']?.score || 0; }
+                else if (appendixSortCol === 'geom') { valA = a.scores?.['geometric_accuracy']?.score || 0; valB = b.scores?.['geometric_accuracy']?.score || 0; }
+                else if (appendixSortCol === 'int') { valA = a.scores?.['interior_elements']?.score || 0; valB = b.scores?.['interior_elements']?.score || 0; }
+                else if (appendixSortCol === 'clarity') { valA = a.scores?.['visual_clarity']?.score || 0; valB = b.scores?.['visual_clarity']?.score || 0; }
+                else return 0;
+
+                if (valA < valB) return appendixSortAsc ? -1 : 1;
+                if (valA > valB) return appendixSortAsc ? 1 : -1;
+                return 0;
+            });
+        }
+
+        const tbody = d3.select("#appendix-tbody");
+        tbody.selectAll("tr").remove();
+
+        const getBadgeCol = (val, mx) => {
+            let pct = val / mx;
+            if (pct >= 0.7) return 'bg-success';
+            if (pct >= 0.5) return 'bg-warning text-dark';
+            return 'bg-danger';
+        };
+
+        const rows = tbody.selectAll("tr")
+            .data(appendixData)
+            .enter()
+            .append("tr")
+            .attr("style", "cursor:pointer;")
+            .on("click", (e, d) => openModal(d.input_file, d.evaluated_model));
+
+        rows.append("td").html(d => shortName(d.input_file)).attr("class", "fw-bold");
+        rows.append("td").html(d => shortName(d.evaluated_model));
+        rows.append("td").html(d => shortName(d.evaluator_model)).attr("class", "text-muted");
+        rows.append("td").attr("class", "text-end").html(d => `<span class="badge ${getBadgeCol(d.scores?.['3d_conversion_fundamentals']?.score || 0, 35)}">${d.scores?.['3d_conversion_fundamentals']?.score || 0}</span>`);
+        rows.append("td").attr("class", "text-end").html(d => `<span class="badge ${getBadgeCol(d.scores?.['geometric_accuracy']?.score || 0, 30)}">${d.scores?.['geometric_accuracy']?.score || 0}</span>`);
+        rows.append("td").attr("class", "text-end").html(d => `<span class="badge ${getBadgeCol(d.scores?.['interior_elements']?.score || 0, 15)}">${d.scores?.['interior_elements']?.score || 0}</span>`);
+        rows.append("td").attr("class", "text-end").html(d => `<span class="badge ${getBadgeCol(d.scores?.['visual_clarity']?.score || 0, 20)}">${d.scores?.['visual_clarity']?.score || 0}</span>`);
+        rows.append("td").attr("class", "text-end fw-bold").html(d => `<span class="badge ${getBadgeCol(d.total_score || 0, 100)}">${d.total_score || 0}</span>`);
+
+        d3.selectAll("#appendix-table th.sortable")
+            .classed("text-primary", false)
+            .filter(function () { return d3.select(this).attr("data-sort") === appendixSortCol; })
+            .classed("text-primary", true);
+    }
+
+    d3.selectAll("#appendix-table th.sortable").on("click", function () {
+        const col = d3.select(this).attr("data-sort");
+        if (appendixSortCol === col) {
+            appendixSortAsc = !appendixSortAsc;
+        } else {
+            appendixSortCol = col;
+            appendixSortAsc = false; // default desc
+            if (['prompt', 'model', 'evaluator'].includes(col)) appendixSortAsc = true;
+        }
+        renderAppendix();
+    });
+
+    renderAppendix();
+
+
 
     // Lightbox Logic
     window.openLightbox = function (srcLeft, srcRight, labelLeft, labelRight) {

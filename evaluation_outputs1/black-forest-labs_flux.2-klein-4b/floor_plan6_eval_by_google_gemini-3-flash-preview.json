@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major layout distortion observed. The entire right-side stairwell is missing and replaced with a hallway/open area. The balcony wall logic is flipped. Doorway orientations for the bedroom and bathroom are inconsistent with the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model lacks the staircase room entirely (E1). Significant structural reinterpretation in the bathroom area where walls are curved or missing. Background and floating constraints are met."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "The kitchen island and dining table are placed reasonably well. However, the bed is oddly shaped (hexagonal), and the living room sofa configuration is simplified/modified."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The aesthetic perfectly matches constraints: low-poly, flat shading, isometric orthographic camera, and neutral background."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Entire staircase zone on the right side of the plan is missing in the 3D render."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom and bedroom door placements and wall configurations are distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated hexagonal bed and curved wall segments not present in the original 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan6.jpg"
+}

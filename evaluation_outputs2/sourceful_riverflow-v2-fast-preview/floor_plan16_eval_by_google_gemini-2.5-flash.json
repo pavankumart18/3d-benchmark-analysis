@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 0,
+            "dimensional_scaling": 8
+        },
+        "notes": "Bathroom wall placement is incorrect, creating a significantly smaller bathroom and a larger adjacent room (presumably part of living area). Living/Dining room is missing its balcony. Utility room is entirely missing. Bedroom dimensions are altered. Entry door is missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Missing utility room and balcony. Bathroom layout is significantly different. Presentation context failed due to ground plane shadows."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 2
+        },
+        "notes": "Dining table is present but misplaced. Kitchen and bathroom fixtures are significantly altered or missing (no sink, toilet, shower). Bedroom furniture is present but not in matching configuration. Living room furniture is present but not matching placement or type."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Minimal shadows but present on the ground plane. Flat colors and low-poly style are good. Camera composition is good."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Utility room entirely missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Balcony entirely missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom/Toilet-1 wall geometry is severely incorrect, leading to resized room and adjacency changes.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Main entry door is missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "All windows are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen and bathroom fixtures largely missing or reimagined.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Shadows visible on the ground plane, violating presentation context.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "This render fails due to significant discrepancies in room layout, missing structural elements like the utility room and balcony, and incorrect wall geometry leading to altered room sizes and adjacencies, particularly in the bathroom area. Many windows and the main entry door are also missing.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan16.avif"
+}

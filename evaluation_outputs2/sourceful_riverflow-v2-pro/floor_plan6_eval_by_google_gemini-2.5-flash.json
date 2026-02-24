@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 6,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is largely correct, with rooms and adjacencies matching. However, the overall footprint shape in the southern part of the house is not maintained from the 2D plan. The wall geometry is off due to the patio/balcony area being inaccurately reinterpreted, and the interior walls are not always aligned perfectly with the 2D plan. Door placements are largely correct, but one door is missing. Window sizes are sometimes inconsistent. Dimensional scaling is mostly consistent, but the overall aspect ratio of the external footprint is slightly compressed width-wise compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The cutaway view is good, with the roof removed and interior walls visible. Completeness is impacted by the misinterpretation of the patio area, which was rendered as an internal room/balcony. There are some minor hallucinations, primarily the south wall's configuration and the balcony area. UI/Annotation Cleanliness is an issue: there are no text labels, measurement lines, or legend/scale bars as required, which means it scores 0 points in this sub-category. Presentation context is decent with a dark neutral background and the model appearing isolated, but the shadow extends to the 'horizon' which goes against the requirement of no ground plane/shadows extending to infinity."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms (bed, sofa, dining table, kitchen counters, bathroom fixtures). However, some smaller furniture items from the 2D plan are missing (e.g., chair at kitchen island, chair at desk, additional sofa/armchairs near main sofa). Furniture placement is mostly accurate within tolerance, but the scale of some furniture appears slightly off in relation to the rooms (e.g., dining table is quite small). The desk and chair in the bedroom are missing."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style uses low-poly simplified forms, flat shaded surfaces, and clean edges. There are no obvious textures, but the solid colors vary slightly in shade, which is minor. Lighting is soft and ambient with flat shading and minimal shadows, but there is some noticeable contrast creating volume on items like the bed and kitchen counters, indicating more than minimal shadows. Camera is mostly isometric and positioned well, but the rotation seems slightly off from a perfect 45-degree angle."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing chair at kitchen island.",
+            "point_deduction": 0.5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing desk and chair in the bedroom.",
+            "point_deduction": 0.5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing small side table/armchair next to the sofa.",
+            "point_deduction": 0.5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Southern exterior wall/balcony area is misinterpreted and altered significantly, impacting overall footprint and wall geometry.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One door (between hallway and staircase area) is missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "No text labels, measurement lines, or legend/scale bars present in the 2D plan, but the 3D render successfully followed this; however, the requirement for 0/5 implies scoring 0 even with perfect adherence to the negative constraints. The rubric's subscore for UI cleanliness should be '0' if 'ANY text = automatic 0/5', which is not the case here since there IS NO TEXT. Re-evaluating: the subscore for UI cleanliness is 0 solely because it contains the text from the 2D plan in the rubric, but not in the generated image. My mistake during initial evaluation. The prompt says 'ZERO text labels present (2 pts) ... ANY text = automatic 0/5'. The 3D render DOES NOT have text, so it SHOULD get points for this. Revising.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows extend to the 'horizon', which goes against the requirement of no ground plane/shadows extending to infinity.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting creates more defined shadows/volume than 'minimal shadows' suggests, though not dramatic.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera rotation is slightly off from a perfect 45-degree isometric view.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 66,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render demonstrates good overall interpretation of the 2D floor plan but struggles with accurate reproduction of the southern exterior wall and balcony area, and has minor inconsistencies in furniture and lighting. The geometric precision falls short of the passing threshold due to significant structural misinterpretations and minor scaling issues.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "True isometric 3D reconstruction achieved."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Excellent isometric projection with consistent wall thickness and clean cutaway geometry."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Core layout of Kitchen, Dining, and Central Hall is accurate. The bay window/window seat on the right is simplified to a flat wall with windows."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Appliances and furniture are logically placed according to the plan; Kitchen island and dining set are well-scaled."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Very clean rendering; minor deduction for missing window frame details, but structural readability is high."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "The angled bay window area near the window seat is rendered as a straight wall."
+        }
+    ],
+    "total_score": 94,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D isometric conversion that faithfully translates the complex architectural floor plan into a readable 3D model.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan11.png"
+}

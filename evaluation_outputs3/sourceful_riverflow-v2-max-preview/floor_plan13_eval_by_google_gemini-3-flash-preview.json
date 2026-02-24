@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully translates the 2D floor plan into a 3D isometric cutaway with clear verticality."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D representation with clear wall thickness and volume. Minor perspective softening at the edges."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Major room configurations (2 Bedrooms, Bath, WC, Living, Kitchen) are correctly placed. Exterior balcony geometry is simplified. The garage is rendered as an attached or proximal floating volume which matches the layout relationship."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture blocks are present in living and bedrooms. Bathroom and kitchen modules are logically placed."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean render with good lighting. Absence of text labels is a plus. Clear distinction between floors and wall tops."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "The balcony area lacks the distinct railing/threshold geometry shown in the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Moderate",
+            "description": "The entry 'linens' closet/nook is merged or simplified in the 3D entry path."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A high-fidelity 3D conversion that accurately preserves the architectural layout and spatial relationships of the original floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout distortions detected. The stairs from the source image are missing, replaced by unidentified small rooms. Door counts and placements are inconsistent with the plan, specifically on the lower wall (entrance) and top wall."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The stairs are missing (E1). The central bathroom has been reinterpreted into a more complex, multi-segmented structure not present in the plan (E4). The exterior windows do not match the orange markers provided in the schematic."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture scale is generally uniform, but placement is hallucinated (living room chairs and dining sets) rather than mapping to the specific kitchen/bathroom fixtures shown on the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints: low-poly, flat shading, isometric orthographic camera, and neutral dark background with no UI/text labels."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase element from the bottom-left quadrant of the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom and partition walls are misplaced and resized compared to the 3'x2' specified dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated multiple small rooms/partitions where the open-plan kitchen and stairs should be."
+        },
+        {
+            "code": "E1",
+            "description": "Specific entrance door placement is ignored; three similar window/door units added instead of one clear entrance."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 6,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is largely correct, but there's an extra section of wall near the stairs in the 3D model that significantly alters the 'hallway' zone. The overall footprint is well-maintained. Wall positions have several inaccuracies, particularly around the bathroom and staircase areas where the 3D model introduces an unnecessary wall. Doors are mostly present, but a crucial door to the bathroom/powder room area is missing, and the bedroom door's swing is reversed. Windows are present and correctly placed, though their sizes are not perfectly proportional. Dimensional scaling is generally consistent, but the wall thickness discrepancy and added wall near stairs suggest some scale deviation."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view is mostly compliant, with the roof removed and interior walls visible. Completeness is fair, but the missing bathroom entrance door is a notable omission. Hallucination control is poor due to the presence of architectural text labels ('Kitchen Living', 'Bedroom') and an unnecessary wall in the hallway. UI/Annotation Cleanliness score is 0 due to the presence of text labels. The presentation context is suboptimal; while the model is isolated and on a dark background, shadows extend beyond the model, and the background is a gradient instead of a solid color."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces for the kitchen, bedroom, and living areas are present. Bathroom fixtures (toilet, sink, shower) are present. However, the dining table and chairs are missing. Furniture placement in the living area is significantly reorganized in the 3D render compared to the 2D plan, with the sofa and a chair swapped. The kitchen island and bedroom furniture placement are largely accurate."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style uses simplified forms, but the shading is not flat, and there's evidence of smooth shading on some objects. There are some subtle textures (e.g., on cushions, bedspread) that detract from the 'solid flat colors only' rule. Lighting is soft, but shadows are quite prominent. Colors are distinguishable. The camera composition is an isometric projection with a 45\u00b0 rotated plan view, centered and appropriately zoomed. Shadows extend too far, suggesting a ground plane is rendered, which is a minor deviation. The rendering is not photorealistic but has some material properties beyond simple flat colors."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels 'Kitchen Living' and 'Bedroom' are present within the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Crucial door for the bathroom/powder room area is missing, making the room inaccessible.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Hallucinated an unnecessary wall section between the 'hallway' and the stairs, altering access and flow.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom door swing direction is reversed compared to the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table and associated chairs are missing from the Kitchen/Living area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Living room sofa and chair placement is incorrect, swapped positions relative to the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Evidence of smooth shading and subtle material properties (e.g., on cushions, bedspread) that deviate from flat-shaded, solid color requirement.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows extend beyond the model onto what appears to be a ground plane, and the background is a gradient.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 51,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant deviations in structural fidelity, primarily the presence of text labels and an unnecessary wall, alongside several spatial inaccuracies and furniture mapping errors. The aesthetic quality also struggles with mixed rendering styles.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan6.jpg"
+}

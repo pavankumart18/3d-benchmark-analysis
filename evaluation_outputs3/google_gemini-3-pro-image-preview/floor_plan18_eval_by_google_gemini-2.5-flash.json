@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed successfully. The model displays clear height, thickness, and a proper angled view with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5), floors are distinct (3), interior volume is perceivable (4), proper 3D wall corner geometry (3). Angled view (5), interior visible from elevated perspective (3). Minimal perspective distortion (2). Roof cleanly removed (5), interior spaces fully visible (0 - utility room is partially obscured), but geometry is clean (2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms and adjacency (4), relative room proportions are preserved (3), major room identities match (2). Major wall positions align (5), wall lengths proportional (3), internal partitions correctly placed (2). Doors present and on correct walls (4). Windows present and on correct walls (2). Openings seem proportionally sized (0 - windows are simplified rectangular blocks, not matching 2D style)."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present (4), kitchen elements present (2), bathroom fixtures present (2). Furniture is placed in correct rooms (3), furniture scale is reasonable (2), orientation is logical (0 - sofa orientation is different from 2D)."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Walls, floors, openings clearly distinguishable (4), geometry readable (4). Interior clearly visible (3), lighting doesn't obscure (3). Consistent material usage (2), no major rendering artifacts (2), clean background (0 - black background, not presentation-style, no text labels)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "",
+            "severity": "",
+            "description": "The utility room in the 3D render is partially obscured, suggesting the cutaway is not fully clean for that specific area."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Windows in the 3D model are simplified rectangular blocks, not precisely matching the style or perceived openings from the 2D plan, especially the one in the bedroom."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "The main living room sofa's orientation is different from its placement in the 2D floor plan."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "Minor",
+            "description": "The background is a plain black, which is functional but not a clean/presentation-style background."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "Efficiently converted 3D model with good geometric fidelity and clear interior visibility, though minor discrepancies exist in element representation and cutaway completeness.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan18.jpg"
+}

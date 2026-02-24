@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows height, thickness, depth, an angled view, and a removed roof/ceiling."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Floors are clearly distinct. Interior volume is well perceivable. 3D wall corners are correctly rendered. The view is clearly angled and isometric-like. The interior is visible from an elevated perspective. Minimal perspective distortion. The roof/ceiling is cleanly removed, and interior spaces are fully visible with clean geometry. Small discrepancy in perceiving interior volume for the primary bedroom due to furniture placement."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms and adjacency relationships are preserved. Relative room proportions are good. Major wall positions align well. Wall lengths are generally proportional, but some minor walls, like the closet wall in the laundry room, are slightly off. Internal partitions are mostly correct. Doors are present and on correct walls, but some are missing (e.g., closet in bedroom 2, closet in hall). Windows are present and on correct walls, but several are missing (e.g., bathroom, laundry, master bedroom side wall). Openings are proportionally sized and oriented."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture for beds, sofas, and tables are present and in the correct rooms. Kitchen elements and functional bathroom fixtures are present. Furniture scale is reasonable and orientation is logical relative to layout. Some minor missing furniture elements like in the closets, but overall good."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable and not visually confusing. Interior is clearly visible with good lighting that does not obscure geometry. Consistent material usage. No major rendering artifacts or broken meshes. Clean background and presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Missing a door for the closet in Bedroom 2."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Missing a door for the larger closet in the Hall."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MAJOR",
+            "description": "Several windows are missing from the 3D render that are present in the 2D plan (e.g., bathroom, laundry, master bedroom side wall)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "The wall separating the laundry closet from the main laundry room appears to be of disproportionate length compared to the 2D plan."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "The conversion is a good 3D representation, accurately capturing most of the layout and interior elements, though it has some missing doors and windows, and minor wall geometry discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan4.jpg"
+}

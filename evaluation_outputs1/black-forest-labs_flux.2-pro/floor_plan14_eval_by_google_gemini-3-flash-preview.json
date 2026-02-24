@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent layout preservation. Room adjacencies and wall alignments are highly accurate. Minor distortion in the utility room door swing and the entrance foyer length."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Walls are correctly extruded with roof removed. No text or measurements present. Deducting points for the slight hallucination of glass-like partitions in doorways not clearly defined as such in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Clean block-style furniture. Bed, sofa, and dining set placements are exact. Kitchen counter layout is correct."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Isometric camera and background constraints are met. However, the render features complex textures (marble, wood grain, rug patterns) and soft shadows that lean toward photorealism, violating the strict low-poly/flat-shading constraint."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E6",
+            "description": "Render contains detailed floor textures and photorealistic material qualities instead of flat colors."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated semi-transparent glass door elements at various entry points."
+        },
+        {
+            "code": "E2",
+            "description": "Slight proportion distortion in the utility area relative to the kitchen width."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan14.webp"
+}

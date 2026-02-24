@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 6,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall layout topology is mostly preserved, but there are issues with relative room sizes. The left-most bedroom and the bathroom are significantly smaller in the 3D render than the 2D plan suggests. Several wall positions are off, notably the wall separating the living room from the left bedroom, and the bathroom walls. Some doors are missing their swing direction (or the swing direction is reversed). The window placement is generally good, but some sizes appear slightly compressed. Dimensional scaling is inconsistent, with some rooms appearing more compressed than others."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant, with the roof fully removed and interior walls visible. There are no missing major structural elements. However, the top banner 'Multi-Room Floor Plan Template' is clearly visible in the source 2D image, which counts as UI/annotation. There's also ground plane/shadowing and some background elements that extend beyond the isolated model."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and accounted for (beds, sofas, dining table, desks, kitchen counters/sink, bathroom fixtures). Kitchen and bathroom fixtures are present. However, the accuracy of furniture placement is off in several instances: the position of the L-shaped sofa in the living room is shifted and rotated, the left bedroom's beds are vertically oriented in 3D versus horizontal in 2D, and the desk in the upper right bedroom is different."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 5,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses low-poly simplified forms with flat shaded surfaces and solid flat colors. However, some materials (like the floor and furniture tops) have slight textures/gradients. Lighting results in some pronounced shadows, indicating more than just soft ambient lighting. The camera appears to be an isometric projection, but the 45\u00b0 rotation is off, making the front wall of the kitchen area appear almost perpendicular to the viewer, rather than at a 45-degree angle. Framing is good, and all rooms are visible."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Left bedroom and bathroom significantly compressed in width compared to 2D plan, affecting relative room sizes.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall separating living room and left bedroom is misplaced and extends too far back, altering the living room's perceived size and shape.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom wall geometry is inaccurately represented, leading to a smaller bathroom footprint.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The swing direction of several doors is not depicted or is reversed compared to the 2D plan (e.g., bathroom door, left bedroom door).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The title 'Multi-Room Floor Plan Template' from the 2D source image is present, violating the UI/Annotation Cleanliness constraint.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floor and some furniture surfaces show slight textures/gradients, not solid flat colors.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Orientation of beds in the left bedroom is incorrect (vertical in 3D, horizontal in 2D).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Placement and orientation of the living room sofa is significantly different from the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Upper right bedroom desk configuration is different from the 2D plan.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 59,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render presents several inaccuracies in spatial representation and furniture placement, and fails on hard constraints for UI cleanliness. While the cutaway view is correct and geometry style is mostly compliant, significant deductions due to spatial distortion and UI elements lead to a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is mostly preserved. Overall footprint matches, but the living/dining area is disproportionately larger in the 3D model, encroaching on Bedroom-2 and the utility area. Wall positions are generally accurate but some interior walls show slight misalignments or are missing (e.g., small wall segment separating shower in M.Bedroom toilet). Missing windows in Bedroom-1 and Kitchen. Windows in Bedroom-2, Living/Dining, and M.Bedroom are present but their relative positions (height, horizontal placement) are not always precise. The scaling appears consistent, but some areas feel stretched."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. Completeness suffers from small missing structural elements like the wall separating the shower in the M.Bedroom toilet. Minor hallucination with an extra wall segment in the L-shaped balcony. UI/Annotation Cleanliness is a critical failure as there is text visible on furniture and potentially other elements (e.g., patterns on floors/walls could be interpreted as annotations if they are not solid colors) which makes the subscore 0. Presentation context is good, with a dark background and the model floating, but minor shadows are present on the base."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and correlate well with the 2D plan, including beds, dining table, sofas, kitchen counters, and bathroom fixtures. However, some furniture in the 3D model does not exactly match the 2D plan's placement (e.g., dining table and chairs are rotated 90 degrees; console in living room is missing). Also, specific elements like the fridge in the utility area are missing, and some bathroom fixtures are simplified/different. The scale of the furniture generally appears appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 4,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style uses low-poly simplified forms, but some surfaces appear to have slight textures or patterns (especially the floors and balcony details) which deviates from solid flat colors. This is not a critical failure but causes deduction. Lighting is soft ambient with minimal shadows. No dramatic contrasts. Colors are distinguishable. Camera view is a true isometric projection, well-composed, centered, and at an appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on furniture (e.g., sofa, bed, chairs) and possibly other elements. UI/Annotation Cleanliness is 0/5.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing windows in Bedroom-1 and Kitchen. Windows in Bedroom-2, Living/Dining, and M.Bedroom are present but their relative positions (height, horizontal placement) are not always precise.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Living/Dining area appears disproportionately larger, subtly affecting adjacent rooms. Some interior walls, especially a small segment separating the shower in the M.Bedroom toilet, are missing or simplified.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table orientation incorrect. Minor furniture discrepancies and missing fridge in utility.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floors and some balcony surfaces exhibit slight textures or patterns instead of strictly solid flat colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 66,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely adheres to the 2D floor plan's structural layout and major elements, but fails due to critical UI annotation presence and minor discrepancies in spatial accuracy and furniture mapping.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan15.webp"
+}

@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model successfully translates the 2D floor plan into a volumetric isometric cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clearly defined wall thickness, interior volumes, and a perfect isometric viewing angle."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "High layout fidelity. All rooms (Bed-1, Bed-2, Living/Dining, Kitchen, Utility, Toilets) are present and in correct configuration. Wall openings and glass partitions for decks are accurately placed."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement matches the plan perfectly, including specific kitchen appliances, bathroom fixtures, and living room furniture."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean rendering with logical lighting. Absence of text labels is a plus for clarity, though materials are somewhat simplified."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "LOW",
+            "description": "Minor simplification of window glazing frames compared to the architectural plan's detailed indications."
+        }
+    ],
+    "total_score": 94,
+    "verdict": "EXCELLENT",
+    "summary": "An exceptionally faithful and geometrically accurate 3D isometric conversion that retains all structural and interior details from the 2D source.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan14.webp"
+}

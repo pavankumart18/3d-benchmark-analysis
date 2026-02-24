@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room placement are accurate. However, the top-center double door was rendered as a single solid door (E2). The window on the right wall in the living area is missing, replaced by a TV unit/wall feature (E1). Staircase orientation is inverted compared to the blueprint (E2)."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No roof, no text labels, no UI elements. Correct floating model on a dark background."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture such as the dining table and sofas are logical hallucinations (E4) as they weren't in the plan, but fit the room labels. The kitchen counter and bathroom fixtures strictly follow the plan's placement."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect execution of the low-poly style. Flat shading, no textures, and correct isometric orthographic camera angle."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Double patio/dining door rendered as a single standard door and staircase direction is reversed."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window on the far right wall of the living room."
+        },
+        {
+            "code": "E4",
+            "description": "Small hallucinations of living room and dining room furniture not present in the 2D floor plan layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan3.jpg"
+}

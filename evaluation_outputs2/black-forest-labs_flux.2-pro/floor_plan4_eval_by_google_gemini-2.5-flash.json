@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is mostly preserved. Minor discrepancies in room proportions, especially the Hall and Laundry room. Some windows are missing. Wall positions are generally accurate but some deviations are present, particularly with the placement of the wall for the Laundry room. Overall footprint is maintained."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is correctly removed, and interior walls are visible. No missing structural elements. No extra rooms or architectural features added. However, there are significant issues with UI/Annotation cleanliness and presentation context. The generated 3D render includes text, which results in a 0 for UI cleanliness. The background is not a dark neutral, and there are ground plane shadows."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in correct rooms (beds, sofas, dining table, kitchen counters, bathroom fixtures). Kitchen and bathroom fixtures are present. Deductions for some minor placement inaccuracies (e.g., dining table slightly off-center in Kitchen/Dining, some clutter in bedrooms in 3D not in 2D)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly simplified forms are used, and surfaces are flat shaded with solid colors, meeting style expectations. However, there are shadows that are not minimal and appear from a directional light source, and the colors tend to blend. The camera view is isometric, but the specific 45-degree rotation feels slightly off. The background is not a dark neutral."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on floor (e.g., 'Laundry', 'Bedroom 1', 'Bedroom 2', 'Living Room', 'Kitchen/Dining', 'Bathroom', 'Hall', 'Closet')",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Background is not a dark neutral, and there are visible ground plane shadows around the model.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall separating Hall from Laundry room is misaligned; Laundry room appears smaller in 3D.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Two windows are missing from the Kitchen/Dining area, and one window is missing from Bedroom 2.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are more prominent than minimal, indicating a directional light source rather than just soft ambient lighting.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 68,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely preserves the spatial layout and furniture, but critical errors in UI cleanliness (presence of text) and presentation context (background, shadows) led to a failing score, compounded by minor fidelity and aesthetic issues.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan4.jpg"
+}

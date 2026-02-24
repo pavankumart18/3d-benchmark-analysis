@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and wall adjacencies are largely preserved. Significant credit awarded for the difficult pantry and central stair core. However, door orientations on the foyer closet and playroom entrance are reversed, and the dining room window bay lacks the correct three-panel articulation."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Model is correctly floating on a dark background with no UI elements or text. Roof is removed as required. Deductions for minor structural reinterpretation of the kitchen island and the external wall thickness appearing inconsistent in one area."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic kitchen fixtures (sink, stove) are correctly placed. However, the living room contains a hallucinated bed-like structure instead of a sofa, and the playroom has been filled with multiple beds which contradict its designated function in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded style. The lighting is soft and ambient as requested. The camera angle is a perfect isometric orthographic view. Minimal deduction for small blue texture-like artifacts on furniture surfaces."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated multiple beds in the Playroom area."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer closet doors swing outward in 3D but are shown as bifold/inward in 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room window bay lacks correct 3-pane geometric segmentation."
+        },
+        {
+            "code": "E4",
+            "description": "Large bed or ottoman hallucinated in the center of the Living Room."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan8.jpg"
+}

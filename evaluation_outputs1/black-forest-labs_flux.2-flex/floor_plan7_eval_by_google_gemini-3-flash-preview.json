@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is mostly preserved. However, there are significant scale and placement issues. The kitchen is missing its side wall opening towards the entrance, and the stairs area has been reinterpreted as a fully enclosed room with a door, which is not present in the 2D plan. Door swing directions are inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "No text labels and floating background are correct. However, multiple hallucinations exist: an extra staircase outside the kitchen/entrance area, and the staircase to the bottom right is enclosed in a room with a door where the 2D plan shows an open 'UP' stairwell."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is strong; the kitchen counters, dining set, bed, and living room arrangement align well with the 2D icons. A TV stand was added to the bedroom (hallucination)."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the limited color palette and low-poly style. The lighting is slightly more dramatic than 'flat shading' but maintains the intended clean, non-photorealistic look. Camera perspective is a correct isometric orthographic angle."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated exterior stairs behind the kitchen/living area."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase at the bottom right is incorrectly enclosed by walls and assigned a door not present in spatial layout."
+        },
+        {
+            "code": "E4",
+            "description": "Addition of a TV unit in the bedroom not present in the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen entry is blocked by a wall that should be an open passage according to the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan7.jpg"
+}

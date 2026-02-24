@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls extruded with thickness, angled/isometric perspective, multiple wall faces visible, and ceiling/roof removed to reveal interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion, readable room volumes, and clean cutaway. Minor simplification in some corner/partition detailing compared to plan."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "Overall apartment footprint and central living/dining organization broadly match, but there appears to be a notable room-program mismatch (an extra bedroom-like space in the lower/foreground zone where the 2D plan reads as living/entry circulation), and some partition/door placements do not perfectly align with the 2D layout."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture types present (sofas, dining, beds) and bathrooms/kitchen elements included. Some room-to-furniture mapping likely deviates due to the apparent extra/relocated bedroom."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with good visibility of walls/floors/openings; lighting supports reading the layout. Minor ambiguity in distinguishing some openings and exact door swings vs plan."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Room configuration/program does not fully match the 2D plan (a bedroom-like space appears in the lower/foreground area, suggesting an added/relocated room compared to the plan\u2019s circulation/living arrangement)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows/openings are not all verifiably on the exact walls or with the same proportions/orientation as the 2D plan (some placements appear approximated)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Some furniture placement likely follows the altered room mapping rather than the exact 2D room functions."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A clear and valid 3D cutaway conversion with strong fundamentals, but with noticeable layout/program mismatches that reduce strict geometric fidelity to the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan5.jpg"
+}

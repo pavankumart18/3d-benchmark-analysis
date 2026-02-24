@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 4,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 2,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 2
+        },
+        "notes": "Significant layout differences: 4 bedrooms, 1 living, 1 dining, 1 kitchen, 1 foyer, 1 utility, 1 ser. rm, 2 balconies are expected but the 3D model only shows 3 bedrooms, 2 bathrooms, 1 living/kitchen/dining area. Missing rooms, misaligned walls, and incorrect room adjacencies are prominent. Wall positions are broadly inaccurate. Most doors and windows are either missing or misplaced, and their sizes are inconsistent. No balcony found."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed, and interior walls are visible. Major structural elements like bedrooms, bathroom, kitchen, service room, utility, and balconies are missing. The 3D model presents a significantly simplified and reduced floorplan. No UI elements are present, which is good. The green base for the model is a significant departure from the 'floating/isolated, dark neutral background' requirement, appearing as a ground plane."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Major furniture pieces (sofas, dining table, beds, kitchen counters, bathroom fixtures, etc.) are present in the 2D plan but largely absent or severely misrepresented in the 3D render. The 3D render contains minimal, generic furniture that doesn't match the 2D plan's layout or type. There are beds in two rooms, and a few bathroom fixtures but they don't correspond to the 2D plan accurately."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 0
+        },
+        "notes": "Low-poly, simplified forms with flat shaded surfaces are present, aligning with the geometry style. The lighting is soft ambient with minimal shadows. Colors are distinguishable. However, the camera composition is not a true isometric projection (parallel lines appear to converge slightly, indicating some perspective distortion). The view is not precisely 45 degrees rotated plan view. The green ground plane is also not compliant with presentation context."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Multiple rooms missing (Dining, Foyer, Kitchen, Utility, Service Room, Balconies, Dress area, several Toilets, Bedroom 4 are completely absent in the 3D render).",
+            "point_deduction": 15
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The 3D model only represents a small portion of the 2D plan, effectively missing entire sections and structural elements.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall layout topology significantly altered; room adjacencies and connectivity are not preserved. Entire sections of the plan are missing, and the relative sizes are distorted.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Most furniture (sofas, dedicated dining table, kitchen appliances, bathroom fixtures, beds, etc.) from the 2D plan is either entirely missing or incorrectly placed/scaled in the 3D render.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The camera view exhibits minor perspective distortion, not a true isometric projection.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Numerous doors and windows are missing or misplaced relative to the 2D plan. Swing directions and proportional sizes are mostly ignored.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Green ground plane is present, deviating from the 'floating/isolated' presentation context.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 29,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is a significant departure from the provided 2D floor plan, missing numerous rooms, structural elements, and furniture, resulting in poor spatial accuracy and structural fidelity. While aesthetic style is somewhat compliant, critical geometrical inaccuracies and an incorrect camera projection lead to a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan17.jpg"
+}

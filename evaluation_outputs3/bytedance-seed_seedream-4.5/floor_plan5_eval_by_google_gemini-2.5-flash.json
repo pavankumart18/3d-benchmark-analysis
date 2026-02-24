@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All checks passed for true 3D conversion."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Almost perfect score, excellent 3D transformation. One minor detail is that the floor planes are not perfectly separated from the walls, but it's a very subtle effect."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Excellent fidelity in room configuration and wall geometry. Minor discrepancy in the number of doors and lack of windows in the top-left room and some smaller variations in opening sizes. "
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "All major furniture and fixtures are present, correctly placed, and scaled appropriately."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Excellent visual clarity and aesthetic coherence. The lighting is good and the geometry is readable. No text labels are present. One minor point deducted for very slight pixelation, but this does not affect the geometry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Missing windows in the top-left most room (bedroom/office)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door openings appear slightly smaller in the 3D render than indicated by the 2D plan, e.g. the smaller doors on the right side."
+        }
+    ],
+    "total_score": 96,
+    "verdict": "EXCELLENT",
+    "summary": "This is an excellent 3D conversion, accurately transforming the 2D floor plan into a geometrically faithful and clear 3D model with only minor discrepancies in window and door presence.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan5.jpg"
+}

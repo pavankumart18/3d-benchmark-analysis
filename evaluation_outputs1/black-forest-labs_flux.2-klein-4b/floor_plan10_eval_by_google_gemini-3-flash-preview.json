@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Critical failure in layout translation. More than 50% of the room adjacencies from the floor plan are ignored. Doors are placed randomly compared to the blueprint. The long rectangular footprint of the original plan has been compressed into a square, losing the Garage, Alfresco, and Portico sections entirely."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the roof is removed and the model floats on a dark background, major structural components (Garage, Laundry, multiple bedrooms) are missing. The model is a generic apartment rather than a reconstruction of the specific plan provided."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture exists but does not correspond to the layout. The kitchen island and specific theater seating are absent. Scale is generally consistent with the internal logic of the render but not the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The model successfully adheres to the stylistic constraints: low-poly, no realistic textures, flat shading, and an isometric perspective. Correct camera angle and composition."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Garage, Alfresco, Laundry, and correct Kitchen configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distorted from a long rectangle to a compact square."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated room interior with two pink sofas in a layout not present in the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but the utility area and kitchen have been reinterpreted; the exterior wall of the utility area lacks the structural gap shown in the plan. Window placements on the facade are somewhat generic compared to the specific plan openings."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model successfully uses a cutaway view on a dark background. However, it hallucinated an entirely new room/separate kitchen unit in the foreground right (adjacent to the foyer) which does not exist in the floor plan. Wall thicknesses and exterior detailing vary from the source."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is remarkably high, matching the dining table, sofa arrangement, and bed orientations correctly. Scaling is consistent with the room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Uses a clean isometric orthographic perspective. While lighting is soft, some surfaces exhibit textures (wood grain, marble-like patterns) which slightly deviates from a strict 'no texture' low-poly mandate."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated an additional enclosed kitchen/room structure near the entrance foyer not present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Utility' balcony area has been transformed into a fully enclosed room with standard windows."
+        },
+        {
+            "code": "E6",
+            "description": "Presence of textures on floor and kitchen counters violates the strict 'no textures/flat colors only' constraint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan14.webp"
+}

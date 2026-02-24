@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 6,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint is altered, particularly the top-left section which is simplified, leading to incorrect room adjacencies and relative sizes. Multiple wall positions are off by more than the allowed tolerance, and some interior walls are missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 2,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is mostly correct, but some interior walls are missing or incorrectly placed. Hallucinated a second floor/level, which is a major deviation. The background is dark but not fully neutral, and it's missing the 'floating/isolated' appearance. Ground plane/shadows do extend to infinity."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many furniture pieces are present, but their placement is inconsistent with the floor plan. Several items are missing, and some are in incorrect rooms or significantly misplaced within rooms. The kitchen and bathroom fixtures are only partially present and inaccurately placed for some elements."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses simplified forms and flat-shaded surfaces, but there are some visible textures and smoother shading on walls, and the furniture outlines look like a texture. Lighting produces some soft shadows which contradicts the 'minimal shadow' rule. The camera is not a true isometric projection (perspective distortion observed)."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "The entire left side of the floor plan is significantly altered; the two bedrooms and bathroom are moved and restructured, effectively missing sections of the original intent (the bathroom is moved to a separate 'upper level', and one bedroom is integrated into the living space).",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls are missing or heavily reconfigured, specifically the wall separating the two left bedrooms, and the wall between the bathroom and the top-left bedroom.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The render introduces a second level or 'split-level' for the bathroom area, which is a hallucinated architectural feature not present in the 2D plan.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The camera view exhibits perspective distortion, it is not a true isometric projection. Parallel lines in the 3D model (e.g., walls) visibly converge.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The rendering uses textures, notably for the furniture outlines and window frames, contradicting the 'solid flat colors only' rule. There is also a gradient/soft shading on walls.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Multiple furniture pieces are missing (e.g., small plant in living room, second chair in study/office room) or misplaced significantly (e.g., two beds in the left bedroom moved, shower moved to different wall).",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 43,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render significantly deviates from the 2D floor plan, particularly in layout topology, wall geometry, and introduces an unrequested second level. It also fails critical aesthetic and perspective requirements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General room layout and adjacency are preserved. However, there are significant wall alignment errors near the central hallway and the staircase. Door orientations are mostly correct, though Bed 3 is missing its primary entry door from the hallway. Window scaling on the bottom-right perimeter is slightly exaggerated."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model successfully removes the roof and uses a floating dark background. Major failures: Hallucinated staircase-like structure on the balcony (left) which is not in the plan. Small text-like glyphs appear on some walls (e.g., above toilet and bed walls) violating the 'no text' constraint. Balcony railings are interpreted as high structural fences."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement follows the plan well (sofas in activity area, beds in bedrooms). Some scale issues exist\u2014the 'Activity' sofa is undersized compared to the plan, and 'Bed 2' is rotated 90 degrees incorrectly compared to the 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent low-poly aesthetic and monochrome shading. The lighting is soft and ambient as requested. The camera is isometric, though slightly zoomed out. Points deducted for the presence of semi-transparent circular 'ghosting' frames where doors are located, which adds visual clutter not present in a clean render."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated stairs/steps integrated into the balcony area."
+        },
+        {
+            "code": "E5",
+            "description": "Small text-like symbols/characters rendered on wall surfaces."
+        },
+        {
+            "code": "E2",
+            "description": "Bed in Bedroom 2 is rotated 90 degrees away from the wall specified in the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing doorway transition between the central hall and Bedroom 3."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan12.png"
+}

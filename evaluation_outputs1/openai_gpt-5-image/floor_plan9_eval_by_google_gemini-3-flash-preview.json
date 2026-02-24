@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacencies are highly accurate. Wall alignment reflects the blueprint well. Points deducted for door swing inconsistencies and minor scaling issues in the hallway/utility area."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No roof, no text labels, and no UI elements. The model is correctly floating on a dark neutral background. Small penalty for merging the 'covered patio' space inconsistently with the interior floor plane."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen island and counters are present and correctly scaled. However, major furniture blocks (beds, sofas, dining table) are entirely missing from the render, violating the requirement for block-style furniture placement."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly geometry, flat shading, soft ambient lighting, and a correct 45-degree isometric orthographic camera angle."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing major furniture blocks (beds in master and secondary bedrooms, dining table, living room seating)."
+        },
+        {
+            "code": "E2",
+            "description": "Door orientation/swings in the hallway and master suite do not match the circular swing paths indicated in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The front 'covered patio' is rendered as a solid floor slab extending flat from the interior, lacking the clear structural separation shown in the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan9.png"
+}

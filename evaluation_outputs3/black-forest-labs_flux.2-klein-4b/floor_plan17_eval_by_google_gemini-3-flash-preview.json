@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully uses an isometric cutaway perspective with visible wall geometry and interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D depth and projection. Minor loss of point for some simplified wall corner intersections in the rear section."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Layout is highly faithful to the plan. Living area, dining, and main bedrooms match placement. Slight simplification of the servant room/utility area geometry at the front left."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Most furniture is correctly translated from the 2D plan, including the specific sofa arrangement and dining set. Scale is well-maintained."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Consistent lighting and materials. Excellent legibility of spaces without text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "LOW",
+            "description": "Some balcony railings are rendered as solid walls rather than open balustrades."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D conversion that preserves spatial relationships and furniture layouts from the source plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan17.jpg"
+}

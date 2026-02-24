@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but there are significant door and window issues. The entry door is missing its swing/geometry, and the balcony access in the lounge is represented as two standard windows instead of a sliding door. The internal door to Bedroom 2 is poorly rendered/orientated."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms are present including the detached garage. However, there is a hallucination of a glass partition/low wall on the bottom edge of the model that does not exist in the 2D plan. No text or UI elements present."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen counters and bathroom fixtures are correctly placed. However, major furniture like beds in bedrooms and dining table/sofas are entirely missing. The car in the garage is a positive addition but not requested as primary furniture."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the low-poly, flat-shaded style. The isometric camera angle is correct and the background is a clean dark neutral. Lighting is soft and appropriate for the requested style."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing beds in bedrooms and lounge/dining furniture."
+        },
+        {
+            "code": "E2",
+            "description": "Lounge balcony sliding door replaced with two standard windows."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated glass-like low walls on the exterior edge near the bathrooms and bedroom 2."
+        },
+        {
+            "code": "E2",
+            "description": "Entry door path is blocked by structural geometry/corner wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a discernible interior volume, an angled view, and a removed roof to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5/5). Floors are clearly separate (3/3). Interior volume is perceivable (4/4). Wall corner geometry is good (3/3). Angled view is present (5/5), interior visible from elevated perspective (3/3). Minimal severe perspective distortion (2/2). Roof removed cleanly (5/5). Interior spaces are fully visible (3/3). However, there's a minor broken section near the entry (1/2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3/3), adjacency is good (4/4). Relative room proportions are well preserved (3/3). Major room identities are clearly inferred (2/2). Major wall positions align well (5/5), lengths are proportional (3/3). Internal partitions are mostly correct (2/2). Doors are present and mostly on correct walls (4/4). Windows are present and on correct walls (2/2), but sizing/orientation can be a bit off compared to the plan for some (1/2)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Some major furniture is represented, like the bed in one bedroom and kitchen/bathroom fixtures (4/4 for furniture, kitchen (2/2), bathroom (2/2)). Furniture is in correct rooms (3/3). Scale is reasonable (2/2). Orientation is logical (2/2)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4/4). Geometry is readable (4/4). Interior is clearly visible (3/3), and lighting does not obscure geometry (3/3). Consistent material usage (2/2) with no major rendering artifacts (2/2). Clean background (2/2)."
+        }
+    },
+    "detected_errors": [],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "The 3D render is a good and largely faithful geometric conversion of the 2D floor plan, with clear 3D representation and good layout fidelity, despite a few minor discrepancies in openings and a slight geometric flaw near the entry.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan13.jpg"
+}

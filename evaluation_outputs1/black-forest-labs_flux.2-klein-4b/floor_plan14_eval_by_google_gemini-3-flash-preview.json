@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "The 3D model contains significant structural reinterpretations. The kitchen and utility areas have been completely altered or merged. The entrance foyer area is missing proper wall partitioning. Door placements are largely missing or replaced with open gaps. The 'Deck' areas are merged into internal volumes rather than being distinct outdoor/semi-outdoor spaces."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the roof is removed and the background is a dark neutral, the internal wall structure fails to reflect the complexity of the floor plan. Specifically, the toilet partitions and utility area walls are hallucinated or simplified improperly. No text/UI elements are present, which is a positive compliance."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture block-style is generally followed, but placement is inaccurate. The sofa and living room arrangement is mirrored or shifted. The kitchen counter lacks the specific 'L-shape' shown in the original plan. The dining table is placed in the center of a wide-open hall that does not exist in the floor plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to aesthetic constraints. Low-poly geometry, flat shading, and no textures are perfectly executed. The isometric orthographic camera angle is correct."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing utility room walls and specific entrance foyer partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Significant layout distortion in the kitchen area; bathroom internal layout does not match plumbing fixture positions."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated wide-open space in the center; the floor plan has more complex circulation paths."
+        },
+        {
+            "code": "E2",
+            "description": "Scaling of rooms: Bed-1 and Bed-2 proportions compared to the living area are skewed."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan14.webp"
+}

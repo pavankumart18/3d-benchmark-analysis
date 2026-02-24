@@ -1,0 +1,75 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology is generally good; room count and adjacencies are preserved. Relative room sizes and overall footprint are maintained. Wall positions are mostly accurate, with minor discrepancies around the kitchen/utility area. Corner angles are preserved. Doors are mostly present and correctly placed, though swing direction is not easily verifiable. Windows are present and correctly placed. Consistent scale factor is applied uniformly."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The roof is completely removed, and interior walls are fully visible. The model appears complete with no missing structural elements. No extra rooms or invented architectural features are added. However, text labels, measurement lines, legend/scale bars are present in the original 2D plan, but thankfully not in the 3D render. The 3D render background is a solid color, not a dark neutral gradient, and there's a faint ground plane/shadow present."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 5
+        },
+        "notes": "All major furniture pieces (beds, sofas, dining table) are identified and present. Kitchen fixtures (counters, island, sink) and bathroom fixtures (toilet, sink, shower/tub) are indicated. Furniture placement largely matches the 2D plan, and their scale is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly simplified forms are used, and surfaces are flat shaded with solid colors, avoiding textures. Clean edges are present. Soft ambient lighting is used with minimal shadows. Colors are distinguishable. The view is a true isometric projection, rotated appropriately, centered, and fully visible without cropping."
+    },
+    "detected_errors": [
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels, measurement lines, and legend/scale bars are present in the original 2D image, which is being evaluated against the 3D render output. The 3D render itself has no text, but the rubric mentions 'ZERO text labels present' only for UI/Annotation cleanliness.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Background is a solid dark grey, not a gradient. A faint ground plane and shadow are present, slightly detracting from the 'floating/isolated' presentation.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Minor wall position discrepancies, specifically around the kitchen and utility area where some walls appear slightly thicker or have minor shifts compared to the 2D plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 84,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render accurately translates the 2D floor plan with excellent spatial and furniture mapping, clean low-poly styling, and proper camera composition, achieving a pass despite minor inconsistencies in wall geometry and presentation context.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "Severe failure in layout fidelity. The 2D plan depicts a residential upper floor with three bedrooms and an activity area, but the 3D render hallucinations a ground-floor kitchen/living area with a garage and car. Room adjacencies and wall alignments are completely incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the model appears as a floating cutaway on a dark background, it fails to include the actual rooms from the plan (Bed 2, 3, 4, Bath) and instead hallucinates a garage/driveway structure."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not correspond to the floor plan. The plan shows beds and a balcony set; the render shows a dining table, kitchen island, and living sofas in incorrect clusters."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High adherence to stylistic constraints: low-poly, flat shading, isometric orthographic camera, and clean lighting parameters are well executed."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing all three bedrooms (Bed 2, 3, 4) and the specific bathroom layout seen in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a garage with a vehicle and a full kitchen/dining setup not present in the reference layout."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion: The central staircase/activity area logic is completely ignored in favor of a generic open-plan living room."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the balcony and balustrade structure entirely."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan12.png"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout distortions detected. The 2-car garage has been hallucinated into a living/bedroom suite with a second kitchen setup. The dining room and study areas are merged into bedroom-like spaces. Door swing directions are inconsistent with the original plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "While the roof is removed and the background is neutral, there is significant structural reinterpretation. The floor plan's footprint is warped, particularly on the bottom right where the garage was replaced by living quarters and exterior wall lines were shifted."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is placed in a blocky style, but the mapping is incorrect. Bedrooms contain multiple beds not present in the plan, and the kitchen island geometry is simplified but roughly in the correct position."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The render successfully achieves a low-poly, non-photorealistic aesthetic with flat shading and soft ambient lighting. The camera is isometric, though slightly off-center."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage structure."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a second kitchen and bedroom suite in place of the garage."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced interior walls in the 'Study' and 'Dining' area, converting them to enclosed bedrooms."
+        },
+        {
+            "code": "E4",
+            "description": "Interior door count and placement do not match the original floor plan's egress routes."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan9.png"
+}

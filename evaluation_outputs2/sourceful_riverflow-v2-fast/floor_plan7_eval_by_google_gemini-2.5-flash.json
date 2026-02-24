@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Bathroom/Wash Area are merged into one room. The 'Entrance to the House' area is integrated into the Living Room. The stair area is significantly altered. The Bedroom 1 exterior wall on the south side is significantly shorter than in the 2D plan, compressing the room, and the 'Wash Area' wall connecting to the bedroom is shifted. The wall between Living Room and Kitchen is missing a door/pass-through. The overall footprint shape is distorted, especially on the left and bottom side."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The 3D render contains text labels E1-CRIT. Hallucinated a second 'Wash Area' room instead of a dedicated 'Wash Area' and 'Toilet'. Completeness suffers from the altered stair area. The model appears to have a ground plane, but it is dark and integrated well, so no deduction for presentation context."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 1
+        },
+        "notes": "Major furniture pieces (bed, dining table) are present but their placement is inaccurate (especially the bed which is rotated 90 degrees and shifted). Kitchen fixtures are present but not accurate, and the sink is missing. Bathroom fixtures are missing/inaccurate. The living room furniture is completely gone. Hallucinated shelves in the stair area."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Some smooth shading is visible on the walls. Colors are generally distinguishable. The camera composition is good, and it is an isometric view. The rendering has some texture/noise on the surfaces rather than solid flat colors which impacts geometry style score. The lighting is relatively flat."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels 'Bedroom 1', 'Kitchen', 'UP', 'Wash Area', 'Toilet' are present in the 3D render, violating UI/annotation cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire Living Room is missing, and 'Entrance to the House' area is absorbed. The Wash Area and Toilet are merged and a new 'Wash Area' (or Wash Room based on the text label) is added where the Living Room should be. The staircase area is significantly altered, changing its function from a staircase to storage, and a room, 'Wash Room' is placed where part of the Living Room and original Wash Area were",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned. The external wall of Bedroom 1 is significantly shortened. The wall between the kitchen and living room is missing a door/pass-through. The separation between Wash Area and Toilet is removed. The structure is heavily modified.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Living Room furniture is completely missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bathroom fixtures are missing/inaccurate.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces show some subtle texture/noise and not perfectly flat solid colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 55,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors such as text labels, significant room reconfigurations, and numerous wall and furniture placement inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan7.jpg"
+}

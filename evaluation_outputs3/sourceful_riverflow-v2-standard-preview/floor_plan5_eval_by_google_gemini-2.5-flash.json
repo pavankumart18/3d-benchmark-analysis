@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is evident, the view is angled, and the roof is removed to show the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls are rendered with height and thickness (5). Floors clearly separate plane from walls (3). Interior volume is clearly perceivable (4). Proper 3D wall corner geometry (3). Angled/isometric-like view (5). Interior visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof/ceiling removed cleanly (5). Interior spaces fully visible (3). Clean geometry without broken sections (2)."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Correct number of rooms (3). Correct adjacency relationships (4). Relative room proportions preserved (3). Major room identities match (inferred by layout/furniture) (2). Major wall positions align with 2D plan (5). Wall lengths proportional (3). Internal partitions correctly placed (2). Doors present and on correct walls (4). Windows present and on correct walls (Excluding the large window/door structure on the right in the 2D plan that is not present in 3D: 1/2). Openings proportionally sized and oriented (1/2)."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "Major furniture present (4). Kitchen elements present (2). Bathroom fixtures present (2). Furniture placed in correct rooms (3). Furniture scale reasonable relative to room (2). Orientation logical relative to layout (2)."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Walls, floors, openings clearly distinguishable (4). Geometry readable and not visually confusing (4). Interior clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts or broken meshes (2). Clean background / presentation (1)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "One large window/door structure present on the right side of the 2D plan is completely missing from the 3D render, replaced by a solid wall."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D render is an excellent geometric transformation of the 2D floor plan with high fidelity in layout and interior element placement, marred only by minor discrepancies in window representation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan5.jpg"
+}

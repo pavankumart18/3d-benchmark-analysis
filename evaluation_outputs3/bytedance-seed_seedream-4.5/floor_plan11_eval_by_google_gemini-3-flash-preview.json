@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a clear 3D isometric cutaway transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Strong 3D transformation with clear height, thickness, and excellent isometric perspective."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Significant layout divergence. The 2D plan features a central utility/hall core and a specific L-shaped kitchen/dining flow that is completely reconfigured in the 3D model. Window placements do not align with the technical drawing."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Furniture is present and helps define space, but placement does not reflect the specific utility/pantry/WC zones specified in the floor plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High rendering quality with clean geometry and professional lighting."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "CRITICAL",
+            "description": "Major layout distortion; the 3D model does not follow the interior partition structure or window/door locations of the source blueprint."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MEDIUM",
+            "description": "The breakfast area and utility room configurations are lost in the 3D interpretation."
+        }
+    ],
+    "total_score": 75,
+    "verdict": "GOOD",
+    "summary": "While the 3D rendering quality and architectural fundamentals are excellent, the internal layout deviates significantly from the provided 2D technical dimensions.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan11.png"
+}

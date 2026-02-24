@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "notes": "Excellent replication of the 2D footprint. Adjacency and wall alignment are near-perfect. Minor point deduction for slightly altered dimensions in labels compared to original text (e.g., Bedroom-1 changed from 16'5\" to 13'6\")."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Major violation of generation constraints. The second image is a 2D floor plan overlay on a gray background, not a 3D isometric render. It retains all text labels, measurement lines, and 2D symbols (E5)."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "notes": "Furniture placement and scale exactly match the reference plan."
+    },
+    "aesthetic_quality": {
+        "score": 0,
+        "max": 25,
+        "notes": "The output fails all style requirements. It is not an isometric orthographic model (E3), it uses photorealistic textures from the 2D plan (E6), and is not a low-poly 3D representation."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Camera is top-down 2D, not isometric orthographic; model is not 3D."
+        },
+        {
+            "code": "E5",
+            "description": "Strict violation: Image contains text labels, room names, and measurement lines."
+        },
+        {
+            "code": "E6",
+            "description": "Style violation: Image uses 2D textures and marble patterns instead of flat colors/low-poly geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan20.avif"
+}

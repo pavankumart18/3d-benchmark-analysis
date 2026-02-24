@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout and room adjacencies are mostly preserved. However, there are significant issues with door placement: the entrance to the house is missing its double-door swing, and internal doors are represented by simple gaps or misplaced openings. Window positions are approximate but lack the specific spanning of the original blueprint."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The model fails the strict no-text constraint by including hallucinated/garbled text labels (e.g., 'Kiolon', 'Wash Are') inside the rooms. While the roof is removed and it sits on a dark background, the presence of text and UI-like elements is a major violation."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The dining table and bed are present but simplified. The living room sofa and extensive kitchen counter/sink layout are missing or represented as generic blocks that do not match the specific floor plan arrangement."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The model successfully uses a low-poly, flat-colored aesthetic with an isometric camera. Lighting is soft and appropriate for the style, though the text overlays detract from the intended 'clean model' aesthetic."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Presence of hallucinated text labels ('Kiolon', 'Wash Are', etc.) inside the 3D space."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced or missing door openings, specifically at the main entrance and the transition to the living area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific furniture elements like the L-shaped kitchen counter, kitchen fixtures, and living room seating group."
+        },
+        {
+            "code": "E4",
+            "description": "Floor-level differences and steps in 'Wash Area' are not accurately reflected compared to the 2D floor plan's flat representation."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan7.jpg"
+}

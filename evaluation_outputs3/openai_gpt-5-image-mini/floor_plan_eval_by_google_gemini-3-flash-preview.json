@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric conversion with clear wall geometry and cutaway perspective."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation. Walls have proper thickness and height. Clean isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Significant layout divergence. The kitchen has been moved and simplified. The shared bathroom/hallway complexity from the 2D plan is lost. Room adjacencies changed (e.g., the bathroom is now between bedrooms instead of the original hallway location)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Furniture exists and is logical for a home, but does not match the specific floor plan placements (e.g., the dining table position is mirrored)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High clarity and clean rendering. Very readable despite layout inaccuracies."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The L-shaped kitchen and secondary bathroom/entry foyer geometry from the 2D plan were simplified into a generic layout."
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Missing the 'Closet' balcony area and the specific jogged wall geometry in the upper left quadrant."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A clean and professional 3D isometric render that accurately captures the 'feel' of a 3D conversion but takes significant liberties with the original architectural room placement and wall geometry.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan.jpg"
+}

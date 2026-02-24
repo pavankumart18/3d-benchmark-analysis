@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Floors are distinct. Interior volume is clear. Angled view is present. Roof is cleanly removed. Slight perspective distortion is present, but minimal. Clean geometry throughout."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Most room configurations and adjacencies are preserved. Wall positions and proportions are accurate. However, some doors and windows are missing or not accurately represented, although major openings are present."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Most major furniture pieces are present and in the correct rooms. Their scale is reasonable. Kitchen and bathroom fixtures are included. Some minor pieces might be missing, or their orientation isn't perfectly matched."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural elements are clear and distinguishable. Interior is well-lit and visible. Consistent material usage. No major rendering artifacts, and the background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some windows or minor doors from the 2D plan are not visible in the 3D render."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D render represents a good and faithful geometric transformation of the 2D floor plan, with clear 3D fundamentals and mostly accurate layout and interior elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan19.webp"
+}

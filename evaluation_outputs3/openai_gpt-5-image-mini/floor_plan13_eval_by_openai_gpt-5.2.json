@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric-style render with extruded walls (height + thickness), visible floor plane, and multiple wall faces; ceiling/roof is removed to expose interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable interior volume; clean cutaway with an angled view and minimal distortion. Minor simplification in wall detailing."
+        },
+        "geometric_accuracy": {
+            "score": 13,
+            "max": 30,
+            "notes": "Major zones roughly correspond (living/dining left, kitchen upper-left, bedrooms right, detached garage), but several plan-defined spaces/partitions are missing or merged (balcony, entry/linen, laundry/robe, separate WC). Door/window placement and opening geometry do not reliably match the 2D plan."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Living/dining furniture and two beds are present and plausibly placed; kitchen blocks included. Bathroom/WC fixtures are largely absent or not distinguishable, reducing fidelity to the plan\u2019s bath + separate WC."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Geometry is clean and readable with consistent materials and a clean background; interior visibility is good. Minor ambiguity due to simplified/omitted openings and fixtures."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Multiple plan spaces are missing or merged in 3D (e.g., balcony, entry/linen, laundry/robe, separate WC), reducing room-count and functional partition fidelity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows are not consistently represented on the correct walls and openings are simplified relative to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Bathroom and WC fixtures are not clearly modeled; furniture/fixtures do not fully reflect the plan program."
+        }
+    ],
+    "total_score": 72,
+    "verdict": "PASS",
+    "summary": "A valid and well-rendered 3D cutaway is produced, but layout fidelity is only moderate due to missing/merged rooms and weak door-window/fixture correspondence to the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan13.jpg"
+}

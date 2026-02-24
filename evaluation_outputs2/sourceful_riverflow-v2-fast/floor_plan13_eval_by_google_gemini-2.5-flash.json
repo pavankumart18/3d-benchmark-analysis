@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology generally good, but relative sizes of Dining/Lounge area seem somewhat distorted compared to the 2D plan. Balcony dimensions appear inconsistent. Many windows are missing, particularly in Bedroom 1, 2, Bathroom, and WC. The window in the Lounge/Dining area is also missing. Garage placement and connection (or lack thereof) diverges from the 2D plan's implied adjacency."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Garage is detached which is a hallucination/deviation from the plan. UI cleanliness receives 0 as there are multiple text labels visible (e.g., in Bathroom, Kitchen appliances). Completeness suffers from window omissions which are structural elements. Hallucination control is poor due to the detached garage and some strange architectural features, especially the railing on the leftmost balcony/Lounge area, which suggests an outdoor area when the 2D plan depicts internal walls."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces (beds, dining table, sofa, Kitchen counters/appliances, Bathroom/WC fixtures) are present. However, the placement is somewhat off in the Lounge/Dining area, and the Kitchen seems to have more detail than implied by the 2D. Most importantly, the `Linen` closet from the 2D plan is entirely missing, and the `WM` (washing machine) from L'dry is missing. The `Robe` in Bedroom 1 is missing."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style fails significantly due to the presence of textures on floors, walls, and furniture, as well as complex geometries (e.g., car model, detailed kitchen appliances, railings, curtains) which violates the 'low-poly simplified forms' and 'flat shaded surfaces' criteria. Lighting is acceptable. Camera composition is good, maintaining an isometric view."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering/texturing applied (floors, walls, car, appliances, curtains) where solid flat colors were required.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/symbols are present on bathroom, toilet, and kitchen appliances.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple windows are missing (Bedroom 1, 2, Bathroom, WC, Main Lounge/Dining).",
+            "point_deduction": 3
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Garage is detached from the main structure, which is a significant architectural hallucination.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing 'Linen' closet from entryway and 'Robe' from Bedroom 1.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Relative room size distortion in Lounge/Dining area, appears elongated compared to plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Balcony dimensions and railing inconsistent with implied structure.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 62,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely fails due to its significant aesthetic and technical compliance issues, particularly the use of textures and presence of text. While spatial accuracy is fair for layout and doors, multiple windows are missing, and the detached garage is a major structural hallucination. Furniture mapping is decent, but some key fixtures are omitted.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan13.jpg"
+}

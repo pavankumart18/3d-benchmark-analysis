@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room placement correspond well to the footprint. However, window counts are slightly reduced in the Living and Dining areas compared to the bluebrint. Door orientations in the Foyer area are simplified."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Roof is correctly removed and all interior walls are visible. Major structural elements like the central pantry and stairs are present. Minor deduction for merging the complex pantry/kitchen wall geometry."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Kitchen cabinetry and island placement are highly accurate. Missing smaller fixtures like the bathroom sink/toilet and central fireplace details from the living room are simplified."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Total compliance with aesthetic requirements: low-poly, flat shading, dark neutral background, no text, and perfect isometric orthographic camera angle."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific bathroom fixtures (W/C, sink) shown in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Simplification of window arrays; the bay-style window groupings in the living and dining rooms are rendered as single or double units instead of the specified clusters."
+        },
+        {
+            "code": "E4",
+            "description": "Kitchen cabinetry extended with overhead wall units not explicitly detailed in the base floor plan, though logical for the space."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan8.jpg"
+}

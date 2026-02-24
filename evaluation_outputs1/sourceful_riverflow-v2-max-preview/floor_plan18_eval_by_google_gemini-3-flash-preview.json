@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacency are well-preserved. However, the dining table is oriented incorrectly (perpendicular to plan), and the utility entrance area is slightly widened compared to the original blueprint proportions."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No measurements or text labels. Roof removed correctly. There is a slight reinterpretation of the kitchen wall opening for the utility area, making it more open than the plan suggests."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate, including the balcony seating and the specific sink/stove positioning. Points deducted for the dining set rotation and the addition of a TV stand not explicitly detailed in the 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Perfect isometric orthographic view. Proper low-poly style with flat shading and no textures. Background is dark and neutral."
+    },
+    "total_score": 90,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Dining table and chairs rotated 90 degrees from the orientation shown in the 2D floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated TV stand unit in the living area; structural opening near kitchen/utility area is wider than designed."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan18.jpg"
+}

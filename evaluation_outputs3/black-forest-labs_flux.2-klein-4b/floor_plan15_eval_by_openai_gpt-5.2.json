@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway (visible wall height/thickness, angled view, roof removed)."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Scoring skipped due to automatic rejection (major room omission vs 2D plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Scoring skipped due to automatic rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Scoring skipped due to automatic rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Scoring skipped due to automatic rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "fatal",
+            "description": "More than 50% of spaces from the 2D 3BHK plan are missing in the 3D model (2D shows 3 bedrooms, multiple toilets, balconies, utility, passages; 3D shows a much smaller layout with far fewer rooms)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Overall layout topology and proportions do not match the 2D plan (room count, adjacency, and footprint appear to be for a different apartment)."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is genuinely 3D, it does not correspond to the provided 2D floor plan and omits the majority of required rooms/spaces.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan15.webp"
+}

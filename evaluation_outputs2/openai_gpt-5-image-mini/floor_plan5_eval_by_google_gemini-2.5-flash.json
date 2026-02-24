@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall footprint shape is significantly altered, particularly on the right side. Room adjacencies for some internal rooms are incorrect due to missing walls. The kitchen and master bedroom on the left have their layouts severely misrepresented. The three small rooms at the bottom of the 2D plan are entirely missing, and the two rooms at the top of the 2D plan are also missing. Missing rooms: 5 total. Misplaced/missing walls: 3 critical areas."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "Several rooms are missing entirely, impacting completeness and hallucination control. The generated 3D render represents only a fraction of the original plan, drastically shrinking the overall structure. Missing: 5 rooms and associated structural elements (walls, doors, windows for those rooms), making it an incomplete representation of the provided 2D plan. The rooms at the very top and very bottom of the 2D plan are missing, along with some internal walls."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 2
+        },
+        "notes": "Much of the furniture from the original plan is missing because entire rooms are missing. For the rooms that are present, furniture placement is approximate, but the kitchens and bathrooms are particularly stripped down and inaccurate. The 3rd bedroom (bottom right) is totally empty of furniture despite having a bed in the 2D plan. The living room furniture is present but differs from the original layout and number of pieces (e.g., one sofa instead of two from 2D plan)."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style, lighting, and camera composition are excellent. Low-poly, flat shaded, solid colors, soft ambient lighting, and true isometric projection are all perfectly executed. The model is well-centered and all visible rooms are appropriately zoomed. No textures or harsh lighting. Meets all criteria for this category."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "5 entire rooms are missing from the 3D render that are present in the 2D floor plan. These include the two small rooms on the top left and top right, and the three small rooms at the very bottom of the plan.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Significant reduction in overall blueprint coverage, essentially generating a partial floor plan rather than the complete one. Missing numerous walls and an entire section of the building.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The overall footprint shape is significantly altered, and room adjacencies for some internal areas like the kitchen and master bedroom on the left (relative to each other) are incorrect due to selective missing walls/room parts.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture is missing from the existing bottom-right bedroom, and the living room furniture count is reduced compared to the 2D plan.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 64,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render failed primarily due to the omission of a significant portion of the original 2D floor plan, including 5 entire rooms and numerous walls, which fundamentally misrepresented the layout and completeness.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan5.jpg"
+}

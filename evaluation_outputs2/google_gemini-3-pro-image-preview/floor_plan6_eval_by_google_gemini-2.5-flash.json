@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 30.5,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 8.5,
+            "windows": 5,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is good, but the bedroom wall is shifted. Some windows are missing. The kitchen/living room overall proportion of length to width seems slightly off. The main entrance door swing direction is opposite. The bathroom door swing direction is opposite."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Text labels present from the original floor plan in the 2D image, which should not appear in the 3D render. The generated image contains no text labels, which is a positive. UI/Annotation Cleanliness score is 0 due to the text present in the 2D image for comparison. However, the 3D render itself has no labels, thus, the score for this category is based on the interpretation that the 3D render should NOT have labels."
+    },
+    "furniture_mapping": {
+        "score": 6.5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3.5,
+            "furniture_accuracy": 3
+        },
+        "notes": "Some furniture pieces are missing: kitchen island chairs, desk chair in bedroom, shelving unit in the storage area next to the stairs. The sofa in the living room is not facing the same direction as in the plan. The bed orientation is flipped from the plan. Some furniture is rearranged (e.g., dining table, TV stand moved from the living/kitchen area to the bedroom's west wall)."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Excellent adherence to geometry style, lighting, and camera composition. All criteria are met."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen island chairs, bedroom desk chair, and storage shelving unit are missing.",
+            "point_deduction": 1.5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom south wall (separating it from the main living area) is shifted northwards, making the bedroom smaller, and altering the living room's 'corner' area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Main entrance door swing direction is opposite to the plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom door swing direction is opposite to the plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Sofa orientation needs correcting, bed orientation is flipped.",
+            "point_deduction": 1.5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table and TV stand are present but relocated from their plan positions. Dining table is also rotated 90 degrees.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window on the west wall facing the terrace is missing from the 3D render.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Double window on the east wall (next to stairs) is missing from the 3D render.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 82,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates strong aesthetic compliance and good structural fidelity, with minor inaccuracies in spatial mapping, particularly with wall placements and furniture arrangements, and some missing windows/furniture elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan6.jpg"
+}

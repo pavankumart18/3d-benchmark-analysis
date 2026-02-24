@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The fundamental layout is severely distorted. The garage orientation is rotated 90 degrees compared to the plan, and Bedroom #2/Utility areas have been rearranged. Door placements are often merged into text blobs rather than clean architectural openings."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Major violation: The model is covered in text labels, measurement lines, and UI-style artifacts. A second garage/carport structure has been hallucinated on the right side which does not exist in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island and master bath fixtures are present but distorted. Most rooms lack the 'block-style' furniture requested and instead show flat symbols or empty space."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "While it uses a neutral background and isometric camera, the render fails the 'no textures' rule by including grass/pavement textures and uses realistic car models/lighting instead of flat shading."
+    },
+    "total_score": 36,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Heavy presence of text labels and measurement lines directly on the 3D model surface."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated exterior carport/garage section and car model not present in architectural plan."
+        },
+        {
+            "code": "E2",
+            "description": "Garage and Bedroom #2 placement/orientation significantly deviated from the original plan."
+        },
+        {
+            "code": "E6",
+            "description": "Presence of realistic textures (grass, stone) and non-simplified geometry for vehicles."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan9.png"
+}

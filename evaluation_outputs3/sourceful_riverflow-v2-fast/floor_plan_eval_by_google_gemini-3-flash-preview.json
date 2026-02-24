@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful volumetric 3D transformation with clear isometric perspective."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent wall geometry and interior volume; minor perspective softening at the edges."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall layout is highly accurate; some minor wall thickness inconsistencies and simplified door openings."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Bathroom fixtures and kitchen counters are well-placed; dining and living sets align with plan."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean rendering, though some 'ghosting' artifacts appear around the perimeter walls."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MODERATE",
+            "description": "Outer wall geometry at the top-right contains some non-manifold/overlapping mesh artifacts."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "LOW",
+            "description": "Some internal door swings/openings are represented as solid gaps without frames."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A highly faithful 3D conversion that accurately translates complex room adjacencies and furniture layout from the source blueprint.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan.jpg"
+}

@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully converts the 2D floor plan into a clean 3D isometric cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent 3D projection with clear wall thickness and volume. Minor perspective compression."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Highly accurate room configuration and wall alignment. Door and window placements match the source plan closely."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Kitchen cabinetry is present as simplified blocks, but other loose furniture (beds, sofas) is missing."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean rendering; materials are consistent and geometry is highly readable."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Missing major furniture elements like beds and sofas indicated by the room labels."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "A high-fidelity 3D conversion that maintains strict geometric alignment with the original floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan9.png"
+}

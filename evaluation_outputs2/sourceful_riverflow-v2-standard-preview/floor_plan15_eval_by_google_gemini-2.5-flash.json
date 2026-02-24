@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout and room adjacency are well preserved. Three toilets are missing doors. One external wall of the kitchen/utility area shows a slight inward deviation compared to the plan. Dimensional scaling shows minor inconsistencies, especially in the utility and one toilet area."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The roof is correctly removed, and interior walls are visible. No significant structural elements are missing, and no additional rooms are hallucinated. However, the background is not a dark neutral gradient but a uniform dark grey, and the model is not floating/isolated as it casts a shadow on a ground plane, giving a sense of being anchored to a surface."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. Kitchen and bathroom fixtures are also present. Furniture placement generally matches, but some pieces, like the dining table and chairs, appear slightly displaced, and their scale in the 'LIVING & DINING' area seems off compared to the 2D plan, where they fill the space more."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly simplified forms and flat-shaded surfaces are largely observed, but some surfaces show very subtle texture or material variation. The lighting is more directional than soft ambient, creating distinct shadows that are too prominent. Colors are distinguishable. The camera is close to isometric, but the composition shows part of the ground plane at the bottom of the image, and the model isn't perfectly centered within the frame."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door missing for 'T.P TOILET', 'TOILET' (next to BALCONY), and 'TOILET' (next to BEDROOM-2).",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "External wall of 'UTILITY' and adjoining 'KITCHEN' shows a slight inward deviation/misalignment compared to the 2D plan. The width of one toilet also appears slightly narrower.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table and chairs placement in 'LIVING & DINING' is slightly different from the plan and appears less proportional.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces exhibit subtle material variation or light texture rather than pure solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is somewhat harsh, creating noticeable shadows rather than soft ambient illumination.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Failed UI/Annotation Cleanliness: The image contains text labels, such as 'UNIT 1 (3 BHK)', 'KEY PLAN', and other textual descriptions from the original floor plan, not removed in the 3D render. Also, measurement annotations are present.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Failed Presentation Context: The model casts prominent shadows on a distinct ground plane, which is not a dark neutral background, and it's not floating/isolated.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The camera composition is slightly off-center and includes a visible ground plane beneath the model.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 73,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural completeness, though it suffers from significant UI/annotation cleanliness and presentation context issues, and minor discrepancies in specific wall geometries and furniture placement.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan15.webp"
+}

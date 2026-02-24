@@ -1,0 +1,131 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is mostly preserved. Minor discrepancies in wall alignments and room proportions. Several windows are missing, and some door swings are incorrect. Hallway connecting Activity to Alfresco is altered."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "UI/annotation cleanliness fails due to presence of shadows which function as ground plane markers. No text, perfect cutaway, and no added structural elements. Model is floating and centered."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and accurately placed. Some small items like laundry machines are missing. The kitchen layout is slightly different, and some items are not to scale or are missing (e.g., pantry shelves, linen closet contents)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly and flat-shaded geometry is well-executed. Some surfaces appear to have slight gradients/material definitions beyond solid colors, particularly the floor and some furniture. Lighting suggests more than just soft ambient, creating distinct shadows on objects. Camera and composition are excellent, true isometric view with appropriate framing."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall between Kitchen and Activity room has an incorrect recess/niche on the Activity room side, altering wall geometry.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The presence of distinct shadows that extend onto the background implies a ground plane, violating 'no ground plane/shadows extending to infinity' and 'no UI/Annotation Cleanliness' rule. (Technically rendering a ground plane, even if it's the same color as the background, creates shadows that act as a UI element)",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing windows in Bed 3, Bed 4, Activity, Bathroom, Ensuite, WIR, and Theatre rooms.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Flooring and some furniture surfaces show slight gradients or material definitions, not strictly solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Washing machine and dryer missing from Laundry room.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Pantry contents/shelves missing.",
+            "point_deduction": 0.5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing for the Pantry is incorrect (swings into kitchen instead of towards Activity room as per plan).",
+            "point_deduction": 0.5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Hallway connecting original Activity room to Alfresco is altered, creating an opening in the Alfresco's north wall that is not present in the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The wall between the Master Suite and the Porco/Study area is not straight; there is an unnecessary recess in the 3D model relative to the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Minor proportional differences in room sizes (e.g., Alfresco appears slightly wider relative to its length in 3D).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing outdoor seating/BBQ area in Alfresco, shown in 2D plan.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 78,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully translates the overall floor plan with good spatial accuracy and structural completeness, though several windows are missing and some minor wall geometry deviations exist. Furniture placement is generally accurate, but some smaller details are overlooked. The render adheres to style specifications but suffers a minor deduction for shadows implying a ground plane and some non-solid colors.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan10.png"
+}

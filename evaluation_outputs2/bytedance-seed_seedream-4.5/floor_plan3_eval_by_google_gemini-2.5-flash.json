@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The 3D render has several spatial inaccuracies. The 'LIVING ROOM' text is incorrectly placed on the floor, indicating a new bathroom location. The bathroom next to the stairs is entirely missing. The overall footprint shape is maintained but internal partitioning is incorrect. Window and door placement is mostly correct for existing elements, but some are missing. Relative room sizes are distorted due to missing sections/incorrect splitting. The 3D render also has text labels on the floor, which were not present in the 2D plan and is a major violation of rendering constraints."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is correctly rendered, showing interior walls. However, there are significant completeness issues, with an entire bathroom missing next to the stairs. There is also a hallucination of a new bathroom/room in the living room area as indicated by the text. Critically, the 3D render includes text labels (`KITCHEN`, `BATHROOM`, `LINING ROOM`) on the floor, which is a major violation and results in 0 points for 'UI/Annotation Cleanliness' and 'Presentation Context' due to the inclusion of text, which covers the ground plane."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "The 2D plan shows a functional kitchen layout with appliances, a dining table and chairs, and a small bathroom with fixtures. The 3D render only partially represents the kitchen (counters, no stove/sink details) and only a dining table and chairs in what should be the Dining Room. The bathroom next to the stairs in the 2D plan is entirely missing (including its fixtures) in the 3D render. The 'BATHROOM' text is hallucinated in the living room area, but no fixtures are present there. Overall furniture presence and accuracy are extremely low."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 4,
+            "camera_composition": 0
+        },
+        "notes": "The render attempts a low-poly style with flat shaded surfaces, but the inclusion of some light emission from windows and textures on kitchen appliances (like the stove top) deviates slightly from the 'solid flat colors only' rule. Lighting is somewhat soft ambient but includes noticeable shadows, which are not minimal. The camera composition is problematic; while it is an isometric projection, the model is not properly centered, and more importantly, the floor of the model contains text labels, which are not allowed. The implied external environment and shadows extending beyond the model also detract from the desired presentation context."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'BATHROOM' room next to stairs is missing from the 3D render.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('KITCHEN', 'BATHROOM', 'LINING ROOM') are present on the floor of the 3D render, automatically resulting in 0 points for UI/Annotation Cleanliness and Presentation Context.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated a new 'BATHROOM' area within the 'LIVING ROOM' space (indicated by text and false walls/door), which is not present in the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Misplacement and splitting of the LIVING ROOM and DINING ROOM areas, creating an undefined 'LINING ROOM' and new 'BATHROOM' area, altering adjacency and overall room definition.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Multiple kitchen fixtures (sink, stove details) and detailed bathroom fixtures are missing from the 3D render.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight textures/emissive materials noted on kitchen stove top and subtle light sources from windows, deviating from 'solid flat colors only' and 'minimal shadows'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some window placements are approximations, not exactly matching the 2D plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 34,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors, particularly the presence of text labels, missing an entire room, and hallucinating new partitioning not in the 2D plan, significantly compromising spatial accuracy and structural fidelity.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved, but window and door placements on the right-hand bedrooms (Bed 2 & 3) are inconsistent with the plan. The balcony proportions near the master bedroom are slightly altered."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Successful removal of roof and use of a dark background. However, several interior doors are missing, and there are illegible text-like artifacts (hallucinated UI) on the balconies/utility areas."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Large pieces like the dining table and beds are placed correctly, but minor fixtures like the master bedroom desk, individual toilet fixtures, and the specific sofa arrangement in the living area are oversimplified or missing."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent low-poly aesthetic with flat shading and soft ambient light. Camera is correctly isometric. Deductions for the blurred 'ghosting' effect on some glass walls which edges toward non-flat realism."
+    },
+    "total_score": 76,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing interior doors between dining and bedroom hallways."
+        },
+        {
+            "code": "E2",
+            "description": "Window placement in Bedroom 2 and Bedroom 3 does not match the 2D plan depth."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated illegible text/symbols appearing on the floor of the balconies and foyer."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated partial glass partitions in areas where the plan indicates solid walls or standard windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan17.jpg"
+}

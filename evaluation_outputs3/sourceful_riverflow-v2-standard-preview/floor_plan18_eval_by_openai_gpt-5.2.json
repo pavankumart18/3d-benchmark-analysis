@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model with extruded walls, visible thickness, angled/isometric viewpoint, and ceiling removed to expose interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; good corner geometry and cutaway. Minor simplification of some junctions/openings and limited detail on top-of-wall surfaces."
+        },
+        "geometric_accuracy": {
+            "score": 16,
+            "max": 30,
+            "notes": "Overall apartment massing and main zones (bedroom, living/dining, kitchen, toilet) broadly match, but the 2D plan's utility area and balcony are not clearly represented as distinct spaces, and several wall/door/window placements appear simplified vs the plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Bedroom bed/wardrobe, living seating/TV, dining table, kitchen counters/appliances, and bathroom fixtures are present and generally placed in plausible rooms; some elements are generic and not tightly aligned to the 2D plan's exact arrangement."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with good readability of walls/floors/openings and no UI/text contamination; lighting is even. Some ambiguity remains around missing/merged minor spaces (utility/balcony) due to minimal detailing."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Utility room (and balcony as a distinct exterior space) from the 2D plan are not clearly modeled as separate areas in the 3D cutaway."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Several internal partition extents and adjacency transitions (kitchen/foyer/utility edge conditions) appear simplified or altered compared to the 2D wall layout."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window counts and exact wall locations do not fully match the 2D plan; openings are approximated."
+        }
+    ],
+    "total_score": 75,
+    "verdict": "GOOD",
+    "summary": "This is a genuine 3D cutaway conversion with strong volumetric read, but it loses layout fidelity by omitting or merging smaller plan spaces (notably utility/balcony) and simplifying openings/partitions.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan18.jpg"
+}

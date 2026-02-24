@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "The 3D render significantly distorts the layout. The complex L-shaped geometry of the original floor plan has been simplified into a basic rectangle. The entire service wing (Foyer, Servant Room, Kitchen, Utility) is absent or structurally unrecognizeable. Room adjacencies and wall alignments do not match the source."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the roof is removed and there is no text/UI, multiple rooms are missing (E1). The model hallucinations include an enclosed rectangular perimeter that ignores the balcony cut-outs and the staggered room depths shown in the floor plan."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Minimal furniture present. Bed placement is inconsistent with the plan's layout; most living room seating, dining tables, and kitchen counters are entirely missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The render successfully adheres to the low-poly, flat-shaded style on a neutral background. The isometric camera angle is correct."
+    },
+    "total_score": 45,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entire Service/Kitchen/Utility wing and Balconies."
+        },
+        {
+            "code": "E2",
+            "description": "Major layout distortion; staggered footprint simplified into a single rectangular block."
+        },
+        {
+            "code": "E4",
+            "description": "Structural reinterpretation of room shapes and wall connections."
+        },
+        {
+            "code": "E1",
+            "description": "Missing 90% of specified furniture including dining set, sofas, and kitchen fixtures."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan17.jpg"
+}

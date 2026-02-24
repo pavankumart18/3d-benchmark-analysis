@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall layout and room count are correct. However, one interior wall at the entrance is missing. The second window in the bedroom is also missing, and the kitchen door is incorrectly placed compared to the plan. Some wall thicknesses seem slightly inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The render has texture on the floor and kitchen tiles and also on the furniture which results in 0 points for UI cleanliness. Roof is completely removed and all interior walls are visible. No major hallucinations. Dark neutral background and floating model are correctly implemented."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms, but the exact placement and scale of some items in the Living & Dining area and the Bedroom-1 are slightly off. Kitchen and bathroom fixtures are present, but the washing machine is moved into a corner instead of beside the cabinet as shown in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses simplified forms, but textures are prominently used on the floor and some furniture instead of solid flat colors. Lighting is soft and ambient. The camera view is isometric, but the framing could be better optimized as there is a lot of empty space around the model."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing interior wall separating the entry from the living area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Washing machine placement incorrect, moved from beside the cabinet to a corner in the utility area.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Uses textures (floor tiles, bedroom carpet, wood finishes for furniture, kitchen counters) instead of solid flat colors.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing window in the bedroom on the east wall.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen door placed on the west wall instead of the south wall in the plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Floor tiles, furniture textures, and counter textures provide excessive detail and are not 'clean.'",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 67,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The model generally maintains the floor plan layout but suffers from critical errors in texture usage and minor inaccuracies in wall and furniture placement, leading to a fail.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan16.avif"
+}

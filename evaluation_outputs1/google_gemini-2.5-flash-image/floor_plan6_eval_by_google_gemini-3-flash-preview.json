@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacency are well-preserved. There are minor discrepancies in the proportions of the stairwell area and the wall thickness between the kitchen and bedroom. Door orientations are largely correct, though the main entrance swing is slightly abstracted."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the cutaway view and floating model are correct, the render fails the 'no text labels' constraint by including 'Bedroom' and 'Kitchen/Living' text on the floor, which mimics the blueprint rather than being a clean 3D generation."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mechanical mapping of fixtures. The stove, sink island, bed, and bathroom fixtures are correctly placed and scaled according to the 2D reference."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good isometric orthographic angle and low-poly geometry. Small deductions for slightly soft shadows that lean away from pure flat shading, but overall style consistency is high."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Text labels 'Kitchen/Living' and 'Bedroom' are visible on the floor of the 3D model, violating the constraint for no text/labels."
+        },
+        {
+            "code": "E2",
+            "description": "Slight distortion in the proportions of the hallway/threshold area near the bedroom compared to the original floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan6.jpg"
+}

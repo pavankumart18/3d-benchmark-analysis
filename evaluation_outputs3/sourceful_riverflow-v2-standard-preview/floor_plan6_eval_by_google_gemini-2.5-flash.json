@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All fundamental criteria for 3D conversion are met. The 3D render clearly shows height, thickness, depth, an angled view, and the roof is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5), floors are distinct planes (3), interior volume is percepible (4), proper 3D wall corner geometry (3). Angled view (5), interior visible from elevated perspective (3). Minimal perspective distortion (2). Roof removed cleanly (5), interior spaces fully visible (3). One area 'broken geometry' is the staircase, it seems to be cut along with the exterior wall."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "Correct number of rooms (3), adjacency is mostly correct, but the wall separating the bedroom from the stairs/hallway seems to be missing in the 3D model, causing the adjacencies to be off for that area (2/4). Relative room proportions are largely preserved (3). Major room identities match by inferred furniture (2). Major wall positions align (5). Wall lengths are mostly proportional (3). Internal partitions are confusing around the bathroom/stair area (1/2). Doors are present on correct walls, but some are just openings (2/4). Windows are present and on correct walls, but simplified (2). Openings are proportionally sized and oriented (2)."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture is present: beds, sofas, kitchen, bathroom fixtures (4). Kitchen elements present but simplified (2). Bathroom fixtures present but simplified (2). Furniture placed in correct rooms (3). Furniture scale seems reasonable (2). Orientation is logical (2)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Walls, floors, openings are clearly distinguishable (4). Geometry is readable (4). Interior clearly visible (3). Lighting does not obscure geometry (3). Consistent simple material usage (2). No major rendering artifacts (2). The background is clean, but the text labels ('Bedroom', 'Kitchen/Living') from the original 2D plan are superimposed directly onto the 3D model, which is a major presentation flaw and should be avoided (0/2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The wall separating the bedroom from the hallway/staircase appears to be largely missing or significantly altered in the 3D model, impacting room adjacency and overall layout."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "Minor",
+            "description": "Text labels from the 2D plan are directly overlaid onto the 3D render, detracting from the visual quality and acting as an artifact."
+        }
+    ],
+    "total_score": 76,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is generally good, demonstrating clear conversion fundamentals, but has some significant geometric inaccuracies in the central area and a notable overlay of 2D text labels.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent adherence to the complex floor plan layout. Wall alignment and room adjacency are largely preserved. Minor discrepancies noted in the width of the pantry/laundry corridor and the garage secondary door placement."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "All rooms from the 2D plan are present. No text or UI elements are visible. The garage has been interpreted to include a second vehicle not shown in the 2D primary bay, though the space allows for it."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture accurately follows the block-style layout of the 2D plan, including the specific L-shaped sofas in the Theatre and Activity rooms, and the island bench in the kitchen."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfectly follows style constraints: low-poly geometry, flat shading, isometric orthographic camera, and a dark neutral background with no textures."
+    },
+    "total_score": 90,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucination of a second vehicle in the garage whereas 2D plan depicts a single large vehicle with specific clearance."
+        },
+        {
+            "code": "E2",
+            "description": "The Alfresco area sliding door spans a smaller width than indicated on the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan10.png"
+}

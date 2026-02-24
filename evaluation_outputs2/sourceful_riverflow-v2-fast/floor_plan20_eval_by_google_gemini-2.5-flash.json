@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall layout and room adjacencies are mostly correct, but the 'Maid's Room' is missing entirely. Balconies in Bedroom-1 and Bedroom-2 are also missing. Some wall sections, particularly around the kitchen and utility, appear to be simplified, leading to slight inaccuracies. Door swings are not consistently matching the plan or are generic for the 3D model. Most windows appear to be present and correctly located, but the balcony omission means their corresponding doors are off."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 1,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is good with the roof removed and interior fully visible. However, the 'Maid's Room' and associated 'Toilet-4' as well as the 'Deck' and two 'Balconies' from the plan are missing, severely impacting completeness. No text labels or dimensions are present in the render. The background and isolation of the model are good."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in generally correct locations in the main living areas and bedrooms. However, the 'Maid's Room' and its furniture are absent. The kitchen and bathroom fixtures are present but simplified. The furniture in the 'Deck' and 'Balconies' mentioned in the 2D plan are also missing due to the absence of these spaces. The scale of the furniture to the rooms is generally appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is low-poly with flat shaded surfaces and flat colors, which aligns well with specifications. There are no textures. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. The camera view is isometric, but the rotation seems slightly off from the specified 45-degree angle making plan-view edges not perfectly 45 degrees to the image border. The model is centered and zoomed appropriately."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire room 'Maid's Room' and 'Toilet-4' missing.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire 'Deck' area missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Both 'Balcony' areas missing.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant simplification of wall geometry around Utility and Kitchen, leading to shape deviation.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Inconsistent door swing directions compared to the plan for some doors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing outdoor furniture due to absence of deck/balconies.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera rotation is slightly off from optimal 45-degree isometric view.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 69,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is a close representation but fails due to critical omissions of several rooms and outdoor areas, significantly impacting structural completeness and spatial accuracy. However, visual style and UI cleanliness are strong points.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan20.avif"
+}

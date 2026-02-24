@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout distortions: the central staircase is oriented incorrectly compared to the plan. Room adjacencies for the kitchen, utility room, and WC are scrambled. The bay window/window seat area is rendered as a flat wall with mirrored sinks. Entrance door placement does not align with the central hall logic of the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model is successfully floating on a dark background with the roof removed. However, there are significant structural re-interpretations (halucinated interior walls and missing utility room enclosure). No text or UI elements are present, which is a positive."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture elements like the stove and sinks are present but misplaced (e.g., sinks appearing on the opposite side of the floor plan where a window seat should be). Scale is generally consistent with the model but inaccurate to the functional zones of the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the visual style. Low-poly geometry, flat shading, and neutral tones are used effectively. The isometric orthographic camera angle is correctly applied."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Staircase orientation and central hallway layout are rotated/flipped relative to the entrance."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated interior sink/counter units in the dining and breakfast areas."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the specific bay window geometry (window seat) on the right-hand facade."
+        },
+        {
+            "code": "E2",
+            "description": "Utility room and WC partitions do not match the compact, specific dimensions shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan11.png"
+}

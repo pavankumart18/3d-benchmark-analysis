@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 2,
+            "dimensional_scaling": 4
+        },
+        "notes": "Living Room, Kitchen, Nook, Covered Patio, Master Bedroom, Master Bath, WC, Bedroom #3, Bathroom, Hall, Utility, Bedroom #2, Bedroom #4, Dining Room, Study, 2 Car Garage, and the small Covered Patio are all present. Adjacencies are mostly preserved. Relative room sizes are generally proportional. Overall footprint shape maintained with some wall inaccuracies. Wall geometry has several misaligned walls and some missing or poorly represented small walls. Doors are mostly present, but many do not have a clear swing direction and some are poorly placed or missing. Windows are mostly present but some are missing. Dimensional scaling seems consistent, but geometric inaccuracies affect proportionality."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Cutaway view is good, roof completely removed with interior walls visible. Completeness is generally good, but some small architectural details like the Master Bath shower/tub area and the Kitchen pantry space are simplified beyond recognition or missing. No extra rooms or architectural features were hallucinated. UI/Annotation Cleanliness failed as text labels are present for 'HALL'. Presentation context is partially met; dark background is present, but the model has a strong ground plane with shadows, making it not 'floating/isolated'."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables) are mostly present. Kitchen fixtures are present, but the pantry area beside the fridge is missing. Bathroom fixtures are present. Placement matches 2D plan for the most part, but there are some discrepancies, e.g., the Living Room sofa arrangement, and the Nook dining set is circular in the plan but rectangular in 3D. Scale seems appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly, simplified forms, and flat shaded surfaces are present. No textures are used, only solid flat colors. Some edges look a bit rough. Lighting is soft and ambient with flat shading and minimal shadows. Colors are distinguishable. Camera is an isometric projection, but the 45-degree rotation is not consistently maintained, and the framing isn't perfectly centered (cut off on the top right). There is also a small perspective distortion visible if you measure parallel lines on some walls."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present (HALL)",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Hallway walls near Bedroom #4, Utility, and Bathroom are significantly simplified/misaligned. Kitchen pantry wall is poorly represented. Master bath shower/tub area simplified.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors lack clear swing direction in the render, some are depicted as simple openings.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen pantry area is missing, Nook dining table shape mismatch.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight perspective distortion, not a perfect isometric projection; off-center framing.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 65,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to minor geometric inaccuracies, presence of text labels, and some inconsistencies in furniture representation and camera composition despite good overall structural fidelity.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan9.png"
+}

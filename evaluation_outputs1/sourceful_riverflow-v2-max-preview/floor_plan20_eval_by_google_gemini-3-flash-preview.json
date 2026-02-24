@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is highly consistent with the source. Major deductions for the omission of several internal doors (notably Bedroom-3 and Toilet-4 access) and the translation of the 'Deck' into an enclosed hallway-like structure rather than an open balcony."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Excellent adherence to clean background and no text/UI constraints. All rooms are represented, though the structural interpretation of the deck/balcony railings is overly solid, looking more like full walls."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Block-style furniture mirrors the plan well. Kitchen counters, beds, and living room seating are accurately placed. Minor scale issues with the dining chairs relative to the table."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Near perfect execution of the requested style. Correct isometric camera angle, clean low-poly geometry, and soft ambient lighting with no photorealistic textures."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing internal swing doors for Bedroom-3, Toilet-4, and the transition between the lobby and living area."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Deck' area is missing its open-air quality; the railing is rendered as a solid thick wall, distorting the spatial intent of the outdoor space."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated solid wall sections where sliding glass doors should be, particularly leading to the deck/balcony areas."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan20.avif"
+}

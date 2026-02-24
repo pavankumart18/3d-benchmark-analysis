@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows vertical walls, wall thickness, and an angled view with the roof removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Floors are clearly distinguished. Interior volume is perceivable. Wall corner geometry is primarily good, with some minor fuzziness at edges. The viewing angle is well-chosen and isometric. The interior is visible from an elevated perspective. Minimal perspective distortion. The roof is cleanly removed, and interior spaces are fully visible. Geometry is clean without broken sections."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency relationships are correct. Relative room proportions are largely preserved. Major room identities are inferable by layout. Major wall positions align well, and wall lengths are proportional. Internal partitions are mostly correctly placed. Doors are present and on correct walls. Some windows are missing (e.g., in Bedroom-2, Bedroom-1) or are represented as simple openings without frames in the 3D model, and some open into areas that are not balconies. Balconies in Bedroom-1 and -2 are enclosed by walls in the 3D model."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Most major furniture (beds, sofas, dining table) is present. Kitchen elements are present and well-represented. Bathroom fixtures are present. Furniture is placed in correct rooms and its scale is reasonable. Orientation is logical."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable and not visually confusing. The interior is very clearly visible, and lighting does not obscure geometry. Material usage is consistent. No major rendering artifacts. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some windows are missing or simplified to plain openings without glass/frames, and some windows open to enclosed spaces instead of balconies."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Balconies in Bedroom-1 and Bedroom-2 are enclosed by walls in the 3D model, changing their intended function and openness."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is largely successful, providing a clear and faithful representation of the 2D floor plan with minor inaccuracies in window details and balcony enclosures.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan20.avif"
+}

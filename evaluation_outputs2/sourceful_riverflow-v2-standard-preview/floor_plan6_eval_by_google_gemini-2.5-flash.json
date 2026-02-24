@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 5
+        },
+        "notes": "The overall layout is recognizable, but significant divergences in wall geometry and room proportionality. The bathroom and stairwell area are particularly distorted, with walls shifted or added. The exterior walls of the kitchen/living area on the right side appear to have an extra jog that doesn't exist in the plan. The entire rightmost section (bathroom/stairwell) is substantially compressed and altered. The bedroom is also compressed. Missing one window, one external door and two internal doors."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed, but not all interior walls are fully visible due to some geometry occluding. There are significant hallucinations in the bathroom and stairwell area, and the layout of these spaces does not match the plan. Text labels are present within the render, leading to a 0 score for UI cleanliness. The model is also placed on a visible ground plane with a gradient background, not a dark neutral floating presentation."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Most major furniture pieces are missing (bed, sofa, dining table). The kitchen appliances are present but simplified. Bathroom fixtures are almost entirely missing, only a toilet is barely recognizable. Hallucinated furniture in the bedroom (ottoman). The scale of existing furniture is poor relative to the rooms. Many key pieces from the plan are not present."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 4,
+            "camera_composition": 0
+        },
+        "notes": "Low-poly simplified forms are used, and surfaces are mostly flat shaded (some subtle gradients visible). There are minor texture-like patterns on surfaces. Lighting is somewhat ambient but shadows are very soft, almost non-existent. The camera view is not a true isometric projection (perspective distortion present, parallel lines are converging, especially visible with the exterior walls). The overall color palette is very muted and lacks distinction between elements like walls and furniture. The model is not centered, and the viewing angle is not a 45-degree rotated plan view."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('Kitchen/Living', 'Bedroom') are present within the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric view; perspective distortion is clearly visible.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant compression and major wall shifts/additions in the bathroom and stairwell area, causing major room shape and adjacency discrepancies.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural features, especially in the bathroom/stairwell area which bears little resemblance to the plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One exterior door missing, and two internal doors (between kitchen/bedroom, between bedroom/bathroom) are missing.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Major furniture pieces (bed, sofa, dining table, most bathroom fixtures) are missing.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One window missing from the left exterior wall.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 38,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors in UI cleanliness (text labels) and camera projection (not isometric), alongside significant spatial inaccuracies and missing furniture, leading to a low overall score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout discrepancies: The staircase on the right side and the entire bathroom/closet core are missing. The kitchen layout is mirrored/flipped compared to the plan (linear against wall vs. island-style), and the balcony/outdoors area is completely omitted."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model successfully removes the roof and uses a dark background. However, it fails significantly on completeness: a large section of the floorplan (stairs, internal utility block) is missing entirely. Doorways are simple cutouts without frames or orientation accuracy."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is clean and block-style as requested. However, the placement is inaccurate: the sofa is placed in the center of the room rather than against the bottom wall, and the kitchen counter does not follow the L-shape/island configuration of the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "The render perfectly adheres to the aesthetic constraints: low-poly, flat shading, no textures, soft lighting, and a correct 45-degree isometric orthographic view."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entire staircase block on the right and utility/bathroom rooms in the center."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counters and sink/stove are placed linearly against the wall instead of following the plan's L-shape/peninsula layout."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa and coffee table are incorrectly moved to the center of the living area."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated wall placement in the bedroom area that does not align with the provided 2D blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan6.jpg"
+}

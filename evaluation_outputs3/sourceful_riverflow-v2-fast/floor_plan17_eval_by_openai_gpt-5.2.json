@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height/thickness, multiple wall faces are visible, interiors read as volumetric spaces, and the view is angled/isometric with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D massing with readable wall thickness and room volumes; clean cutaway. Minor softness/ambiguity at some corners/openings reduces confidence in exact corner geometry."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall apartment organization matches (living left, dining central, kitchen/entry bottom-left, bedrooms/toilets on right). Some proportional deviations and exterior balcony/utility edge conditions are not clearly represented; openings/windows are not reliably verifiable."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (sofas, dining table, beds) and bathroom fixtures visible; kitchen is simplified. Mostly correct room assignment, though some elements are generic blocks and scale/orientation is only moderately precise."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean presentation and lighting; walls/floors are distinguishable. Slight blur/soft rendering reduces readability of door/window edges and fine geometry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows/openings are not clearly modeled or are difficult to confirm against the 2D plan; door placement is only partially verifiable."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Minor layout/proportion drift (especially at exterior/balcony/utility boundary conditions) compared to the 2D plan, though core adjacency is preserved."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Soft/blurred render reduces geometric legibility (corners, partitions, and openings)."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with largely faithful room adjacency and furnishing, but with reduced opening/window verifiability and some proportional/exterior-edge deviations.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan17.jpg"
+}

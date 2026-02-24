@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness. Floors are distinct planes. Interior volume is clearly perceivable. Proper 3D wall corner geometry is present. The viewing angle is angled, providing a good elevated perspective, with minimal distortion. The roof/ceiling is cleanly removed, and interior spaces are fully visible without broken sections, though some internal walls are cut low rather than a full cutaway."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Most room configurations are correct, with appropriate adjacency. Relative room proportions are largely preserved. Major wall positions align well with the 2D plan, and wall lengths are proportional. Internal partitions are mostly correct. Doors are generally present and on correct walls, but one door is missing from Bedroom 1, and the entry to the 'Entrance to the House' area is altered. Windows are present, but their placement and number don't perfectly match the 2D plan, particularly in the dining area and Bedroom 1. The 'Wash Area' and 'Toilet' seem merged/simplified in the 3D model."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture like beds, sofas, and tables are present and placed in correct rooms. Kitchen elements and bathroom fixtures are also present and appropriately situated. Furniture scale is reasonable relative to the rooms, and orientation is logical for the most part."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable, and the geometry is readable. The interior is clearly visible with good lighting that does not obscure geometry. Aesthetic coherence is consistent with no major artifacts. The background is clean without any text labels."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Missing door between Bedroom 1 and the hallway. Several windows are not accurately placed or numbered as in the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The 'Wash Area' and 'Toilet' are somewhat simplified/merged compared to their distinct layout in the 2D plan. The exterior entrance area is significantly simplified and doesn't fully match the 2D configuration, particularly the entrance leading to the stairs."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "The 2D floor plan has been converted into a geometrically faithful 3D model with good overall accuracy, despite a few minor discrepancies in window/door placement and a simplified bathroom/entrance area.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan7.jpg"
+}

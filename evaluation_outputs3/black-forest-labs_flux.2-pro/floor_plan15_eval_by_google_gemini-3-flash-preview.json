@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model presents a faithful isometric cutaway. However, the plan appears to have been mirrored horizontally during the generation process."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent 3D depth, wall thickness, and isometric projection. Floor planes and wall geometry are well-defined."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "The layout has been horizontally mirrored relative to the source 2D plan. While room counts and adjacencies are preserved within this mirrored context, the orientation is flipped."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "High-quality representative furniture including beds, dining set, and kitchen fixtures. Placed accurately according to the rooms."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean rendering. Geometry is sharp and distinguishable. No UI text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The entire layout is mirrored (flipped horizontally) compared to the 2D source document."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A structurally sound and visually clean 3D conversion that is geometrically accurate but unfortunately mirrored in orientation.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan15.webp"
+}

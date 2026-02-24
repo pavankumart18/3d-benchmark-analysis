@@ -1,0 +1,66 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, an angled isometric view, and the roof or ceiling has been cleanly removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Walls have height and thickness (5), floors are distinct planes (3), interior volume is clear (4), proper wall corner geometry (3). Angled view (5), interior visible from elevated perspective (3), no severe perspective distortion (2). Roof removed cleanly (5), interior spaces fully visible (3), clean geometry but the bathroom walls are strangely broken (0)."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "Correct number of rooms and adjacency (4/4 for overall, but bathroom layout is very wrong). Relative room proportions are fairly preserved (3). Major room identities are only partially inferred due to significant layout changes (0). Major wall positions are mostly aligned except for the bathroom and the entrance area (3/5). Wall lengths are not proportionally accurate, especially for the bathroom and the main entrance hallway (1/3). Internal partitions are mostly incorrect; bathroom, entrance hallway walls are off (2/2). Doors are present, but their positions are off per the 2D plan, and some are missing/added incorrectly (1/4). Windows are present but their positions and number don't match the 2D plan (1/2). Openings are proportionally sized but not always oriented correctly (1/2)."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Kitchen elements are present but the sink layout is different (2/2). No other major furniture (beds, sofas, tables) are present (0/4), and no bathroom fixtures (toilet, sink, shower from 2D plan) are correctly represented (0/2). Furniture (kitchen elements) are placed in the correct room (3/3). Furniture scale seems reasonable relative to the room (2/2). Orientation is logical where present (2/2)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4/4). Geometry is mostly readable, but the bathroom geometry is confusing compared to the 2D (3/4). Interior is clearly visible (3/3). Lighting does not obscure geometry (3/3). Consistent material usage (2/2). No major rendering artifacts, but the bathroom walls appear broken from the 2D configuration (1/2). Clean background/presentation (2/2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "CRITICAL",
+            "description": "The bathroom layout is significantly altered, including the size and orientation of walls and placement of fixtures, making it unrecognizable from the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The entrance area, including the hallway and the stairs, has a different wall configuration compared to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "The number and placement of doors and windows do not accurately reflect the 2D floor plan. Multiple windows from the 2D plan are missing or misplaced."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MAJOR",
+            "description": "Missing major furniture elements from the living/dining area, and bathroom fixtures (toilet, sink) are not represented as in the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The '13' x 24' 'Living Room' and 'Dining Room' area size/proportions seem off compared to the 2D plan, particularly the depth."
+        }
+    ],
+    "total_score": 73,
+    "verdict": "PASS",
+    "summary": "The 3D model successfully converted the 2D floor plan into a 3D isometric view with good fundamental 3D representation, but suffers from significant geometric inaccuracies in room layout, particularly in the bathroom and entrance, and has missing interior elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan3.jpg"
+}

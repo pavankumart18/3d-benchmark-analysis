@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Excellent layout preservation and room adjacency. Door orientations are mostly accurate, though the laundry/kitchen entrance area is slightly cluttered. Window placement matches the plan perfectly."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Roof removed as required. No text labels or UI elements. Floating model on neutral background. Penalty applied for a minor structural hallucination: solid walls added to the garage which appears open-ended on the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is clean and accurate following block-style. Beds, dining set, and lounge furniture are correctly scaled and placed."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Good low-poly style. Shadows are slightly more pronounced than 'flat shading' requires, but still falls within acceptable non-photorealistic stylized bounds."
+    },
+    "total_score": 86,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated structural wall added to the rear of the garage which does not exist in the 2D source."
+        },
+        {
+            "code": "E2",
+            "description": "Slight layout distortion in the corridor/laundry transition area leading to crowded door clearances."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan13.jpg"
+}

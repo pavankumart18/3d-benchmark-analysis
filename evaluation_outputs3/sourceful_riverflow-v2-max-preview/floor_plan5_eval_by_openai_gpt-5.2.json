@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway model with wall height/thickness and visible room volumes, but the camera is very close to a top-down orthographic view rather than an isometric/angled view."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 24,
+            "max": 35,
+            "notes": "Clear 3D extrusion of walls with thickness and readable interior volumes; clean cutaway. Main weakness is the near top-down projection (limited side-face visibility and limited sense of elevation)."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency match well (central living/dining, kitchen at lower-left, bedrooms to right, bathrooms near top). Minor mismatches in exact partition lengths/door placements and some openings are simplified compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture is present (beds, sofas, dining tables), kitchen counters/appliances and bathroom fixtures are represented; placement generally corresponds to the correct rooms with reasonable scale."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is clean and readable with good separation of walls/floors/furniture. Lighting is adequate; no UI/text contamination. Slight ambiguity from the near-orthographic camera."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E5-STYLE",
+            "severity": "MIN",
+            "description": "Camera is very close to top-down orthographic, reducing multi-surface wall readability expected from an isometric cutaway."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MIN",
+            "description": "Doors/windows are simplified; some door swing/orientation details and exact opening positions do not perfectly match the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJ",
+            "description": "Small proportional deviations in a few internal partitions/room extents versus the 2D drawing (layout broadly consistent but not dimension-faithful everywhere)."
+        }
+    ],
+    "total_score": 77,
+    "verdict": "GOOD",
+    "summary": "A valid 3D cutaway with strong overall layout fidelity and interior content, slightly weakened by near top-down projection and minor wall/opening proportional mismatches.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan5.jpg"
+}

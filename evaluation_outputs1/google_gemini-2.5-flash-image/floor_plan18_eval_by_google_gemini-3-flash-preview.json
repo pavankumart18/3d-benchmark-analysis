@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "The general room layout and adjacency are correct. However, doors are represented by floor arcs rather than actual 3D openings/frames, and there is a significant scaling distortion in the Utility/Kitchen junction. The balcony door is missing, replaced by a wall gap."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model fails the text constraint significantly by including 'BALC 4' WIDE' and 'UTILITY' labels in the 3D render. Walls are properly visible and the roof is removed, but door geometry is missing (represented as gaps/arcs)."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the floor plan. The dining table, sofa, and kitchen appliances are correctly positioned, though the bedroom dresser is slightly simplified."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Low-poly style and flat shading are well executed. The camera is isometric orthographic. Points deducted for the inclusion of non-compliant 2D text elements and floor arc artifacts which break the 3D immersion."
+    },
+    "total_score": 70,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Strict violation: Text labels ('BALC 4\" WIDE', 'UTILITY') present in the 3D model."
+        },
+        {
+            "code": "E1",
+            "description": "Missing physical door elements; openings are represented as empty gaps with 2D floor arcs."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion in the kitchen area where the wall separating the foyer and kitchen is thinner than the plan specification."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan18.jpg"
+}

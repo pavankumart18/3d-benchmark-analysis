@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D isometric-style render with extruded walls (height + thickness), visible floor planes, and interior volumes exposed by roof/ceiling removal."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Strong 3D extrusion with clear wall thickness and clean corner geometry; elevated angled view with minimal distortion; cutaway is clean and interiors are readable."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "Overall room arrangement matches: open lounge/dining on left, kitchen central/top, two bedrooms on right, bath/WC core, and garage to the right. Minor fidelity concerns around exterior/balcony depiction and some opening placements not perfectly verifiable from the render."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Kitchen cabinetry/appliances and bathroom fixtures are present. However, major living/bedroom furniture (sofa, dining table, beds) is largely absent, reducing room-identity confirmation."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Good lighting and material separation; walls/floors/openings are distinct with no obvious broken meshes. Background is clean and does not include UI/text overlays."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E4-FURN",
+            "severity": "MIN",
+            "description": "Living and bedroom furniture is mostly missing, making some room identity confirmation rely on layout alone."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MIN",
+            "description": "Some doors/windows/exterior features (e.g., balcony/external access) are not perfectly confirmable or may be simplified compared to the 2D plan."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A true, clean cutaway 3D conversion with strong layout fidelity to the 2D plan, with minor opening/exterior-detail uncertainty and simplified/limited furniture.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan13.jpg"
+}

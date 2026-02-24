@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": ""
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Good 3D conversion fundamentals overall. The interior volume is clearly perceivable and the viewing angle is good. Minimal perspective distortion. The cutaway is clean."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "Major issues with room configuration and wall geometry. The kitchen/dining area is heavily altered, and the central hall, utility room, and alcove are completely missing or reconfigured. Many walls do not align. Doors and windows are missing or misrepresented."
+        },
+        "interior_elements": {
+            "score": 5,
+            "max": 15,
+            "notes": "Some furniture is present but not placed in the correct rooms, and many elements like bathroom fixtures and kitchen elements are missing or do not correspond to the 2D plan. The kitchen and dining room are completely re-arranged and the furniture reflects this new layout rather than the original plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "The visual clarity is very good, with clearly distinguishable elements and good lighting. No major rendering artifacts. The background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "More than 50% of the room configuration from the 2D plan is missing or severely altered. 'Central Hall', 'Utility Room', 'Alcove', and a 'WC' are either entirely missing or their layouts are completely different in the 3D model. The 'Breakfast' area is also missing."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Significant layout distortion, especially in the central and left parts of the dwelling. Walls, particularly those defining the kitchen, dining, central hall, and utility room, do not match the 2D plan's positions or proportions. The staircase in the 2D plan (UP) is also completely gone."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Numerous doors and windows are missing from the 3D render compared to the 2D plan (e.g., entrance to central hall, doors to WC and utility room, most windows shown on the plan). Those that are present often do not match the original placement."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture placement and type do not match the 2D plan. The kitchen layout is entirely different, bathroom fixtures are incorrect (a single toilet and sink in one area, implying a redefinition of the WC and other plumbing, and a bedroom on the right with furniture not matching the 'Breakfast' or other inferred areas)."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "The 3D model successfully converts to an isometric view with good visual clarity, but fails significantly in geometric accuracy, with major discrepancies in room layout, wall positions, and missing elements compared to the original 2D floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan11.png"
+}

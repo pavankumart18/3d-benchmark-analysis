@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceivable interior volume, and is viewed from an angled perspective with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent dimensional transformation with clear wall height, thickness, and perceivable volume. Proper 3D wall corner geometry. Angled view, interior visible from elevated perspective. Minimal perspective distortion. Roof is cleanly removed, interior spaces fully visible with clean geometry."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Correct number of rooms and adjacency relationships are maintained. Relative room proportions are well-preserved. Major wall positions align perfectly with the 2D plan, and wall lengths are proportional. Internal partitions are correctly placed. Doors are present and on correct walls, but some windows are missing or misaligned compared to the 2D plan, particularly in 'BED 3', 'BED 4', 'MASTER SUITE', and 'GARAGE'."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables), kitchen, and bathroom fixtures are all present. Furniture is placed in correct rooms, and the scale is reasonable relative to the room size. Orientation is logical."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable, and the geometry is readable. Interior is clearly visible with good lighting. Consistent material usage, no major rendering artifacts. Clean background and presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some windows are missing or subtly misaligned compared to the 2D plan, specifically in 'BED 3', 'BED 4', 'MASTER SUITE', and 'GARAGE'."
+        }
+    ],
+    "total_score": 92,
+    "verdict": "EXCELLENT",
+    "summary": "This is an excellent 3D conversion, demonstrating high fidelity to the 2D floor plan with only minor discrepancies in window placement.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is mostly preserved. Rooms like 'Study', 'Covered Patio' (bottom left), and 'Nook' are missing, reducing room count accuracy. Major wall discrepancies in the kitchen/nook area and missing walls for the patio. Door swings are not consistently represented. Windows are present but some are misplaced or missing in the kitchen and garage areas."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "Cutaway view is correct. Completeness suffers due to several missing rooms like 'Study' and 'Nook'. UI/Annotation Cleanliness is a critical fail as there are clear text labels and dimension lines from the original plan carried into the 3D render in some areas (e.g., above master bedroom). The model is generally isolated on a dark background, but there is a clear ground plane with shadows extending."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables, kitchen counters) are present in most rooms. However, the exact placement and quantity sometimes differ (e.g., kitchen layout simplified, living room furniture arrangement differs, no furniture in what should be 'Dining Room' or 'Study'). Bathroom fixtures are present. Many areas like the utility room and garage lack expected furniture/fixtures."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 5,
+            "camera_composition": 2
+        },
+        "notes": "Geometry style uses simplified forms, but some surfaces appear slightly textured or have subtle gradients beyond flat colors (e.g. beds, kitchen counters). Lighting is generally soft ambient. The view is not a true isometric projection, showing some perspective distortion (E3-CRIT not met, but perspective is subtle here, hence major deduction within category). Camera angle is generally good and framing is centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'Study' (bottom left) is missing, along with its associated 'Covered Patio'. The 'Nook' area is also entirely absent.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels and dimension lines are present, carried over from the original plan into the 3D render in several locations (e.g., above Master Bedroom, Hall, Bath). This leads to an automatic 0 for UI Cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant wall discrepancies: The kitchen/nook area is completely reconfigured, missing walls and structure for the 'Nook' and 'Pantry'. The walls for the 'Covered Patio' (bottom left) are entirely absent.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The view exhibits some perspective distortion and is not a true isometric projection. Parallel lines are not entirely parallel.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several door placements are off from the plan, or swing directions are not matched. For instance, the door between kitchen and dining room is missing, and several bedroom door swings do not match.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing specific furniture elements like the sink in the utility room, washer/dryer, and the complete kitchen island layout from the plan. Also, the 'Nook' and 'Study' furniture is entirely absent as the rooms themselves are missing.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical errors including missing rooms, incorrect projection, and the presence of text labels from the original plan. While many elements are generally present, significant geometric inaccuracies and departures from the original layout prevent a passing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan9.png"
+}

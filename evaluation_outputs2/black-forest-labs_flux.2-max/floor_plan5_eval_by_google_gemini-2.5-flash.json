@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 7,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Layout topology is mostly preserved. Room count matches. Adjacencies are generally correct. Relative room sizes are proportional, though some wall thicknesses seem exaggerated. Overall footprint is maintained. Wall positions are mostly accurate, but some internal walls show slight deviations. External porch walls are missing from the 3D model. All doors are present and in the correct locations with correct swing direction. Many windows are missing, particularly those on the left side of the house and the small ones at the bottom. Dimensional scaling seems mostly consistent but some elements appear thicker or slightly larger than the plan suggests, especially around outer walls and some internal dividing walls. Several window openings have been omitted or wrongly represented. The small windows on the porch are completely missing. The window on the top-left room is missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Roof is completely removed and interior walls are fully visible. Completeness is good in terms of rooms, but structural elements like the small outdoor porch walls are missing from the 3D model. No extra rooms or architectural features are hallucinated. UI/Annotation Cleanliness: Fails completely due to the presence of subtle grid lines from the original image and a light-colored ground plane that blends with the model. Presentation context: The background is dark neutral, but there is a ground plane with a shadow that extends and slightly distorts the floating appearance, and the model is not perfectly isolated."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "All major furniture pieces are present and accounted for (beds, sofas, dining tables). Kitchen and bathroom fixtures are present. Furniture is generally placed correctly, however, some pieces, like the kitchen island and some living room sofas, are slightly off their exact plan locations or are slightly displaced. Scale feels appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly simplified forms are used, and surfaces are flat shaded with no textures. Edges are clean. Lighting is soft and ambient with minimal shadows; dramatic contrasts are avoided. Colors are distinguishable. The camera view is close to isometric, but a slight perspective distortion is noticeable making some parallel lines appear to converge. The view composition is slightly off: the model is not perfectly centered, and its rotation is not exactly 45 degrees to the image border."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several windows missing from the 3D model (left side of the house, small porch windows, top-left room window)",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Outer porch walls completely missing from the 3D model.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Presence of grid lines from the original image in the final render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Some furniture items (kitchen island, living room sofas) are slightly displaced from their precise 2D plan locations.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Slight perspective distortion in the camera view; not true isometric as parallel lines converge.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely preserves the spatial layout and furniture of the 2D plan, but suffers from missing windows, minor structural incompleteness, slight geometric inaccuracies, and a noticeable perspective distortion from true isometric view.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan5.jpg"
+}

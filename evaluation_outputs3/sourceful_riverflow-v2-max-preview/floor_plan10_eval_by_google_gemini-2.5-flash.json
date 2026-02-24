@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Minimal perspective distortion is slightly more pronounced than ideal, but overall good."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Overall room configuration and wall positions are good. However, subtle differences in wall thickness and minor discrepancies in opening placements are present. The 'Theatre' and 'Living' room are swapped. The 'Verandah' area's internal partition is missing."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Most major furniture is present and in appropriate rooms, but the kitchen layout is simplified, and some items are missing. The 'Theatre\u2019 and 'Living' room furniture is in the wrong rooms."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Excellent clarity and lighting. No major artifacts. The dark background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Room identity swap: 'Theatre' and 'Living' rooms' original positions are swapped in the 3D model, indicated by the furniture and general layout."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Missing internal partition wall in 'Verandah' area."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Minor discrepancies in door and window placements/proportions."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Kitchen layout and specific appliance placement differs significantly from the 2D plan, especially the island and the pantry recess."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is generally good, demonstrating clear 3D fundamentals and good visual clarity, though it suffers from a significant room identity swap and minor geometric inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan10.png"
+}

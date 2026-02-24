@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall footprint and major room adjacencies are somewhat maintained, but there's a significant remodel and simplification. Bathroom 1 and 2 are combined into one larger bathroom. The utility area is completely removed. Bedroom 2 is altered. The entrance area is different. The rendered 3D model presents a significantly simplified and altered layout compared to the detailed 2D plan. The wall geometry is simplified and deviates significantly from the 2D plan, especially on the 'left' side (east) where a balcony is converted into an internal space. Many doors are missing. Window placement is generally good, but some are missing. The scale seems consistent within the 3D model, but it's hard to compare directly to the detailed 2D plan due to layout changes."
+    },
+    "structural_fidelity": {
+        "score": 13,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 3
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. There are significant missing structural elements (the utility room is gone, one toilet room is missing, a balcony is converted). There are also hallucinated walls/spaces, essentially a remodel. UI elements are clean. The background is dark and neutral, but there are some shadows that extend. The model is not entirely isolated, as some shadows suggest a ground plane."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many major furniture pieces are present, such as beds, sofas, and dining tables. Kitchen and bathroom fixtures are also mostly present in the areas that remain rooms. However, the placement of the existing furniture pieces is often altered, especially due to the internal remodel of the space. Scale is generally appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is low-poly, flat shaded, and generally clean. Textures are mostly solid colors, although some minimal patterns/details are visible on furniture. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. The camera view is isometric and generally well-framed, but the rotation seems off from the optimal 45-degree for a plan view. It's more of a corner view."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Utility room completely missing. One toilet room (TP TOILET) is completely missing, merged with another.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Entire layout has been significantly remodeled. A balcony has been enclosed, and rooms have been reconfigured. This is beyond typical tolerance for structural fidelity and hallucination control.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls defining the original layout, especially around the entrance, kitchen/utility, and the left balcony area, are significantly altered or missing, leading to a changed footprint.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are missing or misplaced due to the remodel (e.g., entrance door is implied, but not clearly represented as on plan; door for M.BEDROOM not present; door for TOILET 2.45x1.52 missing).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Some furniture placement is off due to the remodel, and the 3D model presents a different furniture arrangement than indicated in the original 2D plan, particularly in M.BEDROOM, BEDROOM-2, and the combined TOILET area. Kitchen counter layout is also different.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 57,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately represent the provided 2D floor plan, exhibiting significant architectural remodeling, numerous missing structural elements, and altered room adjacencies and furniture layouts, despite good aesthetic quality.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan15.webp"
+}

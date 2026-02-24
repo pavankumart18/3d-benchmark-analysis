@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully converts the 2D floor plan into a consistent 3D isometric cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D depth and wall geometry. Viewing angle is ideal for a floor plan visualization."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "The bay window/seating area geometry is correctly translated. However, the internal walls around the WC/Utility area have been simplified and merged, losing the specific compartmentalization seen in the plan."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Kitchen island and dining set are present, though the kitchen layout is mirrored/altered compared to the original counter positions."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "High structural clarity, but the presence of misspelled floating text labels (KITIHCH) and UI-like floor labels reduces the presentation score."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Utility room and WC partitions from the plan are missing or significantly rearranged in the 3D render."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "Minor",
+            "description": "Hallucinatory text labels (e.g., 'KITIHCH', 'TACAL') are embedded in the 3D scene."
+        }
+    ],
+    "total_score": 80,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D transformation that preserves the primary footprint and window geometry, though it simplifies internal partition details and contains text artifacts.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan11.png"
+}

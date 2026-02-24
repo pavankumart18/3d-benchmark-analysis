@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height and thickness, multiple faces are visible, interior volume reads as rooms, and the camera is elevated/angled rather than top-down."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable wall/floor separation and clean cutaway; minor simplification at some wall junctions and openings."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall layout matches (kitchen top-left, dining top-right, living right, stairs bottom-left, bathroom central). Some door/window counts/placements and opening orientations appear simplified relative to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures included (kitchen run with stove/sink/cabinets, dining set, living seating + table/TV, toilet + sink, stairs). Bathroom appears incomplete/simplified (no clear shower/tub)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean presentation with distinct walls/floors and adequate lighting; no text/UI clutter. Minor softness/low-detail materials but geometry remains readable."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door/window placements and/or swing/orientation do not fully match the 2D plan (some openings appear simplified or shifted)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Bathroom fixtures are simplified/incomplete compared to a typical full bath layout (missing shower/tub element)."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A clear true-3D cutaway with strong overall layout fidelity, but with minor mismatches/simplifications in openings and some interior fixture details.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan3.jpg"
+}

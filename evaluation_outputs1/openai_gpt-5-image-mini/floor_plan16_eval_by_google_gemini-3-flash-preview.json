@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Poor adherence to the source floor plan. The kitchen and utility area have been merged and moved to a windowed wall where the living area should be. The entrance has been relocated. Room adjacencies (Toilet vs Kitchen) are incorrect compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The utility room and balcony are completely missing. Structural walls have been reinterpreted, though the model correctly removes the roof and excludes UI/text."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture style is clean and block-like, but placement is inaccurate. The sofa is facing the wrong direction, and several items (refrigerator, desk, specific kitchen layout) are missing or simplified beyond the floor plan's intent."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "The render perfectly follows the requested aesthetic style: low-poly, flat shading, isometric camera, and a dark neutral background with no textures."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony and Utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen relocated to the left wall; toilet incorrectly placed directly adjacent to the bedroom entrance area."
+        },
+        {
+            "code": "E2",
+            "description": "Major furniture orientation error: sofa faces away from the living area center."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated large window in the kitchen area which is not present in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan16.avif"
+}

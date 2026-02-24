@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "Although walls have height/thickness and the ceiling is removed, the render is presented in an essentially pure top-down/orthographic view rather than an angled/isometric cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Automatic rejection triggered due to pure top-down orthographic presentation."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "FATAL",
+            "description": "Second image is rendered from a near-perfect top-down orthographic viewpoint (not an angled/isometric 3D cutaway), triggering automatic rejection."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The output shows 3D-like wall volumes but fails the required angled/isometric cutaway criterion due to an essentially pure top-down orthographic view.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan5.jpg"
+}

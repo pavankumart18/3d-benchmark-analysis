@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but there are significant discrepancies in door orientations (many swing the wrong way compared to the plan) and window wall placements. The utility area next to the kitchen is simplified and slightly distorted in scale."
+    },
+    "structural_fidelity": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. Roof is removed, no UI/text elements are present, and the model is floating on the required dark neutral background. One minor deduction for the partial simplification of the balcony railings into solid blocks."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Basic block-style furniture is present in correct rooms, but the dining table mapping is poor (replaced with a single sofa-like block) and the kitchen counter configuration does not match the L-shape in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to low-poly, flat-shaded style. The lighting is soft and ambient as requested. Small deduction for the camera angle which is slightly shallower than a true 45-degree isometric orthographic view, leading to some perspective convergence."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Incorrect door hinge orientations throughout the model; doors swing into walls or opposite directions from the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Living room dining area reinterpreted as a secondary seating area rather than a dining set."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout is simplified to a straight run rather than the specified L-shape with a sink/utility partition."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific window cutouts on the far right bedroom wall as seen in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan15.webp"
+}

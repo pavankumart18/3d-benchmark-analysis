@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall footprint and room count match, but room adjacencies are not fully preserved, particularly the bathroom placement. Wall positions are generally accurate, but some internal walls are missing or altered. Door swings are inconsistent or not clearly defined in the render. Window sizes and placements are acceptable."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The roof is removed and interior walls are visible. However, structural completeness is compromised by the altered stairs. Text labels are present in the original 2D plan, but not in the 3D render. The background is dark, but some ground plane detail is present."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture for living and dining rooms are present. Kitchen and bathroom fixtures are present. However, the placement of the bathroom fixtures is not accurate relative to the 2D plan inside of the bathroom."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly and flat-shaded geometry is well-executed. Colors are solid and distinguishable. Lighting is ambient with soft shadows. The view is isometric, 45-degree rotated, and well-framed. Some slight color variation on surfaces, particularly the floor, deviates from 'solid flat colors only'."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom layout and connection to main living space are heavily altered. The bathroom in 2D is a small, enclosed space, whereas in 3D it's an open-door closet-like structure within a larger open area, not matching the 2D plan. Stair configuration is also different, opening to different areas.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Dining room's 'north' wall (adjacent to kitchen) is missing in the 3D render, creating a more open-plan kitchen/dining layout than shown in the 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MINOR",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing a partition wall to separate the 'Dining Room' and 'Living Room' areas, as implicitly suggested by the different room labels in the 2D plan, though no wall line is shown.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "The toilet is facing the wrong direction compared to the 2D plan, and the sink is in a different position.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floor and wall surfaces show slight textures or gradients, deviating from 'solid flat colors only'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Presence of a visible 'ground plane' and subtle shadows extending beyond the model's footprint.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "An entire interior wall (between the kitchen and dining room) is omitted.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not clearly rendered or are inconsistent with the 2D plan, where they are indicated. The living room/dining room external door shows an inward swing in 3D versus an outward swing (or no clear indication) in 2D.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 61,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely maintains the overall footprint and room count but suffers from significant errors in internal wall geometry and room adjacencies, particularly with the bathroom and open kitchen/dining area, leading to a Fail verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan3.jpg"
+}

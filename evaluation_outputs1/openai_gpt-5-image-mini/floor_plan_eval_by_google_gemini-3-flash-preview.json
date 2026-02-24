@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout discrepancies. The 3D render significantly simplifies the complex floor plan. Doors and windows are largely missing or misplaced relative to the 2D plan. The central hallway and bathroom cluster do not match the original layout."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the roof is removed and the model floats on a neutral background with no UI text, it fails on structural fidelity. Several rooms (Closet, Coat room, 1/2 baths) are missing or merged, and the exterior perimeter shape is oversimplified."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is clean and block-style, but placement is generic rather than following the specific arrangements in the floor plan (e.g., dining table orientation, sofa count, kitchen island/counter configuration)."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly geometry, flat shading, isometric orthographic camera, and dark neutral background are all executed correctly."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple specific rooms: Balcony, Coat room, specific closets, and the second bathroom layout is incorrect."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and dining area layout is significantly distorted compared to the L-shaped blueprint."
+        },
+        {
+            "code": "E1",
+            "description": "Internal and external doors are largely missing from the wall geometry."
+        },
+        {
+            "code": "E4",
+            "description": "The center of the apartment is a structural reinterpretation that ignores the specific hallway and alcove details of the original plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible floor plane, angled/isometric viewpoint, and ceiling/roof removed to expose interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; perspective is appropriately angled with minimal distortion; cutaway is clean with continuous wall geometry and exposed interiors."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency largely match (kitchen/dining left, living central, bedrooms right, bath near center/bottom). Some proportional/layout deviations appear around the hall/bath/closet partitions and doorway placements compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures present (dining set, living seating, bed, bathroom fixtures). Laundry/closet elements are simplified and not as explicitly represented as in the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Walls/floors/openings are visually distinct and readable; lighting supports visibility; no obvious broken meshes. Presentation is clean with no UI/text overlays in the 3D render."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Minor-to-moderate layout/proportion drift in the central circulation/bathroom/closet partitioning compared to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door/opening placements and swing/orientation do not precisely match the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Laundry/closet-specific elements are simplified or not clearly distinguished as dedicated rooms."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A valid and well-executed 3D cutaway that broadly preserves the 2D layout, with minor proportion and opening-placement mismatches in the central partition areas.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion successfully depicts an isometric cutaway model with clear structural depth."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clear wall thickness, floor separation, and consistent isometric perspective."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Highly accurate layout fidelity. Most rooms and internal partitions align with the 2D source, though some small utility/toilet spaces are simplified."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture sets (dining, living, beds) are present and correctly placed, though some bathroom/kitchen fixtures are represented as simple volumes."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clear rendering with good lighting; some textures appear slightly soft/blurred but geometry remains readable."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Minor simplification of window and balcony glass materials compared to partition lines in 2D."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Specific bathroom fixture detail is simplified into general blocks."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "A highly successful 3D conversion that maintains strong geometric fidelity to the original floor plan layout and proportions.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan17.jpg"
+}

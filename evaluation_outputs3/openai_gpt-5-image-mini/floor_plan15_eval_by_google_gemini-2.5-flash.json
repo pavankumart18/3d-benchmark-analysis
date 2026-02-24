@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model clearly demonstrates height, thickness, depth, and an angled view, with the roof removed for interior visibility."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Floors are distinct. Interior volume is perceivable. Wall corner geometry is mostly correct, though some areas like the entrance steps are very blocky. Angled view is good, and interior is visible. The roof is removed cleanly, and interior spaces are fully visible, with clean geometry throughout."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "The number of rooms is correct, and adjacency relationships are largely preserved. However, the 'Balcony' to the left of the M.Bedroom is incorrectly depicted in the 3D model as an internal space, and the balcony to the right of Bedroom-1 is significantly altered. The 'Wide Passages' are also not explicitly delineated as they are in the 2D. Major wall positions show some discrepancies, especially around the balconies/utility area. Wall lengths are generally proportional, but the entrance area and the utility/toilet area in the 3D deviate significantly from the 2D plan. Doors are present but some door swings are missing or incorrectly oriented. Windows are present, but their placement and number do not perfectly match the 2D, and their proportional sizing isn't consistent with the 2D."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Major furniture like beds, sofas, and tables are present. Kitchen elements are simplified but recognizable. Bathroom fixtures are present but greatly simplified and some, like the 'T.P. Toilet', are inaccurately represented or missing key fixtures from the 2D layout. Furniture is placed in correct rooms with reasonable scale, and orientation is mostly logical, though the level of detail is very low."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable and the geometry is readable. Interior is clearly visible with good, even lighting that doesn't obscure geometry. Consistent material usage and no major rendering artifacts. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Major deviation in the 'Balcony' areas, particularly the one adjacent to the M.Bedroom and the one near Bedroom-1, which are significantly altered or misrepresented in the 3D model. The utility and 'T.P. Toilet' areas in the 3D also significantly deviate from the 2D layout."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Door swings are omitted or incorrectly oriented in some areas."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Window placements and count differ slightly from the 2D plan in some rooms."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Bathroom fixtures are highly simplified and some details from the 2D plan are missing or inaccurate."
+        }
+    ],
+    "total_score": 75,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D plan into an isometric model with good visualization, but suffers from several notable geometric inaccuracies and simplifications in the exterior and utility spaces, along with some interior detailing.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan15.webp"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway rendering with clear verticality."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent geometry; walls have clear thickness and height. Floor planes and corner geometry are well-defined."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Major layout is faithful. However, there are mirror/orientation inversions in some wing configurations (e.g., ensuite/WIR placement relative to master)."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture matches the 2D layout well, including the car in garage and kitchen island placement."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean isometric style. Minimal point deduction for 'RECESS' text artifact appearing as 3D geometry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "Spatial inversion of ensuite and walking robe layout compared to original 2D footprint."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text label 'RECESS' from 2D plan has been baked into the 3D floor geometry."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D isometric conversion that maintains most of the architectural intent with clear structural integrity, despite minor layout mirroring in sub-sections.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan10.png"
+}

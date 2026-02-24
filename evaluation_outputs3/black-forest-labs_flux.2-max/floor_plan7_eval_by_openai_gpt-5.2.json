@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The second image is a true cutaway 3D model: walls have height and thickness, floors are planar, multiple wall faces are visible, and the roof/ceiling is removed to expose interior spaces. View is slightly angled (not perfectly orthographic), with shadows and visible wall side faces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion with clear wall massing and clean cutaway. View is only mildly angled (close to top-down), reducing perceived verticality slightly, but still clearly 3D."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room layout matches (dining top-left, kitchen top-center, entrance top-right, living right, bedroom bottom-left, stairs bottom-right). Main concern is the central wash/toilet zone: the 2D indicates a clearer separation between wash area and toilet than the 3D shows. Minor discrepancies likely in some door/window counts/placements."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Dining set, living seating, bed, and bathroom fixtures are present and placed in appropriate rooms. Kitchen is simplified (limited cabinetry/appliances detail), but sink/counter indication exists."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean render, readable geometry, openings and walls are distinguishable, good lighting, no major mesh artifacts, and no UI/text contamination in the 3D render."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Wash area vs toilet separation/partitioning appears simplified or altered compared to the 2D plan, reducing fidelity of the central service-core layout."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some door/window placements and/or counts appear to differ slightly from the 2D plan (notably around internal doors and small openings), though most major openings are present."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout fidelity, with the main geometric deviation being the simplified/altered wash-toilet partitioning and minor opening mismatches.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan7.jpg"
+}

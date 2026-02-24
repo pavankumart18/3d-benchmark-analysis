@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Minimal perspective distortion is present, slightly impacting the score here. The cutaway is clean, but the balcony railing is partially cut off at one end."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The kitchen layout is significantly different, with the 'utility' area integrated into the kitchen. The Toilet-1 layout also differs between the 2D and 3D."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Most furniture is present and correctly placed. The kitchen and bathroom fixtures appear scaled reasonably, although the kitchen's internal layout is changed."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "The overall presentation is clean and clear. There are no major rendering artifacts. The background is simple and non-distracting."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Kitchen layout and utility area integration significantly deviates from 2D plan. Toilet-1 internal layout also differs."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion effectively transforms the 2D plan into a perceivable 3D space with good visual clarity, though there are notable geometric discrepancies in the kitchen and toilet layouts.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan16.avif"
+}

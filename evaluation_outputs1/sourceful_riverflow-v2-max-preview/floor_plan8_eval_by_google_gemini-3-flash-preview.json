@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortions. While the central pantry and stairs exist, the exterior wall angles are heavily misinterpreted (diagonalized). Door placements are generalized rather than exact to the 2D plan specifics (e.g., Foyer entrance). Window counts and placements are inconsistent with the technical drawings."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Roof is correctly removed and background is neutral. However, the model hallucinates diagonal wall segments not present in the orthogonal layout. It fails to accurately represent the specific closet configurations."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is blocky but largely misplaced or misinterpreted. Small square blocks are used as placeholders that do not correspond well to the specific kitchen island or living room dimensions in the blueprint."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to aesthetic constraints. Flat shading, low-poly geometry, monochromatic palette, and orthographic camera angle are all correctly applied according to the prompt instructions."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The rectangular perimeter of the 2D plan is distorted into an irregular polygon with diagonal facets."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated diagonal walls and simplified furniture blocks that do not match the specified fixtures."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific door swing details and closet partitions as shown in the foyer and W/C areas."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 8,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint and major room adjacencies are mostly preserved. However, there is a significant structural change where the 'up' stairs from the plan are now exterior. The pantry from the 2D plan is missing. The small closet next to the W/C is also missing. The front entrance (foyer area) has been significantly altered, removing the original double-door entry and creating a new exterior staircase. The connection between the living room and dining room is enclosed in the 3D model, unlike the open plan shown in the 2D. Windows are largely missing or misplaced compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 1,
+            "hallucination_control": 0,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The cutaway view is mostly compliant, with the roof removed. However, completeness is poor due to missing structural elements (pantry, closet) and altered 'up' stairs. Hallucination control is poor due to the addition of exterior stairs and significant reshaping of the entryway, as well as enclosing the living/dining space. There is a visible logo or watermark in the upper right. The background is dark and the model is somewhat isolated, but there are some visible ground plane reflections/shadows extending into the background."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many major furniture pieces are present, such as beds, dining tables, kitchen and bathroom fixtures. However, the placement often does not match the 2D plan. The 'foyer' now contains a bed. The 'living room' has a different furniture arrangement. The 'dining room' has a single chair instead of the main dining table. The kitchen layout is somewhat altered. The W/C now contains a single toilet, no sink. The playroom has different furniture. The pantry is missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style uses low-poly simplified forms with flat shading and solid colors, meeting most criteria. There are some subtle material properties that suggest more than just flat coloring, like slight reflections. The lighting is soft ambient, but there are noticeable shadows on the floor and objects, indicating some directional light source. The camera composition appears to be a true isometric projection with a 45\u00b0 rotated plan view, centered and appropriately zoomed. The shadows sometimes extend outside the model's footprint onto the background."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Pantry room is completely missing from the 3D model.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Small closet next to W/C is missing from the 3D model.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant alteration of the front foyer/entrance area, including removal of original double-door entry and creation of new exterior stairs, and enclosing of living/dining connection.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated exterior stairs leading to the foyer, and altered the internal 'UP' stairs to be exterior as well.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Watermark/logo visible in the upper right corner of the image.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some windows are missing from the 3D model, particularly on the south side of the dining room and north side of the playroom.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture placement and types often do not match the 2D plan, especially in the foyer (bed vs. entry furniture), living room, and dining room.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle material reflections and more pronounced shadows than 'minimal' are visible, indicating not pure flat shading/solid colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical and major discrepancies in spatial accuracy and structural fidelity, including missing rooms, significant layout alterations, and the presence of a watermark/logo, despite a generally good aesthetic presentation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan8.jpg"
+}

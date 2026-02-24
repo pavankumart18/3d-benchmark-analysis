@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "notes": "Excellent spatial translation. Room adjacencies and wall alignments are highly accurate. Door placements match the architectural plan including the diagonal window seat wall. Minor point deduction for slight size exaggeration of the kitchen window."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Full compliance. No text or UI elements are present. The roof is removed, the model is floating on a dark neutral background, and all rooms from the provided floor plan segment are accounted for."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Kitchen cabinetry and appliances (stove, fridge, washer/dryer in utility) follow the plan markings closely. The stairway is correctly represented. Deduction for the absence of the 'Pantry' cabinet volume on the right side of the kitchen."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High adherence to style constraints. Low-poly geometry and flat shading are used. Isometric perspective is accurate. Minor deduction for slight color variance in the floor plane which borders on a texture/material look rather than a single flat color code."
+    },
+    "total_score": 95,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing pantry cabinet volume shown in the kitchen detail on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Minor scaling distortion on the rear kitchen window compared to the blueprint dimensions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan11.png"
+}

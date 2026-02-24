@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 2,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout has many issues. Hallucinated exterior walls in multiple places, distorting the overall footprint. Interior walls generally match, but several are misaligned or incomplete. Missing several door openings and has incorrect swing directions for others. Missing approximately half of the windows."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 1,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "Cutaway view is mostly compliant, but a ceiling/roof fragment is visible for the porch area on the right. Many added architectural features (balconies/porches, extensions). Text and annotations from the 2D plan were successfully removed. Background and presentation are generally good."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and relatively accurate in scale. However, several pieces are missing, and placement accuracy is poor in multiple rooms. For example, the kitchen countertop layout is incorrect, and the living room sofa arrangements are different."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Uses low-poly simplified forms and flat-shaded surfaces, but some textures are present (e.g., wood floor, light yellow walls in back patio). Lighting is soft ambient, but there are clear light sources in windows which indicate a more complex lighting setup than 'soft ambient' or 'minimal shadows'. Camera view is clearly isometric and well-composed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Hallucinated exterior walls and extensions on both left and right sides of the building, significantly altering the overall footprint.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple wall misalignments: rightmost bedroom wall shifts inward, kitchen wall on the left does not align with the original plan, and the exterior outline is substantially different due to added features.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple missing doors (e.g., connecting the main living area to the front left room, and to the back toilet room). Several door swing directions are incorrect.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Many windows are missing in comparison to the 2D plan, especially on the side walls.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated multiple architectural features including a large porch/balcony on the left side and a small porch on the right side, along with a ceiling remnant on the right porch.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Presence of textures/materials (wood floor texture, varying wall colors, lit windows) rather than solid flat colors.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Several furniture pieces are missing (e.g. desks in bedrooms, some kitchen appliances).",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 56,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to significant spatial and structural inaccuracies, including hallucinated exterior features and numerous missing openings, despite good visual styling.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan5.jpg"
+}

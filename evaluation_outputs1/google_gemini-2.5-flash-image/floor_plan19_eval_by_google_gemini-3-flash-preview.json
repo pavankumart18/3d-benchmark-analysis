@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "The evaluation engine failed to identify a 3D isometric render. The second image provided is a digital copy/slight variation of the 2D plan, not a 3D extrusion. All points for 3D spatial scaling and wall visibility are forfeited."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "notes": "Failure to generate a 3D floating model. The image retains 2D top-down perspective, text labels, measurement lines, and a 2D compass, which are all strictly prohibited."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "notes": "Furniture remains 2D illustrations from the original plan rather than converted block-style 3D assets."
+    },
+    "aesthetic_quality": {
+        "score": 0,
+        "max": 25,
+        "notes": "Incorrect camera/perspective (Top-down instead of Isometric Orthographic). Textures are present (wood grain, marble), and lighting is baked-in 2D gradients rather than 3D flat shading."
+    },
+    "total_score": 0,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "Model is not 3D isometric; it is a 2D top-down floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Image contains text labels and measurement lines (e.g., 'BED-1', '12 X 18'9') which are strictly forbidden."
+        },
+        {
+            "code": "E6",
+            "description": "Render contains detailed textures and is not low-poly geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan19.webp"
+}

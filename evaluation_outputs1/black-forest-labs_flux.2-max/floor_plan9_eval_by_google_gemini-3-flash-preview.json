@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but Bedroom #4 has been misinterpreted as a lounge. The 2-car garage is fundamentally hallucinated as a bedroom suite. Some door swings and wall angles near the entry are distorted."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Major structural reinterpretation: the garage is missing and replaced with a living space. The utility room is missing/merged. However, the model correctly displays a floating cutaway on a dark background without text."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen counters and master bedroom furniture are mostly accurate. However, major scaling and placement issues occur in the garage-to-bedroom conversion and the dining area."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Follows the low-poly, flat-colored aesthetic. Soft ambient lighting is good, though shadows are slightly more directional than a true flat-shaded style. The camera is slightly closer to top-down than a perfect 45-degree isometric orthographic view."
+    },
+    "total_score": 76,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Garage and Utility room are missing in their original function."
+        },
+        {
+            "code": "E2",
+            "description": "Dining room table is misaligned with the wall constraints."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a large master suite where the 2-car garage should be."
+        },
+        {
+            "code": "E4",
+            "description": "Bedroom #4 reimagined as a small den/living area with sectional seating."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan9.png"
+}

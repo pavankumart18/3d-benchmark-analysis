@@ -1,0 +1,71 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows height and thickness of walls, with a cutaway view exposing the interior from an angled perspective."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5). Floors separate plane (3). Interior volume perceivable (4). Proper 3D wall corners (3). Angled view (5). Interior visible (3). Minimal perspective distortion (2). Roof removed cleanly (5). Interior spaces fully visible (0 - missing main staircase area). Clean geometry (0 - staircase area is incomplete)."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "Correct number of major rooms (3). Adjacency relationships are mostly correct, but the 'Activity' room's full extent with the staircase is missing, and the 'Balcony' is not clearly defined (2). Relative room proportions are mostly preserved (3). Major room identities align where they exist (2). Major wall positions align (5). Wall lengths are proportional where present (3). Internal partitions are mostly correctly placed (2). Doors are present and on correct walls, but some are missing or incorrectly represented (2). Windows are present and on correct walls, but some are missing (1). Openings are proportionally sized and oriented, but some missing (2)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture present (beds, sofas, tables) (4). Kitchen elements present but simplified (1). Bathroom fixtures present but simplified (1). Furniture placed in correct rooms (3). Furniture scale reasonable (1). Orientation logical (0 - some furniture orientation is off)."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls, floors, openings clearly distinguishable (4). Geometry readable (4). Interior clearly visible (3). Lighting does not obscure (3). Consistent material usage (0 - very generic, no textures). No major rendering artifacts (0 - some visible jagged edges). Clean background (0 - dark background with a very generic render)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Crucial part of the building (the staircase and 13c high capped wall area leading to 'Activity') is completely missing, creating a significant deviation from the 2D plan and making the structure incomplete."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The 'Balcony' area is not clearly defined as an exterior space, and its balustrade is missing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some doors and windows are missing or not accurately represented compared to the 2D plan (e.g., sliding door to balcony, some internal doors, windows in Bed 2, Bed 3, and Bed 4)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Bathroom and kitchen fixtures are overly simplified, and some furniture placement is generic or lacks accurate orientation."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "The rendering is extremely basic, lacking any textures or detailed materials, and has some minor jagged edges."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "The sofa in the Activity room is oriented incorrectly, facing a solid wall instead of the open space."
+        }
+    ],
+    "total_score": 74,
+    "verdict": "PASS",
+    "summary": "The conversion successfully creates a 3D representation with good volumetric perception and basic room layout, but critically fails to include the staircase area and some openings, leading to a significant incomplete structure.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan12.png"
+}

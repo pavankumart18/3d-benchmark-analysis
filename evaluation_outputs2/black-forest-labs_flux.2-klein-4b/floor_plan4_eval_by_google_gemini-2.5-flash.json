@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Bathroom wall geometry is distorted, making it much smaller and squarer than in the 2D plan. The wall separating the Laundry room from the Hall is also significantly shifted inward. The Kitchen/Dining area also appears narrower horizontally. Overall footprint maintained but internal wall positions are frequently inaccurate."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "UI/Annotation cleanliness is a critical failure point due to visible text and a logo on the 2D plan. The generated 3D render removed all text. The structural completeness is good, no major structural elements are missing. Hallucination control is good, no extra rooms or architectural features added. Cutaway view is mostly compliant, but some faint roof edges are visible at the very top."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "Many furniture pieces are missing: dining chairs, closet contents, laundry machines, and most of the smaller decor. Hallway closet/storage is completely missing. Bathroom fixtures are present but the bathtub appearance is different. Kitchen counters and appliances are present. Overall furniture presence is weak."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style uses low-poly forms but has some soft shading and what appears to be basic material reflections rather than pure flat colors. Lighting is soft, but there are areas with noticeable shadows and light gradients, moving it away from pure flat shading. Camera composition is good, maintaining a true isometric view."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels, measurement lines, and legend/scale bars present in the original 2D plan. This is a critical failure for UI/Annotation Cleanliness for the source image, but the 3D render successfully removed them.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom geometry significantly distorted and squarer. Laundry room wall shifted. Overall wall geometry shows significant distortions.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Many furniture pieces missing, especially dining chairs, laundry machines, and closet elements.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces show soft shading and subtle reflections, not pure flat colors. Lighting has noticeable shadows and gradients.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Hallway entrance door swing direction is opposite.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 51,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits significant geometric inaccuracies, especially in wall positioning and room proportions, leading to a failing score despite a good camera composition and decent structural fidelity.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan4.jpg"
+}

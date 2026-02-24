@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint is vaguely maintained but significant deviations in room adjacency and relative sizing are present. Many walls are inaccurately placed or missing. Balconies in the 2D plan are completely missed in the 3D render. The 'Deck' area from the 2D plan is entirely enclosed as a living space, altering the original layout substantially. The home office/maid's room from 2D is missing in 3D. Toilet-3 & Toilet-4 are enclosed as a single room. Toilet 1 and 2 are partially present. Balcony 1 and 2 are fully missing as architectural features."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 1
+        },
+        "notes": "The cutaway view is mostly compliant, showing interior walls. However, significant completeness issues arise from missing rooms and architectural features (balconies, original deck layout). There is also hallucination of new walls to enclose the 'Deck' area."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Some major furniture pieces are present but their placement and scaling are inconsistent. Furniture is present in areas that are completely altered from the original plan. The kitchen and bathroom fixtures are only partially mapped and inaccurate in number and placement."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is low-poly with flat shaded surfaces and solid colors, aligning with specifications. Lighting is soft and ambient. The camera angle is an approximate isometric view, but the angle and rotation are not precisely 45 degrees, leading to slight distortion."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "The 'Home Office / Maid's Room' and associated bathrooms (Toilet-3, Toilet-4) are missing as distinct entities. The 'Deck' area has been completely enclosed, fundamentally altering the layout and room count.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated walls enclosing the 'Deck' area, converting it into an indoor living space, and missing explicit 'balcony' architectural features entirely.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls are severely misaligned, particularly around the kitchen, Toilet-1, and the area where Toilet-3/4 should be. Relative room sizes are significantly distorted.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swings are mostly ignored or reversed compared to the 2D plan, where indicated.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture placement and scale are inconsistent; for example, the dining table is much smaller than indicated by the 2D plan's proportion.",
+            "point_deduction": 6
+        }
+    ],
+    "total_score": 54,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits significant spatial and structural inaccuracies, including missing rooms, altered layouts, and misplaced walls, leading to a substantial deviation from the original 2D floor plan. While aesthetic qualities are largely compliant, the core geometric and structural fidelity issues prevent it from passing.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan20.avif"
+}

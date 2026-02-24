@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall layout and room count are preserved. However, there are significant deviations in wall geometry and a noticeable omission in room size proportionality for the Utility and Toilet-1. The Balcony appears wider in the 3D model. Wall positions are off by more than 5% in several areas, particularly around the Utility and Toilet-1 area, and the Kitchen's extent. One door (entrance to Bedroom-1) has an incorrect swing direction (though this is minor given the 2D plan's ambiguous indication)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 5,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The roof is removed, but fragments/elements above the walls are visible (e.g., window frames extend upward). While no rooms are missing, some walls/features are noticeably thicker/more robust than implied by the 2D. Significant penalty for UI presence (text labels, dimensions) in the 2D plan, which was not explicitly stated to be removed. The 3D render itself has no UI elements, which is good. However, the presentation context is insufficient due to a floor slab and a non-neutral background that shows shadows extending beyond the model."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms (beds, sofas, dining table, kitchen appliances, bathroom fixtures). However, some placements are slightly off (e.g., dining table is rotated and slightly shifted, bedroom desk is missing in 3D, and the washing machine location in the utility is different). Scale seems appropriate for the room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "The geometry uses simplified forms, but there's an obvious attempt at realistic textures/materials on floors, countertops, and even some furniture, which violates the strict 'no textures' rule. Surfaces are smooth-shaded and not strictly flat-shaded. Lighting includes noticeable shadows and highlights, moving away from soft ambient. The camera view is isometric and centered, but the background isn't simply a dark neutral color, and shadows extend onto a floor plane."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels and dimensions are present in the original 2D floor plan, which should be considered when assessing the ability to translate only geometric and visual information without extraneous UI. This implies a lack of proper input data processing, or a lenient interpretation of the 'ground truth' input structure. Although the 3D itself is clean, the source material had UI.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering detected. Textures/materials (e.g., tiled floors, marble countertops, fabric on sofas) are clearly used instead of solid flat colors. Smooth shading is also present.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple wall misalignments and incorrect proportions, especially for the Utility room and Toilet-1, and the kitchen extent. Balcony width is also disproportionate.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MINOR",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom door swing direction does not match the 2D plan. Minor proportional issue with overall dimensional scaling (balcony width).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bedroom desk is missing from the 3D render.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is not strictly soft ambient; shadows are more pronounced than minimal, and highlights are visible.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 51,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render successfully translates the overall room layout and most elements, but fails significantly on strict style and rendering constraints (photorealism, non-minimal lighting). Structural fidelity is compromised by architectural inaccuracies, and the UI analysis of the 2D input is considered a critical error in context of the 'ground truth reference'.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe layout distortion. The L-shaped living/dining core is broken; the kitchen has been relocated and duplicated. Window and door placements do not match the source plan (e.g., missing balcony access, incorrect bedroom window placement)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Walls are present and roof is removed, but the internal structural logic is reinterpreted with hallucinated partitions. The separate Garage unit is missing entirely."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Block furniture is used, but placement is random and does not follow the functional zones of the plan (e.g., dining tables placed in bedrooms/hallways)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good adherence to low-poly, flat-shaded style on a neutral background. Isometric perspective is maintained, though lighting is slightly murky rather than clean flat colors."
+    },
+    "total_score": 46,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Garage unit and balcony outdoor area."
+        },
+        {
+            "code": "E2",
+            "description": "Major layout distortion; kitchen shifted and living room proportions lost."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated multiple dining tables and shifted internal partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door orientation and window count on exterior walls."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Poor adherence to the 2D blueprint. The 3D model features a bedroom layout while the 2D plan depicts a utility, kitchen, and dining area. Structural layout, wall placement, and room adjacency are fundamentally incorrect compared to the technical drawing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the model is a roofless isometric floating on a dark background, the internal structure is entirely hallucinated. It replaces a staircase and utility core with a bedroom and does not follow the footprints of the indicated walls."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Furniture is clean and block-style, but it represents the wrong room types. Beds and sofas are placed where a kitchen counter, pantry, and staircase are required by the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The visual style is excellent and matches constraints perfectly: low-poly, flat shading, isometric perspective, and no textures. Lighting is soft and neutral."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen counters, pantry, and staircase as specified in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Complete layout distortion; wall alignment does not match the provided technical dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated bedrooms and living furniture in spaces designated for utility, WC, and dining."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan11.png"
+}

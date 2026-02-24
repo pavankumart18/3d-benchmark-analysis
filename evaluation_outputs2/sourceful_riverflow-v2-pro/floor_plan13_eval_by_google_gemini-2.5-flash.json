@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 7,
+            "windows": 2,
+            "dimensional_scaling": 4
+        },
+        "notes": "Garage is detached which is a major layout topology issue. Walls defining the L'dry and WC area are slightly off. Many windows are missing, and one is misplaced. Balcony dimensions appear different. Entry area walls are slightly off."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "Missing the 'Linen' closet. Hallucinated some windows. Presence of windows on the left wall of the living area which are not in the 2D plan. The car in the garage is a significant distraction and represents an additional asset not strictly required."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Kitchen layout is very different. Dining table and sofa placement are accurate. Beds are present in bedrooms. Bathroom fixtures are present. Washing machine, dryer, and 'robe' in Bedroom 1 are missing."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 5,
+            "camera_composition": 3
+        },
+        "notes": "No textures, which is good, but the car is hyper-realistic. Lighting is decent. Camera view is good, but the garage is detached which affects the overall composition."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/dimensions present in the original 2D image, which should not be present in the generated 3D image. The generated image has a fully rendered car, which is beyond block-style abstraction and technically an added asset/detail not necessary for structural fidelity.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Garage is completely detached from the main structure, altering the fundamental layout topology. Many windows are missing (specifically in Bath, WC, L'dry, Bedroom 2).",
+            "point_deduction": 8
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Missing 'Linen' closet near entry. Missing 'Robe' in Bedroom 1. Missing washing machine and dryer in L'dry. Hallucinated a window on the left wall of the Lounge/Dining area, and another window on the shared wall between Kitchen and L'dry.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen layout is significantly different, with sink/counters in varied positions. Missing washing machine and dryer.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The car in the garage is highly detailed and photorealistic, violating the 'low-poly simplified forms' and 'no textures' rule.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 61,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical and major geometric inaccuracies, especially the detached garage and missing architectural features, and the presence of a photorealistic element (the car).",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan13.jpg"
+}

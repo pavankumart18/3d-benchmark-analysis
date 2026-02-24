@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful 3D isometric cutaway transformation with clear wall extrusion."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D geometry and perspective. Wall thickness and floor planes are well-defined."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Most rooms align perfectly. Master Bedroom tray ceiling is represented. Bedroom #2/Bedroom #3 naming and labeling is slightly confused compared to the original, but the physical spaces exist."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major fixtures (kitchen island, bathroom sinks, car in garage) are present and correctly scaled."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Lighting is good. Significant points deducted for UI/Text contamination (hallucinated floor text/labels)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MEDIUM",
+            "description": "Text labels from the 2D plan are rendered as distorted artifacts on the 3D floor plane."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Internal labels for Bedroom #2 and #4 are duplicated/mismatched compared to the original plan."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "A high-fidelity 3D transformation that preserves the complex architectural footprint, though marred by floor-level text artifacts.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan9.png"
+}

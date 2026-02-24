@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D interior: extruded walls with thickness, visible floor plane, multi-face wall geometry, and an elevated isometric-like view with ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable corners and interior volume; clean cutaway and stable projection with minimal distortion. Minor simplifications in wall detailing/edges compared to plan."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room count and main adjacencies match (central living/dining core, kitchen on left, bedrooms around perimeter). Some wall/door placements and proportions appear approximated (curved/arched segments and several openings do not clearly correspond 1:1 with the 2D door swings and partition locations)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (sofas, tables, beds) and generally placed in plausible corresponding rooms; kitchen blocks included; bathroom presence suggested but fixtures are simplified/less explicit."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clear separation of walls/floors/openings; good visibility and clean presentation with no UI/text contamination. Minor readability loss from uniform materials and simplified openings."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Several partitions/openings appear positionally approximated versus the 2D plan (notably around the central corridor and some perimeter wall segments)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Door/window mapping is not fully verifiable as exact: the 3D shows multiple openings but some do not clearly align with the specific door-swing locations and window runs in the 2D drawing."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A valid, clean cutaway 3D conversion with strong spatial readability and largely faithful layout, but with noticeable approximations in exact wall/opening placement versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan5.jpg"
+}

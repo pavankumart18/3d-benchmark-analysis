@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is an angled cutaway 3D model with extruded walls (height + thickness), visible floor plane, and interior volumes exposed via roof/ceiling removal."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear 3D extrusion, readable wall corners and room volumes, isometric-like view, and clean cutaway. Minor simplification of some edge/cap geometry."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Overall layout matches: living/dining left, balcony bottom-left, kitchen top-left with utility adjacent, toilet cluster top-right/center, bedroom bottom-right. Minor proportional differences and the toilet/shaft area appears slightly reinterpreted compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present and placed in correct rooms (sofa/table in living, bed in bedroom, kitchen counters/appliances, bathroom fixtures). Scales and orientations generally reasonable."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is readable with distinct walls/floors and good visibility. Some openings (notably windows) are not clearly represented, reducing clarity of facade/opening fidelity."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows/openings are not clearly shown or do not strongly match the 2D plan locations, making opening verification incomplete."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Bathroom/shaft zone at the top-right appears slightly reconfigured (partitioning/void representation differs from the single toilet layout + adjacent shaft shown in 2D)."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong room layout fidelity, with minor proportional/opening mismatches and a slight reinterpretation of the toilet/shaft area.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan16.avif"
+}

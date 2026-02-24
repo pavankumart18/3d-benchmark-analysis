@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved, but wall alignment in the central bathroom/closet area is over-complicated. Window count on the bottom wall is significantly higher than indicated in the plan (5 windows vs. 3 clusters)."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "No text labels and clean background observed. However, the stairs are rendered as an open-stringer floating set whereas the plan shows them enclosed between structural walls. A door was hallucinated at the base of the stairs."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Kitchen island and bedroom furniture are well placed. The dining table is partially obscured and undersized compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded style. Camera is orthographic isometric. Lighting is soft and neutral as requested."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Lower exterior wall contains more windows than specified in the 2D floor plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated door at the entrance to the staircase area."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase is missing its structural enclosing wall on the left side as shown in the original blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan6.jpg"
+}

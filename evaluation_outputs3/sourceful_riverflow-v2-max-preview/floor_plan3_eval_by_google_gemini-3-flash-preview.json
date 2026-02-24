@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful volumetric 3D transformation from the initial 2D floor plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent isometric-like projection with clear wall thickness and volume."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Major layout elements like the kitchen corner, stairs, and bathroom core are correctly placed, though some partition wall lengths vary slightly from the plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture is logically placed according to room types defined in the 2D plan, including kitchen counters and living area seating."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High clarity and lighting; some slight atmospheric haze/blurring in the rendering but structural elements remain distinct."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Moderate",
+            "description": "The wall separating the kitchen/entrance area from the living room is elongated compared to the original floor plan's 16' x 12' ratio."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Low",
+            "description": "Window and door placements on the long front wall are shifted slightly from the specific annotations in the 2D drawing."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A highly faithful 3D conversion that accurately interprets the architectural layout and interior functionality of the 2D source.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan3.jpg"
+}

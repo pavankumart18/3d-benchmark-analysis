@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model with extruded walls, visible thickness, and an angled/isometric viewpoint exposing interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; clean cutaway. Minor simplifications at some wall tops/corners and slight perspective/scale stylization."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall 2-bed + living/dining core + kitchen/utility + 2 toilets layout matches well with correct general adjacencies. Some proportional differences (room/balcony depths) and a few partition/door positions appear simplified relative to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present (2 beds, sofa set, dining, kitchen counters, bathroom fixtures). Furniture generally placed in correct rooms; minor scale/orientation simplifications."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is clear and readable with consistent materials; lighting is adequate. Some openings/frames and thin elements lack detail, reducing structural clarity slightly."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Minor proportional/layout deviations vs the 2D plan (notably balcony/deck depths and a few internal partition lengths)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Some door/window placements and opening sizes appear simplified and may not exactly match the 2D plan locations."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "low",
+            "description": "Rendering uses simplified components (frames/rails/door swings) which slightly reduces precision verification of openings."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall plan fidelity, with only minor proportional and opening-placement simplifications compared to the 2D layout.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan14.webp"
+}

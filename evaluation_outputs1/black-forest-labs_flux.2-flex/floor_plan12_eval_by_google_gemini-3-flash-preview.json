@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout distortions detected. The stairs are incorrectly placed and oriented (running exterior-to-interior rather than along the back wall). Bed 4 and Bed 3 have been merged and reinterpreted as a kitchen/dining area. Significant door and wall alignment discrepancies throughout."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the roof is removed and the model is floating on a dark background, there are hallucinated structural elements including extra kitchen islands and cabinets. Small text on cabinets violates the 'no text' constraint. Layout reinterpretation is severe."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement fails to match the floor plan. The activity room lacks the large corner sofa; bedrooms are missing robes or have added hallucinated kitchen fixtures. The balcony furniture is simplified but relatively close in position."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Correct isometric orthographic camera and low-poly aesthetic. Flat shading and matte colors are well-executed. Points deducted for visible text/UI artifacts on some furniture pieces."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bedroom 4 and Bedroom 3 functional layout; replaced by hallucinated kitchen."
+        },
+        {
+            "code": "E2",
+            "description": "Significant stairs misplacement; stairs in 3D are rotated and moved relative to 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated kitchen cabinetry and appliances not present in the original floor plan."
+        },
+        {
+            "code": "E5",
+            "description": "Unintelligible text labels/marks visible on kitchen counters and bedroom furniture."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan12.png"
+}

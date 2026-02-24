@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric cutaway: extruded walls with thickness, visible side/top faces, and ceiling removed to show interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion and cutaway; walls read as solid with corners and thickness. Minor simplification of some wall tops/edges and slightly uneven cutaway cleanliness in a few areas."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room count and adjacency mostly match (dining upper-left, kitchen upper-center, living right, bedroom lower-left, bath core, stair zone lower-right). Some partitions/openings are simplified and a few wall segments/room proportions (notably the kitchen/entry zone) look less faithful to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture present in dining/living/bedroom and bathroom fixtures are present. Kitchen is largely missing key elements (counters/appliances) compared to the 2D plan, reducing room identity."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with readable walls/floors and good visibility. Materials are consistent and there are no obvious broken meshes; openings are somewhat hard to interpret in a couple of locations due to simplification."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Kitchen/entry partitioning and some room proportions appear simplified or shifted relative to the 2D plan, reducing strict layout fidelity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Not all doors/openings are clearly represented with correct swing/location; several transitions read as generic gaps rather than specific door placements."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "moderate",
+            "description": "Kitchen fixtures are largely absent, making the kitchen less identifiable versus the 2D plan layout."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A clearly valid 3D cutaway with strong depth and wall geometry, but with moderate simplifications in kitchen/entry layout and incomplete door/kitchen element fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan7.jpg"
+}

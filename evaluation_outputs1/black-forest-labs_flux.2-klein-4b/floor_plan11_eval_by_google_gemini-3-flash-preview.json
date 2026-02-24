@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout discrepancies. The central staircase and hall are replaced with a generic office/hallway. The dining room and kitchen separation is inverted; the window seat alcove is missing entirely. Door placement in the central core does not match the architectural plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Walls are present and roof is removed, but the floor plan has been fundamentally reinterpreted. The staircase (UP) in the original plan is non-existent in the render. Walls have been hallucinated to create additional small cubicles not present in the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is low-poly but incorrectly mapped. The kitchen appliances (sink, stove, fridge) are not properly represented in their designated zones. Bedroom/utility furniture is placed based on hallucinated walls rather than the provided plan."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render successfully captures the requested low-poly, flat-colored aesthetic. Soft ambient lighting is well-executed on a dark neutral background with an orthographic isometric camera. Only minor deductions for slight shadow gradients."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing central staircase and window seat alcove."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and dining area proportions and wall alignments are significantly distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated interior partitions and office-like cubicle structures not present in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan11.png"
+}

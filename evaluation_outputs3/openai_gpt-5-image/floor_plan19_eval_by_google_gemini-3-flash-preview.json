@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 2D plan has been successfully converted into a true isometric cutaway model with distinct wall geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent 3D projection. Walls have consistent height and clear thickness. The plan is accurately transformed into a volume."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "High fidelity in room adjacencies and wall placement. Balcony/deck perimeter matches the 2D zig-zag geometry well. Some minor scaling variations in smaller utility sections."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture placement corresponds well to the plan (beds, dining table, kitchen island). Bathroom fixtures are represented by generic geometric proxies."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean rendering. No text contamination. Lighting is soft but provides enough contrast to distinguish spaces."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "LOW",
+            "description": "Some window openings on the exterior walls lack the specific frame detail shown in the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "LOW",
+            "description": "Simplified geometry for bathroom fixtures compared to detailed 2D icons."
+        }
+    ],
+    "total_score": 92,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D isometric conversion that maintains strict geometric fidelity to the original floor plan layout.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan19.webp"
+}

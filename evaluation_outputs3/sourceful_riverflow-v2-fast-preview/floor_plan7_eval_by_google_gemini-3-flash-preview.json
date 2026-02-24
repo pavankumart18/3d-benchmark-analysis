@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Excellent 3D representation with clear height, thickness, and volume."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "Layout fidelity is high; rooms and walls align perfectly. Minor discrepancy in staircase railing/wall height."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "Furniture placement, kitchen appliances, and bathroom fixtures match 2D layout perfectly."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean render with soft shadows and logical materials. No text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "The 'UP' stairs section adds a visual partition wall not explicitly detailed in the 2D plan, though logically consistent with 3D interpretation."
+        }
+    ],
+    "total_score": 95,
+    "verdict": "EXCELLENT",
+    "summary": "High-fidelity 3D conversion that maintains almost perfect geometric and spatial alignment with the original 2D floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan7.jpg"
+}

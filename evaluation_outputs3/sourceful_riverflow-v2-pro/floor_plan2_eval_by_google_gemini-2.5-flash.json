@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render successfully demonstrates a true 3D transformation with visible wall height, thickness, perceptible interior volume, an angled view, and a removed roof to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5). Floors separate plane well (3). Interior volume is clearly perceivable (4). Proper 3D wall corner geometry (3). Angled view is good (5). Interior visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof removed cleanly (5). Interior spaces fully visible (3). Clean geometry, but minor imperfections around some doors. (2)"
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3). Correct adjacency relationships (4). Relative room proportions are well preserved (3). Major room identities match by layout (2). Major wall positions align well (5). Wall lengths are proportional (3). Internal partitions correctly placed (2). Doors are present and on correct walls (4). Windows are present and on correct walls, but one window is clearly missing (master bedroom, bottom left in 2D) (1). Openings are proportionally sized (1)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present: beds, sofas, tables (4). Kitchen elements present (2). Bathroom fixtures present (2). Furniture placed in correct rooms (3). Furniture scale reasonable relative to room (1). Orientation logical, but some furniture orientation differs, e.g., the two chairs in living room (1)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable and not confusing (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts or broken meshes (2). Clean background / presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "One window missing from the master bedroom (bottom left room)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Furniture scale is slightly off for some items (e.g., chairs in living room are too small compared to sofa), and orientation of two chairs in living room differs from 2D."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D render is a good and largely geometrically faithful transformation of the 2D floor plan, with only minor discrepancies in window count and some furniture details.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan2.png"
+}

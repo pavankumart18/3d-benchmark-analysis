@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology is generally good, but the rendering of the deck areas and exterior wall lines has some discrepancies. Wall geometry is largely accurate, though some minor wall thickness variations are present where the plan specifies different materials or structures. Doors are mostly well-placed, but some swing directions are not clearly indicated or modeled. Window presence and placement are good. Dimensional scaling appears consistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is good, showing interior walls. Completeness of structural elements is also good. However, there are significant issues with hallucination control, as exterior walls and features extending beyond the primary floor plan are added. UI/annotation cleanliness is a critical failure due to the presence of a text label ('UTILITY'). Presentation context is also failed because of the floor pattern extending to infinity and the shadow casting. The red arrow from the 2D plan is also present, which is a UI element."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present across all rooms (beds, sofas, dining tables). Kitchen and bathroom fixtures are also present. Placement of furniture generally matches the 2D plan, and scale seems appropriate. However, minor discrepancies exist in specific furniture models (e.g., chairs around the dining table, specific sofa types)."
+    },
+    "aesthetic_quality": {
+        "score": 8,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 3,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is a major failure. The render uses realistic materials (wood floors, marble counters, textured furniture, reflective surfaces) and detailed high-res meshes, contradicting the 'low-poly, flat shaded, solid colors only' specification. Lighting is soft, but shadows are quite prominent. Camera composition includes an isometric projection, proper rotation, and good framing, and appropriate zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text label 'UTILITY' (and a partial 'HO', 'TOI') is present in the 3D render, violating UI cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering detected with textures, reflections, and detailed materials (wood flooring, kitchen counter textures, detailed furniture fabrics).",
+            "point_deduction": 10
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated exterior elements: planter boxes and some wall structures on the exterior beyond the original plan's footprint, as well as an extended floor plane implying a ground.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some door swing directions are not clearly represented or are ambiguous compared to the plan for Bedroom 1 and Utility room.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The red arrow from the 2D plan is unexpectedly present in the 3D render, violating UI cleanliness.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical violations in aesthetic quality (photorealistic rendering) and structural fidelity (text labels and hallucinated elements and floor extension), despite generally good spatial accuracy.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan19.webp"
+}

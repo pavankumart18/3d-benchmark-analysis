@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacency are mostly correct. However, Bedroom-2 and the adjacent balcony have undergone significant size and proportion shifts, making the top-right corner of the model feel compressed. Window placements in Bedroom-1 and Bedroom-3 are slightly off-center compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "The model successfully removes the roof and hides UI/labels. A minor structural hallucination occurs in the Bedroom-2 balcony area where the enclosure walls don't perfectly match the open railing style implied by the plan. Floating model on dark background is correctly executed."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent block-style representation of primary furniture. Kitchen counters, beds, and living room sofas are correctly placed. Lost points for the omission of smaller items like the rugs and specific chair rotations in the dining area."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Consistent low-poly aesthetic with flat shading. The lighting is soft and ambient without being photorealistic. The camera angle is an accurate isometric orthographic projection."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Proportional distortion in Bedroom-2 and its balcony; wall dimensions do not scale linearly with the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplacement of window apertures in Bedroom-1 relative to the internal wall corner."
+        },
+        {
+            "code": "E1",
+            "description": "Missing decorative elements such as rugs/carpets in the living room and bedrooms shown on the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan20.avif"
+}

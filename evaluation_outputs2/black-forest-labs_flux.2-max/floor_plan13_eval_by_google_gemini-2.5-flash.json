@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 7,
+            "doors": 10,
+            "windows": 2,
+            "dimensional_scaling": 3
+        },
+        "notes": "Garage is missing walls and is represented as a separate floating entity. Balcony is poorly represented. The 'Linen' closet is completely missing. Dining room dimensions seem slightly squashed. The overall footprint does not accurately represent the 2D plan, especially the garage and entryway."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "UI/Annotation Cleanliness is 0 due to visible annotations on the 2D plan itself, which should have been removed prior to rendering. The balcony structure is poorly rendered and appears more like an extension of the floor than a separate unit. The garage is detached and lacks full walls. The 'Linen' closet is entirely missing, and the 'WM' (washing machine) area in the kitchen/laundry is misrepresented. The overall layout is visible, but the garage is detached. Balcony seems to have different dimensions in 3D compared to 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture like beds, sofas, and dining tables are largely absent. Kitchen fixtures are partially present but modified (e.g. washing machine area is different). Bathroom fixtures are present and mostly accurate. The 'Linen' closet is missing, and the 'Robe' in Bedroom 1 is missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry uses simplified forms, but includes smooth shading on some objects (car, kitchen counters), and there are reflections on the car, indicating it's not strictly flat shaded. Colors are distinguishable. The camera is mostly isometric and well-composed, but the garage is detached."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the original 2D floor plan, which should be removed before generation to avoid a UI Cleanliness deduction. This violates the 'ZERO text labels present' rule.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The garage is completely detached and rendered as a floating entity, rather than an enclosed room adjacent to the main structure. It also lacks enclosing walls.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Linen' storage area near the entry is completely missing in the 3D render.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Dining room dimensions appear proportionally off, seeming narrower than the 2D plan suggests. Balcony dimensions also appear to be slightly off and the representation is poor.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some objects (car, kitchen counters) show slight smooth shading and reflections, deviating from 'flat shaded surfaces' and 'no textures'.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing 'Robe' in Bedroom 1 and the washing machine ('WM') area is incorrectly replicated.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Windows are missing from the entire structure, the 2D plan indicates windows in Lounge/Dining and Bedrooms by the presence of a balcony and the external outline implies windows.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 61,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render failed primarily due to the detachment and misrepresentation of the garage, missing windows, the absence of the 'Linen' closet, and the presence of text labels on the 2D source violating UI cleanliness rules. Additionally, it contains some smooth shading and minor reflections.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan13.jpg"
+}

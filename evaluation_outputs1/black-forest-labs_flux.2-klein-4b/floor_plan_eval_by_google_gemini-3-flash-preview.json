@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "General layout is recognizable, but significant door and wall inaccuracies exist. The main entry door (right) is missing entirely, and the bathroom door is misplaced along the hallway. Proportions of Rachel's bedroom are bloated compared to the compact 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent adherence to background and UI constraints. No text or measurement lines. However, some wall thicknesses and junctions (notably near the kitchen/closet area) are reinterpreted/hallucinated."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture matches the general footprint, but the kitchen island/counter is fractured and doesn't follow the 'L' shape of the plan. Tables and beds are correctly scaled."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly geometry, flat shading, soft ambient lighting, and neutral floating background are all successfully executed."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing main entrance door on the right wall leading to the neighbor's apartment."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom door and internal hallway partitions do not align with the 2D blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen counter is rendered as disconnected blocks rather than the contiguous U/L shape shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan.jpg"
+}

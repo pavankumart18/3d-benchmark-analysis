@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is perceptible, the view is angled, and the roof is removed to show the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls rendered with height and thickness (5/5). Floors clearly separate plane from walls (3/3). Interior volume clearly perceivable (4/4). Proper 3D wall corner geometry (3/3). Angled/isometric-like view (5/5). Interior visible from elevated perspective (3/3). Minimal severe perspective distortion (2/2). Roof/ceiling removed cleanly (5/5). Interior spaces fully visible (3/3). Clean geometry without broken sections (2/2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3/3). Correct adjacency relationships (4/4). Relative room proportions preserved (3/3). Major room identities match (2/2). Major wall positions align with 2D plan (5/5). Wall lengths proportional (3/3). Internal partitions correctly placed (2/2). Doors present and on correct walls (4/4). Windows are present but some are represented as solid walls in the 3D model (e.g., in BED-1), which is a slight deviation (1/2). Openings proportionally sized and oriented are generally good, but some window to wall conversions reduce the score (1/2)."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "Major furniture present (4/4). Kitchen elements present (2/2). Bathroom fixtures present (2/2). Furniture placed in correct rooms (3/3). Furniture scale reasonable relative to room (2/2). Orientation logical relative to layout (2/2)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, openings clearly distinguishable (4/4). Geometry readable and not visually confusing (4/4). Interior clearly visible (3/3). Lighting does not obscure geometry (3/3). Consistent material usage (2/2). No major rendering artifacts or broken meshes (2/2). Clean background / presentation (0/2 - background is clean, but the overall image is presented against a dark grey background without any context to the floor plan's original presentation style from the 2D image)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some windows from the 2D plan are rendered as solid walls in the 3D model, specifically in BED-1."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "The background and framing of the 3D render could be better integrated or presented more cleanly, e.g., removal of the dark grey background, to enhance overall aesthetic coherence (deduction for presentation points)."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "The 3D render is a good and geometrically faithful transformation of the 2D floor plan, with very high accuracy in structural elements and minor inaccuracies in window representation and presentation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan14.webp"
+}

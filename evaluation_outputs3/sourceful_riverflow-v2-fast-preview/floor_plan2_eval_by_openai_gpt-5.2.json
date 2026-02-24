@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height/thickness, rooms read as volumes, and an angled/isometric-like viewpoint with roof/ceiling removed exposes interiors."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall extrusion and thickness; distinct floor plane; good corner geometry; clean cutaway with readable interiors. Minor simplifications in openings/edge detailing."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall apartment footprint and main zones (left bedroom, central bath cluster, right bedroom, dining/kitchen, living area) are largely consistent. Some proportion/partition differences (notably the left bedroom and central corridor/partitioning) and reduced fidelity in wall lengths and door placements compared with the 2D plan."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture present (living sofa, dining set, kitchen counters, beds, desk). Bathroom fixtures simplified. Left bedroom appears to have only one bed vs two in the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Walls/floors/openings are distinguishable; lighting supports visibility; materials are consistent and background is clean. Minor ambiguity from simplified door/window modeling."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E4-FURN",
+            "severity": "MAJOR",
+            "description": "Left bedroom furniture does not match 2D plan: 2D shows two single beds; 3D shows only one bed."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Some internal wall proportions/partition alignment differ from the 2D plan, especially around the left bedroom and central circulation/partitioning."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door/opening placements and representations are simplified; some doors appear missing or not on the exact walls indicated in 2D."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A valid isometric cutaway 3D conversion with strong 3D fundamentals, but moderate layout/furniture mismatches reduce fidelity to the original 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan2.png"
+}

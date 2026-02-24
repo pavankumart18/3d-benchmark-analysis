@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 9,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Bathroom/utility room layout has minor wall discrepancies. The wall between the bedroom and living/dining area is shifted to the left in the 3D model. The wall between the kitchen and foyer is missing, replaced by an opening. Some door swing directions are simplified or not accurately represented from the 2D plan. Window in the bedroom is smaller than implied by the 2D plan and placed on a different wall."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "UI/Annotation Cleanliness score is 0 due to text (label 'FLAT-4') in the original 2D image, which should not have been rendered in the 3D output. Otherwise, the structural fidelity is good, with some minor wall placement issues as noted in spatial accuracy."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. The placement of the side table next to the sofa is slightly off, almost merging with the wall. The washing machine in the utility area is present, but its orientation is not clear. The dining chairs are slightly rotated compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry uses simplified forms and flat-shaded surfaces, adhering to the style requirements. Lighting is generally ambient with minimal shadows. 'FLAT-4' text from the 2D model is present on the floor of the 3D render, which is a significant quality issue for UI cleanliness. The camera composition is almost isometric, but the framing seems a bit too tight with a slight perspective distortion in the depth. Some edges appear slightly pixelated or aliased."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text label 'FLAT-4' from the 2D plan is rendered on the floor of the 3D model. This should be removed.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The wall separating the kitchen from the foyer is completely missing, creating a large, open archway where a solid wall should be. The wall between the bedroom and living/dining room is offset, slightly reducing the size of the bedroom and expanding the living area.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Sofa's side table is not accurately placed. Dining chairs are not oriented consistently with the plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window in the bedroom is smaller and positioned differently than indicated by the 2D plan.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 83,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains the spatial layout and key structural elements from the 2D plan, with good structural fidelity and appropriate furnishing, however, it critically fails on UI cleanliness by rendering text from the input, leading to a significant deduction. Additionally, some wall geometry and window placements exhibit minor inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan18.jpg"
+}

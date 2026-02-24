@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric/cutaway 3D interior with extruded walls, visible thickness, multiple wall faces, and removed ceiling/roof."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Convincing 3D extrusion with readable wall corners, distinct floor plane, clear interior volume, and clean cutaway; minor perspective/scale stylization but not severe."
+        },
+        "geometric_accuracy": {
+            "score": 8,
+            "max": 30,
+            "notes": "Overall layout does not match the 2D plan: room zoning/adjoinments differ (kitchen/dining/living partitioning), bathroom and stair placement appear relocated, and a bedroom-like area appears that is not in the 2D plan."
+        },
+        "interior_elements": {
+            "score": 6,
+            "max": 15,
+            "notes": "Furniture and fixtures are present (sofa, table, kitchen island, bath fixtures), but several items appear assigned to rooms that do not correspond to the 2D plan (e.g., bedroom inserted; kitchen layout not matching)."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with good lighting and clear separation of walls/floor/openings; no UI/text contamination; geometry is readable."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Room configuration/adjoinments significantly diverge from the 2D plan (kitchen/dining/living separation and overall partitioning not preserved)."
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Major elements appear missing/relocated relative to the plan (stair block and bathroom placement do not align; additional bedroom-like space introduced)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window positions and opening logic do not consistently correspond to the 2D plan."
+        }
+    ],
+    "total_score": 62,
+    "verdict": "PASS",
+    "summary": "This is a genuine cutaway 3D model, but the generated 3D layout is not geometrically faithful to the 2D plan (room zoning, stairs/bath placement, and openings differ substantially).",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan3.jpg"
+}

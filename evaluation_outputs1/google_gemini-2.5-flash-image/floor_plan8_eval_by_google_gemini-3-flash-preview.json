@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout and room placement align well with the original plan. Scaling is overall accurate, though some window widths in the dining area are slightly exaggerated compared to the technical drawing specs."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "While the cutaway view and floating model are correct, the presence of numerous text labels and measurement lines is a significant violation of the strict no-text constraint."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Clean block-style furniture is used. Placement of main fixtures like the kitchen island, sinks, and seating matches the plan's intent, though some additional decor (e.g., small plant in foyer) is added."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model follows a low-poly aesthetic with flat colors. However, the lighting includes soft shadows and a gradient effect across the floor that borders on non-flat shading. Camera angle is a correct isometric orthographic view."
+    },
+    "total_score": 68,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Critical violation: Image contains extensive text labels (LIVING ROOM, KITCHEN, etc.) and numerical measurements despite strict prohibition."
+        },
+        {
+            "code": "E4",
+            "description": "Minor hallucinations including a dining table set and small corner furniture not specified in the original 2D floor plan fixtures."
+        },
+        {
+            "code": "E6",
+            "description": "The render uses a blue-to-green floor gradient and soft drop shadows instead of strictly flat, uniform shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan8.jpg"
+}

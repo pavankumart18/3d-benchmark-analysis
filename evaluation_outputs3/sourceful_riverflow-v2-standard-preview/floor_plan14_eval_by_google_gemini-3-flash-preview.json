@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion cleanly transforms the 2D plan into an isometric 3D cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Excellent 3D representation with clear wall thickness, floor separation, and stable isometric perspective."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Very high fidelity. All rooms (Utility, Kitchen, Living, 2 Bedrooms, Toilets, Decks) are present and correctly positioned. Minor simplification on the exact depth of the entry foyer."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement is highly accurate to the floor plan's suggestion, including the dining table, sofas, and bed orientations."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Clean rendering with consistent lighting. No UI contamination or text artifacts present."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "The threshold between the foyer and living room is slightly more open than indicated in the architectural plan."
+        }
+    ],
+    "total_score": 96,
+    "verdict": "EXCELLENT",
+    "summary": "An exceptionally faithful 3D conversion that maintains nearly perfect geometric alignment with the original architectural floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan14.webp"
+}

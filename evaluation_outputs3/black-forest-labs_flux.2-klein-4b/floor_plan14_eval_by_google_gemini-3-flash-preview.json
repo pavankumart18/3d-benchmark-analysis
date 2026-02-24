@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful 3D isometric cutaway transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent wall height and thickness. Good isometric projection and clean roof removal. Minimal perspective distortion on far walls."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Room layout generally follows the plan. Some slight proportional stretching in the living area compared to the floor plan. The Foyer entryway is simplified."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Most furniture (beds, sofas, dining table) correctly placed. Bathroom fixtures are present. Kitchen cabinetry is simplified but correctly located."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean render. No text contamination. Materials are consistent, though some wall textures (interior colors) vary from the neutral exterior."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "The 'Utility' space and 'Deck' areas have merged or been slightly simplified compared to the precise architectural linework."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Low",
+            "description": "Window placements on the left-side wall are slightly offset from the 2D plan's technical markers."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A high-fidelity 3D conversion that accurately captures the layout and furniture arrangements of the original floor plan with strong geometric clarity.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan14.webp"
+}

@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 2,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 0,
+            "dimensional_scaling": 6
+        },
+        "notes": "The overall footprint is vaguely similar but many rooms are missing or severely altered. The dining area and living room are merged into one large space, and the kitchen, bathroom, and WC are reconfigured. The garage is completely missing. Relative room sizes are not proportional. Wall positions are incorrect in multiple areas. Many doors are missing. All windows are missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 3,
+            "presentation_context": 5
+        },
+        "notes": "Roof is mostly removed, but some partial ceilings/ceilings are visible in places. Many rooms are missing (Garage, Balcony, L'dry, WC, Linen). Multiple architectural features are hallucinated or significantly altered from the original plan. Text labels are present on the floor. Background, isolation, and lack of ground plane are good."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Most major furniture items are missing or completely misplaced. The kitchen fixtures are partially present but reconfigured. Bathroom and WC fixtures are completely missing. The dining table and chairs are in a different orientation and location. Beds are present but rooms are reconfigured."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly style is generally applied. Surfaces appear flat-shaded. Some edges are clean, but others show artifacts. Textures are present on various surfaces (floor, beds). Lighting is soft and ambient. Shadows are present but not dramatic. The camera angle is an isometric projection, well-composed, centered, and zoomed appropriately."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms missing: Garage, Balcony, L'dry, WC, Linen.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned and reconfigured. Lounge and Dining merged, Kitchen location shifted, Bathroom reconfigured.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels embedded on the floor of the 3D model (e.g., 'Dining', 'Lounge').",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural features, e.g., the original kitchen and laundry areas are completely unrecognizable and reconfigured, and the bathroom/WC layout is entirely different.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Textures are present on floors, furniture, and walls, not solid flat colors. E.g., wood texture on floors, fabric texture on beds, patterned rug.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing or significantly misplaced furniture: all bathroom fixtures, laundry fixtures, most kitchen elements, and dining table/chairs are incorrectly placed.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "All windows are missing from the 3D render.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 40,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately represent the 2D floor plan due to significant spatial inaccuracies, missing rooms and features, and multiple critical rendering violations including text labels and textures.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan13.jpg"
+}

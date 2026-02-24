@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall layout is recognizable, but numerous wall misalignments and scaling issues are present. The 'DECK' areas in the plan are rendered as interior rooms with windows, significantly altering the outer footprint. The kitchen and utility room walls are heavily modified, impacting their internal dimensions and external outline. Doors are missing, misplaced, or have incorrect swing directions. Windows are also frequently missing or misplaced. The overall scale seems distorted, especially with room proportions not accurately reflecting the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "The roof is not completely removed; fragmented roof/ceiling is visible above the upper 'DECK' and a small portion near the entrance. Significant liberties were taken with the 'DECK' areas, converting them into enclosed spaces rather than open balconies, thus being architectural hallucinations. The 'FLOOR KEY PLAN' and 'AREA' tables from the 2D plan are rendered in the 3D model, constituting UI annotations. The model appears floating and within an appropriate dark neutral background."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "While most major furniture pieces are present, their placement often deviates from the 2D plan. In BED-2, the single bed from the plan is replaced with a double bed, and its orientation is incorrect. The desk in BED-2 is also missing. The dining table in the Living/Dining area is moved. The kitchen layout is significantly altered from the plan, leading to incorrect fixture placement. There are also additional furniture pieces present that are not in the plan, for example, a chair in the foyer."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The rendering employs a 'low-poly' style but introduces textures and more complex shading than flat colors, indicating it's moving towards a more realistic, albeit simplified, aesthetic. Surfaces have visible textures (wood grain on floor, patterns on rug, subtle material differences on furniture). Lighting creates noticeable shadows, but it's not overly dramatic. The camera perspective is not true isometric; parallel lines seem to converge slightly, specifically on the longest facades. The model is well-framed."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/UI annotations (FLOOR KEY PLAN, AREA tables) are present in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Two 'DECK' areas, specified as open balconies, have been enclosed with walls and windows, effectively creating new interior rooms. This is a significant architectural hallucination.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls significantly misaligned. The external contour of the building is heavily modified, especially along the side with the kitchen/utility room and the 'DECK' areas. Internal walls of the kitchen and utility are also reconfigured.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The camera view is not true isometric; slight perspective distortion is visible as parallel lines appear to converge.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MAJ",
+            "severity": "MAJOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces are not solid flat colors. Floors have wood grain texture, a rug has a pattern, and furniture shows different material textures. This violates the 'no textures, solid flat colors only' rule.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Multiple furniture pieces are misplaced (e.g., dining table, beds, kitchen fixtures). Bed type and orientation are incorrect in BED-2. Extra furniture pieces (chair in foyer) are present.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are missing entirely (e.g., entrance to Utility, entrance to BET-2 Toilet) or have incorrect swing directions (e.g., main entrance door, door to BED-1 Toilet).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple windows are missing or misplaced. The 'DECK' areas now have windows where there were none.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Roof cutaway is incomplete; fragments of the roof/ceiling are visible above the enclosed 'DECK' areas and near the entrance.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 49,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render fails to meet accuracy and fidelity standards, presenting significant architectural hallucinations, wall misalignments, UI overlays, and aesthetic deviations from specified rendering constraints.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan14.webp"
+}

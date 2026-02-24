@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is evident, and the view is angled. The roof is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Excellent dimensional transformation with clear wall height, thickness, and perceivable interior volume. Proper 3D wall corner geometry is present. The viewing angle is well-chosen and allows interior visibility, with minimal distortion. The roof is cleanly removed, and interior spaces are fully visible. However, some wall sections at the bottom right around the stairs are slightly broken geometricallly."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "All rooms are present, and their adjacency relationships are correct. Relative room proportions are well-preserved, and major room identities are clear. Major wall positions align accurately, and wall lengths are proportional. Internal partitions are correctly placed. Doors are present and on the correct walls, and windows are also present. Openings are proportionally sized and oriented, though the 'Entrance to the House' area has a slight change in its wall configuration."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "All major furniture (beds, sofas, tables), kitchen elements, and bathroom fixtures are present. Furniture is placed in the correct rooms, and its scale is reasonable relative to the room size. Orientation is logical relative to the layout."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is excellent; walls, floors, and openings are clearly distinguishable, and the geometry is readable. Lighting allows for clear interior visibility and does not obscure geometry. Material usage is consistent, and there are no major rendering artifacts. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "Floor plan labels for 'Dining', 'Kitchen', 'Living Room', 'Bedroom 1', 'Wash Area', and 'Toilet' are present in the final 3D render, which should not be there."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The 3D conversion successfully transforms the 2D plan into a detailed isometric view with accurate geometry and elements, but it is rejected due to contamination by 2D text labels in the 3D render.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan7.jpg"
+}

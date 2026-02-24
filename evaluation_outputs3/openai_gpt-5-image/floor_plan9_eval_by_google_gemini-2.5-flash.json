@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, an angled view, and a removed roof/ceiling for interior visibility."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have appropriate height and thickness (5/5). Floors are distinct from walls (3/3). Interior volume is perceivable (4/4). Wall corner geometry is mostly good, but some interior corners are simplified (2/3). Angled view is excellent (5/5). Interior visible from elevated perspective (3/3). Minimal perspective distortion (2/2). Roof is cleanly removed (5/5). Interior spaces are fully visible (3/3). Geometry is clean without broken sections (2/2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Most rooms from the 2D plan are present, but the 'Nook' and 'Covered Patio' at the top left are partially missing or simplified (2/3). Adjacency relationships are mostly correct (4/4). Relative room proportions are well-preserved (3/3). Major room identities match (2/2). Major wall positions align well (5/5). Wall lengths appear proportional (3/3). Internal partitions are correctly placed (2/2). Doors are present and on correct walls (4/4). Windows are present and on correct walls for the most part, though some are generalized (1/2). Openings are proportionally sized and oriented (1/2)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture elements like kitchen counters are present (2/4). Kitchen elements are present (2/2). Bathroom fixtures are present (2/2). Furniture is placed in correct rooms (3/3). Furniture scale seems reasonable relative to room (1/2). Orientation is logical (0/2 for missing items like beds/sofas, hard to tell). The absence of detailed furniture beyond kitchen & bath fixtures limits the score here."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4/4). Geometry is readable and not confusing (4/4). Interior is clearly visible (3/3). Lighting does not obscure geometry (3/3). Consistent material usage (2/2). No major rendering artifacts (2/2). Clean background / presentation (0/2 - score deducted for not having any furniture in most rooms which makes the presentation bland and incomplete even if geometry is good, also the background is plain dark which is ok, but not ideal)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The 'Nook' and the 'Covered Patio' areas from the top left of the 2D plan are significantly simplified or omitted, impacting room configuration accuracy."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Some windows are generalized or missing compared to the 2D plan (e.g. Master Bedroom, Living Room)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Lack of detailed furniture beyond kitchen and bathroom fixtures, making interior elements feel sparse and incomplete, affecting furniture-to-space relationship judgment."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "Minor",
+            "description": "The overall sparse interior, due to minimal furniture, slightly detracts from the aesthetic coherence and presentation quality."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D floor plan into a geometrically faithful angled render, demonstrating strong fundamental 3D principles and layout accuracy, despite some minor omissions of external and interior details.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan9.png"
+}

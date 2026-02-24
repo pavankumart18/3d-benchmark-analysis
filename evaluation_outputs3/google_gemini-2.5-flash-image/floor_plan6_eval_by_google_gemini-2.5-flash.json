@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior spaces are perceivable as volumes, and the view is angled. The roof is removed to show the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent conversion to 3D. Walls have clear height and thickness. Interior volumes are well-defined. Viewing angle is good. The cutaway is clean, though some minor geometry issues are present around the stairs."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Room configuration and adjacencies are faithful. Most wall positions are accurate. Some minor discrepancies in door and window placement/proportion, but overall strong."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present and correctly placed. Scale is reasonable. Minor difference in kitchen island and living room sofa style."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is excellent. Lighting is good, though the text labels in the 3D model deduct from the presentation score."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "One outdoor window on the left side is missing from the 3D render. The front entrance door also appears slightly different in orientation in 3D compared to 2D. The window by the bedroom in 2D is a double window, but in 3D it's a single one."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "The kitchen island layout slightly differs, the living room couch is different in style, and the outdoor plants are rendered differently."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels from the 2D plan ('Bedroom', 'Kitchen/Living') are present in the 3D render, detracting from the realism and presentation."
+        }
+    ],
+    "total_score": 92,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D render represents an excellent and highly faithful geometric transformation of the 2D floor plan, with only minor discrepancies in some interior elements, window details, and the persistence of text labels.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan6.jpg"
+}

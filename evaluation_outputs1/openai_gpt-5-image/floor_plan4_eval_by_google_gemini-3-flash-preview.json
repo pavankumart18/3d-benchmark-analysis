@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacencies are highly accurate. Wall alignment and scaling are well-preserved. Minor discrepancies exist in the kitchen counter length and the exact width of the hall area compared to the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence. No missing rooms or hallucinated structural additions. Roof is correctly removed, no text or measurements are present, and the model floats on a dark neutral background."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Block-style furniture is correctly placed and scaled for the most part. The kitchen's 'U-shape' island/counter from the 2D plan is slightly simplified into a smaller counter section, missing the full perimeter representation."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Full compliance with artistic constraints. Low-poly geometry, flat shading, soft ambient lighting, and a perfect isometric orthographic camera angle."
+    },
+    "total_score": 93,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen counter geometry shortened; does not fully replicate the U-shaped enclosure shown in the 2D floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Minor furniture missing: the side-table/shelving unit in the Living Room next to the window is not represented."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan4.jpg"
+}

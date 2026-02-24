@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General floor plan layout is preserved with correct room adjacencies. However, there are minor scaling distortions in the hallway and master bath area. Door orientations are mostly correct, but some door swings are simplified."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Failed strict UI constraints. The render contains several text labels and measurement markers ('COVERED PATIO', 'CLG'). The garage section has been hallucinated into a living area with furniture (sofas/tables) instead of remaining an empty garage space."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic block-style furniture is present, but the mapping is inaccurate in the garage (hallucinated living set) and the master bedroom lacks the specific layout indicated by the tray ceiling lines."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the low-poly, clay-style aesthetic. Soft ambient lighting and isometric camera angle are perfectly executed. Deducted points for text presence."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Visible text labels 'COVERED PATIO' and numeric ceiling heights present in the 3D model."
+        },
+        {
+            "code": "E4",
+            "description": "The garage area has been misinterpreted as a furnished lounge/patio instead of a vehicle storage space."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture in several rooms does not match standard architectural symbols (e.g., dining sets placed where empty space was intended)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan9.png"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, an angled view, and the roof/ceiling removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "All fundamental aspects of 3D conversion are well-executed. Walls have height and thickness, floors are distinct, interior volume is evident, and wall corners are correct. The view is isometric, showing the interior clearly. The roof is cleanly removed, though not all rooms from the 2D plan are present, this will be reflected in geometric accuracy."
+        },
+        "geometric_accuracy": {
+            "score": 10,
+            "max": 30,
+            "notes": "The 3D model presents a significantly different layout than the 2D floor plan. It has more rooms than the original 2-bedroom plan, and the overall configuration, adjacency, and proportions do not match. Only one of the bedrooms and the living/dining area show some resemblance, but the rest of the layout, including bathrooms and service areas, is completely different."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture like beds, sofas, and tables are present and in generally appropriate rooms. Kitchen elements and bathroom fixtures are also present. The scale appears reasonable and orientations are logical for the shown layout, but the mismatch with the original 2D plan's layout limits higher scores."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "The structural elements are very clear and distinguishable. The geometry is readable without confusion. Lighting is appropriate, ensuring the interior is clearly visible. The aesthetic is clean and consistent, with no major artifacts or broken meshes. The background is also clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Major geometric failure: The 3D model does not accurately represent the 2D floor plan's layout. It appears to be a different floor plan altogether with more rooms and a different configuration for bathrooms and utility spaces."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Layout distortion: The number of rooms, adjacency relationships, and overall wall geometry deviate significantly from the original 2D plan. The 2D plan shows a 2-bedroom unit with a specific layout for toilets, utility, and kitchen, which is not matched in the 3D render. The 3D render implies at least 3 bedrooms and a different arrangement of baths."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door and window placements and proportions do not align with the 2D plan due to the overall layout mismatch. For example, the 2D plan's 'Deck' areas with associated openings are not represented."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "While furniture is present and makes sense for the 3D model, its presence and placement do not directly correlate with the 2D plan's intended layout beyond the living/dining and one bed area due to the layout discrepancy."
+        }
+    ],
+    "total_score": 72,
+    "verdict": "PASS",
+    "summary": "The 3D transformation is technically well-executed in terms of rendering quality and fundamental 3D conversion, but the geometric accuracy and layout fidelity to the original 2D floor plan are severely lacking, presenting what appears to be a mostly different floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan14.webp"
+}

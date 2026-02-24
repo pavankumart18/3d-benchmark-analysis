@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint is distorted, particularly the top-left corner. Room count is preserved, but adjacencies are altered in the mid-section. Several window placements are incorrect or missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 2,
+            "presentation_context": 0
+        },
+        "notes": "The roof is mostly removed, but a small fragment remains in the top left. The cutaway shows some missing details like the stairs. There's a hallucinated small wall segment near the bottom right. The background is not fully dark and shows a ground plane."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Some major furniture pieces like the bed and kitchen counters are present. However, the living room couch and table are missing. The bathroom fixtures are present but the overall arrangement differs significantly from the plan. An extra bed has been added next to the original bedroom. The top-left outdoor planters/planter box are missing."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses low-poly forms and flat shaded surfaces in solid colors, which aligns with the requirements. Lighting is soft ambient. However, the camera angle is not a perfect 45-degree rotated plan view, and the model is not perfectly centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Footprint shape distortion, especially the top-left corner, which is not a right angle. Wall segment near the exterior top-left is missing. The top-right interior wall segment appears to have been slightly shortened. The stairwell area has significantly altered geometry and size.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Living room sofa and coffee table are missing. Top-left exterior planters are missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated second bed in what appears to be a combined bedroom/storage area. The floor plan only shows one bedroom.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Ground plane and visible shadows extending to infinity are present, violating presentation context rules. Also, the background is not a pure dark neutral.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The window on the far-left wall is shifted up compared to the plan; another window near the bottom-right exterior wall is missing from the 3D model.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Staircase structure is almost entirely missing, shown only as a void in the 3D model, where the plan clearly indicates stairs.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 50,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render is a FAIL due to significant distortions in spatial accuracy, several missing and hallucinated elements, and issues with presentation context and furniture mapping, despite reasonable aesthetic quality.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan6.jpg"
+}

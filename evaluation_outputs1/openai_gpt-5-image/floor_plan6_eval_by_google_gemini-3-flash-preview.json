@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortions. Kitchen island is missing, replaced by a wall-mounted unit. The large balcony/terrace on the left is missing entirely. Door placement in the bathroom and main entrance does not match the swing or position of the 2D plan. Window count and placement on the perimeter walls are inconsistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "While the roof is removed and basic rooms exist, the exterior balcony is missing (E1) and the kitchen wall structure has been reinterpreted (E4). The stairs are included but the surrounding wall enclosure from the 2D plan is altered."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Most furniture is hallucinated or misplaced. The dining table has 4 chairs instead of 2. The kitchen island/sink unit is missing. The living room chair is replaced by a small table. Bedroom side tables differ from the 2D draft."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to the visual style. Correct isometric orthographic perspective, low-poly geometry, flat shading, and neutral background. Minimal deductions for minor soft shadows that slightly exceed 'flat' shading."
+    },
+    "total_score": 57,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing large balcony/terrace on the left side of the floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen island with double sink."
+        },
+        {
+            "code": "E2",
+            "description": "Bathroom layout and fixture placement (toilet/bath) are rotated vs original plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated additional chairs and different coffee table in living area."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase wall enclosure does not match the 2D schematic."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan6.jpg"
+}

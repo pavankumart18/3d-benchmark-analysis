@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 0,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "The generated 3D render is almost an identical copy of the 2D plan, including text labels and 2D-like representations for furniture and fixtures. This is not a 3D isometric render."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 0,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The render is not a generated 3D model. It appears to be a direct copy of the 2D floor plan with a background change. Text labels are present, no cutaway view is rendered, and it lacks 3D completeness."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Furniture is 2D and directly copied from the floor plan, not rendered in 3D."
+    },
+    "aesthetic_quality": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 0,
+            "camera_composition": 0
+        },
+        "notes": "The output is a 2D image, not a 3D render. It fails all criteria for aesthetic and technical quality for a 3D isometric render."
+    },
+    "detected_errors": [
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not an isometric view, appears to be a direct 2D top-down perspective.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present from the original 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "INSTANT_FAIL",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Output is not a 3D render, but a modified 2D floor plan.",
+            "point_deduction": 100
+        },
+        {
+            "code": "INSTANT_FAIL",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Output is not a 3D render, but a modified 2D floor plan. Fails geometry style, lighting, and camera criteria.",
+            "point_deduction": 25
+        },
+        {
+            "code": "INSTANT_FAIL",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Output is not a 3D render, but a modified 2D floor plan. Cannot evaluate 3D spatial accuracy.",
+            "point_deduction": 40
+        },
+        {
+            "code": "INSTANT_FAIL",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Output is not a 3D render, but a modified 2D floor plan. Cannot evaluate 3D furniture mapping.",
+            "point_deduction": 10
+        }
+    ],
+    "total_score": 0,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated output is not a 3D isometric render but an almost identical copy of the 2D floor plan with a different background, failing all criteria for a 3D translation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan16.avif"
+}

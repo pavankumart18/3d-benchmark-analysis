@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway/isometric 3D model with extruded walls, visible thickness, and interior volumes exposed by removing the roof/ceiling."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; good angled view; clean cutaway. Minor simplification at some wall/edge details."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Overall footprint, central living/dining zone, bedroom placements, and corridor structure largely match. Some openings/partitions appear slightly shifted/simplified compared to the 2D plan, and not all window/door locations can be verified as exact."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present (beds, sofas, dining table), kitchen counters/appliances suggested, and bathroom fixtures present. Some elements are simplified blocks."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean render with distinct walls/floors and good visibility; minimal artifacts. Monochrome materials reduce differentiation slightly but geometry remains readable; background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some door/window placements and sizes appear simplified or not perfectly aligned with the 2D plan (exact openings per wall not fully consistent/confirmable)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Minor layout proportional differences in a few partitions/corridor segments (overall adjacency is correct but some wall lengths/offsets look adjusted)."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A true and clean cutaway 3D conversion with strong overall layout fidelity, with only minor-to-moderate simplifications in some partitions and opening placements.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan5.jpg"
+}

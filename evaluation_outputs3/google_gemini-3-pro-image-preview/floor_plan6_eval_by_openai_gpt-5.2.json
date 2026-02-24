@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height/thickness, multiple faces are visible, interior volume is readable, and the view is clearly angled with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion of walls with visible thickness and clean corner geometry; clear floor-vs-wall separation; good isometric perspective and cutaway. Minor simplification in some wall/opening detailing."
+        },
+        "geometric_accuracy": {
+            "score": 17,
+            "max": 30,
+            "notes": "Core spaces (kitchen/living, bedroom, bathroom) exist and are broadly adjacent as in plan, but the right-side stair/entry zone from the 2D plan is not faithfully represented (appears missing or heavily reduced to a small step area). Several door locations/openings do not match the 2D plan, including the main entry not clearly shown."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present (bed, sofa, dining table, kitchen cabinetry/island) and generally placed in appropriate rooms; bathroom fixtures included. Some elements are simplified and not all furnishings from 2D are reflected (e.g., certain built-ins/closets)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Geometry is clean and readable; openings and room boundaries mostly clear; lighting supports visibility; consistent simple materials and no obvious broken meshes. Presentation/background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Stair/entry area along the right side in the 2D plan is not accurately modeled; the 3D render shows only a small step feature and lacks the distinct stairwell/hall configuration."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/opening placement does not fully match the 2D plan (notably the main entry and some interior door positions/orientations)."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A valid, clean 3D cutaway with strong fundamentals, but with notable layout fidelity issues\u2014especially the missing/altered right-side stair/entry configuration and some door/opening mismatches.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall room count and adjacency are good, but wall geometry has minor discrepancies and window placement is poor. Laundry room has an extra window not present in 2D. Kitchen/Dining area shows a significant protrusion that isn't on the plan, and the exterior outline of the rendered model deviates slightly from the rectangular shape. Hallway wall is not present. Closet near bathroom merged into bathroom unit."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is good. Missing the wall separating the hall from the living room. The exterior shape of the building is not perfectly maintained, adding some minor non-existent protrusions. The ground plane is present beneath the model, extending too far and casting shadows."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms, however some items like the plant in Kitchen/Dining, and the closet in the Hall, and the one next to the bathroom are missing. Laundry room fixtures are simplified and not perfectly matched. Bathroom layout is not accurately reflected from plan (e.g., sink, bathtub placement)."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style is mostly low-poly with flat shading, but some soft shadows are present. Colors are distinguishable. The model is correctly centered and at an appropriate zoom, however the camera angle isn't a pure isometric 45-degree rotation, showing slightly more of the 'south' side than 'east'. The rendering includes a ground plane and extended shadows."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Plant in Kitchen/Dining area missing.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Closet in Hall missing and closet near bathroom incorrect.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane and extended shadows present, violating presentation context.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Hallway wall separating it from Living Room is missing.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "External wall geometry discrepancy near Kitchen/Dining (protrusion) and overall slight distortion of building's footprint.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom fixture layout does not match plan (e.g. toilet and bathtub positions are swapped).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window placement and count discrepancies: extra window in Laundry, some windows in Living Room, Kitchen/Dining, and Bathroom are not accurately placed or dimensioned according to the plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera angle is not a perfect 45-degree isometric projection.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Soft shadows are present, indicating more than minimal shadows.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 69,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely captures the layout and room adjacencies from the 2D plan, but suffers from multiple minor to major geometric inaccuracies, furniture placement issues, and violations of presentation guidelines related to the ground plane and strict isometric projection. It is close to passing but significant deviations from the plan, especially in wall and window precision, preclude a pass.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan4.jpg"
+}

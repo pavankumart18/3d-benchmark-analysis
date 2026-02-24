@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image shows extruded walls with visible thickness and interior vertical faces; camera is slightly tilted from top-down (not perfectly orthographic), and the ceiling/roof is removed to reveal interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Clear wall height/thickness and coherent room volumes; cutaway is clean. View is only mildly angled (mostly top-down), limiting visibility of exterior side faces and reducing spatial depth cues."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Room count and adjacency match well (living/dining left, balcony bottom-left, bedroom bottom-right, toilet mid-right, kitchen top, utility top-right). Proportions largely consistent; minor deviations in opening placement/partition detailing vs the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present: sofa/TV/coffee table, dining set, bed, kitchen counters/sink/hob, toilet and basin. Mostly placed in correct rooms with reasonable scale; some simplification and minor orientation differences."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Geometry is readable with consistent materials and lighting; no major mesh breaks. Slightly flat presentation due to near-top view, but openings and room separations remain clear; clean background with no UI/text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door/window/opening details do not exactly match the 2D plan (e.g., swing/positioning appears simplified or slightly shifted)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Viewing angle is close to top-down, reducing multi-surface wall visibility and weakening depth perception compared to a stronger isometric cutaway."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with largely faithful room layout and furnishings, with minor opening mismatches and a camera angle that is more top-down than ideal for isometric depth.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan16.avif"
+}

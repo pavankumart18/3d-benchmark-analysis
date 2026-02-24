@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General floor plan layout is preserved including room adjacency. However, the balcony is significantly distorted; it lacks the specific wall segment near the foyer and the corner notch shown in the 2D plan. The sliding door into the utility area is missing, replaced by an open archway."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints: roof removed, no text labels, and no UI elements. The model floats on the required dark neutral background. Small loss of points for minor structural reinterpretation of the balcony railings."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture corresponds well to the plan markers (sofa, dining table, bed, kitchen counters). A TV console was added (hallucinated) in the living room which wasn't in the plan, but scale is consistent."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect score for style. Low-poly simplified geometry, flat color shading with no textures, and a perfect isometric orthographic camera angle."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door between the foyer/kitchen area and the utility room."
+        },
+        {
+            "code": "E2",
+            "description": "Balcony shape and enclosure walls do not match the geometric complexity of the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated TV and media unit in the living area not specified in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan18.jpg"
+}

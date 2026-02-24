@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully converts to an isometric 3D cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D transformation with clear volume and wall thickness; slight perspective softening on far corners."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Major rooms and stairs are present, but wall topology near the bathroom/closet area is simplified and inaccurate to the source lines."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Kitchen and major furniture types are represented, though the bedroom bed is replaced by a small block and stairs changed orientation."
+        },
+        "visual_clarity": {
+            "score": 12,
+            "max": 20,
+            "notes": "Clean render, but the 3D text labels baked into the floor plan deduct presentation points as they create visual clutter."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Bathroom and partition wall geometry does not match the precise layout of the 2D plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "Minor",
+            "description": "Garbled text labels present on the 3D floor surface."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "The large bed in the bedroom is represented by a small bedside-sized table/block."
+        }
+    ],
+    "total_score": 76,
+    "verdict": "GOOD",
+    "summary": "A successful 3D projection that maintains the core architectural layout but suffers from baked-in text and simplified interior partition geometry.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan6.jpg"
+}

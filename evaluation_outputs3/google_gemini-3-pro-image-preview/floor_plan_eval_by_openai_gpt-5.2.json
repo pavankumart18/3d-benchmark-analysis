@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image shows extruded walls with thickness, visible side/top faces, perceptible room volumes, an elevated angled view, and a clean roof/ceiling cutaway exposing the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear 3D extrusion and readable volumes; cutaway is clean. View is slightly near-top-down but still angled; minor simplification at some wall corners/joins."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Overall apartment layout (living/dining at top, kitchen left, two bedrooms bottom corners, baths) matches well with correct adjacencies. Some openings/closet details and a few wall segment lengths appear simplified compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present: sofas/coffee table, dining table, kitchen counters/appliances, beds, and bathroom fixtures. Minor simplification in cabinetry/fixture detail and exact placement."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls/floors/openings are clearly distinguishable with good lighting and minimal artifacts; presentation is clean with no visible UI/text overlay in the 3D render."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Minor layout proportional differences: some wall lengths/partition extents appear slightly adjusted/simplified relative to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Some door/window/closet opening positions and proportions appear simplified and may not exactly match the 2D drawing."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout fidelity, with only minor proportional and opening-placement simplifications versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan.jpg"
+}

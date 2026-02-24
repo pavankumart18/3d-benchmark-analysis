@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 5,
+            "doors": 10,
+            "windows": 0,
+            "dimensional_scaling": 5
+        },
+        "notes": "Living Room and Dining Room adjacencies and overall shape are good. The Foyer is partially merged with Living Room. The Playroom is mostly modeled as a bedroom. The W/C and Closets are correctly placed but the closet adjacent to W/C has a wrong door. Kitchen layout is significantly different. No windows are present in the 3D model."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is removed but some walls seem to have odd heights. Notably, the top-right corner wall is unusually low. Overall completeness is fair, but some elements like the stairs are missing. No UI or annotations present. The model is presented on a ground plane with a shadow, violating presentation context."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture for the Kitchen and Bathroom (W/C) are mostly missing or inaccurate. A desk and chair are present where the Playroom should be, along with a bed. The fireplace in the Living Room is present. The pantry is included. Overall, furniture mapping is poor."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly, flat-shaded forms are used, but some surfaces have a slight texture or shading variation, not perfectly flat. Lighting is soft, but there are some noticeable shadows on the floor and walls that contradict 'minimal shadows'. The camera is isometric and well-composed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Zero windows are present in the 3D model, implying all windows from the 2D plan are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls have inaccurate positions or are completely missing (e.g., in the kitchen, missing separation between Foyer and Living Room). The stairs are entirely missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The wall adjacent to the W/C closet on the North side is inaccurately low, appearing as a half-wall or partial omission.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The presentation includes a noticeable ground plane and shadows, conflicting with the desired 'floating/isolated' model.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Significant deviations in kitchen fixture placement and absence of key appliances/counters as per the plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "The Playroom is furnished as a bedroom/office, completely misrepresenting its function as per the plan.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces show slight gradients or subtle soft shading rather than strictly flat colors, and shadows are more pronounced than 'minimal'.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 58,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to substantial geometric inaccuracies, especially regarding window omissions and significant deviations in room functionality/furniture, despite good overall compositional elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan8.jpg"
+}

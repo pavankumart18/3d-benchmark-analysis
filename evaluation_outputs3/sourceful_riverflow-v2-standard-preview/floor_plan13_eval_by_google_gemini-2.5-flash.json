@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height, visible thickness, and a removed roof to expose the interior. The viewing angle is notably isometric."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5). Floors are clear separate planes (3). Interior volume is strongly perceivable (4). Proper 3D wall corner geometry (3). Angled/isometric-like view (5). Interior visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof/ceiling removed cleanly (5). Interior spaces fully visible (3). Clean geometry without broken sections (2)."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "Number of rooms is mostly correct but the 'Linen' cupboard is missing (2/3). Adjacency relationships are mostly correct (3/4). Relative room proportions are reasonably preserved (3/3). Major room identities mostly match, except for the 'Lounge' and 'Dining' which are merged (1/2). Major wall positions align reasonably well with the 2D plan (4/5). Wall lengths are somewhat proportional but the overall external shape differs (2/3). Internal partitions are mostly correctly placed (2/2). Doors are present, but their exact positions and types (e.g., sliding vs. hinged) aren't perfectly matched in the bedrooms and bathroom/WC area (3/4). Windows are missing from the 3D render (0/2). Openings are somewhat proportionally sized, but the lack of windows is a major omission (0/2)."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Major furniture is present, including beds in bedrooms, and some seating in living areas (3/4). Kitchen elements are present and identifiable (2/2). Bathroom fixtures are present (2/2). Furniture is placed in correct rooms (3/3). Furniture scale seems reasonable (2/2). Orientation is logical (2/2)."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4/4). Geometry is readable and not confusing (4/4). Interior is clearly visible (3/3). Lighting does not obscure geometry (3/3). Consistent material usage (2/2). No major rendering artifacts (2/2). The background is clean (2/2). Text labels in the 3D image are minor but present inside rooms (Lounge/Dining, bedroom)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The balcony, and significantly, the 'Lounge' and 'Dining' areas from the 2D plan are combined into one large space in the 3D render, altering the original layout. The 'Entry' and 'Linen' cupboard are also significantly different or missing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Windows are entirely missing from the 3D render, which are typically present in residential buildings based on the layout."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "The specific types and accurate placement of doors, especially for the bedrooms and bathroom/WC, are not perfectly reflected from the 2D plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "Minor",
+            "description": "Text labels (Lounge/Dining, Bedroom) are present inside the 3D environment, which is a UI element."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully transforms the 2D floor plan into a perceivable 3D space with good fundamental conversion, but suffers from layout inaccuracies, particularly in the living areas and missing windows, preventing a higher score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan13.jpg"
+}

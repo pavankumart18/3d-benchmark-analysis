@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a successful isometric cutaway transition from the 2D source."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D depth and consistent wall thickness; the isometric perspective is clean."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Strong layout fidelity. Correct room count and adjacency. The stairway and interior partitions match the 2D logic accurately."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement (bed, sofa, staircase, kitchen island) is highly accurate to the original plan's symbols."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High clarity and clean rendering; minor deduction for slightly soft shadows on some wall joins."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Some window openings on the left wall lack the specific divided pane detail shown in the 2D plan."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "A highly faithful 3D reconstruction that maintains nearly perfect geometric alignment and furniture placement relative to the 2D floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan6.jpg"
+}

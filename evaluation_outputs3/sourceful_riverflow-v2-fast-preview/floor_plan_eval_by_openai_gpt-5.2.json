@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/dollhouse-style model: walls are extruded with thickness, floor plane is distinct, and interior spaces are visible with ceiling/roof removed. Camera is only mildly tilted (near top-down), but still shows some 3D surface shading and wall top faces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 27,
+            "max": 35,
+            "notes": "Walls have clear extrusion and thickness; corners read as 3D. Cutaway is clean. Primary weakness is the camera being close to orthographic top-down, reducing perceived verticality/side-face visibility."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room count and adjacency match well (living/dining/kitchen zone, two bedrooms, bath, entry/hall/closet areas). Minor proportional/layout differences and some openings (especially windows) are not as explicitly/consistently represented as in the 2D plan."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present and located logically: living seating/coffee table/rug, dining table, kitchen run, beds, and bathroom fixtures. Scale and orientation are generally consistent with the plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean presentation on neutral background, readable wall/floor separation, and adequate lighting. Slight softness/low contrast makes some openings and partitions less distinct."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Camera is very close to top-down, reducing apparent wall height/side faces and making the 3D read less strongly isometric than expected."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows/openings are not consistently clear or fully aligned with the 2D plan's window depiction (some are simplified or hard to verify)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Soft rendering/contrast slightly obscures fine geometric details (door swings/partition edges)."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "A valid 3D cutaway conversion with strong overall layout fidelity and complete interiors, slightly held back by near top-down viewing and simplified/less-verifiable openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan.jpg"
+}

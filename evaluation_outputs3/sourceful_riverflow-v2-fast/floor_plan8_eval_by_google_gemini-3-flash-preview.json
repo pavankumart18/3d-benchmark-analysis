@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully transforms the 2D plan into a 3D isometric cutaway with clear wall geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent dimensional transformation with clear interior volumes and appropriate isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Layout fidelity is high; rooms like the pantry and kitchen are correctly placed. Some minor inaccuracies in the foyer's internal angles and wall junctions."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Kitchen cabinetry and major fixtures are well-represented. Stairs and bathroom fixtures are correctly positioned."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High contrast rendering makes the layout easy to read. Minor loss of detail in the background shading."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "The foyer area geometry is slightly simplified and distorted compared to the 2D plan's complex angles."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "LOW",
+            "description": "Some window openings on the bottom-most wall (Dining Room) appear merged or slightly misplaced."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D conversion that faithfully reproduces the 2D layout's room configuration and interior elements.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan8.jpg"
+}

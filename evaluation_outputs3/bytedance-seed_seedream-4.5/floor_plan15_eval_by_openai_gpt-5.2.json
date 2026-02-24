@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway/isometric 3D model with extruded walls (height + thickness), visible floor plane, and interior volumes; ceiling/roof is removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Clear wall extrusion with thickness, correct 3D corners, strong sense of interior volume, angled/isometric view, and clean cutaway showing interiors."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall 3BHK layout reads correctly (living/dining central, kitchen/utility on right, bedrooms positioned similarly, balcony placement generally consistent). Minor proportional/layout deviations and simplification around passages/balconies; some openings not perfectly verifiable/consistent with 2D plan."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture and kitchen elements are present and placed in the expected rooms with reasonable scale/orientation. Bathroom fixtures are minimal/less clearly defined compared to other rooms."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is readable with good lighting and clean materials; however, floor text labels are present (presentation/UI contamination), reducing presentation quality points."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Minor layout/proportion deviations compared to the 2D plan (notably around balcony/passage geometry and some room dimension proportions)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Some door/window opening positions and/or sizing are simplified and not fully traceable to the exact 2D plan placements."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "low",
+            "description": "Text labels are embedded on the 3D floor surfaces, reducing presentation cleanliness."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A clearly valid cutaway 3D conversion with strong volumetric modeling and generally faithful layout, with minor proportional/opening mismatches and text-label contamination.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan15.webp"
+}

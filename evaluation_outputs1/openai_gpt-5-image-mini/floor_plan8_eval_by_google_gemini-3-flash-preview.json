@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout divergence. The central pantry is replaced with a generic kitchen island. The foyer and closet partitions are simplified or missing. Door and window counts do not match the blueprint (e.g., dining area windows and playroom entrance)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Model follows the 'roof removed' and 'dark background' constraints perfectly. However, it fails on structural fidelity by omitting the specific pantry room structure and reinterpreting the stairs/corner layout from the foyer area."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is clean and blocky as requested, but placement is hallucinated (living room sofa and coffee table are not in the plan) while the specific kitchen island configuration from the plan is ignored."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly, flat shading, orthographic isometric camera, and no textures or photorealistic elements."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing central pantry enclosure and specific closet partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase and foyer wall alignment is significantly distorted relative to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated sofa, coffee table, and dining set not present in the original architectural drawing."
+        },
+        {
+            "code": "E4",
+            "description": "The pantry room has been reinterpreted as a kitchen island."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan8.jpg"
+}

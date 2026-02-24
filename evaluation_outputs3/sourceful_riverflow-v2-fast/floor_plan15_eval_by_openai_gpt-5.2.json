@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height/thickness, multiple wall faces are visible, interior volume is readable, and the view is angled (not top-down)."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable corners and interior volumes; clean cutaway with minimal geometry breakage. Minor simplicity in wall-edge detailing."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall 3BHK organization and major adjacencies resemble the 2D plan (central living/dining, bedrooms distributed around). However, exterior articulations (notably balconies/utility) and some partition placements/openings appear simplified or not fully consistent with the plan."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture (beds, sofa, dining) is present and mostly in plausible rooms. Kitchen/bath detailing is limited and some fixture specificity is missing compared to the plan."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with clear wall/floor separation and good visibility. Monochrome materials reduce feature legibility for doors/windows but no major artifacts or UI/text clutter."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Balcony/utility/exterior recess features from the 2D plan appear reduced or not faithfully modeled, affecting outline fidelity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placement and sizing are simplified; several openings are not clearly verifiable against the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Kitchen and bathroom fixtures are minimal/abstracted relative to the labeled 2D plan, reducing room-identity confirmation."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A true, clean cutaway 3D conversion with strong volumetric fidelity, but with moderate simplification/mismatch in balconies/exterior geometry and opening/fixture detail versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan15.webp"
+}

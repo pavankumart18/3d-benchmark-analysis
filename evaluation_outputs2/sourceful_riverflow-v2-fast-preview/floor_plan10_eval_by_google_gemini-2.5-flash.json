@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches, and adjacency is largely correct. However, some wall positions are off, noticeably in the Activity room and Kitchen/Pantry area. The Garage and Portico also show slight scaling differences. Windows are mostly present but some are missing or incorrectly placed/sized."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is good, and no structural elements are missing, nor are there any hallucinated rooms. However, the render has text labels for room names, which results in a critical deduction. The background is not dark neutral, and there's a visible ground plane with soft shadows."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present. However, some items are missing (e.g., in WIR, Linen), and placement for some is not exact (e.g., Kitchen island, Activity room sofa, beds in BED 3 & BED 4). Scale is generally appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 4,
+            "camera_composition": 4
+        },
+        "notes": "Geometry uses simplified forms and flat-shaded surfaces, but some materials appear to have slight textures or reflections (e.g., kitchen counters, bathroom tiles). Lighting is soft ambient but includes noticeable shadows. The camera uses an isometric projection, but it's not a true 45\u00b0 rotation of the plan view and the model is not perfectly isolated due to the ground plane."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels for room names are present in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces (kitchen, bathroom) have slight textures/reflections, not purely flat colors.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Wall misalignment and proportional inaccuracies in Activity room and Kitchen/Pantry. Garage and Portico outer scaling differs from 2D.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing small furniture items (e.g., in WIR, Linen, some small tables). Misplaced kitchen island and Activity room sofa.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some windows are missing (e.g., in Laundry, Pantry) or have incorrect sizes/placements.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Background is not dark neutral; a light gray ground plane with subtle shadows is present.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 66,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render shows good effort in structural representation, but text labels are a critical failure. Several wall and window discrepancies, along with non-compliant aesthetic choices for the background and surface materials, lead to a 'FAIL' verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan10.png"
+}

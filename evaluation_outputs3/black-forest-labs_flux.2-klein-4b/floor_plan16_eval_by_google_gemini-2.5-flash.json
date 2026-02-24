@@ -1,0 +1,71 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Proper 3D wall corner geometry is good, but some corners lack a crisp intersection, appearing slightly rounded or merged."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The kitchen layout in the 3D render is significantly different from the 2D plan, with the L-shaped counter becoming a straight counter and the sink moving. The utility room's internal layout is also altered. The wall separating the bedroom from the utility/toilet is thickened and moved, slightly reducing bedroom space. Windows are missing entirely from the 3D render."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture is present, but the kitchen counter and sink are significantly different. The bedroom lacks a desk, and the wardrobe layout is simplified. Bathroom fixtures are present. Many small decorative elements from the 2D plan are omitted."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean aesthetic with good lighting. No text labels present. The background is a clean, dark color."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Kitchen counter layout significantly altered (L-shape to straight, sink moved)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Utility room internal layout and appliance placement are different."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Wall between bedroom and utility/toilet appears thicker and shifted."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "All windows are missing from the 3D render."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Missing desk in bedroom and simplified wardrobe layout compared to 2D."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Several small decorative elements and plants from the 2D plan are not represented in the 3D render."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D plan into a perceptible isometric model with good visual clarity, however, there are notable deviations in the kitchen layout and missing window geometry which reduce its fidelity to the original plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Bathroom dimensions (3' x 2') are incorrect in 3D (3' x 4'). Living Room dimensions (13' x 24') are also incorrect in 3D (16' x 24'). Kitchen (16' x 12') is consistent. Wall positions near the entrance are incorrect relative to the stairs. The interior wall of the living room/dining room is also not aligned with the kitchen wall in 3D as it is in 2D. Relative room sizes are distorted. Doors are mostly present and placed on correct walls, but swing direction is not consistent for all (e.g., bathroom door). All windows present, placement mostly correct, but sizing is inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is cut away, and interior walls are visible. No missing structural elements. However, text labels are present for 'BATHROOM', 'LIVING ROOM', and dimensions (3' x 4', 16' x 24'). This is a severe violation of UI/annotation cleanliness and hallucination control for text."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "All major furniture and fixtures (kitchen counters, stove, sink, bathroom toilet, sink, bath, living room sofa/table, dining room table/chairs) are present. Placement generally matches the 2D plan, but scaling seems off for some items relative to the rooms (e.g., dining table seems small, bathroom fixtures seem large)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly simplified forms and flat-shaded surfaces are used with solid colors. However, some objects like the stairs and furniture have more detail than 'low-poly simplified forms' might imply (e.g., visible stair treads, sofa cushions). Lighting is soft ambient. Camera is isometric, but the rotation seems off from the standard 45\u00b0 for a plan view. Framing is mostly centered, but the aspect ratio of the model seems slightly compressed compared to the 2D plan."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('BATHROOM', 'LIVING ROOM') and dimensions ('3'x 4', '16' x 24') are present in the 3D render. This violates UI/Annotation Cleanliness and Hallucination Control.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant room dimension discrepancies in Bathroom (3'x2' in 2D vs 3'x4' in 3D) and Living Room (13'x24' in 2D vs 16'x24' in 3D), indicating poor dimensional scaling and layout topology accuracy.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Wall geometry inaccuracies evident in the living room/dining room internal wall alignment against the kitchen wall and near the entrance/stairs.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Furniture models (e.g., stairs, sofa) are slightly more detailed than strictly 'low-poly simplified forms' and 'flat-shaded surfaces'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not perfectly consistent with the 2D plan in all instances (e.g., Bathroom door).",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 58,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors in UI cleanliness (text annotations) and major discrepancies in spatial accuracy, primarily room dimensions and wall alignment, despite reasonable furniture mapping and aesthetic quality.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan3.jpg"
+}

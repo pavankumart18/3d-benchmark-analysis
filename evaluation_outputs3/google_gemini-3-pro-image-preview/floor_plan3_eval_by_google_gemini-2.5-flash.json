@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, and is viewed from an angled perspective with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height (5), floors are separate planes (3), interior volume is clear (4), proper 3D wall corner geometry (3). Angled view (5), interior visible from elevated perspective (3). Clean roof removal (5), interior fully visible (2). Minor distortion exists, and one wall near stairs is not clean."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3), correct adjacencies (4), relative room proportions preserved (3). Major wall positions align (5), wall lengths proportional (3), internal partitions correctly placed (2). Doors are present and on correct walls (4), windows are present and on correct walls (2). However, window sizing and orientation are not perfectly proportional, especially for the small window in the dining/living room."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) is present (4), kitchen elements are present (2), bathroom fixtures are present (2). Furniture is in correct rooms (3), scale is reasonable (2), orientation is logical (1). A minor point deduction for generic orientation."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3), lighting does not obscure geometry (3). Consistent material usage (2), no major rendering artifacts (2). Clean background / presentation (0) due to generic dark background and lack of surrounding context typical of a 'render'."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E5-STYLE",
+            "severity": "E3-MIN",
+            "description": "Minor distortion of windows and slight misproportion in the rendering compared to the 2D plan. The 3D model takes artistic liberties with window sizes and positions, notably the small window in the dining/living area is much larger in the 3D render."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "E5-STYLE",
+            "description": "Generic dark background, affects presentation score (no score for clean background/presentation)."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion is good, successfully transforming the 2D floor plan into a comprehensible 3D model with largely accurate geometry and interior elements, though some minor proportionality issues with windows and a generic presentation style prevent an excellent score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan3.jpg"
+}

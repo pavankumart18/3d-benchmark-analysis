@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is perceivable, and the view is isometric with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Walls have height and thickness (5). Floors are separate planes (3). Interior volume is percepible (4). Proper 3D wall corner geometry (3). Angled view (5). Interior clearly visible (3). Minimal perspective distortion (2). Roof cleanly removed (5). Interior spaces fully visible (3). Clean geometry (2)."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Correct number of rooms (3). Correct adjacency relationships (4). Relative room proportions preserved (3). Major room identities match (2). Major wall positions align (5). Wall lengths proportional (3). Internal partitions correctly placed (2). Doors present and on correct walls (4). Windows present and on correct walls (2). Openings proportionally sized and oriented, though some windows are missing (E3-MIN)."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture present (4). Kitchen elements present (2). Bathroom fixtures present (2). Furniture placed in correct rooms (3). Furniture scale reasonable (2). Orientation logical (1, one side table in living room is clipped by wall)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, openings clearly distinguishable (4). Geometry readable (4). Interior clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background / presentation (0, background is dark simple color)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Several windows visible in the 2D plan on the outer walls are missing in the 3D render, particularly in Bedroom 1 and the Dining area. The door to the toilet is also inward opening in the 2D but outward opening in the 3D."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "A small table in the living room is clipping into the wall."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "The background is very dark, which gives a less vibrant feel, but it doesn't obscure the geometry."
+        }
+    ],
+    "total_score": 92,
+    "verdict": "EXCELLENT",
+    "summary": "This 3D conversion is an excellent, faithful representation of the 2D floor plan with accurate geometric transformation and good preservation of interior layout, despite a few minor discrepancies in window placement and furniture elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height/thickness, multiple wall faces are visible, and the view is clearly angled with the roof/ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable wall massing and interior volume; clean cutaway and consistent isometric-like view. Minor simplification around some wall ends/openings."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room count and adjacency match (dining left, kitchen top, living right, bedroom bottom-left, wash/toilet core, stair zone right). Some proportional/partition differences are visible (wet-area/entry partitions and a few wall lengths appear slightly adjusted)."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present: dining set, kitchen counters/appliances, living seating/table, bed, and bathroom fixtures. Placement generally matches intended rooms; scale/orientation is mostly reasonable."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is clear and legible with consistent materials. Interior is visible; lighting is adequate. Some openings/windows are not crisply represented, reducing structural readability."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows/openings are simplified; several are not clearly shown or not verifiable on the exact walls compared to the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Minor-to-moderate layout/proportion drift in internal partitions (notably around the wash/toilet/entry core and a few wall segment lengths) versus the 2D plan."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A clear, true 3D cutaway conversion with strong overall layout correspondence, but with some proportional/partition drift and simplified or ambiguous door/window placements.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan7.jpg"
+}

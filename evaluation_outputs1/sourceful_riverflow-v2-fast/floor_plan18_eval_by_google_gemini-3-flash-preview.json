@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacency are well preserved. Penalty applied for door orientation issues; the bedroom door in the render appears to swing into the living area rather than into the bedroom as shown in the 2D plan. Window placement is mostly accurate, though the balcony aperture is slightly simplified."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No missing rooms, no hallucinated additions, and no visible text or measurement lines. Points deducted slightly for the kitchen/utility wall segment which appears slightly thicker/misaligned compared to the plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is clean and blocky. The bed, dining table, and sofa are correctly positioned. Minor penalty for the kitchen sink/counter orientation which is slightly rotated/simplified compared to the 2D detail."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect execution of the requested style. Low-poly geometry, flat monochrome shading with no textures, dark neutral background, and a mathematically correct isometric orthographic camera angle."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bedroom door swing direction is reversed compared to the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the utility/kitchen wall thickness and sink placement."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan18.jpg"
+}

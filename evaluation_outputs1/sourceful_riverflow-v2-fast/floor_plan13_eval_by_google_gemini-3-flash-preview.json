@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved, but there are significant door and window discrepancies. The entry door is missing its recessed porch structure, and internal connectivity between the hallway and bedrooms shows distorted door placements. Window counts in the bedrooms do not fully align with the plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model successfully removes the roof and uses a dark background. However, it hallucinates a secondary balcony/terrace near the entry that does not exist in the 2D plan. The garage is separated as required but the entry linen/porch area is structurally misinterpreted."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen counters and basic bathroom fixtures are represented. Major furniture elements like beds in the bedrooms are missing or replaced with ambiguous blocky clutter. Scale is generally consistent."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the low-poly, flat-shaded style. No photorealistic textures are present. The isometric orthographic camera angle is correct and the composition is centered."
+    },
+    "total_score": 76,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated second balcony structure at the front entry area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing entry door and linen closet structural definition."
+        },
+        {
+            "code": "E1",
+            "description": "Missing beds and living area furniture (sofa/dining table)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced/distorted windows in Bedroom 1 and Bedroom 2 compared to source plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan13.jpg"
+}

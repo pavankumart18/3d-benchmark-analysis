@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Activity room width appears slightly compressed or bedroom 2 width slightly expanded. Toilet room to bath 1 wall is missing. Balcony shape is slightly off. Wall thickness on activity room left is inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 1
+        },
+        "notes": "Minor hallucination: A/C unit in Bed 4 and next to Bed 3 are missing in the 3D model. Balcony appears to have a floor despite the 2D marking having BALUSTRADE below it. Text 'ROBE' and 'A/C' are present in 3D. The background is not a complete dark neutral."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Some minor furniture differences: linen closet contents missing, WC has no toilet paper holder, balcony furniture is different, some room furniture is swapped or slightly different (beds, bedside tables). Hallucinated dining table and chairs in Activity, not present in 2D plan. Couch in activity room is different from 2D."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 8,
+            "camera_composition": 2
+        },
+        "notes": "The 3D model appears to be true isometric. However, the camera angle is not a 45-degree rotated plan view as requested. It is more of a 3/4 view. Slight shadows are present, but generally well-lit. Some anti-aliasing can cause subtle color gradients at edges."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('ROBE', 'A/C') are present in the 3D render.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Wall between WC and Bath is completely missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Activity room width appears slightly off relative to bedroom 2. Balcony shape slightly different.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Hallucinated dining table and chairs in Activity room.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera composition not a 45-degree rotated plan view as specifically requested.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 66,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render demonstrates good overall structural completeness and low-poly aesthetic, but falls short on precise spatial accuracy, furniture mapping, and strict UI cleanliness compliance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan12.png"
+}

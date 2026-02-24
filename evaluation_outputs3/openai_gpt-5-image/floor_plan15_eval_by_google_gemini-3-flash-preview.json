@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "A genuine 3D cutaway model has been generated following the floor plan layout."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clear wall height, thickness, and appropriate isometric-style projection."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Layout fidelity is generally high, though there is some slight condensation of the long corridor and the kitchen utility area geometry is simplified."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture sets (beds, dining, couch) are present and correctly placed, though minor balcony furniture is missing."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Structures are clear but score is reduced due to text label contamination directly on the 3D floor plane."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Floating text labels (BEDROOM-1, KITCHEN) are baked into the 3D render space."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Window placements on the bottom exterior wall are slightly offset compared to the 2D source."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D conversion that accurately translates the architectural layout into a 3D cutaway, despite minor text label contamination.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan15.webp"
+}

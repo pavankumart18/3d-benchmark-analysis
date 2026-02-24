@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 3,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall footprint is correct, but several internal walls are missing or incorrectly placed. Specifically, the 'ALCOVE' area is not enclosed by walls. The 'BREAKFAST' nook is missing, and 'CENTRAL HALL' is not correctly defined by walls. The internal structures within the 'UTILITY ROOM' are not present. Relative sizes of major rooms are mostly proportional. There are clearly missing rooms/areas: 'WC', 'Alcove', and 'Breakfast'. Many walls are missing or significantly misplaced."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is completely removed and interior walls are visible. However, multiple rooms are missing (WC, Alcove, Breakfast). The model also has a visible ground plane under it, which clashes with the 'floating/isolated' requirement and shows soft shadows stretching beyond the model boundary. Missing critical structural elements like the stairs 'UP' in the Central Hall."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major fixtures for kitchen and bathroom are indicated (counters, sink, toilet, washbasin). However, there is no furniture for the 'Dining Room' or 'Central Hall'. The 'REF' (refrigerator) in the Utility Room is missing, as is the 'W' (washer) and 'D' (dryer). The 'WH' (water heater) and 'HVAC' unit in the Utility Room are also absent. The kitchen island/counter layout is simplified but broadly matches."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly simplified forms are used, and there are mostly clean edges. Surfaces are solid flat colors. However, there appear to be subtle gradients/soft shadows on the walls and furniture, indicating more than strictly flat shaded surfaces and minimal shadows. The image has a very subtle ground plane and shadows extending. The view is isometric, and the model is centered, but the rotation seems slightly off from 45 degrees, and the background isn't a pure dark neutral gray/black or gradient. There's a slight light effect from the back/left making it not a perfectly neutral dark background."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'WC' is missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire area 'ALCOVE' is not delineated by walls, effectively missing as a distinct room.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'BREAKFAST' nook is missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls defining 'CENTRAL HALL' and 'UTILITY ROOM' are missing or severely misplaced (e.g., wall separating Utility from Central Hall, wall defining Alcove).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "'REF', 'W', 'D', 'WH', 'HVAC' fixtures missing from Utility Room.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "No furniture in 'Dining Room' or 'Central Hall'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle gradients/soft shadows present, not strictly flat shaded as required. Contains mild ambient occlusion.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 50,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to significant missing rooms and structural elements, impacting spatial accuracy and completeness, despite good UI cleanliness and cutaway compliance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan11.png"
+}

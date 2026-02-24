@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Interior volume is clear. Viewing angle is appropriate. Clean cutaway."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Room configuration and adjacencies are mostly correct, though some wall curves are simplified. Wall positions align well. Doors and windows are omitted. Missing a small exterior patio in the front."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "All major furniture, kitchen, and bathroom fixtures are present, correctly placed, and scaled reasonably within their rooms. Orientation is logical."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Interior is bright and clear, with good lighting. Consistent material and clean presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MIN",
+            "description": "Doors and windows are missing from the 3D render, replaced by solid walls or mere cutouts without actual door/window frames."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJ",
+            "description": "A small exterior patio/porch area on the front of the house in the 2D plan is entirely missing from the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJ",
+            "description": "The curved walls in the 2D plan, especially in the central area, are rendered as straight segments in the 3D model, simplifying the original geometry."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is generally good with accurate layout and furnishings, but it suffers from a lack of doors and windows, and some simplification of original curved wall geometry.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan5.jpg"
+}

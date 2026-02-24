@@ -1,0 +1,71 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Interior volume is very clearly perceivable. Walls have good height and thickness. Some minor distortion in overall perspective."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Minor discrepancies in some wall lengths and window placements. For example, the 'THEATRE' opening is not fully represented. The 'LIVING' room recess is partially present but not fully accurate. The main entrance near 'ENTRY' is slightly different. The 'ACTIVITY' room and top two bedrooms are shifted slightly upwards relative to the original plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Most major furniture is present and placed in correct rooms. Kitchen elements and bathroom fixtures are present. Scale seems reasonable. However, the 'THEATRE' room is rendered as a bedroom, and the 'LAUNDRY' room is missing some key elements like washer/dryer outlines. The 'ACTIVITY' room furniture is present but not entirely matching the initial layout."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is very good. Interior is clearly visible with good lighting. Aesthetic coherence is consistent and clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Geometric distortion and displacement of the top section of the house ('ACTIVITY', 'BED 3', 'BED 4') relative to the rest of the layout."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Inaccuracy in 'LIVING' room recess geometry."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Opening into 'THEATRE' room is not fully rendered as per 2D plan, making it look like a bedroom."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Furniture in 'THEATRE' room does not match a home theatre, instead showing a bed."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Missing specific furniture elements in 'LAUNDRY' room."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Entrance door near 'ENTRY' is modeled slightly differently."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is successful and geometrically faithful with good detail, but exhibits minor layout shifts and some interior element mismatches when compared to the 2D floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan10.png"
+}

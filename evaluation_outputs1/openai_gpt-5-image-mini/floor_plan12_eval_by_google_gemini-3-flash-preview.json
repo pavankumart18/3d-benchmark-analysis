@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "notes": "Complete failure of spatial logic. The 3D render represents a generic single-story apartment with a garage and kitchen, whereas the 2D plan depicts a complex multi-bedroom upper floor with a staircase, balcony, and specific bathroom/WC clusters. None of the wall alignments or room adjacencies from the source image are preserved."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the model is a floating structure on a dark background with the roof removed, it fails all other metrics. It hallucinates a garage/carport and a kitchen module (neither of which are on the 2D plan) and misses the balcony and the primary staircase structure entirely."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture is low-poly and block-style, but it bears no relation to the floor plan. Beds from Bedrooms 2, 3, and 4 are missing, as is the activity room sofa. Instead, it places a dining table and cars which are not present in the reference."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The stylistic adherence is high. It correctly utilizes a low-poly aesthetic, flat shading, a dark neutral background, and an isometric orthographic camera angle. The execution of the 'look' is correct, despite the content being wrong."
+    },
+    "total_score": 34,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase, balcony, three bedrooms with beds, and specific bathroom/WC configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Layout is a total departure from the dimensions and room scaling of the 2D floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination of a garage, two vehicles, a kitchen island/counter, and a dining suite not found in the source."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan12.png"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway conversion with clear volumetric representation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with accurate wall corners and depth. High scores for viewing angle and clean cutaway."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Room configuration and adjacencies are highly accurate. Minor discrepancy in staircase orientation vs 2D plan and some window placement shifts."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "All major components (kitchen, bath, living furniture) present and correctly scaled to their respective zones."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Rendering is clean and lighting is effective. Deductions made for 'ENTRANCE' text label over the door and slight artifacting on the stairs."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Staircase treads and directional layout differ slightly from the 2D orthographic plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "Low",
+            "description": "Text label 'ENTRANCE' remains visible on the 3D model geometry."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A highly faithful 3D conversion that maintains architectural integrity and spatial logic with only minor rendering and labeling artifacts.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan3.jpg"
+}

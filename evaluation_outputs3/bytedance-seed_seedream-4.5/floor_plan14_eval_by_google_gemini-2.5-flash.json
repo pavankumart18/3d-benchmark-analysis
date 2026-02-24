@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows vertical walls, thickness, and a perceptible interior volume from an angled view with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Excellent conversion fundamentals. All aspects of dimensional transformation, viewing angle, and cutaway treatment are perfectly executed."
+        },
+        "geometric_accuracy": {
+            "score": 29,
+            "max": 30,
+            "notes": "Near perfect geometric accuracy. All rooms are present, adjacency is correct, and wall positions/lengths are well-preserved. Minor discrepancies in door/window details for external walls."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "All major furniture and fixtures are present, correctly placed, and scaled appropriately within their designated rooms."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Excellent visual clarity and rendering. The geometry is readable, interior is well-lit, and there are no major artifacts. The text labels on the floor are a minor detraction from presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some external windows/doors are not perfectly matched in number or exact placement/proportion to the 2D plan, e.g., the window near BED-2."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Numerical and text labels from the 2D plan are rendered directly onto the floor of the 3D model, which detracts slightly from visual clarity and aesthetic coherence."
+        }
+    ],
+    "total_score": 97,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D render is an excellent and geometrically faithful transformation of the 2D floor plan, maintaining high accuracy in layout, dimensions, and interior representation with only minor aesthetic issues.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan14.webp"
+}

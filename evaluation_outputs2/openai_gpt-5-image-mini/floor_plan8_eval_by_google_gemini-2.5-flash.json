@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Living room shape is significantly altered, missing alcove. Dining room is open to Living room, differing from plan. Foyer is largely missing, absorbed into Living room. W/C and Closets are not accurately represented; specifically, the W/C is missing, replaced by a simple corridor leading to the stairs. The 'CLOSET 7668' is also missing. The Kitchen layout is mostly accurate, though the pantry is absent. The Playroom is simplified, with its entrance from the main area being wider than indicated by individual doors. Several walls have significant deviations in position and shape from the 2D plan, especially around the living room and entryway."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 1,
+            "hallucination_control": 1,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Many rooms/structural elements (W/C, Closets, Foyer's full extent, Pantry) are missing. Some walls are hallucinated, such as the full wall between dining and living areas. The background is not a dark neutral gray/black gradient; it's a solid dark gray with shadows, and the model does not appear truly floating/isolated, as there's a ground plane effect. The UI is clean, with no text or measurement lines."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Furniture presence is sparse. A sofa and coffee table are present in the 'Living Room' (which deviates from the plan's shape). A dining table with chairs is in the 'Dining Room'. Kitchen fixtures (counters, island, sink) are present and generally in correct locations relative to the room, but the pantry area is empty due to the pantry wall being absent. Bathroom fixtures are completely missing as the W/C is not rendered."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Generally low-poly forms and flat shaded surfaces are used, with no obvious textures. However, reflections are noticeable on some surfaces, which deviates from 'solid flat colors only'. The lighting creates some noticeable soft shadows that are more than 'minimal'. The main issue for presentation context is 'ground plane/shadows extending to infinity' as the rendered model appears to be casting a shadow on a surface and not floating."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room (W/C) missing and replaced with a hallway.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Closet 3068 and Closet 7668 rooms are missing.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Foyer is significantly altered/missing, absorbed into Living Room/Stair area.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Living Room and Dining Room floor plan shapes are significantly altered (e.g., missing alcove in Living Room, open connection between Living and Dining).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The kitchen pantry area from the 2D plan is entirely missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are missing: 2 doors for the 'Playroom', 'Foyer' entrance door is missing, 'Pantry' door is missing.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window count does not exactly match. Some windows are missing, and some are misplaced or have inappropriate sizes.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces exhibit reflections/specular highlights, deviating from 'solid flat colors only'.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 51,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to numerous missing rooms, significant alterations to room layouts and adjacencies, and deviations from structural fidelity, despite adhering to some aesthetic and UI cleanliness guidelines.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan8.jpg"
+}

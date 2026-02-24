@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 5
+        },
+        "notes": "Almost perfect. Missing only some windows. Layout, walls, doors, and scaling are accurately translated."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The 3D render is not clean. It contains all text labels from the 2D plan, leading to a critical error for UI cleanliness. The ceiling is not fully removed, and some external walls show windows that are not present in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Furniture presence is good, with most major pieces and fixtures included. However, some furniture, like the bed in 'Bed 3' and 'Bed 4', and some kitchen cabinets are not in the exact location as indicated in the plan. The 'RECESS' in the kitchen is also not depicted accurately."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style is not low-poly simplified forms, it contains high-res meshes and textures, not flat shaded. Lighting is acceptable and the camera composition with an isometric view is correct."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present from the 2D plan, violating UI cleanliness rules.",
+            "point_deduction": 5
+        },
+        {
+            "code": "A1-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering of geometry, not low-poly/flat shaded.",
+            "point_deduction": 10
+        },
+        {
+            "code": "W4-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Several windows are missing from the 3D render, specifically in 'Bed 2', 'Ensuite', Living, and Dining area. Also, external walls are hallucinating windows that are not present in the 2D plan which is a critical error.",
+            "point_deduction": 2
+        },
+        {
+            "code": "M3-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Some furniture items are not accurately placed according to the 2D plan, or are missing some fixtures.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 67,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "This 3D render fails to meet the required standards primarily due to the presence of text labels and a photorealistic rendering style, despite good spatial accuracy.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan10.png"
+}

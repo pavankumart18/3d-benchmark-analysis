@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height and thickness, floors are distinct planes, multiple faces per wall are visible, and the view is elevated/angled rather than top-down."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable volume and clean cutaway; minor simplifications at some wall junctions/edge conditions."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room adjacencies and main wall positions match (dining top-left, kitchen top-center, living right, bedroom bottom-left, bath core center). The bottom-right stair/UP zone from the 2D plan is not clearly represented as a stair volume in the 3D (reads more like a generic space/void), reducing layout fidelity. Some door/window placement appears simplified relative to the plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present in expected rooms (dining set, kitchen cabinetry/appliances, living seating, bed, toilet/sink). Some elements are simplified and not all plan-indicated fixtures/details are modeled."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Geometry is clear and readable with adequate lighting; openings and partitions mostly legible. Minor ambiguity remains around the stair/entry zone detailing."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Stair/UP area shown prominently in the 2D plan (bottom-right) is not clearly modeled as a staircase in the 3D render, suggesting a functional/geometry mismatch in that zone."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some doors/windows appear simplified or not perfectly aligned to the exact walls/opening sizes indicated in the 2D plan."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A clearly valid cutaway 3D conversion with strong overall layout correspondence, but with notable mismatch/simplification in the stair/UP zone and some opening placements.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior spaces are visible, and the roof is cut away from an angled view."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent dimensional transformation with clear height, thickness, and volume. The view is angled, and the roof is cleanly removed. Minor distortion noted around some corners due to rendering style."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Overall room configuration, adjacency, and proportions are well preserved. Wall positions are accurate. Some minor discrepancies in door placements (e.g., closet door in playroom) and door swing directions. Windows are well represented."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture is present and logically placed in rooms. Scale is reasonable. Kitchen and bathroom fixtures are included. Some elements like the pantry island are slightly simplified."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is very good with distinguishable elements. Lighting is good, making the interior visible without obscuring geometry. Aesthetic coherence is consistent with a clean background. No major rendering artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Closet door in playroom is a single door in 3D, but appears to be a bifold or double sliding door in 2D. Door swing on the main entrance to the playroom is reversed."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "minor",
+            "description": "The 'Pantry' area in the 2D plan is represented as an island in the 3D render, with a slightly different configuration from the detailed outline in 2D."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "minor",
+            "description": "The 'W/C' bathroom layout has some minor discrepancies in fixture placement/size compared to the 2D plan."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is highly faithful to the 2D floor plan, demonstrating excellent geometric conversion, good layout accuracy, and well-represented interior elements, with only minor discrepancies in specific details like door types and some fixture layouts.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan8.jpg"
+}

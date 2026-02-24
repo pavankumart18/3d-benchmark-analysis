@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 1
+        },
+        "notes": "Living Room, Nook, Kitchen, Dining Room, Study, Bed #4, Hall, Bath, Utility, Bed #2, Bed #3, Master Bed, Master Bath room counts match. Adjacencies are generally preserved with some wall placement issues. Relative room sizes are distorted in some areas, particularly the garage and adjacent rooms. Overall footprint is maintained but with significant deviations in the covered patio areas and the front of the garage. Wall positions are inconsistent, with many walls misaligned. Covered Patio south wall is completely missing. Garage is significantly undersized horizontally and vertically. Doors are mostly present, but swing directions are ignored. Some doors are also missing (e.g., Master Bath toilet, Hall linen closet). Windows are mostly present but placement and proportion are off (e.g. Living room, Nook, Kitchen, Study, Master Bedroom, Master Bath). Scale factor is inconsistent, with objects like the car in the garage appearing disproportionate to the house."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 2,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "Render is not a true cutaway; there are parts of the house that have a roof/ceiling above them (e.g. outside the Master Bedroom and the porch in front of the 2 Car Garage entrance). Interior walls are visible where the roof is cut. Several structural elements are missing, such as the two covered patios. The car garage is significantly altered, including its entrance. UI/Annotation Cleanliness is 0 because all text labels from the original plan are present in the 3D render. The background is dark and neutral, but there are shadows and a ground plane visible under the garage area, and extending under the main house, making it not completely floating/isolated."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables) are mostly missing or abstracted inappropriately for the required style. Kitchen fixtures are partially present, but the island is missing. Bathroom fixtures are largely missing or depicted incorrectly (e.g. Master Bath has no toilet). Furniture placement is often inaccurate (e.g., Living Room sofa, Dining Room table is not the one from the plan). Scale is often inappropriate. Many furniture items present in the 2D plan are missing in the 3D render, such as the dresser/cabinet in the Nook, the large L-shaped couch in the Living Room, the dining table and chairs, and all of the bedroom furniture."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 5
+        },
+        "notes": "The geometry is low-poly and uses simplified forms, but there are some rounded edges and minor complex geometry (e.g. car). Surfaces are flat shaded. No textures, but some color variation and minor gradients are present (e.g. driveway, car), which is a deviation from solid flat colors. Lighting is ambient but with noticeable areas of brighter light (e.g., emanating unrealistically from windows). Shadows are softer, but still distinct. Colors are distinguishable. The camera view is isometric, but the house is placed in the bottom right corner with significant empty space in the top left, thus not perfectly centered. The zoom level is appropriate."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present from original floorplan, violating UI cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The presence of a rendered car, grass, realistic garage doors, and lights in windows indicates photorealistic rendering, violating aesthetic style and rendering constraints.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned, notably the covered patios and garage. The 'Covered Patio' south wall is completely missing. The Nook and Living Room and Master Bedroom windows are incorrect.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated structural elements, including an altered garage facade, and significant simplification/removal of the covered patios and their structural elements.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Significant amount of furniture from the plan (sofas,beds, dining table, kitchen island, toilet in master bath) is missing from the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not consistent with the plan, or some doors have incorrect placement/width.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight textures/gradients present on the driveway, car, and minor elements.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 38,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet the specified accuracy and aesthetic requirements, with significant issues in structural integrity, UI cleanliness, and aesthetic compliance. While the basic layout is recognizable, numerous deviations in wall geometry, missing elements like patios and furniture, and crucial violations such as the presence of text and photorealistic elements lead to a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan9.png"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion represents a valid 3D isometric cutaway model."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent wall geometry and depth. Cutaway treatment is clean, though some exterior walls are rendered as full height which slightly obscures the internal kitchen view from this angle."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Room configuration matches the floor plan reasonably well. However, the 3D model adds 'double decker' balconies on the left and a series of windows that imply a multi-story building rather than a single unit visualization."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture placement is consistent with the blueprint. Kitchen and bathroom fixtures are identifiable."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Generally high quality, but text labels are baked into the floor texture (deduction) and some lighting is overly bright in the kitchen area."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "The 3D model suggests a stacked apartment building (double balconies) rather than a faithful 3D extrusion of just the provided floor plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "LOW",
+            "description": "Legibility issues with text artifacts on the floor texture."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D transformation that preserves layout logic but introduces exterior vertical elements not present in the original 2D plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan15.webp"
+}

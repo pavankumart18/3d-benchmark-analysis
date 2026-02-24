@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is highly accurate. However, there is a labeling error in Bed-2 (mislabeled as Bed-1 in the render). Proportions and wall alignment are well-preserved, though the utility room wall thickness appears slightly exaggerated compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Major violation of the no-text constraint; all measurement labels and room names from the 2D plan were hallucinated into the 3D geometry floor surface. Model successfully removed the roof and displays a floating state on a dark background."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture mapping is excellent, including small details like the deck seating and kitchen stove. Scales are consistent with the architectural layout."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "Failure to follow style constraints: The render uses realistic textures (wood grain, marble, fabric rugs) and soft ray-traced shadows instead of the requested low-poly flat-colored aesthetic. Isometric perspective is correctly applied."
+    },
+    "total_score": 70,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Strict violation: Text labels and measurements from the source image are rendered directly onto the 3D floor surface."
+        },
+        {
+            "code": "E6",
+            "description": "Style violation: The image uses photorealistic textures and complex materials instead of the requested low-poly, flat-color, no-texture style."
+        },
+        {
+            "code": "E2",
+            "description": "Room label distortion: The room on the left is incorrectly labeled 'BED-1' in the 3D view while the plan designates it 'BED-2'."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan14.webp"
+}

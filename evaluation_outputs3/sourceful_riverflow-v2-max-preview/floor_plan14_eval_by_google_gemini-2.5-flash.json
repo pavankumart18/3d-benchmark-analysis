@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Good dimensional transformation, clear interior volume. Viewing angle is good, but slight perspective distortion is present, especially noticeable on furniture. Cutaway is mostly clean, but the balcony railings are a bit odd/incomplete."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Excellent room configuration and adjacency. Major wall positions align well, though some internal partitions like the one separating kitchen/foyer are missing or simplified. Doors and windows are mostly present, but some doors are missing (e.g., between rooms and to bathrooms) or simplified, and windows are not distinctly rendered as such."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Most major furniture items are replicated, including beds, sofa, dining table, and kitchen/bathroom fixtures. Placement is logical, and scale is reasonable. The specific kitchen layout and some storage units are simplified or missing."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Good structural clarity, geometry is readable. Interior is well-lit and clearly visible. Aesthetic coherence is decent with consistent material, but there are some minor rendering artifacts or simplified geometry (e.g., balcony railings/walls, missing kitchen details)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Some internal partitions are missing or highly simplified (e.g., separating kitchen from foyer, and the wall between the two decks is missing)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Several doors are missing, specifically the doors to the bathrooms (TOI-1, C.TOI), and the doors from the bedrooms to the decks. Also, no distinctive rendering for windows."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "The 2D to 3D conversion is good, accurately representing the overall layout and most core elements, with some minor geometric omissions and simplifications of doors and partitions.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan14.webp"
+}

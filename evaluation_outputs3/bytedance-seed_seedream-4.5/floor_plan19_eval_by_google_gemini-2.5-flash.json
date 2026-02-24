@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, and is viewed from an angled perspective with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5). Floors are clearly separated (3). Interior volume is very perceivable (4). Proper 3D wall corner geometry (3). Angled view is excellent (5). Interior clearly visible from elevated perspective (3). Some minor perspective distortion on far walls (2). Roof removed cleanly (5). Interior spaces fully visible (3). Clean geometry (2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3). Adjacency relationships are mostly correct, one deck area seems altered (3). Relative room proportions preserved (3). Major room identities match (2). Major wall positions align well (5). Wall lengths are proportional (3). Internal partitions are correctly placed (2). Doors are present and on correct walls, but some are missing in 3D (3). Windows are present but some are stylized/changed (1). Openings are proportionally sized (1)."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture present (4). Kitchen elements present (2). Bathroom fixtures present (2). Furniture placed in correct rooms (3). Furniture scale reasonable (2). Orientation logical (1)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, openings are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some doors and windows from the 2D plan are missing or significantly altered in the 3D model, particularly the small windows in the bathrooms and the door to TOI-4."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The deck area to the East of BED-1 and the entrance section of the foyer leading to HO and TOI-2, and the utility room seem to have modified boundary walls or missing sections compared to the 2D plan, especially the curved wall in the NE deck area."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Some furniture orientations are slightly off or the furniture itself is simplified compared to the 2D, like the dining chairs and some bedroom furniture."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "The conversion demonstrates good 3D transformation with generally accurate geometric layout and well-rendered interior elements, though some minor discrepancies exist in openings and specific wall configurations.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan19.webp"
+}

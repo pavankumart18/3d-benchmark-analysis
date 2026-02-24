@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "The overall footprint is well-maintained. However, the bedroom window is correctly positioned but the balcony access door is missing. The wall separating the kitchen and foyer has been shortened, changing the room's enclosure."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Removed roof and dark background are compliant. Major error: The balcony area is hallucinated as an interior space with a sofa rather than an outdoor balcony. Door openings are missing actual door slabs."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture scale is generally consistent. Hallucination: A second sofa is placed in the balcony niche where it does not exist in the floor plan. The bedroom bed is missing, replaced by an empty space."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly geometry, flat shading, isometric orthographic camera, and neutral dark background are executed correctly."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing bed in the bedroom and missing door slabs in doorframes."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen wall does not fully extend to create the foyer enclosure as shown in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated sofa placed in the balcony area; the balcony is treated as a room extension rather than an outdoor space."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan18.jpg"
+}

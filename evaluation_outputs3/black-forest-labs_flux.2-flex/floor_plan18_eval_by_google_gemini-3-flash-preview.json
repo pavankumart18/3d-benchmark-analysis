@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful conversion to an isometric cutaway model with clear structural depth."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D projection and wall geometry. Minimal distortion in the isometric-like view."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "High fidelity in room adjacency and wall proportions. Some window placements on external walls are slightly modified but accurate to the plan's intent."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture sets (bed, kitchen counters, sink, toilet) are present and correctly placed according to the layout."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Clean lighting and geometry. Points deducted due to text debris (UI contamination) appearing on the 3D floor surface."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Portions of the 2D text labels ('ITCHEN', 'DINING') are rendered directly onto the 3D floor mesh."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "A highly accurate 3D transformation that maintains room proportions and furniture placement while exhibiting minor text rendering artifacts on the floor.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan18.jpg"
+}

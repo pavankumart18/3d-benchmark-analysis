@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric/cutaway 3D model with extruded walls (height + thickness), visible interior volume, and ceiling/roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion and cutaway; corners read as 3D solids. Minor issues: some openings and wall tops are simplified and not consistently detailed."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall arrangement matches (2 bedrooms + central living/dining + kitchen + 2 baths), but balcony/deck areas and some partition placements appear simplified/shifted relative to the 2D plan; door/window placement cannot be verified precisely from the render."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present (two beds, sofa/TV zone, dining table). Bathrooms have fixtures. Kitchen is present but cabinetry/appliance layout is simplified versus the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Readable geometry with clean background and adequate lighting; however, some openings (windows/doors) are not clearly distinguishable, reducing architectural clarity."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Balcony/deck geometry and some internal partition positions appear simplified or shifted compared to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "medium",
+            "description": "Doors/windows are not consistently or clearly represented, making opening placement fidelity to the 2D plan uncertain."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "low",
+            "description": "Kitchen and some built-ins are simplified; not all 2D-specific fixture/cabinet details are carried into 3D."
+        }
+    ],
+    "total_score": 80,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D conversion with solid spatial depth and correct overall program, but with noticeable simplification/uncertainty in decks and opening/partition fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan14.webp"
+}

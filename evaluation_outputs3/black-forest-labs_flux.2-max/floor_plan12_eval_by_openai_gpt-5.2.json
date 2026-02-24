@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible top+side faces, angled/isometric camera, and ceiling/roof removed to expose interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong wall extrusion, readable corners, and clear cutaway. Minor simplification of some wall junction detailing."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "Overall layout matches (activity area + balcony on left, bedroom wing to right, central hall). Some room proportion/partition placement appears simplified, and one bedroom\u2019s identity/furnishing is ambiguous compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Beds and basic living furniture present; bathroom has key fixtures. One bedroom appears under-furnished/unclear versus the 2D plan (missing/unclear bed/robe representation)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean render with good readability of walls/floors/openings. Monochrome materials reduce differentiation of doors/windows slightly but geometry remains clear."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E4-FURN",
+            "severity": "MAJ",
+            "description": "One bedroom (corresponding to Bed 3 in the 2D plan) is not clearly furnished/identified (bed/robe not clearly represented), reducing room identity verification confidence."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MIN",
+            "description": "Some partitions and room proportions appear simplified relative to the 2D plan (linen/robe/bath-WC detailing not perfectly matched)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MIN",
+            "description": "Door/window placement and opening sizes look generally consistent but not exact (some openings appear generalized)."
+        }
+    ],
+    "total_score": 76,
+    "verdict": "GOOD",
+    "summary": "A valid 3D cutaway conversion with strong volumetric walls and broadly faithful layout, but with noticeable simplification and one bedroom\u2019s furnishing/identity not clearly matching the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan12.png"
+}

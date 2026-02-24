@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a successful 3D cutaway transformation with clear geometric depth."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D representation. Walls have proper thickness and height; isometric perspective is well-maintained."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "The garage was incorrectly converted into a primary bedroom, and the study was turned into a bathroom/laundry area. Most other room adjacencies are preserved."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Frequent furniture placement; kitchen and bathroom fixtures are present, though some furniture logic (beds in garages) is flawed."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High rendering quality with soft lighting and clean material application. No UI contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "High",
+            "description": "2-Car Garage incorrectly rendered as a master-sized bedroom."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "Study transformed into a bathroom/tiled utility space."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "An aesthetically high-quality 3D conversion that accurately follows the wall layout but misinterprets the functional purpose of the garage and study.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan9.png"
+}

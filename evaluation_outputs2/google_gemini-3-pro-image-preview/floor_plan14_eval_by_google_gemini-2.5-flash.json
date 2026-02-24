@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout and room adjacency are well preserved. Some minor deviations in wall positions and sizes observed. The 'Foyer' and 'Kitchen' relative sizes seem slightly off, and the 'Utility' room is misrepresented. The patio/deck on the west side of BED-2 appears significantly smaller in the 3D model. The 'Deck' on the north of the Living/Dining room is also smaller, and the one next to BED-1 is completely missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The roof is correctly removed, and interior walls are fully visible. However, the 3D render adds a wall at the corner of the Living/Dining room that is not present in the 2D plan, making a portion of the deck seem enclosed. The deck next to BED-1 is completely missing, and the 'Utility' room is rendered without its external wall (open). There are no text labels, measurements, or legends. The model is well isolated against a dark background, but the shadows extend slightly, not fully floating."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in their correct rooms, including beds, sofas, dining tables, and bathroom fixtures. Kitchen counters and appliances are also represented. However, some specific pieces like the small round tables on the decks, the specific layout of seating on the north deck, and the dresser in BED-1 are missing or altered. The furniture in the 'Utility' room is completely absent from the 3D model as the room itself is misrepresented."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is appropriately low-poly with flat-shaded surfaces and no textures, which aligns with requirements. The lighting is soft ambient with minimal shadows, avoiding harsh contrasts. The camera composition is good, showing a clear, centered view of the model. However, upon closer inspection, the projection is not a true isometric projection, as some parallel lines appear to converge slightly, indicating a mild perspective distortion rather than pure isometric view. The rotation seems to be around 45 degrees, but the perspective issue reduces its score."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Deck next to BED-1 is completely missing in 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "West deck of BED-2 appears significantly smaller in 3D.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated wall at the corner of Living/Dining room, enclosing part of the north deck.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "'Utility' room external wall is missing/open in 3D render.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Minor perspective distortion detected, not a true isometric view.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 77,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render achieves a passing score, demonstrating strong spatial accuracy and structural fidelity, with a suitable aesthetic style, despite minor geometric inaccuracies and a slight perspective distortion.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan14.webp"
+}

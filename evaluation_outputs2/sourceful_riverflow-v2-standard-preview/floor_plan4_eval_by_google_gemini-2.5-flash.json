@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 7,
+            "doors": 8,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is good, but the rendering omits all windows present in the 2D plan. The door swing for the bathroom and a closet are reversed. Some walls are not perfectly aligned with room boundaries (e.g., small segment near living room). Dimensional scaling seems mostly consistent but the lack of windows and minor architectural changes affect true proportionality."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. However, all windows are missing, which constitutes a significant omission. There's a slight hallucination of a wall extension in the bottom right closet area. UI/annotation cleanliness fails due to the presence of text labels and room names in the 2D plan which is the 'ground truth' for comparison, and the rendered 3D image has some subtle textures/shadows, not perfectly clean. The presentation context is nearly perfect aside from the subtle texture."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. Kitchen and bathroom fixtures are also present and generally accurate in placement. Slight discrepancies in the placement of some kitchen counter elements and a table in the bottom right bedroom."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry style is low-poly and uses flat shading, which is good. However, there are subtle textures/gradients on the walls, floors, and furniture, failing the 'solid flat colors only' constraint. Lighting is soft, but there are noticeable shadows, indicating more than minimal shadows. The camera composition is good for isometric view, but the overall presentation is not perfectly clean due to texture effects. The view is not 45 degrees rotated plan view as requested in the rubric, but rather a top-down isometric view."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "All 7 windows from the 2D plan are missing in the 3D render.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom door and smaller bottom closet door swing directions are reversed compared to the plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Minor wall segment extension in the bottom right closet area, not present in the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle textures/gradients on walls, floor and furniture, not solid flat colors.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Generated render contains noticeable shadows which exceed 'minimal shadows' criteria.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "MAJOR",
+            "category": "aesthetic_quality",
+            "description": "Camera view is a top-down isometric, not a 45-degree rotated plan view as specified.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 70,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render accurately captures the general layout and major room adjacencies from the 2D plan, but critically misses all windows and shows minor deviations in door swings and rendering style consistency.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan4.jpg"
+}

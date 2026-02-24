@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "The second image is a 3D-styled top-down render, but the camera is essentially orthographic/straight-down with no meaningful oblique angle; vertical wall faces and interior volume are not perceptible as true 3D space."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Automatic rejection due to pure top-down orthographic view (no angled/isometric perspective), preventing a verifiable 3D spatial transformation."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "fatal",
+            "description": "Pure top-down/orthographic presentation; lacks an angled view needed to confirm true 3D conversion with visible multiple wall surfaces and interior volume."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Rejected because the output is essentially a top-down 3D floor-plan render rather than an angled/isometric cutaway that demonstrates true 3D spatial volume.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan10.png"
+}

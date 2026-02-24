@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful volumetric 3D extrusions based on the 2D layout."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clear thickness, height, and isometric-style perspective."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "High fidelity in layout; however, some windows are resized/merged and the staircase is represented as a solid block rather than detailed steps."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture accurately follows the floor plan placement, including the kitchen island and bedroom desk."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Clean, professional render with logical lighting and consistent materials."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Bathroom/staircase window placement and size differ slightly from original 2D plan representation."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "Staircase geometry is simplified into a flat-top box instead of individual treads as shown in the 2D plan."
+        }
+    ],
+    "total_score": 93,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D conversion that maintains nearly all spatial relationships and furniture placements from the original 2D floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan6.jpg"
+}

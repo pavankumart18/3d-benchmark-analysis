@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is good. Slight errors in wall proportion and thickness, especially the exterior walls. The utility room's shape is slightly distorted in the 3D model. The deck outside BED-1 is missing its curved wall section and a portion of the deck area. The small deck outside BED-2 is missing completely. One missing toilet 'HO' 5'9\" x 7 ' and related walls in 3D. The walls surrounding 'HO' & 'TOI' and the adjacent utility room are not accurate. The bedroom 'BED-4' in the 3D render is significantly smaller than in the 2D plan, impacting relative room sizes."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The 3D render lacks several rooms, including the 'HO' toilet and the small deck outside BED-2. There are no UI elements, but textures are present which are not allowed. The background is dark and the model is isolated, but shadows are cast on a ground plane more than minimal."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms, but the arrangement of some furniture, especially in BED-1, BED-2, BED-3, BED-4, and the living/dining area, does not precisely match the 2D plan. The 'HO' toilet and its furniture are entirely missing. The dining table has 6 chairs in 3D versus 8 in 2D."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 5,
+            "camera_composition": 4
+        },
+        "notes": "The geometry uses simplified forms, but textures are present on floors, walls, and furniture, which is a major violation of the 'solid flat colors only' rule. Lighting is soft ambient, and minimal shadows are acceptable. Camera composition is a true isometric projection with good framing, but the model is not 45 degrees rotated to the image borders."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire toilet room 'HO' (5'9\" x 7') and its walls/door missing, also small deck outside BED-2 is missing.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic materials/textures present on floors, walls, and furniture. Should be solid flat colors only.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Missing entire room 'HO' (toilet and deck).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table has 6 chairs in 3D versus 8 in 2D.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The deck outside BED-1 is missing its curved wall section and a portion of the deck area. The utility room's shape is slightly distorted.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom 'BED-4' is significantly smaller in 3D render than 2D plan affecting relative room size.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 68,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits good overall spatial accuracy and cutaway view, but significant deductions were made due to missing rooms, the use of textures, and various geometric inaccuracies, leading to a FAIL verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan19.webp"
+}

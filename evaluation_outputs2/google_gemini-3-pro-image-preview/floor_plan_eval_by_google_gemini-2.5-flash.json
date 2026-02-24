@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 1
+        },
+        "notes": "Layout topology is mostly preserved, but the overall footprint is slightly distorted, especially the top-right corner. Wall geometry has some misalignments, particularly in the kitchen/dining area and the bathroom next to Monica's bedroom. All visible doors are present, and their placement is generally correct, though swing directions are not clearly indicated and are assumed to be consistent. All windows are present and correctly placed. Dimensional scaling is inconsistent, leading to some aspect ratio distortion of the overall shape."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view is compliant with the roof removed and interior walls visible. Completeness is good, with all major rooms and structural elements visible. No major hallucinations of rooms or architectural features were found. However, there are UI/annotation elements present from the original plan such as the 'CLOSET' label and the arrow indicating 'CHANDLER & JOEY'S APARTMENT', which should be absent in the 3D render. The presentation context is fair, with a dark background and the model appearing isolated, but there's a subtle ground plane/shadow that could be more abstract."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 5
+        },
+        "notes": "All major furniture pieces, kitchen fixtures, and bathroom fixtures are present and in their corresponding locations. The scale of the furniture appears appropriate relative to the rooms. Block-style abstractions are observed and accepted."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry style is low-poly and uses flat-shaded surfaces with solid colors, which is compliant. There are no textures, but some slight non-uniformity in surface color suggests very subtle gradients or materials. Lighting is soft ambient with minimal shadows, but some dramatic contrast is present at the edges and in shadowed areas. The camera composition is fair, it is a 45-degree rotated plan view, centered and zoomed appropriately. However, it exhibits some perspective distortion (not a true isometric projection)."
+    },
+    "detected_errors": [
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric view; perspective distortion is evident, parallel lines converge slightly.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('CLOSET', 'CHANDLER & JOOY\\'S APARTMENT' arrow) and other UI elements are present in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint shape is slightly distorted, especially the top-right corner, and some wall alignments are off causing slight aspect ratio distortion.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting has some areas of noticeable contrast and possible subtle material properties, rather than strict flat shading.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Subtle ground plane/shadowing that extends slightly, could be more isolated.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 73,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural fidelity, with a good mapping of furniture, but suffers from critical errors in UI cleanliness (presence of text) and camera projection (not truly isometric), along with minor aesthetic deviations.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan.jpg"
+}

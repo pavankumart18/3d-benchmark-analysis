@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved. However, the wash/toilet area layout is slightly distorted with the addition of extra partition walls not in the original plan. Window placement in the living area and dining room varies slightly from the 2D reference."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent removal of roof and clean dark background. Loss of points for reinterpreting the entrance mudroom/foyer walls and adding a solid wall where the stairs should be more open."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "High adherence to furniture placement. Kitchen cabinets, bedroom wardrobes, and living room seating correlate well with the 2D plan indicators."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Perfect isometric angle and low-poly aesthetic. Slight deduction for minor textural hints on the wooden floors and somewhat realistic soft shadow cast, though it remains within simple shading bounds."
+    },
+    "total_score": 86,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The wash area and toilet partitions are slightly misplaced/resized compared to the 2D grid."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated extra door/partition near the entrance foyer and stairs."
+        },
+        {
+            "code": "E2",
+            "description": "Window proportions in the dining room do not match the wide window indicated in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan7.jpg"
+}

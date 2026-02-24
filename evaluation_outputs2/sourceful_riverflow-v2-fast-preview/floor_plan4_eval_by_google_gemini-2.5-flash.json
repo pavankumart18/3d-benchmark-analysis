@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "Overall layout is highly accurate. Wall geometry is good with minor deviations. All doors are present, but one swing direction is incorrect. Most windows are present, but a few are missing. Dimensional scaling is inconsistent, leading to some aspect ratio distortion, particularly noticeable in the bathroom and kitchen areas. The closets' internal geometry also appears slightly off."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is correct, no missing structural elements, and no hallucinated architectural features. However, the UI/Annotation Cleanliness is 0 due to visible text from the original floor plan on the generated render. Presentation context shows a ground plane and some shadows beyond the model, deviating from the strict requirements."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major furniture pieces are present and in the correct rooms. Kitchen and bathroom fixtures are also present. Furniture placement is generally accurate, but some items (e.g., bathroom vanity, closet shelving) are slightly off in position or scale."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is excellent, meeting low-poly, flat-shaded, and no texture requirements. Lighting and rendering are good, with soft ambient light and distinguishable colors, but shadows are slightly more pronounced than 'minimal'. Camera composition is close to true isometric, but the rotation seems slightly off from 45 degrees, making the vertical lines of the walls not perfectly parallel to the image edges, and the overall perspective feels slightly skewed, suggesting it might not be a true 45-degree rotated isometric view."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text from original floor plan is visible on the generated render in the bottom left, leading to 0 points for UI/Annotation Cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are slightly more pronounced than 'minimal' and a ground plane is visible with shadows extending beyond the model, affecting Presentation Context.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The door swing for the bathroom door is incorrectly depicted. The plan shows it swinging into the bathroom to the right of the entrance, while the render shows it swinging to the left into the hall.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The two windows on the north wall of the living room are missing. There are also two small windows on the north wall of the kitchen/dining area that are not present. The window in the Laundry room is also missing. The two windows in Bedroom 2 are also missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Dimensional scaling appears inconsistent, particularly affecting the aspect ratio of the bathroom (appears slightly wider/shorter than proportionally expected) and the kitchen counter depth.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bathroom vanity and toilet placement are slightly off relative to the plan. Internal closet shelving also deviates from the plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera composition: while mostly isometric, the rotation seems slightly off from a perfect 45-degree plan view, causing some minor visual skew and affecting 'Camera & Composition' score.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 78,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural fidelity, with a consistent geometry style. However, critical errors in UI cleanliness due to visible text and some inconsistencies in dimensional scaling and window presence prevent a higher score. Minor issues include incorrect door swing, slight camera rotation inaccuracy, and some furniture/fixture placement discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan4.jpg"
+}

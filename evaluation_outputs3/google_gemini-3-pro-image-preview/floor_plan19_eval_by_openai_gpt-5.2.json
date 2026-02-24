@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a cutaway/isometric 3D model with extruded walls (height + thickness), visible floor plane, and an elevated angled viewpoint exposing interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear 3D extrusion, readable corners, and clean cutaway. Minor simplification of some wall tops/edges and openings (doors) reduces realism slightly."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency broadly match (4 bedrooms, central living/dining, kitchen/utility zone, multiple toilets, deck/balcony). Some proportional/corridor/partition placements appear simplified, and not all openings align unambiguously with the 2D plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (beds in multiple rooms, living seating, dining table). Kitchen modeled with counters/island-like elements. Bathroom fixtures are present but simplified and not consistently detailed across all toilets."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean presentation and readable wall/floor separation. Lighting is neutral and does not obscure geometry. Materials are simple/consistent; some openings (doors) are ambiguous due to minimal door geometry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Some layout fidelity issues: certain internal partitions/circulation widths and room proportions appear simplified versus the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/openings are not consistently represented with clear door geometry (swings/leaves), making exact door placement verification weaker."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Bathroom/kitchen fixtures are partially simplified; not every wet area shows complete fixture detail corresponding to each labeled toilet in the 2D plan."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Minimal material/texture variation slightly reduces structural legibility of specific elements (e.g., differentiating some partitions and openings)."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D conversion with strong overall layout correspondence, but with some simplified internal partitions and less-verifiable door/opening specifics.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan19.webp"
+}

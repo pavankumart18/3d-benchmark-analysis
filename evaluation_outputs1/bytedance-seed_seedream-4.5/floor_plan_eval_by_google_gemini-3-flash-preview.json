@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Excellent room adjacency and wall alignment. Most door placements are accurate. However, the window on the far right wall (adjacent to the entrance) is missing. The proportions of the bedrooms are slightly narrower than the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "While the floating model on a dark background is correct, there is a severe violation of the 'no text' constraint. Large labels (bedroom names, apartment pointer) were hallucinated directly onto the 3D geometry."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture layout is highly accurate to the source material including the specific placement of rugs, kitchen appliances, and bathroom fixtures. Points deducted for minor scaling issues (the dining set feels small)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent isometric orthographic perspective and low-poly aesthetic. The lighting is slightly more dramatic than 'flat shading' with some glowing window effects, but fits the clean style."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Severe UI/Text overlay violation: Labels like 'Rachel's Bedroom' and 'Closet' are rendered directly onto the 3D model floor and walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing window on the east wall near the Chandler & Joey's apartment entrance."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting violation: Use of warm emissive lights in the lower exterior windows and soft shadows exceeds strict flat-shading requirements."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan.jpg"
+}

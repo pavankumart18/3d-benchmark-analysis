@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible floor plane, angled/isometric camera, and ceiling/roof removed to reveal interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable room volumes; clean cutaway with multiple wall faces visible. Minor simplification and a few wall/edge terminations look slightly non-architectural."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "Overall footprint and garage placement are broadly similar, but several plan-defined spaces (kitchen/laundry/balcony/WC separation) are simplified or not clearly represented; some internal partitions/door placements do not convincingly match the 2D plan."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Bedroom and lounge-like furniture present; bathroom has minimal fixtures. Kitchen, laundry, and second-bedroom cues are weak/absent or not identifiable, reducing room identity fidelity."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean render with good legibility of walls/floors/openings; lighting is adequate. Some openings/doors are simplified and a few areas are sparse, making room-function inference harder."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Interior layout fidelity is reduced: kitchen/laundry/balcony and WC/bath differentiation from the 2D plan is not clearly preserved in the 3D model."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placements and/or counts appear simplified and may not align with the specific walls/openings shown in the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Key program furniture/fixtures (notably kitchen and laundry elements) are missing or insufficient to confirm correct room identities."
+        }
+    ],
+    "total_score": 67,
+    "verdict": "PASS",
+    "summary": "This is a valid 3D cutaway conversion with good volumetric rendering, but it only moderately preserves the 2D plan\u2019s detailed room layout and openings (notably kitchen/laundry/balcony and WC/bath definition).",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan13.jpg"
+}

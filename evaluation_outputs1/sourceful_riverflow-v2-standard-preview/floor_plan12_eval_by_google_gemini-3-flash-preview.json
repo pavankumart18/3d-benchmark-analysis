@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is correct and adjacency is maintained. However, the door to the 'Activity' area is missing. The proportions of the hallway/lobby leading to the bedrooms are slightly exaggerated compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent structural fidelity. No text or UI elements present. Roof is correctly removed, and the model is floating on a dark background as required."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is well-placed and scaled, but there is a hallucination of a TV and stand in the Activity room not shown in the plan. Robe/closet doors are rendered as standard doors rather than block outlines."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly, flat shading, clean isometric camera angle, and no photorealistic textures."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry door transition from the staircase landing to the Activity room."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated TV and media console in the Activity room that was not present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "The Robe (wardrobe) sections are interpreted as walk-in rooms with standard doors rather than built-in closets."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan12.png"
+}

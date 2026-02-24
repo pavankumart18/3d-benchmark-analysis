@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is good, but several wall misalignments and minor door/window placement issues. The 'Closet' next to the living room appears to be merged into the kitchen or hallway. The 'Coat' closet layout is simplified and the sink in the bathroom next to Rachel's bedroom is missing."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 2,
+            "presentation_context": 5
+        },
+        "notes": "The model has a minor completeness issue with the 'Closet' (next to living room) being integrated incorrectly. There are subtle shadows present which slightly deviate from the 'minimal shadows' policy. The UI/Annotation cleanliness is not perfect, as slight shadows are present."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and appear to be in the correct rooms. Some minor fixtures, like the 'Coat' closet sink and the sink in the smaller bathroom adjacent to Rachel's bedroom, are missing or simplified. The closet next to the living room is not represented as a distinct space, and its internal furniture is missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style is mostly low-poly with flat shaded surfaces, but there are some minimal textures/gradients, particularly on windows and perhaps some furniture, which deviates from 'solid flat colors only'. Lighting is ambient but there are visible soft shadows, which while not dramatic, are more than 'minimal shadows'. The camera is true isometric and well-composed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Closet' room (next to the living room) is not represented as a distinct room; its space appears to be absorbed by the adjacent hallway/kitchen, leading to simplification of its internal layout.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several wall placements are slightly off. For example, the wall between the kitchen and the 'Closet' area (merged into kitchen) is not consistently aligned. The 'Coat' closet wall is simplified.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "The sink in the smaller bathroom adjacent to Rachel's bedroom is missing. The fixtures within the 'Coat' closet are highly simplified/missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Windows show slight texture or gradient. Furniture materials have some subtle reflectivity or texture, not strictly solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are present, which are more than 'minimal' as specified, implying more directional lighting than purely ambient.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 78,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render provides a generally accurate translation of the 2D floor plan, with good structural fidelity and isometric composition, though minor wall misalignments, some missing fixtures, and slight deviations in rendering style (textures/shadows) prevent a higher score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan.jpg"
+}

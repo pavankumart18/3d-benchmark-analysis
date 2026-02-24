@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image shows extruded walls with thickness, visible side faces, and a cutaway (no roof/ceiling). View is slightly angled but close to top-down."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes. View is only mildly isometric (near top-down), reducing depth cues. Cutaway is clean with mostly continuous wall geometry."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room layout matches well (living/dining central, kitchen bottom-center, bedrooms on left/top/right, toilets clustered similarly, deck at top). Some proportional/partition simplifications and minor deviations in opening placement/extent."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present (beds, sofa, dining table), kitchen counters/appliances represented, and bathroom fixtures visible. A few elements appear simplified/blocky but room assignment is largely correct."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Walls/floors/openings are distinguishable and the model is readable. Lighting is adequate with minimal artifacts; some areas are slightly flat due to the near-orthographic camera."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Several doors/windows/opening widths and placements appear simplified and may not precisely match the 2D plan (some openings look resized or shifted)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Minor proportional differences in a few internal partitions/room extents (overall adjacency correct, but some wall runs and room depths look slightly altered compared to the 2D plan)."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway is produced with largely faithful room layout and furnishings, but the camera is near top-down and some openings/partition proportions deviate from the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan19.webp"
+}

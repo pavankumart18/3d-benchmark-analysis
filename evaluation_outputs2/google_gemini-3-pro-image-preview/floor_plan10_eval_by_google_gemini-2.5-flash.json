@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout and room adjacencies are well preserved. Minor wall misalignments and scaling inconsistencies observed in few areas. The 'Pantry' area seems to be merged with kitchen leading to a larger kitchen space. The 'Activity' room is missing some of its left wall. The 'Verandah' area is truncated."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 4,
+            "hallucination_control": 5,
+            "ui_cleanliness": 3,
+            "presentation_context": 3
+        },
+        "notes": "Cutaway view is perfect. No missing structural elements but 'Pantry' room is effectively missing as a separate entity. UI/Annotation cleanliness fails due to text on doors. Presentation context is decent but not a pure dark neutral background and some shadows are present."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in generally correct locations. Some discrepancies: no laundry machines, no clothes in robes, no desk in 'Desk Recess' of Bed 3 and Bed 4. The kitchen layout is significantly different due to the missing pantry. Bathroom fixtures are largely good. The 'Recess' in the living room is empty and does not match the plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly and flat-shaded geometry are well maintained. No textures are present, adhering to the requirement. Lighting is soft, but shadows are a bit more pronounced than 'minimal'. Camera composition is good, with true isometric projection and centered framing."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Pantry room, as a distinct space, appears to be merged into the kitchen area, leading to a larger kitchen than indicated on plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Activity room left wall is incomplete, creating an open space to the outside instead of a closed room.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Verandah area in the 3D model is shorter than in the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Door textures contain text labels (Bathroom, WC, Ensuite, Laundry, WIR, Pantry, Linen, Robe, etc.)",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing laundry machines in the laundry room.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "No desks in the 'desk recess' areas for Bed 3 and Bed 4.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "The kitchen island and associated furniture do not match the 2D plan due to the merged pantry space.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 82,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains the structural integrity and layout of the 2D floor plan with good geometric and aesthetic compliance, though some critical minor errors regarding text and slight architectural deviations were noted.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible interior volume, angled/isometric camera, and ceiling/roof removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable wall/floor separation; corners and wall tops are coherent. Minor simplification of some junctions and openings."
+        },
+        "geometric_accuracy": {
+            "score": 17,
+            "max": 30,
+            "notes": "Major zones (central hall, kitchen, dining, breakfast area, stair/entry zone) broadly correspond, but small service rooms from the plan (WC, utility, pantry/crawl access area) are not clearly represented or are merged/simplified; several internal partitions/opening locations appear shifted."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Dining table and kitchen casework/island are present and plausibly scaled. Bathroom/utility fixtures from the 2D plan are missing/not identifiable."
+        },
+        "visual_clarity": {
+            "score": 12,
+            "max": 20,
+            "notes": "Clean render with distinguishable walls/floors/windows, but text labels on the floor reduce presentation quality and can distract from geometric verification."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Service-core layout fidelity issue: WC/utility/pantry/crawl access regions shown in 2D are not clearly modeled as distinct rooms, suggesting merging/omission and partition misplacement."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/opening placement and count do not consistently match the 2D plan (some openings appear relocated or simplified)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Missing bathroom/utility fixtures and related interior elements that would help confirm room identities."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text labels embedded in the 3D image contaminate presentation and reduce clarity scoring."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "This is a valid 3D cutaway conversion with strong volumetric modeling, but it only moderately preserves the 2D plan\u2019s detailed service-room geometry and opening placement.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan11.png"
+}

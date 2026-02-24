@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall footprint and room count are correct. However, multiple wall segments are notably thicker than depicted in the 2D plan, especially around the kitchen and hallway bathrooms. The wall separating the kitchen from the hallway is significantly thicker. The door swing for the bathroom accessible from Monica's bedroom is incorrect. A small closet is missing next to the coat closet. The balcony/outdoor area on the right seems to have additional, hallucinated walls, and the large window structure is misrepresented."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is compliant. However, several minor structural elements (small closets, shelving in bathrooms) are missing. There are also hallucinated walls/structure around the large window in the living room and the balcony area. The 2D plan features extensive text, but the 3D render successfully eliminates it."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture items are present. However, the kitchen countertop and island layout are significantly different and simplified. The bathroom layouts are also simplified with some fixtures placed differently or missing (e.g., the sink in the bathroom next to 'Rachel's Bedroom' appears to be a double vanity in 3D but single in 2D, or the placement is off). The dining table chairs are too many compared to the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style correctly uses low-poly simplified forms with flat shading and solid colors. There are no textures. Lighting is soft and ambient with minimal shadows, though the color palette is quite monochromatic. The camera composition achieves a true isometric projection with appropriate framing and zoom. The color choice for the walls and floors being so similar can make distinguishing features slightly harder."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Portions of internal walls appear significantly thicker than in the 2D plan, notably the wall separating the kitchen from the main hallway, and walls around the bathrooms near Rachel's Bedroom.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "A small closet/storage area next to the 'Coat Closet' in the main hallway is missing in the 3D render.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The door swing direction for the bathroom accessible from Monica's Bedroom is incorrect.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated structural elements, specifically additional walls around the large window/balcony area in the living room.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen counter and island layout differs significantly and is simplified; some bathroom fixtures are either missing, misrepresented (e.g., double vanity instead of single), or misplaced.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural fidelity, producing a clear isometric representation of the floor plan. However, there are minor inconsistencies in wall thickness, furniture layout, and the interpretation of minor structural details.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan.jpg"
+}

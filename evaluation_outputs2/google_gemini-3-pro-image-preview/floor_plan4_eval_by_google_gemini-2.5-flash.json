@@ -1,0 +1,109 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology generally preserved, but Bedroom 2 has a significant layout change and an extra closet. Wall geometry has minor misalignments, particularly around the kitchen/laundry area and the main entrance. Some doors have incorrect swing directions or are slightly misplaced. All 9 large windows from the plan are present, but their sizes are not always proportional. The two small windows in the Hallway closet and Bathroom closet are missing. Consistent scaling appears to be applied."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "Cutaway view is good, with the roof completely removed. Completeness suffers from missing two small windows as previously noted. Hallucination includes an extra closet in Bedroom 2 and some minor wall changes. UI/Annotation Cleanliness is poor due to the presence of material textures. Presentation context is decent, but some mild ground reflection and not perfectly isolated render."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        }
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style uses low-poly forms but has visible textures on furniture, walls, and floors. Lighting is soft but produces noticeable shadows, which is acceptable. Camera composition is a good isometric view at the correct 45-degree angle, but the framing could be tighter without cutting off the main entrance."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom 2 layout significantly altered, including an extra closet not present in the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Two small closet windows (Hallway closet, Bathroom closet) are missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Laundry room door swing direction is incorrect.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom door swing direction is incorrect.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Hallway door to Living Room swing direction is incorrect.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Textures/materials used on walls, floors, and furniture. Walls have a slight texture/specular finish. Furniture has distinct materials.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing a small table in the Hallway.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing small plant in Kitchen/Dining corner.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 62,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render provides a good overall representation of the 2D floor plan but struggles with detailed spatial accuracy, particularly in Bedroom 2's layout and window count. The use of textures on surfaces is a critical violation of aesthetic guidelines.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan4.jpg"
+}

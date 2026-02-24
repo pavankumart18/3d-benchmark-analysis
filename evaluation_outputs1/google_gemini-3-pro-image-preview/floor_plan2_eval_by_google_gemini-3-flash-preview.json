@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General structure and adjacency are maintained. However, the thickness of walls and the deletion of actual door geometry (replaced by open gaps) distort the exact alignment. Proportions of the kitchen area are slightly compressed compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent compliance with roof removal and floating model constraints. No text or UI elements present. Minor deduction for the removal of door leaf geometry which was indicated in the source plan and the conversion of the entrance into a simple cutout."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Clean block-style furniture is used. Almost all elements (sofas, beds, dining set, rug/rads) are mapped correctly. One minor hallucination/misplacement: the desk in the top right room is oriented differently than the architectural symbols suggest."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High adherence to style. Low-poly geometry and flat shading are used. Isometric perspective is accurate. Lighting is soft and professional without being photorealistic."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing physical door leaves; only wall openings are present."
+        },
+        {
+            "code": "E2",
+            "description": "Top right desk orientation is rotated 90 degrees clockwise compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "The wall dividing the living room and kitchen is shortened/merged, losing the distinct nook for the sofa."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan2.png"
+}

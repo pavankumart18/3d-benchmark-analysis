@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant layout deviation. The 3D model incorrectly adds a third bedroom at the bottom right where there should be a foyer/entrance. The kitchen boundary is poorly defined, and the relative positions of the bathroom and balcony have been altered."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Complies with technical layout requirements (roof removed, dark background, no text). However, it fails on structural interpretation by hallucinating a large bedroom suite in place of the entrance foyer and utility zone."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Block-style furniture is used and the sofa/dining table placement is generally correct, but extra beds are added to non-existent rooms, and the kitchen fixtures are oversimplified/misplaced."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "The model perfectly adheres to the aesthetic style: clean low-poly geometry, flat shading, no textures, and a perfect isometric orthographic camera angle."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated a third bedroom in the bottom right corner replacing the foyer/entrance area."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and Utility area layout is distorted and fails to represent the L-shaped counter and separation."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific door indicators and wall breaks corresponding to the 2D plan entrance."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan14.webp"
+}

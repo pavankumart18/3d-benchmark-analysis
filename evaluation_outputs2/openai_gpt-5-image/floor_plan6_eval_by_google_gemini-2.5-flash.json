@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall layout and room count are preserved, but the scaling of rooms for the bathroom and stairs is slightly off. The wall separating the bedroom from the bathroom is thicker in the 3D model than in the 2D plan, impacting the bedroom's perceived size. The kitchen/living area also appears slightly compressed compared to the 2D plan. Stair geometry is incorrect. Plan indicates a single bedroom, while the 3D model shows what appears to be a study area or second bedroom where a terrace should be on the plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 5,
+            "presentation_context": 4
+        },
+        "notes": "The cutaway view is compliant. However, there are missing external elements from the 2D plan like the outdoor planters/terrace area on the left side, and a window feature on the right side of the plan (above stairs). Hallucinated a second bedroom/study area where a terrace should be. Shadowing indicates a subtle ground plane, but presentation is generally good."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major furniture pieces are present and in the correct rooms (bed, dining, living room set, kitchen counters, bathroom fixtures). Kitchen appliances (stove, sink) are present. Bathroom fixtures appear accurate. Missing the sofa in the 'Bedroom' area (upper right of plan) and the dresser next to the bed in the bedroom, which was replaced by a nightstand. Furniture placement and scale are mostly appropriate, with some minor positional discrepancies."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly style with flat shaded surfaces and solid colors is well-executed. There are no textures evident. Lighting is ambient but casts subtle shadows, indicating perhaps more than just flat shading, but it\u2019s not overly dramatic. Colors are distinguishable. The camera is truly isometric, correctly rotated, centered, and zoomed appropriately."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire outdoor terrace/planter area missing from the left side of the house plan, significantly altering the structure.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated an entire room (second bedroom/study) where a large window or potential outdoor area (balcony/terrace) was indicated next to the stairs in the floor plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom/stair area wall geometry significantly altered. The wall separating the bedroom from the bathroom is thicker, impacting bedroom size, and the stairwell does not match the plan's geometry or opening.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Sofa missing from the 'Bedroom' area indicated in the plan (upper right corner) and a dresser next to the bed is missing, replaced by a nightstand. A plant is added that was not explicitly on the plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some interior walls appear thicker than implied by the 2D plan, slightly altering perceived room dimensions.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 79,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render mostly maintains the layout and key features of the 2D floor plan, with good aesthetic and technical quality, but suffers from some major structural hallucinations and geometric inaccuracies in wall and stair placement.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan6.jpg"
+}

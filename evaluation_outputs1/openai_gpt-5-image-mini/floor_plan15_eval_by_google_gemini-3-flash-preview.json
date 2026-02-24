@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "General layout of 3 bedrooms is maintained, but major scaling and alignment errors exist. The hallway passage on the left is severely shortened, causing the M.Bedroom toilet area to be distorted. Window placement in the far right bedroom is incorrect compared to the plan (window should be on the side wall, not back)."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Missing the Master Bedroom balcony entirely. The utility area next to the kitchen is misinterpreted as low walls rather than an enclosed space. The separate toilet near the entrance (P.Toilet) is missing its door and enclosure logic. Dark background and roof removal achieved."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is appropriately blocky but placement is mixed. The dining table is correctly near the entrance but missing chairs on one side. The living room sofa orientation is correct, but a TV stand has been hallucinated where there is no wall in the plan. Kitchen counters are oversimplified."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints. Perfect low-poly, flat-shaded aesthetic with a correct isometric orthographic camera angle. No textures or photorealism present."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing the balcony attached to the Master Bedroom and the specific utility room walls."
+        },
+        {
+            "code": "E2",
+            "description": "Shortened the horizontal passage, resulting in dimensional distortion of the left-wing layout."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a TV console and a structural wall in the center of the living room that does not exist in the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window in Bedroom-2 moved from right-side wall to rear wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan15.webp"
+}

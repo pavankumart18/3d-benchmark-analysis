@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General wall alignment and room adjacencies are mostly preserved. However, the pantry and kitchen island proportions are squashed compared to the 2D plan. Door swings are missing or incorrectly represented by simple gaps, and the Alfresco door to the Living area is missing."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Roof is correctly removed and the model floats on a dark background. Points deducted for failing to represent the internal door to the garage and the distinct master ensuite layout (merged into the master suite area without clear partitioning)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Block-style furniture is used effectively. Missing critical items such as the external Alfresco table and the bathroom/ensuite fixtures (toilets and showers) are represented by empty voids or generic blocks."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Outstanding adherence to aesthetic constraints. Near-perfect low-poly, flat-shaded style with soft ambient lighting and an accurate isometric orthographic perspective."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing bathroom fixtures (toilets/showers) and specific laundry equipment."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island and Pantry dimensions are significantly compressed relative to the Living area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the Alfresco dining set and sliding door between Alfresco and Living."
+        },
+        {
+            "code": "E4",
+            "description": "Study contains a bed, hallucinating it as a bedroom compared to the 2D layout label."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan10.png"
+}

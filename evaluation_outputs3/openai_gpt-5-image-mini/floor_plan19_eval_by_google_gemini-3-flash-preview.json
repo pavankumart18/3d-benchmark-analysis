@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful 3D axonometric projection with clear wall thickness and cutaway treatment."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent height/thickness and clean cutaway geometry. Minimal perspective distortion."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Major layout is recognizable, but significant exterior features (Decks/Balconies) are omitted. Room adjacencies for Bed-3/Bed-4 and bathroom locations have been simplified or merged."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture types correctly identified and placed in corresponding zones. Scale is consistent."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean rendering style. Consistent material usage. Lack of text labels allows for high clarity."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Both external 'Deck' areas from the original plan are completely missing from the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Internal wall geometry in the bottom-right bathroom/utility zone is simplified and missing several partitions."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D transformation that preserves the core interior layout and furniture logic, though it omits exterior balcony spaces.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan19.webp"
+}

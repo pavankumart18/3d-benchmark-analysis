@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint is correct, and all rooms are present, but their relative sizes and positions are significantly distorted. The 'ENTRANCE' area wall is completely missing. The kitchen/dining room wall is not straight. The bathroom dimensions seem off proportion. The staircase area is completely different in size and layout. Rearrangement of walls in the living/dining area as well."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 1,
+            "hallucination_control": 1,
+            "ui_cleanliness": 1,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view is partially compliant but there's a ceiling fragment over the staircase. Completeness is poor due to major structural element changes, specifically the staircase, and general wall inaccuracies. Hallucination includes the significantly altered staircase area and general wall layouts. UI cleanliness failed due to presence of text in the original. The background is acceptable, but there is some implicit shadow on the ground plane."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Furniture presence and placement are very poor. The original plan shows only kitchen appliances, bathroom fixtures, and a staircase. The 3D model adds significant furniture not present in the 2D plan, and the kitchen layout is entirely different. The bathroom fixtures also differ. The staircase is represented by furniture, not structural elements, and its layout is completely different."
+    },
+    "aesthetic_quality": {
+        "score": 11,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style uses simplified forms, but there are some visible artifacts/blurry textures. The lighting is soft ambient but creates some noticeable shadows that appear too strong in some areas. Colors are distinguishable. The camera is not a true isometric projection (appears to be a perspective view with a distant camera) and the rotation is slightly off the specified 45 degree plan view."
+    },
+    "detected_errors": [
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not isometric view; perspective distortion is evident.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Floor plan text 'SAMPLE FLOOR PLAN', 'KITCHEN', 'DINING ROOM', 'LIVING ROOM', 'BATHROOM', 'ENTRANCE', and dimensions '16' x 12'', '3' x 2'', '13' x 24''' are present in the source image to be evaluated for UI cleanliness, but text is not present in the generated 3D. The text reference is from the 2D blueprint in the prompt to evaluate the 3D, and the 3D output does not have any text on it, so it should be full score for the generated 3D image.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant discrepancies in wall positions and layout, particularly the 'ENTRANCE' area, kitchen-dining wall, and the entire staircase 'BATHROOM' area. Hallway leading from staircase is non-existent vs 2D.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Hallucination of significant furniture items (sofas, tables, additional kitchen elements) not present in the 2D plan. Staircase represented by furniture.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom and kitchen relative sizes and proportions are distorted.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 39,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, exhibiting significant spatial distortions, erroneous furniture additions, and a non-isometric camera view, despite a clean UI.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan3.jpg"
+}

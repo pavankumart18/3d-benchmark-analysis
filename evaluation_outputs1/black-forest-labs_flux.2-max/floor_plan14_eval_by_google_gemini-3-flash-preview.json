@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but there are distortions in the foyer and kitchen area. Door swings are inconsistent, and the entrance foyer length is shortened relative to the plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Model correctly sits on a neutral dark background with roof removed. However, there is some structural reinterpretation near the utility balcony and minor geometric artifacts on external edges."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Clean block-style furniture is used. Beds and sofas are accurately placed. There is a slight hallucination of an extra tall white dividing element near the dining table not found in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded aesthetic. Camera is correctly isometric. Lighting is soft and non-dramatic as requested."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated vertical divider/pillar introduced between the dining and living area."
+        },
+        {
+            "code": "E2",
+            "description": "The foyer area (entrance) is compressed and lacks the specific geometric corner return shown in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter geometry is simplified and doesn't perfectly match the L-shape proportions of the technical drawing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan14.webp"
+}

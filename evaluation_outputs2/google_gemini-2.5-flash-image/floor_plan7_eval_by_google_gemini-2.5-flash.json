@@ -1,0 +1,75 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "All rooms are present, and their adjacencies are preserved. Room sizes and the overall footprint are maintained. Wall positions are accurate but the line for the entrance to the house is missing in 3D. All doors are present, but the swing direction for the main entrance door is not clearly represented, and the door to the toilet has no swing indicated, making it hard to verify. All windows are present and correctly placed. The model exhibits consistent scaling and no aspect ratio distortion."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The roof is completely removed, and interior walls are fully visible. No rooms or structural elements are missing. There are no extra rooms or invented architectural features. However, the 'UP' text for the stairs is present, and the 'Living Room' label is also present in the 3D render. The background is dark neutral, and the model appears isolated without an infinite ground plane."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 5
+        },
+        "notes": "All major furniture pieces (dining table, chairs, bed, sofa, armchairs) are present. Kitchen fixtures (counters, stove, sink) and bathroom fixtures (toilet, sink, shower) are present. Furniture placements generally match the 2D plan, and their scales are appropriate to the room sizes. Minor discrepancies in exact placement are within tolerance."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The model uses low-poly simplified forms with flat-shaded surfaces and clean edges. No textures are present, only solid flat colors. Lighting is soft and ambient with minimal shadows, and colors are distinguishable. The view is a true isometric projection with a 45\u00b0 rotated plan view, centered framing, and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('UP' for stairs, 'Living Room') are present in the 3D render, automatically resulting in 0 points for UI/Annotation Cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The exact swing direction of the main entrance door is not clearly represented, and the toilet door lacks an indicated swing, preventing full verification.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The line indicating the 'Entrance to the House' on the exterior wall is missing in the 3D render, although the wall itself is present.",
+            "point_deduction": 0
+        }
+    ],
+    "total_score": 93,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render is highly accurate in spatial and structural fidelity, with a few minor discrepancies in door swing representation and the presence of text labels causing deductions, but excellent aesthetic and mapping quality resulting in a strong pass.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan7.jpg"
+}

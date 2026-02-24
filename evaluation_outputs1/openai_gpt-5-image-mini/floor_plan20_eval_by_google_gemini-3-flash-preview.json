@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout discrepancies: The L-shaped entrance lobby and home office/maid's room configuration is completely lost. Window and door placements are generalized rather than following the blueprint's specific locations. The utility and multiple toilet layouts have been merged into simplified rooms."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Adheres to the floating model constraint with roof removed and dark background. However, it fails on structural fidelity because it hallucinates a simplified square footprint, losing the complex perimeter notches and specific balcony placements from the plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic furniture types (beds, tables, sofas) are present, but their mapping is inaccurate. For example, Bedroom 1's orientation is flipped, and the complex seating in the living room is replaced with generic blocks."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent adherence to style. Perfectly executes the low-poly, flat-shaded, non-photorealistic aesthetic. The isometric camera angle and neutral palette are exactly as specified."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific bathroom/toilet partitions (Toilets 1, 3, and 4 are merged or omitted)."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen and utility area layout is significantly distorted compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a generic square apartment shell, ignoring the specific indented architecture of the original plan."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance lobby and Maid's room/Home Office at the bottom left are incorrectly integrated into the main living space."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan20.avif"
+}

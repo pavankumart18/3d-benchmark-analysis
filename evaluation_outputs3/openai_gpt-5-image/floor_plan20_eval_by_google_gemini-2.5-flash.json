@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows height and thickness for walls, an angled view, and a cutaway roof exposing the interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5). Floors are clear (3). Interior volume is perceivable (4). Proper 3D wall corner geometry (3). Angled view (5). Interior visible (3). Minimal severe perspective distortion (2). Roof removed cleanly (5). Interior spaces fully visible (3). Clean geometry (2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3). Correct adjacency (4). Relative room proportions preserved (3). Major wall positions align (5). Wall lengths proportional (3). Internal partitions correctly placed (2). Doors are present on correct walls (4). Balconies are present, but windows are only partially represented (1)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (4). Kitchen elements present (2). Bathroom fixtures present (2). Furniture placed in correct rooms (3). Furniture scale reasonable (1). Orientation logical (0), as some furniture orientations are off (e.g., bed in Bedroom 3, dining table)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, openings clearly distinguishable (4). Geometry readable (4). Interior clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background (0) as it's a solid, dark background, which is fine, but the original request implies white/clean for full score."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some windows are missing from the 3D render that are indicated in the 2D plan, for example, the window in Bedroom-1 and Bedroom-2."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Some furniture orientations are incorrect compared to the 2D plan (e.g., bed in Bedroom-3 is rotated, dining table rotated). Furniture scale in some areas (e.g., Living & Dining) seems slightly off or generic."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "The background is a solid dark color, not a clean white or light presentation."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D render is a good transformation of the 2D floor plan, accurately representing most major architectural features and offering a clear, functional 3D view, though with minor discrepancies in window representation and furniture orientation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan20.avif"
+}

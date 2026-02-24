@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The asset is a legitimate 3D isometric cutaway model."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent isometric conversion with clear wall thickness and volume. Minor perspective compression."
+        },
+        "geometric_accuracy": {
+            "score": 8,
+            "max": 30,
+            "notes": "Major geometric failure. The 3D model does not follow the large L-shaped/multi-wing layout of the 2D plan. The 2D plan features a Master Suite, Theater, and Garage which are entirely missing or irreconcilable with the small square unit rendered."
+        },
+        "interior_elements": {
+            "score": 5,
+            "max": 15,
+            "notes": "Furniture is present but does not correlate with the specific room functions (e.g., Garage, Laundry, WIR) shown in the 2D architectural drawing."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "The render itself is clean and high quality, but loses points for not representing the source structure."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "The 3D model features a completely different floor plan layout than the 2D source image provided. More than 50% of the specific architectural zones (Garage, Alfresco, Master Suite) are absent."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Room proportions and adjacency do not match the long, narrow corridor-based layout of the floor plan."
+        }
+    ],
+    "total_score": 61,
+    "verdict": "PASS",
+    "summary": "While technically a high-quality 3D isometric render, the model fails to represent the actual geometry and layout of the provided 2D architectural floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan10.png"
+}

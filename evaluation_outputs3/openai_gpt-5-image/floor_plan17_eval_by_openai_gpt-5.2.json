@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D view: walls have height/thickness, multiple faces per wall are visible, and the ceiling/roof is removed to expose interior spaces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear 3D massing with readable wall thickness and volume; isometric-like camera and clean cutaway. Minor simplification/irregularities at some wall junctions/open edges."
+        },
+        "geometric_accuracy": {
+            "score": 16,
+            "max": 30,
+            "notes": "Overall apartment concept (living/dining core with bedrooms to one side) is similar, but several plan-specific spaces are missing or relocated. Balconies and some service/toilet partitions do not match the 2D plan well, and one bedroom appears omitted."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Living and dining furniture present; kitchen counters present; toilets have basic fixtures. However, fixtures/room assignments are simplified and some rooms from the 2D plan (dress/utility/servant/service spaces) are not faithfully furnished or are absent."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with distinct walls/floors/openings and good visibility. Minimal artifacts; presentation is uncluttered."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "At least one bedroom/major room from the 2D plan (4 total bedrooms incl. master) appears missing in the 3D model (only ~3 beds/bedrooms clearly represented)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Balcony placement and several internal partitions (notably dress/utility/service zones and some toilet sublayouts) do not align well with the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placement and opening sizes appear simplified and are not consistently mapped to the same walls as in the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture/fixtures are simplified and do not fully reflect the room identities and counts implied by the 2D plan (e.g., dress room/service areas)."
+        }
+    ],
+    "total_score": 73,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway conversion with good readability, but only moderate layout fidelity due to missing/relocated rooms (notably a bedroom and balcony/service/dress areas) and simplified openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan17.jpg"
+}

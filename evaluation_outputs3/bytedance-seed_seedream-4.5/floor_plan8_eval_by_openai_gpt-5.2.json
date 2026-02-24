@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height/thickness, multiple wall faces are visible, rooms read as volumetric spaces, and the view is angled/isometric with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable interior volume with clean cutaway; minor simplifications in corner/wall junction detailing and some openings feel generic."
+        },
+        "geometric_accuracy": {
+            "score": 12,
+            "max": 30,
+            "notes": "Major layout fidelity issues: the 2D plan's DINING ROOM is not clearly represented as a distinct room, and the POWDER ROOM appears incorrectly enlarged/relocated relative to the plan (the plan's powder room is a small WC near foyer). Pantry placement/definition is also inconsistent (render shows a large 'KANTRY' zone). Adjacencies and proportions are therefore only partially preserved."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Kitchen elements and some basic casework are present; however, bathroom fixtures corresponding to the small powder room in the 2D plan are not convincingly placed, and furniture/room identity cues are incomplete (e.g., dining area not furnished/defined)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Clean render with clear walls/floors and good visibility; text labels are present (UI contamination) and some room labeling does not match the plan, reducing presentation/clarity for verification."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Dining room from the 2D plan is missing or not clearly separated as a distinct space in the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Powder room and pantry zoning/proportions do not match the 2D plan (powder room appears greatly enlarged/relocated; pantry definition differs)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows/openings are simplified and not all placements/sizes can be confirmed to align with the 2D plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text labels are embedded in the 3D render, reducing presentation score."
+        }
+    ],
+    "total_score": 66,
+    "verdict": "PASS",
+    "summary": "A valid and clean 3D cutaway was produced, but significant room-definition/layout mismatches (notably the dining and powder room/pantry configuration) prevent a higher fidelity score.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan8.jpg"
+}

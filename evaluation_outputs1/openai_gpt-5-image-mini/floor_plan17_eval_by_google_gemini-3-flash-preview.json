@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe layout divergence. The 3D model significantly simplifies the complex floor plan. It omits the entire Servant Room/Utility wing and the multiple balcony zones. Room adjacencies for the bathrooms and dressing area are completely lost."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the style is correct (roof removed, dark background, no text), it hallucinates a generic apartment structure rather than following the specific footprint provided. It misses the jagged exterior wall boundaries and outdoor spaces."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is low-poly and clean, but placements are generic. The secondary 'living' seating area from the plan is missing, and kitchen fixtures are drastically simplified to a single small counter."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to the requested visual style: low-poly, flat shading, no textures, isometric orthographic camera, and neutral background."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing major zones including both balconies, the Servant Room, Utility area, and specific Powder Room/Toilet layouts."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion: The overall footprint is turned into a simplified rectangle, losing the L-shaped extensions of the master suite and utility wings."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination of windows and door locations that do not correlate with the specific openings marked on the 2D architectural drawing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan17.jpg"
+}

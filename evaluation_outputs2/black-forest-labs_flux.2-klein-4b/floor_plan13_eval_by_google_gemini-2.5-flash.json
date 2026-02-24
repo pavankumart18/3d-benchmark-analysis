@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Garage is missing. Balcony is missing, and 'Lounge' area has been expanded. The 'Linen' closet next to 'Entry' is missing. The 'L'dry' area and 'Robes' in Bedroom 1 are missing. The 'Kitchen' layout is notably different and several internal walls are inaccurate or missing. The 'WC' bathroom is combined with 'Bath', making only one bathroom shown in 3D. Entryway wall for 'Dining' area is missing. The overall footprint seems elongated compared to the 2D plan, especially the left side."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Garage is missing, and the balcony is missing (completeness -3 pts). Two rooms (Garage, Balcony) are missing. The WC room has been merged with the bathroom, and the L'dry and Linen areas are missing. There are significant hallucinations, primarily the expansion of the 'Lounge' area and lack of the 'Kitchen' wall separation from 'Lounge' (hallucination_control -5 pts). The background is not a dark neutral gradient, and there's a visible ground plane with soft shadows. (presentation context -5 pts)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Dining table and chairs from the 'Dining' area are missing. The 'L'dry' section, including the washing machine (WM), is missing. The 'Kitchen' fixtures are present but have a different layout. Couch in 'Lounge' is significantly different. Bedroom 1 has a bed and nightstand instead of just a bed, while Bedroom 2 is empty. The 'Bath' area fixtures are present but the WC is merged."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "The geometry uses low-poly forms and flat shaded surfaces without textures, aligning well with the style. However, 'Lounge' furniture appears to have some slight detail (not just block-style abstractions). Lighting is soft ambient, but the shadows are a bit too pronounced for 'minimal shadows'. Camera is isometric and well-composed, but the 45\u00b0 rotation is not exact (seems slightly off)."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire 'Garage' room is missing. 'Balcony' is missing. 'L'dry' area and 'Linen' closet are missing. The 'WC' room is effectively missing by being merged.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Significant hallucinations in room layout: 'Lounge' expanded to fill 'Balcony' space and beyond, 'Kitchen' wall structure simplified or removed, 'WC' merged into 'Bath'. The entry wall for 'Dining' is missing, impacting the overall footprint.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned or missing: kitchen walls, dining entry wall, bathroom separation walls, bedroom 1 robe wall.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "'Lounge' and 'Dining' area dimensions are significantly altered due to expanded 'Lounge' and missing balcony.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining furniture missing, washing machine missing, Bedroom 2 empty, Bedroom 1 furniture addition.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 65,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several missing rooms and structural elements, significant deviations in the overall layout, and notable inaccuracies in wall geometry and furniture placement compared to the 2D floor plan, despite good aesthetic adherence.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan13.jpg"
+}

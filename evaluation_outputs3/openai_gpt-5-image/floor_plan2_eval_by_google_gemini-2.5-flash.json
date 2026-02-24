@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Wall thickness is somewhat uniform and not clearly varying in the render, but clearly present. Interior volume is well perceivable, and corner geometry is mostly good, though simplified. Viewing angle is appropriate. Some very minor perspective distortion but not severe. Roof is cleanly removed, exposing the interior well."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Room configurations, adjacencies, and proportions are excellent matches. Minor discrepancies in wall thicknesses compared to the 2D plan, but overall positions are accurate. Doors are present and on correct walls, but windows are missing from the left bedroom in the render, and the one above the sink appears to be a solid wall, not a window."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Most major furniture pieces (beds, sofas, tables, oven, sink, toilet, shower) are present. Kitchen and bathroom fixtures are well represented. Furniture is correctly placed in their respective rooms, and the scale is reasonable. Orientation is logical, maintaining fidelity to the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Structural elements are clearly distinguishable. Geometry is very readable. Lighting is good and does not obscure any details. Text labels are absent, and the background is clean. Materials are consistently applied, and there are no visible rendering artifacts or broken meshes."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Windows missing from the left bedroom wall in the 3D render. The window above the kitchen sink in the 2D plan appears as a solid wall in the 3D render."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "This is an excellent 3D conversion, accurately representing the 2D floor plan with faithful geometry and well-placed interior elements, though with minor omissions in window representations.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan2.png"
+}

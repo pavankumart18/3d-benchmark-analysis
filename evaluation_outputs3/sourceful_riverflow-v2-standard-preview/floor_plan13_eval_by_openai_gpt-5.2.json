@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height/thickness, multiple faces per wall are visible, and the camera is angled with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear 3D extrusion with readable wall corners and floor plane separation; cutaway is clean and interior volume is apparent. Minor simplifications in geometry/openings reduce full credit."
+        },
+        "geometric_accuracy": {
+            "score": 10,
+            "max": 30,
+            "notes": "Overall footprint/rectangular massing is loosely similar, but the plan fidelity is weak: bedroom count appears increased (3 beds/rooms shown vs 2 bedrooms in plan), several labeled spaces from the 2D plan are not represented distinctly (garage, balcony, laundry/robe/linen/entry), and internal partitions/adjacencies do not convincingly match the 2D layout."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Major furniture is present (beds, dining table, some kitchen/bath elements), but room assignment is unreliable due to layout mismatch and some key service areas are missing/merged."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls/floors are distinguishable and lighting is adequate, but geometry is somewhat soft/blurred and text labels appear on the floor, reducing presentation cleanliness."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Major spaces from the 2D plan are missing or not modeled as separate areas (notably the garage and balcony; service zones like laundry/robe/linen/entry are not clearly present)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity issues: room count/proportions and internal partition placement do not match the 2D plan (appears to introduce an extra bedroom/bedroom-like space and alters adjacencies)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows/openings are simplified and not verifiably placed on the same walls as in the 2D plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text labels are visible on the 3D floor surfaces, reducing clean presentation scoring."
+        }
+    ],
+    "total_score": 63,
+    "verdict": "PASS",
+    "summary": "A genuine 3D cutaway was produced, but the resulting model deviates substantially from the 2D plan\u2019s room count and key space layout, limiting geometric fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan13.jpg"
+}

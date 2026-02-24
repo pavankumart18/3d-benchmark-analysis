@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Bathroom wall next to kitchen is slightly misaligned, causing bathroom to be slightly smaller than in 2D. Living/Dining area seems slightly compressed. One door is missing (bathroom utility door). Window in bedroom is missing. Window in Living/Dining area is represented as a full-height opening rather than a window."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Text labels (BALC, UTILITY) are present on the 3D render. The background is a solid grey, lacking the specified gradient and model is not isolated floating (appears to be on a ground plane)."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms, although some scale and exact placement is off (e.g., dining table chairs, living room side tables). There's an extra bookshelf/cabinet in the bedroom not present in the 2D plan. Bathroom utility door is missing. Balcony has no furniture."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Generally low-poly and flat-shaded. Some surfaces exhibit very subtle shading/gradient, deviating from strict flat colors. Lighting is soft but provides too much contrast for minimal shadows. Camera composition is good."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing one door (bathroom utility door).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing one window (bedroom).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom wall next to kitchen slightly misaligned and Living/Dining area appears slightly compressed.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the 3D model (BALC, UTILITY).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Background is not a gradient and model is not isolated, appearing on a ground plane.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bedroom has an extra bookshelf/cabinet not in 2D plan. Balcony is empty.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle shading/gradient visible on some surfaces, and lighting provides more contrast than 'minimal shadows'.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 77,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render accurately represents the 2D floor plan for most structural elements, but falls short on UI cleanliness due to text labels and minor inconsistencies in furniture and lighting.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room placement are high-fidelity. Most wall alignments and room adjacencies are preserved. However, there are minor discrepancies in door swing orientations and the exact sizing of the bathroom unit relative to the hallway."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence. The roof is removed, no rooms are missing, there are no hallucinations, and the model is perfectly isolated on a dark neutral background without any UI or text or measurements."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is well-placed and scaling is mostly consistent. Some details such as the specific L-shape orientation of the kitchen counter vs. table were slightly simplified, and the desk in the top right bedroom was merged into a simpler unit."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect execution of the low-poly style. Flat shading, soft ambient lighting, and neutral color palette meet all criteria. Camera is correctly set to an isometric orthographic projection."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing small radiator details shown in the floor plan in several rooms."
+        },
+        {
+            "code": "E2",
+            "description": "The kitchen counter layout is simplified from a multi-appliance strip to a single block and Stove unit, losing the L-shaped corner cabinet found in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan2.png"
+}

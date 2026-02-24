@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology suffers from missing deck area on the left side (utility room has an adjacent deck in the 2D plan, but not in 3D). Window count does not match, some windows appear to be missing or generalized into wall features. Overall form of the deck area to the left of Bed 2 is not maintained\u2014it appears as a solid wall/room in 3D, not an open deck. Utility room also has a deck in the 2D plan, but this is missing in the 3D model."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The model is missing a significant structural element: the deck area adjacent to the Utility room on the left side of the plan. This results in a completely enclosed room where an open deck should be. The deck adjacent to BED-2 is also present but its railing is not well-defined, and the overall form is simplified. The deck adjacent to TOI-1/BED-1 is also significantly altered in form and enclosed by a solid wall rather than an open railing. Presentation context is poor; there are strong shadows extending to infinity, and a ground plane is present."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces are present, but their placement often slightly deviates from the plan. For instance, the dining table's orientation is changed. Some kitchen fixtures seem simplified or moved. The left bedroom (BED-2) furniture layout is somewhat different, with a storage unit against the wall not distinctly present in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "Geometry uses some smooth shading/subdivision in furniture (e.g., chairs, sofas), which deviates from the specified low-poly, flat-shaded requirement. Textures are present on floors, walls (some), kitchen countertops, and furniture, which is a significant violation of the 'solid flat colors only' rule. Lighting is harsh with strong shadows, not soft ambient. The render is not truly isometric as parallel lines appear to converge slightly, indicating minor perspective distortion, and the rotation is not a pure 45-degree isometric as expected."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "The deck area to the left of the Utility room is completely missing and replaced by an enclosed solid room/wall. The deck area to the left of BED-2 is also significantly altered from an open deck to an enclosed space with a simplified railing. The deck to the right of TOI-1 and BED-1 is also significantly altered and enclosed.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic materials/textures are present on floors, some walls, countertops, and furniture. This is an instant fail condition for the Aesthetic & Technical Quality category.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Render is not a true isometric view; parallel lines appear to converge, indicating perspective distortion.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple wall sections are altered, particularly the external walls of the 'deck' areas, which are shown as open in 2D but enclosed in 3D.",
+            "point_deduction": 10
+        }
+    ],
+    "total_score": 47,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet several critical architectural and visual compliance standards, most notably significant deviations in structural completeness, the presence of photorealistic textures, and perspective distortion.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan14.webp"
+}

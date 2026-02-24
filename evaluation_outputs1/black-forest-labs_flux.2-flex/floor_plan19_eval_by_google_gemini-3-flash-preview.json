@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout and room adjacency are well preserved. Minor scaling issues in the dining area compared to the living space. Door orientations are mostly accurate, though some internal clearances are tight."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. Roof is removed, background is neutral dark, and no UI/text elements are present. Minor hallucination of extra wall thickness near the kitchen entry."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement captures the spirit of the plan, including the kitchen island and deck seating. Scale of the dining chairs is slightly small compared to the bed units."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Camera angle is correctly isometric. However, the render uses realistic material textures (marble counters, rug patterns) and dramatic localized lighting (lamps with glow effects) which violates the strict 'flat shading/no textures' constraint."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E6",
+            "description": "Render contains realistic textures (marble, wood grain) and dramatic lighting effects contrary to flat-shaded low-poly requirements."
+        },
+        {
+            "code": "E4",
+            "description": "Minor structural reinterpretation of the utility room walls and kitchen cabinetry depth."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced/distorted proportions of the dining table area relative to the central corridor."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan19.webp"
+}

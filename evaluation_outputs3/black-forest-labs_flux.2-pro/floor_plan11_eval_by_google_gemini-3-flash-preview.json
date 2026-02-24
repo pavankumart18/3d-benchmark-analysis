@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model presents a consistent isometric cutaway view with clear wall thickness and volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Strong dimensional transformation; walls and floors are clearly defined with accurate isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Most room adjacencies are correct; the bay window/window seat on the right is accurately represented as a protruding element."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Kitchen, bathroom fixtures, and dining table are logically placed. Sink and stove placements match 2D plan."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Clean lighting and geometry. Points deducted (E6) for text artifacts 'UTILITY ROOM' remaining on the floor surface."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels from the 2D floor plan are baked onto the floor texture in the 3D render."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A highly faithful 3D conversion that accurately translates architectural wall geometry and room layout while maintaining professional isometric clarity.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan11.png"
+}

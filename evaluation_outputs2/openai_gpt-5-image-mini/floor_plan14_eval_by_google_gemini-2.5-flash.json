@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25.0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 6,
+            "wall_geometry": 5,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology: utility room missing. Adjacencies are mostly preserved. Relative room sizes are generally proportional, though the kitchen seems slightly smaller in the 3D render. Overall footprint maintained with some deviations in wall positions. Wall geometry: Several walls are misaligned, particularly the exterior wall of the utility room (missing) and the adjacent kitchen wall, as well as the 'Deck' areas not being fully enclosed or represented as internal rooms, causing significant deviation in the outer shape. Corner angles are preserved. Doors: Multiple doors are either missing or significantly misplaced. Specifically, the door to the missing utility room is absent. The door to C.TOI is correct. The door to the kitchen is missing in the 3D render, replaced by an open archway. The door to Foyer/Kitchen area from living/dining is missing. The door to Bed-2 is correct. The door to Bed-1 is correct. The door to TOI-1 is correct. The door to the larger Deck is missing, as the Deck itself is not fully enclosed. Swing directions are not indicated on the 2D plan for many, but where shown, they are not consistently followed (e.g., Bed-2). Windows: Several windows are missing. The windows for Bed-2 are represented but in a different position. The windows for Bed-1 are present. The windows on the large deck are missing. The window for TOI-1 is present though slightly different. Dimensional scaling: Generally consistent, but distortions in certain room proportions, especially the kitchen and the conversion of 'decks' to open areas, affect proportionality."
+    },
+    "structural_fidelity": {
+        "score": 10.0,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view: Roof is removed, interior walls are visible. Completeness: The 'Utility' room and the larger 'Deck' area are completely missing or misrepresented as open, non-room spaces. Hallucination control: The two 'Deck' areas from the 2D plan are treated as open, exterior balconies rather than enclosed (or partially enclosed) spaces as suggested by the 2D plan's wall lines and labeling, which is a hallucination of their structural function. Presentation context: The model is not floating/isolated; it appears to be on a ground plane with a shadow."
+    },
+    "furniture_mapping": {
+        "score": 5.0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Furniture presence: Most major pieces (beds, sofa, dining table) are present. Kitchen counters/island are present, though a sink is depicted in a different location. Bathroom fixtures are present in TOI-1, but the second C.TOI has no fixtures visible. Furniture accuracy: Placement of main living/dining furniture is generally accurate. Bed-1 and Bed-2 furniture is roughly correct but not exact in placement. Kitchen layout is significantly different, with a central island and different counter configuration. Bathroom fixtures are present for TOI-1 but not for C.TOI. The missing utility/deck areas naturally omit their furniture."
+    },
+    "aesthetic_quality": {
+        "score": 20.0,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style: Low-poly, flat shaded, clean edges, solid flat colors. Excellent. Lighting & Rendering: Soft ambient lighting, but shadows are quite distinct, not minimal, detracting slightly. Colors are distinguishable. Camera & Composition: True isometric projection, 45\u00b0 rotated plan view, centered framing, all rooms visible. Excellent."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire 'Utility' room and the larger 'Deck' area (represented as a room on the 2D plan) are missing or completely misrepresented.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The 'Deck' areas are hallucinated as open balconies, fundamentally altering the architectural plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Several walls are misaligned; specifically, the exterior wall where the utility room should be, the kitchen's outer boundaries, and the outer walls defining the 'Deck' areas are significantly inaccurate.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are either missing (kitchen entrance, deck entrance, foyer to living) or their positions are off enough to be noticeable.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple windows are missing or misplaced relative to the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are somewhat distinct rather than minimal, though lighting is generally ambient.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 60.0,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to achieve the pass threshold primarily due to significant structural omissions (missing rooms/areas) and substantial deviations in wall and opening placements, despite good aesthetic quality.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan14.webp"
+}

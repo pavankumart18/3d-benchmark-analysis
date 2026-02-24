@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacencies are highly accurate. Most doors and windows match the 2D reference. Minor distortion in the proportions of the master bedroom (Bed-1) and the kitchen utility area. Door swings are inconsistent compared to the source blueprint."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent conversion with no hallucinated rooms. Background and floating model constraints are met. However, the 3D render includes a red arrow UI element from the floor plan which should have been removed."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Dining table, beds, and kitchen islands are placed correctly. The living room seating arrangement (sofas) is simplified and lacks the exact count/orientation of the original blueprint chairs."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Adheres well to low-poly, flat-shaded constraints. Lighting is soft and non-dramatic. The camera is isometric, though slightly off-center relative to the model's footprint."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the kitchen/utility wall alignment and master bedroom width."
+        },
+        {
+            "code": "E5",
+            "description": "Inclusion of the red entrance arrow from the source plan as a 3D artifact."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific accent chairs in the living room area compared to the detailed plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan19.webp"
+}

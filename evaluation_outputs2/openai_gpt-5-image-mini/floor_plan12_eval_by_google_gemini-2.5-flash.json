@@ -1,0 +1,118 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 0,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "The 3D render represents a completely different floor plan than the provided 2D plan. None of the rooms, adjacencies, or overall footprint match. There is no 'activity' room, 'balcony', 'bath', 'WC', 'bed 2', 'bed 3', or 'bed 4' present in the 3D render. Instead, it shows a living room, dining area, kitchen, and garage, which are not in the 2D plan. Room count does not match. Adjacencies are completely different. Relative room sizes and overall footprint are not maintained.",
+        "deductions": [
+            {
+                "item": "Missing rooms (all rooms from 2D are missing)",
+                "points": -21
+            }
+        ]
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "The 3D render is a complete hallucination, showing a floor plan utterly different from the provided 2D reference. It does not complete the structure from the 2D plan. Multiple extra rooms and features (like a garage with a car) are present that are not in the 2D plan. UI/Annotation Cleanliness and Presentation Context are compliant.",
+        "deductions": [
+            {
+                "item": "Completeness (no elements from 2D plan are present)",
+                "points": -5
+            },
+            {
+                "item": "Hallucination Control (entirely different plan generated)",
+                "points": -5
+            }
+        ]
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "The furniture in the 3D render does not correspond to the 2D plan. The 2D plan indicates beds, robes, linen, and bathroom fixtures, none of which are present in the 3D render's corresponding locations. Instead, the 3D render shows living room furniture, dining furniture, kitchen fixtures, and cars, all of which are extraneous to the 2D plan.",
+        "deductions": [
+            {
+                "item": "Furniture Presence (all major pieces from 2D plan are missing, entirely new furniture present)",
+                "points": -5
+            },
+            {
+                "item": "Furniture Accuracy (placement and scale do not match original plan)",
+                "points": -5
+            }
+        ]
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 0
+        },
+        "notes": "The geometry style, lighting, and rendering generally conform to the low-poly, flat-shaded, and solid-color requirements. However, the camera is not a true isometric projection, and the angle is not a 45-degree rotated plan view. The parallel lines of the model appear to converge slightly, indicating a degree of perspective distortion, rather than true isometric.",
+        "deductions": [
+            {
+                "item": "Not true isometric projection (perspective distortion detected)",
+                "points": -2
+            },
+            {
+                "item": "Not 45\u00b0 rotated plan view",
+                "points": -3
+            }
+        ]
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entirely different floor plan rendered than the 2D reference. All rooms are missing from the original plan.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated multiple extra rooms (living, dining, kitchen, garage) that are not present in the 2D plan.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "No furniture from the original 2D plan is present; entirely new furniture added that doesn't correspond to the 2D.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not true isometric view; perspective distortion detected.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 20,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is a complete hallucination, bearing no resemblance to the provided 2D floor plan, resulting in a critical failure across all accuracy categories.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan12.png"
+}

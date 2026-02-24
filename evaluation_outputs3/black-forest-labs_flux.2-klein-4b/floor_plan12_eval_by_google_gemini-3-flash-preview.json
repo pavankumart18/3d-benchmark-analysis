@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion is valid with clear isometric-style 3D geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Robust 3D transformation with clear wall thickness and floor separation."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Major layout matches although the staircase area is simplified and several doors are missing or replaced by open thresholds."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Furniture is present and mostly accurate to room functions, though the balcony area lacks the specific seating shown in the plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean lighting and clear material distinction; background is neutral and professional."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Moderate",
+            "description": "Staircase area in the top left is not properly rendered as a 3D stair structure."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Inner layout of the bathroom and WC partitions are simplified/merged compared to the 2D plan."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D transformation that maintains the core footprint and room identities of the original architectural plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan12.png"
+}

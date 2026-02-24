@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is correct, but door orientations are inconsistent (e.g., entrance door swings inward instead of outward). Window count in Bedroom 2 is altered from the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "The model successfully removes the roof and adheres to the dark neutral background with no text labels. Minor deduction for merging wall segments in the hallway area."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement captures the essence of the floor plan (sofas, beds, dining table). Some kitchen counter details slightly deviate from the U-shaped blueprint."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good isometric perspective and low-poly geometry. However, lighting is too dramatic and warm (especially nightstand lamps) which violates the 'flat shading/no dramatic lighting' constraint. Textures are slightly visible on floors and counters."
+    },
+    "total_score": 78,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Door swing orientation in 'Hall' and 'Laundry' does not match the 2D blueprint."
+        },
+        {
+            "code": "E6",
+            "description": "Dramatic lighting and soft shadows from bedside lamps violate the flat shading requirement."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated extra window in Bedroom 2."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter configuration modified from a strict U-shape to a more segmented layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan4.jpg"
+}

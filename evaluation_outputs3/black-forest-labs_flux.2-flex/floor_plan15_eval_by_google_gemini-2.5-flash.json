@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Good dimensional transformation, clear viewing angle, and clean cutaway, though one wall section appears slightly broken at the corner."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Mostly accurate room configuration and wall geometry. The balcony on the left has been simplified, and door/window placements are mostly correct, but not all openings are proportionally sized (e.g., the bathroom door near the living area)."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Most major furniture and fixtures are present and in correct rooms, with reasonable scale and orientation."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Structural elements are clear, interior is well-lit, and the rendering quality is generally good with no major artifacts. Clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E5-STYLE",
+            "severity": "MIN",
+            "description": "Slightly broken geometry on the interior corner wall of the main large balcony."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJ",
+            "description": "The balcony on the left side (next to the M.Bedroom) is significantly simplified and doesn't match the 2D layout's shape."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MIN",
+            "description": "Some doors and windows proportions are not entirely accurate to the 2D, e.g., the door to the toilet near the living area appears smaller than in the 2D."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion is largely successful, retaining most of the geometric and interior layout from the 2D plan with good visual clarity, though some minor geometric simplifications and proportion discrepancies are present.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan15.webp"
+}

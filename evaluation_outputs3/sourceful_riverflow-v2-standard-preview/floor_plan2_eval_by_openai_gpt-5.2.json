@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is an isometric cutaway with extruded walls, visible wall thickness, perceivable interior volumes, and ceiling/roof removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear 3D extrusion, readable corners and floor/wall separation; cutaway is clean and viewing angle is appropriately elevated/isometric with minimal distortion."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "Overall footprint and main zoning (living bottom-left, kitchen/dining bottom-right, bedrooms toward top/right, bath near top-center) are similar, but the top-left area appears re-partitioned (2D shows one room with two beds; 3D shows two separate rooms/uses), and several interior wall/door placements do not precisely match the 2D plan."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture is present (beds, sofa, dining table, kitchen blocks; bathroom fixture), but some room identities/furnishings appear swapped or simplified (e.g., two-bed bedroom not represented as in 2D)."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Walls/openings are legible with consistent materials and no obvious mesh breaks; lighting/background are clean and do not obscure geometry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Top-left bedroom configuration differs: 2D indicates a single room with two beds, while 3D appears subdivided into two rooms/uses, altering adjacency and partition geometry."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Several door/opening positions and/or swing/orientation appear inconsistent with the 2D plan when comparing interior partitions and entries."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture-to-room mapping is not fully faithful (some rooms furnished differently than implied in 2D, including bedroom/office assignments)."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A true and clean 3D cutaway conversion is achieved, but notable partition/room-configuration deviations\u2014especially in the top-left bedroom zone\u2014reduce layout fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D render with wall height/thickness, interior volume, and an angled/isometric viewpoint."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Scoring skipped due to automatic rejection (major room omissions vs 2D plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Scoring skipped due to automatic rejection (major room omissions vs 2D plan)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Scoring skipped due to automatic rejection (major room omissions vs 2D plan)."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Scoring skipped due to automatic rejection (major room omissions vs 2D plan)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "More than 50% of the 2D-plan rooms/spaces are missing or not separately modeled (e.g., playroom, foyer/closets, WC, pantry) and the layout is substantially different."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Room configuration/adjacencies do not match the 2D plan; the 3D model appears to represent a different floor plan overall."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "major",
+            "description": "A bedroom/bed is modeled in 3D, but the provided 2D plan does not indicate a bedroom in this level, suggesting incorrect room identity."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is a real 3D cutaway, it is rejected because it does not faithfully represent the 2D plan and omits/changes a majority of the rooms.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan8.jpg"
+}

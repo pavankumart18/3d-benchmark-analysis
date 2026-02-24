@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The second image is a true cutaway 3D model: walls have height and thickness, rooms read as volumetric spaces, and the view is clearly angled/isometric with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness, good corner geometry, distinct floor plane, and clean cutaway; slight simplification of some wall tops/edges and openings prevents a perfect score."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Overall layout matches well (kitchen/dining-left, living-center, two bedrooms-right, bath/closets center-bottom, laundry-left-bottom). Minor discrepancies in some door/window placements and/or counts compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present (dining set, sofa/coffee table, beds, laundry machines, toilet/sink/tub). Kitchen is simplified but recognizable; some elements are minimal/abstract."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Readable geometry with consistent materials and no obvious broken meshes; lighting is neutral and interior remains visible. Dark background is clean and unobtrusive."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door/window opening locations/counts appear slightly inconsistent with the 2D plan (minor mismatches rather than missing major rooms)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture and kitchen cabinetry/appliances are simplified, reducing room-identity certainty in a few areas."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A clear, true 3D cutaway conversion with strong overall layout fidelity to the 2D plan, with only minor opening-placement and simplification issues.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan4.jpg"
+}

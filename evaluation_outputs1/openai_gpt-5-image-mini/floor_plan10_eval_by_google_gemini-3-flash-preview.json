@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "Basic layout logic is preserved, but there are significant door and window discrepancies. The garage/entry area proportions are slightly distorted compared to the floor plan, and some internal door swings/placements are missing or simplified."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Model follows cutaway view requirements with no text labels or UI. However, the 'Alfresco' area and the 'Verandah' are poorly defined or merged into the main structure, and the external wall complexity of the left side is simplified."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture is well-placed and largely matches the block-style requirement. Kitchen island, dining table, and bedroom sets align with the floor plan sketches."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to the visual style. Low-poly geometry, flat shading, orthographic isometric camera, and dark neutral background."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific windows in the Master Suite and laundry area as depicted in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Portico and Verandah areas lack structural definition and are compressed into the main rectangle."
+        },
+        {
+            "code": "E4",
+            "description": "Simplification of the Pantry/Kitchen junction; the complex wall-recess for the fridge is rendered as a flat wall segment."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan10.png"
+}

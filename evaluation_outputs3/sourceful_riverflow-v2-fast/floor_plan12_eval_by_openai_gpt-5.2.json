@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls show height/thickness, multiple faces are visible, and the view is clearly angled/isometric with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion of walls with readable corners and interior volume; clean cutaway and stable projection. Minor simplification of wall detailing."
+        },
+        "geometric_accuracy": {
+            "score": 16,
+            "max": 30,
+            "notes": "Overall massing resembles the plan (cluster of bedrooms on right, larger space on left, central wet-area core), but several plan-specific elements are simplified/shifted. Balcony/terrace treatment is not clearly present as a distinct exterior room, and internal partitions/corridor geometry do not fully match the 2D layout."
+        },
+        "interior_elements": {
+            "score": 6,
+            "max": 15,
+            "notes": "Beds are present as simplified blocks, but bathroom fixtures (bath, WC) and other key elements (linen/robes/storage details) are largely missing or not distinguishable; furniture is minimal."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Clean, readable render with consistent materials and no obvious mesh breakage. Openings/doorways are not clearly modeled, reducing interpretability of circulation and room boundaries."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity issues: balcony/exterior space is not clearly represented and several internal partitions/corridor relationships appear simplified or shifted versus the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/openings are not clearly placed on correct walls; window placement is only partially indicated and cannot be verified against the plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Bathroom fixtures and other interior elements are missing or too abstract to confirm room identities beyond beds."
+        }
+    ],
+    "total_score": 67,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway conversion with solid volumetric modeling, but only moderate faithfulness to the 2D plan due to simplified/missing balcony and weakened partition/door fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan12.png"
+}

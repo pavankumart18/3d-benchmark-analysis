@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway conversion with clear wall geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Excellent 3D geometry; walls have thickness and correct corner junctions. Isometric projection is clean."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Correct room configuration and staircase placement. Minor discrepancies in door count (extra door on left wall) and window positioning relative to the plan's orange markers."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Kitchen cabinetry, sink, and bathroom fixtures are correctly placed and scaled. Furniture is appropriately simplified."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "High clarity and clean lighting. Material usage is consistent. Minor deduction for the omission of some window openings indicated in orange on the plan."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Additional door rendered on the left wall that is not present in the 2D floor plan layout."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "Several window/opening locations from the plan were converted into solid walls."
+        }
+    ],
+    "total_score": 94,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D isometric conversion that faithfully translates the architectural layout with excellent structural depth.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan3.jpg"
+}

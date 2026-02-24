@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render successfully demonstrates a true 3D transformation with visible wall height and thickness, perceptible interior volume, an angled view, and a cutaway roof."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5), floors are distinct from walls (3), interior volume is clear (4), proper 3D wall corners (3). Angled view (5), interior visible from elevated perspective (3). Clean roof removal (5), interior spaces fully visible (3). Minimal severe perspective distortion (2). No broken sections (2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms and adjacency for the main layout. Relative room proportions are largely preserved, though the 'Dining Room' area appears slightly smaller. Major wall positions align well. Doors are present and on correct walls. Windows are present but only one on the large external wall, whereas the 2D shows three. The 'ENTRANCE' area is slightly simplified, removing the exterior steps shown in the 2D plan. The 2D plan's text labels for Kitchen and Dining Room are a single continuous space in the 3D, and the bathroom is not explicitly separated from the living area by a full wall, though its volume is clear. The 'LIVING ROOM' area combines with 'DINING ROOM' and 'ENTRANCE' forming a large open space in the 3D model, which is partially consistent with the 2D layout."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture (sofa, dining table, bed is missing but not explicitly depicted in 2D so not an error). Kitchen elements (cabinets, stove) are present. Bathroom fixtures (toilet, sink) are present. Furniture is in correct rooms, and scale is reasonable. The bed is missing from a bedroom (which is not explicitly defined in 2D but implied due to the stairs leading to another floor)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable. Interior is well-lit and visible. Lighting does not obscure geometry. Consistent material usage and clean background. No text labels present."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Windows are present, but the number and exact placement differ from the 2D plan (e.g., fewer windows on the long external wall in the 3D)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "The bathroom in the 3D render is enclosed by three walls, but the 2D plan indicates a full enclosure with internal walls, suggesting a more private room. In the 3D render, one side of the bathroom appears to be open to the living area, which is a significant deviation from layout fidelity. Also, the 2D 'ENTRANCE' area shows exterior steps that are simplified in the 3D model to a simple platform."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is generally good, demonstrating successful conversion fundamentals and preserving most of the geometric layout, but with some notable deviations in room enclosure and window placement.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan3.jpg"
+}

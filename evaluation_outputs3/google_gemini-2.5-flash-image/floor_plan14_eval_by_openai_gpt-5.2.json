@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Render is an angled cutaway with extruded walls (height + thickness), visible floor plane, and exposed interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Strong 3D extrusion, correct elevated/isometric-like view, clean cutaway, and readable multi-face wall geometry."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room layout and adjacencies match well (living/dining central, kitchen bottom, utility bottom-left, toilets in expected zones, decks present). Some minor proportion/label inconsistencies and openings (windows/doors) are not fully verifiable or appear simplified."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Beds, sofa/seating, dining table, kitchen counters, and basic bathroom fixtures are present and generally placed in the correct rooms with reasonable scale/orientation."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is clear and lighting supports visibility. Presentation is reduced by text labels overlaid on the 3D model."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows/openings are simplified; window placement and opening proportions cannot be fully confirmed against the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "Minor layout/identity inconsistencies (e.g., bedroom labeling differs from the 2D plan), though the underlying room geometry largely matches."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels are present in the 3D render, reducing presentation cleanliness."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D conversion with strong layout fidelity and interior detailing, with only minor opening/label and presentation issues.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan14.webp"
+}

@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches, and adjacency is largely good. The overall footprint is well-maintained. Wall positions are generally accurate, but some minor misalignments and thickness variations are present where the walls meet the exterior. All doors and windows appear to be present in correct locations. The overall scale is consistent, but some minor aspect ratio distortions are noted, particularly with the decks."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Roof is completely removed, and interior walls are fully visible. All rooms and structural elements are present. No major hallucinations of new rooms or architectural features. However, there are measurement lines and text in the 3D render, which results in a 0 for UI/Annotation Cleanliness. The background and isolation are good."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces, including beds, sofas, dining table, kitchen, and bathroom fixtures, are present. However, the placement of some furniture, especially on the decks, does not precisely match the 2D plan. The scale of the furniture is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses low-poly simplified forms with flat shading and no obvious textures, fulfilling most requirements. The lighting is soft and ambient with minimal shadows, though some light and shadow variations might be slightly more than 'minimal'. The camera composition is a 45\u00b0 plan view and centered. However, it is not a true isometric projection, showing some mild perspective distortion, which slightly reduces the score for camera & composition."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels and measurement lines are present in the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Render shows minor perspective distortion, not a true isometric projection.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some wall thicknesses around the exterior perimeter appear slightly inconsistent or misaligned with the 2D plan boundary, impacting dimensional scaling slightly.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture placement on the decks does not precisely match the 2D plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 80,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural fidelity, with a good representation of rooms, walls, and openings. However, the presence of text labels/measurement lines and a slight deviation from true isometric projection are critical errors that significantly impact the score, despite good execution in other areas.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan19.webp"
+}

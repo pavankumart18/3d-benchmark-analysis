@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model clearly shows walls with height and thickness, a perceptible interior volume, and an angled view. The roof is removed to display the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5), floors are distinct (3), interior volume is clear (4), and wall corners are proper (3). The angled view is good (5), interior visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof removed cleanly (5) and interior spaces are visible (3). However, some geometry seems slightly simplified or less 'clean' in certain areas, particularly around the kitchen/utility area (1/2 for clean geometry)."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "The overall room configuration is mostly correct, but the 'Home Office / Maid's Room' is missing entirely, along with the 'Lobby' and 'Toilet-4'. This is a major geometric failure (E1-CRIT), significantly affecting room count and adjacency, leading to a much lower score for room configuration. The balcony for Bedroom 2 is also missing, and the 'Deck' area is not clearly defined in the 3D. While many wall positions are aligned (3/5) and some lengths are proportional (2/3), the missing sections significantly pull down the score. Doors are present on some walls, but windows are inconsistent and often missing."
+        },
+        "interior_elements": {
+            "score": 6,
+            "max": 15,
+            "notes": "Some major furniture is present (beds, sofas, tables) but not all are accurately represented or positioned compared to the 2D plan, especially in the living/dining area (3/8). Kitchen elements are partially visible but simplified (1/2). Bathroom fixtures are present in some toilets but not all (2/2). Furniture placement is mostly logical but scale for some items seems off or simplified geometric blocks are used, and the missing rooms mean their elements are also missing."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4/4). Geometry is readable (4/4). Interior is clearly visible (3/3) and lighting does not obscure geometry (3/3). Material usage is consistent (2/2) and no major rendering artifacts or broken meshes are apparent (2/2). The background is clean (2/2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "The 'Home Office / Maid's Room', 'Lobby' and 'Toilet-4' from the 2D plan are entirely missing in the 3D render, representing a significant loss of structural elements. The balcony for Bedroom 2 is also missing."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The 'Deck' area from the 2D plan is not clearly represented or distinguished in the 3D render's exterior space. The overall footprint of the 3D model is smaller than the 2D due to missing rooms/balconies."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Many windows from the 2D plan are missing or inaccurately placed/sized in the 3D render. For example, Bedroom-1 has windows on two walls in 2D but only one in 3D. Bedroom-3 has multiple windows in 2D but only two simplified openings in 3D. General window sizing and number are inconsistent."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture is simplified geometry and not always accurately representing the 2D layout. E.g., the dining table setup is different, and some rooms have different furniture configurations."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "The 3D transformation successfully created an angled, volumetric representation of the floor plan. However, significant omissions of entire rooms and balconies, along with discrepancies in window placement and furniture, prevent a higher score, resulting in a 'PASS' verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan20.avif"
+}

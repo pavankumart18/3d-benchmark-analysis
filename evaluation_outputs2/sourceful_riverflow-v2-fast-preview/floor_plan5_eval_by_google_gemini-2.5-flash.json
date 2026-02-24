@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 2,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is good, but there are some critical issues. Missing two windows in the main entrance area. Some wall positions are slightly off, particularly in the kitchen/living area where a wall is shortened. The two small balconies/porches at the bottom and right are not part of the main structure but extensions, the render represents them as internal rooms. Room count is good, but adjacency is not perfectly preserved due to wall issues."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is compliant. However, several windows are missing from the front and side, which impacts completeness. There are two exterior patio/balcony areas in the 2D plan that are rendered as enclosed rooms with walls and interior furniture, which counts as hallucinated architectural features. UI/Annotation Cleanliness is a 0/5 because there are many UI/annotation elements present on the 2D plan, but this category is for the 3D render. The 3D render has no UI/annotations, so it should be full points. Previous instructions were a bit ambiguous. Re-evaluating: 3D render itself has no UI elements, so full points. The instructions should be clarified whether the 2D reference impacts UI score or just 3D output. Re-evaluating based on 3D output: 5/5. Presentation context is good. "
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in generally correct locations. Kitchen layout is well-represented. Bathroom fixtures are largely correct, although one bathroom appears to have swapped the toilet and sink positions relative to the door. The two exterior patio areas are rendered as rooms with internal furniture, which contributes to furniture placement inaccuracies given the 2D plan's depiction."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Excellent compliance with geometric style (low-poly, flat shaded, solid colors, no textures). Lighting is soft and ambient with minimal shadows. Camera composition is a true isometric view at a good angle and zoom, centered without cropping. This category is perfectly executed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Portion of front wall and the two side windows of the living room/area (left side of main structure) are missing in the 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Two windows are missing from the front entrance area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The two exterior patio/balcony areas (bottom left and bottom right) are rendered as enclosed rooms with solid walls and internal furniture, which are hallucinations of architectural features.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen/living area wall on the left side is shortened in the 3D model compared to the 2D, causing a significant layout discrepancy.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint shape is slightly distorted due to the extension of the 'balcony' areas into enclosed rooms.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bathroom fixture swap (toilet and sink) in one of the bathrooms.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window in the master bedroom, on the rightmost wall, is missing. ",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 78,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates strong aesthetic and technical rendering compliance, but exhibits significant structural fidelity issues with missing windows and hallucinated enclosed rooms from open patio areas, as well as some wall geometry inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan5.jpg"
+}

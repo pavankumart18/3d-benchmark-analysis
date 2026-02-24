@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 9,
+            "doors": 10,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout and room adjacencies are well preserved. Minor discrepancies in wall positions for some interior walls. Window representation is inconsistent and often approximated. The deck area is rendered as an enclosed room with windows, differing from the open or semi-open appearance in the 2D plan. Balconies in Bedroom 1 and Bedroom 2 are represented as enclosed rooms with windows instead of open balconies. Home office/maid's room dimensions appear slightly compressed laterally."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 3,
+            "ui_cleanliness": 5,
+            "presentation_context": 2
+        },
+        "notes": "Cutaway view is excellent with no roof fragments. All structural elements appear complete. Hallucination detected with the deck and balconies being enclosed rooms rather than open, affecting structural interpretation. UI is perfectly clean. Presentation context has a dark background but the model does not appear truly floating/isolated, with a subtle ground plane effect."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. Kitchen and bathroom fixtures are generally present. Some furniture pieces, like the dining table and chairs, appear slightly scaled down compared to the room and other furniture. The balcony furniture for Bedroom 1 is missing, as the balcony itself was incorrectly enclosed. The home office/maid's room lacks the chair seen in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style uses low-poly simplified forms and flat-shaded surfaces, although some furniture items have subtle bevels that deviate from perfectly clean edges. No textures are present, only solid colors. Lighting is soft and ambient with minimal shadows, but some furniture shows detectable gradients suggesting subtle directional light. Colors are clearly distinguishable. The camera view is isometric, but the specific 45\u00b0 rotation of the plan relative to the image borders is not perfectly achieved, appearing more straight-on, and the framing could be slightly more zoomed in."
+    },
+    "detected_errors": [
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucination of enclosed rooms for 'Deck' and 'Balcony' areas, which are open/semi-open in the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing furniture in Bedroom 1 balcony (due to enclosure) and Home Office/Maid's Room.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Inconsistent window representation; some appear as solid walls or with different sizing/subdivision compared to the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle gradients and slight bevels on some furniture pieces slightly deviate from perfectly flat-shaded, low-poly style.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 82,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render accurately translates the 2D floor plan's overall layout and most structural elements with high fidelity, maintaining good spatial and geometric precision. Minor deductions are for the incorrect representation of open spaces as enclosed rooms and some deviations in furniture accuracy and aesthetic nuances.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "The hallway between the two bedrooms is significantly altered. The bathroom layout is inverted. The kitchen/dining area connection has an additional wall. Multiple windows are missing. Relative room sizes are generally proportional, but the bathroom and hallway are distorted. Overall footprint is maintained."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 4,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 2
+        },
+        "notes": "The UI for the original 2D plan is present in the 3D render (Multi-Room Floor Plan Template text has been rendered as part of the roof which has now been removed). There is an additional wall in the kitchen/dining area. Model is not completely isolated, there is a distinct ground plane and some shadows that extend beyond the model footprint."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Multiple pieces of furniture are missing (e.g., in the leftmost bedroom, dining chairs, kitchen appliances). Some furniture is rearranged (e.g., living room sofa, desk in top right bedroom). Bathroom fixtures are present but in an inverted layout. Kitchen appliances are notably different."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly simplified forms and flat shaded surfaces are present. Clean edges are maintained. There are no textures for materials, only solid colors, though the floor has a wood pattern which is borderline. Lighting is soft ambient. Camera is isometric."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Hallway between bedrooms significantly altered, creating a smaller, less functional space. Bathroom layout is completely inverted from the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Dining area to kitchen connection has an additional wall/recessed area not present in 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several windows are missing, specifically two in the leftmost bedroom and one in the top right bedroom.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The title 'Multi-Room Floor Plan Template' from the original 2D image is rendered as part of the 3D model's external base, violating the UI/annotation cleanliness rule.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Significant furniture omission and rearrangement. Specifically for the left bedroom (one bed missing), dining area (chairs missing), and kitchen (different appliances, no sink evident in 3D).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The floor uses a wood pattern texture instead of a solid flat color, slightly deviating from the 'no textures' rule.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 69,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant deviations in spatial layout, missing windows, and the presence of UI artifacts from the original 2D plan, although general aesthetic quality and structural elements are mostly compliant.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan2.png"
+}

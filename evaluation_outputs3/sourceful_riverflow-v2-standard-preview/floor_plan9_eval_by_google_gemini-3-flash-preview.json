@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully transitions from a 2D plan to an isometric 3D cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Solid isometric projection with clear wall thickness and floor separation."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Major layout failure: the 2-car garage is missing entirely, and the overall footprint is simplified into a rectangular box, losing much of the original's step-out geometry."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Furniture is present and helps define spaces, but placement doesn't strictly follow the kitchen/living positions from the plan."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Clean white-model render style with good lighting, though some internal walls appear ghostly or semi-transparent."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "2-car garage and front entry patio areas are missing from the 3D model footprint."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Simplified rectangular footprint ignores several architectural bump-outs and indentations from the source plan."
+        }
+    ],
+    "total_score": 69,
+    "verdict": "PASS",
+    "summary": "While a valid 3D conversion was achieved with good visual clarity, significant portions of the floor plan\u2014including the entire garage\u2014were omitted.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan9.png"
+}

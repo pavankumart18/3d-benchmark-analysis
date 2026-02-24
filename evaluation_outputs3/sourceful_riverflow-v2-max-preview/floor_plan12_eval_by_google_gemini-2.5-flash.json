@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": ""
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Good 3D conversion, only minor perspective distortion."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Excellent room configuration and wall geometry. Doors are present but some windows are missing or simplified."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Most major furniture items are present and well-placed. The kitchen area is simplified."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Clear and well-lit rendering with excellent structural clarity. No text labels present."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows in Bed 3 and Bed 4 are missing from the 3D model. The 'Activity' room's large window/opening is represented as a solid wall with a small opening."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "The kitchen area (recess area in 2D) is not detailed with specific kitchen elements, only a counter is visible."
+        }
+    ],
+    "total_score": 93,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D render is an excellent and faithful conversion of the 2D floor plan, demonstrating strong geometric accuracy and clear visualization, with only minor discrepancies in window representation and kitchen detailing.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan12.png"
+}

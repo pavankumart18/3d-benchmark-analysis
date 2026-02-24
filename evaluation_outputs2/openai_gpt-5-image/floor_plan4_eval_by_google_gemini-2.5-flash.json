@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology is good, all rooms present and adjacencies correct. Wall geometry is largely accurate, though some minor misalignments exist. Doors are mostly well-placed, but one is missing and swing directions are inconsistent. Windows are present but placement is sometimes off and sizes are not consistently proportional. Dimensional scaling seems consistent overall."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Good cutaway view, all interior walls visible. No missing structural elements or hallucinated rooms. UI/Annotation Cleanliness is 0 due to text in the 2D plan appearing in the 3D render. Presentation Context is 0 due to the presence of an artificial ground plane with shadows."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present. Dining table, sofas, beds, kitchen and bathroom fixtures are included. Placement is generally accurate but some items are slightly off-position or scaled disproportionately."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Excellent geometry style, using low-poly simplified forms and flat-shaded solid colors with no textures. Lighting is soft and ambient with minimal shadows. True isometric projection with good camera composition."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One door missing between Hall and Laundry room. Another door between Hall and Bathroom has incorrect swing direction.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Windows in Kitchen/Dining and Living Room are not proportional to their counterparts in the 2D plan, appearing smaller and sometimes higher. Some window placements are slightly off.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text from the 2D floor plan 'Nordic Homes' is present in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane with shadows present, violating specification for floating/isolated model.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Small round table in Living Room is missing. Bed in Bedroom 2 is slightly too large for the room, causing clearance issues. Toilet placement in Bathroom is slightly moved.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 81,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render accurately translates the 2D floor plan's spatial arrangement and structural elements with high geometric and aesthetic quality, despite minor issues with window proportionality, a missing door and text hallucination from the source. The rendering style is compliant with low-poly, flat-shaded specifications.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan4.jpg"
+}

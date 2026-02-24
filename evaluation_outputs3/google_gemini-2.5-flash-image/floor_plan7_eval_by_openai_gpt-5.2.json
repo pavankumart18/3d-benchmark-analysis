@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The second image shows extruded walls with thickness and interior cutaway; however the camera is only mildly angled and reads close to a top-down view."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 26,
+            "max": 35,
+            "notes": "Walls are clearly extruded with thickness and clean corners; interior is visible via cutaway. Main weakness is the near-orthographic/top-down viewpoint, which limits perception of vertical wall faces and volume."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall footprint and room adjacencies match the 2D plan (kitchen top-center, dining top-left, living right, bedroom bottom-left, toilet/wash core, stair zone bottom-right). Proportions are largely consistent. Some openings/door details appear simplified (doors not fully modeled with swings)."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present in the correct rooms: dining table/chairs, bed, living seating, kitchen counters/appliances, and bathroom fixtures. Minor simplification in some elements."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Readable walls/floors with coherent materials and no obvious mesh breakage. Lighting is adequate. Text labels are present in the 3D view, reducing presentation cleanliness."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Camera angle is very close to top-down, reducing visible wall side faces and the strength of 3D depth cues."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door/opening representation is simplified; not all door geometries/swings from the 2D plan are explicitly modeled."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Room text labels appear in the 3D render, lowering presentation quality."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway model with strong layout fidelity to the 2D plan, slightly weakened by the near top-down camera and simplified door/opening detailing.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan7.jpg"
+}

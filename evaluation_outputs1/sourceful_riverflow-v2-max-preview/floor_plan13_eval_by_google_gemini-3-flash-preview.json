@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe layout distortion. The garage is incorrectly attached to the main structure as an elevated room rather than a separate detached block. Window placements are heavily hallucinated (e.g., in the lounge/entry area where there should be blank walls or a specific entry door). Door orientations do not match the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Fails to maintain the core structural relationship of the detached garage (E4). While the roof is removed and there is no text, the model is floating strangely with mismatched floor heights not present in the 2D plan. Some rooms are merged or poorly defined."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture appears as generic messy blocks rather than following the clean placement of the kitchen counters, laundry, or bath fixtures as indicated in the plan. Scale is inconsistent across the model."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Adheres to low-poly and isometric angle requirements. However, the shading is slightly muddy and the composition lacks the 'clean' flat-color aesthetic requested, leaning towards a dated CAD render look."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Garage is incorrectly joined to the living area and elevated."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated window placements in the entry and lounge walls."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific fixtures for the bathroom/laundry areas as defined in the plan."
+        },
+        {
+            "code": "E6",
+            "description": "Render style is somewhat hazy/blurry rather than crisp flat-shaded geometry."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan13.jpg"
+}

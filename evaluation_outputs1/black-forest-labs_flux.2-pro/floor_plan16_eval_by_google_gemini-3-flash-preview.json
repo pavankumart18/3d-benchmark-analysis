@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacencies are correct. Door swing directions for the bedroom and toilet are preserved. However, the entrance door is represented as a solid block rather than an open aperture, and the window in the toilet area is missing its defined structural opening."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "All rooms are present and the roof is properly removed. Background is neutral and no text/UI elements are visible. Minor deduction for the hallway leading to the utility which feels slightly misinterpreted in wall thickness."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the floor plan, including the kitchen appliances, bedroom desk, and balcony plants. Scaling is consistent with the architectural footprint."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded style. The isometric camera angle is correct. Deduction for slight visible textures on the kitchen countertop and bedroom flooring which border on realism rather than pure flat colors."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing window aperture in the bathroom/toilet sector style."
+        },
+        {
+            "code": "E2",
+            "description": "Entrance door represented as a structural wedge instead of a standard door opening."
+        },
+        {
+            "code": "E6",
+            "description": "Subtle marble/stone textures on kitchen counters and wood floor patterns slightly violate the 'no textures' constraint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,66 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model clearly demonstrates height, thickness, an angled view, and a removed roof, confirming a successful 3D transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness, floors are distinct, interior volume is perceivable. The viewing angle is appropriate and the roof is cleanly removed. Slight distortion in overall shape relative to original."
+        },
+        "geometric_accuracy": {
+            "score": 10,
+            "max": 30,
+            "notes": "Significant layout changes including stairs removed, and new rooms created. The original living room/dining room area is subdivided into two new rooms. Bathroom layout is altered. Overall room proportions are not preserved, and major wall positions do not align. Doors and windows are mostly present but their exact placement and sizing are off in several instances."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture is present and placed in logical rooms relative to the *new* layout. Furniture scale appears reasonable. However, the specific items (e.g., kitchen appliances) and layout of the bathroom do not match the original plan at all."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is readable, and interior is clearly visible with good lighting. No major rendering artifacts. The background is clean. However, the '13 x 14' text label is visible and partially obscures the view in one room."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Room configuration is vastly different (original dining/living rooms split, stairs removed, a new room created)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Major wall positions do not align with the 2D plan; internal partitions are significantly altered or missing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door and window placements and proportions are inconsistent with the original 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture (kitchen appliances, bathroom fixtures) does not correspond to the original plan's layout, though present in the 3D model according to its new layout."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text label ('13 x 14') is present in the rendered 3D image, slightly obstructing the view."
+        }
+    ],
+    "total_score": 66,
+    "verdict": "PASS",
+    "summary": "The 2D to 3D conversion successfully created a three-dimensional model, but suffered significant geometric inaccuracies and layout fidelity issues that deviate substantially from the original floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan3.jpg"
+}

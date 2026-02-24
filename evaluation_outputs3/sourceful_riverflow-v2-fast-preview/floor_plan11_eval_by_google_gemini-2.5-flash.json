@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model clearly demonstrates height, thickness, depth, and an angled view with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5). Floors are separate (3). Interior volume is perceivable (4). 3D wall corner geometry is mostly correct, but some internal short walls are missing thickness (2/3). Angled view is good (5). Interior visibility is good (3). Minimal perspective distortion (2). Roof removed cleanly (5). Interior spaces are fully visible (3). Geometry is clean (2)."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "The room configuration is significantly different. The 3D render appears to represent a different floor plan or a heavily modified, simplified version of the 2D plan. The 'Central Hall', 'Utility Room', 'Kitchen', and 'Dining Room' from the 2D plan are not directly recognizable or are combined/rearranged. For example, Kitchen/Dining merged with one large living area. The number of rooms is different, adjacencies are incorrect, and proportions are heavily altered. Wall positions are broadly incorrect due to the different layout. Doors and windows are sparse and do not align with the 2D plan. Numerous internal partitions are missing."
+        },
+        "interior_elements": {
+            "score": 5,
+            "max": 15,
+            "notes": "Some furniture is present (bed, sofa, table), but key elements like kitchen island, oven, sink, toilet, HVAC unit are missing or simplified. The furniture placement is inconsistent with the original plan due to the layout changes. Scale seems reasonable, but the orientation is hard to verify due to the layout discrepancies."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is excellent; walls, floors, and openings are very clear (4). Geometry is readable (4). Lighting is even and does not obscure geometry (3). Interior is clearly visible (3). Consistent material usage (2). No visible rendering artifacts or broken meshes (2). Clean background/presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "Critical",
+            "description": "Major geometric failure: The 3D model does not accurately represent the 2D floor plan's layout. Rooms are missing, combined, or completely reconfigured. This is not a faithful conversion."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Layout distortion: Room adjacencies, overall proportions, and wall positions are heavily altered or incorrect compared to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Door/window mismatch: Doors and windows are missing or incorrectly placed/sized compared to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Furniture issues: Significant furniture elements from the 2D plan are missing or altered, and plumbing fixtures are not accurately represented."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "The 3D conversion successfully transforms the input into a 3D cutaway view with good rendering quality, but exhibits significant geometric inaccuracies and layout discrepancies when compared to the original 2D floor plan, suggesting it's either a different plan or a highly simplified interpretation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan11.png"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully transitions from a 2D floor plan to an isometric 3D cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent 3D depth and wall geometry. Minor perspective haziness in some internal corners."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Major layout deviation. The 3D model adds multiple rooms and walls not present in the original open-concept plan."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Furniture is present but does not align with the 2D layout (e.g., a bed is added where no bedroom was specified)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Good architectural style and color coherence, though some internal details are blurry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "The 3D model introduces several internal partition walls and additional rooms (likely bedrooms) not found in the original floor plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The stairs from the original plan are entirely missing in the 3D render."
+        }
+    ],
+    "total_score": 69,
+    "verdict": "PASS",
+    "summary": "While the 3D conversion is technically sound and visually appealing, it fails the fidelity test by inventing a complex room layout that contradicts the simple 2D source plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway conversion."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Solid 3D generation with clear heights and thickness; consistent isometric perspective."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Excellent room adjacency and wall layout. Door orientations are slightly simplified but mostly correct."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Strong furniture correspondence. Kitchen, bathrooms, and bedrooms are accurately populated relative to the plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean, intelligible render with no text intrusion or significant artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Inner door swing directions are simplified/arched compared to the architectural plan."
+        }
+    ],
+    "total_score": 92,
+    "verdict": "EXCELLENT",
+    "summary": "An exceptionally faithful 3D conversion that maintains room proportions, furniture placement, and architectural layout of the source plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan.jpg"
+}

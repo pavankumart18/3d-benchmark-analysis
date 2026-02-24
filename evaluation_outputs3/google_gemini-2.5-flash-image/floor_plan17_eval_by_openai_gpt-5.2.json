@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": true,
+        "depth_perceivable": false,
+        "angled_view": true,
+        "roof_removed": false,
+        "notes": "Second image is essentially the same 2D floor plan tilted in perspective with drop shadow; it lacks true vertical wall extrusion and room volume (no perceivable wall height, no top+side wall faces forming interior spaces)."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Automatic rejection (E0-FATAL): no true 3D wall height/room volume; looks like a perspective-styled 2D plan."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "FATAL",
+            "description": "Not a true 3D conversion: walls are not modeled with real height and interior volume; output is a 2D floor plan presented at an angle."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The second image is a perspective-styled 2D floor plan rather than a geometrically faithful 3D cutaway model with wall height and interior volume.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan17.jpg"
+}

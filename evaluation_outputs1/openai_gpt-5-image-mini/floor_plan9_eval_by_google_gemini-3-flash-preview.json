@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortion. The garage scale is completely incorrect (rendered as a small bedroom size), and the entire floor plan orientation feels mirrored or heavily reinterpreted. Specific room adjacencies from the blueprint, particularly around the kitchen and hallway, are lost. Window and door placements are generic rather than following the blueprint's specific coordinates."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the roof is removed and there is no UI/text overlay, the garage is functionally hallucinated as a living space/bedroom, and the complex wall angles of the study and master bath are simplified into standard boxes. The floating model on a dark background is correctly implemented."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is clean and block-style, but placement is highly inaccurate compared to the plan. A bed is placed where the garage should be, and the kitchen island/nook orientation does not match the diagonal design of the original blueprint."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "The render perfectly adheres to the aesthetic requirements: low-poly, flat shading, no textures, and a correct 45-degree isometric orthographic camera angle."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Dimensional scaling preserved is failed; garage is rendered roughly 1/4 of its intended size."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination of a bedroom interior with a bed inside the designated '2 Car Garage' zone."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific architectural features like the fireplace in the living room and the angled walls for the study entrance."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen counter layout is simplified to a straight/L-shape instead of the complex multi-angled island and nook layout shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan9.png"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height/thickness, multiple faces are visible, interior volume reads clearly, and the camera is in an angled/isometric view with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Convincing wall height/thickness and room volume; clean isometric view and cutaway. Minor issues: some openings/wall terminations look simplified and not fully detailed at corners."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall room set is largely present (kitchen, dining, living, bedroom, wash/toilet, stairs), and major outer walls generally match. However, the dedicated entrance/foyer area from the 2D plan is not clearly maintained as a distinct space in the 3D (appears merged into the living circulation), and a few internal wall/door placements are simplified."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Dining set, kitchen cabinetry/appliances, sofa, bed, and toilet are present. Furniture scale/orientation is generally reasonable and placed in plausible corresponding rooms (bed located where Bedroom 1 is in the 2D)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean, readable geometry with consistent materials and good visibility. Deduction for text labels on floors (UI/annotation contamination) and some simplified door geometry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Entrance/foyer area shown in the 2D plan is not clearly preserved as a distinct space in the 3D; circulation near the top-right appears merged/simplified."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/opening set does not fully match the 2D: the main entrance door/threshold depiction is unclear or missing, and some interior openings are simplified."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text labels are present in the 3D render (e.g., room names), reducing presentation cleanliness per rubric."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A valid, clean cutaway 3D conversion with strong volumetric representation, but with some layout fidelity loss around the entrance zone and minor door/opening mismatches plus label contamination.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan7.jpg"
+}

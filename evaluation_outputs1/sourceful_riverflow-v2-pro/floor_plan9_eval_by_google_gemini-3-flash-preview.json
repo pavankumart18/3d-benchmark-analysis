@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Strong adherence to floor plan geometry. Most room adjacencies and wall alignments are correct. Key deductions: Kitchen island angle is slightly simplified compared to the multi-angled 2D design. Door orientations largely match but some door swings in the bathroom area are indistinct."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent structural fidelity. All rooms present, including the garage and porches. No illegal text or UI elements. The model correctly floats on a neutral background with a clear cutaway view. Minimal points deducted for simplified window frames in the Living Room."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture blocks are placed accurately according to room labels (beds in bedrooms, dining tables in 'Nook' and 'Dining Room'). Scale is consistent across the model."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect execution of the requested aesthetic. High-quality low-poly modeling, flat shading, soft ambient occlusions, and a correct orthographic isometric perspective."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The kitchen island/counter geometry is simplified, losing the exact multi-faceted angle shown in the 2D floor plan layout."
+        },
+        {
+            "code": "E2",
+            "description": "Windows in the Living Room and Master Bedroom are clustered slightly differently than the 2D architectural spacing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan9.png"
+}

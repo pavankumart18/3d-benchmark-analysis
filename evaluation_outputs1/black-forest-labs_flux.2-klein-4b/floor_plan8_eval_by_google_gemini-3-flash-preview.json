@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "The general perimeter layout is roughly followed, but there are significant internal discrepancies. The staircase (UP/DN) is completely missing and replaced with a room containing sofas. The wall alignment for the pantry/central island is inconsistent with the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Roof is successfully removed and model is floating on a dark background. However, the staircase is a missing major structural element. The rounded exterior corner near the kitchen is a hallucination not seen in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture does not map to the plan. A sofa and office desk have been added where a staircase and open playroom should be. Kitchen counters and fixtures (sinks/stoves) are vague or missing."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to style. Low-poly, flat shading, and no textures. Isometric orthographic camera is well-implemented. Lighting is soft and appropriate for the requested style."
+    },
+    "total_score": 66,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase (UP/DN) which is a primary structural unit in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated office furniture and curved exterior wall geometry not present in source."
+        },
+        {
+            "code": "E2",
+            "description": "Internal wall partitions for the closets and powder room (W/C) are distorted in scale."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island and pantry positioning shifted significantly from the original layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan8.jpg"
+}

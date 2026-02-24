@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 8,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Layout topology generally preserved but the 'Recess' area is not clearly defined in 3D. Wall geometries are mostly accurate, but some internal wall thicknesses appear inconsistent. Doors are largely correct, but some swing directions are inaccurate or not clearly represented. Windows are present, but their sizes and proportions are sometimes off. Dimensional scaling shows inconsistencies, particularly with window and door proportions relative to walls."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Cutaway view is excellent with no roof fragments. Completeness suffers from missing the 'Recess' area and some details around the stairs. Hallucination control is good, no extra rooms. UI/Annotation cleanliness is poor due to the presence of text labels and dimensions, resulting in 0 points for this sub-category. Presentation context could be improved; while the background is dark, there's a visible ground plane and some shadows that extend. Text labels in the 2D render were mistakenly kept as part of the image."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major furniture pieces (beds, sofa, dining tables, kitchen/bathroom fixtures) are present. Placement in bedrooms and bathroom is largely accurate. The 'Activity' room's furniture differs significantly from the 2D plan, as does the balcony's. Kitchen fixtures are present but not detailed enough to confirm layout. Some furniture items appear generic and don't match the specific items implied by the 2D symbols."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style tends towards simplified forms, but some items (like bathroom fixtures and kitchen counters) have more detail than 'low-poly simplified forms'. There are subtle textures (e.g., wood grain on furniture) which deviate from 'solid flat colors only'. Lighting is soft ambient with minimal shadows. Camera composition is a true isometric projection, well-centered and appropriately zoomed. However, the presence of subtle textures and slightly more detailed geometry than expected for the 'low-poly' style leads to deductions."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/dimensions from the 2D plan are present within the reference image, leading to a critical failure for UI/Annotation Cleanliness. This must be a clean 2D plan for evaluation, not an annotated one.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Recess' area next to the stairs in the 2D plan is not clearly defined or fully translated into a distinct functional space in the 3D model. It appears as an undefined extension of the Activity room. Missing a functionally distinct area.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "'Activity' room furniture (sofa, TV stand) placement and type significantly differ from the 2D plan's implied layout and furniture. Balcony furniture also differs.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle textures (e.g., wood grain on beds and TV stand, tiled look on balcony floor) are present, deviating from 'solid flat colors only'.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some door swing directions do not match the 2D plan, or are not clearly indicated (e.g., Bed 3 entrance, Bathroom entrance).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window sizes and proportions differ from the 2D plan, particularly in bedrooms and the Activity room.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 62,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render successfully translates the overall layout and most structural elements from the 2D plan but falls short on furniture accuracy, consistent scaling of openings, and critically fails on UI cleanliness due to text in the source image itself. Some aesthetic choices also deviate from the strict 'low-poly, flat color' requirement.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan12.png"
+}

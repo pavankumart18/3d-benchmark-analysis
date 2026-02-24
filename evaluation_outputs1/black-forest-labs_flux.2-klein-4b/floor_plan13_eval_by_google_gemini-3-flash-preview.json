@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant layout distortions. The primary corridor and room adjacencies are misinterpreted. The Kitchen/Laundry/WC cluster is incorrectly merged and repositioned. Door and window counts do not align with the original floor plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "While the roof is removed and there is no UI text, the structural reinterpretation is severe (E4). The garage is missing as a separate unit, and internal wall alignments have been hallucinated into a different configuration."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture such as the sofa and bed are present but misplaced relative to the original room functions. Scale is inconsistent with the layout proportions."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High adherence to style constraints. Low-poly geometry, flat shading, and isometric camera perspective are correctly executed. Neutral floating background is well-maintained."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Garage structure and specific kitchen/laundry fixtures."
+        },
+        {
+            "code": "E2",
+            "description": "Major layout distortion in the bathroom/WC area and kitchen placement."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated long green partition wall and alternate hallway configuration not present in 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan13.jpg"
+}

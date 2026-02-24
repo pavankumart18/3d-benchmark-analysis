@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent structural layout mirroring. Room adjacencies and wall alignments are highly accurate. Minor discrepancy in the FOYER entry area where the wall thickness and offset from the kitchen are slightly generalized. Window placements match the rhythm of the 2D plan well."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect compliance with structural constraints. No missing rooms, no hallucinated additions, roof successfully removed, and no prohibited text or measurement overlays."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement captures almost all primary fixtures including beds, sofas, and the dining set. The kitchen counter layout is slightly simplified compared to the L-shape indicated in the plan, and the utility area fixtures are more generic than the specific washer/sink icons shown."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High adherence to the low-poly aesthetic. Flat shading and soft ambient lighting are applied correctly. The camera is isometric, though slightly closer to a top-down perspective than a true 45-degree angle, but still acceptable within the orthographic constraint."
+    },
+    "total_score": 90,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the Foyer/Entrance wall alignment and kitchen counter geometry."
+        },
+        {
+            "code": "E1",
+            "description": "Simplified or missing fine-detail kitchen fixtures (range/sink specifics) compared to the detailed 2D plan icons."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan14.webp"
+}

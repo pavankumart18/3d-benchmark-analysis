@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall layout and room count are generally correct. However, one toilet in the main master bedroom was not replicated. The '1.05 8ft' label wall in the 3D render is unnecessary. Many window placements are inaccurate, and door swings are not always matched. There's also an extra unlabeled room/area in the 3D render next to the main bathroom that is not in the 2D plan, potentially a hallucination or misinterpretation of the 'WIDE PASSAGE' area. Wall positions show minor inaccuracies in several places (~10-15% tolerance issues in some wall lengths/placements, especially around toilets and the kitchen/utility area)."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The 3D render correctly provides a cutaway view with the roof removed. However, the completeness is lacking due to missing entire rooms (Balcony, Utility, one of the toilets) and structural elements like the 'WIDE PASSAGE' area being misinterpreted. There is a hallucinated room ('1.05 8ft' labelled area) not present in the 2D plan that looks like a bedroom, possibly a misinterpretation of a wide passage. Critical error: A text label '1.05 8ft' is present on a wall, resulting in 0 points for UI cleanliness."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Furniture presence is partial; beds and some living/dining furniture are present, but kitchen and bathroom fixtures are significantly simplified or missing. For instance, the 'Utility' room and its fixtures are absent entirely. One of the toilets was missed, and the master toilet has simplified fixtures. The kitchen lacks proper counters shown in the 2D plan. Placement of existing furniture is generally accurate for the pieces that are there, but the overall mapping is incomplete."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is mostly low-poly with flat shaded surfaces and no textures, which is good. There are some minor inconsistencies in surface finish (e.g., windows have a slight sheen/specularity). Lighting is ambient with soft shadows, fitting the criteria. The camera composition is an isometric view, but it appears to be rotated slightly more than 45 degrees, and the overall framing is a bit tight on the right side."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire rooms missing: Balcony (left and right), Utility, and one toilet. The main master bedroom toilet, for example, is represented as a door then a wall, not showing the internal fixtures.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text overlay present: 'BEDROOM-1', 'BEDROOM-2', 'TOILET', 'KITCHEN' and '1.05 8ft' labels are present on walls.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated room or misinterpretation: The area labelled '1.05 8ft' in the 3D render appears to be a room not present in the 2D plan, potentially misinterpreting the 'WIDE PASSAGE' area as a room.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned/missing: The 'Utility' room walls are entirely missing. The wall separating the master bedroom from its toilet/balcony is incorrect. Walls around toilets are significantly different.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Significant missing/simplified fixtures: Kitchen counters/sink not adequately represented; most bathroom fixtures are highly simplified or missing (e.g., all bathtubs/showers are absent).",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 59,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, primarily due to critical errors such as missing rooms, hallucinated structural elements, and the presence of text labels. While general layout is recognizable, several geometric and furniture mapping inaccuracies further reduce its compliance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan15.webp"
+}

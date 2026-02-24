@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout distortion. The entire left-side kitchen and balcony structure is misinterpreted into a messy open bedroom/living hybrid. The central dining area layout is lost, and the proportions of the hallway/thresholds are heavily warped."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Walls are visible and roof is removed, but significant hallucinations occur in wall placement (E4). Some walls are jagged or disconnected. It successfully avoided text/UI elements and utilized a neutral background."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is low-poly but placement is largely random compared to the floor plan. The central dining table is missing, and kitchen fixtures are replaced with abstract blocks."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High adherence to style constraints. Excellent low-poly execution, flat shading, and isometric camera angle. Lighting is soft and appropriate for the requested style."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen counter assembly and central dining table sequence."
+        },
+        {
+            "code": "E2",
+            "description": "Severe layout distortion of the left wing; balcony merged into interior space."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated jagged wall segments and misplaced furniture units not present in 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan5.jpg"
+}

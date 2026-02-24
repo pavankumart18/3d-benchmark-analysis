@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model successfully demonstrates visible wall height, thickness, perceivable depth, and is viewed at an angle with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5), floors are clearly separated (3), interior volume is well perceivable (4), and 3D wall corner geometry is good (3). The angled view is present (5) and affords an elevated perspective (3). Some minimal perspective distortion is present, but not severe (2). The roof is cleanly removed (5) and interior spaces are visible (3), but some sections appear slightly broken or unfinished, particularly around the kitchen and laundry area edges (0/2)."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "The number of rooms and adjacency relationships are correct (3, 4). Relative room proportions are well preserved (3). Major room identities match the layout (2). Major wall positions align well (5) and wall lengths are generally proportional (3). Internal partitions are correctly placed (2). Doors are present and on correct walls, though some are simplified (4). Windows are missing entirely (0/2). Openings are proportionally sized and oriented for doors, but no windows (0/2)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) is present (4). Kitchen elements are present (2). Bathroom fixtures are present (2). Furniture is placed in correct rooms (3). Furniture scale is reasonable relative to the room (1/2, some feel a bit small). Orientation is logical for most items (1/2, some are slightly off or generic)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3). Lighting is generally good, but some areas in the corners appear a bit dark (2/3). Material usage is consistent and clean (2). No major rendering artifacts or broken meshes are present (2). The background is clean (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "CRITICAL",
+            "description": "Windows are entirely missing from the 3D model, despite being indicated in the 2D plan."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Some areas, particularly at the edges of the cutaway in the kitchen/laundry, appear slightly unfinished geometrically."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transformed the 2D floor plan into an accurate and well-rendered isometric model, though with missing windows and minor geometric imperfections in some cutaway sections.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan4.jpg"
+}

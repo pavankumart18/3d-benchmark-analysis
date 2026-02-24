@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "The general room adjacency and layout are preserved. However, the bedroom window is missing from the left-side wall (preserved only on the top wall), and the kitchen window is entirely missing. The door to the toilet is correctly positioned but the utility area configuration is simplified."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No text or UI elements are present. The model is a floating cutaway on a neutral dark background. Minimal point deduction due to the kitchen/utility wall segment being slightly simplified compared to the notch in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture is placed in correct logical zones (bed, sofa, dining table). The dining table has 4 chairs whereas the 2D plan suggests a 2-chair configuration. Scale is consistent with the room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "High adherence to the requested aesthetic. Low-poly, flat-shaded, and no complex textures. The lighting is soft and ambient. The camera angle is correctly isometric orthographic."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing bedroom side window and kitchen window."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated additional chairs for the dining set compared to the 2D plan icon."
+        },
+        {
+            "code": "E2",
+            "description": "Minor distortion in the utility/foyer wall thickness and layout transition."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan18.jpg"
+}

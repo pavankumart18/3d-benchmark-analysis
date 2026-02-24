@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "The internal layout and room adjacency are generally correct. However, significant distortion occurs at the bottom right where the detached garage has been merged directly into the main floor plan structure, violating the actual layout of the plan. Door placements are largely kept but window proportions and placements on the right side are altered."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Failed strictly on text labels and measurement lines which were hallucinated/retained. The garage is structurally reinterpreted as being underneath or attached to a room (Bedroom 2) rather than detached. The balcony is missing its floor/railing detail and appears as an empty void."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen counters and appliances are mapped well. Laundry and bathroom fixtures are represented. However, they are treated as flat 2D textures on the floor rather than the required block-style 3D furniture models."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "notes": "Isometric angle is correct. Background is dark neutral as requested. However, the model uses textures/photorealistic-style carpet and shading rather than pure low-poly flat colors. The presence of text labels is a major violation of the aesthetic constraints."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing physical balcony structure (rendered as floor-less perimeter)."
+        },
+        {
+            "code": "E2",
+            "description": "Detached garage is incorrectly merged into the main apartment structure."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated windows on the southern wall that do not exist in the source plan."
+        },
+        {
+            "code": "E5",
+            "description": "Presence of text labels and measurement lines despite strict prohibition."
+        },
+        {
+            "code": "E6",
+            "description": "Usage of textures (concrete/carpet) instead of flat low-poly colors."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan13.jpg"
+}

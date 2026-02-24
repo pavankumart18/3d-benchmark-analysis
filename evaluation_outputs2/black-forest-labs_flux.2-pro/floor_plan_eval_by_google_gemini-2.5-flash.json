@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "1.1 Layout Topology: Overall shape maintained, room count matches, but relative size of master bedroom appears slightly smaller and living room/dining area slightly larger than proportionate. (Deduction: 2 pts) \n1.2 Wall Geometry: Most wall positions are accurate but some internal walls (e.g., between Rachel's bedroom and bathroom) seem slightly thicker, and the wall separating Monica's bedroom from the bathroom is off. The kitchen wall by the closet also slightly differs. (Deduction: 4 pts) \n1.3 Openings - Doors: All doors are present. Placement is generally correct but the swing direction for the closet door near the kitchen is incorrect. The door to Rachel's bathroom opens inward, while the plan shows it opening outward. (Deduction: 2 pts) \n1.4 Openings - Windows: All windows are present and on correct walls. Sizes appear proportional. (Deduction: 1 pt for an overall sense of slight disproportion) \n1.5 Dimensional Scaling: Consistent overall scale, no major aspect ratio distortion. (Deduction: 1 pt for minor proportionality issues mentioned above)"
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "2.1 Cutaway View Compliance: Roof completely removed, interior walls fully visible. No fragments visible. \n2.2 Completeness: No missing rooms or structural elements. \n2.3 Hallucination Control: No extra rooms or invented architectural features. \n2.4 UI/Annotation Cleanliness: Although a background image, there is text present in the original 2D image, which was provided as the 'ground truth reference.' However, the generated 3D image has no text, measurements, or legends, fulfilling the requirement for the _generated_ output. Scoring based on the generated and not the original. (Deduction: 4 pts for not realizing the instruction meant the *generated* image should not have UI/Annotation elements based on the prompt's language, will adjust scoring mechanism in future iterations) \n2.5 Presentation Context: Dark neutral background. Model appears floating. There is a very subtle shadow but no ground plane extending to infinity."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "3.1 Furniture Presence: Most major pieces are present. Kitchen has counters, island, sink, and stovetop. Bathrooms have toilets, sinks, and showers/tubs. Some minor items like bedside tables or specific chairs are missing. (Deduction: 1 pt) \n3.2 Furniture Accuracy: Placement is generally accurate to the 2D plan. Scale seems appropriate. (Deduction: 1 pt for minor deviations in placement, e.g., living room sofa relative to coffee table, and the general clutter in the 2D plan is not fully replicated)."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "4.1 Geometry Style: Low-poly, simplified forms, flat shaded surfaces, clean edges, solid flat colors. No textures. \n4.2 Lighting & Rendering: Soft ambient lighting, flat shading with minimal shadows, no dramatic contrasts. Colors are distinguishable. \n4.3 Camera & Composition: True isometric projection, 45\u00b0 rotated plan view, centered framing, appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Rachel's bathroom door swing direction incorrect.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Closet door near kitchen swing direction incorrect.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall between Monica's bedroom and bathroom has incorrect geometry/thickness.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Relative room sizes slightly off, particularly living room appears slightly larger and Monica's bedroom slightly smaller.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Original image contained text/annotations, though generated image did not.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Minor furniture pieces like specific chairs or small tables are missing. Placement of some furniture items (e.g., living room sofa) slightly off.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 83,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates strong adherence to the 2D floor plan's structural and spatial layout, with high scores in presentation and rendering style, while exhibiting minor inaccuracies in door swing directions and subtle wall geometries.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan.jpg"
+}

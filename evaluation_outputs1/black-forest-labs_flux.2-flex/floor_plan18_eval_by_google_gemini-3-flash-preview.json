@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "The general footprint is maintained, but several door placements are incorrect or missing. The balcony area is significantly misinterpreted as a solid walled room with an interior door. Window placement on the left wall of the bedroom is incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Significant violation of the no-text constraint; floor plan labels were hallucinated onto the floor and kitchen counter. The utility area and toilet partitioning are messy. Major deduction for text labels."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Bed and kitchen counters are placed correctly. However, the living room seating is completely different from the floor plan (missing the large sofa), and dining furniture is missing."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model follows the low-poly isometric style well. However, there is some texture-like shading on the floors and walls that leans away from pure flat shading. Lighting is soft but creates realistic gradients."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated text labels ('ITCHEN', 'NG/DINING') visible on the model surfaces."
+        },
+        {
+            "code": "E2",
+            "description": "The balcony area (bottom left) is incorrectly enclosed with standard walls and a solid door rather than an open balcony structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the primary sofa in the living area and the dining table set."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination of a small interior room/closet where the utility/entrance transition occurs."
+        },
+        {
+            "code": "E6",
+            "description": "Presence of complex shadows and slight gradients on walls instead of strictly flat, untextured shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan18.jpg"
+}

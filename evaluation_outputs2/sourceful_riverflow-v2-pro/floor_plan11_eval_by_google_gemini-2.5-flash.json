@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is mostly preserved, but some room sizes are not proportional. Wall geometry has several misalignments, especially around the central hall and utility room. All doors are present on correct walls, but swing direction is not consistent. Many windows are missing or misplaced. Dimensional scaling is inconsistent, with some areas appearing stretched."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Cutaway view is correct, showing the interior. Completeness issues exist with missing architectural features such as the 'alcove' area and some stair details. No obvious hallucinations. UI/Annotation Cleanliness is a critical failure as there are numerous labels and lines from the original plan still visible. Presentation context is partially met, but the background isn't a deep dark neutral tone, and there's a visible ground plane/shadow."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major fixtures like kitchen counters, sink, and bathroom fixtures (toilet, sink, shower/tub) are present. Kitchen island, 'REF' (refrigerator), and 'WH' (water heater) are also present. Staircase is present. Placement is generally accurate, with some minor positional shifts."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is mostly low-poly with flat shaded surfaces and no textures, which is good. However, some edges appear slightly aliased or jagged. Lighting is soft, but the shadows are quite pronounced for 'minimal shadows' and could be softer/lighter. Colors are distinguishable. Camera view is clearly perspective, not true isometric, and the viewing angle is not a 45-degree rotated plan view."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text overlays/annotations from the original 2D plan are present in the 3D render, violating UI/Annotation Cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not true isometric view; perspective distortion visible, especially with receding parallel lines.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The 'ALCOVE' area is entirely missing. Stairs are present but lack specific details like the landing and direction indication. 'CRAWLSPACE ACCESS' area is not clearly represented.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant misalignment and disproportion in the wall geometry, particularly the 'CENTRAL HALL' and 'UTILITY ROOM' areas. The dining room wall to the left of the window seat is too short, and the window seat itself has incorrect dimensions compared to the plan.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MINOR",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Many windows are missing (e.g., in the Dining Room, Central Hall, WC) and others are not accurately placed or sized (e.g., Breakfast Nook window).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane is visible with shadows extending, not fulfilling the 'floating/isolated' model requirement.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 71,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render passes the threshold despite critical issues with UI cleanliness and perspective distortion, primarily due to good fulfillment of structural element presence and door placement, which compensated for other inaccuracies in wall geometry and window mapping.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan11.png"
+}

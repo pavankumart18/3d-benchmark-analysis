@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is recognizable, but there are significant wall alignment errors in the entrance and living room area. The staircase is missing entirely, replaced by an generic storage wall/niche. Door swings are inconsistent or represented as simple gaps."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Roof is successfully removed and models are floating on a neutral background. However, a major structural element (the staircase) is missing, and the kitchen/entrance wall configuration is oversimplified."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the floor plan's arrangement, particularly in the dining, living, and bedroom areas. Kitchen fixtures are under-represented."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints: low-poly geometry, flat shading, zero textures, and a correct isometric orthographic camera angle."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase unit in the bottom-right section of the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Wall distortion near the entrance and living room foyer; alignment does not match the 2D schematic."
+        },
+        {
+            "code": "E1",
+            "description": "Missing kitchen countertop and stove fixtures shown in the original layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan7.jpg"
+}

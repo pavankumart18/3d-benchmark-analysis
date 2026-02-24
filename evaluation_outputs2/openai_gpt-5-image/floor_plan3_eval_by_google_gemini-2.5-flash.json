@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The 2D plan indicates a single large open space for Dining Room and Living Room, but the 3D render has a dividing wall, creating two separate rooms. The bathroom's internal layout is significantly altered and the dimensions of its walls are not proportional to the plan. The primary staircase appears to lead to a basement/lower level based on the render's ground level, whereas the plan implies it leads to an upper level from the main floor."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The render has completely removed the roof and shows interior walls. However, the presence of the staircase implies another level, which is not depicted or accessible from the plan's context, leading to a completeness and hallucination issue. UI/annotation cleanliness is a major fail as the 2D plan is riddled with text and measurements. Presentation context is decent, but the model isn't completely 'floating/isolated' as it sits directly on a dark ground surface."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "The kitchen has some fixtures (counter, sink), but the layout does not match the plan's simple indication of a 'KITCHEN' area. The bathroom has some fixtures, but again, the layout does not reflect the 2D plan. No other furniture is present as indicated in the 2D plan (e.g., dining table, living room furniture)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is low-poly and flat shaded with solid colors, mostly adhering to the specifications. Lighting is soft ambient. There are some shadows, but not overly dramatic. Colors are distinguishable. The camera view is isometric, but the rotation seems to be slightly off the specified 45 degree plan view, making the longer side of the building less visible from the front."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The 2D plan itself contains text labels, measurements, and a title, making the UI/Annotation Cleanliness score 0.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Hallucinated a dividing wall between the Dining Room and Living Room, which are represented as one open space in the 2D plan. This significantly alters the layout topology.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The bathroom layout and internal walls are significantly different from the 2D plan. The door swing is also reversed.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E4-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The kitchen layout with the L-shaped counter and sink is a hallucination not present in the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing major furniture from dining room and living room (e.g., dining table, sofa) which are implied by room labels.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 56,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to inaccuracies in spatial layout, including a major hallucinated wall, incorrect bathroom geometry, missing furniture, and critical issues with the original 2D plan's UI compliance which was used during the generation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan3.jpg"
+}

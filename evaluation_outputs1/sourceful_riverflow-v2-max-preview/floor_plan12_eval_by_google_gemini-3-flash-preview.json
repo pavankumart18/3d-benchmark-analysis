@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but there are dimensional distortions. The Bed 3 area is compressed compared to the large activity room. Window frames in the balcony and bedrooms are simplified but present. Door swing directions mostly match, but the closet/robe doors are rendered as solid wall niches."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The model successfully removes the roof and uses a dark neutral background. All rooms are present. Major loss in fidelity regarding 'Recess' and 'Linen' cupboard segments which are rendered as empty walled boxes. No UI/text present."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is simplified into blocks as requested. However, Bed 2's orientation is rotated incorrectly (headboard should be against the western wall, not the southern wall). Bath and WC fixtures are reasonably placed."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The render is isometric and uses a clean palette. However, it violates the 'no textures' rule by applying a wood-grain texture to the flooring and balcony decking. Light is soft but creates realistic shadows, bordering on a more sophisticated render style than the requested flat-shading low-poly."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E6",
+            "description": "Texture violation: Wood-grain textures applied to floors and balcony when flat colors were requested."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture orientation: Bed 2 is rotated 90 degrees away from the plan's specification."
+        },
+        {
+            "code": "E4",
+            "description": "Structural reinterpretation: Closet spaces and the 'Recess' area are rendered as thick structural wall blocks rather than usable storage voids."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan12.png"
+}

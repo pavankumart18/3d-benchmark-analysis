@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent layout preservation. Room adjacencies and wall alignments are highly accurate. Minor deductions for the sliding door to the balcony being rendered as a secondary interior-style wall/gap and slight scaling variance in the corridor."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "All rooms are present including the detached garage. No text or UI elements. Deduction for hallucinating an additional small window in the garage and the entrance door swing being slightly misinterpreted."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture is clean, block-style, and correctly placed (bed in Bedroom 1, kitchen counters, bathroom fixtures). Bedroom 2 is correctly empty as per the plan."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Perfect adherence to style: low-poly, flat shading, isometric orthographic camera, and neutral background. Minimal shadows for depth without being dramatic."
+    },
+    "total_score": 90,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The balcony entrance lacks the sliding door characteristic of the 2D plan, appearing more as a wide opening."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated window on the rear wall of the detached garage not present in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "The Linen closet near the entry is rendered taller/as a full wall section rather than a small closet niche."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan13.jpg"
+}

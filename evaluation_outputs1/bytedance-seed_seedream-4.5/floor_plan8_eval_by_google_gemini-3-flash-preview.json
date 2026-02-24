@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout distortions present. The central pantry has been relabeled as 'STAIRS' and 'KANTRY', and the actual stairs have been moved and significantly altered. The large 'Living Room' and 'Dining Room' areas from the plan have been compressed and incorrectly merged or relabeled as 'Powder Room' and 'Living Room'."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "The model contains multiple text labels ('FOYER', 'COSET', 'PLAYROOM', etc.) which is a direct violation of the strict no-text constraint. Additionally, structural elements like the pantry and central staircase are misinterpreted or hallucinated in incorrect positions."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen island and counters are present and clean, but the fireplace/built-in unit near the foyer is floating and disconnected from the wall. Scale is generally acceptable but some fixtures are hallucinated."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Follows the low-poly, flat shading aesthetic well and utilizes an isometric orthographic camera correctly. However, the lighting is slightly more dramatic/emissive than requested (warm glow in rooms), and the inclusion of text ruins the clean render requirement."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific closet walls and formal dining room enclosure."
+        },
+        {
+            "code": "E2",
+            "description": "W/C area replaced by a second kitchen-like layout; central pantry misinterpreted."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated room labels and interior wall configurations that do not exist in the 2D source."
+        },
+        {
+            "code": "E5",
+            "description": "Major violation: Multiple text labels (FOYER, POWDER ROOM, etc.) and measurement artifacts on the model."
+        },
+        {
+            "code": "E6",
+            "description": "Emissive lighting effects inside rooms deviate slightly from strict flat shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "Door to bedroom is incorrectly represented as a solid wall with an adjacent door; the stairwell entrance is missing; the main entrance orientation is flipped; several windows on the southern wall and eastern wall are missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The stairwell room is fundamentally reinterpreted as a closet/small bathroom extension; the entry sequence is altered. Background and cutaway requirements are satisfied."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen, bed, and dining set are mostly accurate in placement, though a TV unit was hallucinated in the living area where there was empty space."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded styling. Soft ambient lighting and isometric orthographic camera angle are perfect."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase room and multiple windows on the perimeter walls."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom door and hallway access shifted significantly from floor plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated TV stand in the living room and an extra interior wall partition."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan6.jpg"
+}

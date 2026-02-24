@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model clearly demonstrates height, thickness, and an angled view, with the roof removed to show the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height (5), floor is a separate plane (3), interior volume is perceptible (4), proper 3D wall corner geometry (3). Angled view (5), interior visible from elevated perspective (3), but there is some perspective distortion, especially with longer walls (2). Roof cleanly removed (5), interior spaces fully visible (3), but there are some broken sections, especially the kitchen and utility area wall which is missing (2 points deducted)."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "The number of rooms is correct (3), and adjacency is mostly correct (4). However, the relative room proportions are noticeably distorted, especially the kitchen/utility and balcony areas, which are simplified and partially missing (1 point). Major room identities are recognizable (2). Major wall positions align (5), but wall lengths are not proportionally preserved due to the missing sections and simplification (1 point). Internal partitions are mostly in place, but the utility/kitchen partition is missing (1 point). Doors are present, but the main entrance door for the living area is missing, and the balcony door is also absent (2 points). Windows are entirely missing from the 3D model (0 points). Openings that are present are proportionally sized (2)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture is present: beds, sofas, table (4). Kitchen elements are partially present (sink, stove, but missing counter lines for the full kitchen layout). The utility room appliances (washer/dryer) are also simplified/missing (1 point). Bathroom fixtures are present (2). Furniture is placed in correct rooms (3). Furniture scale is reasonable (2). Orientation is logical (1 point, due to some simplification)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable and not confusing (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts or broken meshes, except for the missing walls (1 point). Clean background presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Significant distortion in room proportions and missing architectural features (balcony, utility room wall, kitchen counter layout, main entrance door, windows)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Missing main entrance door, balcony door, and all windows."
+        }
+    ],
+    "total_score": 75,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation successfully creates a recognizable isometric cutaway, but suffers from notable geometric inaccuracies in room proportions and missing architectural details, specifically several openings and parts of the kitchen/utility area.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan16.avif"
+}

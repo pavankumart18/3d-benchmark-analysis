@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major structural deviations present. The bay window seat from the blueprint is replaced by flat windows. The staircase/crawlspace access hallway is completely missing, replaced by an open void. Room proportions are significantly squashed horizontally."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the roof is removed and there is no text, the model fails to include the Central Hall and technical spaces (WC/Utility) accurately. A generic room is hallucinated where the Utility/WC should be, lacking the specific door configurations of the plan."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Kitchen counters and dining table follow the general zone, but the unique 'window seat' fixture is missing. The breakfast bar/pantry wall is misinterpreted as a standalone island."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to stylistic constraints. Perfectly executed low-poly, flat-shaded isometric render on a dark neutral background with no UI or text elements."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase area and specific bay window structural bump-out."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen island hallucinated from a pantry/pendant wall line."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated generic empty room in place of specific Utility/WC layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan11.png"
+}

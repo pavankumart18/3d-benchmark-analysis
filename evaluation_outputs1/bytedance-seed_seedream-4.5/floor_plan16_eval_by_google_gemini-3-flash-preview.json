@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "The general room layout is correct, but the bedroom is missing its primary window wall bordering the balcony area. The window on the left living room wall is hallucinated. The door to the toilet is correctly positioned, but the bedroom entry is slightly offset compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "All rooms are present and the model is floating on a dark background. However, the external wall in the bedroom has been replaced with an open railing/glass balcony structure that does not exist in the source plan (E4)."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture types; the dining table, sofas, bed, and kitchen fixtures correspond well to the 2D plan in both placement and scale."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to low-poly, flat-shaded style. The lighting is slightly more 'glowy' than a strict flat-shade requirement, but preserves the isometric orthographic view perfectly."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated railing/balcony wall in the bedroom where a solid wall with a window should be."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated windows on the far left living room wall not present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced/reinterpreted wall between bedroom and balcony."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan16.avif"
+}

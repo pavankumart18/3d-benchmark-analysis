@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a cutaway 3D interior: walls show height and thickness with visible side faces and interior volume; ceiling/roof is removed. View is slightly axonometric/elevated rather than a purely flat 2D plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear 3D wall extrusion with thickness and readable interior volumes; cutaway is clean. View is only mildly angled (near top-down), limiting perception of verticality compared to stronger isometric."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall zoning matches (2 beds, central living/dining, kitchen/utility area, two baths), but not fully faithful: the small right-side deck/balcony from the 2D plan appears missing or not clearly modeled; some wall offsets/room proportions look simplified compared to the plan. Door/window placements are not consistently represented."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (beds, sofa seating, dining table) and kitchen counters/appliances indicated; bathrooms have basic fixtures. Some elements are simplified and not all built-ins/utility details match the plan."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean presentation with distinct walls/floors and good visibility; minimal artifacts. Limited contrast on some openings makes door/window reading weaker."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Right-side deck/balcony shown in the 2D plan is not clearly present in the 3D model, indicating a layout fidelity loss."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window openings are not consistently shown or are ambiguous relative to the 2D plan locations and proportions."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Near-top-down camera angle reduces apparent 3D depth compared to a stronger isometric cutaway."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with solid volumetric walls and interiors, but with moderate plan-to-model mismatches (notably a missing/unclear balcony and less faithful opening geometry).",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan14.webp"
+}

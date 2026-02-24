@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric render with extruded walls, visible thickness, and interior volume; ceiling/roof is removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear wall height/thickness and multi-face wall geometry; good angled view and clean cutaway. Minor simplifications in some wall/edge detailing."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall room set and adjacency largely match (living/dining connected to kitchen; bedroom and toilet to the right). However, balcony treatment appears inconsistent: 3D shows a prominent corner balcony and also a long glass-railed exterior strip by the bedroom, while the 2D plan indicates a single balcony at the bottom-left. Some openings/window placements appear approximate rather than exact."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Living, dining, kitchen cabinetry/appliances, and bedroom bed are present and plausibly placed. Bathroom shows fixtures (sink/tub), but the WC/shower configuration does not clearly match the 2D toilet layout."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Readable geometry with distinct walls/floors/openings and good lighting. Presentation is clean with minimal artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Balcony/exterior edge condition does not faithfully match the 2D plan: 3D suggests an additional/relocated balcony-like strip along the bedroom side and a different balcony emphasis than the single bottom-left balcony in 2D."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Window/opening placements and sizes appear approximated; not all openings align confidently with the 2D plan locations."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Bathroom fixture set/layout appears simplified and may not include/represent the toilet fixture as shown in the 2D plan."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A genuine 3D cutaway conversion with strong spatial readability, but with noticeable layout fidelity issues around the balcony/exterior edges and some opening/fixture mismatches.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan16.avif"
+}

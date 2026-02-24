@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 6,
+            "doors": 7,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology suffers from numerous missing rooms and significant alterations (e.g., 'HOME OFFICE / MAID'S ROOM' and 'UTILITY' room are entirely absent). Wall geometry has inaccuracies, particularly around the kitchen/maid's room area which is missing. Many doors are either missing or misplaced, and their swing directions do not always match the plan, or are simplified to not show swing. Window count and placement are mostly accurate, but some are missing. Consistent scaling is present, but significant parts of the layout are not."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "Cutaway view is excellent. Completeness is poor due to multiple missing rooms ('HOME OFFICE / MAID'S ROOM', 'UTILITY', 'TOILET-3', 'TOILET-4'). Significant hallucination of the architectural layout, especially the area where 'HOME OFFICE / MAID'S ROOM', 'UTILITY', 'TOILET-3', 'TOILET-4', and the associated 'LOBBY' area should be. The UI is clean, and the presentation context is good."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many furniture pieces are missing due to missing rooms (e.g., toilet fixtures in TOILET-3 and TOILET-4, home office furniture, kitchen appliances). Main living areas and bedrooms have some furniture, but not all pieces are present (e.g., small accent tables, chairs). Placement is generally approximate, but scale seems reasonable for those present."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 9,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is consistently low-poly and uses flat-shaded surfaces with solid colors, adhering to specifications. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. The camera is a true isometric projection, well-composed, centered, and appropriately zoomed. Shadows are slightly pronounced towards the bottom/right, but not excessive."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms missing: 'HOME OFFICE / MAID'S ROOM', 'UTILITY', 'TOILET-3', 'TOILET-4'. The 'LOBBY' area is also significantly altered/missing.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Multiple walls and entire sections of the floor plan are missing or significantly altered, fundamentally changing the layout.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Various furniture pieces missing due to missing rooms and general incompleteness of furnishings (e.g., kitchen appliances, additional chairs, toilet fixtures).",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are either missing (e.g., to missing rooms) or have incorrect swing directions (e.g., Bedroom-3 door, Bedroom-2 door, Kitchen door).",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 68,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, with critical errors in room and structural completeness, leading to a significantly different layout.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan20.avif"
+}

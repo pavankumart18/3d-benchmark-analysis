@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches. Adjacencies mostly preserved, but open area in 2D is a defined room in 3D. Relative room sizes are generally proportional. Overall footprint maintained. Wall positions have some deviations, particularly in the living/dining area and bathroom. Corner angles are preserved. Doors are mostly present, but some are missing (e.g., bathroom, central open area). Door placements are reasonable. Swing directions are not consistently matched from 2D where indicated. Window count and placement are off: a window in the left bedroom and the rightmost room is missing, and the two windows in the top wall of the 3D model are not present in the 2D plan. Consistent scale overall, no major aspect ratio distortion. Missing two windows (-2 pts). Hallucinated two windows (-0 pts, but noted under hallucination control). Bedroom door in top right corner is hallucinated. Missing door for bathroom and the central open space (-4 pts). Main open area is now a defined room with walls and a door, changing topology. (-3 pts)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed and interior walls are fully visible. No missing room (the open area is mapped to a defined room, not missing). Missing washing machine, drying machine, kitchen sink, and range/stove (all structural elements). Hallucinated interior walls defining the central open area and a door there. Hallucinated a door in the top-right bedroom against a wall. Hallucinated two windows while missing two from the 2D plan. Zero text labels, measurement lines, or legend/scale bars. Background is dark gray, which is good. However, the model is resting on a ground plane with visible shadows that extend, not floating/isolated."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "Many major furniture pieces are present: beds, wardrobes, desks, sofa, dining table. Kitchen fixtures are significantly missing (only an island/counter with a stovetop is present). Bathroom fixtures are present (toilet, sink, shower). Missing washing machine and dryer from the kitchen area. Missing a distinct kitchen sink/counter area. Some furniture from the 2D is missing in the 3D beside the left bedroom door, and an armchair by the sofa. Furniture placement generally matches plan locations within tolerance. Scale is appropriate. Deductions for missing kitchen appliances and general kitchen counters, and minor missing decorative items."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is low-poly simplified forms with flat shaded surfaces and clean edges. However, there are some textures (e.g. wood grain on furniture) and materials which are not solid flat colors. This results in score reduction (-5 pts). Soft ambient lighting is present with minimal shadows. Colors are distinguishable. True isometric projection is used, with a 45\u00b0 rotated plan view. Framing is centered and fully visible. No cropping and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing washing machine and dryer, and significant portions of kitchen counter/sink area.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Original open area in 2D is enclosed as a room with walls and a door in 3D, altering layout topology.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing two doors (bathroom and central open area). Hallucinated one door in the top-right bedroom against a wall.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing two windows (left bedroom and rightmost room). Hallucinated two windows on the top wall of the 3D model.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Textures (e.g. wood grain) and materials are present on some furniture, violating 'solid flat colors only' rule.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E9-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Model not floating, resting on a ground plane with visible shadows.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render successfully captures the overall layout and most core elements but exhibits significant inaccuracies in opening placement, furniture completeness, and hallucinated structural features, resulting in a FAIL.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan2.png"
+}

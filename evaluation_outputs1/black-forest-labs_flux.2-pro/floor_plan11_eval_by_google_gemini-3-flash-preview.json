@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major layout distortions occurred. The staircase is reduced to a small platform. The utility room and WC have been merged and reconfigured incorrectly. Window and door placements on the perimeter do not match the specific bay window and opening configurations of the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "Walls are visible and the roof is correctly removed. However, there is visible hallucinated text on the floor (UTILITY ROOM) violating the NO TEXT constraint. The central core walls are significantly misinterpreted compared to the CAD drawing."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic kitchen and bath fixtures are present, but a bed has been hallucinated in the central living area which is designated as a dining room/hall. Scale of the furniture is generally consistent with the incorrect layout."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "Successfully achieves a low-poly, flat-shaded aesthetic on a dark background. However, the camera angle is more of a perspective-isometric hybrid rather than a pure orthographic projection, and there are some floor textures visible."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated 'UTILITY ROOM' text labels baked into the floor surface."
+        },
+        {
+            "code": "E2",
+            "description": "Severe distortion of the staircase; replaced with a small stepped platform."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination of a bed/sofa hybrid in the center of the living/dining area."
+        },
+        {
+            "code": "E6",
+            "description": "Use of slight floor textures and non-orthographic perspective camera."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific bay window geometry in the dining area, replaced by flat windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan11.png"
+}

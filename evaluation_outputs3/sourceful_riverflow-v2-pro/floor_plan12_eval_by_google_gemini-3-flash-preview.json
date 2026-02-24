@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D image is a valid isometric cutaway, though it completely ignores the provided 2D plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D execution with clear wall thickness and isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 4,
+            "max": 30,
+            "notes": "Complete failure in fidelity. The 2D plan is an upper floor with 3 bedrooms/balcony; the 3D model is a ground floor with a garage/dining area. Layout does not match."
+        },
+        "interior_elements": {
+            "score": 5,
+            "max": 15,
+            "notes": "Furniture is well-rendered but does not correspond to the source 2D plan (e.g., added a car/garage and dining table where bedrooms/stairs should be)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High quality rendering and lighting, clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "The 3D model depicts a completely different building program (Garage/Living) than the 2D source (Bedrooms/Balcony)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Total loss of room configuration and adjacency logic from the original architectural drawing."
+        }
+    ],
+    "total_score": 59,
+    "verdict": "PASS",
+    "summary": "While technically a high-quality 3D render, it fails significantly as a conversion because it does not follow the architectural geometry of the provided floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan12.png"
+}

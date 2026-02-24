@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 3,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Living room/nook wall geometry is incorrect, significantly distorting the kitchen layout. The master bedroom is missing a portion of its wall. The study's wall layout is also incorrect. The two covered patios are missing their defining wall structure. Bedroom #4 is missing its dedicated covered patio. The master bathroom and master bedroom walls adjacent to the WC and closet are incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 2,
+            "presentation_context": 5
+        },
+        "notes": "Missing 2 covered patios and the study. Hallucinated a second bedroom #2/den where the study and covered patio should be. The UI cleanliness is poor due to visible embedded text labels and a watermark in the bottom right."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Missing furniture in the study and one covered patio as these rooms are missing. Incorrect kitchen counter layout. Dining room table is shifted. Hallucinated furniture in the garage. Master bath fixtures are different. Bathroom fixtures are different. Utility room missing appliances. Bedroom #2 has different furniture and layout. Bedroom #3 has different furniture and layout. Bedroom #4 has completely different furniture."
+    },
+    "aesthetic_quality": {
+        "score": 4,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 0,
+            "camera_composition": 4
+        },
+        "notes": "The rendering is not low-poly and flat shaded; it features realistic materials, detailed models, and complex lighting with shadows, violating the geometry style and lighting/rendering requirements. This is a photorealistic render, which is an instant fail condition. The camera composition is appropriately isometric and framed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire rooms missing: Study and two covered patios.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated an extra room where the Study and adjacent Covered Patio should be, and an unexplained extension on the opposite side of the garage.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering detected. Uses textures, reflections, and realistic materials instead of flat-shaded, solid colors.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Visible text labels and a watermark present in the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls significantly misaligned or incorrect: Living room/nook wall, kitchen layout, master bedroom, master bath, study walls, bedroom 4 walls.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing/misplaced furniture in kitchen, dining room, master bath, bath, utility, bedrooms and garage.",
+            "point_deduction": 6
+        }
+    ],
+    "total_score": 37,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors in rendering style (photorealistic), presence of text, significant architectural inaccuracies including missing/hallucinated rooms and major wall misalignments, and incorrect furniture mapping.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan9.png"
+}

@@ -1,0 +1,75 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 9,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology is largely correct, but there's a slight discrepancy in the foyer/kitchen area's proportional size relative to the rest of the plan. Wall geometry is good with only minor variations. Doors are mostly accurate; the swing of the utility room door is reversed. Windows are generally present and correctly placed. Dimensional scaling is consistent across the model."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is compliant, with the roof completely removed and interior walls visible. Completeness is excellent with all structural elements present. Hallucination control is perfect, no extra rooms or architectural features added. UI/Annotation Cleanliness failed due to the presence of a faint watermark/logo in the top left corner, resulting in 0 points for this subcategory. Presentation context is excellent; dark neutral background, floating model, and no ground plane."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major furniture pieces are present and appear in the correct rooms. Kitchen and bathroom fixtures are also present. The placement of the dining table in the living/dining area is slightly off compared to the plan, and the two chairs at the kitchen counter are missing."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is perfectly compliant with low-poly, flat shaded forms, clean edges, and solid flat colors. Lighting and rendering are excellent with soft ambient lighting and minimal shadows. Camera composition is a true isometric projection, 45\u00b0 rotated plan view, centered framing, and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Utility room door swing direction is reversed compared to 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Faint watermark/logo in the top left corner of the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table slightly misplaced; two chairs at kitchen counter missing.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 88,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render provides a highly accurate translation of the 2D floor plan with excellent structural fidelity and aesthetic quality, with only minor deductions for a reversed door swing, furniture discrepancies, and a faint watermark.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan14.webp"
+}

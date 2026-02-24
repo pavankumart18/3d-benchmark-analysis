@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "The overall footprint is fairly well maintained. However, there are significant discrepancies in room adjacency and wall geometry, particularly the 'Playroom' area, which has been reconfigured into two bedrooms, and the W/C area. The pantry wall is also missing. Window sizes seem proportionally off. Overall room proportions are off."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The playroom has been reconfigured and split into two bedrooms, representing a major hallucination. The pantry defined by walls in the original plan is missing in the 3D render. The 'W/C' area is also significantly reconfigured. The render has a basic ground plane and not completely isolated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "The kitchen island is missing. The dining room has no furniture. There's a couch in the living room and some kitchen fixtures (sink, stove top), and bathroom fixtures (toilet, sinks). The pantry is missing its defined walls, and hence a pantry area. Furniture presence is low overall compared to what's suggested implicitly by room type."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The model uses low-poly simplified forms and mostly flat-shaded surfaces with solid colors. There are no textures or photorealistic materials, which is good. Lighting is ambient but shadows are a bit strong for 'minimal shadows'. Camera is isometric and composition is good."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The 'Playroom' area in the 2D plan is entirely reconfigured and split into two bedrooms in the 3D render, representing missing and hallucinated rooms.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The pantry area in the original 2D plan is completely missing its defined walls in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant deviations in wall geometry for the 'Playroom' area (now bedrooms) and the W/C, resulting in incorrect room adjacencies and shapes.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen island and dining room furniture are missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are a bit too pronounced for 'minimal shadows'. Also, there is a ground plane.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Overall proportional sizes of rooms are not accurately maintained, particularly between the living room and the kitchen area.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 50,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to major structural and spatial inaccuracies, notably the complete reconfiguration of a major room and missing structural elements like the pantry walls, despite good adherence to rendering style.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan8.jpg"
+}

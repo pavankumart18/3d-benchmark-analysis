@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 9,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology is good, all rooms present and adjacencies preserved. Overall footprint maintained. Wall geometry mostly accurate, but some minor deviations in thickness and alignment. Doors are largely accurate, but a few swing directions are not clearly indicated or deviate slightly. All windows are present and generally in the correct locations, but some appear slightly undersized or not proportional. Dimensional scaling generally consistent."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 1,
+            "presentation_context": 2
+        },
+        "notes": "Cutaway view is excellent, roof fully removed and walls visible. Completeness is good, no missing structural elements. Hallucination control is strong, no extra rooms or features. UI cleanliness is poor due to visible text from the original floor plan, which is a critical error. Presentation context is fair, dark background present, but no clear isolation or floating effect. There is slight 'ground plane' shadow."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and accounted for. Kitchen and bathroom fixtures are also present. Furniture placement is generally accurate to the 2D plan, with minor deviations. Scale is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is excellent, adhering to low-poly, flat-shaded forms with no textures. Lighting and rendering are spot-on with soft ambient light, minimal shadows, and distinguishable colors. Camera and composition are perfect, true isometric projection, correct rotation, centered framing, and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Original image text/annotations (Nordic Homes logo, room names, area, 'First Floor', '22 Seaview', disclaimer text) are visible on the 3D render image, which implies they were not removed from the source input or were somehow rendered on top.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Laundry room features (washer/dryer outlines) are slightly different in arrangement or entirely missing compared to the 2D plan. The 2D shows a washer and dryer stacked, the 3D shows a counter and small sink.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Minor discrepancies in furniture models (e.g., dining chairs, bedroom 1 bedside tables) compared to the 2D outlines.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Subtle inconsistencies in wall thickness, particularly around corners and openings (e.g. bathroom/hallway junction).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The model's base has a slight shadow, suggesting a ground plane is present and casting a soft shadow, contravening 'no ground plane' rule.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The door swing direction for the main entrance is visually unclear in the 3D render. Bathroom door swing is also ambiguous.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 86,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates strong spatial accuracy, structural fidelity (despite a critical UI cleanliness error), and excellent aesthetic quality, successfully translating the 2D floor plan into a minimalist isometric view.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan4.jpg"
+}

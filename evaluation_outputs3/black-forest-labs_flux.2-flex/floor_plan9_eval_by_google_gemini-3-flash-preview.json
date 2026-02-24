@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a successful isometric 3D extrusions of the 2D layout."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Solid 3D geometry and perspective. Wall thickness and corner geometry are well-defined."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Major hallucination in the garage area (rendered as a bedroom/living space). Room count is largely accurate but functional identities are warped."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Furniture represents logical items but scale is slightly inconsistent in smaller hallways."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High clarity and clean lighting; no UI artifacts present."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "2-Car Garage transformed into an interior living suite with a bed, ignoring structural intent of the plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The Study/Dining areas on the left have been merged or repurposed into separate bedrooms."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "While the 3D extrusion is technically excellent, the conversion suffered from significant semantic errors regarding room function, particularly in the garage area.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan9.png"
+}

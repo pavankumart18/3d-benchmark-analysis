@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent room adjacency and wall alignment. Dimensional scaling captures the complexity of the plan well. Some minor door wing orientation inconsistencies and wardrobe (robe) depths are slightly exaggerated in 3D compared to the slim 2D symbols."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "While the cutaway is perfect and the model floats on a neutral background, there is a severe violation regarding UI elements. The 3D render has hallucinated/preserved text labels and dimension lines ('MASTER SUITE', 'GARAGE', etc.) which strictly violates the 'NO text labels' constraint."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "High-quality block-style furniture mapping. Kitchen island, theatre seating, and beds are accurately placed and appropriately scaled to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Perfect low-poly execution with flat shading. Isometric angle is precise. Point deduction for slightly glowing windows which leans towards stylized lighting rather than pure flat shading, though it remains non-photorealistic."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "The 3D model contains numerous text labels, room names, and measurement numbers inherited from the 2D floor plan, violating the 'STRICTLY NO text' instruction."
+        },
+        {
+            "code": "E4",
+            "description": "Minor hallucination of yellow emission/light inside the window frames which was not indicated in the original structural layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan10.png"
+}

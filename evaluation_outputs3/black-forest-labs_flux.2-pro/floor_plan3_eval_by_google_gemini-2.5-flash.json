@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, and an angled view. The ceiling/roof is removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5). Floors clearly separate (3). Interior volume is percepible (4). Proper 3D wall corner geometry (3). Angled view (5). Interior visible from elevated perspective (3). Some perspective distortion present (1/2)."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Number of rooms is not correct (2/3). The bathroom, kitchen, dining room, and living room are present but a staircase area has been added and the bathroom is significantly larger. Adjacency is altered due to the added staircase and enlarged bathroom (2/4). Relative room proportions are not preserved, especially for the bathroom and the new staircase area (1/3). Major wall positions deviate significantly (2/5). Wall lengths are not proportional, especially for the bathroom and staircase area (1/3). Internal partitions are very different (0/2). Doors are present, but their positions and number are not fully matching (2/4). Windows are present and on some correct walls, but their count and distribution are very different (2/2). Openings are not proportionally sized or oriented compared to the 2D plan (2/2). There is an extra door on the left wall of the living room, and the original entrance door is missing. The small bathroom becomes a large, prominent room, completely altering the layout between the kitchen and the living area."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Major furniture is present, including beds (implied in living room), sofas, and tables (4/4). Kitchen elements are present (2/2). Bathroom fixtures are present (2/2). This section mostly evaluates the presence of these elements, which are there in the 3D, despite the layout issues. However, given the significant layout changes, the furniture placement cannot be accurately compared to the original 2D."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4/4). Geometry is readable (4/4). Interior is clearly visible (3/3). Lighting does not obscure geometry (3/3). Consistent material usage (2/2). No major rendering artifacts (2/2). Text labels in the 3D render ('SAMPLE FLOOR PLAN') deduct presentation points (0/2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "More than 50% of the room configuration is altered by the addition of a significant staircase area and a dramatically enlarged bathroom, which completely changes the layout and dimensions of the central part of the house, rendering the 3D model not geometrically faithful to the 2D plan. The 2D plan shows a small bathroom between the kitchen and living room and no staircase in that position. The 3D model shows a large bathroom and a prominent staircase."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Room proportions and adjacency relationships are significantly distorted. The 'ENTRANCE' area, bathroom, and the space between the kitchen/dining area and living room are fundamentally different. The original entrance is missing, and an additional room (staircase area) is introduced."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door and window placements and counts are inconsistent with the 2D plan. The main entrance is missing, and a door for an extra cupboard or room is added to the left of the living room. The bathroom door's position has changed along with the room's expansion. Window positions and counts differ."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "The text 'SAMPLE FLOOR PLAN' is present within the 3D render, detracting from its presentation as a pure geometric conversion."
+        }
+    ],
+    "total_score": 67,
+    "verdict": "PASS",
+    "summary": "The 3D transformation successfully creates a volumetric representation but fails to maintain the geometric fidelity of the original 2D floor plan, introducing significant layout alterations and disproportionate room sizes, particularly with the staircase addition and bathroom expansion.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan3.jpg"
+}

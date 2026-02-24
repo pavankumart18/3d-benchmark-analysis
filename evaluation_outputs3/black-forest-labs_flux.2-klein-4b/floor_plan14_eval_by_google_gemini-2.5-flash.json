@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion verification checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Generally good 3D conversion, with visible height, thickness, and clear interior volume. Some minor perspective distortion."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Good room configuration and adjacency. However, the kitchen/utility area and the foyer/deck are significantly altered compared to the 2D plan. The wall geometry is mostly correct, but some internal partitions are missing or misplaced. Doors and windows are generally present but proportions and placement details are off."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture is present and mostly in correct rooms. The kitchen and bathroom fixtures are present, but their arrangement significantly differs from the 2D plan. Some furniture scales seem off, and orientation is sometimes arbitrary."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Excellent structural clarity and lighting. The geometry is very readable. Clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Significant distortion in the kitchen, utility, foyer, and deck areas, altering the overall layout. The kitchen layout is completely changed, and the utility room seems integrated into the kitchen. The foyer and adjacent deck are also heavily simplified/merged."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Differences in door placements and types (e.g., sliding doors vs. hinged, missing main entrance door). Window placements for 'Bed-1' and 'Living/Dining' area also differ."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Numerous furniture mismatches and repositioning, especially in bathrooms, kitchen, and the 'Living/Dining' area. 'Deck' areas are significantly different. Original plan has two beds in 'Bed-2', 3D has one. Bathroom layouts are generalized. Kitchen appliances are different."
+        }
+    ],
+    "total_score": 80,
+    "verdict": "GOOD",
+    "summary": "The 3D model provides a good general representation of the 2D floor plan, demonstrating proper 3D conversion fundamentals and visual clarity, but it suffers from notable geometric and interior element inaccuracies in several key areas, particularly the kitchen/utility and deck spaces.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan14.webp"
+}

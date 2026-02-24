@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent layout preservation. Room adjacencies and wall alignments are highly accurate. Minor distortion in the entrance/foyer area scaling and door swing visibility."
+    },
+    "structural_fidelity": {
+        "score": 21,
+        "max": 25,
+        "notes": "Floating model on neutral background achieved. Roof removed correctly. However, there are illegible hallucinated text artifacts visible in Bed-1 and Toi-1 zones violating strict text constraints."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Highly clean block-style furniture placement matching the plan. Scale is consistent across all rooms except for slight compression in the kitchen utility area."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Strong adherence to low-poly, flat-shaded aesthetic. Perfect isometric orthographic camera angle. Lighting is soft and lacks dramatic or unrealistic shadows."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated garbled text labels appear in Bed-1 and bathroom areas."
+        },
+        {
+            "code": "E2",
+            "description": "Minor dimensional scaling distortion in the foyer/entrance wall thickness compared to the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan19.webp"
+}

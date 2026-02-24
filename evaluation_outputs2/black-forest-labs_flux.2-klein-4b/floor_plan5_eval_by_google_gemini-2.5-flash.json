@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Bathroom adjacent to top-left bedroom is missing, severely impacting layout topology and completeness. Overall footprint is largely maintained but distorted on the right side. Several internal walls are not aligned correctly with the 2D plan, particularly around the kitchen and the main entryway. Doors have mostly correct placement but swing directions are largely not visible or not matching. Windows are present but sizes and exact placements vary from plan. Scaling appears consistent but relative room sizes are off due to missing rooms and wall misalignments."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The top-right bathroom from the 2D plan is entirely missing, leading to a critical completeness issue. There are no text labels or measurement lines, but render is not in pure flat colors and has some texture-like surfaces. The background is dark and the model is isolated, but shadows extend somewhat."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many key furniture pieces are missing or misplaced - notably the dining table from the center, the kitchen island, and several pieces from the living areas. Bathroom fixtures are missing as the bathroom itself is missing. Where furniture is present, its placement is often approximate to the 2D plan, and scale varies."
+    },
+    "aesthetic_quality": {
+        "score": 9,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 3
+        },
+        "notes": "The geometry shows some low-poly simplified forms, but there are clear material textures and non-flat shading present. Lighting has soft shadows, but definitely not flat shaded. Colors are distinguishable. The camera view is isometric and centered, but the rotation is not 45 degrees relative to the main facade."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire bathroom and adjacent area (top-right of plan) are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering - materials, textures, and non-flat shading evident.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned, particularly the kitchen boundary, the main entrance wall, and the areas around the missing room.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table and kitchen island missing. Several other furniture pieces are absent or misplaced.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "UI/Annotation Cleanliness: Although there are no direct text labels, the presence of materials and textures (violating color specification) leads to a score of 0.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not clearly matching or are ambiguous in the 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Soft shadows and non-minimal lighting, not purely flat shaded.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 39,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet architectural verification standards due to critical omissions like a missing bathroom, significant wall misalignments, and a photorealistic rendering style conflicting with the specified low-poly, flat-shaded requirement. While some elements are present, core spatial and aesthetic compliance is largely unfulfilled.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan5.jpg"
+}

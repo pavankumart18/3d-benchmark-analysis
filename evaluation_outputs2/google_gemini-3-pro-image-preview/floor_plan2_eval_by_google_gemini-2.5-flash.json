@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 23,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology suffers from an additional closet in the 3D render. Wall positions are generally accurate but some interior partitions are missing or altered. Door swings are inconsistent or omitted. Windows are completely missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Presentation context is not met due to shadows extending to infinity. Completeness suffers from missing architectural features like the tall built-in in the lower-left room and some smaller partitions. Hallucination control is poor due to the addition of a closet next to the bathroom."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Missing several key furniture pieces, especially the extensive storage units in the bedrooms and the L-shaped couch in the living area. Kitchen and bathroom fixtures are present but not perfectly accurate to the plan. Dining table is correct, but kitchen counter is simplified significantly. Some furniture in the lower-left room is either missing or heavily altered."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "While geometry style avoids textures and high-res meshes, it uses some materials that are not solid flat colors (e.g., wood floor, blue beds, gray couch). Lighting is soft and aesthetic, but shadows indicate more than minimal rendering. Camera is properly isometric and composed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Entire large storage unit/wardrobe missing from both bedrooms and the lower-left room.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "L-shaped couch in 2D is rendered as a straight sofa + armchair in 3D.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "All windows from the 2D plan are missing in the 3D render, resulting in fully enclosed exterior walls.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated closet/storage area next to the bathroom, not present in 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Some smaller interior wall partitions, like the one separating the bedroom door from the main living area, are altered or missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are either omitted (e.g., bathroom door) or do not match the rendered opening direction (e.g., lower-left bedroom door).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floor material has a wood grain texture, and beds have a distinct fabric texture. Kitchen counters are more complex than flat colors. These are not flat shaded solid colors.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Presentation context not met: Shadows extend to infinity, implying a ground plane.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Multi-Room Floor Plan Template' text from the 2D image is absent in the 3D render, which is good for UI/Annotation Cleanliness but highlights the overall lack of matching elements between images.",
+            "point_deduction": 0
+        }
+    ],
+    "total_score": 57,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "This 3D render largely fails to accurately translate the 2D floor plan due to significant omissions of windows and furniture, a hallucinated closet, and inconsistencies in wall geometry and door swings.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan2.png"
+}

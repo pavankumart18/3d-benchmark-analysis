@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "Overall room layout and adjacency are well preserved. Minor discrepancies in wall alignment, primarily in the utility area and bedroom 4 connection. Dimensional scaling shows some inconsistency, particularly noticeable with the width of the 'WIDE PASSAGE' area near the M.BEDROOM."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is correct with the roof removed. However, completeness is compromised by a missing toilet. Significant hallucination of a room labeled 'BEDROOM-4' where the original plan clearly shows 'UTILITY' and a 'TOILET'. UI cleanliness is violated by text labels. Presentation context is also not compliant with the background and floating model requirements."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present, though the kitchen and toilet fixtures are represented differently than the 2D plan. Furniture placement in the Living & Dining area is largely accurate. There are issues in Bedroom-1 where the bed is placed differently impacting accessibility; the wardrobe in M.BEDROOM is altered, and a bed is placed in the area originally designated as Utility/Toilet, which is now 'BEDROOM-4'."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry uses simplified forms and flat colors, which is good. However, there are textures/patterns on the floor and some furniture (e.g., rugs, bedding), which deviates from the 'solid flat colors only' rule. Lighting is soft ambient, but there are visible shadows that go beyond 'minimal shadows'. Camera composition is generally good for an isometric view but the background is not plain dark neutral."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire toilet missing next to 'UTILITY' area, replaced by an extension of 'BEDROOM-4'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated 'BEDROOM-4' in the area of 'UTILITY' and 'TOILET'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present (e.g., 'BALCONY', 'TOILET', 'LIVING & DINING', 'BEDROOM-4', 'UTILITY').",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Minor textures/patterns present on floors, rugs, and bedding, violating 'solid flat colors only' rule.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Visible shadows extending further than 'minimal shadows', and background is not plain dark neutral.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bed and wardrobe placement issues in M.BEDROOM and BEDROOM-1, and altered fixtures in Kitchen/Toilet.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Dimensional scaling inconsistencies, particularly for the wide passage and utility/bedroom 4 boundary.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window missing in the 'M.BEDROOM' on the western wall.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 56,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render accurately preserves the overall floor plan layout but suffers from critical errors in structural fidelity due to hallucinations and text labels, and minor deviations in aesthetic quality and furniture mapping, leading to a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan15.webp"
+}

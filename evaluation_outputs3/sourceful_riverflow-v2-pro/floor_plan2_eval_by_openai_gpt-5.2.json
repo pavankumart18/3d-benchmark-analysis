@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model with extruded walls (height + thickness), visible interior volumes, and roof/ceiling removed; view is near top-down but still shows wall side faces indicating 3D."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable volumes; cutaway is clean. Camera is only mildly angled (close to orthographic top-down), slightly reducing projection score."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency match (left twin bedroom, bath, small office, right bedroom, living area, kitchen/dining). Some proportional differences in the central circulation/open area, and window placement/count appears simplified vs the 2D plan; door details are present but not fully verifiable for exact swing/orientation."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture matches expected rooms (beds, office desk, living seating, dining set, kitchen counters/appliances). Bathroom shows tub/sink-like elements, but fixtures appear simplified and toilet/shower detail may not fully match the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean, readable rendering with clear separation of floors/walls/openings; lighting is sufficient and no UI/text contamination. Minor ambiguity from dark flooring reducing contrast with some objects."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Minor layout/proportion drift: central circulation/open area and some wall spans appear scaled differently than the 2D plan, though adjacency is largely preserved."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows are simplified and do not clearly match the 2D plan's window count/locations (not all openings are represented consistently)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Bathroom fixture set is simplified; not all fixtures from the 2D plan are clearly present/identifiable (e.g., toilet/shower specificity)."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with largely faithful room layout and furnishings, with minor proportional drift and simplified/mismatched openings and bathroom detailing.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan2.png"
+}

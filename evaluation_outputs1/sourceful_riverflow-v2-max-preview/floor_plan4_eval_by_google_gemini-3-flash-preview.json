@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout is highly accurate with correct room adjacencies. Score deducted for slight inaccuracies in door swing directions (Laundry and Bedroom 2) and window scaling on the bottom facade."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent structural adherence. All rooms are present, no hallucinations detected. The model is correctly floating on a dark background with no UI or text elements."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is consistent with the floor plan, including the U-shaped kitchen and laundry machines. One minor deduction for the living room sofa orientation which differs slightly from the plan's L-shape arrangement."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly, flat shading, isometric orthographic camera, and neutral background are all present."
+    },
+    "total_score": 93,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Laundry door swings inward toward the machines in 3D but outward toward the hall in 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Living room sofa configuration changed from two separate seating elements to a single sofa/chair arrangement."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan4.jpg"
+}

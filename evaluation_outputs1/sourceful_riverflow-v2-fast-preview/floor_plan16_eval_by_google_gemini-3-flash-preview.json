@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Significant layout deviation. The L-shaped kitchen and utility area are missing, and the bedroom/toilet configuration has been merged or misinterpreted into a simplified three-room box structure. Door placements are hallucinated on the exterior walls while missing on critical interior transitions."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The model fails to replicate the specific floor plan footprint, opting for a generic rectangle. Balcony and utility spaces are absent. It successfully removes the roof and uses a dark neutral background without text labels."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While furniture is present in a 'block-style', it does not correspond to the floor plan's specific arrangement. The dining table is misplaced and the living room seating configuration is lost."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "High adherence to the aesthetic request: low-poly, flat shading, no textures, and a perfect isometric orthographic camera angle."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing utility room, balcony, and specific bathroom fixtures."
+        },
+        {
+            "code": "E2",
+            "description": "Major layout distortion; the apartment's L-shaped footprint is reduced to a rectangle."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated exterior doors on the right and top-left walls that do not exist in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric render with extruded walls, visible thickness, and an elevated angled viewpoint exposing interior spaces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Clear wall height/thickness, readable room volumes, correct angled projection, and roof removed. Minor simplification/softening of corner/wall junction detail."
+        },
+        "geometric_accuracy": {
+            "score": 7,
+            "max": 30,
+            "notes": "Major layout mismatch versus the 2D plan: the plan shows 4 bedrooms + multiple toilets + utility + foyer + two decks, while the 3D render depicts a simplified arrangement (notably fewer bedrooms/bathrooms and no decks). Adjacencies and partition locations do not reliably align with the original."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Basic furniture exists (beds, sofa, dining, simple kitchen run), but several room-specific elements implied by the plan (multiple bathrooms/utility details) are missing or reduced; furniture-room mapping only partially matches the 2D."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean, readable render with good separation of walls/floors and unobtrusive lighting. Openings are present but not clearly consistent with the 2D plan; overall presentation is clear."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "high",
+            "description": "At least one major room from the 2D plan (e.g., the 4th bedroom and/or several service spaces) is not represented in the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "high",
+            "description": "Overall room configuration and adjacency relationships deviate substantially from the 2D plan (decks and multiple toilets/utility/foyer layout not preserved)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "medium",
+            "description": "Doors/windows/openings are simplified and cannot be verified as placed on the correct walls relative to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "medium",
+            "description": "Furniture is generic and does not consistently confirm correct room identities (bath/kitchen/utility fixtures are incomplete relative to the 2D plan)."
+        }
+    ],
+    "total_score": 59,
+    "verdict": "PASS",
+    "summary": "A genuine 3D cutaway render is produced, but the modeled layout is heavily simplified and does not faithfully match the 2D plan\u2019s full room set and adjacency structure.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan19.webp"
+}

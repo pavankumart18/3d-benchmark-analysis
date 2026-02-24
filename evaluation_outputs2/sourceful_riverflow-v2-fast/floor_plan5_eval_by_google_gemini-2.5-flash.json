@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout generally preserved, but several walls exhibit misalignment. There are significantly fewer windows in the 3D render than in the 2D plan. The exterior walls on the top left and bottom right sections in the 3D render are inconsistent with the 2D plan, particularly the top-left 'balcony' area and the bottom-right extension."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The cutaway view is good, and most structural elements are present. However, there are some minor structural inconsistencies (e.g., the top-left and bottom-right extensions don't perfectly match the 2D plan). UI cleanliness is poor due to visible measurements in the 2D plan (although not in 3D). Presentation context is okay but could be improved with better isolation."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and generally in the correct rooms. Kitchen and bathroom fixtures are also indicated. Some minor furniture is missing (e.g., outdoor furniture on the bottom right deck), and the exact placement and scale of some items are slightly off, but within acceptable tolerance."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is good, utilizing low-poly simplified forms and solid colors. Lighting is soft and ambient. However, the camera composition is not a true 45\u00b0 rotated plan view, which is a minor deviation from the specification. Shadows are present, but minimal."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Several exterior wall sections (top-left 'balcony' and bottom-right extension) of the 3D render do not accurately match the 2D plan's shape and dimensions. This leads to discrepancies in room shapes and overall footprint. The small room at the very bottom right in the 2D image has no counterpart in the 3D render. The top-left outdoor area has a different configuration.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significantly fewer windows are present in the 3D render compared to the 2D plan. Many windows are missing, particularly in the top-left bedroom, along the bottom edge, and in the bottom-right section. This constitutes a major error in opening representation.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The 2D plan contains visible measurement lines and text annotations which, while not present in the 3D render, were part of the input and are part of the 'UI/Annotation Cleanliness' check implicitly.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The camera angle is close to isometric but not a precise 45\u00b0 rotated plan view, affecting the composition score. There is a slight perspective-like distortion rather than a true isometric projection (parallel lines appear to converge slightly).",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 73,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully translates the overall floor plan and most interior layouts, although it suffers from noticeable inaccuracies in exterior wall geometry, significant window omissions, and minor inconsistencies in the camera projection. UI cleanliness is compromised by the input artifact.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan5.jpg"
+}

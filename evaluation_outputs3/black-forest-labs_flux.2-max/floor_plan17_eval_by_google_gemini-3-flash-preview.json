@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful volumetric 3D extrusions clearly based on the provided floor plan geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent isometric-style projection with consistent wall heights and thicknesses."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "High fidelity in wall placement; bedroom proportions and adjacencies are strictly maintained from the original blueprint."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture is mapped accurately to the 2D plan, including specific orientations (e.g., the circular seating in Bed Room 2 and M. Bed Rm)."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Rendering is clean but loses points due to text label contamination within the 3D model space (E6)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MIN",
+            "description": "Hallucinatory and slightly garbled text labels overlaying the 3D geometry."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "An accurate and geometrically faithful 3D conversion that meticulously preserves the layout and furniture arrangement of the source floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan17.jpg"
+}

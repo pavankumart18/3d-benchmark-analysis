@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": false,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "The second image is a stylized, colorized top-down 2D floor plan. It lacks 3D projection, wall height, and perspective depth."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "No 3D transformation occurred. This is a 2D orthographic plan."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Automatic zero due to lack of 3D conversion."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Automatic zero due to lack of 3D conversion."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Automatic zero due to lack of 3D conversion."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "Image is still a 2D floor plan. No visible wall height or isometric perspective."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The conversion failed to produce any 3D geometry, resulting in a colorized 2D top-down illustration instead of a 3D model.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacency are well-preserved. However, door orientations are vague in the 3D block out. Window placements on the exterior walls match the plan adequately."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model contains hallucinated text-like markings on the floor surfaces, violating the 'no labels' constraint. The floating model and background constraints are met."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture blocks (beds, sofas, dining table) are placed accurately according to the plan with consistent scaling."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded style. The isometric camera angle is correct. Deduction for minor texture artifacts on the floor representing text."
+    },
+    "total_score": 80,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated illegible text labels/markings present on several room floors."
+        },
+        {
+            "code": "E6",
+            "description": "Floor surfaces exhibit slight noise/texture artifacts rather than pure solid flat colors."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan19.webp"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows height, thickness, depth, an angled view, and a removed roof, confirming a valid 3D conversion."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5). Floors are clear (3). Interior volume is perceivable (4). Proper 3D wall corners (3). Angled view (5). Interior visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof cleanly removed (5). Interior spaces fully visible (3). Clean geometry is mostly present, but a few sections are slightly broken or unclear (in the kitchen/living area, for example), resulting in a minor deduction (1/2)."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Incorrect number of rooms (missing a separation between kitchen and living) (0/3). Adjacency not fully preserved due to missing wall (0/4). Relative room proportions are somewhat off, especially in the kitchen/living area which appears as one large open space, and the bathroom/stairs area is also distorted (1/3). Major room identities are mostly lost due to layout changes and abstract furniture (0/2). Major wall positions are mostly aligned (3/5), but internal partitions are significantly altered or missing (main living-kitchen partition) (0/2). Wall lengths are proportional only for the exterior, internal are off (1/3). Doors are present but some are incorrectly placed or missing, especially to the bathroom (1/4). Windows are present and on correct walls, but styling is generic (2/2). Openings are proportionally sized and oriented, but some are missing (1/2)."
+        },
+        "interior_elements": {
+            "score": 6,
+            "max": 15,
+            "notes": "Major furniture is present, but very abstract and not clearly identifiable (2/4). Kitchen elements are missing or extremely abstract (0/2). Bathroom fixtures are missing (0/2). Furniture placement is mostly in the correct rooms, but the room definition itself is flawed (2/3). Furniture scale seems reasonable (2/2). Orientation is logical for the existing items (2/2)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4/4). Geometry is readable and not confusing (4/4). Interior is clearly visible (3/3). Lighting does not obscure geometry (3/3). Consistent material usage (2/2). No major rendering artifacts (2/2). Clean background/presentation (2/2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Major geometric failure in the kitchen/living area, missing the dividing wall and creating an open concept when the 2D plan indicates a partial separation."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The bathroom and staircase area layout is significantly distorted, not accurately reflecting the 2D plan's configuration, including missing bathroom fixtures and altered wall positions."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Bathroom door appears to be missing or incorrectly placed/represented."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture is overly abstract, making it difficult to identify specific items, and critical kitchen/bathroom fixtures are missing."
+        }
+    ],
+    "total_score": 65,
+    "verdict": "PASS",
+    "summary": "The 3D transformation successfully creates a volumetric representation, but it suffers from several geometric inaccuracies and missing interior elements compared to the original 2D floor plan, leading to a passing but not excellent conversion.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan6.jpg"
+}

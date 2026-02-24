@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe layout distortion. The staircase, which is central in the 2D plan, has been reimagined as a central furniture island. The utility room and WC placement do not match the blueprint's upper-center cluster. Window distribution along the left wall is inconsistent with the plan's spacing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Model follows the floating floor-cutaway requirement and avoids UI/labels. However, there are significant structural re-interpretations of wall alignments and room adjacencies. The bay window/window seat area is missing from the right-hand wall."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen cabinetry is present but misplaced. The dining table is enclosed in a small room not present in the original open-plan dining area. Hallucinated bed and sofa elements added to the central zone."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints. Correct isometric orthographic projection, clean low-poly geometry, flat shading, and a dark neutral background."
+    },
+    "total_score": 60,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Staircase and wall layout distorted; dining area enclosed into a separate room contrary to open plan."
+        },
+        {
+            "code": "E4",
+            "description": "Central staircase reimagined as a bed/seating platform; hallucinated wall partitions."
+        },
+        {
+            "code": "E1",
+            "description": "Missing bay window (window seat) on the right elevation and specific utility room layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan11.png"
+}

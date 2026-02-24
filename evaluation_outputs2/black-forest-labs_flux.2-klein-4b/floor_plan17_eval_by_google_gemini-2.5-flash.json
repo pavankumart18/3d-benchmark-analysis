@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint shape is maintained, but several internal adjacencies are disrupted due to missing or misplaced rooms. There's a major deviation in the kitchen/utility/foyer area. Balconies and external features are missing. Window sizes and positions are approximations, not precise matches. The entire 'Dress' room is missing and its associated toilet, 'Bed Room 4' is missing, and 'Servant Room' is missing. The 'Toilet' in 'Bed Room 2' is also rendered as a solid wall."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "The roof is mostly removed, but the interior walls are not fully visible due to significant occlusions and missing sections. There are multiple missing rooms (Dress, Bed Room 4, Servant Room, multiple toilets) severely impacting completeness. Major architectural features like balconies are entirely absent. Text labels are present. The background is dark and neutral, and the model appears somewhat isolated but there are noticeable shadows on the 'ground plane'."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many major furniture pieces are present, but their placement and types deviate significantly from the 2D plan. The kitchen and bathroom fixtures are only partially represented or missing in critical areas. For instance, the 'Dress' room is missing, so its furniture is absent. The kitchen layout is simplified to the point of being abstract, missing key fixtures. The 'Utility' area is also heavily altered/missing."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses simplified forms and flat-shaded surfaces, generally adhering to the low-poly style, but there are some visible artifacts/roughness. There's significant volumetric lighting and soft shadows, which deviate from 'minimal shadows'. The colors are distinguishable, but the lighting makes some areas difficult to discern. The camera view is isometric, but the framing could be better centered and the zoom level is slightly too close given the missing external elements."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'Dress' is missing, along with its associated toilet.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'Bed Room 4' is missing, only a portion of its wall appears as an external wall.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire room 'Servant Room' and 'Utility' area are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels from the 2D plan are visible in the 3D render (e.g., 'LIVING', 'DINING').",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls (Kitchen, Foyer, Utility) are heavily misaligned or missing, altering the overall layout.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Significant architectural features like all balconies are missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Major kitchen fixtures and layout significantly altered/simplified.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Multiple toilets and their fixtures are missing or incorrectly rendered as solid walls.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Significant volumetric lighting and soft shadows deviate from 'minimal shadows' constraint.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 38,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render significantly deviates from the 2D floor plan due to missing rooms, altered wall geometry, absent architectural features, and the presence of text labels, resulting in a low score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan17.jpg"
+}

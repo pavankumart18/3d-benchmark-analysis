@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Severe layout failure. The central bathroom in the 2D plan has been moved to a corner. The kitchen is completely missing and replaced by an arbitrary hallway/entry. Door and window counts/placements do not match the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "While the roof is removed and it sits on a neutral background, it fails the 'no text' rule by hallucinating a misspelled 'SAMPLE FLOOOR PLAN' on the wall. Significant structural reinterpretations regarding wall placement."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture does not match the floor plan's zones; a bed is hallucinated where the living room should be. Kitchen counters and appliances are entirely absent."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model successfully uses an isometric orthographic camera and a low-poly aesthetic. However, it includes some complex materials/textures and soft shadows that lean away from strict flat shading."
+    },
+    "total_score": 35,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing kitchen fixtures and original bathroom structure."
+        },
+        {
+            "code": "E2",
+            "description": "Total distortion of the floor plan; rooms are shifted to incorrect quadrants."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated bedroom furniture and additional interior walls not found in 2D plan."
+        },
+        {
+            "code": "E5",
+            "description": "Floating text labels 'SAMPLE FLOOOR PLAN' on the interior wall."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan3.jpg"
+}

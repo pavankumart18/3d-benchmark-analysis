@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": false,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": false,
+        "notes": "The second image is a 2D top-down plan, not a 3D isometric render. It lacks wall height, perspective, and dimensional depth."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "No 3D transformation present. The image is strictly orthographic and 2D."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Evaluation skipped due to failure in 3D conversion."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Evaluation skipped."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Evaluation skipped."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "Second image remains a 2D floor plan; no 3D geometry generated."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The conversion failed because the output is a 2D top-down illustration rather than a 3D isometric model.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan19.webp"
+}

@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is strong, including adjacency and room sequencing. However, the servant room/utility area near the entrance (bottom left of plan) has undergone significant simplification and dimensional scaling errors. Window counts on the right facade are slightly reduced compared to the source."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the 'floating' model, dark background, and roof removal constraints. All rooms are accounted for. Minor deduction for merging the utility/service area walls into a more generic cuboid shape rather than the exact notched geometry of the plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Clean block-style furniture is used. Bed and sofa orientations match the plan. Kitchen counter layout (L-shape) and dining table placement are correct. Minor deduction for a hallucinated round table in the utility/lower balcony area not shown as a table in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect execution of the requested aesthetic. Low-poly, flat-shaded, no textures, and a proper orthographic isometric camera angle. Lighting is soft and consistent with the verification guidelines."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Dimensional distortion in the bottom-left utility and servant room area; the structural notches from the 2D plan are smoothed over."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated round table placed in the utility/entry balcony area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan17.jpg"
+}

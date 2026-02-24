@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Verified isometric cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Perfect execution of 3D fundamentals with clean geometry and a clear isometric perspective."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Significant layout errors: the entire staircase area on the right is missing, and the bathroom/entry partition logic is severely simplified or incorrectly merged."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture matches room types (kitchen, bedroom, living) well, but bathroom fixtures are missing as the room itself was removed/altered."
+        },
+        "visual_clarity": {
+            "score": 20,
+            "max": 20,
+            "notes": "Excellent rendering quality with clean lighting and no artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Entire staircase section (right side of 2D plan) is completely absent in the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Bathroom/laundry partitions and entry hallway geometry differ significantly from the source layout."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A visually high-quality 3D transformation that accurately places furniture and kitchen elements, though it fails to render the staircase and bathroom partitions as specified in the 2D plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan6.jpg"
+}

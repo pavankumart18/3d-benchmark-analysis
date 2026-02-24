@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 1,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology is largely incorrect with several rooms missing or misconfigured. Wall geometry deviates significantly in many areas. Doors are mostly missing. Windows are poorly represented and inaccurately placed. Dimensional scaling is inconsistent across the model."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view successfully removes the roof. However, there are significant completeness issues with missing rooms and structural elements. Hallucination control is poor with invented architectural features. Presentation context misses the isolated model and dark neutral background, having some gray texture like ground plane."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 0
+        },
+        "notes": "Very few furniture pieces are present, and those that are, are inaccurately placed or scaled."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 4,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style attempts low-poly forms but has some artifacts. Lighting is not strictly soft ambient; there are some noticeable shadows. Camera composition is not a true isometric projection (no 45 degree rotation) and the model is not fully centered nor at an optimal zoom level with cut-off edges."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms missing or severely misrepresented (Foyer, W/C, Closet, Playroom, Pantry, Dining Room, part of Kitchen).",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned; many walls are either missing or in incorrect positions. For example, the entire eastern side of the house is significantly altered.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The rendering includes some realistic material textures like a floor texture and non-flat shaded surfaces, instead of solid flat colors. This is visible especially on the main floor area.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Most furniture pieces (beds, dining table, all kitchen appliances, all bathroom fixtures, etc.) are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Doors are largely missing or are merely suggested openings without proper door representation and swing direction (e.g., in the living room and kitchen areas).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural features, such as the extended wall segment on the top-right and some arbitrary wall segments in the kitchen area. The entire shape of the building is hallucinated.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The view is not a true isometric projection; lines that should be parallel are not, and the camera angle is not 45 degrees rotated plan view. There is some perspective distortion.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 40,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "This evaluation reveals significant geometric and structural inaccuracies, along with several rendering violations. The model fails to preserve the original layout and proportions, and incorporates elements that deviate from the specified aesthetic and technical standards.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan8.jpg"
+}

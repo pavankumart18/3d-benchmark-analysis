@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology suffers from significant size distortion, especially for the bathroom. Wall geometry is off with the kitchen wall extending improperly. Door placements are mostly correct, though swing directions are not clearly indicated or consistent. Window presence and placement are good. Dimensional scaling is acceptable, but proportional fidelity is lost."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is good with the roof removed. Completeness suffers from the kitchen layout being significantly altered. Hallucination control is poor with the kitchen layout changes. UI/Annotation cleanliness is an instant fail due to the 'ENTRANCE' label. Presentation context is incorrect with shadows extending to the ground plane and lack of neutral background."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. Kitchen and bathroom fixtures are present. Placement and scale are generally appropriate, though the kitchen layout directly impacts the accuracy of its fixtures."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style uses simplified forms and flat shading, but some surfaces show gradients. Lighting is soft ambient. Camera and composition are generally good for an isometric view, but the angle could be more standard 45 degrees."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text label 'ENTRANCE' is present on the door.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Kitchen layout is significantly altered and misrepresented, appearing as a more enclosed room with a different counter configuration than the open plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural features in the kitchen area with added walls and different counter layout.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight textures/gradients visible on floor and some furniture surfaces.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom dimensions and shape are significantly distorted, appearing much larger and differently shaped than the plan. The south wall of the kitchen/living area is not aligned properly.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The stairs are not accurately represented in terms of layout and placement relative to the wall.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 54,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical and major geometric inaccuracies, particularly in the kitchen and bathroom layouts, and the presence of text labels.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan3.jpg"
+}

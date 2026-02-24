@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "The primary layout, room adjacencies, and wall alignments are generally correct. However, door orientations for Bed 2 and Bed 4 are reversed compared to the floor plan. Window placement on the right wall of Bed 3 and Bed 4 lacks the precise spacing shown in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Critical violation of 'strictly no text' constraint. Large labels for rooms, dimensions, and structural notes (e.g., '13c HIGH CAPPED WALL') have been baked directly onto the floor and walls. The roof is correctly removed and the model floats on a dark background."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent block-style furniture mapping. Beds, robes, bathroom fixtures, and sofas are correctly placed and scaled according to the floor plan symbols."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Geometry is low-poly as requested. However, shadows are quite sharp and dramatic, violating the 'soft ambient light' requirement. The camera is isometric, but the pervasive text overlays significantly degrade the intended aesthetic style."
+    },
+    "total_score": 69,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Massive text/UI overlay violation; room names and dimensions are rendered onto the building floor."
+        },
+        {
+            "code": "E2",
+            "description": "Door swing orientations for Bedroom 2 and Bedroom 4 are inverted relative to the architectural plan."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting is too directional with high-contrast shadows; should be flat/ambient shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan12.png"
+}

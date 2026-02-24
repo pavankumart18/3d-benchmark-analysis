@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful conversion to a clean 3D isometric cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Excellent dimensional transformation with clear wall thickness and volume."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Most walls and rooms align. The staircase area is simplified and the hallway geometry is slightly softened compared to the sharp 2D angles."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Highly accurate placement of kitchen island, bed, dining table, and plumbing fixtures."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean render. Deducted minor points for some slight 'melting' or smoothing of wall corners where they meet the floor."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "Right-side staircase area lacks the structural detail and steps shown in the original plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some interior doors are rendered as open archways rather than containing door leaf geometry."
+        }
+    ],
+    "total_score": 93,
+    "verdict": "EXCELLENT",
+    "summary": "A high-fidelity 3D transformation that accurately preserves the layout and furniture mapping of the original architectural plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan6.jpg"
+}

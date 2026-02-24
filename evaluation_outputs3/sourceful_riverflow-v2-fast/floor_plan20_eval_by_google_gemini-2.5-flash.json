@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render successfully demonstrates all criteria for a true 3D conversion."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness, floors separate cleanly. Interior volume is clearly perceivable. Viewing angle is good, but slight perspective distortion on some walls. Clean roof removal, but some sections look like they are cut rather than removed cleanly."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Room configuration and adjacency are largely correct, with minor adjustments in exact proportions. Major wall positions align well. Doors are present and on correct walls, but windows are mostly missing or represented as solid insets without transparency. One major room (Maid's Room) is missing from the 3D model, resulting in significant deduction for room accuracy."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture is present and generally well-placed. Kitchen and bathroom elements are also present. Furniture scale and orientation are mostly reasonable, but the missing Maid's Room impacts the score here too as its furniture is consequently absent."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Structural clarity is good, geometry is readable. Lighting is effective and clear. Aesthetic coherence is decent with consistent materials. The background is clean but solid grey, which is acceptable."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "The 'HOME OFFICE / MAID'S ROOM' from the 2D plan is entirely missing from the 3D render, including 'TOILET-4'."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows are either missing or depicted as solid wall sections, lacking transparency from the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Relative room proportions in the 3D render show some minor deviations, especially between Bedroom 2 and Bedroom 3, and the Living & Dining area."
+        }
+    ],
+    "total_score": 80,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion is good overall, successfully transforming the 2D plan into a perceivable 3D space with good fidelity, but critically misses one entire room and its associated toilet from the original layout.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan20.avif"
+}

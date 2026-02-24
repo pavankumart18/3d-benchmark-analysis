@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is well-preserved. There are some minor inconsistencies in wall thickness and a few window discrepancies. Balcony dimensions do not match plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Plan and room labels are present on the 3D render, leading to significant deductions for UI/Annotation Cleanliness and Presentation Context. The model appears to be on a ground plane with shadows extending."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture items are present. Some smaller items are missing from the Living & Dining area. The balcony furniture is simplified and potentially misplaced."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style, lighting, and camera composition adhere well to the specified requirements. The rendering is clean, low-poly, and uses flat colors."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the 3D render ('KITCHEN', 'LIVING & DINING', 'TOILET', 'UTILITY', 'BEDROOM-1', 'BALCONY', dimensions).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Measurement lines/dimensions are present on the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One window missing from BATH-1 in the 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Balcony dimensions in 3D render ('7'10\" x 2'8\"') do not match 2D plan ('7'10\" x 3'5\"').",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane is visible with shadows extending beyond the model, and background is not purely dark neutral. This conflicts with 'Model appears floating/isolated' and 'No ground plane/shadows extending to infinity'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing small side table/storage from Living & Dining area. Missing plant from Living & Dining area. Missing desk/chair from Bedroom. Balcony furniture simplified and changed from 2 potted plants to a chair.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 81,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates strong spatial accuracy and excellent aesthetic quality but suffers from the critical presence of text labels and measurement annotations from the 2D plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan16.avif"
+}

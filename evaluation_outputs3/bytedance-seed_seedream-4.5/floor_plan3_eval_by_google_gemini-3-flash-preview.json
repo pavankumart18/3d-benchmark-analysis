@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully converts the 2D plan into an isometric 3D cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent wall geometry and volume. Very slight perspective distortion on the lower left outer corner."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Major layout issues: an extra interior wall was added bisecting the dining area that does not exist in the 2D plan. The stairs are also rendered as a flat graphic on the floor rather than 3D geometry."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Dining furniture and kitchen counters present. Bathroom fixtures are represented by 2D floor decals instead of 3D models."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Lighting and materials are clean, but significant text contamination (unnecessary room labels) reduces the score."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Ghost wall added through the center of the plan, splitting the dining/living area."
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Staircase is rendered as a 2D floor texture rather than 3D rising geometry."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Redundant text labels ('Lining Room', 'Bathroom') clutter the 3D space."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A visually clean 3D conversion that suffers from significant geometric hallucinations, specifically the addition of non-existent walls and 2D-textured stairs.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan3.jpg"
+}

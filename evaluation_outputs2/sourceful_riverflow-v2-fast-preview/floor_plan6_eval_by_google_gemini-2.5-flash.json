@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall layout topology is mostly preserved, but there are issues with relative room sizes and wall geometry accuracy. Specifically, the bathroom and stairwell area appear significantly compressed and distorted in the 3D render. The main living/kitchen area also has a different aspect ratio. Doors are mostly present and on correct walls, but swing directions are not typically represented in this 3D style and placement isn't always precise. Windows are mostly present and on correct walls. Consistent scaling is not perfectly maintained across all elements, especially in the bathroom/stair area."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 2,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. No extra rooms or architectural features were hallucinated. However, completeness suffers slightly due to the staircase geometry being altered. The UI is mostly clean, but there are some minor shading annotations where text used to be. The background is dark, but there are visible ground plane extensions with shadows, violating the isolated model requirement. There is also a partial green plant element on the exterior left, which is not part of the required architectural structure and adds to context."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and placed. The kitchen island/counter is missing from the 3D render. The sofa in the living area is present but rotated 90 degrees compared to the plan. The bed in the bedroom is present. Bathroom fixtures are missing. Scale of furniture seems appropriate for the rooms, though placement accuracy is not always perfect, especially for the sofa and the missing kitchen elements."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 5,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is low-poly and in block-style abstraction, but there's evidence of minor smooth shading rather than purely flat-shaded surfaces, and subtle textures/gradients are present on some surfaces (e.g., walls, furniture). Lighting appears soft ambient but with visible shadows, approaching slightly more realism than desired 'minimal shadows'. Colors are distinguishable. The camera view is isometric, but the rotation seems off from the desired 45\u00b0 rotated plan view, appearing more head-on. Framing is centered and zoom is appropriate."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom and stairwell wall geometry significantly distorted, compressed, and resized compared to the plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen island/counter and bathroom fixtures are missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle textures/gradients on wall and furniture surfaces, and noticeable smooth shading.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane/shadows extend beyond the isolated model, indicating a non-neutral presentation context. A partial plant is rendered.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Remnant shading where 'Bedroom' text was, indicating a failure to completely remove UI/annotations cleanly, although not a direct text label.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render shows good overall room presence but fails due to significant spatial distortions in the bathroom/stair area, missing furniture, and minor compliance issues with rendering style and presentation context.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan6.jpg"
+}

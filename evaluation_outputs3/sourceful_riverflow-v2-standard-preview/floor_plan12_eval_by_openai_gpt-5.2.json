@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Render shows extruded walls with visible thickness, an elevated/isometric camera, and a cutaway roof/ceiling exposing interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion (height/thickness), clear floor-vs-wall separation, good corner geometry and clean cutaway; minor simplification at some wall caps/edges."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency largely match (activity/living left, balcony bottom-left, bath/WC central, bedrooms to right/bottom). Some proportional differences and simplified internal joinery (robes/linen/recess) and door placement details are not perfectly faithful."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Beds in bedrooms, living seating and TV, bathroom fixtures present. Furniture is mostly in correct rooms with reasonable scale; some rooms are simplified relative to the 2D plan labeling (e.g., 'activity' not explicitly differentiated)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Readable walls/floors/openings and clean presentation; lighting is adequate. Some openings/frames and interior partitions are slightly ambiguous due to uniform materials and simplified detailing."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Minor-to-moderate proportional/layout simplifications (e.g., robe/linen/recess partitions and some wall segment lengths) reduce strict fidelity to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door/window/opening placements and sizes appear simplified or not perfectly aligned to the 2D plan\u2019s exact locations."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Uniform materials and simplified trim reduce clarity of certain internal partitions/opening details."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D model with strong fundamentals and largely correct room layout, but with noticeable simplification of internal partitions and some opening/proportion mismatches versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan12.png"
+}

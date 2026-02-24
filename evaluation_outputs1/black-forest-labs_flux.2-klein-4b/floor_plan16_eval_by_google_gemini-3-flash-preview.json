@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General room placement and adjacency are correct. However, doors are missing from the 3D model (specifically the main entrance, toilet, and bedroom doors). Window apertures are simplified or indistinct. Scale is generally well-proportioned."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No text or UI elements present. Model is floating on a dark neutral background with no roof. Minor deduction for the partition wall in the toilet being slightly misplaced relative to the plan."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "High degree of furniture compliance. Sofas, dining set, bed, and kitchen counters match the 2D layout. The addition of office-style seating near the bed area is a slight deviation from the plan's visual intent but fits the space."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Follows the low-poly, flat-shaded style effectively. Isometric camera angle is correct. Deduction for small point lighting effects visible in the bedroom and living area which slightly deviates from 'flat soft ambient' shading instructions."
+    },
+    "total_score": 86,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing interior and exterior doors throughout the model."
+        },
+        {
+            "code": "E2",
+            "description": "The wall dividing the toilet and the utility area appears slightly shifted compared to the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Presence of localized warm point lights instead of strictly flat ambient shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count is largely inconsistent. 'Dining Room' is missing entirely. 'W/C' is labeled 'Powder Room'. 'Pantry' is labeled 'Kantry'. 'Kitchen' is broken into two distinct areas. Significant difference in overall footprint shape, with the right side of the plan (Kitchen, Playroom) being significantly altered. Many windows are missing or misplaced."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "Ceiling/roof appears to be removed correctly allowing interior visibility. However, an entire room ('Dining Room') is missing (major completeness issue). Several architectural features like walls around 'Pantry' are missing. Text labels (room names, dimensions) are present on the 3D render (critical UI cleanliness violation). While the background is dark, there are still harsh shadows present from furniture, and the floating/isolated aspect is not fully achieved due to these shadows."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 1
+        },
+        "notes": "Major furniture/fixtures like kitchen appliances, foyer couch, and powder room fixtures are present. However, the kitchen layout has been significantly redesigned and furniture placement does not match. There is no dining room, so no dining table. Accuracy is low due to placement and scale mismatches."
+    },
+    "aesthetic_quality": {
+        "score": 6,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 1,
+            "camera_composition": 2
+        },
+        "notes": "Low-poly simplified forms are present, and surfaces are largely flat shaded, but some elements like the kitchen appliances show more detail than expected. There are noticeable textures on floors, walls, and furniture. Lighting is not soft ambient; it's harsh with strong shadows, and there's a strong yellow/orange light source inside the rooms. Colors are not solid flat; there are gradients and some material indications. Camera composition appears to be isometric, but the overall presentation is cluttered with shadows and distracting lighting effects."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'Dining Room' is missing in the 3D render.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels (room names, dimensions) are present on the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Rendering exhibits textures, harsh lighting with strong shadows, and material indications, rather than flat colors and soft ambient light.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant alteration of the right-side exterior wall and interior walls between Kitchen and Playroom, leading to a different overall footprint shape and room adjacencies.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The 'Pantry' has been integrated into the Kitchen area without its separating walls, effectively 'hallucinating' a larger open space.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Several windows are missing or misplaced; for example, the windows on the southern wall of the Living Room, and on the eastern wall of the Playroom.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Room renaming: 'W/C' -> 'Powder Room' and 'Pantry' -> 'Kantry'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Strong yellow light source present in rooms, with distinct glows under doors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 36,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet accuracy and fidelity standards, primarily due to missing rooms, presence of text, significant layout alterations, and non-compliant rendering style with harsh lighting and textures.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan8.jpg"
+}

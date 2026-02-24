@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortion. The orientation of the apartment has been rotated or mirrored incorrectly. Bedroom 1 and Bedroom 2 have been swapped/merged in a way that ignores the floor plan's east-wing layout. Kitchen and Laundry placement is inverted relative to the hall entrance. Window and door placements do not match the specific openings in the provided 2D document."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the style is a floating model on a dark background without text, the structural topology is a major hallucination. The bathroom and closets from the bottom center of the plan are missing or merged. The wall heights are consistent, but the room count is incomplete."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture exists in a block style, but placement is generic and does not follow the floor plan. The dining table has 4 chairs instead of 6. The U-shaped kitchen counter is reduced to a single linear block. The living room arrangement is mirrored."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The model successfully adheres to the stylistic constraints: low-poly, flat shading, no textures, and an isometric orthographic camera on a dark neutral background."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Bathroom and individual Closet rooms from the lower-middle section."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/Dining and Laundry areas shifted to the bottom-left instead of upper-left; Bedrooms and Living area swapped."
+        },
+        {
+            "code": "E4",
+            "description": "Complete reinterpretation of the internal walkway/hallway structure."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan4.jpg"
+}

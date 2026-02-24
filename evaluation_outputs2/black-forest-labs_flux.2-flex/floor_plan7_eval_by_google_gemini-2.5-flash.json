@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Living Room and Bedroom 1 share a common wall in 2D, but in 3D, the Living Room wall extends beyond the bedroom. Wash Area/Toilet layout is swapped. Missing one window, and multiple window placements are incorrect. The overall footprint shape is mostly maintained, but some wall alignments are off."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "UI/Annotation Cleanliness is 0 due to text in the 2D plan being rendered in the 3D model. Presentation context is 0 because there are shadows extending to infinity, and the background is mostly black, not a gradient. Roof is removed, interior walls visible, no missing structural elements, and no extra rooms."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces are present, but their placement is frequently inaccurate. Dining table is rotated incorrectly. Bedroom 1 furniture placement is off. Living room furniture configuration is significantly different. Kitchen fixtures are present, but their layout is different. Bathroom fixtures are present and mostly in correct locations relative to each other within the room, but the room itself is swapped with the wash area."
+    },
+    "aesthetic_quality": {
+        "score": 13,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Render uses textures on furniture and floors (wood textures, fabric textures) and non-flat shading, which violates the 'flat shaded surfaces' and 'no textures' rules, leading to lower scores in geometry style and lighting/rendering. Minimal shadows are not applied; shadows are noticeable and distinct. Camera composition is decent with true isometric projection."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present from the 2D floor plan directly projected onto the 3D model's walls and floor ('Kitchen', 'Living Room', 'Bedroom 1', 'Dining', 'Toilet', 'Wash Area', 'UP', 'Entrance to the House').",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering/textures used for furniture (wood grain, fabric textures) and floor materials, violating the 'solid flat colors only' rule for geometry style.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Living Room and Bedroom 1 common wall misalignment; Living Room's wall extends beyond the bedroom's boundary, altering the overall footprint.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Wash Area and Toilet room positions are swapped in the 3D model compared to the 2D plan, significantly altering adjacency and room functionality.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One window missing above the Entrance to the House compared to the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple windows are placed on incorrect walls or have incorrect proportions compared to the 2D plan (e.g., in Dining, Living Room, Bedroom 1, Kitchen).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table and chairs rotation is incorrect relative to the room layout. Bedroom 1 furniture scaled incorrectly and placed inaccurately. Living Room furniture configuration is different.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are more pronounced than 'minimal shadows' and a dark neutral background with 'shadows extending to infinity' is present, violating presentation context guidelines.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 63,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors stemming from the presence of text labels and photorealistic textures, alongside multiple spatial inaccuracies and furniture misplacements, despite a good attempt at structural completeness and camera composition.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan7.jpg"
+}

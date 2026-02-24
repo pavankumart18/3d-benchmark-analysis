@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is largely correct, but room sizing and overall footprint proportion are slightly off. Wall geometry has some issues with thickness and positioning, affecting room dimensions. Doors are mostly present and correctly placed, but swing directions are not clearly indicated or consistent with the plan where visible. Windows are present, but their sizes relative to the plan are not always proportional. Dimensional scaling seems mostly consistent but some elements appear stretched or squashed slightly."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Cutaway view is mostly compliant, but some parts of the walls appear to extend upwards slightly above the required cut plane. Completeness is fair, with no major structural elements missing. Hallucination control is poor due to the presence of text from the source image. UI/Annotation cleanliness is a critical failure as text and dimensions from the 2D plan are directly overlaid onto the 3D render. Presentation context is fair, the background is dark, and the model is somewhat isolated, but not perfectly floating."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces are present and identifiable (bed, sofa, dining table). Kitchen fixtures (counters, sink) and bathroom fixtures (toilet, sink, shower) are mostly present. However, furniture placement has inaccuracies, with several items (e.g., utility appliances, some living room furniture) not matching the 2D plan's exact location or arrangement. Scale appropriateness is also inconsistent for some pieces."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 3,
+            "camera_composition": 2
+        },
+        "notes": "Geometry style attempts low-poly forms and flat shaded surfaces, but there are some rendering artifacts and shading variations suggesting it's not perfectly clean. Textures are present on walls and floors, which is a significant deviation from the 'solid flat colors only' rule. Lighting is somewhat soft ambient but includes some directional shadows that are too defined. Camera composition is not a true isometric projection, showing some perspective distortion, and the angle is not precisely 45\u00b0 rotated plan view."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels and dimensions from the original 2D floor plan are present in the 3D render, directly violating UI cleanliness. This results in an automatic 0 for the UI/Annotation Cleanliness subscore.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The render exhibits perspective distortion, failing the true isometric projection requirement. Parallel lines do not remain parallel.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Walls and floors have textures/materials visible, especially evident on the kitchen counter and bathroom tiles, which violates the 'solid flat colors only' requirement.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint shape is distorted, and relative room sizes are inaccurate proportionally. For example, the Living & Dining area appears much wider and less elongated than in the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall positioning and thickness inconsistencies, particularly noticeable around the utility area and the main entrance.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 50,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to achieve the required accuracy due to critical errors such as text overlay, perspective distortion, and the presence of textures, alongside significant inaccuracies in spatial proportions and furniture mapping.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is largely correct, but there are issues with the 'Utility' area. Wall geometry has several misalignments. Doors are mostly present but placement and swing are off for some. Windows are mostly present. Scaling seems somewhat consistent but not perfectly proportional."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 1,
+            "presentation_context": 1
+        },
+        "notes": "Roof is removed, but some interior walls are obscured by render style. The 'Utility' room is misrepresented. UI/Annotation Cleanliness is violated by text. Presentation context shows a ground plane and extended shadows."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces are present but some are misplaced or altered. Kitchen and bathroom fixtures are present but not entirely accurate to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "Geometry uses simplified forms, but some materials appear with slight reflections/textures. Lighting is not flat ambient, showing distinct shadows. Camera composition is good, maintaining an isometric view and centered framing."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('LIVING / DINING' and 'KITCHEN') are present within the 3D render.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Utility' area is significantly misrepresented in the 3D model, appearing as a more open space with a different layout of fixtures than the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions for the main entrance and bedroom door do not match the 2D plan. The toilet door is also misplaced.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall separating 'Utility' from 'Foyer' and 'Kitchen' is inaccurate in its extent and openings. Wall positions in Living/Dining area are slightly off.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces show some subtle material sheen/textures, particularly in the kitchen and bathroom, deviating from solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is not purely ambient; distinct shadows are cast by furniture and walls, indicating directional lighting.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "The 'Balcony' is shown with a single seat, where the plan indicates a small table and two chairs.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "The 'Dining' table and chairs are in a different orientation and configuration than shown in the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "A ground plane is visible, and shadows extend beyond the model, violating the isolated model presentation constraint.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 50,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical and major deviations from the 2D floor plan, including the presence of text, misrepresentation of a key room, and architectural inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan18.jpg"
+}

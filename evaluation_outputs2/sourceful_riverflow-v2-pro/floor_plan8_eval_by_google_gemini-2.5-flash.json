@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is mostly preserved. Room count matches, but `W/C` room is slightly altered. Kitchen wall geometry is significantly altered at the exterior, removing a jog and a window. Pantry is missing. Multiple doors have incorrect swing directions or are missing/misplaced. Windows are generally present but placement issues and missing windows exist, especially in the dining room and kitchen. Dimensional scaling appears consistent, but the removal of certain wall deviations impacts this."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "Cutaway view is correct with the roof removed. Completeness suffers from the missing pantry and significant alteration of the kitchen's exterior wall structure. There are no obvious hallucinated rooms or major features, but the kitchen wall alteration is a notable change from the plan. UI/Annotation Cleanliness is a critical failure as dimension lines and annotations are present in the provided 2D plan, making this section moot for the 3D render in isolation. However, if this refers to the 3D render itself, then it passes this criterion. Assuming the rule applies to the _render's_ output: 5/5. Presentation context is good, with a dark background and the model floating, though shadows extend slightly. Re-reading the prompt, 'ZERO text labels present', 'ZERO measurement lines/dimensions', 'ZERO legend/scale bars' applies to the generated 3D render. The 3D render itself has none of these, so it should score 5/5."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (sofa, dining table, bed, kitchen counters, bathroom fixtures) are present. However, the kitchen layout is significantly changed from the plan, and the pantry is entirely missing. The dining room furniture is present but does not match the plan's indicated table shape. The W/C (bathroom) fixtures are present but not an exact match for layout. The kitchen island/counter layout is different. The 'Playroom' contains blocks, which are a reasonable abstraction, but specific furniture from the plan is missing (e.g., in closets and foyer)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly simplified forms are present, and flat-shaded surfaces with clean edges are used. No high-res meshes or textures are present. Lighting is soft and ambient with minimal shadows, but some shadows are more pronounced than 'minimal'. Colors are distinguishable. The camera view is isometric, but the rotation seems slightly off from a true 45-degree rotated plan view. Framing is centered and zoomed appropriately."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen's exterior wall geometry is significantly altered, removing a jog and a window, impacting overall footprint and wall positions.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Pantry room is entirely missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors have incorrect swing directions or are misplaced relative to the plan, e.g., closet near foyer, W/C, kitchen entrance.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen counter/island layout is significantly different from the plan and specific fixtures in the W/C are altered.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some shadows are more pronounced than strictly 'minimal shadows' and camera rotation could be a more precise 45 degrees.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 64,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant deviations in wall geometry, a missing room (pantry), and inaccuracies in door placements and furniture layout, despite good rendering style compliance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan8.jpg"
+}

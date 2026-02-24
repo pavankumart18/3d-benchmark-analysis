@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent room adjacency and wall alignment. Door swings are mostly accurate. Minor deductions for the missing window on the left side of the twin bedroom and the missing entry door on the bottom-left of the plan."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Strict adherence to structural constraints: roof removed, all walls visible, no text labels, and no hallucinated chambers."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly consistent. Deduction for the L-shaped sofa in the bottom-right corner being simplified to a generic L-desk/counter and the central sofa in the living area being replaced by two armchairs and a table (hallucinating extra furniture items)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Composition is top-down rather than true 45-degree isometric (looks more like a plan view with depth). Lighting and low-poly style are correct, with neutral background and no textures."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing window in the twin bedroom (left side) and missing main entrance door at the bottom-left wall."
+        },
+        {
+            "code": "E4",
+            "description": "Living room sofa replaced with different furniture pieces (coffee table and armchair); L-couch in dining area replaced with generic block office-style furniture."
+        },
+        {
+            "code": "E3",
+            "description": "Camera angle is nearly top-down (NADIR) instead of the requested 45-degree isometric orthographic angle."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan2.png"
+}

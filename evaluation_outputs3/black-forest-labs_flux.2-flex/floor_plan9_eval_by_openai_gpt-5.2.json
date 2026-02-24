@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D interior: walls have height and thickness, rooms read as volumes, and the view is an elevated angled/isometric-like perspective with the ceiling/roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear wall extrusions with thickness and multi-face surfaces; good cutaway presentation. Minor simplifications/softened edges in some wall junctions."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "Overall core residential layout (kitchen/nook-left, central living, master suite top-right, secondary bedrooms right/lower) is largely consistent, but the 2-car garage and exterior covered patio areas are not represented, and some room boundaries/identities (e.g., study vs bedroom use) appear altered/simplified."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Beds, seating, kitchen counters/appliances, and bathroom fixtures are present and mostly placed in plausible corresponding rooms; some furniture/room-identity mismatches (study shown as sleeping space) reduce fidelity."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Readable geometry with distinct floors/walls/openings and good visibility; lighting is adequate. Minor softness/blur and simplified window/door detailing."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "high",
+            "description": "Major space missing: the 2-car garage from the 2D plan is not visible/represented in the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Some layout fidelity loss due to simplification: certain room boundaries/proportions and room identities (e.g., study vs bedroom) do not clearly match the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Door/window placement and sizing appear generally consistent but are not verifiable as exact; several openings look simplified relative to the plan."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong volumetric rendering and a mostly faithful core layout, but with notable omissions (garage/patios) and some room-identity/proportion simplifications.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan9.png"
+}

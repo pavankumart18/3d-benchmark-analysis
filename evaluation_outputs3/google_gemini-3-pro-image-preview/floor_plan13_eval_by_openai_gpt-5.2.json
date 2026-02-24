@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image shows an angled cutaway with extruded walls (height + thickness), visible floor plane, and readable interior volume; ceiling/roof is removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Clear wall height/thickness, good corner geometry, elevated/isometric view, and clean cutaway; minor simplification of some wall top edges/openings."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Overall room count and adjacencies match (open lounge/dining left with balcony, kitchen top-center, bath/WC core, two bedrooms right, separate garage). Minor proportion/partition differences around the laundry/robe/service core and some opening placements."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Living/dining furniture, kitchen counters/appliances, beds, and bathroom fixtures are present and placed in correct rooms; scales/orientations are generally reasonable."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls/floors/openings are distinguishable and interior is well lit; slight ambiguity in a few door/window details due to simplified rendering."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some door/window positions/sizes appear simplified or not perfectly matched to the 2D plan (especially around the central service areas)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Small layout/proportion drift in the kitchen/laundry/robe partitioning compared with the 2D plan, though overall adjacency remains correct."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "A true cutaway 3D model with strong overall layout fidelity to the 2D plan, with only minor-to-moderate simplifications in service-core partitions and some openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan13.jpg"
+}

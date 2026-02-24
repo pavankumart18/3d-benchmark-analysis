@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 23,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 3
+        },
+        "notes": "Bathroom wall geometry is incorrect, significantly larger than 2D plan. Kitchen and living/dining room walls have minor scaling discrepancies. The 'ENTRANCE' area seems to have an extra wall added to form an enclosed vestibule not present in the 2D plan. Stairwell walls are not quite aligned with the 2D plan boundary."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "An extraneous wall creates an enclosed 'ENTRANCE' area which is not in the 2D plan. The 'SAMPLE FLOOR PLAN' text is present in the 2D reference, and 'ENTRANCE', 'KITCHEN', 'BATHROOM', 'DINING ROOM', 'LIVING ROOM' text, and dimensions '16' x 12'' and '13' x 24' are present in the 2D reference, but should be absent from the 3D render. The 3D render has a plain black background, not a gradient."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in appropriate locations. Kitchen and bathroom fixtures are present. However, the exact configuration of kitchen countertops/cabinets doesn't precisely match the 2D outline. The 2D plan shows a single sink, but the 3D render shows a double sink. The 'ENTRANCE' area, due to its incorrect enclosure, has a small bench which is not implied in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The geometry uses low-poly simplified forms with flat shading. Colors are solid. Lighting is soft and ambient. The camera is isometric and well-composed. However, some materials have very slight reflections (e.g., kitchen cabinets, bathtub) which are not strictly flat colors."
+    },
+    "detected_errors": [
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated an entire wall enclosing the 'ENTRANCE' area, not present in the 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom geometry is significantly altered and larger than the 2D plan indicates. The 'ENTRANCE' door is shifted due to the added wall.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The stairs do not completely align within the boundary indicated by the 2D plan's dashed line.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen counter/cabinet layout does not exactly match 2D indications, showing a double sink instead of a single.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "A small bench is placed in the hallucinated 'ENTRANCE' vestibule, not present in the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces (kitchen cabinets, bathtub) have subtle reflective properties, deviating from strict 'solid flat colors only'.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 61,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant architectural deviations including a hallucinated wall and altered bathroom layout, with minor errors in furniture mapping and rendering style.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan3.jpg"
+}

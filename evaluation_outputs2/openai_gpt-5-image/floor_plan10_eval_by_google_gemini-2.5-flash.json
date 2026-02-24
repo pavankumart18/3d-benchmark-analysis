@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Garage and Portico are missing, significantly impacting layout topology and overall footprint. Many window placements are off, and some windows are missing. Wall positions are generally good, but some internal walls differ from the plan. Consistent scaling is not maintained, particularly with the missing garage/portico. Swing directions for doors are not indicated, so cannot be assessed."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Critical incompleteness due to missing Garage and Portico. The render has a dark background but has a visible ground plane with subtle shadows, which violates the floating/isolated model requirement. No UI elements are present."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Many major furniture pieces are present, but their placement often significantly deviates from the 2D plan, e.g., 'BED 4' shows two double/queen beds in the render, but the plan shows two single beds (or no beds if desk recess is considered), also the 'THEATRE' room has a large bed, but the plan suggests a different furniture arrangement. Kitchen and bathroom fixtures are present but not perfectly aligned. The 'MASTER SUITE' has a bed that doesn't align with the plan. 'BED 2' is missing the bed."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The render successfully uses low-poly simplified forms with flat shading and solid colors. Lighting is soft and ambient with minimal shadows. The camera shows a true isometric projection with a 45-degree rotated plan view, centered and appropriately zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire Garage room is missing from the 3D render.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire Portico area is missing from the 3D render.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant deviations in window placements across multiple rooms (e.g., 'THEATRE', 'LIVING', 'ACTIVITY', 'BED 4'). Some windows are also missing in the 'MASTER SUITE'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Significant discrepancies in furniture placement and type for 'BED 4' (two queen beds vs. singles/no beds), 'THEATRE' (bed vs. seating), and 'MASTER SUITE' (bed position).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The wall between 'LINEN' and 'ROBE' in the 'BED 4' area is present in 3D but is not clearly defined as a wall in the 2D plan, appearing more like an open recess.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The 'VERANDAH' area's boundary wall with the exterior is missing, showing a simple slab.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "'BED 2' is missing its bed.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane/shadows extending beyond the floating model in 'Presentation Context'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "'STUDY' window is not accurately placed or sized.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 70,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates excellent aesthetic and technical quality but suffers from critical omissions of architectural elements and inaccuracies in spatial and furniture mapping, barely meeting the passing threshold.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant layout simplification. Multiple primary rooms and balconies from the architectural plan are missing. Door and window counts do not align with the original blueprint, and the central corridor wall structure has been heavily modified."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model lacks the exterior balconies and several interior partitions. While it correctly removes the roof and places the model on a neutral background without UI elements, the structural reinterpretations are severe (Missing rooms/E1)."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is placed in block-style as requested, but the arrangement does not match the floor plan's specific locations (e.g., sofas grouped differently, missing kitchen island/counters, missing bedroom fixtures)."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to stylistic constraints. Low-poly geometry, flat shading, isometric orthographic camera, and a clean neutral background are perfectly executed."
+    },
+    "total_score": 58,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple rooms, specifically the secondary bedroom at the bottom right, the side balconies, and bathroom internal walls."
+        },
+        {
+            "code": "E2",
+            "description": "Furniture layout in the living area is rotated and simplified compared to the symmetrical 2D plan arrangement."
+        },
+        {
+            "code": "E4",
+            "description": "Structural reinterpretation of the kitchen area and hallway transitions; missing the specific kitchen island structure."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan5.jpg"
+}

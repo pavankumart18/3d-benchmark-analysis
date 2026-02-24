@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "While the general room adjacency is present, there are significant distortions. The kitchen island/counter is merged or missing its distinct separation, many door openings are missing or incorrectly placed, and the window layout on the left and bottom walls does not match the 2D plan's count/spacing."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model successfully removes the roof and uses a floating base on a dark background. However, it fails significantly by hallucinating text labels ('Kitchen/Living', 'Bedroom') directly onto the floor, which was strictly forbidden. The stairs on the right are simplified but present."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is low-poly but poorly mapped. The large bed in the bedroom is replaced by a small corner block. The sofa and dining table in the living area are generic blocks that do not match the scale or orientation of the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good adherence to the low-poly, flat-shaded aesthetic. The lighting is soft and ambient as requested with no photorealistic textures. The camera is isometric, though slightly narrower than a perfect 45-degree orthographic view."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Text labels 'Kitchen/Living' and 'Bedroom' are baked into the floor in violation of strict UI constraints."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the large bed fixture and specific kitchen island configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect window count on the left facade and missing partition door between kitchen and hallway."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination of wall-mounted cabinets in the kitchen not present in the 2D overhead plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan6.jpg"
+}

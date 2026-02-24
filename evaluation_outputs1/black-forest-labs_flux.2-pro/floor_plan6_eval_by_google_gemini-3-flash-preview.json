@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is preserved, but there are significant door and window inconsistencies. The main entrance door swings the wrong way, and many windows have been transformed into floor-to-ceiling glass openings. The internal bathroom door is missing its wall segment."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "Major violation: text labels 'Bedroom' and 'Kitchen/Living' were hallucinated into the 3D geometry from the 2D source. Some walls are floating or disconnected near the bathroom area."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate to the plan, including the kitchen island, sofa, and dining set. Minor scale issues with the hallway chair."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded aesthetic. Soft ambient lighting and isometric camera angle are correct. Neutral background is well-executed."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Text labels 'Kitchen/Living' and 'Bedroom' are erroneously modeled into the 3D floor."
+        },
+        {
+            "code": "E2",
+            "description": "Main entrance door flip; window proportions changed to floor-level voids."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated extra armchair in the hallway space near the bedroom entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific wall partition between the bathroom and the small closet area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan6.jpg"
+}

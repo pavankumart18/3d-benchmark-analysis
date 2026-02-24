@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric render: walls are extruded with thickness, multiple faces are visible, interior volumes read as spaces, and the ceiling/roof is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion with clear wall height/thickness and a clean cutaway. Minor issues: a few interior edges/joins look simplified rather than fully architecturally detailed."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Exterior boundary is roughly consistent, but interior layout fidelity is weak: the stair zone from the 2D plan is not clearly represented and several extra/altered partitions appear. Door/window placement and counts do not reliably match the 2D perimeter openings."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "General living/dining furniture is present, but kitchen-specific cabinetry/appliances are not clearly modeled as in the 2D kitchen area. Bathroom core exists but fixtures are simplified/partially ambiguous."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Readable cutaway with good separation of floors/walls and unobstructed viewing. Lighting is even; minor softness/low detail on openings and some partitions reduces interpretability."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Interior partitions do not faithfully follow the 2D plan; the large stair area (bottom-left in 2D) is not clearly present and appears replaced by different enclosed volumes."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window locations and counts on exterior walls appear inconsistent with the 2D plan (notably top and bottom edges)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "moderate",
+            "description": "Kitchen is not convincingly represented with expected counters/appliances; furniture implies a generic open plan rather than the specific 2D zoning."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Some geometry is overly simplified, making it harder to verify exact wall alignments and opening sizes."
+        }
+    ],
+    "total_score": 72,
+    "verdict": "PASS",
+    "summary": "A valid and well-executed 3D cutaway, but with notable deviations from the 2D plan\u2019s interior partitioning (especially the stair area) and imperfect door/window fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan3.jpg"
+}

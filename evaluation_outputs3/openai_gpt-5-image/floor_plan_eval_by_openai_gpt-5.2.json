@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible top/side faces, angled/isometric viewpoint, and ceiling/roof removed to expose interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable volumes; clean cutaway. Minor simplification at some corners/openings and slightly uniform wall treatment reduces architectural fidelity."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall apartment massing and room adjacency matches (living/dining/kitchen at top, two bedrooms at bottom corners, bath near center). Some internal partition/closet detailing and opening placement appear simplified vs the 2D plan, and window distribution does not fully match."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture exists in main room and bedrooms; basic kitchen blocks present. Bathroom fixtures are partial/simplified compared to the plan (e.g., tub/sink detail not clearly matching), reducing room identity fidelity."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clear separation of walls/floors and good readability; lighting is neutral and does not obscure geometry. Materials are consistent and meshes appear intact; presentation is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows/door openings do not fully match the 2D plan (notably bedroom window presence/placement appears missing or inconsistent in the 3D render)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Some internal partitions/closet/hall detailing are simplified or slightly shifted relative to the 2D plan, reducing exact wall-layout fidelity while preserving overall adjacency."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Bathroom/kitchen fixture specificity is reduced (generic blocks), weakening correspondence to the plan's fixture layout."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A valid 3D cutaway conversion with strong volumetric construction and largely correct room layout, but with noticeable simplifications/mismatches in openings and some internal partition/fixture details.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan.jpg"
+}

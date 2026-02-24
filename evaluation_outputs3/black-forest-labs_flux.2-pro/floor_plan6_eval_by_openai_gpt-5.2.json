@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model with extruded walls (height + thickness), visible floor plane, and an angled/isometric viewpoint exposing interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear wall height/thickness and room volumes; good corner geometry and cutaway. Minor simplification in some wall top/edge detailing."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall layout matches: kitchen/living on left, bedroom upper area, central bath/core, and stairs on right. Some perimeter opening segmentation and a few doorway placements/sizes appear simplified versus the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present (bed, sofa, table), kitchen elements (cabinets + island) and bathroom fixtures represented; overall scale and orientation are reasonable with minor simplification."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is readable with consistent materials and lighting. Text labels inside the 3D render reduce presentation cleanliness; some glazing/openings are visually simplified."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door/window/opening locations and segmentation are partially simplified; several perimeter window segments in the 2D plan are not faithfully replicated as discrete openings in the 3D."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels (e.g., room names) are embedded in the 3D render, reducing presentation cleanliness per rubric."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A genuine isometric cutaway 3D conversion with strong layout fidelity, with minor deviations in door/window detailing and added text labels affecting presentation.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan6.jpg"
+}

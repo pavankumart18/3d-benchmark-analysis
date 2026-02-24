@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General floor plan layout and room adjacencies are accurate. Major penalty for the missing Laundry/WM nook which has been absorbed into the kitchen space, and the 'Linen' cupboard at the entry being rendered as a large empty vestibule. Wall thickness and door openings are reasonably aligned."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Roof is correctly removed and all rooms are visible. However, there is a hallucination of a secondary entrance/porch slab at the bottom center that does not exist on the plan. A 'VIB' text label is visible on a wall, violating UI constraints."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen counters are represented, but most residential furniture (beds, sofas, dining table) is entirely missing. The car in the garage is the only significant furniture/fixture element present besides basic kitchen blocks."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to the requested low-poly, flat-shaded style. The isometric camera angle is correct, and the lighting is soft and ambient without dramatic shadows."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Laundry/WM nook and all major furniture (beds, sofas, dining table)."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated exterior entry slab/porch at the bottom of the model."
+        },
+        {
+            "code": "E5",
+            "description": "Presence of 'VIB' text label on the exterior wall near the bottom windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan13.jpg"
+}

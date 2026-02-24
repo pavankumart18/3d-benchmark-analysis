@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is recognizable, but significant wall distortions and room merging occur. The foyer and servant room area is poorly defined. Door orientations are inconsistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Missing several auxiliary rooms including the balconies and the lower utility area. Some interior walls have been removed or simplified, merging distinct spaces."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement captures the main zones well (living, dining, core bedrooms), though some details like the specific kitchen counter layout are abstracted."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the low-poly, flat-shaded style. Correct isometric orthographic view and dark background. Deducting points for lighting being slightly too 'warm/dramatic' rather than flat ambient."
+    },
+    "total_score": 72,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing balconies, utility area, and the specific partitioned walls for the powder room/toilets."
+        },
+        {
+            "code": "E2",
+            "description": "Foyer entrance and servant room walls are distorted and lack the sharp geometry of the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Merging of 'Bed Room 2' and 'Bed Room 3' into a loosely defined single zone with missing partition."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting contains core shadows and highlights that deviate from 'flat shading' constraints."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan17.jpg"
+}

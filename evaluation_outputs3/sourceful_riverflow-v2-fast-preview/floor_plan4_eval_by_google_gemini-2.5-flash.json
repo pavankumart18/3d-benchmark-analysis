@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows height, thickness, depth, and is viewed from an angle with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Floors are distinct. Interior volume is clear. Clean wall corners. Angled view is excellent, showing interior clearly with minimal distortion. Roof is cleanly removed, exposing all interior spaces."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "All rooms are present, and their adjacency is correct. Room proportions are well preserved. Wall positions align very well, and lengths are proportional. All internal partitions are correctly placed. Doors are present and on correct walls, with reasonable sizing. Windows are generally present but some are missing or moved (e.g., in Bedroom 1, the corner window is simplified into two, and in the Bathroom, no window is depicted)."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) is present and accurately reflects the 2D plan. Kitchen elements and bathroom fixtures are also present and correctly placed. Furniture is in correct rooms, and scale/orientation are logical."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Structural elements are highly distinguishable. Geometry is very readable. Lighting is good, ensuring the interior is clearly visible without obscuring details. Material usage is consistent and clean. No rendering artifacts or broken meshes. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MIN",
+            "description": "Bathroom window is missing in 3D render. Bedroom 1 corner window is represented as two separate windows instead of a corner unit."
+        }
+    ],
+    "total_score": 93,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D transformation is excellent, demonstrating near-perfect geometric fidelity with minor discrepancies in window placement and type, while maintaining high visual clarity and fundamental 3D conversion elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 0,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "Critically failed on layout topology due to significant room mismatches and complete rearrangement. Missing entire bathroom, dining room, living room. Hallucinated a bedroom/secondary room not present in 2D plan. Wall positions are incorrect due to spatial reinterpretation. Doors and windows are not aligned with the 2D plan's count, positions, and types. The 3D render represents a completely different house layout."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is correctly rendered, showing interior walls. However, completeness is severely lacking as major rooms are missing. Hallucination control failed completely with a different room layout. UI/Annotation cleanliness fails due to text in the 2D reference image's title, though this is related to the input, the output image has no text. Presentation context is decent with a dark background and floating model. The prompt specifically states: '\u274c ANY text = automatic 0/5' for UI/Annotation cleanliness, which means the text from the 2D reference results in a 0 for this category."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "No furniture from the 2D plan is present in the 3D render. The 2D plan has implied kitchen appliances (cooktop, fridge area) but no other explicit furniture. The 3D render introduces a table, chairs, and bathroom fixtures not present in the 2D plan. Kitchen layout is also different."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is low-poly and uses flat shaded surfaces without textures, aligning with requirements. Lighting is soft and ambient. Camera composition is an isometric projection, appearing to be a 45-degree rotated plan view with appropriate zoom and centering. However, the geometric style is too detailed for 5 points, it should be simpler and blockier based on the description of 'low-poly simplified forms'."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms (Dining Room, Living Room, Bathroom) from the 2D plan are missing in the 3D render. The 3D render shows a bedroom/secondary room and a different kitchen layout.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated an entire room (bedroom/secondary living space) not present in the original 2D floor plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The kitchen layout in the 3D render is significantly different from the 2D plan, effectively hallucinating a different kitchen structure.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('SAMPLE FLOOR PLAN', 'KITCHEN', 'DINING ROOM', 'LIVING ROOM', 'BATHROOM', 'ENTRANCE', '16' x 12', '13' x 24', '3' x 2') are present in the provided 2D 'ground truth' reference image, which means the 'UI/Annotation Cleanliness' category automatically scores 0/5, as per the rules: '\u274c ANY text = automatic 0/5'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "No furniture from the 2D plan (implied kitchen appliances, bathroom fixtures) is mapped accurately to the 3D, and new furniture is introduced.",
+            "point_deduction": 10
+        }
+    ],
+    "total_score": 20,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails critically on spatial accuracy and furniture mapping, presenting a completely different and hallucinated floor plan than the 2D reference. While rendering style and camera composition are acceptable, the fundamental geometric integrity is lost.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan3.jpg"
+}

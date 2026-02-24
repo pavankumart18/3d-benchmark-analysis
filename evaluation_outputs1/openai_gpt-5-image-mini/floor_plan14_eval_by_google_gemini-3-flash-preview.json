@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortions. Bed-1 window is on the wrong wall. The exterior deck areas are missing or converted into enclosed rooms. Internal wall alignments for the kitchen and entry foyer are simplified and lose the original niche geometry."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Roof is correctly removed and background is neutral. However, it fails on room count as both 'Decks' (balconies) are missing or merged, and the Utility area is poorly defined. No UI/Text labels present."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Good block-style furniture representation. Bed and sofa placement generally follow the living/sleeping zones, though the dining table and kitchen stove positions are slightly shifted from the original layout."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to aesthetic constraints. Perfect low-poly style, flat shading, no textures, and a correct orthographic isometric camera angle."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Both exterior Decks (balconies) from the floor plan are missing in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Bed-1 window is misplaced on the rear wall instead of the side wall adjacent to the deck."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen/Utility wall partition does not match the original floor plan's structural corners."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated full-height walls where open decks or railings should be located."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan14.webp"
+}

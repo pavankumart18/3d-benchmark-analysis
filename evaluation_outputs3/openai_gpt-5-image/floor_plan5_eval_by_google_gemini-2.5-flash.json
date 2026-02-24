@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render successfully demonstrates a true 3D transformation with visible height, thickness, an angled view, and a cutaway roof."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness, floors clearly separate, interior volume is perceivable. Wall corner geometry is mostly good, but some curved walls are simplified into segmented straight lines. Angled view is good, and interior visibility is excellent. The cutaway is clean."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency is mostly correct, but the leftmost room and the small room to its right are significantly altered. The curved walls in the original plan are simplified to faceted angles in the 3D model, affecting precise wall positions and lengths. Doors and windows are generally present and on correct walls, but some positions and proportions are slightly off (e.g., the window on the leftmost exterior wall in 2D is missing in 3D)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present in most rooms, including beds, sofas, tables, kitchen, and bathroom fixtures. Furniture is placed in correct general rooms and has reasonable scale and orientation. Minor discrepancies, e.g., the specific configuration of kitchen appliances."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable. Interior is well-lit and clearly visible. Consistent material usage, no major artifacts, and a clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The curved walls from the 2D plan are approximated as straight segments in the 3D model, altering the geometric accuracy of the room shapes and wall lengths. The leftmost room has been redesigned to be enclosed by solid walls on all sides instead of the open plan suggested by the 2D, and the attached small room is missing its doorway."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "A window on the outermost left wall of the 2D plan is missing in the 3D render. The proportions of some doorways and windows are slightly different."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "The conversion successfully transforms the 2D plan into an understandable 3D isometric view with good clarity and most elements present, though some geometric simplifications and minor layout alterations affect fidelity.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan5.jpg"
+}

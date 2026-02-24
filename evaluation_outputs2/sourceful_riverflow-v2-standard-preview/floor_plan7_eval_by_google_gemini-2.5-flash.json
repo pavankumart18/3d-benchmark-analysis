@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 9,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology is good, room count and adjacencies are preserved. Room sizes are largely proportional, but the Wash Area/Toilet block seems slightly larger relative to the rest of the plan. Overall footprint is maintained. Wall geometry is mostly accurate. The wall between the kitchen and wash area seems skewed/thicker in the 3D model. Openings (doors) are generally well placed, but the door for the Toilet/Wash Area block is shown as a single door in 3D, and the 2D plan indicates a door for the Wash Area and a separate door for the Toilet. The 3D model consolidates these into one door, and the swing direction of the toilet door is reversed. Windows are all present and placed correctly, but their proportions (height vs width) seem altered in some cases. Consistent scale is applied without aspect ratio distortion."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "The roof is completely removed, and all interior walls are fully visible with no fragments. No missing rooms or structural elements. No extra rooms or invented architectural features. No text labels, measurement lines, or legend/scale bars. Dark neutral background, model appears isolated, and no ground plane/shadows extending to infinity."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms (beds, dining table, sofas). Kitchen fixtures (counters, sink, island) are present. Bathroom fixtures are present. However, the 2D plan shows distinct bathroom fixtures for 'Wash Area' and 'Toilet', while the 3D model consolidates them and seems to be missing the wash basin from the 'Wash Area' and also the washing machine indicated on the 2D plan. The scale of the furniture is appropriate, and placement largely matches the 2D plan, with minor discrepancies for the bathroom block."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry uses low-poly simplified forms and flat-shaded surfaces with clean edges, largely adhering to the style. No textures are used, only solid flat colors. Lighting is soft ambient with minimal shadows; however, there are some discernable cast shadows that suggest more than just ambient lighting, which slightly deviates from strict 'minimal shadows'. Colors are distinguishable. The view attempts an isometric projection, but there are some slight perspective distortions noticeable if measuring parallel lines. The 45\u00b0 rotation is good, centered framing, and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wash Area/Toilet block's overall dimensions are slightly larger in 3D compared to 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall thickness between Kitchen and Wash Area/Toilet appears thicker and slightly misaligned. Hallucinated a second doorway into the bedroom from the hallway which is not in the plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Toilet door swing direction is reversed in 3D. The 2D plan shows separate doors for Wash Area and Toilet, but 3D merges them into one, losing detail.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing wash basin from 'Wash Area' and washing machine. Bathroom fixtures in 3D do not fully match the clear delineation in 2D.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight perspective distortion for 'true isometric', making parallel lines converge slightly. Shadows are present and somewhat prominent.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 87,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render provides a highly accurate translation of the 2D floor plan with excellent structural fidelity, though minor geometric and furniture mapping discrepancies, along with slight perspective distortion, were noted.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan7.jpg"
+}

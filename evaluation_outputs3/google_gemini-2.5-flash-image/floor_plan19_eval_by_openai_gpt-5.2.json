@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": false,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": false,
+        "notes": "The second image remains a top-down orthographic floor plan with textures/shadows; there is no visible wall height, no multi-face wall surfaces, and no cutaway/isometric interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Automatic rejection: no true 3D extrusion or angled/isometric view."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to rejection (E0-FATAL)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to rejection (E0-FATAL)."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to rejection (E0-FATAL)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "FATAL",
+            "description": "Second image is not a 3D cutaway/isometric model; it is a 2D top-down plan without wall height/thickness or perceivable interior volume."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Rejected because the '3D render' is still a 2D top-down floor plan with no wall extrusion, angled projection, or cutaway interior volume.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan19.webp"
+}

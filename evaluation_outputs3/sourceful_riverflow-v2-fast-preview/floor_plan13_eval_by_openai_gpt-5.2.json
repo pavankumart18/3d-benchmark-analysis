@@ -1,0 +1,66 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height and thickness, rooms read as volumes, viewed from an elevated angled perspective with roof/ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Clear wall height/thickness and volumetric interior; proper angled view; cutaway is present and mostly clean, though rendering is somewhat soft/low-detail which reduces corner/edge clarity."
+        },
+        "geometric_accuracy": {
+            "score": 9,
+            "max": 30,
+            "notes": "Major layout fidelity issues: the 2D plan includes a separate garage block on the right and a balcony at top-left; these are not represented. Internal partitioning and room arrangement do not clearly match the 2D adjacency and proportions (bedroom/bath/kitchen placements appear altered)."
+        },
+        "interior_elements": {
+            "score": 6,
+            "max": 15,
+            "notes": "Beds and dining tables are present, but kitchen/bath fixtures are not clearly or accurately defined relative to the 2D plan (kitchen/laundry/bath/WC elements appear missing or ambiguous). Furniture-room assignment is only partially consistent."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls/windows are distinguishable and background is clean, but the image is hazy/low-contrast which reduces readability of openings and finer geometry; no obvious broken meshes."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "high",
+            "description": "Garage (separate block in 2D) is missing in the 3D model; balcony/cut-out area also not represented."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "high",
+            "description": "Internal room configuration and adjacency/proportions do not convincingly align with the 2D plan (kitchen/laundry/bath/WC zone placement appears substantially different)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "medium",
+            "description": "Door/window placement and opening proportions cannot be matched reliably to the 2D plan; several openings appear generic rather than plan-faithful."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "medium",
+            "description": "Kitchen and bathroom fixtures are missing/unclear compared to the 2D plan; furniture detail is insufficient to confirm room identities."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "low",
+            "description": "Soft/hazy rendering reduces structural clarity and makes verification of partitions/openings harder."
+        }
+    ],
+    "total_score": 57,
+    "verdict": "PASS",
+    "summary": "A genuine 3D cutaway conversion is present, but major plan-to-model mismatches (notably missing garage/balcony and altered internal layout) significantly reduce geometric fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan13.jpg"
+}

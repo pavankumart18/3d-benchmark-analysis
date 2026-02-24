@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is perceptible, the view is angled, and the roof is removed to show the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Walls are rendered with height and thickness, floors clearly separate, and interior volume is perceivable. Wall corners are good. Angled view is excellent, and interior is visible. Clean roof removal, fully visible spaces, and clean geometry."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Most room configurations are correct, but some adjacencies are slightly altered due to wall changes. Relative room proportions are well-preserved. Major wall positions align well. Doors are present and mostly correct, but windows are largely missing or significantly altered."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture, kitchen elements, and bathroom fixtures are all present. Furniture is in correct rooms, scale is reasonable, and orientation is logical."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable and readable. Interior is well-lit and visible. Consistent material usage, no major artifacts, and clean presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Some wall segments are missing, altering the adjacency of certain rooms (e.g., the wall separating the two bedrooms on the left is missing in the 3D model, making it feel like one large room). The wall separating the living room from the entry area on the left is also missing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Windows are either missing or converted to simple wall openings in the 3D model, particularly in the bedrooms and office area. Some doors are also represented as simple openings without door structures."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "This is an excellent 3D conversion, demonstrating strong fundamental transformation and geometric fidelity, though minor wall and window discrepancies are present.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan2.png"
+}

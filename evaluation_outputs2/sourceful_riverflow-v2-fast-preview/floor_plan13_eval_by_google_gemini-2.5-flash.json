@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall footprint shape is maintained. However, several rooms (Kitchen, L'dry, WC, Bath, Bedroom 1, Bedroom 2) are significantly distorted or merged. Kitchen and L'dry are merged into one large space with a hallway. The WC and Bath are separate rooms in the 2D plan but in the 3D render appear as one combined bathroom with distinct areas, potentially losing the separating wall, or the 2D depiction showing two separate doors. The Bedroom 1 and Bedroom 2 layouts are altered from the 2D plan, with different wall arrangements. The bedroom next to the kitchen (Bedroom 1 in 2D) is substantially larger than shown in 2D, and its adjacent bathroom is not present. The entry area is also significantly changed, with the 'Linen' closet missing and the entry wall reconfigured. Wall positions are off by more than 5% in multiple areas, especially around the bathroom and a bedroom near the dining area. Corner angles are mostly preserved where walls exist."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is completely removed, and interior walls are visible. However, there are significant structural completeness issues: the Balcony is completely missing, the 'Linen' closet is missing, and the internal wall separating the kitchen from the laundry is missing. The wall between the WC and Bath appears to be missing or merged. There are hallucinated walls defining new spaces not present in the 2D plan, especially around the bathroom next to the dining area, and the reconfigured bedroom layouts. No text, measurements, or legends are present, which is good. The presentation context is poor; there are strong reflections/shadows on the exterior walls, and the model is not perfectly isolated, with a discernible ground plane and shadows extending beyond the model."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 2
+        },
+        "notes": "Some major furniture pieces (beds, dining tables) are present but their placement is highly inaccurate compared to the 2D plan due to the significant changes in room layouts. For example, the 2D plan shows beds in Bedroom 1 and Bedroom 2. The 3D render shows beds in two rooms, but their sizes and orientations, as well as the room dimensions, are different. The Kitchen fixtures are partially present, but the layout is entirely different from the 2D plan (e.g., sink location). Bathroom fixtures are indicated but again, the layout does not align with the 2D plan for the WC and Bath. The 'Linen' closet in the entry is missing. The 'WM' (washing machine) and 'Robe' in Bedroom 1 are missing. The 'Robe' for Bedroom 2 is also missing. The dining chairs are completely missing in the dining area."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The rendering features low-poly simplified forms with flat shaded surfaces. There are no obvious textures, only solid flat colors. However, there are significant reflections on the exterior walls and some interior surfaces, which deviates from 'flat shaded surfaces' and 'no textures'. The lighting is soft ambient but creates very noticeable reflections, especially on the outside walls in direct contravention of 'no dramatic contrasts'. The colors are distinguishable. The camera view is isometric, and the composition is mostly centered with appropriate zoom. The 45-degree rotation is reasonably accurate."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Balcony is completely missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen and L'dry are merged into one large space, losing the separating wall and the distinct 'L'dry' room.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The separating wall between WC and Bath is missing, causing them to appear as a single connected bathroom, though with implied distinct areas.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom 1 and Bedroom 2 layouts are significantly altered, with new walls and different dimensions from the 2D plan (Bedroom 1 is much larger, different wall boundaries).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated walls and reconfigured entry area, missing the 'Linen' closet shown in the 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining chairs are missing in the dining area.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "'WM' and 'Robe' in Bedroom 1 from the 2D plan are missing. 'Robe' in Bedroom 2 is missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Noticeable reflections on exterior and some interior walls, which deviates from flat shaded surfaces and minimal shadows.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window placements are incorrect or missing in several areas (e.g., L'dry, Dining).",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 47,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render fails due to significant discrepancies in spatial accuracy, including merged and heavily distorted rooms, missing structural elements like the balcony and internal walls, and highly inaccurate furniture mapping.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan13.jpg"
+}

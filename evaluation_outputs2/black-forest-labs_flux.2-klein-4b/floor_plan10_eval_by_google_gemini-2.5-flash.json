@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall footprint is vaguely similar but many rooms are either missing, significantly altered, or combined. Specifically, the entire 'Master Suite' area (Ensuite, WIR, Master Suite, Study, Portico, Verandah) is missing. The 'Garage' is completely gone. The 'Living' room has a completely different layout. 'Pantry' is missing. 'Theatre' is missing. The activity room is merged with kitchen. The original design has clearly not been followed."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 2
+        },
+        "notes": "Numerous structural elements and entire rooms are missing (Master Suite, Ensuite, WIR, Study, Garage, Pantry, Theatre, Verandah, Portico). Hallucinated walls are present where rooms were supposed to be (e.g. where Garage was supposed to be, there's just a wall, similarly for Theatre and Master Suite). The cutaway view is mostly compliant, but some walls are too high partially obscuring furniture."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Most significant furniture pieces are either missing or misplaced relative to the original plan. The large living room in the plan, for example, is entirely different in the 3D render. The entire 'Master Suite', 'Theatre', 'Pantry', and 'Garage' areas are missing, and hence all their associated furniture/fixtures are also missing. The kitchen layout is completely changed."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style is mostly low-poly with flat shaded surfaces and solid colors, although some minimal textures/gradients are visible on walls and furniture (slight deduction). Lighting is soft and ambient. Camera is not a true isometric projection (minor perspective visible) and the model is not properly centered, appearing truncated on the sides."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'Master Suite' area (Ensuite, WIR, Master Suite, Study, Portico, Verandah) is missing. The 'Garage' room is entirely missing. The 'Pantry' and 'Theatre' rooms are missing.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Multiple rooms and major structural elements (Master Suite, Garage, Pantry, Theatre, Study, etc.) are completely absent from the 3D model, replacing them with generic walls or empty space, and the 'Living' room has a drastically altered layout.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The overall footprint shape is significantly altered, and room adjacencies/connectivity are violated due to missing or significantly changed rooms (e.g., Living room, Activity room).",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Most major furniture and fixtures are missing due to missing rooms, and what's present is inaccurately placed.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric view; perspective distortion is clearly visible.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 47,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "This 3D render fails significantly due to numerous missing rooms, drastically altered structural layout, and heavy discrepancies in furniture mapping compared to the 2D floor plan, along with non-isometric projection.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan10.png"
+}

@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Living/Dining to Balcony door missing, resulting in a misaligned exterior wall. Wall between Living/Dining and Foyer appears slightly mispositioned."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Text labels (like 'FLAT-4') and measurements are present in the original 2D plan, but the 3D render has eliminated all of these, which is a compliance. However, there are shadows that extend beyond the isolated model, indicating a ground plane is present and casting shadows. The background is dark neutral but not a gradient."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "All major furniture pieces are present. Dining table is oriented 90 degrees incorrectly compared to plan. Kitchen counter configuration is a simplified abstraction but generally accurate."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly simplified forms are present, but there is some subtle shading/gradient on surfaces, especially noticeable on the walls. The background is dark but uniform, not a gradient. Camera is generally good but the model is not perfectly centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "ZERO text labels or measurement lines/dimensions are allowed. The absence of these in the 3D render is a compliance with the requirement of 'UI/Annotation Cleanliness'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The wall between Living/Dining and the Balcony in the 3D render is a solid wall with a window, while the 2D plan shows a door. The solid wall with a window is a misrepresentation of the opening.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table is rotated 90 degrees from the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle shading and hints of texture on some surfaces, particularly the walls and bedding, deviating from 'solid flat colors only'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Presence of a ground plane with shadows extending to infinity, rather than the model appearing floating/isolated with no ground plane.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Model is not perfectly centered in the frame.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 76,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates good spatial accuracy and structural fidelity, with most architectural elements correctly translated. However, minor discrepancies in openings (missing balcony door), furniture orientation, and technical rendering details (shadows, subtle shading) prevent a higher score, however the model passes the threshold.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan18.jpg"
+}

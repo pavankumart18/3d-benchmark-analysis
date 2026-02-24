@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout Topology: Room count matches (6 rooms: 2 bedrooms, 2 bathrooms, living, dining/kitchen). Adjacency mostly preserved, but overall footprint is stretched horizontally in the render, affecting relative room sizes and proportionality. Wall Geometry: Significant misalignment of the exterior wall on the bottom left, which incorrectly extends out. Interior walls show some proportional inaccuracies, especially in the bathrooms and connecting corridors. Doors: All doors are present. Placement is generally correct. Some swing directions are flipped or unclear due to open position. Window: All windows are present and on correct walls. Their sizes are slightly distorted due to overall scaling issues. Dimensional Scaling: Consistent scale factor is largely applied, but an aspect ratio distortion is evident, making the 3D model appear wider and shallower than the 2D plan, especially notable in the living room and master bedroom area."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway View Compliance: Roof is completely removed, and interior walls are fully visible. Completeness: No missing rooms or structural elements. Hallucination Control: No extra rooms or invented architectural features like balconies. UI/Annotation Cleanliness: Fails completely due to the presence of text labels on the original 2D floor plan ('Multi-Room Floor Plan Template'). Presentation Context: Fails completely due to the presence of visible ground plane/base below the model with an extended shadow."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Furniture Presence: Most major pieces (beds, sofas, dining table, kitchen counters, bathroom fixtures) are present. Minor pieces like dressers in bedrooms are missing, and some shelving units are not fully represented or are simplified. Kitchen fixtures are present but slightly reconfigured. Bathroom fixtures are present. Furniture Accuracy: Placement of major pieces mostly matches the 2D plan, though some items (e.g., bathroom vanity, kitchen counters) are simplified or slightly re-arranged from their original layout. Scale is appropriate for the rooms, though some items appear slightly enlarged due to the model's overall dimensional stretching."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Geometry Style: Low-poly, simplified forms with flat shaded surfaces are used, which is good. Minimal mesh artifacts. However, the model uses solid flat colors, but the 'white' appearance gives a slight impression of photorealism which could be a concern, although technically it's still solid color. No textures are present. Lighting & Rendering: Soft ambient lighting is present with minimal shadows, which aligns with requirements. No dramatic contrasts. Colors are distinguishable (walls vs. floors vs. furniture). Camera & Composition: True isometric projection is observed. The view is a 45\u00b0 rotated plan view. Centered framing with all rooms visible and appropriate zoom level. However, the background is black, but the presence of a ground plane with a shadow violates requirement."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing dressers from bedrooms, and some shelving is not represented. Kitchen counter layout slightly differs.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Exterior wall on the bottom left of the floor plan is incorrectly extended in the 3D render, creating a structural inaccuracy.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Aspect ratio distortion makes the model appear wider/shallower than the 2D plan, impacting relative room proportions.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels from the 2D floor plan are present in the provided image, violating UI/Annotation Cleanliness rules.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane and extended shadow beneath the model violate presentation context requirements.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 73,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains the structural integrity and layout of the 2D floor plan, but suffers from aspect ratio distortions, incorrect exterior wall geometry, and critical failures in UI/annotation cleanliness due to text on the source image, and minor aesthetic issues regarding presentation context.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan2.png"
+}

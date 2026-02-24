@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness, interior volume is clear, and proper 3D corners are present. The viewing angle is appropriate and interior visibility good. The roof is cleanly removed, though some wall geometry near the stairs appears slightly broken/simplified from the 2D plan, specifically the wall section between the bathroom and the stairs."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency are correct. Relative room proportions are well preserved. Major wall positions align well; however, the partition between the bathroom and the stairs is simplified from the 2D, which showed a deeper alcove. Doors are present and correctly placed. Windows are also present; however, the 2D plan indicates three windows on the bottom wall in the kitchen/living area, but the 3D render only shows one larger window. Also, windows are missing on the left side wall of the kitchen/living area, which are shown as small squares in the 2D plan. The 2D plan shows one window on the right wall of the bedroom, but the 3D render shows two on that wall. The 2D plan also shows small windows on the exterior wall of the bathroom, which are missing in the 3D."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Most major furniture (beds, sofas, tables, kitchen, bathroom fixtures) is present. Furniture is placed in correct rooms and their scale/orientation is reasonable."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is excellent; all elements are clearly distinguishable. Lighting is good and does not obscure geometry. Aesthetic coherence is consistent with clean materials and no major artifacts. The background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The wall section between the bathroom and the stairs is simplified and does not match the 2D plan's geometry."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Mismatch in the number and placement of windows: fewer windows in kitchen/living area than 2D, more windows in bedroom than 2D, and missing windows in bathroom from 2D."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is largely successful, featuring good geometric fidelity and clear structural rendering, though there are minor discrepancies in window placement and slight simplification of one internal wall partition compared to the source 2D plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan6.jpg"
+}

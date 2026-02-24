@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible floor plane, angled/isometric-like camera, and ceiling/roof removed to expose interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable interior volume; cutaway is clean and the view is elevated/angled with minimal distortion."
+        },
+        "geometric_accuracy": {
+            "score": 17,
+            "max": 30,
+            "notes": "Overall massing resembles the plan (kitchen left, dining top, living right), but the central bathroom enclosure/partitioning from the 2D plan is not faithfully reproduced (toilet appears in open area rather than inside the small bathroom room). Several interior wall/door placements do not match the plan closely, and window distribution appears simplified/shifted."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Dining table/chairs, sofa, coffee table, kitchen counters present and plausibly placed. Bathroom fixtures are incomplete relative to the 2D plan (missing enclosed bath room/fixtures arrangement)."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with good contrast and legible wall openings; no text/UI clutter; minor ambiguity around bathroom/door geometry due to simplified partitions."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Bathroom room enclosure from 2D plan is not faithfully modeled; toilet is placed without the correct small bathroom partitioning."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Interior partition geometry (central walls/doors) deviates from the 2D plan, affecting adjacency and circulation details."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Windows/door opening locations and counts appear simplified or shifted compared to the 2D plan."
+        }
+    ],
+    "total_score": 75,
+    "verdict": "GOOD",
+    "summary": "A valid 3D cutaway with strong 3D fundamentals, but only moderately faithful to the 2D plan due to incorrect/missing bathroom enclosure and noticeable interior partition/opening mismatches.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Room count matches, but connectivity issues exist at the foyer and utility areas. Relative room sizes are mostly proportional. Overall footprint is distorted in the lower-right area. Several wall positions are off, especially around the utility room and decks. Many doors are missing. Window placement is generally correct, but several are missing."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 2,
+            "hallucination_control": 1,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Roof is removed, but the right-side wall extends too high. Several structural elements are missing (e.g., portions of exterior walls, interior walls around utility). Hallucinated features include the external deck in place of an internal deck. The image contains text labels (room dimensions, room names), resulting in 0 for UI cleanliness. Background is dark, model is isolated, but shadows extend to ground plane."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table) are present. Kitchen and bathroom fixtures are mostly present but some are missing (e.g., one toilet). Placement is somewhat off for several pieces; e.g., the bed in BED-1 is rotated 90 degrees."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "Surfaces are mostly flat shaded, but some elements show subtle textures/gradients. Overall geometry is simplified. Lighting creates some harsh shadows and reflections, especially on floors and walls. Camera view is a true isometric projection with appropriate framing."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the render, including room names and dimensions.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Many doors are missing from the 3D render, including all doors in Bed-2, Bed-3, and several bathroom doors.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The deck area to the top-right in the 2D plan is an internal, covered deck, but it is rendered as an uncovered external deck with an altered shape in the 3D model. The 'ho' and 'toi' areas and the corresponding external wall in the 2D plan show significant deviation and missing structural elements in 3D.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant discrepancy in overall footprint shape, especially the lower right side involving the Utility, HO, and TOI rooms. The exterior walls here are heavily altered or missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing windows in BED-1 and BED-2, and near the dining area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces (e.g., floors, kitchen counters, exterior walls) show subtle textures or gradients, deviating from flat solid colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 48,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant inaccuracies in structural fidelity, presence of text labels, and notable deviations in wall geometry and door presence compared to the 2D floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan19.webp"
+}

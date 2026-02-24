@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 5
+        },
+        "notes": "The overall footprint is poorly maintained. The 'Foyer' and 'Utility' areas in the bottom left, along with the connected 'Ser. Rm', are completely missing. The top-left balcony is missing. The 'Dress' room and its associated 'Toilet' are missing. There are numerous wall position inaccuracies, especially around the missing rooms and the kitchen/dining/living area. Many walls are shifted or extended incorrectly. The number of bedrooms in the render is 4, whereas the plan shows 3 main bedrooms, plus a 'Master Bed Rm' (total 4 distinct bedrooms in the render, if we interpret 'Master Bed Rm' + 'Bed Room 2' + 'Bed Room 3' + 'Bed Room 4' as 4). The render has 4 beds, whereas the plan shows 4 beds (1 master, 3 others). The render does not include the 'Dress' room and its adjacent toilet. The render has a 5th bedroom where the plan shows a Dress room and toilet. This is a significant structural change. Missing one balcony from the living area, and the small balcony from the Master Bed Rm. Missing the smaller balcony at top left. The main balcony for Living Room is present but heavily simplified, missing the distinct tiling pattern and shape. Overall structure is not preserved, particularly the periphery."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Missing several rooms/areas as noted in spatial accuracy. Hallucinated an additional bedroom on the top right where 'DRESS' and 'TOILET' are supposed to be. Also missing the 'Foyer', 'Utility', and 'Ser. Rm' completely. Missing the two smaller balconies. Presentation context has a ground plane with shadows, which is a deduction."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "Significant furniture omission due to missing rooms (Foyer, Utility, Ser. Rm, Dress room). The master bedroom furniture is incorrect (missing sofa/chair, has bedside tables not explicitly in plan but acceptable). Some toilets are missing fixtures (e.g., sink in the toilet attached to Bed Room 2 and Bed Room 3). The kitchen layout is simplified and does not match the plan's L-shape with island. The small bathroom near the Kitchen is missing a toilet and sink. "
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Lighting is slightly too harsh, creating noticeable shadows. The background is dark, but there's a ground plane visible with shadows, which deviates from 'floating/isolated' requirement. Camera composition is good, showing a true isometric view and all visible rooms."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms/areas missing: Foyer, Utility, Ser. Rm, Dress room, two smaller balconies.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated an entire bedroom where the 'DRESS' room and 'TOILET' should be. This constitutes a structural change.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned and rearranged, particularly around the kitchen, dining, and living areas, and the missing rooms/balconies.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing specific furniture items due to missing rooms (e.g. from Foyer, Dress room). Kitchen layout is simplified and doesn't fully match.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Ground plane and visible shadows beneath the model, not fully isolated as per guidelines.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is slightly too harsh, generating some deep shadows, not entirely 'soft ambient'.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 54,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to significant missing rooms, hallucinated structural changes, and notable wall misalignments, despite good rendering style and camera composition.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan17.jpg"
+}

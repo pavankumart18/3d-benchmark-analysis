@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Render is a true cutaway 3D model with extruded walls, visible thickness, an angled/isometric camera, and the ceiling/roof removed to expose interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; clean cutaway. Minor geometry simplifications at corners/openings."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall 3BHK arrangement, living/dining core, kitchen/utility on right, balconies positioned plausibly. Some internal partitioning (notably entry/passage area) appears altered/smoothed into curved segments vs the more rectilinear 2D plan; several small spaces (toilets/utility partitions) are hard to verify as exact matches."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Beds in bedrooms, sofa/living set, dining table, kitchen counters/appliances, and bathroom fixture blocks present; generally placed in appropriate rooms with reasonable scale."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Good material consistency and lighting; geometry is readable with minimal artifacts. Some openings (especially windows) are not strongly delineated, reducing structural legibility."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Internal wall/partition geometry around the entrance/passage appears modified (curved/reshaped) compared with the rectilinear 2D plan, risking adjacency/proportion drift."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows are not consistently verifiable on the exact walls shown in the 2D plan; several openings are simplified or unclear (notably window placement)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Rendering prioritizes simplified clean forms over explicit architectural detailing, which slightly reduces verification precision for small rooms/partitions."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "A valid cutaway 3D conversion with strong volumetric depiction and furnishings, but with some notable internal partition deviations and unclear opening fidelity versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan15.webp"
+}

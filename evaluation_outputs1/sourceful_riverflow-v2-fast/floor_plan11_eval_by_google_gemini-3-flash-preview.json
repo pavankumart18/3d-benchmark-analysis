@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortions. The staircase from the plan is replaced with a generic corridor and wall. The bay window in the dining area is represented as a simple angled wall but lacks the structural depth shown in the 2D plan. Door placements are largely missed or replaced with open gaps."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The utility room and WC wall configurations are merged/simplified. The staircase (structural element) is entirely missing. However, the 3D model succeeds in being a floating model on a neutral background with no text."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen counters and island are present but orientation is flipped compared to the plan. Hallucinated seating/sofa-like blocks in the central area where the stairs should be."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to aesthetic constraints. Low-poly geometry, flat shading, and a correct isometric orthographic camera angle were used successfully."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase; major structural component from the 2D plan is absent in the 3D model."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen island and counter layout are rotated/mirrored compared to the technical drawing."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated interior partitions and furniture blocks in the central hallway zone."
+        },
+        {
+            "code": "E2",
+            "description": "Window seat/bay window proportions are flattened and structurally inaccurate."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan11.png"
+}

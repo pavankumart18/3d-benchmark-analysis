@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "The model fails to include the partition wall between the bedroom and living area, merging them into a studio. Doorways are missing their actual door leaves and frames. Window placement in the bedroom is on the wrong wall (should be west/top-left according to the orientation, but it is placed on the north wall). Utility area and toilet adjacency is maintained, but the foyer transition is simplified."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The absence of the internal wall separating the bedroom is a significant structural reinterpretation. However, the model correctly removes the roof, places the unit on a dark neutral background, and avoids all text/UI elements."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is generally placed in correct functional zones (bed, sofa, dining table, kitchen counters). However, the sofa is significantly rotated and misplaced compared to the plan (it should be against the bottom wall, not the side wall). Kitchen island/counter layout is simplified compared to the L-shape in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints. The render is perfectly isometric, uses low-poly geometry, flat shading, and a clean, non-photorealistic aesthetic."
+    },
+    "total_score": 75,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing wall separating the Bedroom from the Living/Dining area."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa is rotated 90 degrees and placed against the wrong wall compared to the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bedroom window misplaced on the north wall instead of the west wall."
+        },
+        {
+            "code": "E4",
+            "description": "The kitchen counter is rendered as an island/straight block rather than the specified L-shape with a sink in the corner."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan18.jpg"
+}

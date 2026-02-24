@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout reinterpretation. The open floor plan between Kitchen, Dining, and Living Room has been replaced with solid walls. Door counts and placements are inconsistent with the 2D plan, notably the missing back doors and extra interior doors between hallucinated rooms."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Poor fidelity. The model contains hallucinated text labels ('DINING ROOM', 'LIVING ROOM', '16 x 24', 'BATHROOM') and measurement lines which were strictly forbidden. Hallucinated walls create non-existent corridors."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is present but highly inaccurate. The kitchen counters are separated from walls and the stove is floating. Sofas and dining tables are added that were not present in the original 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good low-poly style and lighting. Isometric camera angle is correct and the background is neutral grey. Deductions for text rendering within the 3D space which breaks the 'clean model' constraint."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Strict violation: Text labels and measurements transferred from 2D plan into the 3D render space."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated structural walls dividing the open-plan area into three distinct rooms."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen fixtures are misplaced and do not align with the 2D wall layout."
+        },
+        {
+            "code": "E1",
+            "description": "Missing large windows/sliding doors on the top and right-side exterior walls as shown in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan3.jpg"
+}

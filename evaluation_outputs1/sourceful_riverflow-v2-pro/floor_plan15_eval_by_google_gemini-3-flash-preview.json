@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout reinterpretation. The 3D model flips the kitchen/dining/entrance wing and fails to maintain the correct adjacency for the 'Wide Passage'. The secondary balcony is misplaced, and the entrance location is ambiguously rendered compared to the plan's clear central-bottom entry point. Window counts and positions are generalized rather than exact."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent adherence to the 'roof removed' and 'dark neutral background' requirements. No text or UI elements are present. Minor points deducted for structural reinterpretation of the hallway and room shapes which creates a different floor plan footprint."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is appropriately block-styled and consistent in scale. However, the dining area is significantly moved, and the kitchen counter configuration does not match the L-shape/Utility separation shown in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly, flat shading, soft ambient lighting, and an orthographic isometric camera angle are all correctly implemented."
+    },
+    "total_score": 67,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The entire lower-left wing containing the kitchen and dining area is mirrored or significantly misplaced compared to the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated extra walls/doors in the central passage area and reinterpretation of the balcony access points."
+        },
+        {
+            "code": "E2",
+            "description": "Window and door placements do not align with the specific coordinates provided in the architectural plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan15.webp"
+}

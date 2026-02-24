@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render successfully demonstrates a true 3D transformation with visible wall height, thickness, perceivable interior volume, and an appropriate angled view with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5), floors are distinct (3), interior volume is clear (4), and wall corners are correct (3). The viewing angle is appropriate (5), and the interior is visible (3). The roof is cleanly removed (5), and the interior is fully visible without broken geometry (2)."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Room count is correct, and adjacency is largely preserved. However, the dining area's wall is shifted inward significantly, altering room proportions (E2-MAJ). Wall positions largely align but with the aforementioned shift (E2-MAJ). Internal partitions are mostly correct. Doors are present and on correct walls (4), but windows are partially missing or misplaced (E3-MIN)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture is present, including beds and sofas (4), kitchen elements are present (2), and bathroom fixtures are present (2). Furniture is generally in correct rooms (3) and scale is reasonable. However, some furniture orientations are not logical relative to the layout (e.g., dining chairs) and some new furniture is introduced (E4-FURN)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Structural elements are clear and distinguishable (4), and geometry is readable (4). Interior is clearly visible (3), and lighting does not obscure geometry (3). Material usage is consistent (2), and no major rendering artifacts are present (2). The background is clean (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The wall separating the dining/kitchen area from the main living space is significantly displaced inward compared to the 2D plan, altering proportions."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Some windows are missing from walls where they are present in the 2D plan (e.g., bedrooms, kitchen), and some are added where none exist in 2D."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Some furniture (e.g., a chair in the central hall, a cabinet in the top-left room) is added or reoriented illogically compared to the 2D plan, and the dining chairs are poorly arranged. The kitchen layout is also less faithful."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "The 3D render is a good transformation of the 2D floor plan into an isometric view, demonstrating clear 3D fundamentals, though with some notable deviations in geometric accuracy and furniture fidelity.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan2.png"
+}

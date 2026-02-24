@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model is a faithful isometric-style cutaway rendering."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clean geometry and clear wall thickness."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "High fidelity to the floor plan; all rooms and wall partitions are correctly placed. Slight simplification in door swing representation."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement matches the 2D layout perfectly, including bathroom and kitchen fixtures."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Very clean rendering; minor deduction for slightly repetitive texture/colors on some furniture blocks."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Door swings are represented as openings/blocks rather than swinging leaves, which is standard for this 3D style."
+        }
+    ],
+    "total_score": 96,
+    "verdict": "EXCELLENT",
+    "summary": "An exceptionally accurate and clean 3D conversion that maintains strict geometric fidelity to the original architectural floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan20.avif"
+}

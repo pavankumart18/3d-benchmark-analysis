@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful 3D cutaway transformation with visible wall geometry and orthographic-oblique projection."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Strong 3D transformation with clear wall thickness and volume; viewing angle provides good visibility of internal faces."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Highly accurate layout fidelity. Room counts, pantry location, and stair position are perfectly maintained. Window and door placements align with CAD markers."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture logic is excellent; kitchen island with range and bathroom fixtures are correctly placed according to the plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean rendering with logical lighting/shadows. Dropped points for slight overlapping of open door geometry with room space."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door swings are rendered as literal standing doors that don't perfectly match the swing arc footprints in the 2D original."
+        }
+    ],
+    "total_score": 93,
+    "verdict": "EXCELLENT",
+    "summary": "An exceptionally faithful 3D conversion that maintains strict geometric adherence to the original floor plan's layout and structural details.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan8.jpg"
+}

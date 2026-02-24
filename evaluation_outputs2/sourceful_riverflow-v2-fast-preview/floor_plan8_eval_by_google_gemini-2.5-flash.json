@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Living Room and Dining Room external walls are not accurate to the 2D plan, lacking the small external indents. The 'L' shaped room for the stairs and W/C is a single large room in the render. Window on the far right (east) side is missing. The Kitchen exterior wall configuration is simplified. The Foyer has an incorrect wall configuration at the entrance. The closet beside the W/C is missing. The small closet by the front door is missing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Missing several interior walls, specifically separating the W/C from the stairs and the small closets. Presentation context is incorrect, with visible ground plane/shadows extending beyond the model."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "Key furniture is present, but some major fixtures are missing or simplified. The pantry and the closet by the W/C are completely missing. The kitchen island/cabinetry does not match the plan. The square item in the foyer is not present."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Walls have a slight gradient, not pure flat colors. Lighting creates more pronounced shadows than 'minimal shadows' and 'flat shading'. Camera could be slightly more zoomed in."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire room (closet by W/C) missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire room (small closet by front door) missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple external walls (Living Room, Dining Room, Kitchen) significantly deviate from the plan's shape and detail.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Interior wall separating W/C from stairs, and closet wall, are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One window missing (east side).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Walls have slight gradients/non-flat colors. Shadows are more pronounced than minimal.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Pantry and foyer item missing. Kitchen island/cabinetry mismatch.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 55,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely captures the overall layout but significantly deviates in individual wall geometry, missing several key interior walls and small rooms, leading to a FAIL verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant layout distortion. The large primary bedroom on the right has been merged into the living area, and a phantom wall has been added near the center. Door placements do not match the original floor plan, and the kitchen/utility area on the bottom right is structurally missing its defining boundary walls."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "notes": "While the roof is removed and there is no text/UI, the layout is heavily reinterpreted. The model hallucinates an open-plan transition where a wall should separate the bedroom, and the entrance vestibule geometry is mutated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "The L-shaped sofa and round table are present, but scale is inconsistent. The twin beds in the upper-left room were replaced with a single bed and a desk/shelf. Kitchen fixtures (stove/sink) are missing or vaguely represented by blocks."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to the low-poly, flat-shaded aesthetic. The isometric camera is correct, and the model sits on a dark neutral background with no photorealism or textures."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Major layout distortion; internal walls separating the right-side bedroom are missing."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated central partition wall not present in the 2D template."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific kitchen fixtures (sink, stove detail) and twin bed configuration."
+        },
+        {
+            "code": "E2",
+            "description": "Door positions and swing orientations are inconsistent with the original blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan2.png"
+}

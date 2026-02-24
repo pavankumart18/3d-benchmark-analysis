@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have clear height/thickness, multiple faces are visible, interior volumes read as rooms, and the view is angled/isometric with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable wall thickness and corners; floor plane separation is clear. Cutaway is mostly clean with minor simplification at some openings/edges."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "Core spaces (kitchen/utility/stair zone/dining-like open area) appear present with generally similar adjacencies, but proportions and several partitions/openings do not tightly match the 2D plan segment (e.g., breakfast/pantry/window-seat zone and some wall runs/openings look simplified or shifted)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Kitchen counters/appliances and dining table are present; utility room is represented. Bathroom fixtures appear present. Some furniture/room program (e.g., bed) is not clearly supported by the provided 2D crop, suggesting potential program/layout mismatch."
+        },
+        "visual_clarity": {
+            "score": 13,
+            "max": 20,
+            "notes": "Geometry is mostly readable with consistent materials, but interior door geometry is faint/ambiguous and a large text label on the floor reduces presentation clarity. Lighting is adequate but slightly flat, making some openings harder to verify."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Noticeable layout/proportion simplifications vs the 2D plan segment; several wall runs and the right-side zone (pantry/breakfast/window-seat area) do not align cleanly."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placements and opening widths are not fully verifiable and appear approximated relative to the 2D plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text label ('UTILITY ROOM') present in the 3D render reduces presentation score per rubric."
+        }
+    ],
+    "total_score": 74,
+    "verdict": "PASS",
+    "summary": "A genuine cutaway 3D conversion with strong volumetric rendering, but only moderate geometric fidelity to the 2D layout due to simplified/shifted partitions and openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan11.png"
+}

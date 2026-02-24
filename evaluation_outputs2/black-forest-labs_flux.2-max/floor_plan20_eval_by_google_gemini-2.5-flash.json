@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall footprint and room adjacencies are mostly maintained. However, several wall positions show inaccuracies, particularly around the kitchen/utility area and the Maid's Room/Toilet-4. Several doors are misplaced or have incorrect swing directions. Windows from the 2D plan are mostly missing in the 3D model."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The roof is correctly removed, and interior walls are visible. However, there are significant issues with completeness (missing windows) and hallucination (added exterior details, minor structural misalignments). UI cleanliness is a critical failure as text is present."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and placed in the correct rooms, though their exact positions are often off. Kitchen and bathroom fixtures are present. Bedroom-1 furniture arrangement is quite different. The Maid's Room office setup from the 2D plan is represented by a bed here. Bedroom-3 has a different bed orientation."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The geometric style shows some subdivision and smoother shading than expected for low-poly/flat shaded. There are some basic textures (wood flooring, kitchen counters) which violate the solid flat colors rule. Lighting is relatively soft but shadows are prominent. The camera view is isometric but the framing could be better centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/dimensions are present within the generated 3D model, specifically visible on walls and near the exterior. Also includes floor annotations on the balcony which should not be there.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic elements such as wood textures on floors, beds, and detailed kitchen counters are present, violating the 'solid flat colors only' and 'no textures' rules.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple wall misalignments and shifts, particularly the south wall of the Kitchen/Utility, and the layout of Toilet-4 and the Maid's Room. The exterior wall of Bedroom-2 shows a significant offset compared to the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing office desk/chair in Maid's Room, replaced by a bed. Bedroom-1 furniture layout is different. The Deck area in the 3D model has no furniture, while the 2D plan indicates outdoor furniture.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are misplaced or have incorrect swing directions (e.g., Bedroom-3 door, Living/Dining exit to Deck, Maid's Room door, Toilet-4 door, Kitchen entrance).",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Numerous windows shown on the 2D floor plan are entirely missing in the 3D render, including those in Bedroom-3, Toilet-3, Kitchen, Bedroom-2, and Bedroom-1.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 59,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors in UI cleanliness and aesthetic quality (photorealistic elements/textures), alongside major spatial inaccuracies in wall geometry and significant missing features, despite a generally correct layout topology.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan20.avif"
+}

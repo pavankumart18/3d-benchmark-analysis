@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All checks passed; true 3D conversion detected."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness, floor is a separate plane, interior volume is perceivable. Viewing angle is angled but some minor perspective distortion is visible in the corners of the rooms."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms and adjacency, relative proportions mostly preserved. Major wall positions align well. Doors are present, but windows are largely missing or not clearly represented. Some interior partitions slightly off."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Most major furniture pieces are present and in the correct rooms. Scale is reasonable. Kitchen and bathroom fixtures are present, but some details are missing (e.g., specific toilet type)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Structural elements are clear, geometry is readable. Interior is well-lit and visible. Consistent material usage, no major artifacts. Background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows are largely missing or undefined in the 3D render, unlike the detailed representations in the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "Some interior partitions, particularly around the entryway and utility room, appear to not precisely match the 2D plan's configuration."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transformed the 2D floor plan into a readable isometric model with good geometric fidelity and interior element representation, though some window details and minor partition alignments are missing.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan19.webp"
+}

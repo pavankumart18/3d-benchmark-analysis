@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 1
+        },
+        "notes": "Room count matches, but adjacency is heavily altered. Bedroom 2 is missing. Laundry room and Closet next to it are merged and reconfigured. Hallway configuration is significantly different. Relative room sizes and overall footprint are distorted. Wall positions are off in multiple areas, notably the kitchen, laundry/hall, and bathroom. Walls are not uniform height. Doors: Missing door for Bedroom 2, Laundry room, and the closet next to the bathroom. Swing directions are generally not respected or are simplified. Window count and placement are incorrect in several rooms (e.g., Bedroom 1, Kitchen/Dining, Laundry). Scaling is inconsistent, leading to aspect ratio distortion."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 0,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof/ceiling fragments are visible (E2-CRIT). Bedroom 2 is entirely missing along with its door (E1-CRIT). Laundry room and adjacent closet are combined into a reconfigured utility space; a new small closet is added near Bedroom 1. Significantly, the rendering is photorealistic (E6-CRIT) with textures, materials, and complex lighting. Text labels clearly visible in original plan, but none in 3D. The background is dark, but the model has a very clear ground plane with shadows that extend and merge with the background."
+    },
+    "furniture_mapping": {
+        "score": 1,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 0
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table) are present but their placement and configuration are severely altered, often rotated incorrectly or placed in new locations (e.g., dining table is too small and poorly positioned, kitchen island is changed to counter). Kitchen fixtures mostly present but layout is very different. Bathroom fixtures are present but the layout is altered. Missing Bedroom 2 means no furniture there. Laundry appliances are present but in a new wall configuration. Scale of furniture is inconsistent with room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 0,
+            "camera_composition": 0
+        },
+        "notes": "Photorealistic rendering (E6-CRIT) with smooth shading, textures (floor, walls, furniture), and materials. Extensive use of complex and dramatic lighting with sharp shadows, light sources, and reflections, directly violates flat shaded, soft ambient lighting requirements. Colors are distinguishable but are part of a photorealistic material system. View is not a true isometric projection, showing clear perspective distortion (E3-CRIT). The top-down view is close to 45 degree rotation, but the perspective distortion is a critical failure. Overall a photorealistic render."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'Bedroom 2' is missing.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering detected with textures, materials, and complex lighting.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric view; perspective distortion is evident.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls severely misaligned (e.g., kitchen, laundry, hall, bathroom rework).",
+            "point_deduction": 10
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated a new small closet near Bedroom 1; significantly reconfigured Laundry and adjacent closet reducing room count and volume.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E2-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Roof/ceiling fragments partially visible over Bedroom 1 and Kitchen/Dining areas preventing full interior view.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Multiple furniture pieces are missing or changed significantly (e.g., dining chairs, specific kitchen appliances, bathroom amenities).",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 15,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is a critical failure due to missing rooms, photorealistic rendering style, and perspective distortion, in addition to numerous geometric and layout inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan4.jpg"
+}

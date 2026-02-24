@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent layout adherence. Adjacency and room proportions are mostly preserved. The main entry door and bedroom door orientations are swapped (opening outwards/incorrect swing direction). All windows and balcony access points are correctly placed."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect fidelity to the structural footprint. Roof is successfully removed, all rooms are present, and there is no text or measurement interference. Floating model on neutral background achieved."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate, matching the plan's unique assets (yellow pillows, specific sofa configuration, rug placement). Small minor scaling issue with the dining chairs."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Correct isometric camera and low-poly geometry. However, the model includes marble-like floor textures and kitchen counter textures which violate the 'no textures/flat colors only' constraint. Natural shadows are a bit more dramatic than 'flat shading' requires."
+    },
+    "total_score": 86,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Incorrect door swing orientation for the main entrance and bedroom door."
+        },
+        {
+            "code": "E6",
+            "description": "Violation of 'no textures' constraint; marble textures present on flooring and kitchen counters."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan16.avif"
+}

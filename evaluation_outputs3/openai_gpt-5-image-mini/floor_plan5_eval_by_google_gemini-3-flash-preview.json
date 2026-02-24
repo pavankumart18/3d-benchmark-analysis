@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "True isometric cutaway conversion."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Walls have consistent height and thickness; perspective is a clean isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Basic layout of core rooms is preserved, but the left-side dining terrace/porch from the 2D plan is missing. Wall partitions align well with the main core."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture blocks are present and logically placed, though simplified."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean lighting and clear material separation; background is clean and text-free."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "High",
+            "description": "The outdoor dining/terrace section on the far left of the 2D floor plan is missing from the 3D model."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Low",
+            "description": "Double entry doors at the bottom of the plan are rendered as a simple wall/opening."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A highly accurate isometric 3D reconstruction that maintains the spatial logic of the interior, despite omitting the exterior accessory spaces.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan5.jpg"
+}

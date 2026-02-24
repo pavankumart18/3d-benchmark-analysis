@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height and thickness, multiple wall faces are visible, interior volume is readable, and the view is angled/isometric with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion of walls with consistent thickness; floors read as separate planes; corners are properly modeled. Cutaway is clean and the elevated angled view exposes interior well; minor simplification in some junctions/openings."
+        },
+        "geometric_accuracy": {
+            "score": 12,
+            "max": 30,
+            "notes": "Overall arrangement does not closely match the 2D plan segment: several labeled spaces in 2D (e.g., WC, utility/HVAC zone, pantry/breakfast niche/window seat geometry) are not clearly represented or appear merged/relocated. Some internal partitions and room proportions differ from the 2D drawing."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Kitchen and dining furniture are present (cabinets, island, table/chairs). However, bathroom fixtures corresponding to the 2D WC are not shown, and some rooms are left as empty blocks with ambiguous function."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean render with good separation of walls/floors and readable openings; lighting and materials are consistent and do not obscure geometry. Background is clean with no text/UI contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity mismatch: room configuration/adjacencies in the 3D model do not clearly correspond to the 2D plan (multiple 2D spaces appear missing, merged, or rearranged)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placement and opening count/orientation are not verifiably aligned with the 2D plan (openings appear simplified and not clearly on the same walls)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture/fixtures do not cover key rooms indicated in 2D (notably WC/bath fixtures), reducing room identity confirmation."
+        }
+    ],
+    "total_score": 70,
+    "verdict": "PASS",
+    "summary": "True 3D cutaway with solid modeling quality, but the generated 3D layout only loosely matches the 2D plan\u2019s room configuration and openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan11.png"
+}

@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model presents a consistent isomeric cutaway with visible wall depth and height."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Strong 3D geometry; walls have distinct top/side faces. Small perspective artifacts near corners."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Excellent room configuration and adjacency. Garage correctly separated. Door swings in 3D match 2D logic. Some minor wall length scaling issues in the entry area."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Kitchen cabinetry, bathroom fixtures, and laundry area are accurately placed. Living room furniture is largely absent."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean rendering with no text contamination. Clear lighting. One minor floor artifact near the bathroom door."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Lounge/Dining area lacks furniture shown or implied in the original plan's naming."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A highly accurate and clean 3D conversion that maintains nearly all structural details and adjacencies from the original 2D floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan13.jpg"
+}

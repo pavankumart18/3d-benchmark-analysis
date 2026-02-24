@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway with extruded walls, visible thickness, and an angled/isometric-like camera showing interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; camera is angled with multiple wall faces visible. Cutaway is mostly clean, with minor softness/blur reducing geometric crispness."
+        },
+        "geometric_accuracy": {
+            "score": 13,
+            "max": 30,
+            "notes": "Overall footprint and internal partitioning do not strongly match the 2D plan: the plan\u2019s distinctive left lounge/dining + top-left balcony arrangement and the right-side bedroom/bath cluster are not clearly preserved. Several wall runs/adjoining relationships appear generalized, and the separate garage/balcony elements from the 2D are not represented distinctly."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Beds and living furniture are present and generally plausible. Kitchen/bath elements exist but are simplified and not confidently aligned to the specific 2D room locations."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Walls/floors/openings are distinguishable and the background is clean. However, the render is somewhat low-contrast/soft, making exact wall/door alignment harder to verify."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity issues: room adjacency/proportions and partition locations in the 3D model do not clearly correspond to the 2D plan\u2019s configuration (notably the lounge/dining/balcony side and the bedroom/bath cluster)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are present but cannot be verified as matching the 2D plan\u2019s specific wall locations and orientations due to mismatched layout and render softness."
+        }
+    ],
+    "total_score": 69,
+    "verdict": "PASS",
+    "summary": "A genuine 3D cutaway was produced, but the generated model appears to be a generic apartment layout rather than a geometrically faithful 3D reconstruction of the provided 2D floor plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan13.jpg"
+}

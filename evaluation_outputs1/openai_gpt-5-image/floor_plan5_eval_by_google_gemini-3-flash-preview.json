@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "General layout is recognizable, but significant door and window placement errors exist. External balcony/patio areas are missing. Interior door swings and wall alignment in the master bath area deviate from the plan."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Roof is removed and background is neutral. Major deduction for missing external structures (balconies/patio) which are part of the original footprint. The arched entrance is an architectural hallucination not present in 2D."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture represents the correct blocky low-poly style. However, placement is inconsistent with the plan; for example, the kitchen island is missing, and living room seating is rearranged/simplified."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent adherence to aesthetic requirements. Perfect low-poly, flat-shaded style with soft lighting and a correct isometric orthographic camera angle."
+    },
+    "total_score": 70,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing outdoor patio (left) and balconies (bottom and right)."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen layout significantly simplified; missing center island and breakfast bar seating."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated arched entryways and window shapes not specified in the architectural plan."
+        },
+        {
+            "code": "E2",
+            "description": "Window positions along the bottom wall do not align with the original floor plan spacing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan5.jpg"
+}

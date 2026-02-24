@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is perceivable, viewing angle is angled, and the roof/ceiling is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Floors are distinct. Interior volume is clear. 3D wall corner geometry is good. Viewing angle is isometric. Interior is visible from an elevated perspective. Some minor perspective distortion is present but not severe, primarily due to the close isometric view."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms and adjacency. Relative room proportions are well-preserved. Major wall positions align well. Wall lengths are proportional. Internal partitions are correctly placed. Doors are present and on correct walls. However, some windows are missing (e.g., the large window in Kitchen/Living area on the lower left) and some are added (e.g., in the toilet area). Also, the double windows in the bedroom align differently with the wall compared to the 2D plan, and the two small windows on the kitchen/living wall are not explicitly shown in the 2D plan but are present in the 3D."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) are present. Kitchen elements and bathroom fixtures are present and correctly placed. Furniture scale is reasonable and orientation is logical. The 3D render includes extra plants not on the 2D floorplan, but this is a minor addition."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable. Interior is clearly visible with good lighting. Lighting does not obscure geometry. Consistent material usage and clean background. Text labels from the 2D plan are incorporated into the 3D, which technically impacts presentation but helps with room identification. However, the background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Missing large window in Kitchen/Living area. Added windows to upper right wall of Kitchen/Living area, and in the toilet area. Bedroom windows are present but their exact alignment and number (double vs single) differ slightly from the 2D representation, which appears to show two windows but renders them as a single long window with two panes in 3D."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Text labels from the 2D plan ('Kitchen/Living', 'Bedroom') are rendered onto the floor of the 3D model. While useful for identification, this deviates from typical pure geometric rendering and could be considered a slight stylistic deviation affecting visual clarity if strict rendering without annotation is expected."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "The conversion from 2D to 3D is good, demonstrating a clear 3D transformation with strong fundamental elements, good geometric accuracy, and comprehensive interior elements, despite minor inconsistencies in window placement and the presence of 2D text labels in the 3D render.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan6.jpg"
+}

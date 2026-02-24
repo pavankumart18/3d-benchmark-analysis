@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway with extruded walls (height + thickness), angled/isometric-like viewpoint, and ceiling removed to reveal interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness, readable corners, distinct floor plane, and clean cutaway; minor simplification of openings/edges but overall solid 3D conversion."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "Overall footprint and major zones (kitchen/dining left, living right, two bedrooms) resemble the plan, but the bathroom block and several closet/hall partitions are missing or significantly simplified; door/window placement does not closely match the 2D plan."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Beds, living seating, dining table, and kitchen counters are present and scaled reasonably; laundry appears present, but bathroom fixtures/room are not represented."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with consistent materials and good readability; minimal artifacts and uncluttered presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Bathroom space from the 2D plan is missing in the 3D model, causing a major room omission."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Internal partition layout (hall/closets/bath zone) is distorted or overly simplified compared to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are simplified and do not consistently align with the 2D plan\u2019s opening locations and counts."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "major",
+            "description": "Bathroom fixtures are absent because the bathroom room itself is not modeled."
+        }
+    ],
+    "total_score": 74,
+    "verdict": "PASS",
+    "summary": "This is a genuine 3D cutaway conversion with strong volumetric modeling, but it is not fully faithful to the 2D plan due to a missing bathroom and simplified/misaligned interior partitions and openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved, but there are significant door and window discrepancies. The main double-door entrance orientation is slightly shifted, and several windows have been added to the exterior walls that do not exist on the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Compliance is high for the cutaway view and floating model. However, the balcony areas have been reinterpreted with solid walls instead of the open railings or thinner boundaries suggested by the CAD drawing."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Most major furniture (beds, dining table, sofas) is present and correctly scaled. The kitchen island/counter layout is simplified and modified from the L-shape/island configuration in the blueprint."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded style. The isometric camera is accurate. Small deduction for the inclusion of wood-grain floor textures which slightly exceeds 'no textures' constraint."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific kitchen island configuration as seen in 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door swings and added window apertures not present in original architectural layout."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated structural wall thickness for balcony areas."
+        },
+        {
+            "code": "E6",
+            "description": "Presence of wood floor texture violates strict 'no textures/flat colors only' constraint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan5.jpg"
+}

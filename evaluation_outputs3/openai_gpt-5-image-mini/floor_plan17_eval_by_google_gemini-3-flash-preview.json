@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion cleanly transforms the 2D plan into an isometric 3D cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clear wall thickness and volume. Minimal perspective distortion."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Major wall lines and room counts match well. Some minor deviations in the bathroom/closet partitions near the top-right and differences in balcony/utility edges."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture placement is highly accurate to the source plan, including dining orientation and kitchen sink placement."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Extremely clean rendering and lighting, though some window openings lack frames/sashes."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "LOW",
+            "description": "Some internal bathroom dividers are simplified or merged compared to 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "The 'Servant Room' and complex entrance foyer geometry on the bottom left are simplified/modified."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A high-fidelity 3D conversion that accurately preserves the floor plan layout, room adjacencies, and furniture arrangement.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan17.jpg"
+}

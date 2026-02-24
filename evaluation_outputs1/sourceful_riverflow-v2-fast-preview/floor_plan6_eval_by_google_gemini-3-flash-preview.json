@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout distortions occurred. The open-plan Kitchen/Living area was partitioned into separate rooms, and the internal hallway/door placement does not match the 2D plan. Window and door placements are inconsistent with the source image."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model successfully uses a cutaway view with no roof on a neutral background. However, it hallucinated a wall dividing the main living space and misinterpreted the kitchen island/counter structure entirely."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While furniture is present in a 'blocky' style, the mapping is incorrect. The sofa is replaced by armchairs in a new walled-off room, and the dining table/kitchen island layout is missing or heavily altered."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render adheres well to the low-poly style, flat shading, and isometric camera constraints. The lighting is soft and ambient as requested."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated an internal wall that divides the Kitchen/Living area into two separate rooms."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced and transformed furniture: the single large sofa from the plan is now two armchairs in a different location."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the kitchen counter/island fixtures as defined in the plan."
+        },
+        {
+            "code": "E2",
+            "description": "The stairs are orientationally correct but the surrounding wall structure is simplified and does not match the plan's exact footprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan6.jpg"
+}

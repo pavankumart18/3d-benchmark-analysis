@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a cutaway/isometric-like 3D model with extruded walls (height + thickness), visible floor plane, and interior volumes exposed by removing the ceiling/roof."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall extrusion with readable corners and thickness; elevated angled view; clean cutaway. Minor simplification of some wall corner/edge detailing and openings."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room count and adjacency largely match (left bedroom, right bedroom, central bath, small study/utility room, open living/dining/kitchen). Some proportional/layout deviations in the central corridor/partition geometry and several openings (doors/windows) are simplified or not placed exactly as in the 2D plan."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture is present (sofa/TV area, dining table, kitchen blocks, bed(s), basic bathroom fixtures, desk/monitor). One of the two single beds shown in the left bedroom in 2D appears reduced/merged to a single bed in 3D, and some fixture detail is simplified."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Walls/floors/furniture are clearly distinguishable with clean background and minimal artifacts. Lighting is even and geometry is readable, though some door/window details are too minimal to verify precisely."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Minor-to-moderate layout/proportion drift in internal partitions/circulation relative to the 2D plan (central corridor/room boundary shaping not perfectly aligned)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows are simplified; several openings are not verifiable as matching exact 2D locations/sizes due to missing swing/trim detail."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Left bedroom in 2D shows two single beds; 3D depiction appears to show only one bed (or an incomplete representation)."
+        }
+    ],
+    "total_score": 80,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D conversion with strong spatial readability and mostly faithful layout, but with some partition/proportion drift and simplified/mismatched openings and bedroom furniture.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan2.png"
+}

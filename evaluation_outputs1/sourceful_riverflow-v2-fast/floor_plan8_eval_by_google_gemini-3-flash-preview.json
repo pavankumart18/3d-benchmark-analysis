@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "The general layout matches the floor plan. However, the stairs have been replaced with a solid wall/storage-like structure. Door orientations are inconsistent with the 2D plan, and window apertures are simplified and lack the rhythmic grouping seen in the dining room bay area."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "No missing rooms or text labels. The model is correctly floating on a dark background. However, the central staircase is missing (E1) and interpreted as a solid structural mass (E4)."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Island, counters, and kitchen sink are positioned correctly. The fireplace/structural element near the foyer is present but slightly oversized."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to aesthetic constraints. Correct low-poly style, isometric orthographic camera, and soft flat shading with no textures or photorealistic elements."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase element; replaced with ambiguous geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Dining area window layout is distorted and simplified compared to the multi-pane bay shown in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated solid walls where the staircase and open transitions should be."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan8.jpg"
+}

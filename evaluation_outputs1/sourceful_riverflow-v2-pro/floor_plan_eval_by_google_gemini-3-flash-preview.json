@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent adherence to the complex layout of the 2D plan. Room adjacencies and wall alignments are highly accurate. Most doors are represented via wall gaps, though specific door swing orientations are naturally lost in the wall-cut style. Window placements on the exterior walls match the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Roof is correctly removed and all rooms from the diagram are present. No major hallucinations. Points deducted for the balcony area (labeled 'CLOSET' in 2D) which has been reinterpreted with a railing style that doesn't fully match the enclosed closet intention, though it captures the spatial footprint."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is remarkably accurate, including the specific L-shaped kitchen counter, the dining table with chairs, and the symmetrical placement of nightstands in both bedrooms. Scale is consistent throughout."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Complies perfectly with the low-poly, flat-color, no-texture constraint. Background is a clean, dark neutral. Lighting is soft and ambient. Small deduction as the camera angle is a high-tilt perspective rather than a true 45-degree isometric orthographic view (slight perspective distortion visible toward the edges)."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the balcony/closet area at the top left where the structural enclosure differs from the blueprint."
+        },
+        {
+            "code": "E3",
+            "description": "Camera uses a standard perspective rather than a true orthographic isometric lens, causing slight wall convergence."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan.jpg"
+}

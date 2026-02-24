@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have appropriate height and thickness. Floors are distinct. Interior volume is clearly perceivable. The 3D wall corner geometry is good. The viewing angle is appropriate and interior is visible. There is minimal perspective distortion. The roof appears cleanly removed. The interior spaces are fully visible. However, some sections, like the narrow balcony, seem slightly less clean geometrically."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency relationships are correct. Room proportions are generally preserved. Major room identities are inferable. Wall positions and lengths are largely accurate. Internal partitions are mostly correctly placed, though some minor adjustments to specific wall segments are observed. Doors are present and on correct walls, but some window placements and proportions are not perfectly matched to the 2D plan, particularly on the left side and top balcony areas."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables), kitchen, and bathroom fixtures are present. Furniture is placed in correct rooms and their scale is reasonable. Orientation is logical for the most part."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. The geometry is readable. Interior is clearly visible due to good lighting. There are no major rendering artifacts or broken meshes. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some window placements and proportions in the 3D render do not precisely match the 2D floor plan, especially on the left balcony and upper right area."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "Minor discrepancies in some wall segment lengths or thickness, leading to subtle distortions compared to the 2D plan."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "The 3D model presents a good and largely faithful geometric conversion of the 2D floor plan, with good foundational 3D representation and largely accurate layout, though some minor inconsistencies in window placement and wall details are present.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan15.webp"
+}

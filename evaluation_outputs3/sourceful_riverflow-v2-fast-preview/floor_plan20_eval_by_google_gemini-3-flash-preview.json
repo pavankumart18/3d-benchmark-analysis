@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion represents a legitimate 3D isometric cutaway model."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D structure with clear wall thickness and volume. Minimal perspective distortion."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Major geometric failure. The original plan is an L-shaped/jagged footprint; the 3D render is a simple rectangle. Significant missing rooms (Home Office, Deck, Balconies) and incorrect adjacency."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Generic furniture is placed but does not correspond to the specific room layouts of the source plan."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Clean aesthetic with good visibility. Deductions for loss of complex structural details present in 2D."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "FATAL",
+            "description": "Footprint geometry mismatch: 2D plan is irregular/complex, 3D render is a basic box."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "HIGH",
+            "description": "Missing multiple exterior features including the large deck and multiple balconies."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "The model successfully creates a 3D volume, but fails to capture the specific irregular geometric footprint and detailed room configuration of the provided floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan20.avif"
+}

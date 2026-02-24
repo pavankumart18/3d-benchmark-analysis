@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "notes": "Excellent spatial translation. Room adjacencies and wall alignments are precise. Scaling is maintained across the floor plan. Door swings and window placements are nearly perfect."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model contains all rooms and the roof is correctly removed. However, there is a major violation concerning labels: the render includes 'Dining', 'Kitchen', 'Bedroom 1', 'Toilet', 'Living Room', and 'UP' text labels that were strictly prohibited by the prompt."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate. Low-poly block furniture matches the layout and scale of the 2D symbols perfectly, including the sink/counter placements and the specific arrangement of the living room sofa and chairs."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The style is appropriate (low-poly, flat shading). However, the view is a direct Top-Down/Plan view rather than the requested 'Isometric Orthographic' (45-degree angle). Dark neutral background is correct."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "The render includes numerous text labels (Dining, Bedroom 1, etc.) despite strict instructions to have no text or measurement lines."
+        },
+        {
+            "code": "E3",
+            "description": "Camera view is a 2D-style top-down projection rather than a 3D isometric orthographic view at a 45-degree angle."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan7.jpg"
+}

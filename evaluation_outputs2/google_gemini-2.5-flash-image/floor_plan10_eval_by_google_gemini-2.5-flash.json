@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 3,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 1
+        },
+        "notes": "Room count matches. Adjacencies are mostly preserved. Wall positions have many major inaccuracies, especially in the Kitchen/Pantry/Activity area. Front Verandah is significantly different. Study is slightly smaller. Doors are mostly present, but many are missing swing directions, and some are misplaced. Many windows are missing or incorrectly placed. Overall scale is inconsistent, rooms appear slightly compressed or stretched in some areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Roof is removed, but interior walls are not always fully visible due to text. Most structural elements are present. Minor hallucination with the Verandah structure. UI/Annotation cleanliness is poor due to pervasive text labels, resulting in 0 points for this section. Presentation context has a dark background but has shadows extending to infinity."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces are present in most rooms (beds, sofas, dining table). Kitchen and bathroom fixtures are present. However, many furniture items are scaled incorrectly relative to the rooms or are slightly misplaced. For instance, the Study furniture is completely different in type and placement. Dining table size is off. Theatre room furniture is different."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly simplified forms are not strictly adhered to; some furniture shows higher detail. Surfaces have textures and shading, not solid flat colors. Lighting is ambient but materials are not flat shaded. Camera view is generally isometric and well-composed, but the rotation seems slightly off from 45 degrees, and the model's footprint doesn't align perfectly with the boundaries."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Pervasive text labels for room names and dimensions throughout the render, which is an instant fail for UI/Annotation Cleanliness. Also affects visibility of walls.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Texturing and subtle material properties are visible on floors, walls, and furniture, deviating from the 'solid flat colors only' and 'no textures' requirement.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls significantly misaligned or reshaped, e.g., Verandah structure is fundamentally different, Kitchen/Pantry/Activity wall boundaries are distorted, main entry wall. This impacts layout topology and wall geometry.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant number of windows are missing or misplaced, primarily in the Living, Alfresco, Laundry, and rear bedrooms.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Study furniture is completely different in type and placement. Theatre room furniture also differs greatly. Dining table size mismatch.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle shadows and material sheen on some surfaces like furniture and kitchen appliances, rather than flat-shaded, low-poly style.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not indicated for many doors, and some door placements are not precise (e.g., activity room door).",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 45,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical deviations, including pervasive text annotations and the use of textures, along with significant geometric inaccuracies in wall placement and window representation. Furniture mapping and aesthetic quality also show notable discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan10.png"
+}

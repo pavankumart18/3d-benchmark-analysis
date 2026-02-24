@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Minor perspective distortion is present, slightly affecting interior visibility."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Door for the 'COAT' closet is missing. Some furniture (e.g., in Monica's bedroom) deviates slightly in placement from the 2D plan, but overall room configuration and wall geometry are very accurate."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Missing a specific door, and some furniture placement is slightly off. However, major elements are present and generally well-scaled."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean rendering. Text labels on the floor in the 3D model deduct from overall presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door for the 'COAT' closet visible in the 2D plan is missing in the 3D render."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Text labels ('MONICA'S BEDROOM', 'RACHEL'S BEDROOM') are present on the floor within the 3D render, cluttering presentation."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is largely successful, showcasing a geometrically accurate representation with good visual clarity, though with minor deviations in object placement and a missing door.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan.jpg"
+}

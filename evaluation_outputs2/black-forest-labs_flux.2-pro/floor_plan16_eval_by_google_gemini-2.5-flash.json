@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is good, but there are multiple wall geometry and opening placement issues. The kitchen/utility wall is significantly misplaced and distorted. The balcony's outer wall is missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The UI cleanliness is a major issue due to the presence of text labels on the furniture and walls in the 3D render. The Balcony wall is missing, affecting completeness."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in appropriate rooms, but some items (e.g., dining chairs, utility appliances) have incorrect quantities or are missing. Some furniture pieces have text annotations on them which is a violation."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is not low-poly and flat-shaded as specified, with rounded edges and some material textures. Lighting is okay, but camera composition is slightly off with the model not perfectly centered and rotated."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on furniture and kitchen tops in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen/Utility area wall is significantly distorted and misaligned, especially the northern exterior wall which forms a 'nose' shape rather than a straight line. The wall forming the utility/kitchen boundary is also misaligned.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The exterior wall of the Balcony is completely missing. Only the railing is present.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing direction in the Bedroom is reversed compared to the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door leading into the Toilet is a single swing door in 2D but appears as a pocket door or bifold in 3D.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Tiles and wood textures are used on floors and furniture elements, not solid flat colors. Rounded edges on walls/furniture indicate non-low-poly style.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining chairs are missing one or two from the setup. Utility appliances are not clearly present or inaccurately represented.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 63,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render generally recreates the floor plan layout but suffers from critical UI cleanliness issues due to text labels, and significant geometric inaccuracies in wall placement and missing structural elements like the balcony wall, leading to a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan16.avif"
+}

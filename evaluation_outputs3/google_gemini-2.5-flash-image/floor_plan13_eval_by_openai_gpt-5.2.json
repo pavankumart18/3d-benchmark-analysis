@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "3D cutaway/isometric view with extruded walls, visible thickness, and readable interior volumes; ceiling/roof removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Clear wall height/thickness and floor separation; good isometric angle; clean cutaway with intact geometry. Minor simplification in some wall/edge detailing."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Overall layout matches: lounge/dining left, kitchen + laundry/robe center/top, bedrooms right, bath/WC central bottom, separate garage. Adjacencies and proportions largely consistent; minor discrepancies in exact opening placements/sizes and some partition lengths."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures present (sofas, beds, kitchen counters, bath/WC fixtures). Placement aligns with correct rooms; scale/orientation generally reasonable with slight simplification."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Walls/floors/openings are distinguishable and readable; lighting adequate. Deducted for text labels/UI-like annotations and somewhat plain/material-unified rendering."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door/window openings appear simplified and may not match exact 2D sizes/positions (e.g., interior door details and some glazing extents)."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels embedded in the 3D render (e.g., Bath, WC, Garage, LINEN) reduce presentation cleanliness."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Materials/lighting are functional but somewhat flat, reducing depth cues in a few areas."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong layout fidelity to the 2D plan, with only minor opening/detail simplifications and presentation text contamination.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan13.jpg"
+}

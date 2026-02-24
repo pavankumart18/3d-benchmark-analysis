@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Garage is detached in 3D render. Balcony structure is different. Laundry access not correct. Bedroom 1 and 2 window sizes/placements are off. Missing 'Linen' closet from entry."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "UI Cleanliness failed due to text in the source image itself (part of the request). The model has minor deviations; the garage is detached, and the balcony structure differs from the implied plan. Some architectural features like the 'Linen' closet are missing."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 2
+        },
+        "notes": "Kitchen, bathroom, and WC fixtures are present. Beds and dining table are present. However, the living room furniture layout does not match. Specific items like the 'WM' (washing machine) and '_' (dryer) in the laundry are not present, nor is the '*' (refrigerator) in the kitchen accurately represented by the 3D model's fridge."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Meets all criteria for geometry style, lighting, and camera composition. Flat shaded, low-poly, appropriate lighting, true isometric."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing 'Linen' closet next to entry.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJO",
+            "category": "spatial_accuracy",
+            "description": "Garage is detached from the main structure in the 3D render, but appears attached or contiguous in the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Balcony structure in 3D render does not match the 2D plan's implied railing/wall structure.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Laundry room access and layout partially incorrect. The 'WM' and dryer are not reflected.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window sizes and specific placements for Bedroom 1 and Bedroom 2 are approximate but not exact.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Living Room furniture layout does not match the 2D plan's implied arrangement.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 76,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural fidelity, with a few inconsistencies in garage connection, balcony, and some furniture placements. Aesthetic and technical quality are excellent.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan13.jpg"
+}

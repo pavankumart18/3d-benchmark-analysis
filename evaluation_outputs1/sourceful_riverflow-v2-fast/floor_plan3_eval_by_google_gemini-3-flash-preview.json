@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "notes": "The general room layout (kitchen, stairs, bathroom, living area) is correct. However, door placement is significantly altered; the door between the kitchen and dining area is converted to a wall gap, and the bathroom door is missing its swing direction. Window count and positions on the exterior walls do not match the specific orange indicators on the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The roof is correctly removed. However, there is a major violation of the restricted 'no text' rule as 'ENTRANCE' is labeled on the model. Some walls are floating or disconnected near the stairs."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen counters, stove, toilet, and sink are placed according to the plan. Living room furniture is hallucinated as the original plan was empty but for the kitchen/bathroom fixtures, though the scale is generally appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded style. The isometric camera angle is correct and the background is a dark neutral grey as requested."
+    },
+    "total_score": 69,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Text label 'ENTRANCE' present on the 3D model, violating strict no-text constraints."
+        },
+        {
+            "code": "E2",
+            "description": "Window and door placements on peripheral walls do not match the markings in the 2D floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated sofa and dining table furniture not present in original floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific door frames and window panes indicated in the source diagram."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan3.jpg"
+}

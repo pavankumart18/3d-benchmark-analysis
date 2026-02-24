@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a successful isometric cutaway. However, several internal walls are missing or incorrectly merged."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Walls have height and thickness, though some internal partitions are missing height, appearing as flat lines on the floor."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Major layout issues: the wall between Living/Bedroom is partially missing, the FOYER dimension text is incorrect vs plan, and the exterior window placement on the bottom-left does not match the 2D plan's balcony/living room interface."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture is well-placed and matches the 2D icons closely, including kitchen and bath fixtures."
+        },
+        "visual_clarity": {
+            "score": 12,
+            "max": 20,
+            "notes": "Rendering is clean, but the image is contaminated with heavy text labels and UI-like overlays (KOYHEN typo, dimensions) baked onto the 3D floor."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Critical architectural walls missing in 3D (e.g., separating bedroom from living room and utility area)."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels from 2D plan are projected/hallucinated onto the 3D floor with typos ('KOYHEN')."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows on the bottom exterior wall do not correspond to the 2D layout logic."
+        }
+    ],
+    "total_score": 70,
+    "verdict": "PASS",
+    "summary": "A clean 3D isometric render that captures furniture and general volume well, but fails on structural integrity due to missing internal partition walls.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan18.jpg"
+}

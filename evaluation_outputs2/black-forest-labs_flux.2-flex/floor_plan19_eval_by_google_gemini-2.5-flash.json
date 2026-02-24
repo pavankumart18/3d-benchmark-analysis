@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Room count matches, but adjacencies are severely altered. BED-2 in 2D is connected to TOI-4 and a small foyer, in 3D it's connected directly to a bathroom and a different, larger foyer/hallway. BED-3 and BED-4 are swapped/reconfigured entirely. The overall footprint does not accurately match the 2D plan, especially on the right and bottom sides where rooms are missing or reconfigured. Many walls are misplaced; the kitchen/utility area is significantly different. There are multiple missing doors and misaligned door placements."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Roof is correctly removed. However, there are multiple missing rooms (e.g., the original BED-3, part of the extensive utility/toilet area near the entrance) and numerous hallucinated architectural features, including entirely new room layouts and extensions (e.g., the bottom right bedroom/bathroom configuration is completely different). The model's background is mostly dark, but there are reflections and a subtle ground plane/shadow that slightly extend. The UI is clean, no text or measurements are present."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "The furniture arrangement in the Living/Dining area is mostly present but modified. The kitchen fixtures are present but the layout is altered. Bathroom fixtures are present. However, the furniture in BED-2 (2D) is absent/altered in its 3D counterpart. BED-3 and BED-4 are reconfigured, so furniture mapping is challenging. There is a lot of new furniture not present in the original 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "The geometry is low-poly, but surfaces show some smooth shading/subdivision effects, particularly on furniture. While mostly solid colors, there are some subtle textures (e.g., on beds, rugs, and walls). Lighting is relatively soft and ambient but exhibits more distinct shadows and contrast than specified. The camera view is isometric, 45\u00b0 rotation, centered, and appropriately zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room configuration for BED-3 and BED-4 from the 2D plan is missing; the 3D model reconfigures this area into two different bedrooms and bathrooms with completely different shapes and adjacencies.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Portions of the utility/toilet area near the entrance in the 2D plan are missing entirely in 3D, replaced by a much simpler layout.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple primary walls are either missing or drastically re-positioned. The entire right side of the plan, embracing BED-1, BED-3, BED-4, and their associated toilets, has been completely re-architected.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated entire rooms and architectural features. The layout for the right side of the residence is completely redesigned, adding new room configurations not present in the blueprint.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are missing (e.g., door to a toilet near BED-1 in 2D) or significantly misplaced (e.g., entrance to BED-2).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces (beds, rugs, walls) show subtle textures/patterns rather than solid flat colors.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting exhibits more distinct shadows and contrast than specified for 'minimal shadows'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Subtle ground plane and shadows extend beyond the model's footprint.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Significant changes and additions to furniture, especially in the reconfigured bedrooms and bathrooms, and some pieces from the 2D reference are missing or altered significantly.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 43,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to major discrepancies in spatial accuracy and structural fidelity, with entire room layouts being reconfigured or hallucinated, despite good cutaway and clean UI.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan19.webp"
+}

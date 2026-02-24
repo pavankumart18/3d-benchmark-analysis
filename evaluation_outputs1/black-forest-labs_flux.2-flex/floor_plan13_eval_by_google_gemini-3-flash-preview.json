@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacencies are correct. However, door orientations are inconsistent (some opening outward/incorrect swing), and the proportions of the hallway/entry area are slightly elongated compared to the 2D plan. The balcony sliding door is represented as a single hinged door."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Most rooms are present, including the detached garage. Hallucination detected in Bedroom 1: a wardrobe/closet element has been rendered as an open shelving unit with an oven-like texture. No UI text or measurement lines are present."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen cabinetry and bathroom fixtures (tub, sink, toilet) are placed correctly. Missing main area furniture (dining table, sofas, beds). Laundry machines are simplified but positioned correctly."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The render violates the 'no textures' and 'low-poly' constraints by using realistic wood grain, marble/terrazzo floors, and detailed car modeling. The lighting is more dramatic than the requested flat shading, creating strong highlights and shadows."
+    },
+    "total_score": 74,
+    "detected_errors": [
+        {
+            "code": "E6",
+            "description": "Violation of style constraints: uses realistic floor textures and wood grain instead of flat colors/low-poly."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door types: Balcony sliding door and entry door do not match 2D plan mechanics."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated kitchen-style appliances/shelving inside Bedroom 1's robe area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing movable furniture elements like beds and seating shown as suggested layout areas in the prompt's scope."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan13.jpg"
+}

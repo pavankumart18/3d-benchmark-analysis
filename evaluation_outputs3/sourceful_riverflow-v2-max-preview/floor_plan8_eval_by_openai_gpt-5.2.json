@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: extruded walls with thickness, angled camera, visible wall top/side faces, and ceiling/roof removed to expose interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Convincing 3D extrusion and cutaway; interior volume reads well. Minor issues: some corners/joins feel simplified and a few wall tops appear uneven/soft, reducing geometric crispness."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Overall footprint and some major partitions (central core/stair zone, large open areas) loosely resemble the 2D plan, but several room shapes/proportions and adjacencies appear altered. The top-right zone reads like a bedroom in 3D, while the 2D plan indicates a playroom; pantry/closet/WC placement and small-room geometry are not clearly faithful."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Basic block furniture exists (tables/blocks, a bed-like element), but kitchen/bath fixtures from the 2D plan are not clearly or correctly represented (sink/stove/toilet/vanity are ambiguous), and room-appropriate placement is inconsistent with the plan labels."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Clean render and readable massing; walls/floors are distinguishable. However, lighting/material sameness and soft edges make openings (doors/windows) and fine partitions hard to verify precisely."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity issues: multiple room shapes/proportions and some adjacencies do not clearly match the 2D plan (notably the top-right room identity and central small-room/pantry/closet organization)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows/openings are not clearly shown or are difficult to confirm on the correct walls compared to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture/fixtures are simplified and do not reliably correspond to the labeled functions (kitchen/bath elements unclear)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Uniform material and soft rendering reduce the ability to verify precise wall edges and openings."
+        }
+    ],
+    "total_score": 63,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway conversion is present, but the generated model shows notable plan-to-model layout/room-function mismatches and insufficiently verifiable doors/windows/fixtures.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 5,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall layout is somewhat maintained, but several rooms are simplified or reshaped, particularly the 'Alcove' and 'Central Hall' areas. Wall positions have significant deviations, especially around the utility room, kitchen, and the northern section. The 'Breakfast' area from the 2D plan is entirely absent. Window count and placement are largely incorrect or simplified. The 'WC' room and 'Pantry' are missing. The 'Utility Room' is combined with the main 'Central Hall' area."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is removed and interior walls are visible. However, multiple rooms (Pantry, WC, Breakfast) and structural elements are missing. The layout is significantly simplified from the 2D plan, leading to missing rooms and major structural alterations. There are no UI elements. The model is presented on a dark background but has a visible ground plane and inconsistent shadows that extend. The model is not floating."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces from the 2D plan (Utility Room appliances, Kitchen, Dining Room table/chairs, WC fixtures) are missing. Some generic furniture pieces are present but do not directly correlate to the 2D plan's specific items or locations. The 'Window Seat' is present but simplified. Bathroom and kitchen fixtures are largely absent or generic."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses simplified forms, but some details suggest a slightly higher poly count than intended for 'low-poly simplified'. Surfaces are flat-shaded, but there are clear, soft shadows indicating more advanced rendering than 'minimal shadows'. No textures are used, but colors are not entirely flat and have subtle variations. Lighting is ambient but produces moderate shadows. The camera appears to be an isometric projection, but the 45-degree rotation is not precise, and the model is not perfectly centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms/areas missing: WC, Pantry, Breakfast area.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Multiple walls significantly altered or missing, specifically around Utility Room, Central Hall, Alcove, Kitchen, and the entire northern section where Breakfast/Pantry/WC were located.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Alcove area significantly simplified and reshaped, not matching 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Mismatched window count and proportional placement across multiple walls.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Most major furniture and fixtures (kitchen appliances, bathroom fixtures, dining table) from the 2D plan are missing.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting produces noticeable, soft shadows, deviating from 'minimal shadows' and suggesting more advanced rendering.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Visible ground plane and inconsistent shadows.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 47,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to numerous missing rooms, significant wall geometry deviations, and largely incorrect furniture mapping, despite reasonable adherence to cutaway view and UI cleanliness.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan11.png"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model clearly shows walls with height and thickness, a perceptible interior volume, and is viewed from an angled perspective with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Walls have height and thickness, floor separates from walls, interior volume is clear, and proper 3D wall corner geometry is present. The angled view is good, but interiors are not fully visible from an elevated perspective for all rooms (e.g., the bathroom is largely obscured). The roof is cleanly removed, but there isn't a perfect clean cutaway, some parts of the exterior walls seem to extend up without a proper cap."
+        },
+        "geometric_accuracy": {
+            "score": 10,
+            "max": 30,
+            "notes": "Significant deviations from the original 2D floor plan. The overall footprint is substantially different, rooms are missing, and the adjacencies are incorrect. The entire left wing of the 2D plan (Living, Kitchen, Foyer, Service Room, Utility, Balcony) is missing from the 3D model. Wall geometry is incorrect due to the missing sections. Some doors and windows are present, but their placement and number are not consistently accurate with the reduced layout."
+        },
+        "interior_elements": {
+            "score": 3,
+            "max": 15,
+            "notes": "Only a few beds and what might be a toilet/sink are minimally represented. Many major furniture pieces from the original plan are missing (sofas, dining table, kitchen appliances etc.). The scale seems reasonable for the few items present, but the overall lack of elements is significant."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Structural elements are distinguishable, and the geometry is readable. Lighting is good and doesn't obscure the geometry. The material usage is consistent, and there are no major rendering artifacts. The background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "More than 50% of the rooms from the 2D plan are missing in the 3D model. The entire left block including Living, Kitchen, Foyer, Service Room, Utility, and two balconies is absent."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The overall layout and footprint of the 3D model drastically deviate from the 2D floor plan. Room adjacencies and proportions are heavily distorted due to missing sections."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors and windows are not consistently present or placed accurately compared to the corresponding sections of the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MAJOR",
+            "description": "Most of the furniture and fixtures present in the 2D plan are entirely missing in the 3D render."
+        }
+    ],
+    "total_score": 55,
+    "verdict": "PASS",
+    "summary": "The 3D transformation successfully created a volumetric model from a 2D input, but it suffered from critical geometric inaccuracies, missing most of the structure and interior elements of the original floor plan, resulting in a significantly altered and incomplete representation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan17.jpg"
+}

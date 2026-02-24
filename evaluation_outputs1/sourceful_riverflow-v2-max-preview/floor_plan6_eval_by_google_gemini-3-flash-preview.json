@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacencies are correct. Door placements are largely accurate, though the entrance to the bedroom lacks a proper door swing visual. Window count on the southern and western walls is slightly simplified compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Walls are well-rendered and roof is removed. No text or UI elements present. However, there is a minor hallucination of small plants in the corners not explicitly detailed as pots in the drawing, and the balcony area is integrated as an interior room rather than an outdoor terrace."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement follows the floor plan closely (bed, sofa, dining table, kitchen island). Scales are appropriate for the room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent adherence to the low-poly, flat-shaded aesthetic. Soft ambient lighting is used correctly with a centered isometric orthographic projection."
+    },
+    "total_score": 86,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated decorative plants added to corners of the living area."
+        },
+        {
+            "code": "E2",
+            "description": "The outdoor terrace area is walled in like an internal room rather than remaining an open balcony structure."
+        },
+        {
+            "code": "E1",
+            "description": "The kitchen sink and stove details are extremely simplified/missing compared to the plan's specific symbols."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan6.jpg"
+}

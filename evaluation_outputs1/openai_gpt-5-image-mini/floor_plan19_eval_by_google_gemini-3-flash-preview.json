@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major layout distortions detected. The two large 'Deck' areas at the top of the plan are missing entirely. Multiple interior walls (especially separating the kitchen/utility area) are significantly simplified or omitted. Bed-3 is missing as a distinct room, merged into Bed-1 or Bed-4. Window quantities and placements are inconsistent with the original blueprint."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Adheres to the floating model constraint on a dark background. However, the external perimeter of the building is simplified, losing the irregular jut-outs and the angular deck boundary. Several rooms from the bottom-right of the plan (TOI, HO, and storage nooks) are functionally hallucinated or merged into generic spaces."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture follows the blocky low-poly style well. However, the dining table placement is rotated unnecessarily compared to the floor plan, and the orientation of beds in the upper right quadrant does not match the 'BED-1' and 'BED-3' single-unit configurations."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Genuine low-poly, orthographic isometric view, flat shading, no textures, and no text labels. Excellent execution of the requested aesthetic."
+    },
+    "total_score": 64,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing large Deck areas and specific utility/toilet partitions at the bottom of the plan."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion: The foyer and kitchen wall alignment is significantly simplified."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination: Two large beds placed in a room configuration that should contain one bed (Bed-1) and a separate storage/entry area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing Bed-3 room partition."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan19.webp"
+}

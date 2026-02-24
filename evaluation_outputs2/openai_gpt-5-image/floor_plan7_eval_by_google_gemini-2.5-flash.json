@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "Bathroom walls in 3D are significantly different from 2D, smaller in size and shape. Staircase is completely different. External entrance wall and balcony are missing. Dining area windows removed."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 4,
+            "ui_cleanliness": 5,
+            "presentation_context": 2
+        },
+        "notes": "Missing the external balcony/entrance wall. Staircase design is completely different, but a staircase is present. External railing is missing. The small external wall by the kitchen sink is missing, as is the window, but the outline is there."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Missing 2 chairs in the dining room. Kitchen counters and sink are heavily simplified and not in exact matching positions. Wash Area and Toilet furniture are present in the correct room, but the room itself is altered. Living room furniture matching. Bedroom furniture matching. Window over kitchen sink is removed. Windows in the dining area are removed. Window in the bedroom is smaller and in a different position. The windows in the living room are different in the 3D render."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The render meets all aesthetic and technical quality criteria."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Bathroom room dimensions and walls are significantly altered. External entrance wall and balcony missing. Staircase is a different design.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing 2 chairs in dining room.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Dining area windows removed, Kitchen window removed, Bedroom window shifted, Living Room windows altered.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Missing external structure for the entrance and balcony, including the railing.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 85,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render is mostly accurate with good geometric and aesthetic compliance, but several key structural and room layout changes, especially in the bathroom area and external entrance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan7.jpg"
+}

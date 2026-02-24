@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology is largely correct, but room adjacencies are off in two locations, and some walls are clearly misplaced or missing. Overall footprint is distorted. Room count: 6 in 2D (2 bedrooms, 1 living room, 1 dining room, 1 kitchen, 1 bathroom). 6 in 3D (2 bedrooms, 1 living room, 1 dining room, 1 kitchen, 1 bathroom). Dining room wall completely missing. Wall between living room and dining room replaced by half-wall. Wall between kitchen and dining room is missing. Wall between bathroom and Bedroom 1 is missing, replaced by half-wall. Some doors and windows are missing from walls."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 2,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "No text labels, measurement lines, or legend are present in the 3D render. However, the initial 2D floor plan has a title 'Multi-Room Floor Plan Template' above it, and this is considered as part of the overall input context that the 3D model didn't remove. Completeness is affected by missing walls. Hallucinations include decorative half-walls and wall indentations not present in the 2D plan. The dark background is acceptable, but there is some ground plane/shadowing visible."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table) are present in the correct rooms but their exact placement often differs. Bathroom fixtures are present. Kitchen fixtures are partially present, but the 2D plan depicts a stove top, oven, fridge, and sink, while the 3D has a simpler counter setup with generic white blocks."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "The style is not low-poly simplified forms; some furniture has rounded edges and the kitchen appliances are relatively detailed. There are soft shadows, suggesting more than flat shading and minimal shadows. Colors are more than solid flat colors, with materials showing subtle reflections and textures (e.g., wood floor, fabric on sofas). The view is isometric, 45\u00b0 rotation seems correct, and the framing is good."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text 'Multi-Room Floor Plan Template' present on input 2D image, which should have been removed or not considered in an ideal pipeline given strict UI/Annotation Cleanliness. This is a critical error for the whole system, but specifically for UI/Annotation Cleanliness. Judging the 3D image alone, no text is present.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple critical walls missing or replaced with half walls (Dining room wall, Living room/Dining room separation, Kitchen/Dining room separation, Bathroom/Bedroom 1 wall). This significantly alters layout topology and wall geometry.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Significant discrepancy in kitchen fixture details and exact placement of various furniture items. Some furniture is also missing, e.g., the shelving unit in the first bedroom (bottom left).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some materials exhibit subtle textures and reflections, which deviates from 'solid flat colors only' and 'flat shaded surfaces'. Furniture is not strictly low-poly simplified forms.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions do not match in Bathroom and Bedroom 1. Window count and placement for bedrooms differs.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 46,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet the strict architectural verification standards due to numerous structural inaccuracies, including missing walls and altered room adjacencies, along with aesthetic deviations from the specified low-poly, flat-color style. The presence of input text on the source image, even if not on the 3D model itself, impacts UI cleanliness score based on the given rules.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan2.png"
+}

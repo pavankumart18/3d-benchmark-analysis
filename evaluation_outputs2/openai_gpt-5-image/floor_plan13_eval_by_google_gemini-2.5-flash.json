@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Garage is detached. L'dry is integrated into the Kitchen. Overall footprint is distorted where the Balcony should be, instead a solid wall exists. Entryway is heavily simplified and misses the 'Linen' closet section. WC room is missing a wall, combining with the bathroom."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 4,
+            "ui_cleanliness": 5,
+            "presentation_context": 3
+        },
+        "notes": "Missing the 'Linen' closet in the entry. Balcony is not rendered as an open balcony, but a walled-off room. Garage is separated."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Kitchen appliances are present. Bathroom fixtures (toilet, sink, shower) are present but the WC has combined with the bathroom. Laundry 'WM' and '*' are missing. Balcony furniture is missing. All other furniture from 2D plan is missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The rendering has some smooth shading on the objects which deviates from the 'Flat shaded surfaces' rule. The car in the garage is overly detailed and has detailed textures, which violates 'low-poly simplified forms' and 'no textures'. The window frames are slightly textured."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Linen closet is missing entirely.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "WC room wall missing, merging with Bathroom. Balcony rendered as a closed room, not an open balcony.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Laundry appliances (WM, *) are missing. Most furniture in Lounge, Dining, Bedrooms is missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Car has photorealistic materials and textures.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Smooth shading present on some surfaces; window frames have slight texture.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 70,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely matches the 2D floor plan but misses several key architectural elements and furniture pieces, and struggles with aesthetic restrictions for furniture.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan13.jpg"
+}

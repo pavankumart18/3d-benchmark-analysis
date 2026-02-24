@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The second image is a true 3D cutaway (walls have height/thickness, angled view, ceiling removed), but it does not represent the provided 2D plan's full layout; over half the rooms/spaces are missing or not modeled."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Skipped due to automatic rejection (layout completeness failure vs. source plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to automatic rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to automatic rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to automatic rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "More than 50% of the spaces from the 2D plan are missing/not represented in the 3D model (e.g., multiple bedrooms, toilets/bathrooms, balconies, utility/servant areas, dress/foyer regions)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Overall room configuration and adjacency relationships do not match the 2D plan; the 3D model appears to be a smaller, generic apartment layout rather than a faithful extrusion of the source plan."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is genuinely 3D, it is not a faithful 3D conversion of the provided 2D plan because most rooms/spaces are missing or reconfigured.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan17.jpg"
+}

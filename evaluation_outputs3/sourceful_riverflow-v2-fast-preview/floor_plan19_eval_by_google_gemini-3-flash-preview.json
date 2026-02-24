@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway conversion with consistent perspective."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent 3D depth and wall thickness representation. Isometric angle is clear and consistent."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "High fidelity to the original room layout and proportions. All major partitions correctly placed."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture matches the 2D layout well; scale and orientation are logically maintained."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Clean rendering, but floor-level text/labels from the original were partially hallucinated into the 3D texture."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "LOW",
+            "description": "Text labels from 2D plan appearing as artifacts on the 3D floor surface."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A highly accurate 3D transformation that preserves the complex geometric footprint of the original floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan19.webp"
+}

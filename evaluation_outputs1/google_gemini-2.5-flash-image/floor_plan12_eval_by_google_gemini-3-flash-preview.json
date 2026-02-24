@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "notes": "Excellent spatial alignment. Wall placement, door swings, and window locations match the 2D plan precisely. Only minor scaling variations in the bathroom fixtures."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major violation of generation constraints. The model is a top-down 2D floor plan recreation rather than a 3D isometric model. It also preserves all text labels and measurement lines from the original source."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture has been successfully rendered in its designated zones with high fidelity to the 2D symbols, including the balcony chairs and bedroom robes."
+    },
+    "aesthetic_quality": {
+        "score": 5,
+        "max": 25,
+        "notes": "Failed the camera constraint. The view is top-down (2D plan style) instead of isometric orthographic. However, it maintains a clean, low-poly aesthetic with flat shading."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E3",
+            "description": "The render is a top-down 2D perspective instead of the required 3D isometric orthographic view."
+        },
+        {
+            "code": "E5",
+            "description": "The render contains original text labels (BALCONY, BATH, BED 4, etc.) and measurement indicators which were strictly prohibited."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan12.png"
+}

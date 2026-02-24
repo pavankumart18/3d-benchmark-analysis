@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion verification checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Walls have clear height, thickness, and proper corner geometry. The floors are distinct from walls, and the interior volume is very perceivable. The view is clearly angled and provides an elevated perspective without severe distortion. The roof/ceiling is cleanly removed, exposing all interior spaces without broken geometry."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "The number of rooms, adjacency, and relative proportions are overwhelmingly correct. Major wall positions and lengths align very well with the 2D plan. Internal partitions are accurately placed. Most doors are present and on correct walls, though some minor doors appear to be missing compared to the 2D plan. Windows are present and generally on correct walls, with good proportional sizing."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables), kitchen elements, and bathroom fixtures are present and accurately match the 2D plan in quantity and type. Furniture is consistently placed in correct rooms with reasonable scale and logical orientation. Simplification is clear but effective."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. The geometry is readable and not confusing. Interior is very clearly visible with appropriate lighting that does not obscure geometry. Material usage is consistent (simplified gray scale), there are no major rendering artifacts, and the presentation has a clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some minor internal doors shown in the 2D plan appear to be omitted in the 3D render (e.g., between the two bathrooms on the right, and a few internal closet doors)."
+        }
+    ],
+    "total_score": 96,
+    "verdict": "EXCELLENT",
+    "summary": "The 2D floor plan has been transformed into a highly accurate and geometrically faithful 3D isometric cutaway model with excellent detail and structural clarity, demonstrating a near-perfect conversion.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan5.jpg"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have vertical height and thickness, floors are separate planes, interior volume is readable, and the ceiling/roof is removed. Camera is slightly elevated/angled (not strictly orthographic top-down), though the angle is relatively shallow."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear extrusion with consistent wall thickness and readable room volumes. Cutaway is clean. Viewing angle is only mildly isometric (leans toward top-down), limiting perception of vertical faces compared to a stronger isometric."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency largely match (living/dining/kitchen at top, bedrooms bottom left/right, baths and closets in expected zones). Some wall runs/partition details and opening placements appear simplified, reducing fidelity versus the 2D plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present (sofas, dining table, beds) and kitchen/bath fixtures exist. Some elements are simplified blocks and a few room-specific details from the plan are not explicitly represented."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is readable with clear separation of walls/floors. Lighting is soft and generally helpful, but the monochrome palette reduces contrast for doors/openings and fine partitions."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows/openings are simplified; several door swing/placement specifics from the 2D plan are not clearly replicated or are hard to verify in the render."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Some internal partition lengths/offsets appear generalized (not all small wall jogs/closet/hall details match the 2D drawing precisely)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Low-contrast monochrome materials make certain openings and wall boundaries less distinct, slightly hurting verification clarity."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture is largely present but simplified; a few plan-implied identities/details (e.g., built-ins/closet detailing) are not fully expressed."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "A genuine 3D cutaway conversion with strong overall layout fidelity, but with simplified partitions and less-verifiable door/window specifics compared to the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan.jpg"
+}

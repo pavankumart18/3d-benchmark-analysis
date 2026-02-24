@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The rendering is a 3D isometric cutaway but fails to match the provided source geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Solid 3D execution with height, thickness, and clear cutaway geometry."
+        },
+        "geometric_accuracy": {
+            "score": 5,
+            "max": 30,
+            "notes": "Total failure in layout fidelity. The 2D plan is a studio/open-plan with a central bathroom and stairs; the 3D render shows a multi-room apartment with entirely different wall partitions."
+        },
+        "interior_elements": {
+            "score": 4,
+            "max": 15,
+            "notes": "Furniture represents living spaces, but does not align with the kitchen or specific layout of the 2D floor plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Technically a clean and clear render, though the subject is incorrect."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "The 3D layout does not correspond to the 2D floor plan provided. Room configuration, stairs, and bathroom placement are missing or entirely different."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Internal partitions in 3D create a 4+ room layout whereas the 2D plan is an open kitchen/dining/living space."
+        }
+    ],
+    "total_score": 59,
+    "verdict": "PASS",
+    "summary": "While the 3D model is well-rendered, it is a halluncinated geometry that does not follow the structural layout of the source 2D floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan3.jpg"
+}

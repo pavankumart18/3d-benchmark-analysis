@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Living & Dining, Kitchen, Utility, Toilet-1, Bedroom-1, and Balcony are all present. Room adjacencies are mostly preserved, but the utility room's depth appears less in 3D compared to the 2D plan, making the toilet access unusual. Window in Utility and Toilet-1 are missing. Several doors are missing or incorrectly placed. Overall footprint is maintained. Kitchen wall behind the sink appears shortened in 3D relative to the 2D plan. The wall separating the Living/Dining from the Balcony is completely missing in the 3D model, replaced by a railing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 2,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed, and interior walls are visible. Missing a wall in the Balcony section makes the layout incomplete. Hallucinated a full glass railing in the balcony area instead of a solid wall or partial railing. No UI elements are present. Background is dark but has a subtle vignette/gradient, and a visible ground plane with soft shadows, failing to isolate the model completely."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces (bed, sofa, dining table, kitchen counters/fixtures, toilet fixtures) are present. Utility room fixtures (washer/dryer) are present, but their orientation and placement are significantly different from the 2D plan due to the distorted room size. Balcony furniture is simplified and not a 1:1 match but correctly placed."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry uses low-poly simplified forms, but some surfaces show subtle reflections/materials rather than solid flat colors (e.g., kitchen counter, floor tiles, sofa fabric). Lighting is ambient with soft shadows, but there is some noticeable contrast. The camera view is isometric, but the specific 45\u00b0 rotation is not perfectly met, and the model appears to be casting shadows on a ground plane, affecting the isolated presentation."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Portion of the wall separating Living & Dining from Balcony is completely missing, replaced by a railing. This effectively removes a critical structural element.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Utility room depth is significantly reduced in the 3D model compared to the 2D plan, affecting the overall geometric precision and door access to Toilet-1.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window in Utility and Toilet-1 are missing from the 3D model.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are missing or incorrectly placed/oriented: door from Living/Dining to Balcony, door from Bedroom-1 to Toilet-1 (incorrectly placed within utility area opening), and the entrance door to the Bedroom is missing.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle textures/materials are present on kitchen counter, floors, and sofa, deviating from strict flat shaded, solid color requirement.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E7-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The presence of a visible ground plane and shadows extending onto it violates the 'model appears floating/isolated' requirement and shows a lack of appropriate presentation context.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical and major geometric inaccuracies, particularly concerning wall placement, missing openings, and distorted room sizes. While basic layout is preserved, adherence to strict architectural detail and presentation standards is insufficient.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan16.avif"
+}

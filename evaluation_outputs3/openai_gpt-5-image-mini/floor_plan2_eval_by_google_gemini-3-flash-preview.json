@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful volumetric 3D transformation with a clear isometric-style perspective."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clean wall geometry and clear separation of planes. Minimal score loss due to slightly genericized wall thickness relative to the source plan."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Room layout is largely faithful. Minor discrepancies: the L-shaped couch in the 2D plan is replaced with a straight couch, and the partition for the kitchen area is simplified."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture corresponds to the room functions (beds, dining table, desks). Bathroom fixtures are present but shifted; kitchen appliances are simplified to a single stove/counter unit."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Very clean rendering style. Elements are clearly distinguishable with logical lighting and no artifacting."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MODERATE",
+            "description": "The kitchen and living area boundary walls do not perfectly align with the 2D floor plan's specific corner offsets."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "L-shaped sofa from 2D plan rendered as a standard 3-seater sofa."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D conversion that maintains nearly all structural and functional zones of the original 2D architectural drawing.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan2.png"
+}

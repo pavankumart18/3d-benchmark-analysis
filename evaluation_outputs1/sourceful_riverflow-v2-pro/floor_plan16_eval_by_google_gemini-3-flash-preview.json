@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General room layout is preserved. However, there are significant deviations in door placements: the entrance door is shifted, and the door to the bedroom is missing entirely. Window proportions in the bedroom are overestimated compared to the floor plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Walls are correctly placed and the roof is removed. No UI or text labels are present. However, the wall between the bedroom and living area contains a structural hallucination (an open gap/missing door frame)."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate and scaled well. The living room seating differs slightly from the 2D layout (one long sofa instead of two separate pieces), but utility and kitchen fixtures are well-represented."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly, flat shading, isometric orthographic camera, and neutral dark background are all executed correctly."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing bedroom door; the transition between the living room and bedroom is an open wall gap."
+        },
+        {
+            "code": "E2",
+            "description": "The main entrance door is shifted inward along the wall rather than being at the corner edge as shown in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated railing/balcony style change and slight reinterpretation of living room sofa arrangement."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan16.avif"
+}

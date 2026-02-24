@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology generally preserved, but some room proportions are slightly off (e.g., Foyer/Kitchen area appears stretched in 3D). Wall positions are mostly accurate, with minor misalignments. Doors are mostly present and correctly placed, but swing directions are not always clear or consistent with the plan, and some widths appear slightly off. Window presence and placement are good, but proportionality varies. Dimensional scaling appears mostly uniform."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is correct, showing the interior clearly. All rooms and structural elements (e.g., utility area) are present. No major hallucinations of extra rooms or architectural features. However, the UI/Annotation Cleanliness is 0 because the generated image shows a ground plane and some textures, which violates the presentation context specifications."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces (beds, sofas, dining table) are present. Kitchen and bathroom fixtures are also indicated. Furniture placement largely matches the 2D plan, with minor deviations. Scale of furniture appears appropriate. Minor deduction for small details like plant placement or the exact type of chair in the living area."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is largely low-poly and simplified, but there are some hints of textures, particularly on floors and walls, which isn't strictly solid flat colors. Lighting is soft and ambient. Camera composition is a true isometric projection with a 45\u00b0 rotated plan view, centered framing, and appropriate zoom. However, the presence of subtle textures/materials is a notable deviation."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "ZERO text labels, measurement lines, legend/scale bars. ANY text = automatic 0/5. The generated image has no text labels, measurements, or additional elements, hence this is a critical pass.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight texture/gradient on surfaces, especially floors and walls, instead of solid flat colors.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E7-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane is present and extends beyond the model's footprint, violating the 'model appears floating/isolated' and 'no ground plane/shadows extending to infinity' rules.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some door widths and particularly the swing directions are either inaccurate or unclear compared to the plan for multiple doors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Minor discrepancies in placement or specific type of smaller furniture elements and plants.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully translates the 2D floor plan with good spatial accuracy and structural completeness, maintaining an isometric view; however, minor aesthetic deviations in material style and presentation context were noted.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan14.webp"
+}

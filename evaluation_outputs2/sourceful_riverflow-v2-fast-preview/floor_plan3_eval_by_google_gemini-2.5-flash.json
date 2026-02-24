@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall footprint is correct, but a major wall separation between the Dining Room and Living room from the Kitchen is missing, significantly altering the layout. Room adjacencies are mostly incorrect due to the missing wall. Window count and placement are off."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "A major wall is entirely missing from the model, leading to incompleteness and hallucination of an open-plan layout. The presentation context is poor due to the close proximity of the model to the ground plane and visible shadow/reflection extensions."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many key furniture pieces like the kitchen counters/sink, the sofa in the living room, and the bed are missing. The bathroom fixtures are mostly present but kitchen fixtures are largely absent. Furniture placement accuracy is difficult to assess accurately due to the incorrect room layout."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style adheres to low-poly and solid colors well. Lighting is generally ambient but there are some visible shadows that are not minimal. The camera view is isometric, but the framing and zoom level are slightly off, with excessive unused space around the model and a shadow extending towards the foreground."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Crucial internal wall separating Kitchen and Dining/Living rooms is entirely missing, fundamentally altering the floor plan layout.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Room adjacency changed significantly as Kitchen, Dining, and Living rooms merge into one open space.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Major furniture pieces (kitchen counters, living room sofa, bed) are missing from the render.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Two windows on the right wall of the Dining/Living room are missing. One window on the top wall of the Kitchen is missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are more pronounced than 'minimal shadows' guideline, and extend significantly below the model.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The original plan labels Kitchen, Dining Room, Living Room, Entrance, and Bathroom with text. The rendered 3D model does not feature ANY text labels, violating E5-CRIT: Text overlays present as there must be ZERO text.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 51,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, primarily due to a critical missing interior wall that fundamentally alters the layout, and is further hampered by missing furniture and rendering inconsistencies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is largely correct, with rooms and adjacencies preserved. Overall footprint matches. Wall geometry has some issues, particularly around the 'WINDOW SEAT' area and the 'ALCOVE'. Most doors are present and correctly placed with good swing direction. Windows are mostly present and placed on correct walls, but sizing is inconsistent. Dimensional scaling is generally consistent, though some elements appear slightly off."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. Completeness is good as no structural elements appear to be missing. No obvious hallucinations of rooms or architectural features. However, the UI/Annotation Cleanliness is 0 because there is a visible label (likely 'C.O.') on the floor, and measurement lines/dimensions are subtly present if you look closely at some wall sections or furniture edges. The presentation context is not compliant as there is a subtle ground plane present which extends beyond the model."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces like kitchen counters, island, and appliances (stove, fridge, washer/dryer) are present. Bathroom fixtures are present (toilet, sink, shower). However, the 'WINDOW SEAT' is not modeled, and the 'REF' (refrigerator) in the utility room is missing. Furniture placement is mostly accurate, though the scale of some kitchen fixtures seems a bit off, and the washer/dryer are oriented differently than the plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is low-poly simplified forms with flat shaded surfaces. However, clean edges are not consistently maintained, with some minor artifacts. There are also textures present on the floor and some appliance surfaces within the kitchen and utility room, deducting points. Lighting is soft ambient, but there are noticeable shadows on the walls and under furniture. Colors are distinguishable. The view is not a true isometric projection (parallel lines appear to converge slightly, indicating a near-isometric or oblique projection rather than a perfect one), and the rotation is not perfectly 45 degrees. The framing is good with all rooms visible."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text label, 'C.O.', and subtle measurement lines are present on the floor/walls, violating UI/Annotation Cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Textures are present on the floor (distinct pattern in kitchen/utility) and on some appliance surfaces, violating 'No textures' rule.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The view is not a true isometric projection; parallel lines show slight convergence.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Wall geometry around the 'WINDOW SEAT' area is significantly altered, and the 'ALCOVE' wall shape is simplified, reducing accuracy.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing 'WINDOW SEAT' and 'REF' in utility room; appliance orientation discrepancies.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Subtle ground plane visible beneath the model, violating 'no ground plane' rule.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 62,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely replicates the 2D floor plan's layout and structural elements but fails due to critical violations in UI cleanliness, texture presence, and non-true isometric projection, along with several geometry and furniture inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan11.png"
+}

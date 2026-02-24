@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches, but adjacency has minor issues due to a missing wall. Overall shape maintained. Wall positions have some deviations, especially near the Foyer/Kitchen area where a wall is missing. Many doors are depicted, but swing directions are largely ignored or flipped. Windows are present but some are missing. Scale seems consistent but there are some minor scaling issues with deck sizes and overall room proportionality."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. There are structural elements missing, specifically the wall between the Foyer and Kitchen. No extra rooms or architectural features were added. However, the render fails significantly in UI/Annotation Cleanliness due to the presence of all text labels from the original plan. The presentation context is fair, with a dark background and model isolated, but with slight ground plane indications."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present and accounted for (beds, sofa, dining table). Kitchen and bathroom fixtures are also mostly present. However, the placement of some furniture does not accurately match the 2D plan, notably in 'BED-1' and 'BED-2', and the decks. The scale of the furniture appears generally appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 5,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is not low-poly or flat-shaded. It features smooth shading, and some attempts at material definition (wood, carpet, marble look) which deviates from specifications. Lighting is soft ambient but includes some noticeable shadows. Colors are distinguishable. The camera is true isometric and well-composed but the rotation is not precisely 45 degrees as requested; it appears to be a different isometric angle. There are no textures on walls but furniture and floors have some photorealistic elements."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels, measurements, and room names are present on the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Missing wall between Foyer and Kitchen, significantly altering layout topology and wall geometry.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic elements present including floor textures, carpet textures, and subtle material reflections on furniture and counters.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Several furniture pieces are present but misplaced, e.g., bedside tables in BED-1 are on the wrong side, plant on deck.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not consistent with the 2D plan; some are entirely missing/changed swing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Isometric view is not specifically 45-degree rotated plan view as requested. It's an isometric view but at a different angle.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Smooth shading used instead of flat shading for geometric style.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 57,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to pass due to critical errors in UI cleanliness (presence of text) and architectural style (photorealistic elements), alongside significant spatial inaccuracies from a missing wall and numerous furniture placement issues.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan14.webp"
+}

@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is good, but some wall inaccuracies. Windows are off. Exterior footprint is mostly maintained."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway is good, no missing structural elements. No obvious hallucinations. However, the UI is not clean with text/measurements and the presentation context is not met due to non-dark background and shadows."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present. Bedroom furniture slightly off in placement. Kitchen is good. Living room missing one sofa. Bathroom fixtures good."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Not flat shaded, some smoothness observed. Rendering is more realistic than low-poly/flat-shaded, hence lower score. Camera view is good, but the rendering style is not compliant with the specifications for solid flat colors or low-poly geometry."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the image ('Bedroom', 'Kitchen/Living').",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering detected (materials, subtle textures, smooth shading).",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Living Room's front wall position is incorrect; it's recessed more in the 3D render than the 2D plan, and the two planters are outside the initial footprint.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The 'storage' area under the stairs in the 2D plan is represented as stairs in the 3D render, altering the room layout significantly.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "One sofa is missing from the living area.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Windows are not correctly placed or sized. Many small windows are present in the 3D model that are not indicated in the 2D plan, especially on upper right wall and lower wall. Also the large window in kitchen is not prominent.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Shadows are extending beyond the dark neutral background and there's a ground plane visible.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 62,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors in aesthetic and UI compliance, alongside major deviations in wall geometry and window placement, despite good overall layout and door accuracy.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacency are well-preserved. However, the hallway door leading to the bedrooms is misplaced compared to the source floor plan, and some window apertures lack the exact spacing indicated in the 2D blueprint."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model successfully uses a cutaway view with a dark background. However, it fails significantly by including text labels and measurement lines ('187 sq ft', 'Living Room', etc.) which were explicitly forbidden by the constraints."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the floor plan with clean block-style geometry. Minimal scaling issues in the bathroom area."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent low-poly, flat-shaded aesthetic. The isometric camera angle is correct. Soft ambient lighting is used appropriately, though some interior glow in windows deviates slightly from the 'flat color' requirement."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Text labels and square footage measurements from the floor plan were hallucinated into the 3D space, violating strict UI constraints."
+        },
+        {
+            "code": "E2",
+            "description": "The door from the Hall to the Bathroom area is misplaced or extra doorway geometry is added near the Bedroom 1 entrance."
+        },
+        {
+            "code": "E4",
+            "description": "Internal illumination in windows adds a level of stylized lighting that slightly deviates from the strict 'no dramatic lighting' instruction."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan4.jpg"
+}

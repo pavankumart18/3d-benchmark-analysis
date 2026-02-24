@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 9,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is good. Activity room to Balcony adjacency is correct. Bed 2 to Bath, Bed 3, Bed 4, and Activity adjacencies are correct. Toilet-WC seems to be missing one wall or combined with bath in 3D. Window placements need correction. Dimensional scaling is mostly consistent, but some minor distortions."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is correct, interior walls fully visible. No missing structural elements. No extra rooms or architectural features added. Fails UI/Annotation Cleanliness due to text/measurements in 2D image and background issues. Presentation context is not fully dark neutral, and has a defined ground plane and some shadows."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms, including beds, sofa, coffee table, dining table (interpreted from 'ACTIVITY' room's open space). Kitchen and bathroom fixtures are present. Scale is appropriate. One bed in Bed 3 missing from 3D render. The WC/toilet room is not modeled separately but integrated with the main bathroom, making the toilet fixture placement incorrect based on the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Geometry uses low-poly simplified forms and flat shaded surfaces. No textures are apparent on surfaces, which is good. Lighting is soft, but shadows are more prominent than 'minimal' with some noticeable contrast. Distinguishable colors. True isometric projection, centered framing, but the 45\u00b0 rotation is not exact. Some external floor elements cast shadows, and the background isn't a pure neutral gradient; there's a clear ground plane effect with distinct shadow."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "One bed missing from 'BED 3' in the 3D render.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "WC/toilet room's separation from the main bathroom is not accurately represented, appearing as one combined space in 3D versus two distinct spaces in 2D.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window in Bed 2 is on the wrong wall (should be on the north wall, but is on the west wall in 3D).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window in Activity room (southern wall) is missing, and windows on the west wall of 'ACTIVITY' room are not represented as clearly floor-to-ceiling glass as suggested by the 'WALL TO 21C AFL' and 'BALUSTRADE' in 2D.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Windows in Bed 3 and Bed 4 are slightly misplaced or inaccurately sized compared to 2D.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels, room names, and dimensions are present on the provided 2D 'ground truth' image, but the rubric specifically states 'ZERO text labels present' for the generated 3D image, which should be based on the provided ground truth image without inheriting its UI elements. The 3D render correctly has no text, but the instruction implies evaluation of the 3D output against an ideal clean 2D input. If the 2D input serves as the reference, any text on it indicates a missing step in the user's input, not the 3D output's fault. However, if the 3D is produced from *this specific 2D image*, then success is achieved as it removed the text. Assuming the 'UI/Annotation Cleanliness' is for the 3D output, it passed this aspect. The rubric's placement under 'Structural Fidelity' related to 'UI/Annotation Cleanliness' seems to be confusing given the input is a floor plan with annotations. Re-evaluating: 'ZERO text labels present' for the 'generated 3D isometric render'. The 3D render has _no_ labels, so it actually adheres to this. The 2D image is ground truth, not the generated 3D. Therefore `E5-CRIT` is not applicable to the 3D render. However, the background is not ideal and it has a ground plane.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting results in some noticeable shadows, which are not minimal according to the rubric's 'Flat shading with minimal shadows'.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Floor appears defined as a distinct plane with cast shadows, deviating from 'no ground plane/shadows extending to infinity'.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 76,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates good spatial accuracy with correct room adjacencies and generally proportional layout. Structural elements are well-represented, and most furniture is accurately placed. Some minor inaccuracies exist in window placements, the WC/bath integration, and minor lighting/shadow details.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan12.png"
+}

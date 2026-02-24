@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 6,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall footprint is correct, but several rooms are either missing or significantly altered. The 'Central Hall' from the plan seems to be partially integrated with 'Utility Room' space in the 3D model, but not correctly. The 'Alcove' and 'WC' are missing. The 'Breakfast' area is also significantly changed, with the exterior wall extended forward. Some wall positions show deviations; for instance, the kitchen wall separating it from dining is not accurate to the plan, and the exterior wall of the breakfast/kitchen area is extended beyond the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The 3D model is missing significant structural elements and rooms present in the 2D plan, notably the 'WC' and 'Alcove'. There's significant hallucination, especially with the extended exterior wall in the kitchen/breakfast area and redesigned central space. The background is acceptable, but the model has a very clear ground plane and shadows extending away from the model."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "Many major furniture pieces and fixtures are either missing or misplaced. The bathroom fixtures for the 'WC' are completely absent as the room itself is missing. The 'Utility Room' has a washing machine, but is missing the water heater. The 'Kitchen' has some fixtures present (sink, stove, counters), but the refrigerator is moved and there's no pantry shown. The dining room has a table, but the 'Window Seat' is missing. The central hall/living area has some furniture, but it doesn't align with the sparse 2D layout."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style uses low-poly simplified forms and solid flat colors, though the floor has a light texture/gradient. Lighting is soft, but shadows are quite prominent. The camera seems to be an orthographic projection, but the rotation is not a perfect 45-degree rotated plan view relative to the screen. The model is centered and zoomed appropriately."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'WC' is missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'Alcove' is missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Significant hallucination with exterior wall extension in kitchen/breakfast area and redesigned central space.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Many major furniture pieces and fixtures are either missing or misplaced (e.g., Water Heater, Pantry, Window Seat).",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floor has a noticeable texture/gradient, diverging from solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are quite prominent, not minimal as specified.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane and shadows extend away from the model, not appearing sufficiently isolated.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to missing rooms, significant structural hallucinations, and numerous discrepancies in furniture mapping and wall geometry, preventing it from meeting the pass threshold for spatial and structural fidelity.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan11.png"
+}

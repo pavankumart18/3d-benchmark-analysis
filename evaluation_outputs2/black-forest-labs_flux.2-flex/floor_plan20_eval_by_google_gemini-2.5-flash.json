@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "Living & Dining room dimensions visually distorted compared to 2D plan, appearing wider than actual. Wall thickness is inconsistent around Kitchen and Lobby. Bedroom-2 is significantly re-arranged. Balconies have incorrect sizing and placement."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "Text labels (measurements, room names) are present in the 2D plan, but not in 3D. However, this category refers to the 3D render. The 3D render, being the subject of evaluation, has no UI/Annotation, thus 5 points. The model is floating but a subtle ground plane is present. The 3D model presents a balcony integrated into Bedroom-2, which is represented differently as a separate balcony in the 2D plan. The 2D plan shows a deck from the Living room, which is absent in the 3D render. This can be considered a 'missing structural element' for 'completeness' score, and a 'missing room' (even though it's a 'deck')."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many furniture pieces are present but their placement and layout often differ substantially from the 2D plan, especially in Bedroom-2, Kitchen, and Living/Dining area. The Maid's Room office setup from the 2D plan is entirely missing."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The rendering features noticeable textures on floors, walls, and furniture, which deviates from the specified 'solid flat colors only' and 'no textures'. This results in a low score for 'geometry style'. Lighting is acceptable, as is camera composition."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The 'Deck' from the 2D plan is completely missing in the 3D render.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering features (textures on floors, walls, and furniture, reflections on surfaces) are present, which violates the constraint for low-poly, flat shaded, and no textures.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant distortions in the overall footprint, particularly the Living & Dining area appearing wider, and the Balcony for Bedroom-2 being integrated and altered compared to the 2D plan.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural change where the Balcony for Bedroom-2 is integrated directly into the bedroom space, altering its shape and purpose compared to the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Multiple furniture pieces are present but misplaced or re-arranged significantly within rooms (e.g., Bedroom-2, Kitchen, Living/Dining). The office setup in the Maid's Room is also missing.",
+            "point_deduction": 6
+        }
+    ],
+    "total_score": 59,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant deviations in spatial accuracy, presence of photorealistic textures, and substantial furniture mapping inaccuracies, despite maintaining a proper cutaway view and camera composition. The missing 'Deck' is a critical structural omission.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan20.avif"
+}

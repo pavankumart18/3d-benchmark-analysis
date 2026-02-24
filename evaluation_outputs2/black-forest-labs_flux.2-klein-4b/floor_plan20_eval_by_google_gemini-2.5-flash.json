@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "Door to Toilet-1 from Bedroom-1 is missing its swing direction. One window in Bedroom-1 is slightly smaller than implied."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "All structural fidelity criteria met. No text, perfect cutaway, no hallucinations, and appropriate presentation context."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "All major and minor fixtures are present. Furniture placement is accurate with minor proportional differences for some items (e.g., dining chairs). The chair in the small nook in Bedroom-1 is slightly off-scale. Maid's Room desk/chair is more abstract than other furniture."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 9,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly, flat shaded, clean edges, and solid colors are present. Lighting is mostly ambient but shows very subtle directional shadows in some corners - not dramatic but present. True isometric projection and composition are perfect."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing direction for Toilet-1 from Bedroom-1 is not indicated.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window in Bedroom-1 (bottom right) is slightly smaller than proportional representation in the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Chair in Bedroom-1 (small nook) is slightly off-scale. Maid's Room desk/chair is a very abstract block.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Minimal, soft directional shadows are present in corners, slightly deviating from purely flat lighting.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 96,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The generated 3D render is highly accurate, maintaining geometric precision, structural fidelity, and appropriate aesthetic qualities, with only minor discrepancies in door swing direction and subtle shadow rendering. ",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan20.avif"
+}

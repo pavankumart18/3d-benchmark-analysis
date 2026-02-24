@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General room placement and adjacency are correct. However, doors and windows are missing or misplaced: the 3D model lacks the large windows in the Dining and Living rooms, and several interior doors (e.g., Bedroom 1 and Kitchen entry) are represented as open gaps rather than structured doorways. The staircase orientation is simplified compared to the U-turn layout in the plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. All rooms are accounted for, the roof is removed, and there are no text labels or measurements. Point deducted for minor halluncination of a wall extension near the main entrance stairs."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate in terms of placement and scale. The block-style sofa, bed, and dining set align well with the 2D symbols. Point deducted for the omission of the specific sink/counter orientation in the wash area."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. The model is strictly low-poly, has a clean isometric orthographic camera angle, flat shading with no textures, and is placed on a dark neutral background."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing multiple windows shown on the original plan, specifically in the Dining and Living area."
+        },
+        {
+            "code": "E2",
+            "description": "The staircase is simplified into a straight run rather than the U-shaped landing shown in the 2D blueprint."
+        },
+        {
+            "code": "E1",
+            "description": "Missing interior door frames; several transitions between rooms appear as empty wall breaks."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,71 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render successfully demonstrates a true 3D transformation with visible wall height, thickness, perceivable depth, an angled view, and a cleanly removed roof for interior visibility."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5), floors are distinct (3), interior volume is clear (4), 3D wall corner geometry is good (3). The angled view is clear (5), interior is visible from an elevated perspective (3), but there is some minimal perspective distortion making proportions slightly off (1). Roof is cleanly removed (5), interior spaces are fully visible (3), and geometry is mostly clean (2)."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "The number of rooms is mostly correct, but the utility room and one balcony are missing (1). Adjacency is significantly altered, particularly around the kitchen/utility/toilet areas, and the main living/dining area is distorted (1). Room proportions are not well preserved (1). Major room identities are hard to match due to layout changes and missing rooms (0). Major wall positions deviate significantly, especially in the kitchen/utility/toilet blocks and the main living area (1). Wall lengths are not proportional, especially evident in the main shared living space and the master bedroom area (1). Internal partitions are largely incorrect or missing (0). Doors are present but many are misplaced or missing, especially internal ones (1). Windows are present but not all are on correct walls (1). Openings are proportionally off and sometimes incorrectly oriented (1)."
+        },
+        "interior_elements": {
+            "score": 5,
+            "max": 15,
+            "notes": "Some major furniture is present (beds, sofas, tables) but not all from the plan (2). Kitchen elements are present but not accurately representing the 2D layout (1). Bathroom fixtures are present but not all in correct locations or configurations (1). Furniture is placed in some correct rooms, but many elements are missing or in odd positions (1). Scale is reasonable relative to rooms (1). Orientation is mostly logical but limited by layout accuracy (1)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable and not confusing (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background/presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Missing entire rooms: Utility room and one balcony from the original floor plan are not present in the 3D model. The 'Balcony' to the left of 'M.Bedroom' seems to be absorbed or heavily altered."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Significant layout distortion: The overall shape of the structure is altered. The 'Living & Dining' area and 'Kitchen' footprint in the 3D model deviate substantially from the 2D plan. The 'Wide Passage' areas have been heavily reconfigured or removed."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Incorrect adjacency relationships: The relationships between the kitchen and adjacent toilets/utility are completely different from the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Wall position misalignment and length inaccuracies: Numerous internal and external walls do not align with the 2D plan and their lengths are not proportionally preserved."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door and window mismatches: Several doors are missing or incorrectly placed, and some windows are not on the correct walls relative to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Inaccurate furniture representation: While some furniture exists, it does not fully or accurately reflect the items and their layout from the 2D plan, especially in the kitchen, utility, and balcony areas."
+        }
+    ],
+    "total_score": 67,
+    "verdict": "PASS",
+    "summary": "The 3D transformation successfully created an isometric cutaway, but suffers from significant geometric inaccuracies, including missing rooms, major layout distortions, and wall misalignments, which negatively impact its fidelity to the original 2D floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan15.webp"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful volumetric 3D extrusions clearly visible with clean cutaway geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent isometric projection and wall thickness representation. Minor clipping at the front entrance wall."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Highly faithful layout reproduction. Bed-1 and Bed-2 labels are swapped relative to the source, and some room dimensions on text labels are slightly distorted."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement and scale are very accurate to the original plan."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Clean rendering with good lighting. Points deducted for the presence of numerous text labels inside the 3D space which clutters the presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Retained text labels and dimension strings inside the 3D render."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "Room identifier labels (Bed-1/Bed-2) are swapped compared to source."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and geometrically faithful 3D conversion that effectively translates nearly every detail of the 2D floor plan into a volumetric model.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan19.webp"
+}

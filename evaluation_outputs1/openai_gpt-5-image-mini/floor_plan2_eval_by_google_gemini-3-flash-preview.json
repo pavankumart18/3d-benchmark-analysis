@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Significant layout distortions. The 3D model merged the bathroom and adjacent utility/closet space into a single open corridor/entryway, completely failing the wall alignment of the core service block. Several doors are missing or replaced with open thresholds. Window placement on the top-left bedroom is incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The model failed to represent the specific L-shaped partitioning of the living room and the distinct separate rooms for the toilet and storage. The outer perimeter is overly simplified into a rectangle, losing the entryway alcove on the left."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic assets (beds, tables, sofa) are placed in the correct general vicinity, but specific arrangements are mirrored or inverted. The kitchen counter/island is drastically reduced in size and complexity compared to the plan's detailed stove and sink setup."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to stylistic constraints. The model is strictly low-poly, features flat shading with no textures, an isometric orthographic camera, and a clean floating presentation on a dark neutral background."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Hallway and service area walls missing, leading to layout distortion."
+        },
+        {
+            "code": "E1",
+            "description": "Missing multiple interior doors and specific kitchen fixtures (stove, large sink counter)."
+        },
+        {
+            "code": "E4",
+            "description": "Reinterpretation of the entrance alcove as a solid rectangular corner."
+        },
+        {
+            "code": "E2",
+            "description": "Shower stall relocated from the top-middle room to the top-left bedroom."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan2.png"
+}

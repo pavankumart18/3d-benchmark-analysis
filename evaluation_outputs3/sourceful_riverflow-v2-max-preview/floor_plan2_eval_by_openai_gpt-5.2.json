@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a cutaway/isometric 3D interior: walls have clear height and thickness, multiple wall faces are visible, and rooms read as volumetric spaces with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion with clean corners and visible wall thickness; elevated angled view; ceiling removed consistently. Minor simplifications in wall-top detailing but overall solid cutaway."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency match well (left bedroom, central bath, small adjacent room, right bedroom, living room, kitchen/dining). Proportions and main wall runs are close, though a few opening positions/sizes and some partition lengths appear slightly adjusted relative to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present: beds, desks, sofa/TV area, dining table, kitchen counters, and bathroom fixtures. Minor discrepancies in exact furniture count/placement compared to the 2D symbols (e.g., left bedroom bed arrangement and some cabinetry/wardrobe placement)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Readable walls/floors/openings with consistent materials and good visibility. Lighting is even and does not hide geometry; no obvious mesh breaks. Presentation is clean with neutral background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door/window placements and/or opening proportions do not perfectly match the 2D plan (minor shifts in where openings land on the walls)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture arrangement is broadly consistent but not a perfect 1:1 match to the 2D symbols (notably the left bedroom bed configuration and some storage/cabinet elements)."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong volumetric rendering and largely faithful layout, with only minor opening and furniture-placement deviations from the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan2.png"
+}

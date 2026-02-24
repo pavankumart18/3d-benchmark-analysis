@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": ""
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Good dimensional transformation and viewing angle. Clean roof removal, but some interior spaces are slightly obscured by walls due to viewing angle."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Room configuration mostly correct, but the 'Entrance to the House' area is distorted and mislabeled. Major wall positions and partitions are good. Doors and windows are largely missing or not clearly represented; some openings are present but not explicitly doors/windows."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture is present and generally well-placed. Kitchen elements are present. Bathroom fixtures are present. However, the 'Living Room' furniture is missing, and the 'Bedroom 1' bed is very simplified."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Structural clarity is very good, and geometry is readable. Lighting is good, and the interior is clear. Aesthetic coherence is decent, but there is text labeling ('Bedroom 1', 'Wash Area', 'Kitchen', 'UP') which detracts from background/presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Distortion and mislabeling of the 'Entrance to the House' area in the 3D model, and the living room is not properly represented."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Missing explicit doors and windows, only openings are present for some."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Missing furniture in the 'Living Room' and simplified furniture in 'Bedroom 1'."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text labels embedded in the 3D render (Bedroom 1, Wash Area, Kitchen, UP)."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is generally good with clear volumetric representation, but suffers from some geometric distortions in areas and missing/simplified interior elements, along with embedded text labels.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan7.jpg"
+}

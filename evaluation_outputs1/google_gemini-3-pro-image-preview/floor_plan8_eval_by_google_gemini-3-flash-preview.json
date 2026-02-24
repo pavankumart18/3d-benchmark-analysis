@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Excellent room adjacency and wall alignment. The kitchen, pantry, and staircase are positioned correctly. Minor point deduction for the missing exterior door in the dining room transition and slight scaling compression in the foyer/entry area."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect structural adherence. No text or UI elements present. Roof is removed, and the model is presented as a floating entity on a dark neutral background as requested."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement logically follows the 2D layout labels (e.g., dining table in dining room, sofa in living room). Kitchen island and pantry shelving are well-executed. Minor deduction for generic block furniture in the playroom which lacks specific schematic cues."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Strong adherence to low-poly, flat-shaded style. Camera is isometric, though composition is slightly vertical. Shadowing is soft and non-dramatic, maintaining the 'diagram' feel."
+    },
+    "total_score": 89,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing exterior door unit in the bottom-right dining area transition."
+        },
+        {
+            "code": "E2",
+            "description": "Slight distortion of the foyer area; closet doors are simplified and take up more relative wall space than shown on the blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "Floor surfacing inside the pantry area includes hallucinated shelving blocks not explicitly detailed in the 2D plan, though logically consistent."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan8.jpg"
+}

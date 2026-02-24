@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, and is viewed from an angled perspective with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5). Floors are clearly separated (3). Interior volume is clearly perceivable (4). Proper 3D wall corner geometry is mostly present, but some junctions particularly around the central living area and kitchen appear a bit simplified (2). Angled/isometric view is good (5). Interior is visible from an elevated perspective (3). Minimal severe perspective distortion (2). Roof removed cleanly (5). Interior spaces are fully visible (3). Clean geometry without broken sections (2)."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "The number of rooms is mostly correct, but the exact configuration of some smaller utility rooms and the far left 'bedroom' area are not perfectly mirrored (2). Adjacency relationships are mostly correct for major rooms but some secondary spaces are altered (3). Relative room proportions are generally preserved, but some minor rooms are distorted (2). Major room identities match the layout reasonably (2). Major wall positions align well (4). Wall lengths are generally proportional, but some internal walls seem altered (2). Internal partitions are mostly in place, but some are missing or altered, notably in the top-right bedroom and the top-left area (1). Doors are present, but their exact positions and styles differ significantly from the 2D plan, and some are missing (2). Windows are present and on correct walls, but their count and distribution are not fully consistent with the 2D plan (1). Openings are proportionally sized (1)."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) is present (4). Kitchen elements are present but appear simplified and not fully matching the 2D (1). Bathroom fixtures are present, but their arrangement and the presence of all fixtures are slightly off (1). Furniture is mostly placed in correct rooms (3). Furniture scale seems reasonable (2). Orientation is logical for most items (2)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background / presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Significant changes in layout and geometry for some smaller rooms and utility spaces, particularly in the top-left and top-right sections."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Door and window placements and styles do not perfectly match the 2D plan; some doors are missing or moved."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Simplified and somewhat altered representations of kitchen and bathroom fixtures compared to the 2D plan. Some external furniture/features from the 2D plan are missing in the 3D."
+        }
+    ],
+    "total_score": 76,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is generally good, creating a recognizable conversion with good fundamental 3D representation, though it exhibits several geometric and interior element discrepancies compared to the original 2D floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan5.jpg"
+}

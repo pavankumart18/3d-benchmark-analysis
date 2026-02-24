@@ -1,0 +1,75 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 0,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "The generated 3D model does not accurately represent the 2D floor plan. It appears to be an entirely different floor plan. No rooms, walls, or openings from the 2D plan match the 3D render. This results in a score of 0 for all spatial accuracy sub-categories."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "Cutaway view is correct. UI elements (text, measurements) are absent. Presentation context (dark background, floating model) is good. However, the model is completely hallucinated in terms of its structure compared to the 2D plan, therefore completeness and hallucination control scores are 0."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Since the 3D model does not correspond to the 2D plan, no furniture can be accurately mapped or verified. The 3D model contains furniture not present in the 2D plan, and misses all furniture specified in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The rendering quality adheres perfectly to the specified aesthetic and technical constraints. It uses low-poly simplified forms, flat shaded surfaces with no textures. Lighting is soft and ambient with minimal shadows. It is composed as a true isometric projection, centered, and appropriately zoomed. This area is scored independently of accuracy."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms missing and completely different rooms present in the 3D model compared to the 2D plan.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The entire layout of the 3D model is hallucinated and does not match the 2D floor plan. All walls, rooms, and openings are incorrect.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "All specified furniture from the 2D plan is missing, and different furniture is present in the 3D model.",
+            "point_deduction": 10
+        }
+    ],
+    "total_score": 40,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "1. The 3D render represents an entirely different floor plan than the provided 2D blueprint, leading to a critical failure in spatial accuracy and furniture mapping. 2. Architecturally, it's a completely different building. 3. However, the rendering style, composition, and presentation perfectly meet the technical requirements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan12.png"
+}

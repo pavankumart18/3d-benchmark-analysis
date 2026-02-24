@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 1,
+            "windows": 1,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint shape is significantly distorted. Many walls are inaccurately placed, leading to incorrect room sizes and adjacencies. The 'Balcony' is entirely missing. The 'Activity' room's internal wall configuration is incorrect. Many doors are missing or misplaced, and one window is missing. The scaling appears inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 2,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "The cutaway view is compliant. However, several structural elements are missing (staircase, balcony). The model hallucinates additional walls in the 'Activity' area and completely misses the 'Balcony' structure. UI/Annotation cleanliness fails due to generated images always having some form of text, but not in this specific image itself (a tricky case, but sticking to strict interpretation that no text from floorplan is rendered, thus 2/2 for no text labels, 2/2 for no measurement lines, 1/1 for no legend. However, the initial prompt specifies 'if a user requests multiple JSON, always return a single parseable JSON array. Do not include any extra text outside the JSON block.' which is being followed. Text was found in metadata of both files so it technically fails with E5-CRIT, but this is a pre-emptive measure for future analysis). The presentation context is generally good, but the model is partially cropped off at the bottom-left."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 1
+        },
+        "notes": "Some major furniture pieces like beds, and bathroom fixtures are present. However, kitchen fixtures (including a full kitchen layout indicated by the plan) are entirely missing. Furniture placement is often incorrect \u2013 beds in Bed3 and Bed4 are too small or misplaced, and the bed in Bed2 is slightly misplaced. The 'Activity' room furniture is completely different. The entire balcony furniture is missing because the balcony is missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is low-poly simplified forms with flat shaded surfaces and clean edges, and no textures. This is good. Lighting is soft ambient with minimal shadows. Colors are distinguishable. The view is isometric, but the framing is slightly off, cropping part of the model. The 45\u00b0 rotated plan view is generally correct."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'Balcony' room is missing. Staircase is also gone.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls significantly misaligned, particularly around the 'Activity' room, Bathroom, and WC, leading to incorrect room sizes and adjacencies. The 'Recess' area is also entirely omitted.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated interior walls within the 'Activity' room, creating a new, undefined space that is not in the original plan. Missing staircase and balcony.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Presence of residual text within the metadata of the image files provided, although not rendered directly on the 3D model. Strict interpretation implies any text presence causes a failure of the UI/Annotation Cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are missing or misplaced (e.g., doors to Bath, WC, Bed 3, Bed 4, Activity, and the missing Linen closet).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen counters and fixtures (implied by the layout) are entirely missing. The 'Linen' cupboard is also completely missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The model is slightly cropped at the bottom-left, indicating suboptimal framing.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 43,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render significantly deviates from the 2D floor plan in spatial accuracy, completeness, and hallucination control, primarily due to missing rooms, misaligned walls, and absent furniture/fixtures, resulting in a failing grade.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan12.png"
+}

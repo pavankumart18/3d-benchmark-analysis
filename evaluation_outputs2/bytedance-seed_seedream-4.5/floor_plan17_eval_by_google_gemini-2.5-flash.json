@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall layout topology is mostly preserved, but some internal wall reconfigurations were made, particularly around the kitchen/utility area and the two smaller toilets. Room adjacency is generally good. Relative room sizes are mostly proportionate.  Many doors are missing or incorrectly placed. Window count is mostly accurate, but some positions are off, and widths are not consistently proportional. Scaling appears mostly uniform but without exact dimensions, it's hard to be precise."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The cutaway view is compliant, with the roof completely removed and interior walls visible. Completeness is slightly impacted by missing a few internal structural walls (e.g., in the toilet area). There's some minor architectural hallucination with the redesign of a few toilet/utility walls. UI/Annotation Cleanliness is 0 due to numerous text labels present in the 3D render. The background is dark and neutral, and the model appears isolated, but there's a visible ground plane and shadows, slightly off 'floating/isolated' criteria."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces (beds, sofas, dining tables) are present. Kitchen and bathroom fixtures are also present. However, placement accuracy varies significantly; many pieces of furniture are in different locations than the 2D plan, and some are omitted. Scale appears generally appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is not low-poly and flat-shaded as specified; surfaces are clearly smooth shaded with rounded edges, and some reflections/specular highlights are visible, indicating more complex materials than solid flat colors. This heavily reduces points. Lighting is ambient but appears to have some directional component creating soft shadows. Colors are distinguishable. The view is isometric, but the framing could be better centered and zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Numerous text labels present in the 3D render, including room names and dimensions.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Rendering uses smooth shading, reflections, and more complex material properties than flat shaded solid colors, indicating photorealistic leanings, especially on furniture and floors.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant rework of the 'Servant Room Toilet', 'Utility', and two other 'Toilet' areas, resulting in altered wall configurations, missing walls, and changed room boundaries conflicting with the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are either completely missing (e.g., between kitchen and dining, two toilets, servant room toilet, bedroom door 4, foyer door) or incorrectly placed/oriented.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Multiple furniture pieces are misplaced or omitted compared to the 2D plan (e.g., all chairs in M. Bed Rm, wardrobe in Bed Room 2 and 3, dining chairs count mismatch, kitchen appliances).",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight textures/gradients visible on floor and furniture surfaces, deviating from solid flat colors constraint.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 55,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical deviations, including the presence of text labels and photorealistic rendering characteristics, coupled with significant inaccuracies in door placement, wall geometry, and furniture arrangement. While the overall layout is recognizable, the model does not adhere strictly to the specified technical and stylistic constraints.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan17.jpg"
+}

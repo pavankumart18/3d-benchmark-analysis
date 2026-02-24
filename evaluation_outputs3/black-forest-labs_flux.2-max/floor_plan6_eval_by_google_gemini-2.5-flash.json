@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, and is viewed from an angle with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5). Floors are clearly separate (3). Interior volume is percepible (4). Proper 3D wall corner geometry (3). Angled view (5), and interior is visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof/ceiling removed cleanly (5). Interior spaces are fully visible (3). Clean geometry, but one wall is slightly misaligned near the kitchen (a minor inconsistency) (2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3). Correct adjacency relationships (4). Relative room proportions are well-preserved (3). Major room identities match reasonably (kitchen/living, bedroom, bathroom, stairs) (2). Major wall positions align well with 2D plan (5). Wall lengths are generally proportional (3). Internal partitions are correctly placed (2). Doors are present and on correct walls, though some are just openings (3). Windows are present and on correct walls (2). Openings are proportionally sized and oriented, though some doors are just cutouts (1)."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) are present and well represented (4). Kitchen elements are present (2). Bathroom fixtures are present (2). Furniture is placed in correct rooms (3). Furniture scale is reasonable relative to the room (2). Orientation is logical relative to the layout (2)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, openings are clearly distinguishable (4). Geometry is readable and not visually confusing (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts or broken meshes (2). Clean background / presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some doors are rendered as simple openings rather than distinct door objects, affecting the proportional sizing and orientation assessment."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion is good, successfully transforming the 2D floor plan into a detailed isometric cutaway with high geometric accuracy and clear interior elements, despite minor issues with some door representations.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan6.jpg"
+}

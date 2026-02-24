@@ -1,0 +1,124 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 7,
+            "doors": 9,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Overall layout is good, but the 'Deck' area is significantly reduced in size and appears more like an inaccessible void rather than a usable outdoor space. The 'Lobby' area's internal wall is missing. The 'Home Office / Maid's Room' external wall is incorrectly extended, making the room larger than depicted in the 2D plan. Balcony 1 and Balcony 2 on the right side appear to be slightly smaller than the 2D plan. The area labeled 'UTILITY' is missing its door, making it an open L-shaped space connected to the kitchen. Toilet-2 and Toilet-3 interiors are accurately mapped."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Roof is correctly removed and interior walls are visible. All main rooms are present, but the structure of some rooms is altered, e.g., the 'Living & Dining' area doesn't have the explicit 'deck' space defined. Balconies on the render are smaller and don't match the 2D plan in shape or size. There are no UI elements, but the overall completeness suffers due to structural alterations. The presence of lights that cast shadows detracts from the 'soft ambient lighting' requirement and causes some areas to be too dark."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Many major furniture pieces are present, such as beds and sofas, However, several pieces are either missing or significantly altered. The 'Deck' furniture is missing. The dining table in the render is smaller and has fewer chairs than in the 2D plan. The Home Office/Maid's room furniture is completely different from the 2D plan. Toilet-1, Toilet-2, and Toilet-3 fixtures are present and correctly mapped. Kitchen fixtures are present, but the layout is slightly different, and the island is missing. The side table and lamp in Bedroom-1 and Bedroom-2 are approximated but overall accuracy is low."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style is low-poly and uses flat-shaded surfaces with solid colors, aligning with the requirements. However, the lighting setup is problematic. There are distinct light sources within the rooms (appearing like recessed lights) that cast strong shadows and create noticeable bright spots and dark areas, violating the 'soft ambient lighting with minimal shadows' rule. There is also evident ambient occlusion, which goes against the 'flat shaded surfaces' rule if interpreted strictly as no advanced shading techniques. The camera angle is an isometric projection, and the composition is well-centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Lobby internal wall separating it from Living & Dining is missing.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Area labeled 'UTILITY' is missing its door.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "'Deck' area significantly reduced in size and converted to an interior, inaccessible space.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "'Home Office / Maid's Room' exterior wall extended, altering room shape and increasing size.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Balconies are smaller and have different shapes than depicted in the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture missing from 'Deck' area.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table is smaller with fewer chairs.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen island is missing.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "'Home Office / Maid's Room' furniture is completely different from the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Strong, localized light sources with noticeable shadows, deviating from 'soft ambient lighting'.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 70,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render provides a generally accurate representation of the 2D floor plan's core layout and structural elements, with room adjacencies and most openings correctly translated. However, several minor geometric discrepancies, alterations to outdoor spaces, and inconsistencies in furniture mapping and lighting prevent a higher score, just barely meeting the pass threshold.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan20.avif"
+}

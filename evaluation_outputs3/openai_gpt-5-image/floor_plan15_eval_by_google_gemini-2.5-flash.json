@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render successfully demonstrates a true 3D transformation with visible wall height, thickness, perceptible interior volume, and an angled view where the roof is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness, floors are distinct. Interior volume is clear. Most wall corners are good, but some thinner walls/partitions lack proper corner definition. The viewing angle is good and interior is visible. The roof is cleanly removed and interior spaces are fully visible, with clean geometry, though the text label is jarring."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency are mostly correct, but the 'TOILET' near 'BEDROOM-1' has been split into two smaller rooms/areas, altering the configuration. Relative room proportions are largely preserved, but some minor discrepancies are present, especially with the smaller 'TOILET' areas. Major wall positions mostly align, but some internal partitions are simplified or slightly altered (e.g., the smaller toilets). Doors are present on correct walls, but the window count and placement are not perfectly accurate; some windows are missing or shifted. Balconies from the 2D plan are also not fully represented as balconies in the 3D model, affecting the overall geometric layout."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture (beds, sofa, dining table) is present. Kitchen elements are mostly present, but the 'Utility' room's elements are missing. Bathroom fixtures are present. Furniture is generally in correct rooms and appears to be reasonably scaled and oriented. However, the 2D plan shows more detailed furniture in the balconies and 'Utility' room which are missing in 3D."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable. Interior is clearly visible with good lighting. Material usage is consistent. There are no major rendering artifacts or broken meshes, however, there is a text label '1.05 811' inside one of the toilet areas which detracts from the presentation. The background is clean and non-distracting."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The 'TOILET' adjacent to 'BEDROOM-1' from the 2D plan is represented as two distinct, smaller, and differently configured areas in the 3D model, causing a layout distortion."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Windows are missing in the 'TOILET' areas, and their placement/number varies in other rooms compared to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Elements from the 'Utility' room and the detailed balcony furniture from the 2D plan are missing in the 3D render."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "Minor",
+            "description": "A text label '1.05 811' is present inside the 3D model, impacting visual clarity and presentation."
+        }
+    ],
+    "total_score": 77,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D floor plan into a comprehensible 3D model with good fundamental 3D representation, though it exhibits several geometric inaccuracies and missing elements compared to the original plan, particularly in specific rooms and furniture details.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan15.webp"
+}

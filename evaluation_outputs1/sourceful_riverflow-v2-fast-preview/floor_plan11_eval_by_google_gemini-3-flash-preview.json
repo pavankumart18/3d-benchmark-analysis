@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout discrepancies. The L-shaped staircase and central hall structure are entirely missing. The bathroom (WC) and utility room adjacencies are incorrectly rendered, resulting in a generic boxy room layout rather than the specific floor plan geometry."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the model correctly removes the roof and uses a dark background, it fails to capture the internal wall configuration of the floor plan. The window seat bump-out on the right wall is completely absent."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen counter placement is generally correct, but the dining room furniture is hallucinated/misplaced relative to the plan, and utility appliances (W/D) are missing from their designated room."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to the low-poly, flat-shaded aesthetic with a correct isometric camera. The visual style matches the requirements perfectly, despite structural inaccuracy."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing L-shaped staircase and specific utility room fixtures."
+        },
+        {
+            "code": "E2",
+            "description": "Wall layout is simplified and does not match the dimensions or adjacency of the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The right-side exterior wall is rendered flat, hallucinating a straight wall where a faceted window seat/bay window exists on the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan11.png"
+}

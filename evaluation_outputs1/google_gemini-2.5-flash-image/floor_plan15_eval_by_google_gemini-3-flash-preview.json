@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room occupancy match the 2D plan well. However, there are minor scaling distortions in the width of the entrance passage and the kitchen area appears slightly elongated compared to the source."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The 3D model contains numerous text labels for rooms and measurements, which is a significant violation of the 'STRICTLY NO text labels' constraint. The 'floating' effect is achieved on a neutral background, but the presence of measurement lines and text heavily penalizes this section."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the plan, utilizing appropriate block-style models. Scale is consistent with the architectural surroundings."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render successfully captures the low-poly, flat-colored aesthetic with soft ambient lighting. The isometric orthographic angle is correctly executed."
+    },
+    "total_score": 77,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Severe violation of UI constraints: model contains numerous text labels, room names, and measurement lines integrated into the 3D floor plane."
+        },
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the secondary passage width and utility room proportions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan15.webp"
+}

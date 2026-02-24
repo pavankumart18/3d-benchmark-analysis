@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, and an angled view. The ceiling/roof has been removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls rendered with height and thickness (5), floors clearly separated (3), interior volume perceivable (4), proper 3D wall corners (3). Angled view (5), interior visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof removed cleanly (5). Interior partially visible, but stair area and some rooms are partially obscured by raised walls, not fully open (2). Clean geometry without broken sections (2)."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "Correct number of rooms is difficult to assess precisely due to significant layout changes (0). Adjacency relationships are heavily distorted, especially between kitchen/dining/living and the bathroom/stair area (1). Relative room proportions are not well preserved (1). Major room identities are largely lost due to layout changes (0). Major wall positions deviate significantly from the 2D plan, especially the internal structures (2). Wall lengths are not consistently proportional (1). Internal partitions are incorrect; the entire stair and bathroom block is altered (0). Doors are present but often misplaced or missing from the original plan's locations, e.g., the bathroom door is an arch, new doors are added. Original doors are often missed (2). Windows are mostly omitted or generalized, and their positions don't strictly align with the 2D plan (1). Openings are proportionally inaccurate (1)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture present, though types and arrangements differ from the original plan's implications (4). Kitchen elements are present but basic (2). Bathroom fixtures are present but basic (2). Furniture is placed in rooms that are generally intended for them, but room identities are distorted from the 2D (1). Furniture scale is reasonable relative to the implied room scale (1). Orientation is logical (0.5)."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable, though some areas are visually confusing due to layout changes (3). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Major geometric failure in the layout of the bathroom and stairwell area, which has been completely reimagined."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Significant layout distortion, including incorrect adjacency, proportions, and wall placements, especially around the kitchen/dining/living area and the central block."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors and windows are largely inconsistent with the 2D floor plan \u2013 some missing, others added, and positions/types altered."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture placement and types are generalized and do not reflect specific items implied by the 2D plan labels (e.g., specific placement of kitchen appliances)."
+        }
+    ],
+    "total_score": 73,
+    "verdict": "PASS",
+    "summary": "The 3D model presents a recognizable but significantly altered interpretation of the 2D floor plan, with fundamental geometric and layout discrepancies despite a clear 3D transformation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan3.jpg"
+}

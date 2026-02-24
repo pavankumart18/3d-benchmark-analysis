@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls have significant height and thickness, making the interior volume clearly perceivable. The view is an isometric cutaway, and the roof has been removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5). Floors clearly separate planes (3). Interior volume is clear (4). Proper 3D wall corners are mostly present, but some external walls lack definition (2/3). Angled view is good (5). Interior is visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof removed cleanly (5). Interior spaces fully visible (3). Clean geometry, no broken sections (2)."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "There are significant discrepancies in room configuration. The 'Activity' room is partially present but heavily modified. 'Bed 2', 'Bed 3', and 'Bed 4' appear merged or significantly altered, with new rooms appearing that are not in the 2D plan. The bathroom and WC are present but their layout is changed. The balcony is visible but partially altered. (4/12). Wall positions show major deviations, especially for internal partitions (3/10). Doors in general positions are okay, but some are missing or moved; windows are mostly absent from the 3D model, especially for 'Bed 3' and 'Bed 4' areas which are now external walls in the 3D render (8/8 points from doors/windows is not justified and should be lower based on missing windows and altered external walls - re-evaluating to 2/8)."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Some furniture is present (sofa, beds, bath, toilet) (4/8). Kitchen elements are missing entirely (0/2). Bathroom fixtures are present (2/2). Furniture placement is somewhat in correct rooms, but the altered room layout makes this difficult to evaluate (1/3). Furniture scale seems reasonable (2/2). Orientation is logical for what is present (1/2)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts or broken meshes (2). Clean background (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Significant distortion and rearrangement of room configurations. 'Activity' room is partially present, while 'Bed 2', 'Bed 3', and 'Bed 4' are heavily reconfigured, missing, or merged into larger spaces not matching the 2D plan."
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "Critical",
+            "description": "More than 50% of rooms from 2D are either missing or drastically reconfigured, making fidelity to original layout very low. For example, the entire area where Bed 2, Bed 3, and Bed 4 should be is completely different."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Many windows and some doors from the 2D plan are missing or misplaced in the 3D render due to the reconfigured layout."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Kitchen elements depicted in the 2D plan (next to Bed 2 in the 2D image) are entirely absent from the 3D render."
+        }
+    ],
+    "total_score": 70,
+    "verdict": "PASS",
+    "summary": "The 3D model successfully converts the 2D plan into a perceivable 3D space with good rendering quality, but it suffers from significant geometric inaccuracies and major layout alterations that deviate substantially from the original 2D floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan12.png"
+}

@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology suffers from missing balconies. Specific walls in kitchen and living/dining are incorrectly placed, affecting room adjacencies. Multiple doors are missing or significantly misplaced. Window placement is generally correct, but several are missing. Scaling is consistent but not perfectly proportional."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 0,
+            "hallucination_control": 3,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is mostly compliant, but a roof fragment or external structure is visible above the top-left section. Significant missing structural elements (balconies). Presentation context suffers from a visible ground plane/base below the model."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Many major furniture pieces are missing, especially in the living/dining area, bathrooms, and kitchen. Placement of existing furniture is often inaccurate, and the scale sometimes feels off (e.g., bed in M.Bedroom is too small)."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style is largely appropriate, using low-poly forms and flat shading, though some slight surface variations suggest subtle texture/material. Lighting is mostly ambient but some shadows are somewhat pronounced for 'minimal'. Camera is isometric and composition is mostly good, but the 45\u00b0 rotation is not perfectly aligned and the model is not perfectly centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Both balconies are entirely missing from the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls are misplaced or incorrect. The wall between Living & Dining and the Kitchen is significantly misaligned. The wall defining the 'Wide Passage' is also misplaced or omitted, distorting the central living area.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Numerous major furniture pieces (sofa, dining table, kitchen island, toilet, shower) are missing or incorrectly represented given their explicit presence in the 2D plan.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are missing (e.g., entrance door to the rightmost toilet, bedroom 1 door) or have incorrect swing directions not matching the plan where indicated.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle surface variations and slight specular highlights on walls/floors suggest simple material properties beyond pure solid flat colors.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to significant missing structural elements (balconies), numerous inaccuracies in wall placement, missing doors, and poor furniture mapping, although it generally adheres to many aesthetic and technical constraints.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan15.webp"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Walls have appropriate height and thickness. Floors are distinct. Interior volume is clearly perceivable. Proper 3D wall corner geometry is present. The view is angled and isometric, and the interior is visible. The roof is removed cleanly, and the interior spaces are fully visible without broken sections, though there is some minor distortion at the balcony wall thickness."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The number of rooms and adjacency relationships are mostly correct. Room proportions are generally preserved, but the utility area seems slightly smaller in the 3D model. Major wall positions align well. Wall lengths are mostly proportional, though the kitchen and utility area wall seem to have a different thickness ratio than in 2D. Internal partitions are correctly placed. Doors are present, but their swing direction is not clear, and the 2D shows a door for the toilet and bedroom, which are absent or represented as open doorways in 3D. Windows are present on correct walls, but their size and placement for Bedroom 1 and Balcony are slightly different. The toilet has no window in 3D, but it is implied in 2D."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) is present. Kitchen elements and bathroom fixtures are present. Furniture is placed in correct rooms and their scale is reasonable. Orientation is logical, although the TV in the living room is placed on a wall that was previously open or had a balcony entry in 2D, and the bedroom has a wardrobe where the 2D floor plan implies a window/door (depending on interpretation of the thick line feature). The dining table in 3D is round, while the 2D shows a rectangular or square one. The sofa orientation relative to the balcony differs."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable and not visually confusing. Interior is clearly visible, and lighting does not obscure geometry. Consistent material usage helps aesthetic coherence. No major rendering artifacts or broken meshes are visible. The background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Utility room proportions appear slightly off, and wall thickness ratios/alignments deviate slightly in kitchen/utility area."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Doors for toilet and bedroom are depicted as open archways or missing in 3D, unlike the explicit door swings in 2D. Toilet window is missing in 3D."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Bedroom 1 and Balcony windows have slightly different sizes/placements in 3D compared to 2D. The bedroom also has a wardrobe where a window/opening feature was in 2D."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Dining table shape (round vs. rectangular/square) differs from 2D. Sofa orientation differs. TV placement suggests a wall where 2D indicated an opening."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D model presents an excellent and largely faithful volumetric transformation of the 2D floor plan with very good geometric accuracy, despite minor discrepancies in room proportions, door/window representation, and furniture details.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan16.avif"
+}

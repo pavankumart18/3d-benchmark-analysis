@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully converts the 2D floor plan into a 3D cutaway isometric representation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clearly defined wall heights, thickness, and volumetric floors."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Strong layout fidelity; room proportions and adjacencies like the central pantry and stairwell are accurate. Some window/door placements on the perimeter are slightly simplified."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture blocks (sofa, kitchen island, cabinets) are present and logically placed according to the plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean rendering with no UI clutter. The lighting allows for excellent visibility of the inner rooms."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Some window openings on the right-side wall are merged or not as distinct as the 2D plan indicates."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A highly faithful 3D conversion that accurately captures the complex internal layout and furniture placements of the original architectural drawing.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan8.jpg"
+}

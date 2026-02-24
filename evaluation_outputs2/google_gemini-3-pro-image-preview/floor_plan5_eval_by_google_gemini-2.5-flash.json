@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "All rooms and overall footprint maintained. Wall positions are highly accurate. Most doors are correctly placed; however, the two doors for the central bathroom and adjacent bedroom show incorrect swing directions (one inward, one outward, while the plan shows opposite). The main entrance door also lacks a clear swing indicator in 3D compared to the plan which suggests an inward swing. All windows are present and correctly placed with good proportionality."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Excellent cutaway view with all interior walls visible and no roof fragments. No missing rooms or structural elements, and no hallucinated architectural features. However, the 3D render includes UI elements (like the stove top indication in the kitchen and the floor tile pattern in the main living space) which technically should be absent per the 'ZERO text labels' and 'ZERO measurement lines' rule, falling under UI/Annotation Cleanliness. This led to a deduction."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 5
+        },
+        "notes": "All major furniture pieces (beds, sofas, dining table) are present. Kitchen fixtures (counters, island, stove) and bathroom fixtures (toilets, sinks, showers) are correctly indicated. Placement of furniture largely matches the 2D plan locations with appropriate scale. Block-style abstractions are well-used and compliant."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The render effectively uses low-poly simplified forms with flat shaded surfaces and clean edges, avoiding textures. Lighting is soft and ambient with minimal shadows. Colors are distinct without being overly dramatic. The camera provides a true isometric projection from a 45-degree rotated plan view, with excellent centered framing and appropriate zoom, showing all rooms clearly."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom door and adjacent bedroom door swing directions are inverse compared to the plan. Main entrance door swing is unclear in 3D.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Floor tile pattern visible in several rooms and stove top details are visual UI/annotation elements which should be absent.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 93,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "This is a highly accurate 2D-to-3D translation with excellent spatial and structural fidelity, marred only by minor door swing discrepancies and the presence of unwanted UI/annotation elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan5.jpg"
+}

@@ -1,0 +1,75 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology generally matches, with all rooms present and adjacencies preserved. Wall positions are mostly accurate, though some minor discrepancies exist in thickness. All doors are present on correct walls and swing directions generally match. Windows are all present and correctly placed. Dimensional scaling is mostly consistent but some elements appear slightly off."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is perfect, with the roof completely removed and all interior walls visible. The model appears complete with no missing structural elements. There are no added rooms or invented architectural features. No text labels, measurement lines, or legends are present. The background is a dark neutral grey, and the model is floating/isolated without a ground plane."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and identifiable (beds, sofas, dining table, kitchen counters, bathroom fixtures). Placement mostly matches the 2D plan, but some items like the dining chairs and the study table layout in BED-1 are slightly off. Scale of furniture is generally appropriate, though some items in the utility/toilets could be more distinct."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 9,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style uses low-poly simplified forms with flat shaded surfaces. There are no apparent textures, although some furniture items have minor gradients or darker tones which could be interpreted as subtle shading rather than flat colors. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. The camera is a true isometric projection, rotated approximately 45 degrees, centered, and appropriately zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Minor inconsistencies in wall thickness, particularly around doors and some exterior walls.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some elements have very subtle gradients or darker tones that slightly deviate from pure solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Small side table near the armchair in Living/Dining is missing, and small plant in bedroom 1 is missing. Dining chairs arrangement is slightly different.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 89,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render accurately translates the 2D floor plan with excellent structural fidelity and good aesthetic quality, despite minor discrepancies in furniture placement and wall geometry.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan14.webp"
+}

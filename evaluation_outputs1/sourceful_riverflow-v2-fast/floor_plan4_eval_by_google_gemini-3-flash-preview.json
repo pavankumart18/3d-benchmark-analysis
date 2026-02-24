@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General floor plan layout and room adjacency are well-preserved. However, the laundry room and adjacent closet area feature wall distortions and slightly altered proportions compared to the precise 2D blueprint. Door orientations in the hall/entrance area are inconsistent with the plan's swing directions."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to cutaway view with no roof and all rooms present. Floating model on a dark background is achieved. Slight deduction for minor structural reinterpretation of the closet partitions in the bottom-left quadrant."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Clean block-style furniture is used. The kitchen island and dining set are accurately placed. Deductions for the living room sofa configuration which differs from the 'L' shape/armchair arrangement in the floor plan, and the missing desk detail in Bedroom 2."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render successfully uses low-poly geometry and flat shading. The camera is isometric, though slightly more tilted than a perfect 45-degree angle. Lighting is soft and lacks distracting shadows, meeting the non-photorealistic requirement."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Misplaced/distorted wall alignment in the laundry and closet zones."
+        },
+        {
+            "code": "E4",
+            "description": "Reinterpretation of living room seating arrangement (sofa placement vs individual chairs)."
+        },
+        {
+            "code": "E1",
+            "description": "Missing secondary furniture elements in Bedroom 2 compared to floor plan details."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan4.jpg"
+}

@@ -1,7 +1,7 @@
 import os
 import json
 
-EVAL_OUTPUT_DIR = "evaluation_outputs"
+EVAL_OUTPUT_DIR = "evaluation_outputs3"
 INPUT_DIR = "input"
 GENERATED_DIR = "batch_outputs"
 

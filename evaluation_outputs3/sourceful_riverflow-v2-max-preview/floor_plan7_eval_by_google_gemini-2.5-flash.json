@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Walls have height and thickness. Floors are distinct planes. Interior volume is clearly perceivable. Proper 3D wall corner geometry. Isometric view, interior visible from elevated perspective. Minimal perspective distortion. Roof is cleanly removed, exposing the interior fully, and geometry is clean."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms and adjacency for most parts. Relative room proportions are well preserved. Major wall positions align well. Wall lengths are proportional. Internal partitions are mostly correct, though the 'Wash Area' feels slightly truncated/altered. Doors are present and on correct walls, but a few entrances like the 'Entrance to the House' and the 'Toilet' door are missing. Windows are present on correct walls and appear proportionally sized. There are two windows visible in the 3D render for the dining area, but only one is explicitly drawn in the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, dining table) are present. Kitchen elements and bathroom fixtures are also present and detailed. Furniture is placed in correct rooms and their scale is reasonable. Orientation is logical."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable, and geometry is readable. Interior is clearly visible due to good lighting; lighting does not obscure geometry. Consistent material usage and no major rendering artifacts. Clean background and presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The 'Wash Area' seems to be altered, possibly slightly smaller or a different configuration of dividing walls from the 2D plan. The staircase also has a different configuration in the 3D model, specifically at the top where it meets the floor."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "The main entrance door is missing. The toilet door is also missing, creating a full opening where a door should be. The dining room has two windows in the 3D, while the 2D plan only depicts one."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "An excellent 3D conversion with high geometric fidelity, well-preserved interior elements, and strong visual clarity, despite minor discrepancies in some wall configurations and missing doors.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan7.jpg"
+}

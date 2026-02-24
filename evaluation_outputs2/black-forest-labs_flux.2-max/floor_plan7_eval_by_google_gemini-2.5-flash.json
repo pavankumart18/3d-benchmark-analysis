@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is good, overall footprint is maintained. Wall geometry mostly accurate, but the wall between the Wash Area/Toilet and Bedroom 1 seems slightly thicker in the 3D model. Doors are present and correctly placed, some swing directions are not clearly indicated in 2D but seem consistent. Windows are present. Dimensional scaling seems mostly consistent, but the aspect ratio of the upper-left Dining bump-out appears slightly stretched horizontally in the 3D model. Minor deviation in the wall thickness around the Wash Area/Toilet."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Cutaway view compliance is excellent, roof is completely removed and interior walls are fully visible. Completeness is good, no missing structural elements. Hallucination control is good, no extra rooms or architectural features added. UI/Annotation Cleanliness failed due to visible UP arrow, faint measurement lines on stairs and a cross symbol on the bottom main entrance. Presentation context is good with a dark neutral background and floating model."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 5
+        },
+        "notes": "All major furniture pieces (bed, dining table, sofas, kitchen counters, bathroom fixtures) are present. Placement matches the 2D plan accurately and scales are appropriate. Kitchen fixtures and bathroom fixtures are well represented."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style uses low-poly simplified forms and flat shaded surfaces. Some subtle, glossy reflections on the floor suggest slightly more than solid flat colors. Lighting and rendering utilizes soft ambient lighting, but the shadows are quite pronounced, especially from walls and furniture, extending significantly and contrasting. This deviates from 'minimal shadows' and 'no dramatic contrasts'. Camera and composition is true isometric, 45\u00b0 rotated plan view, centered framing, and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floor surfaces have subtle reflections/sheen, not purely flat color.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall thickness around Wash Area/Toilet appears slightly thicker than in 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Dining area bump-out seems slightly stretched horizontally, impacting proportional sizing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text/symbols remain in the 3D render: 'UP' arrow, staircase measurement lines, and entrance cross symbol.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are more pronounced than 'minimal' and create some contrast.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 82,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates strong spatial accuracy and structural fidelity with good furniture mapping, however, it loses points due to annotation presence and some lighting/material nuances.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway/isometric-style 3D model with extruded walls, visible thickness, and readable interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness, distinct floor plane, good corner geometry, and clean roof cutaway; mild simplification around door openings."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Overall shell and main room placements (living/kitchen left, bedroom top-right, bathroom near center-right) broadly match, but the right-side stair zone in the 2D plan is not represented as stairs in the 3D model, significantly altering that portion of the layout. Door/opening geometry is also stylized (curved cutouts) vs plan swing doors."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture exists (bed, sofa, table) and bathroom fixtures are present; kitchen is simplified and not fully faithful to the plan\u2019s linear counters/island arrangement."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Readable walls/floors with clean presentation and no UI/text contamination; lighting is neutral and does not hide geometry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Staircase area shown on the right side of the 2D plan is missing/not modeled as stairs in the 3D render, changing room function and circulation geometry."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door openings are rendered as curved/arched voids rather than plan-accurate hinged door placements and widths."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Some internal partition shapes/proportions around the hall/bathroom zone differ from the 2D plan, likely due to simplification of wall runs and openings."
+        }
+    ],
+    "total_score": 74,
+    "verdict": "PASS",
+    "summary": "A true and clear 3D cutaway is produced, but layout fidelity is reduced by a major mismatch where the 2D stair zone is not accurately converted into a staircase in 3D.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan6.jpg"
+}

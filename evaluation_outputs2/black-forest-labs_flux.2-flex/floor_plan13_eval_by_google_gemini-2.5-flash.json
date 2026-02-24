@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Garage is significantly scaled down relative to the main structure. Balcony is completely missing. Many walls, especially around the kitchen/laundry and the bathroom/WC areas, deviate from the 2D plan: the kitchen wall that separates it from the dining area is not present, instead there is a counter. The wall separating the laundry from bedroom 1 is also not accurately represented. There's an extra wall creating a small entrance area next to bedroom 2 but there's a window there instead of a door. The 'Linen' closet from the 2D plan is also missing, replaced by a window and a different entrance layout. Two windows are missing from the lounge/dining area from the original plan."
+    },
+    "structural_fidelity": {
+        "score": 7,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The balcony and 'Linen' closet are missing, impacting completeness. Hallucinated an extra window near bedroom 2 and a different entrance structure. There's a subtle grid-like texture on the render and the car. UI/Annotation Cleanliness is violated by the car interior visible. The cutaway view is mostly compliant, but some interior walls are obscured by high furniture."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many major furniture pieces like beds, sofas, and dining tables are missing. Most kitchen and bathroom fixtures are present. However, the placement of some fixtures like the WC and bath is swapped. The washing machine is present. The garage has a car but the 2D plan is just an outline."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "The rendering features significant textures on floors, walls, and furniture (car), including reflections, which violates the no textures/solid flat colors rule. Lighting is dramatic, with strong shadows and highlights, not soft ambient. The view is true isometric and composition is mostly good."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Balcony is completely missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Multiple walls severely misaligned or missing (kitchen-dining wall, laundry-bedroom 1 wall). Hallucinated a different entrance structure and window near bedroom 2.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering with textures, reflections, and realistic materials.",
+            "point_deduction": 20
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Specific major furniture pieces (beds, sofas, dining table) are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window placement incorrect for lounge/dining area. 'Linen' closet missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The car rendered in the garage is highly detailed and non-abstract.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 41,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to significant spatial inaccuracies, missing structural elements, and a photorealistic rendering style which violates multiple core constraints.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan13.jpg"
+}

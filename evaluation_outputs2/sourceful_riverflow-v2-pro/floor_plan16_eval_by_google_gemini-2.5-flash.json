@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall layout is mostly preserved, but wall geometry has deviations. The bedroom wall separating it from the living area is too short in the 3D render, creating an open space not present in the 2D plan. The utility room appears to have an additional wall/structure. The balcony wall on the left side of the living area is missing a section. Doors are present, but their swing direction and exact positioning aren't perfectly matched. Windows are largely absent in the 3D render where present in the 2D plan, especially in the utility and toilet areas, and the balcony has a different railing structure."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The cutaway view is compliant. However, there are missing structural elements like the bedroom door and the wall between the bedroom and living area being partially absent. Hallucinations include the balcony railing design and potentially some internal wall variations. UI/Annotation Cleanliness is a critical failure due to the presence of text and measurements in the 2D original which should not be present (though this category judges the 3D render, which is clean from UI, the input 2D is the *original* not the 3D to be evaluated for this specific point, the prompt clarifies 'ZERO text labels present' for the 3D render only, which it passes). Re-evaluating UI/Annotation Cleanliness based on the 3D render only: it has no text, so it scores full marks. My mistake in prior analysis. However, there are no windows or door swings drawn in the 3D render compared to the 2D."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms (bed, sofas, dining table, kitchen counters, bathroom fixtures, utility appliances). However, some smaller items are missing (e.g., bedside tables in bedroom, chair under desk) and the desk itself is missing. The placement within rooms shows some deviations, such as the living room sofa arrangement and the general layout of the toilet/utility fixtures. The small plant in the living area is also missing."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is mostly low-poly and simplified, but some furniture (e.g., sofas) show slight smoothing/beveling. Colors are solid, though certain elements like kitchen counters have a subtle texture/pattern. Lighting is soft and ambient. Camera composition is a true isometric projection with good framing and zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Portion of interior wall between Bedroom-1 and Living & Dining is missing, creating an open-plan not present in the 2D floor plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Balcony wall on the left side of the living area is incomplete/different.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing desk furniture in Bedroom-1.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MINOR",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing a window in the Utility area and Toilet-1 area (implied by 2D plan).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle texture/pattern on kitchen countertops and slight smoothing on some furniture models.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions not depicted in the 3D render, although they are present in the 2D plan for all doors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Door for Bedroom-1 is missing.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render achieves an overall good level of spatial accuracy and structural fidelity, with minor deviations in wall geometry and furniture placement. It meets the aesthetic and technical quality requirements fairly well.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan16.avif"
+}

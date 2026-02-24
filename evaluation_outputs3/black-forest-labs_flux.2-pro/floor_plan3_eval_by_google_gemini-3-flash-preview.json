@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful volumetric 3D transformation with isometric projection."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D depth and wall thickness. Geometry is clean and consistent."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Major layout failure. The bathroom was moved from a central island to a corner. The stairs were moved to the center. Room adjacencies and proportions are heavily distorted compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Furniture is present but does not follow the kitchen/dining/living logic defined in the source (e.g., a bedroom area added which wasn't in the plan)."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "High rendering quality, but internal text 'SAMPLE FLOOOR PLAN' on the wall deducts presentation points."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Bathroom moved from center of floor plan to an exterior corner wall."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Staircase relocated to central room, breaking the original layout flow."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text contamination on the interior wall surface."
+        }
+    ],
+    "total_score": 69,
+    "verdict": "PASS",
+    "summary": "While the 3D rendering quality is high, the model fails significantly on geometric fidelity, relocating major structural elements like the bathroom and stairs.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan3.jpg"
+}

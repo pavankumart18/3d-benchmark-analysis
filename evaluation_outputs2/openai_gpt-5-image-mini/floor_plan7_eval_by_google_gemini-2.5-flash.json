@@ -1,0 +1,75 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Room count matches, and most adjacencies are correct. However, multiple walls are significantly off. The wall between the kitchen and 'Entrance to the House' is missing. The wall between Kitchen and Living Room is incorrect in position. The wall separating Bedroom 1 from the Wash Area/Toilet is also incorrect. The Wash Area is wider than in the 2D plan, impacting the Bedroom 1 size."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "No text labels present, which is good. The roof is completely removed, and interior walls are visible. No major structural elements seem missing according to the 2D plan. No extra rooms or architectural features were added. However, the 'UP' staircase annotation from the 2D plan has been rendered as a staircase in the 3D model, which is an error in interpretation, while the 'Wash Area' and 'Toilet' text is missing. UI/Annotation Cleanliness is 0 because the 'UP' text was interpreted as a structural element, not just an annotation."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms, such as the dining table, kitchen counters, sofa, and bed. However, the 'Wash Area' bathtub/shower seems to be missing and replaced by a small toilet, and the separate 'Toilet' room is missing some fixtures. The kitchen fixtures are present, but the sink and stove positions are slightly off. The overall scale of the furniture to the rooms is acceptable."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The model uses low-poly simplified forms with flat shaded surfaces and solid colors, without textures, perfectly aligning with the geometry style requirements. The lighting is soft ambient with minimal shadows. The camera uses a true isometric projection with a 45-degree rotated plan view, well-centered and zoomed appropriately."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Wall between Kitchen and 'Entrance to the house' is missing. Wall between Kitchen and Living Room is misplaced, making the Kitchen larger than planned. Wall between Bedroom 1 and Wash Area/Toilet is inaccurate, making the Wash Area wider and Bedroom 1 smaller.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bathtub/shower from 'Wash Area' is missing. Sink/stove in kitchen are slightly misplaced.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The annotation 'UP' for the staircase in the 2D plan has been rendered as a physical staircase, effectively treating UI element as a structural one, leading to misinterpretation of geometry.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 75,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully translates the overall layout and most structural elements but has significant wall placement inaccuracies and misinterprets a 2D annotation as a physical structure, affecting the layout and UI compliance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan7.jpg"
+}

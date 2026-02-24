@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Excellent isometric conversion with clear wall heights and cutaway treatment."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Walls have consistent height and thickness; viewing angle is ideal for a cutaway."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Highly faithful layout reproduction. All major walls, room adjacencies, and the staircase are correctly positioned. Minor simplification in door swing representation."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement matches the plan perfectly, including kitchen island, bedroom layout, and living area set."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Structural clarity is high, but score is penalized due to the retention of 2D text labels (Kitchen/Living, Bedroom) in the 3D render."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "Minor",
+            "description": "Text labels from the 2D source are baked into the 3D floor plane."
+        }
+    ],
+    "total_score": 92,
+    "verdict": "EXCELLENT",
+    "summary": "An exceptionally faithful 3D conversion that maintains near-perfect geometric and asset alignment with the original 2D architectural drawing.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan6.jpg"
+}

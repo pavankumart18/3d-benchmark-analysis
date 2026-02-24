@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls are extruded with visible thickness, multiple faces per wall are visible, rooms read as volumes, and the camera is in an elevated angled/isometric-like view with the roof/ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable room volumes; clean cutaway and stable projection. Minor simplification at some wall junctions/openings."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall massing matches (living/kitchen left, bedroom back/top-right, stair zone on right). Central service core (bath/closet/entry partitions) appears simplified/partially reinterpreted; some wall lengths/partition positions differ from the 2D plan."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Bedroom and living furniture present. Kitchen is not clearly represented (no obvious counters/appliances matching the 2D plan). Bathroom fixtures are not shown; service spaces are mostly empty blocks."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Geometry is clear with consistent materials and no major mesh artifacts. Lighting is adequate and does not obscure layout; openings are readable though simplified."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Central partitions/service core geometry (bathroom/closet/entry zone) appears simplified and does not fully match the 2D wall layout and proportions."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/openings and window placements are not fully traceable to the 2D plan; several openings appear generalized rather than placed/sized per plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "major",
+            "description": "Kitchen and bathroom elements from the 2D plan are missing or not clearly modeled (no clear kitchen run/island, no toilet/sink/shower)."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway with strong volumetric walls and correct overall zoning, but with notable simplification/mismatch in the service-core layout and missing kitchen/bath fixture fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan6.jpg"
+}

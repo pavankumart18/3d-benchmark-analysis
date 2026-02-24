@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Room count matches, but Bedroom-3's adjacent bathroom layout is significantly different, affecting wall geometry. Kitchen layout and entry are also altered. Balcony-1 is significantly shorter than plan, Balcony-2 is missing from render. Balconies in render are positioned incorrectly compared to the plan (Balcony 1 to Bedroom 1, Balcony 2 to Bedroom 2). The 'Lobby' area is changed in the render, combined with 'Home Office / Maid's Room'. The 'Deck' area is also significantly changed, with a wall added where there was an opening to the living room in the plan, and the internal dimensions are different. The overall footprint shape is mostly maintained, but there are notable discrepancies in internal wall positions."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Roof is mostly removed, but portions of what appear to be ceiling/roof fragments are visible at the edges of the structure. Bedroom-2's balcony is completely missing. Significant text labels and dimensions are present in the render (E5-CRIT). Hallucinated wall in the 'Deck' area. Balcony 2 is missing, Balcony 1 exists but dimensions are off. The lobby area and associated rooms ('Home Office / Maid's Room', 'Toilet-4') are significantly rearranged."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present, although their placement often deviates from the 2D plan, especially in the living/dining area, and Bedroom-3. Kitchen countertop layout is different. Bathroom fixtures are generally present but their arrangement in Toilet-3 and Toilet-4 is highly inaccurate due to room layout changes. Furniture in Bedroom-2 is placed on the wrong wall. Balcony furniture is missing."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The render uses textures for floors and some furniture, and includes more realistic materials and lighting than specified, indicating a move beyond flat shaded, solid color geometry. Some elements appear low-poly, but the overall presentation is not 'flat shaded surfaces (no smooth shading)' or 'no textures (solid flat colors only)'. The view is generally isometric, but the specific 45-degree rotation isn't perfectly met, and the framing is a bit tight with some minor cropping."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels and dimensions are extensively present throughout the rendered model.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering detected. Textures are visible on floors, walls, and some furniture. Materials appear to have reflections and specific material properties, not just flat solid colors. This violates 'Flat shaded surfaces', 'No textures', and 'Photorealistic materials = 0/10' rules.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Hallucinated wall in the 'Deck' area, effectively closing off much of the living space from the deck. Missing balcony for Bedroom-2.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned. Kitchen entry and layout significantly altered, Toilet-3 & Toilet-4 layout and adjacent walls to 'Home Office / Maid's Room' are reconfigured. The 'Lobby' area from the 2D plan is completely changed.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Balcony furniture missing. Some furniture pieces, like the dining table and sofas, are present but their precise placement and orientation deviate from the plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Small fragments of ceiling/roof are visible along the upper edges of the model.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not consistently accurate or clearly depicted for all doors. Balcony sizes are not proportional to the plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window positions and sizes are not always accurate (e.g., Bedroom-1 window is significantly shorter than in the plan).",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 50,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render deviates significantly from the 2D floor plan in geometric accuracy and fails several strict aesthetic and technical criteria due to the presence of text, textures, and material properties, resulting in a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion verification checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Walls have appropriate height and thickness. Floors are distinct. Interior volume is clearly perceivable. Proper 3D wall corner geometry is evident. Viewing angle is isometric and provides good visibility of the interior. The roof has been cleanly removed to expose all interior spaces, with no broken geometry."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "All rooms are present with correct adjacency. Room proportions are well-preserved. Major wall positions align perfectly with the 2D plan. Wall lengths are proportional. Internal partitions are correctly placed. Doors are present and on the correct walls. Windows are also present and on correct walls, and openings are proportionally sized and oriented, with the exception of slightly simplified balcony railings."
+        },
+        "interior_elements": {
+            "score": 15,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables), kitchen elements, and bathroom fixtures are all present and align well with their 2D counterparts. Furniture is placed in the correct rooms, scales reasonably relative to the room, and orientations are logical relative to the layout."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable and not visually confusing. The interior is clearly visible with good lighting that does not obscure geometry. Consistent material usage helps aesthetic coherence, and there are no major rendering artifacts or broken meshes. However, text labels are present in the 3D render, reducing presentation points."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MIN",
+            "description": "Text labels from the 2D plan are present in the 3D render, detracting from clean presentation."
+        }
+    ],
+    "total_score": 96,
+    "verdict": "EXCELLENT",
+    "summary": "The 2D to 3D conversion is excellent, demonstrating highly faithful geometric transformation and accurate representation of the floor plan, with only minor aesthetic issues related to text labels.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan16.avif"
+}

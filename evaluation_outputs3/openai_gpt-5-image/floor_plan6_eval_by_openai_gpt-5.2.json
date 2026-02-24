@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have visible height/thickness, multiple faces per wall are visible, interior volume reads clearly, and the camera is at an elevated angled/isometric-like viewpoint with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion of walls with clean corners and readable room volumes; cutaway is clean. Minor simplification/abstraction in some wall-top/cap detailing but overall solid."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall room adjacency matches (open kitchen/living left, bedroom upper area, bathroom core-right, stairs along right). However kitchen geometry differs (2D shows L-shape + island/sink; 3D shows a single run). Openings/windows do not fully match the 2D plan (notably bottom-wall window sequence appears missing/altered). Some doorway detailing (bath/inner doors) appears simplified/possibly missing."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major elements present: bed in bedroom, sofa + dining table/chairs in living, kitchen appliances/cabinets, bathroom tub/toilet/sink. Missing/changed island/peninsula from the 2D plan and some storage/closet elements are simplified."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Geometry is clear and readable with consistent materials and good visibility. No text/UI clutter. Minor ambiguity in a few opening locations due to viewpoint and simplification."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Kitchen layout deviates from 2D plan (L-shape + island/sink in plan vs simplified straight run in 3D)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Window/door opening placement and counts do not fully match the 2D plan (notably bottom-wall windows and some interior door detailing)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Plan-indicated kitchen island/central counter is missing; some built-in/closet features appear simplified."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A valid 3D cutaway conversion with strong volumetric fidelity, but with noticeable deviations in kitchen geometry and partial mismatch/simplification of openings versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan6.jpg"
+}

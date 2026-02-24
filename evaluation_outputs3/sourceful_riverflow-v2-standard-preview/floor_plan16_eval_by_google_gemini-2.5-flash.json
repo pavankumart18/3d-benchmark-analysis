@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows vertical walls with thickness, establishing a perceptible interior volume from an angled view, with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have clear height and thickness. Floors are distinct. Interior volume is perceivable. Wall corner geometry is good. Viewing angle is isometric. Interior is visible from an elevated perspective. Minimal perspective distortion. Roof is removed cleanly, and interior spaces are fully visible. Clean geometry without broken sections. All criteria met."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency relationships are correct. Room proportions are largely preserved; however, the utility room and part of the kitchen seem slightly condensed compared to the 2D plan, making a minor proportional difference. Major wall positions align well, and wall lengths are proportional. Internal partitions are correctly placed. Doors are present and on correct walls. Windows are also present and on correct walls. Openings are proportionally sized and oriented."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Most major furniture items (beds, sofas, tables) are present. Kitchen elements are present and recognizable (sink, stove, fridge). Bathroom fixtures are present. Furniture is placed in the correct rooms. Furniture scale is reasonable relative to the room, although the dining table feels slightly large for the space. Orientation is logical."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable and not visually confusing. Interior is clearly visible with good lighting. Lighting does not obscure geometry. Consistent material usage. No major rendering artifacts or broken meshes. Clean background and presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The utility room and portions of the kitchen appear slightly compressed in the 3D render compared to the 2D plan, indicating some proportional distortion."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "The dining table in the 3D render appears slightly oversized for the 'Living & Dining' area compared to its representation in the 2D plan."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "This is an excellent 3D conversion, accurately transforming the 2D floor plan into a detailed isometric cutaway with only minor proportional and scaling inconsistencies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan16.avif"
+}

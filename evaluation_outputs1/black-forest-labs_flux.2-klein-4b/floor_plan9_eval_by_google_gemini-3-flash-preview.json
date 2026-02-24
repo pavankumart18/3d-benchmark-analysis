@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe layout deviation. The 3D render represents a small, square apartment footprint that does not match the complex L-shaped footprint of the floor plan. The central living room and kitchen connection is lost, and room adjacencies are incorrect."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Large sections of the plan are missing, including the 2-car garage, study, and dining room. The model is floating on a neutral background, but the perimeter walls are irregular and 'broken' rather than following the architectural blueprint."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is placed in a blocky style, but it does not map to the specific fixtures in the plan. Kitchen counters, tubs, and specific bathroom fixtures are largely ignored or replaced with generic sofas."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render achieves the targeted aesthetic: low-poly, flat shading, isometric perspective, and no textures. It follows the stylistic prompt well despite structural failures."
+    },
+    "total_score": 48,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing major structural elements including Garage, Study, Dining Room, and Master Bath layout."
+        },
+        {
+            "code": "E2",
+            "description": "Significant layout distortion; the L-shaped footprint has been simplified into a square."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated wall partitions and room groupings that do not exist in the 2D source."
+        },
+        {
+            "code": "E6",
+            "description": "While low-poly, the 'jagged' wall tops suggest broken geometry rather than a clean architectural cutaway."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan9.png"
+}

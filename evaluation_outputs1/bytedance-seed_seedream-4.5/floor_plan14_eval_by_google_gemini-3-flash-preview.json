@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "The overall footprint and adjacency are well preserved. However, the outer walls have significant protrusions and exterior window frames (especially near Bed-2 and Bed-1) that do not exist in the 2D plan. Door swing directions are mostly accurate, but the entrance foyer scale is slightly elongated."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Major violation regarding text labels; the AI hallucinated/preserved large text labels and measurement lines directly on the floor. An unrequested exterior deck was added bottom-left. The floating model requirement and roof removal are correctly handled."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent block-style furniture mapping. Most fixtures (sofas, rug orientation, kitchen sink/stove) are exactly where they should be at the correct scale."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "The render fails the style constraint by used photorealistic textures (wood grain on floors, marble counters, foliage details) and dramatic warm interior lighting/shadows instead of flat shading. The camera angle is successfully isometric."
+    },
+    "total_score": 70,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Critical failure to remove text labels and measurement lines from the floor plan in the 3D render."
+        },
+        {
+            "code": "E6",
+            "description": "Style violation: used realistic textures and dramatic interior lighting/glow instead of low-poly flat shading."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated structural element: An extra wooden deck was added to the exterior of Bed-2/C.TOI wing."
+        },
+        {
+            "code": "E2",
+            "description": "Exterior wall distortions; the rendered model adds thickness and 'bump-outs' to exterior walls not shown in the source plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan14.webp"
+}

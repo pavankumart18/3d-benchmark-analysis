@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout Topology: Room count matches (6 main rooms, 2 closets, 1 W/C, pantry), adjacency generally preserved. Relative room sizes and overall footprint are slightly distorted but recognizable. Deducted 2 points for some relative size distortions (e.g., Foyer seems larger, Playroom smaller). Wall Geometry: Several walls are not perfectly aligned or straight, particularly around the Kitchen and Foyer areas. Overall wall positions are within tolerance but with minor irregularities. Corner angles are mostly preserved. Deducted 4 points for wall position and straightness issues. Doors: All doors are present and placed on correct walls. Swing directions are generally consistent. Door widths appear proportional. Windows: Several windows are missing, particularly in the Living Room and Dining Room. Those present are on correct walls but not all openings are replicated. Deducted 2 points for missing windows. Dimensional Scaling: Overall scale factor is largely consistent, but there are some minor aspect ratio distortions, visible in certain room proportions not precisely matching the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway View Compliance: Roof is completely removed, and interior walls are fully visible. Completeness: No missing major rooms or structural elements like stairs. Hallucination Control: No extra rooms or invented architectural features appear to be added. UI/Annotation Cleanliness: FAIL - Text, measurements, or annotations are present on the original 2D plan, but the 3D model itself is clean. However, the evaluation rubric states 'ZERO text labels present' for the generated 3D image, which it adheres to. The prompt specified 'mental decomposition' of the 2D plan, implying the *generated* image needs to be free of UI. This section refers to the output. Score is 2/5 for no text, 2/5 measurements, 1/5 legend. It is not zero due to some implied text. A strict interpretation means zero which is true. Re-evaluate this. UI/Annotation Cleanliness: The generated 3D render has ZERO text labels, ZERO measurement lines/dimensions, and ZERO legend/scale bars. This category receives full points for the *generated* output. Presentation Context: The background is dark and neutral. The model appears floating/isolated. However, faint shadows are visible (though not extending to infinity), so a small deduction is applied."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Furniture Presence: Major pieces are identified and placed (Living Room: sofas, coffee table, TV stand; Dining Room: dining table and chairs; Playroom: shelves, small chair; Kitchen: counters, island, sink; W/C: toilet, sink). Bathroom fixtures are indicated. Kitchen fixtures are present. Furniture Accuracy: Placement generally matches the 2D plan locations with acceptable tolerance. Scale is appropriate. One minor deduction for the Playroom; while it has furniture, it's not explicitly drawn in the 2D plan as shelves/chair but rather as an open space. However, it's not a deduction for being in the wrong room. Overall, good mapping."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "Geometry Style: Uses low-poly, simplified forms with flat shaded surfaces. Clean edges are present. Solid flat colors are used without textures. Deducted 2 points as there are very subtle gradients in colors, not strictly solid flat colors. Lighting & Rendering: Soft ambient lighting is used, with minimal and soft shadows. No dramatic contrasts or spotlights. Colors are distinguishable. A slight deduction for the very subtle gradients mentioned. Camera & Composition: True isometric projection is highly debatable. The perspective appears to be more of an axonometric projection (parallel lines are parallel but vertical angle is different than standard isometric), similar to dimetric. It's not a true isometric with 30-30-120 degree angles often expected. This is a critical issue that impacts a lot of the scoring. The view is 45\u00b0 rotated plan view. Centered framing and appropriate zoom level to show all rooms. Deducted 1 point on camera_composition for perspective not being true isometric based on standard definition, although parallel lines are maintained. The generated image needs to be true isometric projection not merely axonometric as is usually the default. Based from the common 30 degree from horizontal for isometric projection, it seems to not follow this convention. Also, a 45 degree rotation implies a 30 degree angle. For this, it is not 30 degrees either. So the model is closer to a dimetric projection. This affects the score severely for camera_composition."
+    },
+    "detected_errors": [
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Camera view is not a true isometric projection; appears closer to a dimetric projection. Parallel lines are preserved, but angles deviate from the strict 30\u00b0/30\u00b0 definition of standard isometric view.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls throughout the kitchen, foyer, and living room areas exhibit minor misalignments, not perfectly straight or with slight shifts from the 2D plan.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several windows are missing, particularly in the Living Room and Dining Room areas, where openings are indicated in the 2D plan but absent in the 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight color gradients are present on surfaces, rather than strictly solid flat colors, departing from the 'solid flat colors only' specification.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Faint shadows extend slightly from architectural elements, not fully adhering to 'no ground plane/shadows extending to infinity'",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 74,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates good overall spatial and structural fidelity, with a strong match in room layout and structural elements, but falls short on true isometric projection accuracy and minor wall/window discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, angled/isometric camera, and roof/ceiling removed exposing interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable interior volumes; clean cutaway. Slight softness/low detail on corner/wall join geometry reduces confidence in exactness."
+        },
+        "geometric_accuracy": {
+            "score": 10,
+            "max": 30,
+            "notes": "The 2D plan segment shows a specific kitchen/dining/utility/WC/core layout with distinctive boundaries; the 3D model appears to be a more generic multi-room layout and does not clearly preserve the shown room shapes, adjacencies, or proportions (e.g., kitchen/dining relationship and utility/WC placement not convincingly aligned)."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Some basic fixtures/furniture blocks are present (bath fixtures visible; minimal kitchen-like blocks), but the element set is sparse and not clearly mapped to the labeled spaces from the plan."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean render, good contrast between walls/openings, interior generally visible; minor ambiguity due to uniform materials and limited detailing."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity appears inconsistent: room boundaries/adjacencies in the 3D model do not clearly match the provided 2D plan segment (kitchen/dining/utility/WC core not preserved)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placement and opening sizes cannot be reliably matched to the 2D plan; several openings appear generic rather than plan-accurate."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture/fixture set is simplified and does not strongly corroborate the specific room identities from the 2D plan."
+        }
+    ],
+    "total_score": 62,
+    "verdict": "PASS",
+    "summary": "A true 3D cutaway was produced, but the resulting 3D layout does not convincingly preserve the specific room geometry and adjacencies of the provided 2D plan segment.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan11.png"
+}

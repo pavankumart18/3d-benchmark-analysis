@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe inversion of the floor plan; the layout appears mirrored or incorrectly rotated relative to the entrance. The 'Bedroom-1' label in the 3D render occupies the Master Bedroom's spatial position. Door swings and window alignments are inconsistent with the technical drawing."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the roof is removed and the model floats on a dark background, there are significant text labels ('BEDROOM-1', 'KITCHEN', 'TOILET', '1.05 8TT') baked into the floor/walls, violating structural constraints."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic block furniture is present, but placement is illogical due to the broken spatial layout. A toilet is placed directly in the kitchen area, which is a significant mapping error."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model utilizes low-poly geometry and flat colors. However, the camera angle is perspectives-heavy rather than strictly orthographic, and the lighting lacks the requested soft ambient flatness."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Presence of multiple text labels ('KITCHEN', 'TOILET', etc.) on the 3D model surfaces."
+        },
+        {
+            "code": "E2",
+            "description": "Layout is mirrored or improperly oriented; toilet fixture hallucinated/misplaced inside the kitchen zone."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific balcony details and utility area partitions as defined in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Model contains textures/gradients on windows and floor that deviate from the strict 'no texture' requirement."
+        },
+        {
+            "code": "E3",
+            "description": "Camera is utilizing a perspective projection instead of a true isometric orthographic projection."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan15.webp"
+}

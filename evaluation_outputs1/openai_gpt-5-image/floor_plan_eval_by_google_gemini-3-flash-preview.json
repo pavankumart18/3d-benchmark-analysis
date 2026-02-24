@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major layout distortions: Rachel's room and the kitchen/dining area have swapped orientations. Bedroom proportions are incorrect (left bedroom is too wide). Door placements for the bathrooms and closets have been misinterpreted or merged. The hallway corridor geometry does not match the 2D zig-zag pattern."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Missing the 'Coat' entry closet and the 'Closet' balcony area. The central core bathroom layout is overly simplified. However, it successfully maintains a floating model on a dark background with no text or measurement lines."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture count is significantly reduced. The living room is missing two secondary sofas and the dining table only has 2 chairs instead of 6. Bed placement in the right bedroom is rotated 90 degrees compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints: low-poly geometry, flat shading, no textures, and a correct isometric orthographic camera angle."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing entry coat closet, balcony closet, and secondary living room seating."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced kitchen appliances and rotated bedroom furniture."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated wall segments in the hallway; structural reinterpretation of the central bathroom area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan.jpg"
+}

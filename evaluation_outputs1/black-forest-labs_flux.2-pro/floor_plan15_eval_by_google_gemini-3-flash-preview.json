@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortion. The entrance foyer and kitchen area are mirrored or significantly rearranged compared to the plan. The long horizontal passage in the plan is broken in the render. Door swings are inconsistent and many windows are substituted with solid walls."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "No text/UI visible and the floating model on a dark background is correct. However, multiple rooms are misinterpreted; for example, the toilet adjacencies differ from the source plan, and the 'Utility' area behind the kitchen is significantly modified."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture style is appropriate, but placement is hallucinatory. The living room seating is completely differently oriented, and additional sofas and tables appear in areas that were intended as bedrooms or circulation space."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints: low-poly, clay-like flat shading, isometric orthographic camera, and neutral lighting. Lost few points for excessive detail in some furniture pieces compared to 'clean block' requirement."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Major layout distortion in the kitchen/utility area and central passage."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated furniture and secondary seating areas not present in the 2D floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific door orientations and window placements as designated in the architectural technical drawing."
+        },
+        {
+            "code": "E2",
+            "description": "Proportions of the master bedroom and attached balcony are distorted relative to the living area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan15.webp"
+}

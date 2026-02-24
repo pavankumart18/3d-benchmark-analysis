@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Interior volume is clear. Viewing angle is well-chosen and isometric. Proper 3D wall corners. However, some wall sections in the 3D model (e.g., separating the two bedrooms on the left, or the closet area from the hallway closet) appear to have merged or changed, indicating minor issues with clean geometry during cutaway."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "The overall room configuration and adjacency are largely correct with some notable discrepancies. The two bedrooms on the left side have been combined into one larger room in 3D. The closet on the far left side of the 2D plan is missing in 3D. The closet next to the bathroom in the 2D plan is also missing. Wall positions are mostly aligned, but the length of the wall between the living room and the combined bedroom is shorter in 3D. Most doors are present and correctly placed, but the door for the combined left bedroom is missing, and a door has been added for the bathroom that wasn't explicitly shown as a swing door in the 2D plan (although an opening was implied). Windows were not prominently featured in the 2D plan but are present in the 3D model, adding realism but not directly verifiable. The layout fidelity is good but has significant alterations in room count and wall geometry."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) is present and mostly corresponds to the 2D plan. Kitchen elements and bathroom fixtures are also present. Furniture placement is generally in the correct rooms, and their scale is reasonable. However, due to the combination of the two left bedrooms into one, the furniture arrangement within that space deviates from the original plan. The 'office' area furniture is well represented, and the living room and dining room furniture are accurate."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is excellent; walls, floors, and openings are clearly distinguishable. The geometry is readable, and there are no confusing elements. Lighting is good, ensuring the interior is clearly visible without obscuring geometry. Aesthetic coherence is high with consistent material usage (wood floors, white walls, brown furniture accents). There are no major rendering artifacts or broken meshes. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Two adjacent bedrooms in the 2D floor plan have been combined into a single, larger bedroom in the 3D render, reducing the total room count and altering fundamental layout."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The closet on the far left bedroom corner and the closet next to the bathroom entry are completely missing in the 3D render."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "The door for the combined left bedroom is missing in the 3D render. A door was added for the bathroom entrance that was an open archway in the original 2D plan."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transformed the 2D plan into an appealing isometric cutaway; however, it exhibits critical errors in geometric fidelity by merging rooms and omitting significant structural elements, despite good visual clarity and fundamental 3D representation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan2.png"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric-style model with visible wall height/thickness, floor plane separation, and exposed interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Convincing 3D massing with correct wall corner geometry, clear floor/wall separation, angled elevated view, and clean roof cutaway; minor simplification of some wall tops/openings."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall layout matches (living/dining left, kitchen core, two bedrooms right, bath+WC central, separate garage). Balcony/patio condition is not clearly modeled and some opening placements (windows/doors) appear simplified relative to the plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Living furniture, dining table, kitchen counters, bedroom bed, and bath/WC fixtures are present and generally placed in correct rooms. Bedroom 2 appears largely unfurnished (acceptable but reduces completeness)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean, readable geometry and uncluttered background; lighting is sufficient. Some openings lack detail, slightly reducing readability of door/window fidelity."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Balcony shown on the 2D plan is not clearly represented as a balcony space in the 3D model (appears as windows/opening without an explicit balcony platform/edge)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window positions and sizes appear simplified; not all openings from the 2D plan are clearly matched in the 3D render."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Second bedroom lacks major furniture, reducing room identity verification."
+        }
+    ],
+    "total_score": 82,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout fidelity, but with simplified/unclear balcony and some door/window mismatches.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan13.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout discrepancies. The stairwell/crawlspace access area from the plan is missing, replaced by a generic hallway/room. The bay window (window seat) on the right side of the dining room in the plan is rendered as a flat wall with standard windows. Door placements and room types (e.g., WC, Utility) are significantly altered or simplified."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model successfully removes the roof and uses a dark neutral background without UI text. However, it fails on structural reinterpretation by omitting the complex stairs and specific utility room geometry seen in the 2D blueprint."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is clean and block-style. Dining table and kitchen fixtures correspond roughly to the intended zones, but sink and stove orientation in the kitchen contradicts the L-shape/Pantry layout indicated on the plan."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints. Low-poly geometry, flat shading, isometric orthographic camera, and professional neutral presentation. Small deduction for a slight perspective distortion in the far-left corner."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific architectural features: Stairwell, Window Seat (bay window), and specific pantry/utility partitions."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion in the central hall area; the 3D model simplifies a complex geometric core into simple rectangular rooms."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination of windows on the front and left walls that do not match the specific openings or alcoves in the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan11.png"
+}

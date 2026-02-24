@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 27,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 6,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is mostly preserved, but the 'Activity' area entrance wall in the 3D render doesn't match the 2D plan, creating an enclosed space instead of open. The recess area wall is also altered. Wall geometry has minor discrepancies in several areas (e.g., recess wall, activity north wall). Doors are present and mostly correctly placed, but the door for BED 3 has a different swing direction and the BED 4 door is a sliding door in 2D but a hinged door in 3D. Windows are accurately placed. Dimensional scaling is inconsistent, with some areas appearing slightly compressed or expanded, for example, the activity area, and the balcony. The WC and Bath seem to be slightly larger in 3D relative to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The roof is completely removed, and interior walls are fully visible. No structural elements are missing, and no extra rooms or architectural features were added. However, the UI/Annotation Cleanliness score is 0 due to the presence of text labels (WC, 30c CL for Bath, Bed 3, Bed 4, Bed 2, A/C, Robe, Linen). The presentation context is also not fully met; it has a dark neutral background, but there's a visible ground plane with soft shadows, not floating/isolated."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables) are present. Kitchen fixtures are not applicable here. Bathroom fixtures are indicated and present. However, the placement of the furniture is not entirely accurate. In the 'Activity' area, the sofa is differently arranged. In 'BED 2' and 'BED 3', the bed orientation and side tables are incorrect or missing. The balcony has a bed instead of chairs and a table. The beds in BED 3 and BED 4 are also missing a side table/ottoman shown in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is not low-poly or flat-shaded; the surfaces have some form of smooth shading, and there are textures present on walls, floors, and furniture. This results in a low score. The lighting is soft ambient but with noticeable, albeit subtle, shadows and some color variation in lighting (e.g., on the steps). The camera composition is good: true isometric projection, correct rotation, centered, and fully zoomed. However, the textures and smooth shading significantly reduce the score here."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Activity area entrance wall does not match 2D plan; Recess area wall geometry is different.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "BED 3 door swing direction is incorrect. BED 4 door changed from sliding to hinged.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels are present (WC, 30c CL for Bath, Bed 3, Bed 4, Bed 2, A/C, Robe, Linen).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Textures and smooth shading are present on walls, floors, and furniture.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Balcony furnished with a bed instead of outdoor seating. Sofa arrangement in Activity area differs. Missing/incorrect side tables in bedrooms.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane and extended shadows are present, model is not floating/isolated.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 59,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical adherence violations in UI cleanliness and geometry style (textures and smooth shading), along with several spatial accuracy and furniture mapping discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan12.png"
+}

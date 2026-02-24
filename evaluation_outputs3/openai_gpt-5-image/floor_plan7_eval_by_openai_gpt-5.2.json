@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric cutaway: walls extruded with thickness, multiple faces visible, and ceiling/roof removed to expose interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable wall corners and interior volume; cutaway is clean. Minor simplification of some corner/trim geometry."
+        },
+        "geometric_accuracy": {
+            "score": 23,
+            "max": 30,
+            "notes": "Overall room layout matches (dining top-left, kitchen top, living right, bedroom left, bath core, stair zone bottom-right). Some mismatches in the entrance/stair-side enclosure and a few partition/door placements appear shifted or simplified versus the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present and placed plausibly: bed in bedroom, dining set in dining, sofa/armchair/table in living, basic kitchen counters, toilet and sink. Wash-area details are simplified."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clear separation of walls/floors/openings with good lighting; no obvious mesh breaks. Presentation is clean and uncluttered."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Entrance/stair-side geometry and some internal partition extents do not perfectly align with the 2D plan (likely simplified or slightly repositioned)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Some doors/windows appear different in exact wall location/orientation compared to the 2D plan, though openings are generally present."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "low",
+            "description": "Bathroom/wash-area fixture set is simplified relative to the 2D plan's wash area + toilet separation."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A clear, valid 3D cutaway conversion with strong volumetric construction and a largely faithful layout, but with minor-to-moderate deviations in some partitions and opening placements.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan7.jpg"
+}

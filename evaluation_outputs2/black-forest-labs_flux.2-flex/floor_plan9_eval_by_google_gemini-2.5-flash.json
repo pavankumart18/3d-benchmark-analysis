@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 3,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is somewhat recognizable but many rooms are distorted. Nook is missing. Covered Patio to the left of the Nook is completely missing. Dining room, Study, and its Covered Patio are either heavily distorted or entirely missing their original footprint. Hallway walls are inaccurate, leading to an incorrect central area. Doors and windows are mostly present but their placements often deviate significantly from the plan. Window sizes are inconsistent and often too small."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "The roof is removed and interior walls are mainly visible, although some walls appear too low, revealing the outter shell. Many rooms and structural elements are significantly distorted or entirely missing (Nook, left Covered Patio, Dining, Study). There are no text labels, measurement lines, or legend/scale bars, but there is some texture on the walls and floors, which violates the UI cleanliness rule. Background is dark and neutral, and the model is somewhat isolated. Some shadows extend to infinity."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Furniture is present in most rooms, but the 'Nook' area and the 'Dining Room' area from the 2D plan are not depicted correctly in the 3D model, leading to missing furniture in those areas. Bathroom fixtures are mostly present but shower/tub is often simplified. Kitchen fixtures are present but not accurately mapped from the 2D plan. The scale of furniture is generally appropriate, but placement is often incorrect due to room distortion. Couch in Living Room is not matching 2D. Kitchen island is different. No table in Dining Room area."
+    },
+    "aesthetic_quality": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 3,
+            "camera_composition": 2
+        },
+        "notes": "The model uses smooth shading/subdivision and features textures on floors and walls, which violates the low-poly, flat-shaded, solid-color specifications. This results in 0 points for geometry style. Lighting is soft, but shadows are quite distinct. Colors are distinguishable. The view is a generic isometric-like angle, but not a precise 45\u00b0 rotated plan view. Framing is centered and zoom is appropriate, but the view is not truly isometric, with some perspective distortion detectable in the wall edges."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Nook room is entirely missing or completely merged and unrecognizable. Covered Patio (bottom left) is entirely missing. Dining Room and Study are heavily distorted leading to missing original footprint/layout.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering properties, with textures on floors and walls, smooth shading, which is a critical violation of geometric style requirements.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls severely misaligned or geometrically incorrect, particularly in the central hallway, Kitchen, Dining Room, and Study areas. The overall footprint is not maintained.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural features, e.g., the area where Dining Room and Study should be is completely reconfigured; the Nook is merged.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MINOR",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door and window placements are often off by more than 15% in multiple rooms; some door swing directions are incorrect.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 38,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "This render fails due to low spatial accuracy, critical violations in geometric style, and significant omissions/distortions of architectural features.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan9.png"
+}

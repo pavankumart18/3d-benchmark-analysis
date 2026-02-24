@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "Plan layout and wall alignment are generally preserved. However, the door swing for the toilet is inverted, and the entry foyer door into the living room is missing its wall segment, creating an open-plan error. Window placement in the bedroom is slightly shifted."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No text or UI elements present. Model is correctly floating on a dark background with roof removed. Minor hallucination of a secondary shelf/element in the balcony area."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate to the original plan, including the kitchen sink and stove placement. Bed orientation is correct. The dining table shape is slightly distorted but functional."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Successfully achieves the low-poly style with flat colors. Lighting is soft, though shadows are slightly more pronounced than specified (borderline dramatic). Isometric angle is well-executed."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Toilet door swing orientation is incorrect (opens outward instead of inward)."
+        },
+        {
+            "code": "E1",
+            "description": "Wall segment separating foyer and living area is missing."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated yellow furniture/counter element in the balcony area not shown in plan."
+        },
+        {
+            "code": "E6",
+            "description": "Shadows are somewhat sharp/dark, slightly deviating from requested flat-shading softness."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan18.jpg"
+}

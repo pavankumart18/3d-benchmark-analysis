@@ -1,0 +1,75 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "Layout topology is highly inaccurate. The rendered 3D model appears to show a completely different floor plan than the 2D reference. Room count and adjacencies do not match at all. The 2D plan indicates a Central Hall, WC, Utility Room, Kitchen, Dining Room, and Alcove on the shown section. The 3D render, however, shows what looks like a bedroom, living area, and potentially a bathroom, none of which align with the 2D plan. Wall geometry is fair for the walls that exist, but too many discrepancies to score high. Doors are present in the 3D model, but their count and placement do not match the 2D plan. Windows are present, but their locations and sizes are inconsistent with the 2D plan. Overall, the structural information is entirely different from the provided 2D plan. Scoring is based on the general presence of elements, not their accuracy against the 2D plan, as the plans are fundamentally different."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is correctly implemented, with the roof removed and interior walls visible. Completeness is difficult to assess as the model does not correspond to the plan; however, assuming the 3D model represents *a* complete structure, it appears so, but it's not complete *relative to the 2D plan*. Hallucination control is poor, as the entire rendered model is a hallucination relative to the provided 2D floor plan. UI cleanliness is excellent, with no text, labels, or measurement lines. Presentation context is weak; while the background is dark, there's no clear floating/isolated aesthetic, and shadows suggest a ground plane."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "The 2D plan shows kitchen appliances (sink, stove, refrigerator) and a window seat, implicitly a dining area, and labels for a central hall and utility room which would imply certain functional furniture, but no specific furniture is drawn. The 3D model contains beds, sofas, and other furniture, none of which can be mapped back to the provided 2D plan due to the fundamental mismatch in layout and room type."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style meets the low-poly, flat-shaded, no-texture criteria well. Lighting is ambient but leans slightly towards having some directional light and soft shadows, which deviates slightly from 'minimal shadows' and 'no dramatic contrasts'. Colors are distinguishable. The camera appears to be an isometric projection, with 45\u00b0 rotation and good centered framing and zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "The entire 3D model represents a completely different floor plan than the provided 2D blueprint. No rooms, adjacencies, or overall layout from the 2D plan are recognizable in the 3D render.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The 3D model is essentially a hallucinated structure compared to the 2D plan. Every room and structural feature is invented relative to the input.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Due to the complete mismatch of floor plans, none of the furniture or fixtures in the 3D model can be mapped or verified against the 2D plan's implied or explicit elements.",
+            "point_deduction": 10
+        }
+    ],
+    "total_score": 40,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "This render is an instant fail due to a critical mismatch: the 3D output represents an entirely different floor plan than the provided 2D reference, making most validation categories impossible to score positively on accuracy.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan11.png"
+}

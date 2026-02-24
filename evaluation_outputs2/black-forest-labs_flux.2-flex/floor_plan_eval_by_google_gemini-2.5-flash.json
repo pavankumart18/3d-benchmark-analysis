@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "Living room/dining room footprint is distorted, making the overall shape less accurate. Wall positions have some inaccuracies, particularly around the kitchen and the bathroom near Monica's bedroom. Some internal wall sections are missing or heavily modified (e.g., in the hallway leading to the living room). One door is missing (secondary entrance to kitchen from living/dining area). Numerous windows are missing, particularly the large window bank in the living room."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 2,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view is mostly compliant, but some window elements in the living room appear to have a partial ceiling above them. The render introduces significant changes to the kitchen layout, adding a large island. It also introduces a decorative element/partial wall in the hallway. UI/Annotation cleanliness is completely violated due to the user prompt containing a header text on top of the original 2D image."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present, but their placement often slightly deviates from the plan. The kitchen layout is significantly altered with a large island added, displacing the dining table. Bathroom fixtures are present but slightly different from the plan (e.g., bath sink and toilet configuration). The 'closet' room furniture is completely different (drawers vs. shelves)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style uses simplified forms and solid colors, but there is some smooth shading visible, particularly on furniture. Lighting is acceptable ambient. Camera is isometric and composition is good."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "UI/Annotation Cleanliness violated: Text and dimensions present in the original 2D image metadata (top and bottom of the image).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint shape is distorted, particularly the living/dining area which is wider and squarer than the plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls misaligned; kitchen entrance hallway wall is significantly altered, bedroom walls show minor misalignments.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural features: A large kitchen island and a decorative half-wall in the main hallway were added.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One door missing from kitchen (secondary entrance), also missing windows in Rachel's room.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture in 'closet' room is different, kitchen and bathroom fixtures show variations.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 53,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant spatial inaccuracies, hallucinated structural elements, missing openings, and a critical violation of UI cleanliness caused by text on the source image.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan.jpg"
+}

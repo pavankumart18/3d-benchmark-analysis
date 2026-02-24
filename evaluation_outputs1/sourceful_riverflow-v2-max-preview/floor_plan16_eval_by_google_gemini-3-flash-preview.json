@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General floor plan layout is preserved, but wall thicknesses are inconsistent. Bedroom proportions are slightly elongated compared to the 2D plan. Door/window placements are generally correct."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Major violation regarding text: the 3D model contains 'hallucinated' garbled text labels on the floor surface, which were explicitly forbidden. The floating model and background constraints are met."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement matches the plan well. Sink, stove, bed, and dining set are correctly allocated, though the sofa orientation in the living area is slightly rotated vs the rug placement."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent adherence to low-poly, flat-shaded style with an orthographic isometric camera. No photorealistic textures are present. Lighting is soft and neutral."
+    },
+    "total_score": 73,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Text labels from the 2D plan have been incorrectly projected/hallucinated onto the 3D floor geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Distortion in bedroom and utility room dimensions relative to the living area."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan16.avif"
+}

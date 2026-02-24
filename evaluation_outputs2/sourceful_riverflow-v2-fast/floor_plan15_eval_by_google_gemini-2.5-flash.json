@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout topology is well maintained. All rooms are present, and adjacencies are correct. Room sizes are largely proportional. The overall footprint matches the plan. Wall positions are generally accurate, with some minor discrepancies. All doors are present and correctly placed on walls, with appropriate swing directions. All windows are present and correctly placed. The main issue is a slight aspect ratio distortion, making the rendered model appear slightly elongated compared to the 2D plan, impacting dimensional scaling."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is excellent; the roof is completely removed, and all interior walls are visible. There are no missing structural elements, and no significant hallucinations. However, the model is not presented with a dark neutral background, and it includes a discernible ground plane with shadows, which is a significant deviation from guidelines. Also, there's a visible UI element/shadow artifact near the upper-left corner of the render."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present across all rooms (beds, sofas, dining table, kitchen counters, bathroom fixtures). Their placement generally matches the 2D plan locations. There are a few very minor discrepancies in furniture scale relative to the room, but within acceptable tolerance. The kitchen counters are slightly simplified compared to the plan's detailed rendering."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is low-poly and uses simplified forms with flat shading, which is good. There are no obvious textures and solid flat colors are used. However, the lighting is not soft ambient; there are noticeable directional shadows that are too strong. The camera is mostly isometric, but the framing is slightly off-center and not a perfect 45-degree rotated plan view as per specification, the model is also slightly cropped at the bottom-right."
+    },
+    "detected_errors": [
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Slight aspect ratio distortion, model appears elongated.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "UI element/shadow artifact present in the render (top-left). Also background is not dark neutral, and a ground plane with shadows is visible.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is too strong, resulting in noticeable directional shadows, not soft ambient.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera composition is slightly off-center and not a perfect 45\u00b0 rotated plan view, with slight cropping.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 71,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural completeness from the 2D plan, but significant deviations in presentation context and rendering aesthetics result in reduced scores.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan15.webp"
+}

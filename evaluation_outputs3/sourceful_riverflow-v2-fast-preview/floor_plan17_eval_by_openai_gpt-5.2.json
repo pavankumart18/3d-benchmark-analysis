@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway with wall height/thickness and an angled view; however, the modeled layout is not a faithful transformation of the provided 2D plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Scoring skipped due to automatic rejection: major portions of the 2D plan are not represented in the 3D model."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Scoring skipped due to automatic rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Scoring skipped due to automatic rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Scoring skipped due to automatic rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "More than 50% of rooms/spaces from the 2D plan are missing in the 3D render (e.g., living/dining, kitchen/utility/foyer/servant, multiple bedrooms/toilets, balconies)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Overall layout topology and adjacency relationships do not match the 2D plan; the 3D model appears to be a different simplified floor plan."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is genuinely 3D, it does not represent the provided 2D floor plan and omits the majority of required rooms/spaces.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan17.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but there are scaling issues in the kitchen/utility area. Door placements are largely correct, but window openings are treated as open wall segments in several areas."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model fails the strict 'NO text labels' constraint significantly, as labels are baked into the floor texture. The maid's room has been reinterpreted as a balcony/open space."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent furniture mapping; bed styles and sofa arrangements closely follow the 2D reference with consistent scale."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The render uses textures (marble floors, wood grains) which violates the 'no textures/flat colors' rule. Lighting includes soft shadows, straying from the requested flat shading."
+    },
+    "total_score": 68,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Heavy presence of text labels and measurement lines baked onto the floor plane."
+        },
+        {
+            "code": "E4",
+            "description": "Maid's room transformed into an open 'Balcony' area (hallucination/structural reinterpretation)."
+        },
+        {
+            "code": "E6",
+            "description": "Presence of complex textures (marble, wood) and realistic shadows contrary to the low-poly flat-color requirement."
+        },
+        {
+            "code": "E2",
+            "description": "Proportional distortion in the kitchen island and utility wall alignment."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major structural failure: the 3D render projects a duplicate building structure behind the intended floor plan. Door placement is inconsistent with the layout, and wall thicknesses vary wildly between the foreground 2D-overlay and the 3D-extruded background rooms."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Severe hallucination of a secondary floor level/extension behind the main unit. This structure contains a bathroom and rooms not present in the reference plan. The model is partially floating but suffers from conflicting perspective logic."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Foreground elements follow the 2D sketches well, but elements in the hallucinated 'back' section do not exist in the source material."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While it captures the low-poly aesthetic and dark background, it fails on isometric orthographic correctness due to perspective warping and includes dramatic glow-lighting in windows which deviates from the flat-shading requirement."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated rooms and a secondary apartment structure extending beyond the original floor plan boundaries."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced structural walls and incorrect perspective alignment between the floor plan base and the 3D walls."
+        },
+        {
+            "code": "E6",
+            "description": "Dramatic lighting and glowing interiors violate the flat shading/no dramatic lighting constraint."
+        },
+        {
+            "code": "E3",
+            "description": "Perspective camera used instead of a true isometric orthographic camera, leading to vanishing point distortion."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan2.png"
+}

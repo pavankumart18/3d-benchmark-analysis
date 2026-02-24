@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major layout distortions. The 3D render fails to capture the complex interior geometry of the central hallway, utility room, and kitchen. The stairwell (UP) is entirely missing or misinterpreted as a generic room. Window placements on the bottom and right facades do not match the specific bay window and opening patterns shown in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "While the model is correctly isolated on a neutral background with the roof removed, it fails to represent the actual rooms of the floor plan. The internal wall logic is hallucinated, creating a generic apartment layout rather than following the blueprint's utility and dining room divisions."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "notes": "Missing critical permanent fixtures from the plan including the kitchen counters/sink, the specific WC vanity, and the utility room appliances. Hallucinated beds and generic blocks are placed in areas not corresponding to the blueprint's requirements."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to the visual style. The render is low-poly, utilizes flat shading with soft ambient light, and uses an appropriate isometric orthographic camera angle. No textures or photorealistic elements are present."
+    },
+    "total_score": 52,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific kitchen cabinetry and the central stairwell structural core."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect wall alignment; the dining room and utility room partition does not match the dimensions in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated generic bedroom furniture where the plan indicates a dining area and central hall."
+        },
+        {
+            "code": "E2",
+            "description": "The faceted bay window (window seat) on the right side of the plan is rendered as a flat wall with standard windows."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan11.png"
+}

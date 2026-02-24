@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "Overall layout is recognizable but has significant deviations. Room count is correct but dimensions are distorted. Many walls have inaccurate positions and thicknesses. Doors are mostly present but several placements are off, and swing directions are difficult to discern or incorrect. Windows are generally present but sizes and placements are not precise."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Roof is removed, but some exterior walls extend upward, creating partial roof fragments. No missing structural elements but some wall geometry distortions. No hallucinated rooms or major features. UI/Annotation cleanliness fails due to presence of text from 2D plan and some artifacts from image processing. Presentation context is mostly fine, but the background is not a clean dark neutral and shows some gradients/noise."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present, especially in the living room and bedrooms, and kitchen/bathroom fixtures are identifiable. However, the placement of some kitchen elements (e.g., island, oven) is significantly off compared to the plan. Furniture scale is generally appropriate but some pieces seem oddly proportioned relative to each other within rooms."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 4,
+            "lighting_rendering": 3,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is low-poly simplified forms with flat shaded surfaces, but there's some artifacting that makes it look like it might have undergone some image processing (not clean 3D render). Lighting is somewhat ambient but shadows are very minimal, almost absent, especially within rooms. Colors are distinguishable but very muted. The camera view is not a true isometric projection, showing some perspective distortion."
+    },
+    "detected_errors": [
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not true isometric view; perspective distortion visible (parallel lines converge slightly).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text, measurements, and annotations from the original 2D plan are present as ghosted artifacts.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls severely misaligned or incorrectly thickened (e.g., kitchen walls, walls around bathroom fixtures, shared wall between Monica's bedroom and main bathroom). Overall footprint shape is significantly altered.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Relative room sizes are not consistently proportional. The kitchen and main bathroom appear significantly smaller in the 3D model relative to the living spaces.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Door placement is frequently incorrect, particularly for the bathroom doors and closet doors. Swing directions are unclear or incorrect for many doors.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is too flat, lacking distinct shadows that would aid in depth perception without being dramatic.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The render has a slightly washed-out or fuzzy quality, not as clean or crisp as expected from a pure polygon render.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen island and range placement is significantly different from the 2D plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 55,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render attempts to replicate the 2D floor plan but falls short in critical areas, particularly in geometric accuracy, and fails on fundamental technical requirements like true isometric projection and clean UI.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan.jpg"
+}

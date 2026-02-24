@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows walls with height and thickness, a perceptible interior volume, and is viewed from an angle with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5). Floors are clear (3). Interior volume is perceivable (4). 3D wall corner geometry is mostly correct, but some areas like the bathroom adjacent to the utility room show slight inaccuracies in corner formation (3). Angled view is good (5). Interior visibility from elevated perspective is good (3). Some perspective distortion is present, particularly with the balcony railings which appear a bit stretched (2)."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Correct number of rooms (3). Adjacency relationships are mostly correct (4). Relative room proportions are generally preserved but some rooms, like Bed Room 2 and 3, appear slightly compressed or altered in the 3D model (2). Major wall positions align well (5). Wall lengths are mostly proportional, but there are some discrepancies, particularly in the balcony areas (2). Internal partitions are mostly correctly placed (2). Doors are present on correct walls, but their representation and exact placement can be ambiguous in some areas (3). Windows are present but their visibility and exact placement are inconsistent; some are modeled as simple openings, others have frames (1). Openings are proportionally sized but some orientation details are lost, especially for the balconies (2)."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) are present but simplified geometrically (4). Kitchen elements are partially present but very basic and not all appliances from the 2D plan are identifiable (1). Bathroom fixtures are present but also very simplified and not always complete for each bathroom (1). Furniture is placed in correct rooms (3). Furniture scale seems reasonable (2). Orientation is logical for the most part (2)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable but simplified, which sometimes reduces clarity in complex areas like toilets (3). Interior is clearly visible due to good lighting (3). Lighting does not obscure geometry (3). Consistent material usage with simplified textures (2). No major rendering artifacts (2). Clean background, but text labels are present which deducts points (1)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "E5-STYLE",
+            "description": "Text labels from the 2D plan are visible on the 3D model, cluttering the view and reducing aesthetic coherence."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "E2-MAJ",
+            "description": "Some room proportions, particularly in the bedroom and balcony areas, appear altered from the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "E3-MIN",
+            "description": "Window representation and detailed placement are inconsistent across the model, and some detailed door placements are ambiguous."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "E4-FURN",
+            "description": "Kitchen and bathroom fixtures are significantly simplified and not all elements from the 2D plan are clearly represented in 3D."
+        }
+    ],
+    "total_score": 74,
+    "verdict": "PASS",
+    "summary": "The conversion successfully transforms the 2D floor plan into a perceptible 3D model with good fundamental 3D qualities, though it exhibits some geometric inaccuracies, simplified interior elements, and carries over textual labels from the 2D source.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan17.jpg"
+}

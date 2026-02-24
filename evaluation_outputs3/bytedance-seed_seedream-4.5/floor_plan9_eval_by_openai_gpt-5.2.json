@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height and thickness, multiple faces are visible, interior volume reads as spatial rooms, and the view is an angled/isometric perspective with the roof/ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Strong 3D extrusion with clean corners and readable room volumes; angled camera is appropriate; minor simplification/flatness in some interior wall-top detailing but overall clearly 3D."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Overall layout closely matches the 2D plan: living room, kitchen/nook, dining, study, hall, utility, bedrooms, master suite, baths, garage, and covered patio areas are present with largely correct adjacencies. Some openings (doors/windows) appear simplified and not all placements/sizes can be confirmed as exact."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Kitchen counters/appliances and bathroom fixtures are modeled; some seating appears, but bedrooms are largely unfurnished (missing beds/major bedroom furniture), reducing room-identity confidence."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Geometry is readable with good lighting and clear separation of walls/floors/openings. Text labels on the floor plan within the 3D view reduce presentation cleanliness."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door/window placements and/or opening proportions appear simplified compared to the 2D plan, though overall positions are broadly consistent."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Bedrooms lack key furniture (e.g., beds), and some rooms have minimal furnishings, reducing fidelity of interior element translation."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels are present inside the 3D render, lowering presentation/background cleanliness per rubric."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A clear, true 3D cutaway conversion with strong overall plan fidelity, with minor simplifications in openings and incomplete furniture detailing.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan9.png"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Interior volume is clearly perceivable, but the perspective distortion, especially for the toilet/utility area, is more than minimal. The cutaway in the bathroom area feels a little less clean due to the wall segments."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Room configuration is mostly accurate, though the utility space feels slightly compressed. Major wall positions and partitions align well. Doors are present, but their swing direction is not consistently depicted; windows are present but details are limited."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture, kitchen elements, and bathroom fixtures are all present and placed in correct rooms with reasonable scale and logical orientation. The bed in the bedroom is slightly different from the 2D layout. The dining furniture is a single piece."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Structural clarity is very good, and geometry is readable. Lighting is good and does not obscure geometry. Material usage is consistent. No major rendering artifacts, but the overall aesthetic is a bit stark."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Minor distortion in utility room proportions."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Door swing directions not consistently depicted in 3D. Window detailing is minimal."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Bed model slightly differs; dining furniture is conceptual, not individual chairs and table."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "Minor",
+            "description": "Perspective distortion in the toilet/utility area could be improved for better structural clarity."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The conversion is a good 3D representation, accurately translating the 2D floor plan with good geometric fidelity and perceivable depth, despite minor proportional discrepancies and simple furniture models.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan18.jpg"
+}

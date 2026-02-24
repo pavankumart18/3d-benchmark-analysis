@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent adherence to the complex layout. Room adjacencies and wall alignments are highly accurate. Minor docking on window counts in the dining area and some door swing directions in the master suite."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect structural fidelity. All rooms are accounted for, including the garage and utility areas. No text, measurements, or UI elements present. Model is floating correctly on a dark background."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Block-style furniture mirrors the floor plan functions well. Sofa and bed placements are consistent. Minor hallucination of an extra armchair in the living room and a missing washer/dryer visual in the utility room."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Consistent low-poly aesthetic with flat shading. High adherence to the isometric orthographic view requirement. Lighting is soft and non-dramatic as requested."
+    },
+    "total_score": 92,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Dining room window configuration simplified from separate units to a single span."
+        },
+        {
+            "code": "E2",
+            "description": "Master bathroom toilet placement slightly shifted relative to the shower/tub layout."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucined seating arrangement in the living room not specified in the 2D layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan9.png"
+}

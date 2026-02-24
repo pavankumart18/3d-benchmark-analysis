@@ -1,0 +1,138 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is somewhat preserved. Wall geometry has several discrepancies and misalignments. Missing many doors, and those present are often incorrectly placed. Windows are mostly present but location and sizing are off in some cases. "
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "UI/Annotation Cleanliness is 0 due to the presence of text labels. Roof is generally cut away, but some partial walls/upper structures are present, specifically around the kitchen area and the main living room's window. Several walls are significantly different from the plan, leading to altered rooms and missing closets/features."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces are present but often misplaced or incorrectly sized. Kitchen layout is significantly different. Bathroom fixtures are present but not perfectly aligned to the plan. Many smaller furniture pieces/details are missing."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is mostly low-poly and flat-shaded with solid colors, but the kitchen fixtures show more detail than expected. Lighting is soft, but some shadow contrast is visible. Camera composition is not a true 45-degree rotated plan view, and the model is not perfectly centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the original 2D floor plan are not removed from the 3D render (although this is technically incorrect application of the rule, as it states ZERO text labels in the 3D render, not removal of 2D plan text. The 3D render itself has no text.) Re-evaluating: The 3D render HAS NO TEXT, so this category should not be 0. It is a good example of the 'cutout' feature. The 2D plan, however, is covered in text and dimensions.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Closet' next to the entryway is completely missing and replaced with a half-wall or counter space. The adjacent bathroom is also significantly altered.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Coat Closet' near Rachel's bedroom is missing. The wall next to the bathroom is also significantly misplaced/missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The kitchen layout, including inner walls and fixture placement, is significantly different from the plan. The 'Monica & Rachel's Apartment' entrance area has a different wall configuration.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Many doors are missing (e.g., entryway door, bedroom doors, bathroom doors). Several doors present are in incorrect locations (e.g., Monica's bedroom door, Rachel's bedroom door, common bathroom door).",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "alignment",
+            "description": "The kitchen island/counter is shaped differently than the plan and the door next to it is missing.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Kitchen details (sink, stove knobs) are more detailed than 'low-poly simplified forms'.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The camera angle is not a true 45-degree rotation and appears slightly off-center.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MINOR",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing a dining chair, and the table proportion is slightly off. The TV console/shelf under the window is also significanty different.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MINOR",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "The entry area has a coat rack, but the reference plan indicates a 'closet'. The wall next to it is also different.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MINOR",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The window in the living room is present, but its size (especially height) and frame details are different from the complex structure shown in the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The common bathroom has a strange half-wall or elevated section next to the toilet, not present in the 2D plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 54,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant discrepancies in wall geometry, missing doors and closets, and substantial deviations in furniture placement and room layouts, despite reasonable adherence to general aesthetic and viewing constraints.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan.jpg"
+}

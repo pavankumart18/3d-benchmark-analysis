@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacencies are highly accurate. Minor distortions in the aspect ratio of the main living area make it appear slightly narrower than the plan. Window placement is consistent, but some interior door swings are simplified or omitted."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints: roof removed, no text or UI elements, and model is floating on the correct background. Half-point deduction for minor thickness variations in walls compared to the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Good correspondence with floor plan furniture (sofas, beds, dining table). Kitchen counter layout and the home office desk are accurately placed. Minor scale issues with the dining chairs relative to the table."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While the isometric perspective is mostly correct, the render exhibits soft textures (marble-look floors, fabric on beds) and realistic shadows/lighting which violates the strict 'no textures/no photorealism' and 'flat shading' constraint."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E6",
+            "description": "Render uses complex textures (marble flooring, bed linens) and realistic ray-traced shadows instead of low-poly flat shading."
+        },
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the Living & Dining area width compared to the 2D floor plan dimensions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan20.avif"
+}

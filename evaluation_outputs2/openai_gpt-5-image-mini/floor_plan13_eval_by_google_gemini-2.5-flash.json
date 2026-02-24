@@ -1,0 +1,131 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 6,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Garage is missing a crucial wall. Balcony is entirely missing. Entry linen closet is missing. Laundry room is missing, incorporated into kitchen. Dining room wall geometry is incorrect, the wall separating it from the bathroom and WC is too long. The relative sizes of Bedroom 1 and Bedroom 2 are accurate, but the overall footprint of Bedroom 1 is smaller. Hallway to Bathroom/WC is too narrow. Door to main bedroom is missing. Door from Dining to Entry is inverted. Door to WC is missing. Door to Bathroom is missing. Door to Bedroom 1 is missing. Door to Bedroom 2 has incorrect swing. Window in Kitchen is missing. Window in Bathroom is missing. Window in WC is missing. Window in Bedroom 1 is missing. Window in Bedroom 2 is missing. Window from Laundry is missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 1,
+            "hallucination_control": 2,
+            "ui_cleanliness": 5,
+            "presentation_context": 2
+        },
+        "notes": "Balcony is missing. Laundry room is missing. Entry linen closet is missing. Garage is incomplete (one wall missing). There are no actual windows, instead just a void in the wall where a window would be. There's an extra decorative wall in the Lounge which is not on the floorplan. Missing a wall of the garage. The background is dark, but the model has shadows from external lighting which extend onto the background, indicating a ground plane is present, though it's not well defined visually. The model is centered and isolated."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Missing washing machine. Missing Dryer. The kitchen layout is different (missing L-shape counter, different stove/sink positions, missing fridge). Missing bath, toilet, and basin in the Bathroom. Missing toilet and basin in the WC. Lounge furniture is present, but layout is reversed. Dining table and chairs are present and correctly oriented. Bedroom 1 bed is present and correctly oriented. Bedroom 2 bed is present, but oriented differently. Built-in robe in Bedroom 1 is present, but looks like a standalone wardrobe. Linen cabinet in Entry is missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry uses low-poly simplified forms and flat shaded surfaces. There are no textures, only solid flat colors. Lighting is soft, but shadows are quite distinct. Colors are distinguishable. The camera is true isometric and composition is good."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Balcony is entirely missing from the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Laundry room is missing, its functionality seems to be merged with the kitchen area.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The linen closet inside the entry is missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Garage is missing a complete wall and its dimensions seem reduced, making it incomplete.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are either missing or incorrectly placed/oriented (main bedroom, WC, bathroom, bedroom 1, bedroom 2 swing).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "All specified windows from the floor plan are missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated a decorative wall in the Lounge area that is not present in the floor plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Shadows extend beyond the model, suggesting a ground plane or light source that casts shadows, deviating from 'model appears floating/isolated' requirement.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing key kitchen fixtures (L-shaped counter, washing machine, dryer).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bathroom and WC fixtures are completely missing from the model.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Lounge furniture is present but reversed in orientation compared to the floor plan.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 64,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to numerous missing rooms, incorrect wall geometry, absence of openings, and significant furniture mapping errors, despite good aesthetic quality.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan13.jpg"
+}

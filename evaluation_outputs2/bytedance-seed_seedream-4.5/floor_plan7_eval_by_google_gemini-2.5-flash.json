@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The 3D model presents several critical and major deviations from the 2D floor plan. The most significant is the complete remapping of the 'Bedroom 1' from the 2D plan into 'Living Room 1' in the 3D render. The original 'Living Room' and 'Entrance to the House' from the 2D plan are also completely re-imagined. The bathroom layout is significantly altered, and the 'Wash Area' is present but poorly integrated. Windows are present but counts do not match exactly. Stairwell is not maintained as per the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 2,
+            "presentation_context": 0
+        },
+        "notes": "While the cutaway view is mostly compliant, several critical structural elements are missing (e.g., the original 'Living Room' and 'Entrance to the House' from the 2D plan are not directly represented, or are heavily altered). Significant hallucinations are present, including a complete change of the main staircase area, and the re-purposing of rooms. UI includes room labels on the floor, resulting in an automatic 0 for this sub-category. Presentation context is also not fully met due to the ground color/shadows."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Furniture mapping is abysmal due to the complete re-imagining of room functions. The 'Bedroom 1' area now contains a bed but is labeled 'Living Room 1'. The original 'Living Room' from the 2D plan is represented by a sofa and chair in the 3D, but its position is unclear in relation to the original plan. The dining table from the 2D dining area is present, but much of the kitchen and bathroom fixtures are either missing or significantly altered in layout compared to the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style is largely low-poly and in solid colors, though some minor textures are visible on kitchen appliances. Lighting is somewhat harsh for ambient and creates some strong shadows, detracting from the 'soft ambient' requirement. The camera perspective is not fully isometric (some perspective distortion is visible) and the composition is slightly off-center and zoomed out too far, making some details small."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms (original Living Room and Entrance to the House) are either missing or completely re-imagined/re-purposed, creating significant layout discrepancies.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated entire rooms/major structural changes: the 'Bedroom 1' from the 2D plan becomes 'Living Room 1' in 3D. The staircase area is completely different.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the floor of the 3D render ('Dining', 'Living Room 1', 'Wash Area', 'Toilet').",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Furniture is mapped to incorrect room functions, for example, a bed is in 'Living Room 1' which was 'Bedroom 1' in the 2D plan. The 2D 'Living Room' is completely altered in the 3D model.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The view is not truly isometric; there is noticeable perspective distortion.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Incorrect adjacency; bathroom and bedroom layouts are significantly changed. The 'UP' staircase in 2D is transformed into a full visible staircase inside the house in 3D.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door placement and swing directions are inconsistent with the 2D plan. E.g., the door to Bedroom 1 is now a double-door archway, and the bathroom door is completely re-positioned and re-scaled.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Kitchen appliances have minor textures/gradients rather than solid flat colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 42,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, exhibiting critical errors in spatial accuracy, structural fidelity, and furniture mapping, alongside multiple aesthetic and technical deviations.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan7.jpg"
+}

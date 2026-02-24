@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a cutaway/roof-removed axonometric view with extruded walls (height + thickness) and readable interior volumes; not a recolored 2D plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear wall height/thickness and floor plane separation; interior volumes read well. View is slightly angled/axonometric with multiple wall faces visible. Cutaway is clean with minor simplification at some wall tops/edges."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room set and adjacency largely match (living/dining left-bottom, kitchen right, playroom top-right, stairs top-center, small bath/closet zone top-left). Some proportional/partition differences are noticeable in the central service core (pantry/utility area) and a few wall runs appear shifted/reshaped relative to the 2D plan. Openings (doors/windows) are present but not all placements/sizes can be confirmed as exact."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present and assigned to appropriate rooms (living seating, dining table, kitchen cabinets/island, playroom furniture). Bathroom fixtures are included. Scales/orientations are generally plausible with minor simplification."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Walls/floors/openings are distinguishable with consistent materials and good readability. Lighting is even and does not obscure geometry. Minor clarity loss from near-top-down angle and simplified window/door detailing."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Some layout/proportion deviations in the central pantry/utility partitioning compared with the 2D plan (service core geometry appears simplified/shifted)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door/window locations and sizes are not perfectly verifiable against the 2D plan; several openings appear generalized rather than dimension-accurate."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture is simplified and may not reflect exact clearances; however, it is largely consistent with inferred room functions."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout fidelity, with minor-to-moderate deviations in service-core partition geometry and some generalized openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "Large-scale layout is generally preserved, but significant labeling errors occur (Bed-1 and Bed-2 are swapped in labels compared to the 2D plan). Some wall thicknesses and window placements deviate from the original blueprint."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Failure to adhere to strict 'no text labels' constraint; measurement lines and labels are hallucinated and rendered into the 3D floor. A major hallucinated balcony with wooden stairs was added at the bottom which does not exist in the 2D plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate to the floor plan, using appropriate block-style models that match the intended layout."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model uses textures (wood flooring) and photorealistic shadows/lighting, violating the low-poly/flat-shading constraint. The camera angle is true to isometric orthographic projection."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Critical violation of constraints: Text labels and dimension lines are rendered throughout the 3D model."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated entry stairs/balcony structure at the bottom center not present in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Violation of aesthetic constraints: Model uses realistic textures and dramatic soft-box lighting/shadows instead of flat shading."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect labeling: Bed-1 and Bed-2 labels are swapped relative to the coordinate positions in the source plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan19.webp"
+}

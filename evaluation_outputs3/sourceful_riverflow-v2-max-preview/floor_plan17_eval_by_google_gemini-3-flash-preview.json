@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a clear 3D isometric cutaway transformation of the input floor plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D projection. Walls have consistent height and thickness. Minimal perspective distortion on the far corners."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "High room-to-room fidelity. Most partitions and wall segments are correctly placed. Minor proportional shortening on the laundry/utility area."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture layout matches the floor plan closely, including sofas, dining sets, and beds in corresponding rooms."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Geometry is very clean. Points deducted for gibberish text artifacts appearing on floors and walls (E6)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Nonsense text labels/artifacts rendered on the floors and wall surfaces."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A high-fidelity 3D conversion that accurately mirrors the 2D layout and furniture arrangement, hindered only by minor text-based artifacts.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan17.jpg"
+}

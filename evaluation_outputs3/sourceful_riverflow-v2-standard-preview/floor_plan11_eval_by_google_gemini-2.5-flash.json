@@ -1,0 +1,66 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows height, thickness, depth, and an angled view, with the roof removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5), floors are separated (3), interior volume is perceivable (4), proper wall corner geometry (3). Angled view (5), interior visible from elevated perspective (3). Roof/ceiling removed cleanly (5), interior spaces fully visible (2/3 due to some elements being obscured), clean geometry (0/2 due to some broken sections and lack of clarity on the lower left part)."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "The number of rooms and their adjacency are mostly incorrect which is a major flaw. The 3D render represents a different floor plan than the 2D image provided. Major wall positions do not align. Doors and windows, where present, are not in the correct locations based on the 2D plan."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "The 3D render does contains some furniture, but it does not match the content nor the layout from the provided 2D plan. The rooms themselves are entirely different, rendering furniture accuracy comparison impossible."
+        },
+        "visual_clarity": {
+            "score": 10,
+            "max": 20,
+            "notes": "Walls, floors, and openings are distinguishable (4), but geometry is somewhat blurry and not fully readable (2/4). Interior is clearly visible (3), lighting is acceptable (3). Consistent material usage (2), but there are visible rendering artifacts and broken meshes, and some elements are unclear (0/2). Clean background (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "The 3D render does not correspond to the provided 2D floor plan. The room configuration, major walls, and internal partitions are entirely different, indicating a mismatch in the source material used for conversion."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The layout fidelity is extremely poor as the 3D model appears to be an entirely different floor plan than the 2D reference. This affects room count, adjacency, proportions, and wall placements."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors and windows, where identifiable, do not match the positions or presence indicated in the 2D plan, again pointing to a different source."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture type and placement does not align with the 2D plan. This is largely due to the fundamental mismatch of the floor plans."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Some rendering artifacts and unclear geometry are present, particularly in the lower left of the 3D model."
+        }
+    ],
+    "total_score": 58,
+    "verdict": "FAIL",
+    "summary": "The 3D render, while a legitimate 3D conversion, fundamentally fails in geometric accuracy as it does not represent the provided 2D floor plan, but rather an entirely different layout, which is a major conversion error.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan11.png"
+}

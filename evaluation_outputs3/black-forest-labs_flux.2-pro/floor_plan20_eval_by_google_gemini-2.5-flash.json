@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness, floors are distinct, interior volume is clear, and wall corners are good. The viewing angle is appropriate and interior visibility is good. The cutaway is mostly clean, but there is some text that obscures a small part of the geometry."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The number of rooms and adjacency relationships are correct. Room proportions are mostly preserved. Wall positions and lengths are accurate. Most doors are present, but their appearance as opening mechanisms is not always clear, and some windows are less obvious than others. The balcony of Bedroom-1 is significantly smaller in the 3D model."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture, kitchen elements, and bathroom fixtures are present. Furniture is correctly placed in rooms and their scale is reasonable. Some furniture items (like beds) have slightly different orientations than the 2D plan, but this is a minor deviation."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Structural elements are clearly distinguishable. Interior lighting is good, and geometry is readable. Material usage is consistent. However, the presence of text labels directly on the 3D model detracts from visual clarity and clean presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door representations are less clear, and some windows are not distinctly rendered."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The balcony for Bedroom-1 appears significantly smaller in the 3D render than in the 2D floor plan. The balcony for Bedroom-2 also seems slightly off in relation to the main room."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels from the 2D plan or new annotations are present on the 3D model, cluttering the view."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "The background presentation is too plain and might be considered less professional than a clean, neutral background."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is successful, creating a clear and mostly accurate representation of the 2D floor plan, with minor discrepancies in balcony size and visual clarity due to text overlays.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan20.avif"
+}

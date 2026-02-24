@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "The 2D plan shows a complex layout including a 'Central Hall', 'Utility Room', 'Kitchen', 'Pantry', 'WC', 'Breakfast Nook', 'Dining Room', and 'Alcove'. While the 3D render represents functional areas, the exact topological mapping is off. Specifically, 'Utility Room' and 'Pantry' are missing as distinct enclosed spaces. The 'Breakfast Nook' is integrated into the dining area. The overall footprint shape is maintained but internal wall geometry, particularly around the utility/pantry area, is significantly simplified or altered. Wall positions have more than a 5% tolerance deviation in several areas, especially in the central functional block. Doors are mostly present and on correct walls, but swing directions cannot be easily verified from the 2D given the lack of explicit indicators sometimes and the simplified 3D representation. Window counts are mostly correct, but sizes and proportions are highly generalized."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant, with the roof completely removed and interior walls visible. However, completeness is poor due to missing rooms (Utility Room, Pantry, distinct Breakfast Nook) and the stairs are completely absent. Hallucination control fails because, while it doesn't add extra rooms, it significantly simplifies and omits distinct architectural features from the plan reducing complexity from the 2D. No text labels, measurement lines, or legend are present. Presentation context is not fully compliant; while the model is isolated, the background and ground plane could be improved to meet specifications for 'dark neutral gray/black gradient' and 'no ground plane/shadows extending to infinity' as the ground plane is very present and reflective with shadows."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces (dining table, chairs) are present and kitchen fixtures (counters, stove, sink, fridge) are indicated. Bathroom fixtures (toilet, sink, shower/tub) are also present for both restrooms. However, the 2D plan explicitly shows 'REF' (refrigerator) and 'W' (washer), 'D' (dryer) in 'Utility Room' that are not strictly represented in the 3D in their specific locations. The 3D render includes benches along the walls in the central hall/alcove area that are not present in the 2D plan, these are considered hallucinated furniture. Furniture scale seems appropriate for the rooms depicted."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style uses low-poly simplified forms and flat shaded surfaces, with clean edges and solid flat colors, though the floor has a slight texture/pattern which is a minor deviation. Lighting is soft ambient, but shadows are quite distinct. There is a sense of material reflectance on the floor and walls, which detracts slightly from the 'no textures (solid flat colors only)' and 'flat shading with minimal shadows' criteria. The camera is in an isometric projection, with a 45-degree rotation and centered framing, and appropriate zoom level. The floor texture/pattern is a minor violation."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire Utility Room and Pantry missing as distinct enclosed spaces.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple wall misalignments and simplifications due to missing rooms, particularly in the central area where Utility, Pantry, and Breakfast Nook should be.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated structure as the design drastically simplifies the complexity of the original floorplan into fewer, more basic functional zones, essentially removing the Utility Room and Pantry.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Stairs are completely missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Hallucinated benches in the central hall/alcove area not present in 2D.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight texture/pattern on the floor surfaces, and reflections/shadows are more prominent than minimal.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 50,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the spatial layout and structural fidelity of the 2D floor plan, with significant room omissions and wall geometry simplifications, although it adheres to most aesthetic and technical rendering guidelines.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan11.png"
+}

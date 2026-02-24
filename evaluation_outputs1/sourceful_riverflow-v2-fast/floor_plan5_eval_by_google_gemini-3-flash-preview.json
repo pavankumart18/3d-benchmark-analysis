@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout is preserved, but there are significant door and window inconsistencies. The main entrance doors at the bottom center are rendered as a single thin opening rather than large double doors. Several interior doors are missing or have incorrect swing directions."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The kitchen (bottom left) has been hallucinated as a bedroom with a bed instead of cabinets and an island. The overall structure is maintained well, and the model is correctly floating on a dark background with no UI text."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture scale is generally consistent. However, the kitchen area is entirely misidentified as a bedroom, and the living room sofas are rotated incorrectly compared to the plan's layout."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints. Low-poly, flat-shaded, monochromatic geometry. Isometric orthographic perspective is accurate and well-composed."
+    },
+    "total_score": 76,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated bedroom in place of the kitchen area (bottom left)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced/rotated sofas in central living area."
+        },
+        {
+            "code": "E1",
+            "description": "Missing double-door detail at primary entrance; simplified to narrow wall segment."
+        },
+        {
+            "code": "E2",
+            "description": "Interior door orientation and placement inaccuracies in the hallway and bedroom entries."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan5.jpg"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout and room placement align well with the 2D plan. However, there is a discrepancy in door swings (orientation) and some wall thickness/alignment issues near the entrance and utility area."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "All rooms are present and the roof is correctly removed. No text or UI elements are visible. The model floats on a dark background. Points deducted for minor structural reinterpretations of the utility opening."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate (bed, sofa, kitchen counter). The dining table swapped from two chairs to six chairs, diverging from the specific plan layout."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to the requested aesthetic. High-quality low-poly geometry, flat shading, zero photorealistic textures, and a perfect isometric orthographic camera angle."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The dining table configuration (6 chairs) does not match the 2D plan layout (2 chairs)."
+        },
+        {
+            "code": "E2",
+            "description": "Door orientation/swing directions in the hallway and bedroom differ from the 2D blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated side tables added to the bedroom which were not present in the original plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 6,
+            "dimensional_scaling": 3
+        },
+        "notes": "Bathroom wall geometry is significantly off, creating a much larger WC area than intended. The utility room's back wall is also misaligned. The central hall's overall shape is altered. The alcove area is missing the entire '20 x 20' section. Dining room entrance is missing the wall separation for the alcove, making it an open floor plan. Missing a wall at bottom left corner of kitchen. Misplaced door for WC, it's rotated 90 degrees and placed on the wrong wall. Missing a door at the bottom right of the Dining room. Window seat area missing a door."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 4,
+            "ui_cleanliness": 5,
+            "presentation_context": 3
+        },
+        "notes": "Missing the 'alcove' room entirely as a separate space with a wall and an opening. Missing a door in the dining area. The model appears to have a slight ground plane or a very faint reflection/shadow interaction with the background, not truly floating."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Some major furniture pieces present (beds, sofas, dining table, kitchen appliances), but many smaller details and bath fixtures are missing or simplified beyond block-style. Dining room furniture placement is mostly correct. Kitchen fixtures are present and mostly correct, though the island layout seems to be a variation rather than a direct match. Bathroom fixtures are present but the layout is altered. Missing furniture/items in the Alcove and Utility Room. The window seat in the dining room is present with some seating."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 2,
+            "lighting_rendering": 4,
+            "camera_composition": 4
+        },
+        "notes": "Surfaces show some subtle textures (e.g., floor patterns, speckled countertop) and material differentiation, deviating from 'solid flat colors only'. Shadows are present and somewhat dramatic, not just 'minimal'. Geometry is low-poly but material choices are not strictly flat-shaded with solid colors. The isometric projection seems accurate, but the '45\u00b0 rotated plan view' isn't precisely achieved; the rotation angle is slightly off. The background is dark and neutral, but the model does not appear completely floating due to subtle ground interaction."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "WC wall geometry significantly altered, making the room much larger than indicated in the 2D plan. Central hall topology altered.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The 'Alcove' room on the 2D plan is not present as a separate room with its defining wall and opening in the 3D render. It's merged into the Dining Room.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing multiple smaller furniture pieces and fixtures as per the detailed 2D plan, e.g., the 'D' and 'WH' (washer/dryer if implied) in Utility Room, detailed bath fixtures beyond basic forms.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces include subtle textures/patterns (floor patterns, countertop) and varied materials instead of strictly solid flat colors.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting creates noticeable shadows, deviating from 'soft ambient' and 'minimal shadows'.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Utility room back wall is misaligned leading to a larger room than specified. Missing a wall at the bottom left corner of kitchen. Dining room entrance to alcove is an open floor plan instead of a defined opening.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door for WC is rotated 90 degrees and placed on the wrong wall. Missing a door at the bottom right of the Dining room. Window seat area missing a door.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 58,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant discrepancies in room geometry, missing architectural elements, and deviations from strict aesthetic guidelines, despite generally good structural integrity and UI cleanliness.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan11.png"
+}

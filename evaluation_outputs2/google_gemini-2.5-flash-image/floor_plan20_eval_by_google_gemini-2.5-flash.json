@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Door to Toilet-2 is missing from the 3D render. All other doors are present and correctly placed. All windows are present and correctly placed. Layout and wall geometry are highly accurate."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "UI/Annotation Cleanliness failed due to presence of all text labels from the original floor plan, leading to 0 points in this subcategory. All other structural fidelity aspects are met."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 5
+        },
+        "notes": "All major furniture and fixtures are present, accurately placed, and scaled appropriately."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is nearly perfect, only minor subjective observation of some very subtle smoothing on furniture edges, but overall good. Lighting, rendering, and camera composition are excellent, with a true isometric projection and proper framing."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "UI/Annotation Cleanliness failed as all text labels from the original floor plan are present in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door to Toilet-2 is missing in the 3D render.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 92,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render provides a highly accurate translation of the 2D floor plan, maintaining spatial and structural integrity, though it fails on UI cleanliness by retaining text annotations. The furniture mapping and aesthetic qualities are excellent.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan20.avif"
+}

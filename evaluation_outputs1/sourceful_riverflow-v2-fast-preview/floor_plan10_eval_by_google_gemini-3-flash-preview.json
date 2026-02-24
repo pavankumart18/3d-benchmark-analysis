@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacencies are highly accurate. Minor docking for door swing directions which are inconsistently simplified or missing compared to the 2D arrows (e.g., Bed 2, Theatre). Proportions are well-maintained."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The model successfully removes the roof and excludes measurements. However, it fails the 'STRICTLY NO text labels' constraint by including room name overlays. All rooms are accounted for, though the garage is a literal empty void."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent block-style furniture placement that respects the 2D layout. The scale of the sofas and dining sets is consistent with the architectural footprint."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to low-poly, flat-shaded style. The background is correctly neutral. Deducted points for the camera being slightly more top-down/perspective than a true orthographic isometric view."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Violation of text label constraint; room names are rendered over the 3D model."
+        },
+        {
+            "code": "E3",
+            "description": "Camera angle shows slight perspective distortion rather than a pure isometric orthographic projection."
+        },
+        {
+            "code": "E1",
+            "description": "Missing car fixture in garage which was present in the original plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan10.png"
+}

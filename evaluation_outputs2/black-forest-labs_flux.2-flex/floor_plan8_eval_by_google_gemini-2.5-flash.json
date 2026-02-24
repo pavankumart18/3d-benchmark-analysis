@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 0,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "The generated 3D render bears very little resemblance to the 2D floor plan. Rooms are completely reconfigured or missing, and wall positions are entirely inaccurate."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 0,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 2,
+            "presentation_context": 3
+        },
+        "notes": "The render does not match the 2D plan in terms of rooms and structure, presenting a different layout. However, it does not have UI elements and is presented against a dark background."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Furniture and fixtures are present but do not correspond to the layout or rooms specified in the 2D plan. The 2D plan has basic fixtures, the 3D render has full furniture."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The rendering features textures, gradients, reflections, and complex materials, which are explicitly against the 'low-poly, flat shaded, solid flat colors' specification. The lighting is soft but with noticeable shadows, deviating from 'minimal shadows'. While the camera angle appears isometric and centered, the stylistic choices are a critical failure."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms missing or reconfigured (e.g., Foyer, W/C, Closet, Playroom, Pantry, Dining Room are not present in mapping). The 3D render shows a bedroom, bathroom, and living/dining/kitchen area, but this does not match the 2D plan's layout.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls and the overall footprint are completely different from the 2D plan. No semblance of the original layout is maintained.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering detected. The render shows detailed textures, smooth shading, reflections, and complex materials (e.g., wood textures, tiled floors, fabric on furniture, detailed appliances), which directly violates the 'low-poly, flat shaded, solid flat colors' requirement. This is an instant fail condition for this category.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated an entirely different floor plan with different rooms and a different overall structure. The 3D render is not a translation of the 2D plan but an entirely different design. This includes a completely different stair layout, and rooms like a 'bedroom' and 'bathroom' that are not represented as such on the 2D plan's first floor.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Furniture presence and accuracy are fundamentally incorrect because the underlying room layout is incorrect. The 3D render includes a bedroom setup, a full bathroom, and extensive kitchen/living room furniture that do not correspond to the sparse 2D plan, nor their correct rooms.",
+            "point_deduction": 10
+        }
+    ],
+    "total_score": 10,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is an instant FAIL due to critical errors in spatial accuracy, structural fidelity (hallucination of a different design), and aesthetic quality (photorealistic rendering), indicating it is not a translation of the provided 2D floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan8.jpg"
+}

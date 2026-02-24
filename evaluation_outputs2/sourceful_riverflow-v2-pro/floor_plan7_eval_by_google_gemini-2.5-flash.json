@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "The overall layout topology is mostly preserved, but there are some discrepancies. Room adjacency is generally correct. Wall geometry has several minor misalignments and discrepancies in specific wall lengths, particularly in the Kitchen and Living Room areas, and the Toilet/Wash Area. Some walls are also rendered thicker than implied by the 2D plan. Doors are mostly present, but their exact placement on the walls is sometimes off, and the swing direction is not consistently represented or implied. Windows are mostly present and correctly placed. Dimensional scaling appears consistent, but the aspect ratio of some rooms feels slightly compressed compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 4,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant with the entire roof removed and interior walls visible. There are no missing structural elements. Hallucination control is good, with no extra rooms or major architectural features added, but the external balcony/entrance area is slightly altered. UI/Annotation cleanliness is perfect, with no text, measurement lines, or legends. However, the presentation context is poor; there's a clear ground plane with shadows extending, and the model is not floating/isolated as required, deducting full points from 'presentation_context'."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and correctly identified. Kitchen fixtures (counters, stove, sink) and bathroom fixtures (toilet, sinks) are present. Placement generally matches the 2D plan locations, though some items like the bed, dining table, and living room furniture are slightly shifted. The scale of the furniture is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style is excellent, featuring low-poly simplified forms with flat shaded surfaces and clean edges. No textures are used, only solid flat colors. Lighting and rendering are also excellent, with soft ambient lighting, minimal shadows, and distinguishable colors. Camera and composition are perfect, utilizing a true isometric projection (verified by parallel lines) with a 45\u00b0 rotated plan view, centered framing, and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen wall aligned to hallway and Living Room is slightly thicker than implied and its length is slightly off, causing a minor discontinuity at the corner with the wash area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The wall separating the Living Room from the external entrance area extends further out than indicated in the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The wall between the Wash Area and Toilet is not exactly co-linear with the wall above it in the 2D plan, creating a slight misalignment.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bed in Bedroom 1 is slightly offset from the wall compared to the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table and chairs are slightly mispositioned within the Dining area.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Sofa and armchairs in Living Room are slightly shifted compared to the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E7-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Presentation context not met: presence of a ground plane and shadows extending, instead of floating/isolated model.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 82,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely passes verification, demonstrating excellent aesthetic and technical quality in rendering. However, it exhibits minor spatial inaccuracies in wall geometry and furniture placement, and critically fails on the presentation context requirement due to the visible ground plane and shadows.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan7.jpg"
+}

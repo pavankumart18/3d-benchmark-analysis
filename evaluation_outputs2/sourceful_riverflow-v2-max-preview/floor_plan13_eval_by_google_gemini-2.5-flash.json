@@ -1,0 +1,117 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 3
+        },
+        "notes": "Garage is completely missing. Bedroom 1 and Bedroom 2 are swapped in position, and their sizes are significantly different / relative to each other. The Balcony is rendered as an enclosed room, connected to a different room. The 'L' shape of the main living area is inverted/misaligned. The entry area is missing its 'Linen' closet. The general shape of the overall footprint is maintained. Door count is mostly accurate, though some placement is questionable and swing directions are generally not captured. Many windows present, however, placement and total count is inaccurate. Consistent scale appears applied, but overall aspect ratio is distorted notably in the main living space and bedrooms."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 3,
+            "ui_cleanliness": 4,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed, interior walls are visible. Major structural element (Garage and Balcony structure) is missing or fundamentally altered. Hallucinated (closed) walls for the balcony. Hallucinated an extra window on external wall. No text or measurements, but a small watermark is present. Model has a distinct ground plane and shadow extending to infinity."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Some major furniture pieces (beds, sofas, tables) are present. Kitchen and bathroom fixtures are present, but their layout within the rooms often does not match the plan. Furniture is placed in rooms, but sometimes the incorrect rooms are swapped (e.g., Bedroom 1 and 2). Scale appears appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly, simplified forms with flat shaded surfaces and clean edges are present. No textures are used, only solid colors. Lighting is ambient but there is strong definition in shadows from elements (like walls) which indicates some directional light. Colors are distinguishable. The view is isometric, but the specific rotation is not 45 degrees relative to the plan view (appears slightly skewed). Framing is good and rooms are visible, but the large shadows detract from the clean presentation."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'Garage' room is missing from the 3D render.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Balcony is hallucinated as an enclosed room, fundamental alteration of architectural feature.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Rooms Bedroom 1 and Bedroom 2 are swapped in position and their relative sizes are significantly altered, impacting layout topology.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The kitchen and living/dining area footprint is significantly altered from the 2D plan, including wall positions and the overall 'L' shape.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Missing 'Linen' closet in the entry area.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Small watermark present in the corner of the image.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Stronger shadows and a distinct ground plane with extended shadows violate presentation and lighting guidelines.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window count is inaccurate and some window placements are off from the 2D plan. Balcony replaced by an enclosed room with extra windows.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture placement within rooms is often not precise (e.g., kitchen layout, bathroom fixtures).",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render features significant structural and spatial inaccuracies, notably the missing garage and altered room layouts, leading to a failing score despite good geometric style.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan13.jpg"
+}

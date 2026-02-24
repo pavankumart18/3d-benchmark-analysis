@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 6,
+            "dimensional_scaling": 2
+        },
+        "notes": "Room count matches, but adjacency is partially incorrect due to missing and misplaced walls. The overall footprint shape is not maintained, and many walls are inaccurate or missing. Dimensions are distorted, particularly in the living/dining and kitchen areas. Window placement in the bedroom is incorrect; two windows are shown when only one is present."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is removed and interior walls are mostly visible. However, multiple structural elements are missing, such as walls defining the living/dining space's eastern side and the door to the bedroom. There is hallucinated curvature in walls that are straight in the plan, and the 'Utility' room is merged with kitchen. The background is dark, but the model is not clearly isolated and there's a visible ground plane."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 2
+        },
+        "notes": "Bedroom furniture is mostly absent (only a generic bed shape, no side tables). Living/dining furniture is completely replaced by a single, misplaced bench and a chair. Kitchen fixtures are partially present (hob, sink implied) but lack counters/layout. Bathroom fixtures are present but not accurately mapped in terms of placement. The 'Foyer' has a single unidentifiable item. The Utility room is entirely missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly forms are used with flat-shaded surfaces and no textures. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. The view is isometric, and the framing is centered with appropriate zoom. There are some minor shading artifacts on curved surfaces. The overall presentation is clean given the style."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Portions of living/dining and utility rooms are effectively missing due to wall inaccuracies and merging with the kitchen.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Numerous wall positions are inaccurate, particularly the eastern wall of the living/dining area, the western wall of the kitchen, and internal toilet walls. The overall footprint shape is very different from the plan.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door to the bedroom is entirely missing. Door to toilet is misplaced and appears as an opening not a door.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated curved walls in the kitchen/foyer area that are straight in the plan. 'Utility' room is removed and merged into the kitchen.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Living/dining furniture is almost entirely missing and replaced with different items. Bedroom furniture is simplified. Utility room furniture is absent.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Ground plane/shadows extending beyond the model, violating isolation rule.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits significant deviations in spatial accuracy, particularly in wall geometry and room adjacencies. Structural fidelity is compromised by missing elements and hallucinated features, while furniture mapping is largely inaccurate. The aesthetic quality is generally good, but does not compensate for the geometric and structural issues.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan18.jpg"
+}

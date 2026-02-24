@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "Severe divergence from the provided floor plan. The central bathroom and small closet layout is entirely absent. The 3D model introduces a multi-room compartmentalized layout that does not match the open-concept kitchen/living/dining area shown in the 2D blueprint."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the roof is removed and the model is on a dark background, the internal structural walls are entirely hallucinated and do not correlate with the reference plan. The staircase is missing entirely."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Furniture placement does not respect the designated zones (Kitchen, Dining, Living). Hallucinated bedrooms and office furniture are present instead of the required kitchen counters and stove."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The model successfully follows the aesthetic constraints: isometric perspective, clean low-poly style, no text labels, and soft lighting on a neutral background."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase, kitchen counters, and specific bathroom fixtures shown in floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Inner wall layout is completely different from the source; proportions are distorted."
+        },
+        {
+            "code": "E4",
+            "description": "Major hallucinations including extra internal walls and conversion of open areas into separate bedrooms/offices."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan3.jpg"
+}

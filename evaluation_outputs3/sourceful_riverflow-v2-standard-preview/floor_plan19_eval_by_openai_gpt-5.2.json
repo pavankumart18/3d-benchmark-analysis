@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a roof-off 3D cutaway with extruded walls (height/thickness visible) and an elevated, slightly angled viewpoint showing side faces and interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Clear wall extrusion with thickness and readable room volumes; cutaway is clean. View is only mildly angled (close to top-down), limiting side-surface visibility and reducing spatial depth cues."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall layout matches: central living/dining, kitchen/utility zone, and four bedroom blocks are present with broadly correct adjacencies. Some proportional/shape deviations are visible (especially around the top deck/corridor geometry and some partition offsets). Doors/windows are simplified and not consistently verifiable against the 2D plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture exists in expected rooms (beds in bedrooms, sofa/coffee table in living, dining table, kitchen counters). Bathrooms/fixtures are present but simplified; some rooms lack detailed fixture alignment."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Walls/floors are distinguishable and presentation is clean, but the render is slightly blurry/low-contrast, making openings (doors/windows) and fine partitions harder to confirm."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Minor-to-moderate proportional/layout deviations versus the 2D plan (notably around the top deck/terrace outline and some internal partition placements)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "medium",
+            "description": "Doors/windows are not clearly represented or are too simplified to confirm correct wall placement and swing/orientation."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "low",
+            "description": "Render softness/low detail reduces geometric readability of openings and small wall segments."
+        }
+    ],
+    "total_score": 77,
+    "verdict": "GOOD",
+    "summary": "This is a valid roof-off 3D conversion with broadly faithful room layout and furnishings, but with some proportional/partition drift and insufficiently verifiable door/window placement.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan19.webp"
+}

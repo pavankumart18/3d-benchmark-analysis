@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image shows extruded walls with thickness, visible side faces and interior volume, in a slightly oblique/top-down cutaway view with ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; cutaway is clean. View is only mildly angled (near top-down), reducing perceived 3D depth slightly."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Overall cluster of rooms roughly matches (stairs top-left, bath/WC near center-top, bedrooms to the right), but the balcony space at bottom-left is not faithfully represented and appears converted into an interior room; some wall runs/partitions and proportions around the left/bottom-left zone differ from the 2D plan."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Beds and living/activity furniture are present; bath fixtures are present. Kitchen elements are not clearly represented. Some furniture-to-room mapping is questionable due to the balcony/extra-room mismatch."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Walls/floors are distinguishable and geometry is clean with a consistent material style. Lighting is adequate; minor ambiguity in openings/door locations due to viewpoint and simplified details."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Balcony area from the 2D plan is not faithfully modeled as an exterior balcony; it appears as an enclosed interior room/space in the 3D render, altering layout and adjacency."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placements and opening sizes are not consistently verifiable/matched to the 2D plan due to simplification and limited visibility."
+        }
+    ],
+    "total_score": 71,
+    "verdict": "PASS",
+    "summary": "This is a true 3D cutaway conversion, but notable layout fidelity issues\u2014especially the missing/incorrect balcony representation\u2014prevent a higher score.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan12.png"
+}

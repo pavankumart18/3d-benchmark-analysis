@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "True 3D massing is present with an angled/isometric view, visible wall height/thickness, and readable interior volumes; ceiling/roof is effectively treated as a cutaway (shown as a lifted slab) allowing interior visibility."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 27,
+            "max": 35,
+            "notes": "Walls have consistent height and thickness with visible top/side faces; interior volume reads clearly. Cutaway is functional but not cleanly removed (roof slab floats above), and some wall junctions/edges appear simplified."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Overall outer footprint and a multi-room 3BHK-like partitioning are present, but several key plan features are hard to confirm: living/dining center and kitchen/utility/balconies are not clearly differentiated; internal partition positions and proportions appear approximated rather than plan-accurate."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Beds are present in multiple rooms, suggesting bedrooms are mapped. Kitchen and bathroom fixtures are largely absent or too minimal to verify correct placement; living/dining furniture is minimal/unclear."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Clean render with readable wall/floor separation and no UI/text clutter. Monochrome materials and limited openings reduce the ability to verify doors/windows and some room identities."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Room proportions and several partition locations appear generalized; key spaces (living/dining, kitchen/utility, balconies) are not distinctly or confidently matched to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows/openings are not clearly modeled or are insufficiently visible to verify correct wall placement and sizing against the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "major",
+            "description": "Furniture is incomplete for verification: kitchen elements and bathroom fixtures are largely missing; living/dining furniture is minimal, weakening room-identity confirmation."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Very uniform materials and simplified geometry reduce geometric legibility for detailed plan-to-model comparison."
+        }
+    ],
+    "total_score": 67,
+    "verdict": "PASS",
+    "summary": "A genuine 3D cutaway conversion is achieved, but the layout appears approximated and lacks sufficient openings and fixtures to verify faithful room-by-room geometric accuracy.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan15.webp"
+}

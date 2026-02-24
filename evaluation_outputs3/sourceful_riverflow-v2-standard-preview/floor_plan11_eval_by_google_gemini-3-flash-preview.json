@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model successfully represents a 3D isometric cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent structural translation; walls and floors are clearly defined with proper perspective."
+        },
+        "geometric_accuracy": {
+            "score": 12,
+            "max": 30,
+            "notes": "Major geometric failure. The 3D model does not match the 2D floor plan. The plan shows a kitchen/dining/utility area with a bay window and central stairs; the 3D model shows a generic bedroom/living suite with no bay window and different wall partitions."
+        },
+        "interior_elements": {
+            "score": 6,
+            "max": 15,
+            "notes": "Furniture is present and scaled well to the model's rooms, but does not match the functional zones (Dining/Kitchen/Utility) specified in the architectural drawing."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Rendering is clean and readable with good lighting."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Total layout mismatch. The 3D model represents a different floor plan than the one provided in image 1."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Missing distinctive architectural features like the window seat/bay window and the specific kitchen/utility island configuration."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "While the 3D conversion technique itself is technically proficient, it fails significantly on geometric fidelity, rendering an entirely different floor plan than the one provided.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan11.png"
+}

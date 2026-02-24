@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe layout distortions. The stairs are incorrectly rendered as a vertical wall graphic. The balcony area is missing its external wall/balustrade and contains hallucinated seating. The relative positions of Bedrooms 3 and 4 have been merged or misinterpreted, and Bed 2's orientation is rotated."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Correctly floating on dark background with no UI. However, substantial structural reinterpretation persists: the staircase is missing as a 3D element (hallucinated as a 2D wall pattern), and several walls are missing or incorrectly height-varied (e.g., the front balcony wall)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture exists but does not align with the plan. Beds are rotated and placed against wrong walls (Bed 2). A sofa is hallucinated in an area designated for Bed 4, and the Activity room furniture is misplaced."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Generally adheres to the low-poly style with flat colors. However, some lighting is slightly more dramatic than 'flat shading' with internal glows in windows, and the camera is perspective-leaning rather than a strict isometric orthographic view."
+    },
+    "total_score": 57,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing physical staircase; rendered as a flat texture on a wall."
+        },
+        {
+            "code": "E2",
+            "description": "Bed 2 is rotated 90 degrees compared to the plan; Bed 4 is replaced by a lounge area."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated windows on the left-side wall not present in the original plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated glass railing where a solid wall/balustrade should be for the balcony."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting includes internal glows/emissive effects which deviate from strict flat shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan12.png"
+}

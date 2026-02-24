@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Severe layout inversion. The 3D model appears to be a mirrored or incorrectly rotated version of the 2D plan. The L-shaped living/dining area has been compressed, and the relationship between the kitchen, laundry, and bedrooms is fundamentally broken. Door and window positions do not match the specified plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The garage is completely missing. While the roof is removed and it is on a dark background, the model contains hallucinated text artifacts on the floor. Internal wall structures do not follow the plan's specific separations for the WC and Bath."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While block-style furniture is present, it is misplaced. A bed is placed in what should be the living/entry area. The scale of the kitchen block is incorrect relative to the room proportions."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good adherence to the low-poly, flat-shaded aesthetic. The isometric camera angle is correct. Soft lighting and neutral background colors are well executed despite spatial failures."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Garage and Balcony structures."
+        },
+        {
+            "code": "E2",
+            "description": "Complete layout distortion; rooms are rearranged and the floor plan logic is not preserved."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated third bedroom area where the lounge should be."
+        },
+        {
+            "code": "E5",
+            "description": "Hallucinated garbled text/labels visible on the flooring."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan13.jpg"
+}

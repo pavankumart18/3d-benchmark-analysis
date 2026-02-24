@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 5,
+            "doors": 3,
+            "windows": 1,
+            "dimensional_scaling": 1
+        },
+        "notes": "The overall footprint is only loosely maintained, with significant deviations. Multiple rooms are missing. Room adjacencies are partially preserved but the layout is heavily simplified, losing complex shapes. Relative room sizes are approximately proportional for existing rooms. Wall positions show major discrepancies. Many doors are missing. Swing directions are not indicated. Windows, while present, do not match the floor plan in number or specific location."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. However, multiple rooms and structural elements (like the utility room, foyer, and multiple toilets) are missing from the 3D model, severely impacting completeness. Hallucinations include a simplified kitchen layout and removal of complex external geometries/decks."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces like beds, sofa, and dining table are present. Kitchen and bathroom fixtures are present but greatly simplified and do not match the count or detailed layout of the 2D plan. Placement is generally in the correct rooms but lacks precision, and many smaller pieces or detailed arrangements are entirely absent."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly simplified forms and flat-shaded surfaces are largely compliant. There are no textures, only solid flat colors. Lighting is soft ambient with minimal shadows, though the color palette could be more distinguishable between walls and floors, which are very similar beige. The camera view is isometric, 45\u00b0 rotated plan view, centered, and shows all visible rooms."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Foyer, TOI-4, TOI-2, Utility, and two 'Deck' areas are entirely missing. This represents a significant loss of rooms and features from the original plan.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Exterior walls and overall footprint are significantly simplified. The complex exterior shape of the 2D plan, especially around the decks and the lower portion of the utility/TOI area, is not replicated in the 3D model. Main Living/Dining external wall shows a different dimension/shape, and BED-4's external wall is modified. Bedroom 2 external wall is also significantly altered.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Many internal walls are simplified or shifted. For example, the dividing wall between the Kitchen and Living/Dining is simplified, and the configuration around TOI-3 and bedroom 4 is heavily altered due to missing elements.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are missing or severely misplaced: the main entrance door by Foyer, Kitchen door, Utility door, TOI-2 door, TOI-4 door, and door to Deck from BED-1. The door between Living/Dining and Bedroom 2 is missing. Doors to TOI-1 and TOI-3 are present but simplified.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window count and placement do not match. Multiple windows indicated in the 2D plan (e.g., in Living/Dining, Kitchen, TOI-3, TOI-4) are missing from the 3D model. New windows are added to BED-2 and BED-1 walls where none were shown or are in different locations. Window sizes are not proportional to plan.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucination of a simplified kitchen layout and the absence of complex external architectural features (decks, nuanced wall shapes).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Numerous furniture pieces and fixtures are missing, especially in the bathrooms (multiple toilets missing), utility, and kitchen (detailed counters and appliances). The specific design of kitchen counters and island does not fully match.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The lighting provides some minor differentiation between surfaces through subtle shading, which deviates slightly from 'flat shading with minimal shadows', leaning towards more modeled lighting, resulting in slightly more noticeable shadows than expected.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 49,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the structural and spatial layout from the 2D plan, exhibiting numerous missing rooms, significant wall geometry deviations, and missing openings, despite acceptable aesthetic compliance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan19.webp"
+}

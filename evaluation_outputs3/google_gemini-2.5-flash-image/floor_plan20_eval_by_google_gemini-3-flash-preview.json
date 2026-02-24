@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": false,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "The second image remains a 2D orthographic floor plan. No 3D depth, wall height, or perspective change has been applied."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Fail: Image is 2D. No dimensional transformation occurred."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Layout is preserved because it is a flat copy."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Furniture remains 2D sprites."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Text labels still present; orthographic view maintained."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "Second image is still a 2D floor plan. No 3D transformation detected."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The conversion failed entirely as the second image is a flat 2D replica of the original floor plan without any 3D geometry.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan20.avif"
+}

@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion verification checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Walls have appropriate height and thickness. Floors are distinct from walls. Interior volume is clearly perceivable. Wall corners show correct 3D geometry. The viewing angle is well-angled and isometric-like, providing an elevated perspective of the interior. The roof is cleanly removed, and all interior spaces are fully visible without broken geometry."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "All rooms from the 2D plan are present with correct adjacency and relative proportions. Major wall positions and lengths align accurately with the 2D plan. Internal partitions are correctly placed. Doors are present and on the correct walls, and are proportionally sized. However, windows appear to be missing from the bedroom wall and possibly the bathroom, which are indicated in the 2D plan by thinner wall segments or specific symbols."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables), kitchen elements, and bathroom fixtures are all present. Furniture is placed in the correct rooms, and its scale is reasonable relative to the room size. The orientation of furniture is logical relative to the layout."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable, and the geometry is readable. Interior visibility is excellent, and lighting does not obscure any geometry. Material usage is consistent, and there are no major rendering artifacts or broken meshes. The background is clean and aids presentation, with no text labels."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows indicated in the 2D plan (e.g., in the bedroom and possibly Utility/Toilet) are missing in the 3D render, although doors are present and correct."
+        }
+    ],
+    "total_score": 96,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D conversion is an excellent, geometrically faithful transformation of the 2D floor plan into an isometric cutaway, with only minor omissions of windows.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan16.avif"
+}

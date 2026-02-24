@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows visible wall height and thickness, a perceptible interior volume, an angled isometric view, and the roof or ceiling is removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Walls have height and thickness (5/5). Floors are clearly separate from walls (3/3). Interior volume is clearly perceivable (4/4). Proper 3D wall corner geometry (3/3). Angled view (5/5). Interior visible from elevated perspective (3/3). Minimal severe perspective distortion (2/2). Roof/ceiling cleanly removed (5/5). Interior spaces fully visible (3/3). Clean geometry without broken sections (2/2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3/3). Correct adjacency relationships (4/4). Relative room proportions preserved (3/3). Major room identities match (2/2). Major wall positions align (5/5). Wall lengths proportional (3/3). Internal partitions correctly placed (2/2). Doors present and on correct walls (4/4). Windows present but not all on correct walls (e.g., Bedroom 1, Balcony next to Bedroom 2 seem to have different window placements/sizes or are missing in 3D versus 2D. Balcony next to Bedroom 3 also has changed balcony railing/wall) (1/2). Openings proportionally sized and oriented, with some discrepancies for windows/balcony (1/2)."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture present (4/4). Kitchen elements present (2/2). Bathroom fixtures present (2/2). Furniture placed in correct rooms (3/3). Furniture scale reasonable relative to room (2/2). Orientation logical relative to layout (1/2, some balcony furniture is missing or changed)."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Walls, floors, openings clearly distinguishable (4/4). Geometry readable and not visually confusing (4/4). Interior clearly visible (3/3). Lighting does not obscure geometry (3/3). Consistent material usage (2/2). No major rendering artifacts (2/2). Clean background / presentation (1/2, background is clean but does not add to the scene)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Minor discrepancies in window placement/sizing and balcony railing/wall design compared to the 2D plan, especially in Bedroom 1 and Balcony areas."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Some balcony furniture is missing or changed compared to the 2D plan."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D render is an excellent and largely faithful transformation of the 2D floor plan into a geometrically sound isometric cutaway model, with only minor discrepancies in window details and some exterior furniture.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan20.avif"
+}

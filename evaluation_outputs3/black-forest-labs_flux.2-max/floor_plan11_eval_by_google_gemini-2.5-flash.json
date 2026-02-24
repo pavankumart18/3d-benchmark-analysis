@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly displays walls with height and thickness, a perceptible interior volume, an angled view, and a removed roof/ceiling."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5), floors are separated (3), interior volume is perceivable (4). Proper 3D wall corner geometry is mostly good, but some interior walls and stairs lack proper thickness/modeling (2/3). Angled view (5), interior visible from elevated perspective (3). Minimal severe perspective distortion (2). Roof removed cleanly (5), interior spaces fully visible (3). Clean geometry without broken sections (2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Correct number of rooms (3), correct adjacency (4), relative room proportions preserved (3). Major room identities match reasonably (2). Major wall positions align (5), wall lengths proportional (3), internal partitions mostly correct, but the utility room walls are simplified (1/2). Doors are present and on correct walls, but some are just openings (3/4). Windows are present and on correct walls (2). Openings are proportionally sized and oriented (2)."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present in most rooms (4/4). Kitchen elements are present and well-placed (2/2). Bathroom fixtures are present (2/2). Furniture is placed in correct rooms (3/3), scales are reasonable (2/2), and orientation is logical (1/2 \u2013 some furniture orientation could be slightly more refined, e.g., dining table)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable and not confusing (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2), no major rendering artifacts (2). Clean background/presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Simplified geometry for utility room walls and internal partition near the stairs, not fully reflecting the 2D plan's complexity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Some doors are represented as plain openings rather than modeled door frames/leaves."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "The dining room table orientation seems slightly off from what would typically be expected for the space relative to the window seat."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D floor plan into a comprehensible and geometrically sound 3D model, with minor deviations primarily in interior wall complexity and subtle furniture placement.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan11.png"
+}

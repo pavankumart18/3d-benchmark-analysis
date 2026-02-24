@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Living room overall size is a bit small compared to the plan. Interior wall layout in Bedroom 4 with the built-in is simplified. Master bathroom layout is incorrect; the toilet is missing, and the shower/tub is simplified incorrectly. The 'Nook' area is not clearly defined by a wall in the 3D render. The Study room's dimensions seem off. Some wall positions are off by more than 5%. Bathroom adjacent to Bedroom 4 is not correctly modeled, especially the shower/tub area and toilet placement. Master Bedroom has an extra niche area not present in the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 1,
+            "ui_cleanliness": 1,
+            "presentation_context": 0
+        },
+        "notes": "Missing the 'Covered Patio' structures from the plan. The 'Nook' area lacks a dividing wall which is present in the plan. The 'Pantry' room is reduced to a cabinet in the kitchen. Hallucinated a niche in the Master Bedroom. UI cleanliness is 1 point higher to account for potential intent to show a gradient background (dark neutral background is 2 points, but model is not completely isolated). Ground plane is too extensive. There is a very slight gradient on the floor/background, not a flat color for the background."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 1
+        },
+        "notes": "The overall furniture mapping is poor. Only a few kitchen features are present, and their layout is incorrect compared to the plan (sink is on the island). Bathroom fixtures are almost entirely missing, with only vague indications. No beds, sofas, dining tables, or study desks are present. Many planned built-ins/cabinets are also missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Maintains low-poly simplified forms and flat-shaded surfaces well. Minimal textures/materials, mostly solid colors. Lighting is a bit bright and casts some distinct shadows, suggesting more than just soft ambient light. Colors are distinguishable. Camera is well-composed, centered, and isometric. Some surfaces have very subtle gradients, especially the floor and walls, which slightly deviates from strict flat colors."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Majority of furniture from the plan (bed, sofa, dining table, all bathroom fixtures except vague indications) are missing.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "'Kitchen' island/counter layout incorrect. 'Nook' wall missing. 'Master Bath' layout significantly changed, 'WC' missing. 'Pantry' room missing. Study room dimensions/shape off. Master Bedroom has an additional niche. Covered patios are entirely missing.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Missing 'Covered Patio' structures (2 instances) which are part of the building's footprint in the plan. Missing 'Nook' wall. 'Pantry' room converted to cabinet.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Very subtle gradients present on walls and floors, not strictly solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Background is not a solid dark neutral color, but a slight gradient, and extends as a discernible ground plane.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 58,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant inaccuracies in furniture mapping, numerous structural and wall geometry deviations, and missing key architectural features present in the 2D floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan9.png"
+}

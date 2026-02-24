@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room placement are highly accurate. Most door openings match the 2D plan. Minor inaccuracies in door wing orientations and window widths. The primary living area and bedroom adjacencies are well preserved."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. No missing rooms and no hallucinations. The model is correctly floating on a neutral background with no text or measurement lines. Deducted minor points for wall thickness variations compared to the source blueprint."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Clean block-style furniture placement is near-perfect. The kitchen island, dining table, and sofa configurations match the plan exactly. Scale is consistent throughout the model."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Successfully achieved the low-poly, flat-shaded aesthetic. Lighting is soft and ambient without dramatic shadows. The camera is correctly set to an isometric orthographic view. Almost perfect compliance with the visual style requirements."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor door wing orientation mismatches in several room entryways compared to the swing indicated in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Some window scaling appears slightly narrower than the proportional widths indicated in the blueprint measurements."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan5.jpg"
+}

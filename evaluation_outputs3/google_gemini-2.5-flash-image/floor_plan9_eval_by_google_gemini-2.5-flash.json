@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed. The 3D render clearly shows height, thickness, and depth from an angled perspective with the roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent dimensional transformation with clear wall height, thickness, perceivable interior volume, and proper corner geometry. The angled view is good, providing an elevated perspective, though there is a very slight perspective distortion making some rooms appear stretched. The cutaway treatment is clean, making interiors fully visible."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "The room configuration is almost perfect, with correct numbers of rooms, adjacency, and proportional relationships. Wall geometry aligns very well with the 2D plan, with accurate placement and length. Doors are mostly correct, but windows are generally missing or simplified to wall openings, which affects the score slightly. The study opening is also distorted from the original."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture is present, including beds, sofas, and tables. Kitchen elements and bathroom fixtures are also present and correctly placed. The furniture's scale is reasonable, and its orientation is logical within the rooms."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is very good, with clearly distinguishable walls, floors, and openings. The interior is well-lit and clearly visible without obscuring geometry. The aesthetic coherence is high, with consistent material usage, no major rendering artifacts, and a clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows are either largely absent or simplified to plain openings without glass/frames, contrary to the 2D indications. The opening for the study is also significantly larger and distorted compared to the 2D plan."
+        }
+    ],
+    "total_score": 92,
+    "verdict": "EXCELLENT",
+    "summary": "The 3D conversion is of excellent quality, demonstrating strong fundamental 3D transformation, high geometric fidelity to the 2D plan, accurate interior element placement, and clear visual presentation, with only minor discrepancies in window representation and one distorted opening.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan9.png"
+}

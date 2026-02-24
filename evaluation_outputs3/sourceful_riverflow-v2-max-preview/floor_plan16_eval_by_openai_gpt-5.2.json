@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric-style model with visible wall height/thickness, multiple wall faces, and an elevated angled camera exposing interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear 3D extrusion and room volumes; angled view is correct; cutaway is present. Minor issues: some geometry looks simplified/soft at corners and openings."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency match (living/dining left, kitchen/utility top, toilet central/top-right, bedroom right, balcony bottom-left). Some proportional/partition fidelity and opening placement are hard to confirm due to blur/simplification."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture is present (sofa, dining table, bed) and generally placed in correct rooms. Kitchen elements are simplified; bathroom fixtures/door details are not clearly readable."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Walls/floors are distinguishable, but the render is low-detail/blurred. Text labels appear inside the 3D model, reducing presentation cleanliness."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels are visible inside the 3D render (e.g., room names/dimensions), contaminating presentation."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door/window opening positions and sizes are not fully verifiable; some openings/doors are unclear or simplified compared to the 2D plan."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Low sharpness/simplified geometry reduces readability of partitions and fixtures."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A genuine 3D cutaway conversion with largely faithful overall layout, but reduced clarity and simplified/unclear openings and fixtures limit strict geometric verification.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan16.avif"
+}

@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Significant layout distortion. The L-shaped wing for the Lobby and Home Office is missing, replaced by a generic rectangular footprint. Bed placements in the top-right rooms are rotated 90 degrees compared to the plan. Room proportions are squared off, losing the specific indentations of the balconies."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "While the roof is removed and the model floats on a dark background, the structural integrity is poor. Several rooms (Maid's room, Lobby, specific Bathrooms) are merged or deleted. Balconies have been converted into interior room space."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture exists as blocks, but the mapping is incorrect. The dining table and kitchen configuration do not match the open-plan layout of the source. Bedroom furniture is placed against incorrect walls."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to the visual style. Correct low-poly, flat-shaded aesthetic with a centered isometric camera and no text labels."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Lobby, Maid's Room, and distinct Balcony cutouts."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced beds and dining table; layout simplified from complex L-shape to basic rectangle."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated exterior walls where the Deck and Balconies should be open or recessed."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan20.avif"
+}

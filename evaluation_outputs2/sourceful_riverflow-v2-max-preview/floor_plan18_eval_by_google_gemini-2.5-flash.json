@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 9,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Living/Dining and Kitchen shapes slightly altered. The 'Balc' area in the 2D plan is represented as an enclosed space rather than an open balcony in the 3D render. One bedroom window is missing in the 3D render. One kitchen window is missing in the 3D render. The overall footprint shape has minor changes, especially around the balcony and foyer areas. The utility room's wall facing the kitchen is missing in the 3D render, although the fixtures are present."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "Missing the utility room wall facing the kitchen. Balcony area is enclosed, which is a hallucination. The 3D render has text-like labels/annotations which are not readable but are present on the walls and furniture, violating UI cleanliness. The bedroom appears to have a built-in wardrobe which is not explicitly detailed in the 2D plan but can be inferred as a cupboard space."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Bedroom: Bed and wardore present. Living/Dining: Dining table and sofa present. Kitchen: Counters, sink, hob present. Toilet: Toilet, sink, shower present. Utility: Washing machine/sink present. However, the entertainment unit in the living area is not present in the 2D plan. The sofa in 3D is a single sectional, while 2D shows a typical sofa. The dining table in 3D has 4 chairs, while 2D shows 6."
+    },
+    "aesthetic_quality": {
+        "score": 21,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly simplified forms and flat-shaded surfaces are largely compliant. No obvious textures, mostly solid colors. Lighting is soft and ambient. Rendering is clean with minimal shadows. True isometric projection and centered framing are good. However, some objects appear to have very subtle gradients or reflections, slightly deviating from 'solid flat colors only' constraint (e.g., bed, table surface, sink). The color palette is very muted, which doesn't allow for clear distinction between major elements."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom window missing in 3D render.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen window missing in 3D render.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Balcony wall enclosure, changing its spatial representation from an open balcony to an enclosed room.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Utility room wall facing kitchen is missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Unreadable text-like annotations present on walls/furniture in the 3D model, violating UI cleanliness criterion.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Entertainment unit hallucinated in Living/Dining area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Sofa style mismatch (sectional vs. traditional).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table chair count mismatch (4 chairs vs. 6 chairs in 2D).",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 77,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely adheres to the 2D floor plan with good spatial accuracy and structural presentation, but is penalized for missing windows, minor architectural discrepancies, and hallucinated text-like annotations, which significantly impacted the UI cleanliness score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan18.jpg"
+}

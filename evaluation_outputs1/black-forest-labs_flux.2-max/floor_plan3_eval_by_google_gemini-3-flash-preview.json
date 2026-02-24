@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Major layout failure. The central bathroom has been completely removed and its fixtures (toilet/sink) distributed along the outer wall. Room proportions are distorted into a single squarish room instead of a rectangular floor plan. Door and stairs positioning do not match the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model lacks two of the four perimeter walls specified in the plan. The spatial arrangement is a hallucination that merges all rooms into one. Background and UI constraints (no text, floating model) are met."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "While individual furniture models (kitchen, table) are present, their mapping is incorrect. The bathroom fixtures are floating in the living space. The stairs are oriented 90 degrees incorrectly compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly, flat-shaded, isometric orthographic view on a neutral background with soft ambient lighting."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing central bathroom enclosure; bathroom fixtures are now part of the open room."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase orientation and placement significantly deviate from the 2D layout."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated merger of dining/living/kitchen/bathroom into a single open-plan square."
+        },
+        {
+            "code": "E2",
+            "description": "Missing multiple windows and doors indicated on the wall perimeters of the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan3.jpg"
+}

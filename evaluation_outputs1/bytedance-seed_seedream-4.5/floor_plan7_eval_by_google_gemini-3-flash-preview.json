@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout is preserved, but there are significant door and window issues. The main entrance door is missing entirely, replaced by a wall with an arched niche. Several windows indicated on the floor plan (e.g., bottom wall of bedroom and stairs) are missing or misplaced."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model contains multiple text labels ('Dining', 'Wash Area', 'Living Room 1') which is a direct violation of constraints. While the roof is removed and the model is floating, the 'Living Room 1' text incorrectly identifies the bedroom. The staircase lacks the exterior surrounding wall shown in the plan."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate. The dining set, kitchen counter, and bathroom fixtures align with the floor plan. The living room sofa is present, though the armchair is missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The model successfully employs a low-poly, flat-shaded aesthetic with a clean isometric perspective. Shadows are soft and the composition is centered. Points deducted for the presence of text labels."
+    },
+    "total_score": 70,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Presence of text labels ('Dining', 'Wash Area', 'Living Room 1', 'Toilet') on the model floor."
+        },
+        {
+            "code": "E1",
+            "description": "Missing main entrance door and multiple windows (e.g., bedroom south window)."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced staircase structure; it lacks the enclosing exterior walls shown in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "The bedroom is labeled incorrectly as 'Living Room 1'."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan7.jpg"
+}

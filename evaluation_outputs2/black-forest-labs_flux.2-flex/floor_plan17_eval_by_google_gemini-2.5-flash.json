@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Living room and dining area merge in the 3D, losing distinct room boundaries established in the 2D plan. The 'dress' area near the master bedroom is missing in 3D, and its adjacent toilet is also missing. The utility room and server room are missing. Balconies are present but significantly altered in shape/size. Numerous walls, especially internal partitions, are either missing or significantly misplaced."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Missing the 'Dress', one 'Toilet' next to it, 'Utility' room, and 'Server Room'. Balconies are not accurate representations. The overall footprint is maintained, but significant internal structural elements are missing. The background is not a dark neutral gradient, and there is a visible ground plane with subtle shadows."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many furniture pieces are present and generally in their correct rooms, but their exact placement and count often differ. For example, the large L-shaped sofa in the living room is depicted as two separate sofas. Some pieces, like the study desk in Bedroom 3, are missing. The 'Dress' area with its associated furniture is completely absent. Toilet and kitchen fixtures are largely present, though some small details might vary."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The geometry shows simplified forms, but some surfaces have a more refined, almost glossy look rather than flat shaded. Colors are solid, but lighting produces some subtle gradients and reflections which deviate from strictly flat shading. The camera is isometric and well-composed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "'Dress' room, a 'Toilet', 'Utility' room, and 'Server room' are entirely missing.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant changes to internal wall geometry; Living and Dining room distinct boundaries are lost. Balcony shapes drastically altered. Walls for missing rooms are also missing.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Multiple rooms and structural elements (Dress, Toilet, Utility, Ser. Rm) completely absent from the 3D render.",
+            "point_deduction": 12.5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting and materials show subtle reflections/gradients, not strictly flat shaded as per specification.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 48,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, with several rooms and key structural elements missing or significantly altered, despite acceptable general aesthetic quality and camera composition.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan17.jpg"
+}

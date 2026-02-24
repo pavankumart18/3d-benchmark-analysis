@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "The overall layout is somewhat preserved. However, the 'Central Hall' is largely distorted, and the 'Alcove' is missing entirely. The 'Utility Room' is also significantly modified in its dimensions and connection to 'Central Hall'. Overall footprint is recognizable but distorted, especially on the left side."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The 'Alcove' room is completely missing. The 'WC' room geometry is considerably simplified and distorted relative to the plan. Interior walls are mostly visible. The render includes a subtle ground plane with some shadow, which violates the floating criterion."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Kitchen furniture (counters, sink, island) is present and reasonably placed. Dining room table and chairs are present and correctly placed. The window seat is present. However, the 'WH' (water heater) and 'HVAC' in the 'Utility Room' are not represented. The 'Storage' in 'Central Hall' is missing."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is low-poly with flat shaded surfaces and solid colors, meeting specifications. Lighting is soft and ambient with minimal shadows. Camera is an isometric projection with good framing, but a subtle ground plane is present, slightly detracting from the 'floating' aspect."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "The 'Alcove' room is completely missing from the 3D render.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Central Hall' and 'Utility Room' wall geometry is significantly distorted and simplified compared to the plan, affecting their sizes and adjacencies.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing direction in the 'WC' (bathroom) does not match the plan. The door to the 'Utility Room' is missing entirely.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "WH (water heater), HVAC, Storage, and REF (refrigerator) are not present in the 3D rendering.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "A dark ground plane is present beneath the model, with shadows cast onto it, contradicting the 'floating/isolated' and 'no ground plane' requirements.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 66,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to achieve the pass threshold primarily due to significant spatial inaccuracies, including a missing room and distorted room geometries, and a few missing structural and furniture elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan11.png"
+}

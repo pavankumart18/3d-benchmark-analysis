@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 2,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology is mostly preserved, but the utility room entrance is open to the lobby in the 3D model, not the kitchen. Balcony 1 is missing entirely for Bedroom 1. The small balcony-like area near Bedroom 1 is misrepresented. The Maid's Room/Home Office internal wall has shifted. Window presence is very poor, with all significant windows from the 2D plan being omitted in the 3D render. Balcony-2 is completely gone, and the main deck area is rendered as a void with no windows as shown in the 2D plan. Balcony 1 and Balcony 2 are completely absent. The wall connecting the Maid's Room to Toilet 4 is not correctly aligned. The general footprint is maintained but wall adjustments lead to some proportional differences."
+    },
+    "structural_fidelity": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 2
+        },
+        "notes": "Cutaway view is compliant. Completeness suffers due to missing windows and balconies. Hallucination control is decent, no extra rooms. UI/Annotation Cleanliness failed as faint room labels seem to be present in the 3D render (especially visible near Bedroom 1, 'BALCONY', and 'BEDROOM-2' areas). Presentation context is okay, though the dark background could be more neutral."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. However, the kitchen layout in the 3D render differs from the 2D plan (e.g., no 'U' shaped counter in Kitchen, island different). Bathroom fixtures are generally present. The furniture in Bedroom 1 is quite different (two smaller beds instead of one large, different wardrobes). Furniture in Bedroom 2 is two beds instead of one, and different wardrobe. Furniture in Bedroom 3 is generally okay. Living/Dining furniture is present and appropriately scaled. Home Office/Maid's Room is missing the bed, only desk and chair present."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style is low-poly with flat shaded surfaces and solid colors, which is good. Lighting is minimal, but there are some soft shadows, making it not entirely flat. Colors are distinguishable. Camera is true isometric with a 45\u00b0 rotation and good framing. Some minor ambient occlusion or soft shadows are present, slightly deviating from 'minimal shadows'."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "All significant windows missing from the main deck, Bedroom 1, Bedroom 2, and Bedroom 3. Balcony 1 and Balcony 2 are entirely missing.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Utility room entrance misplaced (opens to lobby instead of kitchen). Wall between Maid's Room and Toilet 4 not correctly aligned.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Faint room labels visible in the render (e.g., 'BALCONY', 'BEDROOM-2', 'BEDROOM-1').",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen counter layout differs. Bedroom 1 and Bedroom 2 furniture not matching the type or number from 2D plan. Maid's Room missing bed.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 70,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render achieved a passing score by maintaining overall layout and structural elements, but critical errors in window presence, balcony omission, and the subtle appearance of text labels significantly impacted its overall accuracy. Furniture mapping had several discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan20.avif"
+}

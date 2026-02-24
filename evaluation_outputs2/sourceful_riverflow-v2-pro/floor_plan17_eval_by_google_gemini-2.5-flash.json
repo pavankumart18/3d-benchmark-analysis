@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 5
+        },
+        "notes": "Overall layout topology, room adjacency, and relative room sizes are well preserved. Wall positions are highly accurate. All doors are present and correctly placed. Some windows appear to be missing or simplified compared to the plan, particularly in service areas and balconies. Consistent scaling is observed."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is compliant with the roof completely removed and interior walls visible. All structural elements appear complete. No major hallucinations of rooms or architectural features are present. However, the rendered image includes the background text/labels 'BALCONY', 'DRESS', 'LIVING', 'FOYER', etc., which is a critical violation of UI cleanliness. The presentation context is good with a neutral background and floating model."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table) are present in expected rooms. Kitchen and bathroom fixtures are also present. Furniture placement largely matches the 2D plan, with minor deviations within acceptable tolerance. Scale of furniture is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style is low-poly with simplified forms and flat-shaded surfaces, and no textures. Lighting is soft and ambient with minimal shadows, fitting the specification. The camera view is a true isometric projection with a 45-degree rotated plan, excellent framing, and appropriate zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/annotations from the source image are present in the generated 3D render (e.g., 'BALCONY', 'DRESS', 'LIVING', 'FOYER'). This violates the UI/Annotation Cleanliness rule 'ZERO text labels present'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some windows in service areas and balconies (e.g., utility, toilets) appear to be missing or overly simplified compared to the 2D plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 92,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates high spatial accuracy and structural fidelity with excellent aesthetic and technical quality, nearly perfectly translating the 2D floor plan, with a critical deduction for the presence of text labels in the final render.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan17.jpg"
+}

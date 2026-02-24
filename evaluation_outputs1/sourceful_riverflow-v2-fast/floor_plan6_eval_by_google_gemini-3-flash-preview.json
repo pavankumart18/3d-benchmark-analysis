@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Severe layout inversion. The 3D render represents a mirrored or rotated orientation compared to the floor plan. The staircase, bathroom, and bedroom have been relocated relative to the main kitchen/living zone. Door swings and specific window quantities on the perimeter walls do not match the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model lacks the external balcony/terrace shown on the left of the floor plan. While it lacks text labels and sits on a neutral background, the internal structural walls have been reinterpreted, including the addition of extra partition walls not present in the 2D source."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is present as block-style elements, but the mapping is incorrect. A second bed appears to have been hallucinated in a room that should be a bathroom or utility area, and the dining table/sofa arrangement is inconsistent."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to style constraints. The model uses low-poly geometry, monochromatic flat shading, and an isometric orthographic camera on a dark background."
+    },
+    "total_score": 59,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Floor plan orientation is mirrored or distorted; rooms (bathroom/stairs) are in the wrong positions relative to the entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing the large exterior balcony/planter area shown on the left side of the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated furniture/room usage; an extra bed is placed in the lower-right quadrant which should be utility/bathroom space."
+        },
+        {
+            "code": "E2",
+            "description": "Window and door count on the southern and western walls do not match the blueprint's rhythmic spacing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan6.jpg"
+}

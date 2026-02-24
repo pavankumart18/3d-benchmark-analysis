@@ -1,0 +1,66 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric interior model: walls have height and thickness, multiple faces are visible, rooms read as volumetric spaces, and the ceiling/roof is removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion and readable interior volume with a clean cutaway; minor softness/blur reduces crispness of corners and edges."
+        },
+        "geometric_accuracy": {
+            "score": 8,
+            "max": 30,
+            "notes": "Layout fidelity to the provided 2D plan is weak: the 2D plan shows a large open kitchen/dining/living arrangement plus stair area and a small bathroom; the 3D model appears to contain multiple enclosed rooms (incl. bed-like furniture) and partitioning that does not match the plan\u2019s room count, adjacencies, or proportions. Stair region is not clearly represented."
+        },
+        "interior_elements": {
+            "score": 5,
+            "max": 15,
+            "notes": "Furniture exists, but room-type placement does not align with the 2D plan (e.g., bed-like elements where the plan indicates living/dining; kitchen/bath elements are not clearly matched to the plan\u2019s locations)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Overall readable walls/openings with decent lighting; however, the render is somewhat blurry/low-detail, making openings and exact wall alignment harder to verify."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Major layout distortion: room count/partitioning and adjacency relationships in the 3D model do not match the 2D plan\u2019s open kitchen/dining/living configuration."
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Key plan component (stair zone shown on the left side of the 2D plan) is not clearly present/identifiable in the 3D model."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "major",
+            "description": "Furniture program appears inconsistent with the 2D plan (bedroom-like furnishings not indicated by the plan), reducing room identity correspondence."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows placement cannot be confidently matched to the 2D plan due to differing partitioning and low detail."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Soft/blurred rendering reduces geometric legibility (edges, door openings, and wall junctions)."
+        }
+    ],
+    "total_score": 58,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway was produced, but the 3D layout and room program diverge substantially from the provided 2D floor plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan3.jpg"
+}

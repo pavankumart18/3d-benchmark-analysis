@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 7,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Overall layout is recognizable, but significant issues with wall precision. Living Room, Dining Room, and Kitchen's overall shapes are generally correct. Many walls have inaccurate positions and lengths. No doors are clearly represented; instead, some are open passages. Windows are mostly missing or poorly represented. Scaling is inconsistent in places."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view shows interiors well. Completeness suffers from missing details like the WC and pantry walls. UI/Annotation Cleanliness is 0 because the 2D plan is included within the generated image. Presentation context is also poor due to the original plan being part of the output, and the model not being isolated on a dark background."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Only a few major furniture pieces are vaguely present (e.g., kitchen island, two blocks in living/dining area). Many essential fixtures like bathroom, kitchen counters/sink, and pantry are missing or poorly represented. The scale of the represented furniture is often off."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly and flat-shaded aesthetic is mostly maintained, but some surfaces appear slightly textured or with minor gradients. Lighting is too dramatic and casts significant shadows. Camera angle is not a perfect isometric 45-degree rotated plan view, resulting in some wall distortion that is not typical of a true isometric projection. The model is part of a larger image including the reference."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "2D floor plan is included as part of the generated image, making UI/Annotation Cleanliness 0.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric view; noticeable perspective distortion/converging lines are present (e.g., kitchen walls, northern walls overall).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls have incorrect positions and lengths, affecting the overall shape of several rooms, e.g., the complex angles of Living Room and Dining Room's outer walls are not accurately recreated. The Pantry and WC walls are largely missing or inaccurate.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Crucial fixtures like the WC, pantry walls, and detailed kitchen counters/sinks are either missing or grossly misrepresented.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "No doors are present in the expected form. Instead, open passages exist where doors should be, with no indication of swing. Missing all windows from the plan.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is too dramatic for the specified 'soft ambient lighting' and casts strong shadows, leading to minimal shadow deduction.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The background is part of the image; the model is not isolated as specified for presentation context.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render fails to meet the verification standards primarily due to significant inaccuracies in wall geometry, missing doors and windows, and critical failures in UI/annotation cleanliness and true isometric projection. While the general layout is present, precision and compliance with detailed specifications are lacking.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: extruded walls with thickness, visible top/side faces, perceivable room volumes, and an angled/isometric viewpoint with ceiling/roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; clean cutaway. Minor softness/ambiguity on some wall edges and opening details reduces perfect geometric crispness."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room arrangement matches (living/dining/kitchen top, bedrooms bottom left/right, bath core). Some discrepancies in exact partition lengths/door placements and a few opening positions/sizes appear approximated vs the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture is present and generally assigned to correct rooms (sofas/coffee table/rug, dining table, beds, kitchen counters, bath fixtures). A few items look simplified and not perfectly aligned to the 2D furniture orientation."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Readable structure with consistent materials and clean background; lighting supports visibility. Some areas (door swings/openings and certain window details) are slightly hard to verify precisely due to simplified modeling."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Minor layout distortion: some wall/partition lengths and offsets do not perfectly match the 2D proportions (notably around the central hall/bath/closet transitions)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Door/window fidelity issues: several openings appear simplified, with door swing/placement and some window/door sizes not fully consistent with the 2D plan."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A true and clean 3D cutaway conversion with strong overall layout fidelity, but with some minor-to-moderate mismatches in exact partition proportions and opening placements compared to the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan.jpg"
+}

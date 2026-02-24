@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 38,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 10,
+            "wall_geometry": 10,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Door swing direction in bathroom next to master bedroom is reversed. Door in the entrance hall is missing completely. All other doors and windows are correctly placed and scaled."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 5
+        },
+        "notes": "All structural fidelity aspects are perfectly met."
+    },
+    "furniture_mapping": {
+        "score": 10,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 5
+        },
+        "notes": "All major furniture pieces, including kitchen and bathroom fixtures, are present, correctly placed, and appropriately scaled."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The rendering demonstrates clean, low-poly geometry with flat-shaded surfaces and no textures. Lighting is soft and ambient with minimal shadows. The camera provides a true isometric projection from a 45-degree rotated plan view, with excellent framing and zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing direction in the bathroom next to the master bedroom is reversed. Point deduction for door placement since swing direction matters.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing door in the entrance hall (bottom wall near kitchen).",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 98,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates exceptional accuracy in translating the 2D floor plan, with only minor inconsistencies in door placement and swing direction. All other aspects of spatial, structural, furniture mapping, and aesthetic quality are nearly perfect.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan5.jpg"
+}

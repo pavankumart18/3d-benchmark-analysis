@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway rendering."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Excellent 3D depth and projection; geometry is clean and logically cut away."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Layout is highly faithful; wall partitions and proportions match the source 2D plan precisely."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement, scale, and room logic are correct and consistent with the floor plan."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "High structural clarity, but points deducted for text labels remaining on the floors in the 3D space."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "Minor",
+            "description": "Text labels from the 2D plan are superimposed/baked into the 3D floor texture."
+        }
+    ],
+    "total_score": 91,
+    "verdict": "EXCELLENT",
+    "summary": "High-fidelity conversion that maintains exact geometric proportions and architectural layout with professional 3D clarity.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan12.png"
+}

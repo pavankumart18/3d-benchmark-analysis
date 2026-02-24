@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "General layout is recognizable, but there are significant dimensional crawling and doorway omissions. The foyer closet and bathroom walls are simplified. Most internal door openings from the plan are represented as solid walls or indistinct gaps."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model lacks the staircase (missing room/function), replacing it with a generic alcove. The pantry island is reinterpreted as a hollow frame. No UI/Text elements are present, which is a positive adherence."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen counters and island are present but poorly scaled. The fireplace/built-in unit in the living room is rendered as a generic block. Dining furniture and playroom fixtures are largely missing."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good adherence to the low-poly, flat-shaded aesthetic. The background is correctly neutral and the camera is isometric. However, the 'translucent gray' material usage on top of walls creates a blurred/messy look rather than clean architectural cutaways."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase element and dining room furniture."
+        },
+        {
+            "code": "E2",
+            "description": "Pantry central island is hollowed out and correctly aligned with the plan's 2D footprint but lacks internal logic."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated translucent wall caps/extrusions that do not exist in the source plan."
+        },
+        {
+            "code": "E6",
+            "description": "Render style is overly soft/blurry, losing the precision required for architectural verification."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan8.jpg"
+}

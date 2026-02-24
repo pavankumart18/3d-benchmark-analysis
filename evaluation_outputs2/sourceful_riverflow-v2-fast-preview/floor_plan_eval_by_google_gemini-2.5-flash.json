@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is good. Slight inaccuracies in wall positions, particularly in the kitchen/hallway area. Main dimensions seem to be preserved fairly well. The door from Monica's Bedroom to the main living area is missing."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "No UI elements from the original plan are present, which is a major positive. However, the model includes some form of ground plane or base extending beyond the apartment's footprint, which violates the 'floating/isolated' principle. No text labels or dimensions, which is excellent. One small, enclosed 'closet' to the left of the living room in the 2D plan is entirely missing from the 3D render, reducing completeness slightly."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. However, the 'DEJXT' closet and contents between Rachel's and Monica's bedrooms were replaced by a wall. The closet near the main entrance/kitchen in the 2D plan is completely missing from the 3D render. The kitchen layout is simplified but matches the general configuration. Bathroom fixtures are present and correctly placed."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style uses simplified forms but includes some smoothness and slight beveling on edges, not strictly flat-shaded low-poly as specified. Surfaces have subtle texture or material variation, not solid flat colors. Lighting is good, soft ambient, distinguishable colors. True isometric view and good composition."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing two small closets (one near main entrance and one in hallway).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing door between Monica's Bedroom and living area. Wall in its place.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Minor wall position inaccuracies in the kitchen/hallway area creating a slightly different flow.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces are not solid flat colors; they exhibit subtle shading/material variations and smoothness.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 77,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render accurately translates the 2D floor plan with good spatial and structural fidelity, though minor deviations in wall geometry, furniture elements, and subtle rendering choices prevent a perfect score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan.jpg"
+}

@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "Room count matches, but adjacencies are distorted due to wall misalignment. Overall footprint is largely maintained but outer walls deviate significantly in some areas. Specifically, the exterior wall for the deck area outside BED-1/BED-3 is not accurately represented, and the exterior wall of BED-2 is also off. The utility room's exterior wall is also problematic. Missing a few doors, and some door placements are not precise. Most windows are not present or are misrepresented."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed, and interior walls are visible. There is some hallucination of exterior walls and architectural features, particularly the balcony next to BED-2 which is not present in the 2D plan, and the exterior wall of BED-1/BED-3 which is a solid wall in 3D but an outdoor deck in 2D. The overall shape of the exterior is significantly altered from the 2D plan especially along the right side of the plan. The background is not a dark neutral, it is a gradient. The floor in the cut-away extends beyond the footprint suggesting a ground plane."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "Many furniture pieces are missing, especially in the living/dining area and bedrooms. The kitchen and bathroom fixtures are mostly present but some are missing (e.g., toilet in TOI-4 and common toilet, sink in TOI-4). Furniture placement is mostly accurate for existing pieces but overall density and type are frequently incorrect."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style uses solid colors but some surfaces show gradients. Lighting is soft, but there are noticeable shadows on the floor and walls that contradict 'minimal shadows'. Camera view is isometric and centered with appropriate zoom. The wall material appears to have a slight texture or shading variation that conflicts with flat shaded surfaces/solid colors."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated balcony on the exterior of BED-2, not present in 2D plan. Exterior wall of BED-1/BED-3 area is a solid room instead of a deck. Significant deviation in entire exterior footprint along the right side of the plan, especially for the decks.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Portion of the exterior is completely altered; decks in 2D are shown as fully enclosed rooms/extensions in 3D, changing the use and structure of outdoor spaces, significantly altering the layout topology.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing multiple doors (e.g., between LIVING/DINING and BED-3, between FOYER and UTILITY).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Most windows from the 2D plan are missing in the 3D render, particularly in BED-1, BED-3, and LIVING/DINING.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Major furniture pieces (e.g., all L-shaped sofas, dining table from the smaller dining area) and fixtures are missing or incorrectly placed/scaled in multiple rooms.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "UI/Annotation Cleanliness: Red arrow present. This should have been removed.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces show slight gradients and ambient occlusion/soft shadows that deviate from flat shaded/minimal shadow requirements. Some wall surfaces appear to have slight texture or noise.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant deviations in exterior wall geometry and hallucination of architectural features (decks converted to enclosed spaces). Numerous missing doors and windows, and a critical UI element (red arrow) remain visible.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan19.webp"
+}

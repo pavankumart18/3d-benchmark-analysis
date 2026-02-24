@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Living Room/Nook/Kitchen partition walls are significantly different. Kitchen island geometry incorrect. Two missing windows in Living Room, one missing in Master Bedroom, one in Bedroom #2. Hallway to Bedroom #4 entrance cut short. Covered Patios are partially enclosed in 3D but not fully enclosed walls. Missing an exterior door from Master Bath to Optional External Door. Dimensions appear inconsistent in some areas, impacting proportionality."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Presence of text labels (KITCHEN, HALL, BATH, UTILITY) is a major violation. The two outdoor 'Covered Patios' in 2D are partially enclosed rooms in 3D, which is a hallucination. There are some floor artifacts extending slightly beyond the main structure."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 1
+        },
+        "notes": "Many missing furniture pieces from the 2D plan, especially in the Nook, Dining Room, Study, and Bedroom #4 (which is almost empty). Kitchen layout significantly differs, particularly the island. Furniture in Bathrooms is different. Master Bedroom bed and nightstands are positioned differently. Bedroom #2 has a different bed placement and missing closet furniture."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 6,
+            "camera_composition": 6
+        },
+        "notes": "Surfaces are flat shaded but have some very subtle gradients that make them not entirely solid flat colors. Lighting is soft but some contrast is evident. Camera is isometric and well-composed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the rendered image (KITCHEN, HALL, BATH, UTILITY).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant changes in Kitchen and Nook wall geometry and layout, including island shape and wall alignment.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The two 'Covered Patios' from the 2D plan are rendered as partially enclosed rooms with distinct walls, constituting significant architectural hallucination.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Numerous missing furniture pieces across multiple rooms (Nook, Dining, Study, Bedroom #4, etc.).",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing 2 windows in Living Room, 1 in Master Bedroom, 1 in Bedroom #2. Hallway to Bedroom #4 is cut short.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing an exterior door from Master Bath. Hallway entrance to Bedroom #4 has modified wall. Some door widths appear disproportionate.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant discrepancies in wall geometry, widespread missing/misplaced furniture, critical violations like text overlays, and architectural hallucinations of outdoor spaces.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan9.png"
+}

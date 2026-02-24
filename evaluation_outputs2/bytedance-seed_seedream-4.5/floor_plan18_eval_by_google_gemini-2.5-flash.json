@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is mostly preserved. Wall geometry has minor inaccuracies, particularly around the kitchen/foyer and balcony areas. Doors: Several interior doors are missing (e.g. bedroom, toilet). Windows are mostly present but not all align perfectly in position/quantity. Dimensional scaling seems largely consistent, but proportions in some areas (e.g., utility room, balcony) are slightly skewed."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 4,
+            "hallucination_control": 5,
+            "ui_cleanliness": 1,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is good. Completeness suffers from missing interior doors. Hallucination control is strong. UI/Annotation Cleanliness is critically violated by the presence of all text labels (room names, dimensions). Presentation context fails due to harsh shadows projecting onto an apparent ground plane and no floating/isolated appearance."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces (bed, dining table, sofa) are present but their abstract representation and specific positions do not fully match. Kitchen and bathroom fixtures are mostly present, but some are misplaced or altered (e.g. kitchen counter layout, toilet position). Balcony bench is missing."
+    },
+    "aesthetic_quality": {
+        "score": 1,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 1,
+            "camera_composition": 0
+        },
+        "notes": "Geometry style is not low-poly and flat shaded; it features smooth shading and some subtle material properties. Lighting and rendering include significant shadows and ambient occlusion, not flat shaded. Camera and composition is not a true isometric projection (perspective distortion is visible, parallel lines converge)."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "All text labels (room names, dimensions, 'FLAT-4') from the 2D plan are present in the 3D render, violating UI/Annotation Cleanliness.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The view is not a true isometric projection; perspective distortion is clearly visible as parallel lines appear to converge.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Rendering exhibits smooth shading, some material properties, soft shadows and ambient occlusion indicative of a realistic rendering style, not low-poly flat shaded forms with solid flat colors.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Interior doors (bedroom, toilet) are missing from the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Balcony bench is missing. Furniture placement and abstraction differ from the 2D plan.",
+            "point_deduction": 4
+        },
+        {
+            "code": "None",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Presentation context fails due to presence of distinct ground plane with shadows that extend away from the model, and the model is not floating/isolated.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 47,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render failed due to critical violations in aesthetic quality (non-isometric, realistic rendering, text presence) and significant issues in spatial accuracy and furniture mapping.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan18.jpg"
+}

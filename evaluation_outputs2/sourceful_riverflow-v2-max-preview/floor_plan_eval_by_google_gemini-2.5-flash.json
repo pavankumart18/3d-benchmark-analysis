@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Bathroom layout for Rachel's room is slightly off, door to second bathroom is missing, and the closet for Monica's room seems to have a door in the wrong place, or is missing a wall. The large window in the living room is not accurately represented. Some wall thicknesses appear inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The floor plan text and dimensions are still present from the original 2D image, leading to a critical deduction in UI cleanliness. There is also a small wall fragment visible in the upper left corner. The background is not a dark neutral gradient, but a flat dark gray. The arrows indicating the entrance to Chandler and Joey's apartment are present."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. However, the exact arrangement of the kitchen appliances/counters is not completely accurate. The bathroom fixtures' layouts are a bit simplified and not entirely matching the 2D plan, especially in Rachel's bathroom. The closet for Monica's room seems to have a bed where there should be a closet. The desk in Monica's bedroom is not present. The small table in Rachel's bedroom is missing."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The rendering exhibits low-poly, flat-shaded forms with solid colors, adhering to the specified style. Lighting is ambient and even. The camera view is a true isometric projection, well-composed and centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels, titles, dimensions, and other UI elements from the 2D floor plan are present in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Desk in Monica's bedroom and small table in Rachel's bedroom are missing. Bathroom fixtures are simplified or slightly rearranged.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door to the second bathroom is missing. Closet for Monica's room has an inaccurate layout. The large living room window is simplified and not geometrically accurate to the plan.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Small wall fragment visible in the upper-left, and the background is a flat dark gray instead of a gradient. Arrows indicating entrance to Chandler and Joey's apartment are present.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 82,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and geometric style but fails critically on UI cleanliness by retaining annotations from the 2D source, and has minor furniture and structural discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan.jpg"
+}

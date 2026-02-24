@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Severe layout distortion. The entire floor plan has been mirrored and structurally shifted. The balcony is on the wrong side relative to the bedroom, and the kitchen/utility wing is completely rearranged. Door placements are largely ignored."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Failure to remove text labels and measurement lines which are hallucinated onto the floor. Exterior windows are added where solid walls should be. 'KOYHEN' typo introduced. Model is floating correctly on dark background, but structural reinterpretation is high."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is present in block style and reasonably scaled, but placement is compromised by the mirrored layout."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good low-poly execution and perspective. However, lighting is too dramatic with emissive window glows and strong shadows, violating the 'flat shading' constraint."
+    },
+    "total_score": 47,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Mirrored layout; rooms and balconies are on the opposite sides of the central axis compared to original plan."
+        },
+        {
+            "code": "E5",
+            "description": "Strict violation: included text labels, measurements, and room names as floor overlays."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated multiple windows on the exterior bottom and right-facing walls that do not exist in the 2D plan."
+        },
+        {
+            "code": "E6",
+            "description": "Dramatic lighting with internal glows and soft shadow falloff instead of flat, simple shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, multiple wall faces visible, angled/isometric view, and roof/ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Scoring skipped due to automatic rejection (major layout/room omission vs 2D plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Scoring skipped due to automatic rejection (major layout/room omission vs 2D plan)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Scoring skipped due to automatic rejection (major layout/room omission vs 2D plan)."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Scoring skipped due to automatic rejection (major layout/room omission vs 2D plan)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "fatal",
+            "description": "More than 50% of rooms/spaces shown in the 2D plan segment (e.g., central hall, WC, utility/HVAC, pantry, breakfast/bench/angled bay area, stair/crawlspace area) are missing or not represented in the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "high",
+            "description": "The 3D layout introduces major spaces not evidenced in the provided 2D plan crop (e.g., multiple bedrooms/alternate room arrangement), indicating a different floor plan rather than a faithful conversion."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is a true 3D cutaway, it does not match the provided 2D floor plan and omits/changes most rooms, so it is rejected.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan11.png"
+}

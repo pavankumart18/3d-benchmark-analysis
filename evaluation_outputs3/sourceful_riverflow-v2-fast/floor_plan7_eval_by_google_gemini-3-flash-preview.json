@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion is a successful isometric 3D extrusions of the provided floor plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Strong volumetric representation. Walls show consistent height and thickness. Good isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Excellent room layout fidelity. Nearly all walls align perfectly with the 2D source. Staircase/Entrance area is slightly simplified."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major items like the dining set, kitchen counter, and bed are present. Missing living room sofa and bathroom fixtures."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Structural clarity is high, but score is reduced due to garbled text/labels in the 3D render (E6)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels from 2D plan are rendered as distorted/unreadable floating geometry in the 3D view."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Living room furniture grouping from 2D plan is missing in the 3D model."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A highly accurate 3D transformation that maintains exact spatial relationships, though hindered by distorted text artifacts and some missing furniture.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan7.jpg"
+}

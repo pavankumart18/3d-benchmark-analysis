@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Living/Dining layout is slightly distorted with a curved wall on the left, not present in the 2D plan. The exterior footprint has several minor deviations, particularly on the bottom and right edges. Some wall positions are off by more than 5%. Several doors are missing their swing direction. Numerous small windows in bathrooms and hallways are missing or simplified."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 4,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 2
+        },
+        "notes": "Roof appears completely removed. Most structural elements are present. Minor hallucination of small architectural details and planter boxes. UI/Annotation Cleanliness failed due to 'BED1' and 'mon' text still present in the top-right bedroom area. Presentation context has some ground plane and environmental elements visible on the top and right side, and a slight gradient in the background."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present. However, the dining table in the render has 8 chairs while the plan clearly shows 10. The bed in BED-2 is rotated 90 degrees compared to the plan. Some smaller decorative furniture is missing. Kitchen layout is broadly correct, but specific appliance placements are generalized."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style uses low-poly simplified forms and flat-shaded surfaces, but there are some slight textures and minor material differences visible, e.g., wood floor textures. Lighting is soft, but shadows are more prominent than 'minimal' with some environmental shadows from the planter boxes. Camera composition is not a true isometric view (parallel lines converge slightly), it's more of a dimetric or trimetric view. The view is not precisely 45 degrees rotated plan view; it's rotated less."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Left curved wall in Living/Dining area is a significant structural deviation from the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table missing 2 chairs; bed in BED-2 rotated incorrectly.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text 'BED1' and 'mon' present on 3D render.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric projection; parallel lines converge.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Minor textures (wood floor) and non-solid colors are present.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Numerous small windows are missing or simplified.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 64,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet the passing threshold due to critical errors in UI cleanliness and camera projection, along with several accuracy issues in wall geometry and furniture placement.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan19.webp"
+}

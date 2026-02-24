@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D isometric: walls have height and thickness, multiple faces are visible, and interiors are exposed via roof/ceiling removal."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Strong 3D extrusion with clear wall thickness, readable room volumes, correct angled view, and clean cutaway; only minor simplifications at some corners/edges."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Overall room count and main adjacencies largely match (living area top, bedrooms bottom corners, closet top-left, entry/hall bottom-center), but the kitchen/cabinet run appears relocated to the right wall in the 3D render versus the 2D plan\u2019s kitchen placement along the left/inner side near the closet/living boundary, indicating a notable layout deviation."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present (sofas, dining table, beds) and bathrooms include key fixtures; kitchen elements exist but their placement relative to the 2D plan is inconsistent."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Geometry is generally clean and readable with good lighting; however, prominent text labels inside the 3D render reduce presentation clarity and count as UI contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Kitchen geometry/furnishing run is positioned on a different wall in the 3D render compared with the 2D plan, causing a significant layout fidelity issue."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels are embedded in the 3D render (room names/annotations), reducing presentation cleanliness."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door swing/orientation and opening proportions appear simplified and may not exactly match the 2D plan."
+        }
+    ],
+    "total_score": 77,
+    "verdict": "GOOD",
+    "summary": "A clearly valid cutaway 3D conversion with strong volumetric execution, but with a notable kitchen placement/layout deviation and minor presentation/annotation issues.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan.jpg"
+}

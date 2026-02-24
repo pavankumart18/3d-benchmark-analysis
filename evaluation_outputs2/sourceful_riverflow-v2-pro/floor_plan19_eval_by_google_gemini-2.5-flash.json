@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall layout topology is mostly preserved. Room count matches, and adjacency is good. However, relative room sizes are slightly off, particularly the kitchen and dining area which feel larger in the 3D render. The overall footprint shape is well-maintained. Wall geometry has several inaccuracies, with some wall positions being off by more than 5% (e.g., utility room, toilet 4, and the general kitchen area). Corner angles are mostly preserved. Doors are mostly present, but some are missing in the utility room and toilet 4. Placement for most doors is correct, but swing directions are not clearly indicated on the 2D plan for many, and where they are (e.g., bedroom 1, 2) the 3D render either doesn't match or uses a simplified opening. Door widths are generally proportional. Windows are adequately represented but not every window from the 2D plan is clearly discernible or present in the 3D render (e.g., utility room, kitchen). Dimensional scaling seems mostly consistent but some sections feel compressed while others are expanded, leading to minor distortion."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is excellent; the roof is completely removed, and all interior walls are fully visible without fragments. Completeness is strong; no rooms or major structural elements (like stairs, though none are present in the plan) are missing. Hallucination control is good, with no extra rooms or invented architectural features. However, the 3D render contains text labels (e.g., on desks) and measurement-like lines (on the rug), resulting in a full deduction for UI/Annotation Cleanliness. Presentation context is well-maintained with a dark neutral background, a floating model, and no infinite ground plane."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces (beds, sofas, dining table) are present. Kitchen fixtures are mostly present but simpler than in the 2D plan. Bathroom fixtures are indicated. However, there are discrepancies: the L-shaped sofa in the living room is not accurately represented, and some smaller details like side tables and plants are missing or incorrect. The office chair in Bedroom 4 is also missing. Placement is generally good, but scale is slightly off for some pieces, making some rooms feel more cluttered or emptier than intended by the 2D plan, e.g., the sofas in the decks are simplified and smaller, and the bed in BED-4 looks too large relative to the room."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is generally good, exhibiting low-poly simplified forms and flat-shaded surfaces. Edges are clean, and there are no apparent textures, using solid flat colors. However, some elements like the rug and floor patterns introduce a texture-like appearance. Lighting is soft and ambient with minimal shadows. Colors are distinguishable between different elements. The camera composition provides a true isometric projection (checked by visible parallel lines), a 45\u00b0 rotated plan view, centered framing, and appropriate zoom level to show all rooms. The slightly textured/patterned surfaces lead to minor deductions."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on furniture (e.g., desks) and implied measurement lines/patterns on the rug.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Walls around Utility room and TOI-4 are inaccurately represented, with significant position variations and missing doors.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some door swing directions are not clearly replicated or are simplified compared to the 2D plan (e.g., BED-1, BED-2 doors).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Specific furniture pieces are missing or simplified (e.g., office chair in BED-4, plants, detailed L-shaped sofa in living room).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floor coverings and rugs have subtle patterns or gradients that slightly deviate from pure flat colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 67,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render accurately conveys the overall layout and most structural elements but fails due to present text labels and several inaccuracies in specific wall geometries and furniture representation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan19.webp"
+}

@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 6,
+            "dimensional_scaling": 2
+        },
+        "notes": "Overall layout is similar, but significant deviations in wall positions and room proportions. The overall footprint is well maintained. Some doors are missing, and some window placements are off. The scale is inconsistent, with some rooms appearing more compressed or expanded than in the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The roof is not completely removed; partial ceiling/roof structures are visible, especially around the exterior walls and some interior rooms. There are no text labels or measurement lines, but the background is not plain dark neutral, it has some variations, and there are ground shadows."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present, but their placement often deviates from the 2D plan. The kitchen and bathroom fixtures are present. Scale of furniture is generally appropriate, though not always precise."
+    },
+    "aesthetic_quality": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 0,
+            "camera_composition": 0
+        },
+        "notes": "The rendering is photorealistic with textures, reflections, and smooth shading. This violates the 'flat shaded surfaces', 'no textures' criteria. Lighting is dramatic with soft shadows. The view is an approximate isometric, but rendering style is a critical failure."
+    },
+    "detected_errors": [
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering with textures, reflections, and smooth shading. Violates all geometry and lighting style constraints.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Roof not completely removed; partial ceiling structures visible over multiple rooms.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple interior walls misaligned, especially around the central dining area and the bedrooms on the right. The office-like room on the top left of the 2D plan is represented as an outdoor balcony with seating, altering its function and wall geometry.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are missing compared to the 2D plan, notably in the top-left room, and the bathroom adjacent to the master bedroom.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane and shadows extend beyond the model; background is not a uniform dark neutral color.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 32,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical violations of rendering style and significant inaccuracies in spatial geometry, despite some resemblance to the 2D plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan5.jpg"
+}

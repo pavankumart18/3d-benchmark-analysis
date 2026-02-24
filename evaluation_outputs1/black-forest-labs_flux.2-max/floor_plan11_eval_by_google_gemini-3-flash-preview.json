@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Poor spatial fidelity. The 3D render misinterpreted the utility room/stairs area, merging them into a strange hallway/barrier. Window and door placements are inconsistent with the plan, specifically on the far left and the window seat area which has been simplified to generic glass."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Floating model on dark background is correct. However, significant structural reinterpretation occurred in the central core where stairs and utility rooms should be. Hallucinated text 'WAC' appears on the 3D floor surface, violating constraints."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen cabinetry and appliances are loosely mapped. Furniture in the main hall/living area is hallucinated and does not exist on the blueprint. Scale of 'furniture-blocks' is varied and inconsistent."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "While it uses low-poly geometry, the lighting is too dramatic with heavy contact shadows. The 'herringbone' texture in the kitchen violates the 'no textures' rule. The camera is not a true orthographic isometric; it has perspective distortion."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated central partition and floor layout instead of stairs and utility room."
+        },
+        {
+            "code": "E5",
+            "description": "Text labels 'WAC' and arrow icons hallucinated onto the 3D floor plane."
+        },
+        {
+            "code": "E6",
+            "description": "Visible floor textures (herringbone pattern) and non-orthographic perspective camera."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced windows and complete omission of the specific window seat geometry on the right."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan11.png"
+}

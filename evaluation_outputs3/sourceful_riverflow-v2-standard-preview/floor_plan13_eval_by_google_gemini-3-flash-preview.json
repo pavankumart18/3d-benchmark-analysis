@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model correctly performs an isometric cutaway transformation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Solid isometric projection with clear wall thickness and volume. Minor perspective jitter in some corners."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Significant layout errors: The kitchen and laundry area are completely misinterpreted as a bedroom. The separate garage is omitted. Room adjacencies for the bathroom and WC are garbled."
+        },
+        "interior_elements": {
+            "score": 6,
+            "max": 15,
+            "notes": "Furniture is placed but does not match room identities; a bed is placed in the kitchen/laundry zone. Bathroom fixtures are vague or misplaced."
+        },
+        "visual_clarity": {
+            "score": 12,
+            "max": 20,
+            "notes": "Rendering is clean but hallucinates floor text/labels in the 3D space, which causes visual clutter and deducts points."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "Kitchen/Laundry area replaced by a three-bedroom layout instead of two-bedroom."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "External garage from the 2D plan is entirely missing."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Residual text/labels from the 2D plan are rendered as artifacts on the 3D floor."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "While the 3D conversion is technically sound, the layout fidelity is poor due to misidentifying utility spaces as bedrooms and omitting the garage.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan13.jpg"
+}

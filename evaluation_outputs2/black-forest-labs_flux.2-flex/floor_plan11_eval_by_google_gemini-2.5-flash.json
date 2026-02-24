@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint is mostly maintained, but some significant layout deviations exist. The 'Alcove' area and some surrounding walls are completely missing. The 'Central Hall' has been significantly altered in shape and size. The utility room's shape is incorrect. Window placement is generally poor, missing many and misplacing others. Wall positions have some tolerance issues and significant alterations in places. Scaling is inconsistent; some features appear stretched."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 5,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant, with the roof completely removed and interior walls fully visible. However, completeness is poor due to missing rooms/areas. UI/Annotation cleanliness is perfect. Presentation context is not fully met as there are shadows cast on the 'ground plane', which implies a ground plane extending into infinity."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major fixtures like kitchen and bathroom sinks, toilet, and counters are present. However, many pieces are missing (e.g., dining table and chairs, beds, sofa in the 'Breakfast' area if intended as a living space). The placement of represented furniture like the kitchen sink and island is accurate, but the overall accuracy and presence are lacking."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style uses low-poly simplified forms and flat-shaded surfaces, but there are some slight textures/gradients present on the walls and floors. Lighting is soft and ambient with minimal shadows. The camera composition achieves an isometric projection with a good 45\u00b0 plan rotation and centered framing, but the model casts shadows on an implied ground plane, which is an issue."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'Alcove' area and associated walls are missing from the 3D model. The 'Breakfast' area is significantly altered and parts of walls are missing. The 'Utility Room' is incorrectly shaped and simplified.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple wall positions are significantly altered or missing, particularly around the 'Central Hall', 'Alcove', and 'Utility Room'. The wall between the 'Breakfast' area and the exterior is incorrect and severely simplified. Many windows are missing or misplaced.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Dining table and chairs, and furniture implied in the 'Breakfast' area are missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Wall and floor surfaces appear to have slight texture/gradient, not solid flat colors.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Shadows are cast onto an implied ground plane, violating the 'model appears floating/isolated' and 'no ground plane' rules.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render displays significant inaccuracies in spatial layout, missing entire sections of the plan, and inconsistent dimensional scaling, leading to a failing grade despite good UI cleanliness and rendering basics.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan11.png"
+}

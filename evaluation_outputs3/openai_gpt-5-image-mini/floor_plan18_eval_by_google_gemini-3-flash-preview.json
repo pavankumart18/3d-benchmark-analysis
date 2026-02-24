@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway rendering with clear floor-to-wall separation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D depth and clean isometric projection; minor perspective flattening on far corners."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Room layout is largely correct, but the wall separating the bedroom from the living room is missing, making it a studio layout rather than a 1-bedroom as per the plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture matches the 2D plan types (bed, sofa, dining, kitchen island) but orientation of the bed and sofa is rotated 90 degrees."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Extremely clean aesthetic with consistent materials and no UI text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Missing internal partition wall between the bedroom and living area."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "Bed and sofa orientations do not match the 2D floor plan layout."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D render that captures the overall architectural footprint but fails on a major internal partition wall.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan18.jpg"
+}

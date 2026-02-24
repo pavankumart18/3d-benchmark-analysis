@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Some proportional discrepancies in room sizes, notably the living room and balcony area appear slightly compressed. Window count and placement are inconsistent with the 2D plan. Balcony wall geometry is significantly different. Relative room sizes are generally preserved but not perfectly proportional."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Hallucinated a window on the external wall of Rachel's bedroom. A closet in Monica's bedroom has been removed/modified into shelving. UI/Annotation Cleanliness is a critical failure as the 2D plan contained text, and the prompt explicitly states that the 3D render should have ZERO text. The generated image does not have text, but the rubric includes 'ZERO text labels present (2 pts)'. Assuming this refers to the *generated* 3D rendering having no text, then it passes this specific criterion. If it means the *input* 2D image should not have text, then the task is designed to fail this criterion. Given the prompt structure 'Verify rendering constraints against specifications' and 'Deduction Rules...', it refers to the 3D render. Thus, UI Cleanliness is '0' due to the rules, but the render itself is clean."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. However, some specific items are missing or altered, such as the second bed in Rachel's room (only one is present in the render, two are implied in 2D), and a chair is missing from the dining table. The walk-in closet in Monica's room shows shelving in the render which is not explicitly detailed in the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry is low-poly and uses flat shaded surfaces without textures, aligning with the requirements. Lighting is soft and ambient. The shadow under the model is slightly extended, not fully isolated. The camera view is isometric, and the composition is well-centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "UI/Annotation Cleanliness: 2D plan has text; assuming the rubric refers to the 3D render, it is clean, but per the rule 'ZERO text labels present (2 pts)' the 2D input may fail this implicit criteria, resulting in a 0 for this category.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing a second bed in Rachel's Bedroom. Dining table chairs are fewer in the render than indicated in the plan. Monica's closet changed from hanging to shelving.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window positions and count mismatch from 2D plan. Balcony wall structure (railing) is different from the solid wall indicated. A window is hallucinated on Rachel's bedroom exterior wall.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Presentation Context: Shadow extends too far, not giving a fully 'floating/isolated' appearance.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 73,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render generally translates the 2D floor plan with good spatial accuracy and structural fidelity, maintaining layout and most major elements, though it exhibits minor discrepancies in windows, furniture representation, and slight proportional adjustments, while adhering to specified aesthetic and technical rendering constraints.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan.jpg"
+}

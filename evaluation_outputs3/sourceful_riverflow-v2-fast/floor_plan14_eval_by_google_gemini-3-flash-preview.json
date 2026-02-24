@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful conversion to an isometric-style cutaway model."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D extrusion and perspective. Wall thickness and geometry are clearly defined."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "High fidelity to the original layout. All rooms (Bed-1, Bed-2, Utility, Kitchen) are present and correctly positioned."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture and fixtures correctly located; bathroom and kitchen placements match the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Lighting and structure are very clear; points deducted for 3D text labels superimposed on the floor mesh (E6)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels from the 2D plan are rendered as textures on the 3D floor, causing visual clutter."
+        }
+    ],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "A highly accurate 3D transformation that maintains exceptional geometric fidelity to the original floor plan, slightly marred by text labels on the floor surface.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan14.webp"
+}

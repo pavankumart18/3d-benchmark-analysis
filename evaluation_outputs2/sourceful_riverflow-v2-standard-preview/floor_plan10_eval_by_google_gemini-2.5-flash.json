@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is largely maintained, room count matches. Wall geometry mostly accurate, but some minor misalignments, e.g., the wall separating Activity from Bed 3/4 appears to be shifted slightly in proportion. All primary doors are present, correctly placed on walls, and openings match. Windows are all present and placed on correct walls, but some window sizes are inconsistent with the plan (e.g., in Bathroom, Ensuite). Consistent scale is generally applied, but some minor aspect ratio distortions are present, especially in the garage and certain rooms like the Theatre."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Cutaway view is compliant, roof is removed, and interior walls are fully visible. Completeness is good with no missing rooms or structural elements. No hallucinated rooms or major architectural features. However, UI/Annotation Cleanliness failed completely due to some text labels (e.g., 'Bed 3/4', 'Pantry', etc.) and potential measurement text/symbols being present on walls which are not part of the 2D plan, but rather derived from the 2D plan. The presentation context failed because of the floor plane and shadows extending. These should not be present."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables) are present and identified. Kitchen and bathroom fixtures are also present. However, furniture accuracy is diminished because several pieces of furniture are either missing (e.g., in Theatre room, Verandah, Pantry) or are inaccurate in their placement/orientation compared to the 2D plan (e.g., dining table in Alfresco, beds in Bed 3/4, living room sofas and coffee table layout). The study room is empty."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is mostly low-poly with flat-shaded surfaces and clean edges, adhering to the specifications. Surfaces have solid colors with no textures. Lighting is soft, ambient, and flat, with minimal shadows, which is good. Colors are distinguishable. Camera composition successfully achieves a true isometric projection with a 45\u00b0 rotated plan view, centered framing, and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on generated 3D render, specifically in 'Pantry', 'Bed 3', 'Bed 4', 'Activity', 'Alfresco', 'Living', 'Garage', 'Theatre', 'Master Suite', 'Study', 'Bath', 'Laundry', 'Ensuite', 'WIR' (multiple instances).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane and shadows extend, violating presentation context rule of floating/isolated model.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall separating Activity from Bed 3/4 appears to be shifted slightly in proportion.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture missing from Theatre, Verandah, Pantry. Incorrect placement/orientation in Alfresco, Bed 3/4, Living Room, Study.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some window sizes inconsistent with plan (e.g., in Bathroom and Ensuite).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetics",
+            "description": "Some mild aspect ratio distortions observed, for instance in garage or Theatre room proportions.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 79,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The generated 3D render demonstrates strong spatial accuracy and good aesthetic quality, although it suffers from critical errors in UI cleanliness due to text labels, and minor discrepancies in furniture mapping and presentation context.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan10.png"
+}

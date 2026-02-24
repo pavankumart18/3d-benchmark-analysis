@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 6,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Bathroom and laundry layout significantly deviates; theatre room layout is off. Kitchen island is different. Dining/Living area and Alfresco area walls are off. Wall positions for Bathroom, Laundry, Pantry, and Activity are largely incorrect. Many doors are missing. All windows are present and placed correctly proportionally."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Roof is removed, but interior walls are not fully visible in some areas due to furniture. Several rooms are significantly altered, indicating potential hallucination. Text labels are present on the garage car. The background is dark, but there are shadows extending slightly."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present. However, the kitchen, bathroom, laundry, and theatre room furniture layouts differ substantially from the plan. The pantry is completely changed. The veranda has completely different furniture."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses simplified forms, but some surfaces appear slightly textured rather than solid flat colors. Lighting is ambient but creates noticeable shadows. The camera is not a true isometric projection, showing some perspective distortion."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Bathroom and Laundry entire layouts are significantly altered, almost unrecognizable from the plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text label present on the car in the garage.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen island completely different and pantry layout is altered.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls (Bathroom, Laundry, Activity, Alfresco, Living) are misaligned or reshaped, significantly impacting layout topology.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Interior walls not fully visible in some rooms due to large furniture obstructing views.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E3-MAJ",
+            "severity": "MAJOR",
+            "category": "aesthetic_quality",
+            "description": "View exhibits perspective distortion, not a true isometric projection.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Many doors are missing from the 3D render (e.g., Theatre, Study, Pantry, WIR, Laundry, Linen).",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 48,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, exhibiting significant deviations in room layouts, door placements, and overall structural fidelity, alongside a critical error with text rendering.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan10.png"
+}

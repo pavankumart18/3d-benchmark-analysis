@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 2,
+            "doors": 6,
+            "windows": 5,
+            "dimensional_scaling": 7
+        },
+        "notes": "The overall footprint is maintained, and room adjacency is mostly correct, but the internal wall layout shows discrepancies. The Bathroom wall is significantly mispositioned, impacting the size and shape of the Living Room and Kitchen. The staircase is also incomplete and inaccurately represented. One of the windows was converted into a door. The size of the staircase is not correctly preserved, leading to a much smaller staircase in the 3D model."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is correctly removed, and interior walls are visible. However, the staircase is not fully represented, missing a portion. The Bathroom wall's position is a major hallucination. The background is dark, but there's a ground plane visible with shadows, violating the 'floating/isolated' and 'no ground plane' principles. The entire original text has been correctly removed."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Kitchen has counters and sink, but appliances are missing. Dining room has a table and chairs in approximately the correct location. Living room has a sofa and coffee table, but the layout implies a much larger room than depicted. The Bathroom has a toilet, but no sink or proper shower/tub fixture. The placement of furniture in the Dining and Living rooms is acceptable given the room reconfigurations, but the kitchen is sparsely furnished compared to the plan."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses low-poly simplified forms with flat-shaded surfaces, and there are no textures, only solid colors, which aligns with requirements. Lighting is generally ambient, but shadows are quite prominent on furniture and walls, indicating more than 'minimal shadows'. The camera angle is an isometric projection, but it's not a strict 45\u00b0 rotation of the plan view and the model is not perfectly centered, with more empty space on one side."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "The entire staircase from the 2D plan is not accurately rendered in the 3D model. It's significantly shrunk and incomplete, effectively missing a large portion.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The internal wall separating the Bathroom from the Living Room/Kitchen is significantly off from its position in the 2D plan, leading to distorted room shapes.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "A window on the southern wall, next to the 'ENTRANCE' label, was converted into a door in the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The 3D model presents a ground plane with shadows, which violates the requirement for the model to appear floating/isolated without a ground plane or infinite shadows.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen lacks appliances (stove, fridge) compared to the implied layout in the 2D plan. Bathroom is missing a sink and proper shower/tub area.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 64,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to several critical and major spatial inaccuracies, including significant wall repositioning, an incorrectly rendered staircase, and a window being converted into a door. It also has issues with presentation context, displaying a ground plane and shadows, deviating from the required 'floating' appearance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan3.jpg"
+}

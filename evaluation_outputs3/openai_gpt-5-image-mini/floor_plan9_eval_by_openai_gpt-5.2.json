@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric/cutaway 3D model: extruded walls with thickness, visible side/top faces, and interior space readable from an elevated angle."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Clear wall height/thickness and floor plane separation; good angled/isometric view; roof removed cleanly. Minor simplifications in corner detailing and opening geometry."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Overall footprint and core circulation broadly resemble the plan (large central living area and right-side garage block are present), but several room boundaries/adjacencies appear simplified or shifted (notably left-side nook/study/patio regions and the exact bedroom/bath cluster geometry). Door and window placement does not consistently match the 2D plan."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Basic living room and kitchen cabinetry/island elements are present; some bed placeholders appear, but bathroom fixtures are largely absent/simplified and furniture is not comprehensive across all rooms."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean cutaway presentation with consistent materials and readable walls/floors. Lighting is adequate and geometry is mostly unambiguous; openings are somewhat generic."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity issues: multiple spaces on the left side (nook/study/covered patio zones) and some interior partitions/adjacencies appear simplified or not matching the 2D plan proportions."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are represented generically; many door locations/swing details and window placements do not clearly align with the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture/fixtures are incomplete\u2014bathrooms especially lack clear fixture layouts compared to the plan."
+        }
+    ],
+    "total_score": 71,
+    "verdict": "PASS",
+    "summary": "A valid cutaway 3D conversion with strong 3D fundamentals, but only moderate geometric fidelity to the 2D plan due to simplified/shifted room partitions and generic openings/fixtures.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan9.png"
+}

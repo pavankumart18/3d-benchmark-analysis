@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Significant layout deviation. The living room/dining area lacks the signature bump-out from the plan. Door and window placement do not match the provided technical drawing. Staircase is split into two separate locations which is architecturally incorrect compared to the central U-shape stair in the plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Roof is removed and background is neutral. However, there are major hallucinations: a bedroom has been added where the foyer/closet should be. The pantry island is missing and replaced by an open kitchen-living transition not found in the blueprint."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture is low-poly and clean, but misaligned with room functions. A bed is placed in the foyer/entry area. Dining and living sets are crammed into a space that doesn't respect the blueprint's proportions."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the 'low-poly' style, isometric camera angle, and simplified lighting. The visual output is high quality but fails as a technical recreation."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated a bedroom and second staircase not present in the original 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "The 'Living Room' and 'Dining Room' proportions and wall bump-outs are completely ignored/flattened."
+        },
+        {
+            "code": "E1",
+            "description": "Missing central pantry closet and specific kitchen island configuration as shown in 2D."
+        },
+        {
+            "code": "E1",
+            "description": "Missing foyer entrance and closet wall signatures."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan8.jpg"
+}

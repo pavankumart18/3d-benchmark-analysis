@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: walls have height/thickness, multiple faces are visible, and the view is clearly angled with ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Convincing 3D extrusion with readable corners, floor plane separation, and clean cutaway; minor simplification at some wall junctions/edges."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall footprint and major zones (left service rooms + central open area + stairs + right-side rooms) broadly match, but some internal partitions/room definitions (notably dining/pantry boundaries and kitchen/playroom separation) appear simplified or shifted relative to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Kitchen cabinetry/island and a fireplace are present, but most furniture is missing (no clear dining set, living seating, or bathroom fixture detail beyond minimal blocks)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean render with good contrast between walls/floor and readable openings; lighting is neutral and does not obscure geometry. Minimal artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Room/partition fidelity appears simplified: dining room and pantry boundaries are not clearly represented as in the 2D plan, and some adjacencies look more open than drawn."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door and window placements exist but several openings are difficult to confirm against the 2D plan (some likely missing or repositioned)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MODERATE",
+            "description": "Most non-kitchen furniture and bathroom fixture details are absent, reducing ability to verify room identities."
+        }
+    ],
+    "total_score": 75,
+    "verdict": "GOOD",
+    "summary": "A clear true-3D cutaway conversion with solid wall geometry, but with moderate simplification of internal room partitions and limited furniture/detail for strict layout verification.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan8.jpg"
+}

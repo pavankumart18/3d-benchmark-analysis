@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "The primary room layout and adjacency are correct. However, several door openings are missing (entry door, bedroom door, toilet door) and have been rendered as open wall gaps. The dining table is correctly placed but the sofa configuration in the living room has been simplified into one L-shaped unit rather than the two separate pieces shown in the plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "Excellent adherence to view constraints: no roof, floating model on a dark background, and no text labels. However, the toilet room has been hallucinated with a dark wardrobe cabinet instead of bathroom fixtures (sink/toilet), which is a significant structural reinterpretation."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture scale is generally consistent. Kitchen counters and appliances (washing machine in utility) are well-placed. Points deducted for the missing bathroom fixtures and the variation in living room seating types."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style requirements. Low-poly geometry, flat shading, no textures, and a perfect isometric orthographic camera angle."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing actual door panels in frames for entry, bedroom, and bathroom."
+        },
+        {
+            "code": "E2",
+            "description": "Sofa layout modified from two separate units to one larger sectional."
+        },
+        {
+            "code": "E4",
+            "description": "Toilet-1 room hallucinated as a storage/closet area with a wardrobe; sink and toilet are missing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan16.avif"
+}

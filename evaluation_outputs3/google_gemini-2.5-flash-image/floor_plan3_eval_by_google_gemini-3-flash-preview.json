@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "A successful isometric 3D transformation with clear wall thickness and cutaway views."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D representation. High marks for wall thickness and volume. Full points for angle and projection."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Significant geometric hallucinations. The 2D plan is an open plan (Kitchen/Living/Dining); the 3D added non-existent partition walls. Bathroom shape and door locations were altered."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Furniture represents the rooms well, but placement is impacted by the incorrect partition walls."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Clean rendering, but text labels and dimensions from the floorplan are baked onto the 3D floor/furniture, which clutters the presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Added internal partition walls that do not exist in the source 2D floor plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Original text labels and dimensions are rendered onto the 3D geometry."
+        }
+    ],
+    "total_score": 75,
+    "verdict": "GOOD",
+    "summary": "While the 3D technical execution is high, the model hallucinates several structural walls that significantly alter the original open-plan layout.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan3.jpg"
+}

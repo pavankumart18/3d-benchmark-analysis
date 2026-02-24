@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D isometric cutaway with extruded walls, visible thickness, and an open roof/ceiling exposing the interior volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Skipped due to automatic rejection (missing >50% of rooms/partitions from the 2D plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to automatic rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to automatic rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to automatic rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "Major layout fidelity failure: the 2D plan\u2019s distinct rooms/partitions (separate dining room, defined living room boundaries, enclosed bathroom) are largely absent in the 3D render, which depicts mostly one open space."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Key adjacency and wall geometry do not match the 2D plan (bathroom appears unenclosed/relocated; room separations between kitchen/dining/living are not represented)."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is genuinely 3D, it omits most of the 2D plan\u2019s room structure and partitions, failing the minimum layout completeness requirement.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior spaces feel volumetric, and the view is distinctly angled, exposing the interior by a removed roof plane."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Good dimensional transformation with visible height, thickness, and volume. The viewing angle is appropriate and the cutaway is clean. There is slight perspective distortion, especially with some far walls and the ceiling/roof, but it's minimal."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Generally good room configuration and wall geometry. The number of rooms and their adjacencies are mostly correct. Wall positions and proportions are largely preserved. However, the two balconies on the 2D plan are not clearly defined or rendered as distinct spaces in the 3D model, and the 'Utility' room is merged with the kitchen perimeter, losing its defined wall. One of the master bathroom toilets is missing. The 'Wide Passages' also appear to be less defined."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Major furniture is present and placed in the correct rooms. Kitchen elements (counter, sink, stove) and bathroom fixtures (toilets, showers, basins) are mostly present. However, one of the toilets in the master bathroom is missing, and the furniture from both balconies is absent. The scale of the furniture generally seems reasonable, but some elements like beds are simplified blocks."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "The structural clarity is excellent, with walls, floors, and openings clearly distinguishable. Lighting is good, and the interior is highly visible. There are no major rendering artifacts, and the presentation is clean with a monochrome background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The two balconies are not distinctly rendered as separate spaces or feature any furniture from the 2D plan, making them appear as extensions of the exterior wall rather than separate entities."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The 'Utility' area from the 2D plan is not clearly defined as a separate room with walls in the 3D render; it's integrated into the kitchen perimeter."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "One of the toilet fixtures in the master bathroom is missing in the 3D render."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The 'Wide Passages' are less clearly defined as distinct corridors compared to the 2D plan, blending more into the open living areas."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is generally good, demonstrating clear conversion fundamentals and accurate geometric layout, though some minor room definitions and interior elements are not perfectly replicated from the 2D plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan15.webp"
+}

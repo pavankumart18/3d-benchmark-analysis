@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height/thickness, multiple faces are visible, interior volumes read as spaces, and the camera is in an elevated angled/isometric-like view with the ceiling removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D wall solids with readable corners and room volumes; clean cutaway. Minor simplification of some edges/openings and uniform wall treatment slightly reduces realism/precision."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and core adjacency (central living/dining, kitchen/utility zone, three bedrooms, office/maid room, clustered toilets) largely matches. Some exterior/deck/balcony extents and a few internal partition lengths/opening placements appear approximated rather than dimension-faithful."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture is present (beds, sofa set, dining, kitchen cabinetry, office desk) and generally placed in correct rooms at reasonable scale; bathroom fixtures are simplified but present."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Geometry is readable with clear separation of walls/floors/openings; lighting is adequate. Some window/opening definition is soft and exterior spaces are less clearly articulated."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Balcony/deck geometry appears simplified; at least one exterior terrace/balcony extent does not clearly match the 2D plan\u2019s long deck and right-side balcony proportions."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some doors/windows are not clearly positioned or sized to match the 2D plan exactly (openings appear approximated or omitted in places)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Openings and facade/window detailing are understated, reducing verification confidence for exact window placement."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "A valid and clean 3D cutaway with largely faithful room layout and furnishings, but with some approximations in balcony/deck geometry and certain openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan20.avif"
+}

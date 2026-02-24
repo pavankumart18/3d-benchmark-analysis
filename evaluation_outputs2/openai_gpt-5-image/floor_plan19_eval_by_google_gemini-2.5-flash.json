@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches, but relative room sizes for utility room and foyer are significantly off. Overall footprint shape deviates in the lower right corner. Several internal walls are not perfectly aligned or are missing. Multiple windows are missing from the 3D model, particularly in the living/dining area and bedrooms. Deck access from BED-1 is missing."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 2,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed and interior walls are visible. Hallucination control is good, no extra rooms or architectural features added. UI elements (text, measurements) are absent. Presentation context suffers from a visible ground plane and extended shadows that do not match the required isolated appearance. The background is not a dark neutral gradient, but a solid dark gray."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces (beds, dining table, sofas) are present. Kitchen and bathroom fixtures are mostly present but some are missing (e.g., bathtub in BED-1's toilet, some kitchen counter elements). Furniture placement is generally correct, but several pieces, especially in the living/dining and deck areas, are missing. The scale of the living room sofa seems too small."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly, simplified forms with flat shaded surfaces and solid colors are present, adhering to most style requirements. Lighting is generally ambient, but some shadows are more pronounced than 'minimal'. Colors are distinguishable. The camera is not a true isometric projection (slight perspective distortion, parallel lines appear to converge slightly), and the rotation is not perfectly 45 degrees. Centering is good, and all rooms are visible."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Utility room and foyer relative sizes are disproportionate to the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing wall segment between the kitchen and 'toilet' (TOI-3) next to the kitchen. Wall between TOI-2 and Laundry is missing in the 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing door between the foyer and the small toilet (TOI-3). Missing door for laundry room. Missing doors for TOI-2 and TOI-4. Missing door for C.TOI.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple windows are missing, particularly in the living/dining area (towards decks), BED-1 (towards deck), and BED-2. Deck access from BED-1 is not rendered as an opening.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane is visible and shadows extend too far, not giving a floating/isolated appearance.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Deck furniture (both decks), Living/Dining area small side tables/consoles, bathtub in TOI-1, several kitchen counter items, and laundry appliances are missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight perspective distortion, not a true isometric projection. Viewing angle slightly off 45-degree rotation.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 71,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render provides a mostly accurate representation of the 2D floor plan, maintaining good layout topology and structural completeness, but has notable discrepancies in window presence, door counts, furniture accuracy, and presentation context. The camera angle exhibits slight perspective distortion.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan19.webp"
+}

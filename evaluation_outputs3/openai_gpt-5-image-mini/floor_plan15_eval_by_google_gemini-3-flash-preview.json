@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The conversion represents a clean isometric-style 3D cutaway of the original architectural plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D depth and consistent isometric projection; slight lack of ceiling-top wall texture but geometric corners are precise."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Strong layout fidelity; all three bedrooms and main living areas are correctly placed. Minor simplification of the complex entrance/bathroom cluster near the bottom left."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture sets (beds, sofa, dining table, kitchen counters) are present and logically sized, mirroring the 2D suggestions."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High clarity and clean rendering; lighting is effective for depth perception; no UI text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "The balcony on the left side is rendered as more of a small outdoor alcove compared to the plan's specific shape."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Moderate",
+            "description": "The detailed plumbing layout for the central/entrance bathrooms is simplified into generic spatial volumes."
+        }
+    ],
+    "total_score": 90,
+    "verdict": "EXCELLENT",
+    "summary": "A highly accurate and clean 3D isometric conversion that maintains excellent structural fidelity to the original 2D floor plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan15.webp"
+}

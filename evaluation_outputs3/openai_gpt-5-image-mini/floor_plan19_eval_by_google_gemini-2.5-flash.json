@@ -1,0 +1,66 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Floors are clearly defined. Interior volume is well perceivable. Wall corner geometry is good. Angled view is excellent and interior is visible. Minimal distortion. Roof is cleanly removed, but some geometry appears broken on one wall near the kitchen, and some walls seem to have missing segments."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "The overall number of rooms is similar but the layout fidelity has significant issues. Key rooms like the 'deck' are completely missing or transformed into interior space. The foyer is missing. The small TOIs are combined or removed. Adjacency relationships are distorted for several rooms. Wall positions are significantly off in places, specifically where the deck and foyer should be. Many internal partitions are missing or incorrect (e.g., separating the deck from bed-1, the long hallway wall). Doors are present but many are missing or misplaced compared to the original. Windows are present but not all match the original plan in number or specific placement. Many windows from the 2D plan are missing in the 3D render."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Major furniture is present and placed in mostly correct rooms, though the exact configuration and type sometimes differs. Kitchen and bathroom elements are present. Scale seems reasonable, but the missing rooms mean furniture for those areas is absent."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural elements are clearly distinguishable. Geometry is readable. Lighting is good and interior is clear. Consistent material usage and clean background. No major rendering artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "More than 50% of the exterior 'Deck' area is missing or converted into indoor space. The 'Foyer' from the plan is also missing, indicating major room conversion or omission."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Significant distortions in room configuration. The 'Deck' areas are largely absent, severely altering the building's footprint. The small 'TOI' rooms are either combined, removed, or their layout is fundamentally changed. The long wall for the living/dining area that separates it from the deck is missing, altering room proportion and adjacency."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Major wall position and length discrepancies, especially evident where the 'Deck' and 'Foyer' were in the original plan. Several internal partitions are missing or misaligned (e.g., between the living/dining and the former deck area, and the 'foyer' region)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Many doors from the original plan are missing, including the main entrance door for the 'Foyer', and several internal doors to bathrooms and bedrooms. Window placements and count do not always match the 2D plan."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Minor broken geometry or missing wall segments in some areas, for example, near the kitchen where a wall segment is absent."
+        }
+    ],
+    "total_score": 71,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully transforms the 2D plan into a perceivable 3D space with good visual clarity, however, it suffers from significant geometric inaccuracies with several rooms and walls missing or severely distorted compared to the original plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan19.webp"
+}

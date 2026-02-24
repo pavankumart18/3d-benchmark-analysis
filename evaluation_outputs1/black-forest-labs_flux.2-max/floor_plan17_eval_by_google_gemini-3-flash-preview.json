@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General floor plan layout is preserved and room adjacencies are correct. However, door orientations in several rooms (specifically bedrooms 2 and 3) are mirrored or incorrectly swung. Window proportions across the right facade are inconsistent with the 2D dimensions."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Significant violation of the 'no text' constraint: the 3D model contains gibberish text labels that mimic the 2D floor plan. While rooms are present, the text/UI overlay is a major breach of the aesthetic and structural brief."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement effectively follows the plan (sofas, tables, beds align well). Deductions for scale issues in the kitchen counters and the hallucinated double-sink features mismatched with the original symbols."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "Failed 'no photorealism/no texture' requirement. The render utilizes soft-shadow ambient occlusion and realistic texturing (carpets, wood grain, tile patterns) instead of the requested flat low-poly style. Text labels further degrade the isometric aesthetic."
+    },
+    "total_score": 61,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Failure to remove text labels and measurements; gibberish text renders across all floor surfaces."
+        },
+        {
+            "code": "E6",
+            "description": "Style violation: Render uses textures and complex lighting/shadows instead of low-poly flat shading."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated elements: Additional lighting fixtures and decorative floor rugs added that were not in the 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion in door swing directions for Bed Room 2 and Bed Room 3."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan17.jpg"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness, floors are distinct. Interior volume is clear. Angled view is good. Cutaway is clean."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Rooms are generally correct, but some minor walls, like the one separating utility from kitchen, are missing. Doors are present but windows are largely absent or generalized. Proportions are well-maintained."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Most major furniture items are present and in correct rooms. Scale and orientation are logical. Minor details like the C.TOI fixtures are simplified or missing."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "The 3D model is very clear and readable. Lighting is good, and there are no significant rendering artifacts. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MANDATORY",
+            "description": "The wall separating the utility room from the kitchen is missing in the 3D render."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows shown in the 2D plan (e.g., in BED-2, Living/Dining, Kitchen) are not clearly represented or are missing in the 3D render. Bathroom window is also missing."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D floor plan into a clear, albeit slightly simplified, isometric cutaway with good geometric fidelity and interior element representation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan14.webp"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a clear isometric 3D cutaway."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Perfect execution of 3D fundamentals with clean geometry and consistent isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Major layout features are present, but the toilet/bathroom is moved from the center to a corner wall, and the kitchen partition wall is added which wasn't in the open plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Furniture accurately reflects room logic (dining, living, kitchen) though the toilet is placed outside its designated room."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Excellent rendering quality and lighting; minor deduction for the lack of stair railing/detail compared to the plan's complex stair drawing."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "Bathroom repositioned from central 'island' configuration to an exterior corner wall."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "Kitchen converted from open-plan to a walled-off room."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D render that captures the spirit and floor area of the plan but takes significant liberties with internal wall placement and bathroom location.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan3.jpg"
+}

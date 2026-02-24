@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 5,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 1
+        },
+        "notes": "Layout topology is largely maintained for major rooms, but there are significant discrepancies in room adjacencies and positions. The rendered 3D model does not accurately represent the 2D floor plan. The 'Activity' room and 'Balcony' from the 2D plan are completely missing. The entire left side of the house is significantly altered, including the stairwell area. The bathroom and WC are incorrectly placed and sized. Bedroom 2 relative position and size are poorly executed. Wall geometry has major issues, especially on the left side where the entire layout is wrong. Windows are present but mostly not in the correct locations or proportional sizes. One door (leading to the balcony from Bed 2) is missing. The dimensional scaling seems inconsistent/distorted from the original plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 2,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is removed, and interior walls are mostly visible, though the cutaway isn't perfectly clean on the front-facing walls which are too high. There are significant missing structural elements including the entire 'Activity' room, the main stairwell, and the 'Balcony'. Many walls are entirely rearranged or missing from the original plan. While there are no text labels or measurement lines, the presentation context is poor; the model is not floating, there's a visible ground plane on the right, and a back wall that should not be present in a simple cutaway for evaluation."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Furniture presence is very poor, with many pieces from the plan entirely missing. The rendered model shows a couch and coffee table in a living area that does not correspond to the 'Activity' room on the 2D plan, and which is in an entirely different location. The beds from BED 3 and BED 4 are missing, as are the robes. The kitchen fixtures are entirely missing. Bathroom fixtures are somewhat present (bathtub, toilet, sink), but their arrangement differs from the plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style largely adheres to low-poly, flat-shaded forms with solid colors, which is good. There are some unexpected lines and patterns on the exterior walls, but no photorealistic textures appear. However, the lighting has some visible spot/area light sources causing distinct shadows, which deviates from 'soft ambient lighting with minimal shadows'. There is also a distinct light source coming from the lower left window, implying an exterior light. The camera view is isometric, but the framing and zoom are somewhat off, cutting off part of the structure on the left and too much empty space on the right, and the orientation is a bit off for a direct top-down isometric view."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'Activity' room missing, replaced with a completely different layout.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "'Balcony' is entirely missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls severely misaligned or missing (entire left section including stairs, bathroom, WC, Bed 2).",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Structural elements, including the main stairwell and entire activity room/balcony, are missing or drastically altered.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Most major furniture pieces (beds, robes, kitchen fixtures) are missing.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting shows distinct shadows and appears to have specific light sources rather than soft ambient lighting.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door to Bali/missing. All window positions inaccurate.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 42,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, with major structural and spatial inaccuracies, particularly the omission of entire rooms and significant layout rearrangements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan12.png"
+}

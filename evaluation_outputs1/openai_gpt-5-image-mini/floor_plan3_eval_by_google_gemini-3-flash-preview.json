@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "Major structural deviations identified. The 3D model adds an extra exterior wall protrusion in the living room not present in the 2D plan. The central bathroom is incorrectly placed as a corner room in the render, losing the central circulation logic of the original plan. Windows are incorrectly placed on several walls."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Hallucinated an bump-out room in the living area. The stairs are severely truncated/incomplete compared to the long run shown in the floor plan. However, the 'floating model' and 'dark background' constraints were perfectly met with no text labels."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture block-style is excellent and consistent. Points deducted for the sofa placement in a hallucinated alcove and the toilet being placed in an open-access area rather than the private enclosure shown in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "The aesthetic perfectly matches the style prompt. Low-poly geometry, flat shading, isometric orthographic camera, and soft ambient light are flawlessly executed."
+    },
+    "total_score": 62,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Central bathroom moved to a peripheral corner location, breaking the layout adjacency."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a structural bump-out/alcove in the living room area not present in the rectangular floor plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing several windows shown in the floor plan, specifically those near the entrance and dining room corners."
+        },
+        {
+            "code": "E2",
+            "description": "Staircase is shortened to 3-4 steps, failing to represent the full flight shown in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan3.jpg"
+}

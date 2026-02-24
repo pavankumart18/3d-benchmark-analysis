@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway with extruded walls, visible thickness, interior volume, and an angled/isometric-like viewpoint."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; clean cutaway. Minor simplification of edge/corner detailing and openings."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Overall apartment massing resembles the 2D plan (2 bedrooms + central living/dining + kitchen), but secondary spaces (decks/balconies, foyer/utility, and both toilets as shown) are missing or not clearly/accurately represented; some internal partitions and proportions appear simplified."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Beds, sofa, coffee table, dining table, and a simplified kitchen counter are present. Bathroom fixtures (toilet/sink/shower) are not clearly modeled, and some room functions are ambiguous due to simplification."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean render with consistent materials and good readability. Limited detail for doors/windows reduces architectural clarity, but overall geometry remains understandable."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity issues: decks/balconies and some secondary spaces (foyer/utility/toilets) from the 2D plan are missing or significantly simplified, affecting room count/function clarity."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are simplified as openings and do not match the 2D plan's locations/types consistently."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture is present but bathroom fixtures are not clearly included; some rooms lack defining elements to confirm identity."
+        }
+    ],
+    "total_score": 73,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway conversion with solid volumetric rendering, but only moderate fidelity to the 2D plan due to missing/unclear secondary spaces and simplified openings.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan14.webp"
+}

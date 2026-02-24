@@ -1,0 +1,75 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 0,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "Layout topology is completely different. The generated 3D model does not match the 2D floor plan at all. Room count and adjacencies are incorrect. The overall footprint is different. Wall positions, door placements, and window placements bear no resemblance to the 2D plan. The staircase is in a different location, and an entire bedroom/bathroom area is added that is not in the 2D plan. The 2D plan has a Kitchen, Dining Room, Living Room, Entrance, and one Bathroom. The 3D model has a living room, bedroom, kitchen, dining area, and two bathrooms, along with a staircase in a different location. This is not just a misinterpretation but practically a different floor plan. No points awarded in this category due to the fundamental dissimilarity."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 0,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is partially compliant as the roof is removed, but there are major structural completeness and hallucination issues. There are multiple hallucinated rooms (bedroom, second bathroom). The UI/annotation cleanliness is good as there is no text. The presentation context is incorrect; there is no dark neutral background, and it appears to have a ground plane/shadows although it's minimal."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Furniture mapping is completely inaccurate as the basic architectural layout is different. While furniture is present, it does not correspond to the original 2D plan's room types or counts. For example, a bedroom is present in the 3D model but not in the 2D plan. The bathroom fixtures also do not match, with two bathrooms in 3D versus one in 2D."
+    },
+    "aesthetic_quality": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 0,
+            "camera_composition": 0
+        },
+        "notes": "Geometry style does not meet specifications: there are clear photorealistic materials and textures on walls, floors, furniture, and fixtures. There is also soft shading, not flat-shaded. Lighting and rendering are not minimal; there are noticeable shadows and some contrast. The camera composition appears to be isometric, but the texture and lighting violations are severe."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room (bedroom, second bathroom) hallucinated, and no rooms from the 2D plan match their 3D counterparts in location, size, or adjacency. This constitutes a fundamental failure in 2D-to-3D translation.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Multiple extra rooms (bedroom, second bathroom) were added that are not present in the 2D floor plan.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering and materials are used extensively on walls, furniture, and fixtures. Textures and reflections are present.",
+            "point_deduction": 25
+        }
+    ],
+    "total_score": 0,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D model presents a completely different floor plan with hallucinated rooms, significant deviations in layout and structure, and uses photorealistic rendering, failing all critical architectural verification checks.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan3.jpg"
+}

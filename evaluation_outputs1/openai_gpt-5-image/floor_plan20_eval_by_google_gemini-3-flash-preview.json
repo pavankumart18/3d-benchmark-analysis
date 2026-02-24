@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General floor plan layout is preserved, but there are significant door and window discrepancies. The sliding door to the deck is replaced with a single window. Interior door orientations are inconsistent (some shown as open voids, others as blocks). Window in Bedroom 3 is missing."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Excellent adherence to floating model on dark background with no text labels. Minor deduction for merging/simplifying the utility/toilet wall segment near the kitchen."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is well-placed and scaled correctly. However, a second dining table has been hallucinated in the living area where standard sofas/seating should be."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints: low-poly, flat shading, no textures, and a correct isometric orthographic camera angle."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing window in the top-left bedroom (Bedroom 3)."
+        },
+        {
+            "code": "E2",
+            "description": "Large sliding door/access to the deck is incorrectly rendered as a standard wall with a small window."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated second dining table set in the living room area instead of the seating arrangement shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan20.avif"
+}

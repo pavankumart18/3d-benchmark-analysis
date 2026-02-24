@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "The overall footprint shape is maintained. Room adjacency is largely preserved, though the 'Alcove' is significantly altered. Wall positions have inaccuracies, particularly around the central hall and utility area. Multiple walls are missing or incorrectly placed. Doors are mostly present and on correct walls, but swing directions cannot be easily verified in the 3D model. Windows are generally present and on correct walls, though some sizes appear off. Dimensional scaling appears consistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The roof is completely removed, and interior walls are fully visible. There are missing or significantly altered structural elements, particularly in the utility room (HVAC/WH area), closet near WC, and the alcove area. Some architectural features are altered or simplified beyond acceptable limits. UI/Annotation Cleanliness: Multiple text labels/symbols are present on walls and floors (e.g., 'WH', 'REF', 'W', 'HVAC' in the utility room, and some other unclear symbols/labels on floors), resulting in 0 points for this sub-category. Presentation Context: The dark background is present, but the model has shadows that extend to a ground plane/infinity, and there are some visual artifacts suggesting a non-isolated rendering."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Kitchen fixtures are present (counters, island, sink, range). There are no other major furniture pieces like beds, sofas, or dining tables indicated in the 2D plan, nor are there bathroom fixtures. Placement of kitchen elements is generally accurate, but some elements are either missing (e.g., utility room appliances) or simplified/misrepresented (e.g., alcove details)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly simplified forms are used, and surfaces are flat shaded with no textures. Edges appear clean. Lighting is ambient but creates noticeable shadows that are not minimal. There are some dramatic contrasts due to the lighting setup. Colors are uniform (monochromatic grey), making distinguishing walls vs. floors vs. furniture difficult. The view is isometric, but the specific rotation (45\u00b0 rotated plan view) is not met, appearing to be more of a 30\u00b0/30\u00b0 isometric or a slightly skewed view. Centering and zoom are acceptable."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels/symbols present on walls and floors (WH, REF, W, HVAC, and others).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls severely misplaced or missing. Specifically, the utility room and central hall areas show significant deviations from the plan, and the 'Alcove' area is substantially altered (e.g., the curved wall section is a straight wall, the internal walls creating the niche are missing).",
+            "point_deduction": 8
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Missing or misrepresented structural elements in the utility room (HVAC/WH structure, separate closet) and the 'Alcove' area (niche walls, bench features).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are more pronounced than 'minimal shadows' and suggest a direct light source, not just soft ambient lighting.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Monochromatic color scheme (grey walls, floors, furniture) makes it difficult to distinguish different elements visually under 'Colors distinguishable' criteria.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The closet near the WC (north of Central Hall) is omitted.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The window seat feature in the Dining Room is simplified into a planar wall section, not representing its specific geometry.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 51,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant structural deviations in wall geometry and layout topology, particularly in the central utility and alcove areas. It also fails critical UI/annotation cleanliness and presentation context requirements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan11.png"
+}

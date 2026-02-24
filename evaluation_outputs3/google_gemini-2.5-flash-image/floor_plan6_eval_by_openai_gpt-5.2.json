@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D/isometric render with visible wall height/thickness, interior volume, and multiple wall faces (top/side) exposed by roof removal."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Strong 3D extrusion, clear floor-vs-wall separation, correct angled view, and clean cutaway with readable interior volumes."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "Overall layout matches well: kitchen/living at left, bedroom at upper right, central bath/closet zone, and stair block on right. Minor mismatches/uncertainty in exact opening placement/count and some partition proportions."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present and placed in correct zones (bedroom bed, living seating/table, kitchen counters/island, bathroom fixtures). Minor simplification and slight scale/orientation ambiguity in small rooms."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Geometry is clean and readable with good lighting; however, text labels on the floor reduce presentation cleanliness."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some door/window opening placement/count appears slightly inconsistent or not fully verifiable relative to the 2D plan (minor opening fidelity uncertainty)."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "Text labels ('Kitchen/Living', 'Bedroom') are present in the 3D render, reducing presentation/background score."
+        }
+    ],
+    "total_score": 94,
+    "verdict": "EXCELLENT",
+    "summary": "A true isometric cutaway 3D conversion with strong layout fidelity to the 2D plan and only minor opening/detail and presentation-label issues.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan6.jpg"
+}

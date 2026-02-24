@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric cutaway: walls extruded with thickness, floors as separate planes, multi-face wall surfaces visible, and ceiling/roof removed to reveal interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear 3D extrusion with readable corners and volumes; good cutaway. Minor issues: some edges/joins are simplified and a few wall-top terminations feel slightly inconsistent."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Overall layout fidelity is strong: living/dining at left, kitchen+utility at lower middle, servant room near entry, and bedrooms/toilets clustered to the right/top. Adjacencies largely match. Some proportional differences and small partition/door placement deviations are visible (especially around corridors/toilets)."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture is present (living seating, dining table, beds), kitchen counters/appliances shown, and bathroom fixtures included. Scale/orientation generally logical; minor simplification in some rooms."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Geometry is clear and readable with decent lighting. Deducted for text labels printed on the 3D floor surfaces (UI contamination) and slight visual clutter from annotations; openings/windows are visible but not uniformly emphasized."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MIN",
+            "description": "Text labels/room annotations appear inside the 3D render, reducing presentation cleanliness."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MIN",
+            "description": "Some doors/windows/opening placements and proportions appear simplified or slightly shifted relative to the 2D plan (not a widespread mismatch)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MIN",
+            "description": "Minor proportional/layout simplifications (corridor/partition extents) compared to the 2D plan, though overall room graph and positions remain consistent."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "A true cutaway 3D conversion with strong overall layout fidelity and interior detailing, with minor proportional/opening deviations and presentation text labels.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan17.jpg"
+}

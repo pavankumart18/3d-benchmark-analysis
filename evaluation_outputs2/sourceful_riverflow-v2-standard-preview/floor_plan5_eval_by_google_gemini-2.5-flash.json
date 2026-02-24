@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall layout and room count are preserved. However, there are significant deviations in wall geometry, particularly with the exterior walls and some internal partition walls. Several walls are either missing or incorrectly placed, leading to distorted room shapes. The balconies are significantly altered in shape and size. Door placements are mostly correct, but some swing directions are incorrect or reversed. Window placement is generally preserved, but their sizes appear inconsistent. Dimensional scaling shows minor inconsistencies, especially with the outdoor areas."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. There are some missing structural elements, specifically the exterior walls of the rightmost balcony, which are replaced by a railing effect. Hallucinations include altered balcony designs and extended walls not present in the original plan (e.g., the wall enclosing the right-side balcony). UI/Annotation cleanliness is perfect. However, the model is not floating/isolated; there's a visible ground plane and subtle shadows extending beyond the model, violating presentation context."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces (beds, sofas, dining table, kitchen island, bathroom fixtures) are present. There's a missing small table in the leftmost room and some small furniture items are missing from bathrooms. Furniture placement is generally accurate, maintaining the relative positions within rooms. Scale seems appropriate. Minor deviations for the bed in the top-left room and some dining chairs."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style attempts low-poly and flat shading, but there are some hints of subtle bevels or smoothing on certain edges (e.g., furniture, wall tops), and slight textural variations in floors are present, which are not solid flat colors. Lighting is soft and ambient with minimal shadows, which is good. There are no dramatic contrasts. The camera composition is a true isometric projection, rotated at approximately 45 degrees, centered, and all rooms are visible."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Exterior wall of the rightmost balcony is completely changed, from solid walls to railings. Leftmost balcony layout/dimensions significantly altered.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Rightmost bedroom's exterior wall is extended and reshaped. The bathroom adjacent to it also has wall deviations.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Central hallway leading to bedrooms is slightly wider than depicted in 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several internal partition walls show minor alignment discrepancies (e.g., wall between kitchen and living room shifted).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Subtle ground plane and extended shadows violate 'floating/isolated' presentation context.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Floors exhibit subtle texture/gradient not strictly solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some furniture items (e.g., beds) show minor, subtle bevels or smoothed edges, deviating slightly from strictly flat shaded, low-poly forms.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing small side table in the top-left room and some smaller bathroom fixtures.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 63,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet the strict architectural verification due to significant deviations in exterior wall geometry, particularly with balconies, and minor inconsistencies in internal wall placement and furniture presence. While adhering well to isometric projection and UI cleanliness, the altered structural elements and subtle deviations in rendering style prevent it from passing.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan5.jpg"
+}

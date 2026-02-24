@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric interior with extruded walls (height/thickness), visible floor plane, and removed roof/ceiling."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Not scored due to automatic rejection triggered by major layout/room omissions relative to the 2D plan."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Not scored due to automatic rejection; the 3D layout does not correspond to the provided 2D plan (core spaces and geometry not preserved)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Not scored due to automatic rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Not scored due to automatic rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "More than 50% of the rooms/spaces implied by the 2D plan (e.g., kitchen/dining/utility/WC configuration and their adjacencies) are missing or replaced by a different arrangement in the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Overall layout fidelity failure: wall runs, room proportions, and adjacency relationships in the 3D render do not align with the 2D floor plan."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is a true 3D cutaway, it does not match the provided 2D floor plan and omits/changes the majority of rooms, triggering automatic rejection.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan11.png"
+}

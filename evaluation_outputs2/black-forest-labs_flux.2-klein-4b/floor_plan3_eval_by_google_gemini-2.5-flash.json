@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 0,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0,
+            "wall_geometry": 0,
+            "doors": 0,
+            "windows": 0,
+            "dimensional_scaling": 0
+        },
+        "notes": "The generated 3D model bears no resemblance to the 2D floor plan. Room count, adjacency, wall positions, and opening placements are entirely different. This is a complete hallucination."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is correctly rendered with the roof removed and interior walls visible. However, the model is a complete hallucination, showing a different floor plan. UI/Annotation Cleanliness fails due to visible text in the 2D plan that was part of the input, but the 3D output does not have labels. The 3D model presents on a dark neutral background and appears isolated."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "The original 2D floor plan only shows a kitchen area with appliances and a bathroom with fixtures. The 3D render shows multiple rooms with different furniture arrangements, none of which correspond to the 2D plan. This category is entirely irrelevant given the complete structural mismatch."
+    },
+    "aesthetic_quality": {
+        "score": 8,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 0,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style is low-poly, but uses textures and smooth shading, violating the 'flat shaded' and 'no textures' rules. The lighting is realistic, with soft shadows and reflections, indicating a violation of 'flat shading with minimal shadows' and 'no dramatic contrasts/spotlights'. The camera composition appears to be a true isometric projection with a 45-degree rotated plan view, centered, and appropriate zoom. However, the overall rendering style deviates significantly from the specified 'no textures' and 'flat shaded' requirements."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room layout is missing, and multiple new rooms are hallucinated. There is no correspondence between the 2D and 3D floor plans.",
+            "point_deduction": 40
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Multiple hallucinated rooms and an entirely different architectural layout from the 2D plan.",
+            "point_deduction": 12
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering with textures, reflections, and nuanced lighting, violating the 'solid flat colors only' and 'flat shaded surfaces' rules.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The 2D floor plan contains text labels (KITCHEN, DINING ROOM, LIVING ROOM, BATHROOM, dimensions, ENTRANCE, SAMPLE FLOOR PLAN). While the 3D render doesn't have text, the 2D is part of the 'input' and should have been noted on the rubric for UI/Annotation Cleanliness. However, the rubric for this specific rule ('ZERO text labels present' for the *rendered output*) doesn't apply directly to the input 2D image. Therefore, this error code has been re-evaluated and applied to the E6-CRIT (Photorealistic rendering) where a critical aesthetic failure is present in the 3D model itself.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 13,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is a complete hallucination, bearing no structural or spatial resemblance to the provided 2D floor plan, and also fails on critical aesthetic and rendering constraints.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan3.jpg"
+}

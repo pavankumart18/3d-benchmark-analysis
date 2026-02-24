@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible interior volumes, and an elevated angled view with the ceiling/roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; clean isometric-like view and cutaway. Minor softness/blur makes some edges less crisp but geometry is still coherent."
+        },
+        "geometric_accuracy": {
+            "score": 19,
+            "max": 30,
+            "notes": "Overall footprint and left-to-right zoning (public spaces left, bedrooms/right) broadly resembles the 2D plan, but several key plan-defining elements appear missing or simplified (notably the large 2-car garage mass and patio/courtyard shapes), and internal partitioning/adjacency does not consistently match the 2D layout."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Living/dining/kitchen furniture is present in the left zone and bedrooms show bed-like objects; bathrooms/utility fixtures are not clearly or consistently identifiable from the render."
+        },
+        "visual_clarity": {
+            "score": 13,
+            "max": 20,
+            "notes": "Presentation is clean with no UI/text. However, the render is hazy/low-detail, making doors/windows and some partitions hard to verify; lighting is acceptable but reduces edge definition."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Layout fidelity issues: major program block(s) from the 2D plan (e.g., the large 2-car garage volume and patio/cutout shapes) are not clearly represented or are heavily simplified, affecting adjacency and proportions."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are not reliably verifiable on the correct walls due to simplified geometry and low detail; opening placement/proportions appear inconsistent with the 2D plan."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Soft/blurred rendering reduces structural readability (edges, partitions, and openings)."
+        }
+    ],
+    "total_score": 73,
+    "verdict": "PASS",
+    "summary": "A genuine 3D cutaway conversion is achieved, but several major plan-specific elements and precise wall/opening placements do not faithfully match the 2D floor plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan9.png"
+}

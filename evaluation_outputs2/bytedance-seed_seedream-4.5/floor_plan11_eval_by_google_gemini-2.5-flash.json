@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 14,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 2,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint is vaguely similar but room counts and adjacencies are severely altered. Several rooms are missing or misidentified. Relative room sizes are distorted. Numerous walls are missing or in incorrect positions. While some doors and windows are present, their placement often does not match the plan, and some are completely missing or appear to be in wrong walls."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 2,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is mostly compliant, with the roof removed. However, completeness is poor due to many missing rooms and features. Hallucinations are present, inventing new rooms and changing the layout drastically. UI cleanliness is good (no text). Presentation context is incorrect, with shadows extending to infinity and a visible ground plane."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables) and kitchen/bathroom fixtures are inconsistent with the 2D plan. Fixtures shown do not correspond to the layout. The 2D plan shows a WC, Utility Room, Kitchen, Pantry, Dining Room, and Central Hall with some indication of appliances, while the 3D render reconfigures these spaces dramatically and adds other furniture not present in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 5,
+            "camera_composition": 4
+        },
+        "notes": "Geometry style uses simplified forms and solid colors, meeting low-poly and no-texture criteria. However, there is some soft shading that suggests more than flat shading. Lighting is ambient but shadows are prominent. The camera seems to be an isometric view, but the angle is not precisely 45 degrees rotated plan view. Framing is acceptable."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms (e.g., Central Hall, Utility Room, Pantry, Alcove, Breakfast area) are missing or significantly reconfigured beyond recognition. A large open area is introduced where the Central Hall and Utility Room should be.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated multiple rooms and dramatically altered the layout, creating new spaces not present in the original plan and completely changing adjacencies (e.g., the large central area, a new room created at the top left).",
+            "point_deduction": 12
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls are entirely missing or drastically misaligned, most notably in the central area where the Utility Room should be, and the absence of the Pantry wall. The WC walls are also significantly altered.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "All identified furniture and fixtures (kitchen counter/ref, utility room appliances, WC fixtures, dining table) are either missing, misplaced, or entirely reconfigured in the 3D model, not matching their 2D counterparts.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Soft shading and visible shadows suggest more than flat shading, slightly deviating from 'flat shaded surfaces' and 'minimal shadows'.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Presentation context is incorrect with shadows extending to infinity and a visible ground plane.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 39,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, exhibiting critical errors in spatial accuracy, structural fidelity, and furniture mapping, with significant deviations in room layout, wall geometry, and feature presence despite passable aesthetic qualities.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan11.png"
+}

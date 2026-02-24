@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout and room adjacency are preserved. However, the top-right bedroom door is mirrored compared to the 2D plan, opening into the room rather than against the wall. The wall between the living area and dining area is shortened, making the dining zone feel too open."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent structural translation with roof removed and floating on a dark background. All rooms from the source image are present. Points deducted for slightly changing the thickness of walls and the entrance foyer dimensions."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the source. The kitchen counters, dining table, sofa arrangement, and bed orientations match. Points deducted for the top-left bedroom having only one bed instead of two, and the bathroom configuration being slightly rotated."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Matches low-poly aesthetic perfectly. Textures are absent and shading is flat as requested. Camera is correctly isometric. Minor points off for slightly modern lighting effects on the floor surfaces."
+    },
+    "total_score": 83,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing second bed in the top-left twin bedroom."
+        },
+        {
+            "code": "E2",
+            "description": "Top-right bedroom door orientation is mirrored/reversed from the 2D floor plan layout."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen sink and stove placement slightly swapped or merged compared to 2D counter layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan2.png"
+}

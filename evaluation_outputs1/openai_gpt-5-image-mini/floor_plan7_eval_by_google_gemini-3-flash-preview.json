@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "The general room layout and adjacency are preserved. However, the internal walls between the bedroom and wash area are simplified, merging the hallway space. Door openings are indicated by gaps rather than actual door swings, and window placement is generally accurate but lacks the specific pane details seen in the plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent flat-top cutaway with no roof. No text or measurements are present. The stairs are correctly placed. One minor structural reinterpretation: the 'Wash Area' and 'Toilet' partition is simplified, losing the exact orientation of the toilet door."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Most furniture is mapped correctly (bed, sofa, dining set, kitchen counter). The 'Wash Area' lacks the specific sink plumbing block, and the dining table has six chairs instead of the four shown in the plan."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Perfect adherence to low-poly, flat-shaded style. The isometric camera angle is correct and the model floats on the required dark neutral background. Minimal shading prevents dramatic contrast."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Dining chair count (6) does not match the 2D floor plan count (4)."
+        },
+        {
+            "code": "E4",
+            "description": "Simplified wall structure in the central corridor/wash area compared to the detailed plan divisions."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific fixtures in the wash area (sink/basin block)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan7.jpg"
+}

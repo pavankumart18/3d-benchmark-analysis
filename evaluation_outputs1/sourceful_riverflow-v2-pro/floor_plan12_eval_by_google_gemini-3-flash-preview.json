@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "notes": "Major layout divergence. The 3D model transforms the apartment into a garage/dining area. Wall alignments are completely redefined compared to the plan provided. Only basic room quantities vaguely relate, but the logic is broken."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Large sections of the plan (Balcony, Activity staircase, Bed 3 wardrobe nook) are hallucinated or restructured. Missing the entire balcony structure. Added a large garage entry."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Total furniture mismatch. Sofa and dining table are hallucinated extensions not present in the activity or balcony areas of the plan. Added a car (unnecessary decoration)."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The aesthetic successfully follows the low-poly style, isometric camera, and dark background constraints perfectly, even though the internal structure is wrong."
+    },
+    "total_score": 44,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Balcony and Activity area staircase."
+        },
+        {
+            "code": "E2",
+            "description": "Total layout distortion; Bed 3 area converted into a garage space."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated car, dining table, and large L-shaped block sofa not in original plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan12.png"
+}

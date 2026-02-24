@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a cutaway/isometric interior model: walls have clear height and thickness, multiple faces are visible per wall, and the ceiling/roof is removed to expose interior spaces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D depiction with consistent wall extrusion, readable floor plane separation, correct corner geometry, and a clean cutaway. Minor softness/rounding in some openings and edges reduces geometric crispness slightly."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Overall arrangement (stair core, adjacent kitchen/dining zone, perimeter windows) resembles the 2D plan, but several room partitions and proportions do not closely match the drafted layout. Specific labeled spaces in the 2D (e.g., utility/HVAC zone, WC placement, pantry/breakfast configuration) appear simplified and/or shifted, weakening strict plan fidelity."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Kitchen fixtures (counters/sink/cooktop/island-like element) and bathroom fixture(s) are present; some furniture is included. However, furniture/fixtures do not clearly map to every labeled 2D space (utility/HVAC/pantry) and room-specific intent is partly ambiguous."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean render with good visibility and readable wall/floor separation. Lighting is adequate and there are no obvious broken meshes; some elements are stylized/smoothed which slightly reduces precision of openings and wall alignments."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Noticeable layout/proportion drift vs. the 2D plan (partition placement and relative room sizing, especially around utility/WC/pantry/breakfast zones)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placement and opening sizes appear partially approximated rather than matching the 2D plan's specific locations and widths."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture/fixtures do not unambiguously correspond to all 2D-labeled rooms (e.g., utility/HVAC functions are not clearly represented or are merged)."
+        }
+    ],
+    "total_score": 77,
+    "verdict": "GOOD",
+    "summary": "A valid, clean isometric cutaway 3D conversion with strong 3D fundamentals, but only moderate geometric fidelity to the exact 2D room partitions, proportions, and opening placements.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan11.png"
+}

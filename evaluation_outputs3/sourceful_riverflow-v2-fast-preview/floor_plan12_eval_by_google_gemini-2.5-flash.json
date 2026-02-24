@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed successfully."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness. Floors are clearly a separate plane. Interior volume is perceivable. Wall corner geometry is mostly correct, though some connections are simplified. The view is angled and provides an elevated perspective. The roof is cleanly removed and interior spaces are fully visible. Minor perspective distortion present in some areas."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Most room configurations are correct, and adjacency relationships are largely preserved. However, the 'Activity' room is reconfigured into a living area, and its associated '13C HIGH CAPPED WALL' is missing. The 'Recess' area is also omitted. Staircase in the 2D plan is present in the 3D, but its form is simplified. Balcony is present, but missing the 'Wall to 21c AFL' and 'Balustrade' details. Major wall positions align well, and lengths are generally proportional. Some internal partitions are slightly altered (e.g., WC/Bath area). Doors and windows are mostly present on correct walls, but some window placements and sizes deviate slightly, and the bi-fold door to the balcony from the 2D is rendered as a sliding glass door."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture (beds, sofas, tables) is present, and kitchen/bathroom fixtures are included. Furniture is placed in correct rooms and their scale is reasonable. Orientation is logical. However, the 2D plan shows a distinct 'Activity' room, which is converted to a living room with suitable furniture, but this deviates from the original room's intended function based on the textual label."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable, and the geometry is readable. Interior is well-lit and clearly visible without significant obscuration. Lighting is effective. Consistent material usage and no major rendering artifacts. The background is clean and aids presentation."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The 'Activity' room's original configuration and function are altered; it's converted into a living room. The '13C HIGH CAPPED WALL' and 'Recess' are missing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Some window placements and sizes deviate from the 2D plan. The bi-fold door to the balcony is rendered as a sliding glass door."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Balustrade detail and 'Wall to 21c AFL' on the balcony are omitted."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "Not Applicable",
+            "description": "No text labels or UI elements in 3D render, hence no penalty."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transformed the 2D floor plan into a comprehensible isometric model with good spatial representation, though minor geometric and labeling fidelity issues are present, particularly in the activity room and balcony details.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan12.png"
+}

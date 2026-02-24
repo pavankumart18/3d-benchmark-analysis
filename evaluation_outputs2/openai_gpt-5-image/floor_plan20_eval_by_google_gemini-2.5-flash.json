@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall layout is mostly preserved, but there are significant issues with wall accuracy and some doors/windows. The 'Deck' area from the floor plan is completely enclosed, resembling an internal room, which dramatically alters the overall footprint and room adjacencies. The 'Lobby' area also appears to be missing a wall between it and the 'Maid's Room'. The 'Utility' space also has a wall missing, making it open to the kitchen. Dimensional scaling shows inconsistencies, particularly with room proportions where the width-to-length ratios seem off in several rooms (e.g., Bedroom-1, Living & Dining)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. There are some missing structural elements, such as the wall defining the 'Lobby' and 'Utility' spaces. Hallucinations include the enclosure of the 'Deck' area into a full room with walls. UI/Annotation Cleanliness is poor due to the presence of black rectangles that appear to be remnants of text labels or measurement lines, earning only 1 point. Presentation context is decent, but the background could be darker and have less of a gradient effect from the bottom."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 1
+        },
+        "notes": "Many major furniture pieces are present (beds, dining table, sofas, kitchen counters, bathroom fixtures). However, their placement often does not match the 2D plan, for example, the bed in Bedroom-1 is rotated 90 degrees and placed on a different wall, and the bed in Bedroom-2 is moved. The kitchen island/counter layout is also significantly different. Some furniture in the living/dining area is completely reconfigured or missing (e.g., small chairs near the dining table, TV console). Scale appropriateness for furniture is generally okay, but the inaccuracy in placement is a major detractor."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "The geometry style meets the low-poly and flat-shaded requirements, with no textures. Clean edges are present. Lighting is quite harsh, with distinct shadows visible, indicating more than just soft ambient lighting, which deviates from 'minimal shadows'. Colors are distinguishable. The camera view is isometric, but the rotation seems slightly off from the specified 45-degree rotated plan view, appearing more head-on. Framing shows the entire model."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "The entire 'Deck' area is enclosed in the 3D render, effectively becoming an internal room, which is a major deviation from the open-air 'Deck' specified in the 2D plan.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls are missing or completely reconfigured: Walls defining the 'Lobby' and 'Utility' spaces are absent, merging them with adjacent rooms. The wall separating 'Lobby' from 'Maid's Room' is also missing. The wall configuration for the 'Living & Dining' area has been significantly altered by enclosing the 'Deck'.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are misplaced (e.g., door to Bedroom-1, door to Toilet-2) or have their swing direction incorrect (though not explicitly indicated in 2D, they often imply a direction). The door for Toilet-3 seems to be missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several windows are missing, particularly in the 'Balcony' areas and the 'Bedroom-2' area where the 2D shows multiple windows, but 3D has fewer.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Black rectangles are visible in the render, strongly suggesting remnants of text labels or measurement lines, which violates the zero-text UI cleanliness rule.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Significant discrepancies in furniture placement and configuration, notably in Bedroom-1 (bed rotation/position), Living & Dining (missing/rearranged sofa/chairs/TV console), and Kitchen (island/counter layout).",
+            "point_deduction": 7
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is harsher than 'soft ambient', leading to prominent, stark shadows on walls and under furniture, indicating directional light sources rather than purely ambient. Camera rotation is not a precise 45 degrees.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 61,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan, primarily due to critical structural alterations like the enclosure of the 'Deck' and several missing internal walls, coupled with significant furniture misplacements and residual UI elements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan20.avif"
+}

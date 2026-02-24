@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height/thickness, multiple faces are visible, and the camera is angled with ceiling removed to expose interiors."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 29,
+            "max": 35,
+            "notes": "Clear 3D extrusion of walls with thickness and readable room volumes; clean cutaway. Minor softness/blur reduces confidence in corner precision and some surface separation."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "Overall multi-room apartment massing is similar (central living zone with surrounding bedrooms and service core), but exterior deck/terrace geometry from the 2D plan is not clearly represented and some room proportions/partition placements look approximated."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Beds and a living seating area are present; bathrooms appear as simplified blocks. Kitchen/utility elements are not clearly identifiable with correct placement due to low detail/blur."
+        },
+        "visual_clarity": {
+            "score": 13,
+            "max": 20,
+            "notes": "Walls/floors/windows are distinguishable, but the render is hazy/low-contrast, making openings and internal partitions hard to verify precisely. Clean background with no label/UI clutter."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Exterior deck/terrace areas shown in the 2D plan are not clearly modeled/visible in the 3D cutaway, indicating partial layout omission/approximation."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door and window placements/sizes cannot be confidently matched to the 2D plan; openings appear simplified and some door locations are unclear."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Soft/blurred rendering reduces geometric readability, limiting verification of wall junctions and partition accuracy."
+        }
+    ],
+    "total_score": 72,
+    "verdict": "PASS",
+    "summary": "A true 3D cutaway conversion is achieved with strong volumetric walls, but several plan-specific features (notably decks and some partition/opening fidelity) appear simplified or missing.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan19.webp"
+}

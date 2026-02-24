@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 24,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint is maintained, but some room adjacencies are incorrect, and wall positions have notable tolerances. Specific issues include the missing half-wall/room divider in the living room/dining area, and significant wall shifts in the bathroom and bedroom area. Windows are represented by recesses in the walls, but their count and exact placement are not consistently accurate. Some doors are also missing or misplaced, and their swing directions are not clearly defined or consistent with the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "The cutaway view is good, with the roof completely removed. However, there are some missing structural elements like the half-wall/bar between the living room and dining area, leading to a completeness deduction. The presentation context is generally good, but the model is not perfectly isolated as there's a subtle ground plane indicated by a shadow."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present, including beds, sofas, dining table, and kitchen/bathroom fixtures. However, placement accuracy varies; for example, the kitchen counter layout is significantly different, and some smaller furniture pieces are missing or altered (e.g., the desk in one bedroom). The scale of some furniture also feels slightly off compared to the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style uses low-poly forms and lacks detailed textures, adhering to some requirements. However, there are clear signs of soft shading and some material properties that go beyond 'solid flat colors only,' impacting flatness. The lighting is generally soft ambient, but there is some noticeable contrast and shadows, indicating a more complex lighting setup than 'minimal shadows'. The camera composition is well-executed for an isometric view."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom and adjacent bedroom wall layout is significantly altered from the 2D plan, impacting room adjacency and relative sizes. The bathroom appears larger, and the bedroom adjacent to it is reshaped.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Missing half-wall/bar structure between the living room and dining area, which is a key separation element in the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces show soft shading and subtle variations in color/material that go beyond simple flat colors, particularly noticeable on floors and walls, and some furniture which has slight reflections/sheen.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen counter layout and sink placement significantly deviate from the 2D plan, indicating a different design.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing wall segment between the living room and the long corridor leading to the bedrooms in the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Some smaller furniture items like the desk in the top-right bedroom and specific shelving units are either missing or significantly altered.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 61,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits several significant deviations from the 2D floor plan, particularly in wall geometry and room adjacency, and falls short on strict aesthetic guidelines.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan2.png"
+}

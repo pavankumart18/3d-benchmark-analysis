@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "One door is missing, and several doors have incorrect swing directions. The overall footprint shape is maintained. Wall positions are mostly accurate, but some minor misalignments exist. Relative room sizes are generally proportional. Two windows are missing."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "All requested structural elements are present. No hallucinated rooms or features. However, text is present in the original 2D plan, but not in the 3D render. The UI cleanliness score for the 3D render itself is good. Presentation context is mostly good, but the model is not entirely isolated, as some shadows extend. The 2D input image has a title banner ('Multi-Room Floor Plan Template'), but the instruction was to evaluate the 3D render's UI cleanliness. The 3D render itself has no text."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present, including beds, sofa, dining table, kitchen appliances, and bathroom fixtures. However, some furniture pieces are missing (e.g., the large L-shaped structure in the dining/kitchen area in the 2D plan is replaced by a smaller white structure in 3D), and some placements are slightly off. There is a missing desk chair in the top-right bedroom. The shelving unit to the left of the living room entrance is missing. The small storage unit at the bottom of the leftmost bedroom in 2D is replaced by what looks like a taller storage unit."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly simplified forms and flat-shaded surfaces are largely present. There are no textures, only solid colors. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. The camera view is isometric, but the specific 45-degree rotation from a pure plan view is not perfectly met, it's slightly different. The model is centered and all rooms are visible."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One door missing between the central hallway and the rightmost bedroom.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not consistent with the 2D plan for the two left bedrooms and the bathroom door.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Two windows are missing: one in the top-left bedroom (right wall), and one in the top-right bedroom (top wall).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing desk chair in the top-right bedroom. Missing shelving unit to the left of the living room entrance. The large L-shaped counter/storage in the kitchen/dining area is significantly changed/simplified in 3D.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The exact 45-degree rotated plan view for true isometric is not perfectly achieved. The isometric angle appears to be slightly different.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render achieves a good level of spatial accuracy and structural fidelity, with minor deviations in door and window presence/placement, and some furniture inconsistencies. Aesthetic and technical qualities are largely compliant, except for slight camera angle variations.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan2.png"
+}

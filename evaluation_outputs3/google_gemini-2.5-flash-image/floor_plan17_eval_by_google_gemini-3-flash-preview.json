@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Basic 3D isometric extrusion confirmed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Walls have height and thickness as required. The perspective is a shallow angled view. Interior volume is perceivable but the rendering style remains very flat."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "Extremely high fidelity to the original floor plan layout. All room adjacencies and wall positions are maintained accurately."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Furniture placement and scale match the 2D source exactly."
+        },
+        "visual_clarity": {
+            "score": 12,
+            "max": 20,
+            "notes": "Significant point deduction for UI contamination: the original text labels and dimensions are baked into the 3D surfaces, which reduces structural clarity and professionalism."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MEDIUM",
+            "description": "Text labels and dimensions from the 2D plan are visible on the 3D floor and wall surfaces."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A geometrically faithful 3D extrusion that preserves the layout perfectly, though it suffers from baked-in text labels on the floor surfaces.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan17.jpg"
+}

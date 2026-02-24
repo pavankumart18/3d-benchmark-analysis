@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is mostly preserved. Minor discrepancies in wall positions and room proportions. The balcony on the left side of the 3D model is significantly smaller than in the 2D plan, impacting relative room sizing. One toilet and its associated door are missing near the master bedroom. The utility room's wall has been altered in the 3D render, shrinking the room compared to the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "No text labels present, achieving full score there. Roof is completely removed and interior walls are visible. There is one missing toilet and door. The background is a solid dark color, but not a gradient and the model feels somewhat grounded rather than floating."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and correctly mapped to their respective rooms (beds, sofas, dining table, kitchen counters). Bathroom fixtures are present. However, the exact placement of some furniture, especially in the living and dining area, does not precisely match the 2D plan. The left balcony's furniture is absent due to the shrunken space. The utility room furniture is also not present due to alterations."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "Uses low-poly simplified forms and flat-shaded surfaces with solid colors, which aligns with requirements. Lighting is soft ambient with minimal shadows. Colors are distinguishable. The camera view is isometric and centered, but the rotation seems slightly off from exact 45 degrees, which leads to minor deductions for camera composition."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "One toilet room + a door are completely missing on the left side, as compared to the 2D plan. Utility room significantly altered in size and missing furniture.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The balcony on the left side is inaccurately scaled down in the 3D model. The utility room's wall structure has been modified, leading to reduced room size.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture is missing from the left balcony and utility room due to structural inaccuracies. Some furniture placement deviates slightly from the 2D plan in the living/dining area.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Wall position discrepancies in the utility room and around the left balcony area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The camera rotation appears slightly off from a perfect 45-degree isometric view.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render generally adheres to the 2D floor plan for layout and major elements, but exhibits critical structural omissions of a room and major scaling inaccuracies in two areas. Furniture mapping is mostly accurate, and aesthetic quality meets requirements with minor geometric observation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan15.webp"
+}

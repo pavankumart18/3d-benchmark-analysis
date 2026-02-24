@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric/cutaway 3D model: walls extruded with thickness, multiple faces visible, and ceiling/roof removed to expose interior spaces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable interior volumes; isometric viewpoint is appropriate with minimal distortion; cutaway is clean though some door openings/curves feel stylistic rather than strictly architectural."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency match (kitchen/dining left, living center, bedrooms right, bath/laundry/closets lower zones). Minor proportional differences (e.g., hallway/door cluster and some partition lengths) and some openings do not perfectly match the 2D door swing placements."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture blocks align with expected rooms: dining table in kitchen/dining, sofas/tables in living, beds in both bedrooms, tub and vanity/toilet elements in bathroom, and kitchen counters/appliances present. A few items are simplified and not fully detailed."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Good separation of walls/floors/openings with consistent materials and clean background; lighting supports visibility. Minor ambiguity where stylized curved doors intersect near the hall."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Small layout/proportion drift in interior partitions (notably around the hall/closet/bathroom cluster) compared to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Several doors are rendered with exaggerated curved geometry and may not exactly match the 2D door swing positions and opening widths."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout fidelity, with only minor proportion and door/opening placement/style discrepancies from the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan4.jpg"
+}

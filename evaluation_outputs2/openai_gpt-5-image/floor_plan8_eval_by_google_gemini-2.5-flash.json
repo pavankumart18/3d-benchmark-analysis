@@ -1,0 +1,87 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 8,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Room count matches, but playroom adjacency to Kitchen is incorrect. Dining room has no direct connection to kitchen as in plan. Relative room sizes are generally proportional. Overall footprint shape deviates in the dining room and kitchen areas. Wall positions show several inaccuracies, particularly around the kitchen and dining room, and the foyer is very shallow. Corner angles are preserved for the most part. Doors: missing a door for the W/C closet, one door misplaced for dining room. Swing directions are not always clear or matching. Window count matches, but placement in playroom and kitchen is slightly off, and proportions are somewhat small.",
+        "detected_errors": [
+            {
+                "code": "E2-MAJ",
+                "severity": "MAJOR",
+                "category": "spatial_accuracy",
+                "description": "Dining room wall geometry incorrect, no direct opening to kitchen as in plan. Kitchen layout significantly deviates from plan, affecting adjacency and overall footprint. Foyer is too shallow compared to plan. Playroom wall next to kitchen is not open as indicated in plan.",
+                "point_deduction": 5
+            },
+            {
+                "code": "E1-MIN",
+                "severity": "MINOR",
+                "category": "spatial_accuracy",
+                "description": "Missing door for the W/C closet. Wrong swing direction for foyer closet door.",
+                "point_deduction": 2
+            }
+        ]
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 4,
+            "hallucination_control": 4,
+            "ui_cleanliness": 1,
+            "presentation_context": 4
+        },
+        "notes": "Roof is completely removed, and interior walls are fully visible. No missing rooms or structural elements, though the W/C closet is very small, almost merged. No extra rooms or architectural features added. UI/Annotation Cleanliness is an issue: there are no text labels, but there is a clear shadow ground plane which is not allowed. The model is centered and isolated. The background is dark neutral.",
+        "detected_errors": [
+            {
+                "code": "E5-CRIT",
+                "severity": "CRITICAL",
+                "category": "structural_fidelity",
+                "description": "There is a significant shadow ground plane, which violates the 'no ground plane/shadows extending to infinity' rule.",
+                "point_deduction": 4
+            }
+        ]
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture and fixtures are present: fireplace in living room, kitchen counters/island/sink, bathroom fixtures (toilet/sink/shower/tub). Placement in the kitchen is significantly different from the plan (island orientation, counter layout). Living room fireplace is present but its specific projection from the wall differs. Foyer closet is too small to contain anything. W/C fixtures are present but in a very cramped space, not reflecting the plan's layout.",
+        "detected_errors": [
+            {
+                "code": "E2-MAJ",
+                "severity": "MAJOR",
+                "category": "furniture_mapping",
+                "description": "Kitchen furniture layout, including island and counters, does not match the 2D plan. The geometry of the kitchen is significantly altered, affecting furniture placement. W/C fixtures are not accurately represented due to incorrect room geometry.",
+                "point_deduction": 3
+            }
+        ]
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly simplified forms with flat shaded surfaces and clean edges. No textures, solid flat colors used. Soft ambient lighting with minimal shadows. No dramatic contrasts. Colors are distinguishable. True isometric projection with 45\u00b0 rotated plan view. Centered framing with appropriate zoom.",
+        "detected_errors": []
+    },
+    "total_score": 75,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully translates the overall layout and forms into an isometric view, but exhibits moderate inaccuracies in wall geometry, room adjacencies, and furniture placement in key areas like the kitchen and dining room, alongside a Ground plane violation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan8.jpg"
+}

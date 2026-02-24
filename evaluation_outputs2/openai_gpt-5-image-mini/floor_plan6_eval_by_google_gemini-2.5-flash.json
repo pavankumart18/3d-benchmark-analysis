@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "The overall layout topology is mostly preserved. Room count is correct (Kitchen/Living, Bedroom, Bathroom, Stairwell/Hallway). Adjacencies are generally correct. However, the bathroom in the 3D render is significantly larger than in the 2D plan, and the hallway leading to the bedroom/bathroom is much wider. The stairwell/external wall area is significantly simplified and does not match the 2D footprint. Missing a wall segment in the Kitchen/Living area (between the window and the corner sofa). The external footprint is not maintained in the stairwell area. Window in bedroom is misplaced."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The cutaway view is compliant with the roof removed and interior walls visible. Missing the stairwell structure and the external plant features. Hallucinated some kitchen upper cabinets not explicitly shown in 2D. Hallucinated a significant portion of the bathroom area's width. Text annotations are present in the 2D plan but NOT the 3D render, so the UI cleanliness score is for the 3D render. The 3D render has a dark neutral background, but it seems to have a subtly textured ground plane, not just floating."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present: bed and two nightstands in the bedroom, sofa, coffee table, dining table with two chairs in the kitchen/living area. Kitchen counters and sink are present. However, the bathroom fixtures (toilet, sink, shower) are completely missing. The sofa is a different configuration. Dining chairs are too few. The 2D plan shows a small square table and a corner sofa arrangement, which is not accurately represented in the 3D. There's a desk/chair in the 2D plan next to the bathroom door, which is completely missing in 3D. Bedroom nightstands seem smaller and positioned slightly differently than the 2D (which shows open cubbies)."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is low-poly and flat shaded with solid colors, mostly compliant. There's a very subtle texture/material on the bed and sofa, and also on the floor, which deviates from 'solid flat colors only'. Lighting is generally soft ambient, but the floor shows some slight gradients/shadows implying more direct light than just ambient. Colors are distinguishable. True isometric projection, 45-degree rotated plan view, centered framing, and appropriate zoom level. However, the floor surface appears to have a slight material or texture rather than being a pure solid color."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom width significantly increased, hallway width increased, and exterior wall/stairwell area footprint changed dramatically.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "All bathroom fixtures (toilet, sink, shower/tub) are missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing a small interior wall segment in the kitchen/living area.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Missing complete stairwell geometry and exterior plant features.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle textures/materials on bed, sofa, and floor in 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom window placement off from plan and different style (corner window vs centered).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing desk/chair unit from the 2D plan. Sofa style and dining chair count differ.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 66,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render accurately represents the overall layout and most major elements, but fails on several geometric deviations, missing key bathroom fixtures, and minor aesthetic non-compliance.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan6.jpg"
+}

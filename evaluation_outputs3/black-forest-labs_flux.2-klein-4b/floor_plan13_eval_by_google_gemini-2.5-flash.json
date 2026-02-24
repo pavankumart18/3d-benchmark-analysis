@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D render clearly shows height, thickness, depth, an angled view, and a removed roof/ceiling."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5), floors are separate (3), interior volume is clear (4), 3D corner geometry is good (3). Angled view is good (5), interior visible from elevated perspective (3). Minimal perspective distortion (2). Roof removed cleanly (5), interior is visible (3). One section of the wall appears 'cut' rather than removed or cleanly integrated with the removed ceiling (e.g., the wall on the bottom left which is part of the entry/linen closet area, and a wall near the kitchen/laundry area)."
+        },
+        "geometric_accuracy": {
+            "score": 15,
+            "max": 30,
+            "notes": "Room configuration has many discrepancies. The 'Dining' room is missing, combined with the 'Lounge'. The 'Bath' and 'WC' are combined into one larger bathroom. The 'Linen' closet is missing. The 'Laundry' area is heavily integrated into the kitchen. The 'Garage' has been integrated into the main house structure, losing its distinct identity. The balcony is missing. No clear mapping of some rooms. Overall room count and adjacency are significantly altered (4/12). Wall positions of the main structure are mostly aligned, but internal partitions are heavily changed (3/10). Doors are present but the placement and number are altered due to room changes (2/8). Windows are shown but their original positions and number from the 2D plan are inconsistent (2/8)."
+        },
+        "interior_elements": {
+            "score": 5,
+            "max": 15,
+            "notes": "Major furniture is present in some rooms (e.g., sofas, bed, bath fixtures) (4). Kitchen elements are present but basic (1). Bathroom fixtures are present (2). Furniture is mostly placed in logical rooms, but the room identities themselves are distorted or missing. Scale is adequate, but orientation is not always perfectly aligned with the implied flow of the original plan (0/7)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Structural elements are distinguishable (4), and geometry is readable (4). Interior is clear (3), and lighting is good (3). Consistent material usage (2), no major artifacts (2). The background is clean and presentation is good (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "Critical",
+            "description": "Major geometric failure: 'Dining' room, 'Balcony', and 'Linen' closet are missing. The 'Bath' and 'WC' are combined. 'Garage' is integrated into the house layout without its distinct external structure."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Layout distortion: Significant changes to room configuration, adjacency, and overall proportionality due to missing and combined rooms. Internal partitions are not faithful to the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Door and window mismatches: Number and placement of doors and windows differ from the 2D plan."
+        }
+    ],
+    "total_score": 60,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully transforms the 2D plan into a perceivable 3D space with good visual clarity, but it suffers from major geometric inaccuracies including missing rooms and significant layout distortions compared to the original floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan13.jpg"
+}

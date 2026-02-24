@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "The 3D render fails to follow the 2D layout. The open-plan Kitchen/Dining/Living area has been partitioned into multiple closed rooms. The central bathroom and stairs are entirely missing or replaced with non-matching wall configurations."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "The model correctly utilizes a removed-roof view and a floating dark background. However, it hallucinated a multi-room floor plan that bears no structural resemblance to the source image."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "A bed and desks were hallucinated where no furniture was indicated. The kitchen counters and bathroom fixtures shown in the 2D plan are either missing or misplaced in the 3D output."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "The render successfully adheres to the low-poly, flat-shaded, and isometric aesthetic requirements despite the layout failure."
+    },
+    "total_score": 37,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing stairs and specific bathroom layout from the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Total layout distortion; open spaces converted into small partitioned rooms."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucination of a bedroom with a bed and different window quantities."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan3.jpg"
+}

@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 4.5,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 0.5,
+            "wall_geometry": 0,
+            "doors": 2,
+            "windows": 1,
+            "dimensional_scaling": 1
+        },
+        "notes": "The 3D render completely fails to match the 2D floor plan provided. It shows a significantly different layout, room count, and wall configurations. The 2D plan shows a single-story rectangular house with a Kitchen, Dining Room, Living Room, and one Bathroom. The 3D render shows a multi-room, likely multi-bedroom apartment with a different kitchen layout, multiple bathrooms, and extra rooms entirely. The overall footprint shape is rectangular but the internal division is completely different. Wall positions are incorrect. Openings (doors and windows) do not match in quantity, placement, or configuration. Dimensional scaling is inconsistent as the 3D model presents a different building altogether."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is correctly implemented with the roof removed and interior walls visible. Completeness is effectively impossible to score as the model is not of the specified plan. There is significant hallucination, as the generated 3D model depicts a structure entirely different from the 2D floor plan, adding multiple rooms and rearranging the layout drastically. UI/Annotation Cleanliness is good with no text or measurement lines. The presentation context is incorrect; while it's on a dark background, shadows extend to a ground plane."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Furniture and fixtures in the 3D model do not correspond to the 2D plan as the underlying structure is different. The 2D plan shows a kitchen with appliances, and a bathroom with a toilet and sink. The 3D model shows a different kitchen layout and additional rooms not present in the 2D plan which also contain furniture."
+    },
+    "aesthetic_quality": {
+        "score": 10.5,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 3.5,
+            "camera_composition": 1
+        },
+        "notes": "The geometry style aligns with low-poly, flat shaded forms with clean edges. However, the use of textures on the floor and some furniture, and potentially on the walls (though subtle), deviates from the 'solid flat colors only' requirement. Lighting is soft ambient, but there are noticeable shadows, and the colors, while distinguishable, show some gradience. The camera view is isometric, but the specific 45-degree rotation from a pure plan view is not exact; it's a shifted isometric projection. The model is centered and all rooms are visible, but the overall presentation is not a '45 degree rotated plan view'."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room layout, room count, and adjacencies are completely different from the 2D plan. The 3D model is not a rendition of the provided 2D plan.",
+            "point_deduction": 35.5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Significant hallucination of multiple rooms and architectural features not present in the 2D floor plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Subtle textures and gradients present on floors and some furniture, violating 'solid flat colors only' rule.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Presentation context incorrect; shadows extend to a visible ground plane.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 25,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is a complete mismatch to the provided 2D floor plan, depicting an entirely different building layout and room configuration, thus failing to meet any core spatial accuracy requirements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan3.jpg"
+}

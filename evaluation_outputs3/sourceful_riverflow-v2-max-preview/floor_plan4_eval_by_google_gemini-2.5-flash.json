@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion verification checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "The 3D conversion is nearly perfect in fundamentals. Only minor detail might be a very slight lack of explicit floor separation, though it is implicitly clear."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Overall excellent geometric accuracy. All rooms are present, adjacency is correct, and major wall positions align. Doors and windows are mostly correct, though some window sizes vary slightly and one window in Bedroom 2 is missing."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present and correctly placed. Scale and orientation are logical. Only a few minor items like the plant in the hall closet or detailed kitchen appliances are not fully replicated, which is acceptable within the 'simplified' guideline."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "The rendering is clean, clear, and easy to interpret. Geometry is distinguishable, lighting is good, and there are no rendering artifacts. The background is clean. No text labels present."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "One window missing in Bedroom 2 compared to the original 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some window proportions are not perfectly matched to the 2D plan, e.g., the window in Laundry and Bathroom."
+        }
+    ],
+    "total_score": 95,
+    "verdict": "EXCELLENT",
+    "summary": "This is an excellent and highly faithful 3D conversion of the provided 2D floor plan, with accurate geometry, room layout, and essential interior elements, presented with high visual clarity.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan4.jpg"
+}

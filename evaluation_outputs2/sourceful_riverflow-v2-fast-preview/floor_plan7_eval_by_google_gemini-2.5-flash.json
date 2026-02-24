@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room connectivity is mostly preserved, but 'Wash Area' and 'Toilet' are combined into one larger bathroom in 3D. The 'Entrance to the House' is not fully represented as an entrance area in 3D. The overall footprint shape is visually similar, but specific wall positions have discrepancies. Door count is off, and some placements are incorrect. Window count is mostly accurate, but some positions are slightly off or missing in specific areas. Consistent scaling is applied, but some relative room sizes are distorted due to combined rooms."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The roof is completely removed and interior walls are fully visible. There is some incompleteness concerning the entrance and the combined bathroom. The presence of significant changes like combining rooms could be seen as slight architectural hallucination based on the 2D layout. UI/Annotation Cleanliness is a critical failure due to the prominent labels in the 2D image being part of the prompt, and not being correctly ignored as UI/annotation by the model. The 3D image has no text. The presentation context is good, with a dark neutral background and the model appearing isolated, but a small ground shadow is present."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms (Dining table, Bedroom bed, Living room sofa). Kitchen fixtures are present, but the layout is slightly different. Wash Area/Toilet fixtures are integrated into a single bathroom, implying a structural change rather than just furniture placement. Placement of furniture within rooms is largely accurate to the 2D plan, but some items (e.g., wash area appliances, living room small armchairs) are not directly translated or are altered. Scale of furniture seems appropriate overall."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry mostly uses low-poly simplified forms with flat shaded surfaces. There are no obvious textures, but there's an implication of material (e.g., wood floor, grey kitchen counters), which deviates slightly from 'solid flat colors only'. Shadows are present but somewhat soft. The lighting is generally ambient, but some areas show more dramatic contrast. The rendering doesn't strictly adhere to 'flat shading with minimal shadows'. The camera angle is an isometric projection, but it's not a direct 45 degree rotation, but rather a more common 3/4 isometric view. Framing is centered and all rooms are visible."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "UI/Annotation from 2D input should have been ignored. The 3D render successfully omitted text, but since the original 2D image had text labels, the model is being evaluated on its ability to infer the 'ground truth' geometry, rather than faithfully reproducing all elements of the 'ground truth' image. Therefore, this specific rubric rule about 'UI/Annotation Cleanliness' needs a special interpretation: The final *generated* 3D image should be free of UI elements. The model correctly did this. However, 2D plan contains text, but the rubric has a global rule 'ZERO text labels present'. This rule is intended for the *generated output*. Therefore, the 3D output passes the UI cleanliness test.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Wash Area and Toilet are distinct rooms in 2D, but combined into a single larger bathroom in 3D, altering the layout topology and wall geometry significantly.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Entrance to the House area is not accurately translated; the wall and entrance door configuration is significantly different, leading to an altered exterior footprint and interior flow.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door leading from Bedroom 1 to the hallway is missing in the 3D render. This door is inferred to be behind the bed in the original 2D plan, but not present in 3D.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door for the 'Wash Area' (now part of combined bathroom) is in a different position and orientation compared to the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Presence of discernible 'wood' texture on floors and 'grey material' on kitchen counters indicates a deviation from 'solid flat colors only' for geometry style. Also, shadows are more pronounced than 'minimal shadows'.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 61,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render successfully captures the overall floor plan but suffers from significant deviations in room structure and door placement, particularly the merging of the 'Wash Area' and 'Toilet' and inaccurate entrance area, leading to a FAIL verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "Walls have thickness but minimal perceptible height. The view is mostly top-down orthographic with only subtle angling."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 10,
+            "max": 35,
+            "notes": "Walls lack significant height (5/5 pts lost). Viewing angle is almost purely top-down orthographic (3/5 pts lost). Interior visibility from an elevated perspective is minimal (3/3 pts lost). Minimal severe perspective distortion, but this is due to the lack of a proper 3D view (2/2 pts awarded for lack of distortion, but not for meeting the spirit of the criteria)."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "All room configurations, adjacencies, and proportions are accurately preserved. Wall geometry aligns perfectly. Doors are present and correctly placed. Windows are missing from the 3D render."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "All major furniture and fixtures are present and in the correct rooms. Their scale and orientation are logical. Minor details like the kitchen island's stools are missing."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural clarity is excellent, geometry is readable. Lighting is good and interior is clear. Aesthetic coherence is consistent and clean, with no major artifacts. Background is clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "True 3D conversion did not fully occur; walls have minimal height instead of a distinct vertical dimension."
+        },
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "Viewing angle is almost purely top-down orthographic, not an angled or isometric view as required for a true 3D transformation checkpoint."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Windows are missing in the 3D render. The 2D plan clearly indicates windows on multiple walls."
+        }
+    ],
+    "total_score": 70,
+    "verdict": "PASS",
+    "summary": "The conversion demonstrates excellent geometric and interior element fidelity to the 2D plan, but it fails to achieve a convincing 3D representation due to a near top-down orthographic view and insufficient wall height.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan5.jpg"
+}

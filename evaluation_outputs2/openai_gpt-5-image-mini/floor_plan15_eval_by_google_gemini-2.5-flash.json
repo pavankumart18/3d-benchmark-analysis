@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 6,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint is poorly maintained. The 'Balcony' space to the left of the M.Bedroom is completely missing. The Balcony to the right of Bedroom-1 is also missing. The 'Toilet' to the left of Entrance is also missing. The utility area is missing. The living and dining area is much smaller and the arrangement altered. The wall alignments are inconsistent, especially for the living/dining area and kitchen. Room count is off due to missing spaces. Adjacencies are partially preserved for main rooms, but not all. Proportional sizes are off. Door swings cannot be verified without specific indication on plan. A few windows are missing from the plan."
+    },
+    "structural_fidelity": {
+        "score": 11,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 1
+        },
+        "notes": "Multiple rooms/areas are missing (left balcony, right balcony, left toilet, utility). Several walls are hallucinated or significantly altered from the original plan. One set of stairs is shown, but two were implied in the plan. The background is dark, but the model is not depicted as floating and there seem to be shadows implying a ground plane. No UI elements present."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Some major furniture pieces are present (beds, sofa, dining chairs), but many are missing (sofa in Bedroom-1, many tables, furniture in balconies, all bathroom fixtures except one toilet, kitchen counter/sink/stove). The placement of existing furniture is often inaccurate, especially in the living/dining area and general kitchen layout."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 0
+        },
+        "notes": "Low-poly, flat shaded geometry with solid colors. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. The camera view is not true isometric based on visual inspection of parallel lines and 45-degree rotation. The framing is centered and fully visible."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Left balcony ( Balcony 1.27x2.40 ) missing entirely.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Right balcony ( Balcony 3.65x1.37 ) missing entirely.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "TP. Toilet ( 2.45x1.52 ) to the left of entrance missing entirely.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Utility room missing entirely.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint shape is significantly altered, not maintained as per reference.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Wall geometry for Living & Dining area and Kitchen are significantly misaligned and altered.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Numerous furniture items missing and many others misplaced.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Camera view demonstrates perspective distortion; not true isometric.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render fails to accurately translate the 2D floor plan due to significant missing architectural elements, altered layout topology, and perspective distortion in the camera view.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan15.webp"
+}

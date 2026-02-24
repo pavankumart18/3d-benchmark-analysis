@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful volumetric extraction from 2D plan."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 32,
+            "max": 35,
+            "notes": "Excellent wall geometry and isometric viewing angle; clearly defined interior volumes."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Room count and adjacency match perfectly. External garage footprint and internal hallway partitions are accurate. One minor distortion in the master bath area."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture is well-placed and logical (bed in bedrooms, car in garage, kitchen counters). Bathroom fixtures are visible."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Good lighting. Points deducted for text contamination on the floor surface (E6-UI)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Ghosted text from the floor plan is visible on the 3D floor surfaces."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some window openings are rendered as solid wall indentations rather than transparent panes."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A highly faithful 3D transformation that accurately preserves the complex layout and room relationships of the original architectural plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan9.png"
+}

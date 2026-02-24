@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric cutaway with volumetric walls, visible thickness, and exposed interior spaces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness, readable floor plane separation, good corner geometry, and clean cutaway; minor simplification in some wall/top-face detailing."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Overall apartment envelope and central living/dining/kitchen zone broadly match, but several internal partitions/room definitions (notably wet-area/bathroom zoning and some right-side/central subdivision details) appear simplified or shifted vs the 2D plan; openings are not reliably mapped to the plan."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Living/dining furniture and beds are present; kitchen is represented as simplified blocks; bathroom fixtures are largely absent, reducing confidence in room identity matching."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean, readable geometry with good visibility; materials are very uniform which reduces element distinction, but no major artifacts or UI/text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Internal layout fidelity issues: some partitions/room subdivisions (especially bathroom/wet-area configuration and portions of the right-side/central arrangement) do not clearly match the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are shown as generic openings; exact door placements/swing logic and window counts/positions cannot be confidently matched to the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "major",
+            "description": "Bathroom fixtures are missing, weakening validation of bathroom locations and room identities."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Overly uniform materials reduce clarity between structural elements and furniture/kitchen components."
+        }
+    ],
+    "total_score": 73,
+    "verdict": "PASS",
+    "summary": "A valid and clean 3D cutaway conversion is achieved, but several internal partition/room-definition details and opening/fixture mappings do not faithfully follow the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan5.jpg"
+}

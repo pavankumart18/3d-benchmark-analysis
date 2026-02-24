@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible interior volumes, and an elevated angled view with the ceiling/roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; cutaway is clean. Minor limitations: viewpoint is only mildly angled (close to top-down) and some edges/openings look simplified."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall room count and adjacency largely match (3 bedrooms, central living/dining, kitchen core, left-side service/office zone). However, outdoor spaces (deck and balconies) appear missing or significantly simplified, and bathroom/utility partitioning does not fully match the 2D plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (beds, sofa set, dining table) and kitchen cabinetry/appliances are indicated; bathrooms have basic fixtures. Some elements are simplified and a few room-specific items (e.g., office details) are minimal."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean presentation with distinct walls/floors and adequate lighting. Windows/doors are not always clearly distinguishable, and some openings read as generic gaps rather than faithful door/window geometry."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Deck and balcony geometry from the 2D plan is missing or heavily reduced in the 3D model, impacting overall footprint fidelity."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Toilet/utility partition layout appears altered (count/placement not fully consistent with the 2D plan\u2019s multiple toilets and utility zone)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placements and sizing are simplified and not clearly aligned to all corresponding 2D openings."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A valid, clean 3D cutaway with strong overall layout match, but with notable fidelity loss in balconies/deck and some service/bathroom partition details.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan20.avif"
+}

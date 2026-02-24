@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway (extruded walls with thickness, angled perspective, interior visible). However, it does not preserve the 2D plan\u2019s layout/space program."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Skipped due to automatic rejection (major space loss vs 2D plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Skipped due to automatic rejection (more than half of rooms/spaces from the 2D plan are not represented)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Skipped due to automatic rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Skipped due to automatic rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "More than 50% of the 2D plan\u2019s spaces are missing or not clearly represented in the 3D model (e.g., multiple toilets/baths, balconies/deck, utility, lobby/office/maid room)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Overall room configuration/adjoinments do not match the 2D plan; the 3D appears to be a simplified/generic layout rather than a faithful geometric transformation."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "A genuine 3D cutaway is shown, but the generated model omits most rooms and does not faithfully match the 2D floor plan layout, triggering automatic rejection.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan20.avif"
+}

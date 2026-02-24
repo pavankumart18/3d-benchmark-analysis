@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness. Interior volume is clear. Viewing angle is angled. Roof is cleanly removed. Wall corner geometry is mostly correct, but some wall intersections feel a bit simplistic."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Room configuration is largely correct, including adjacencies and proportions. Major wall positions align well. Doors are present and on correct walls. Windows are present but not as consistently as doors, and their specific sizes are less clear. The 'foyer' area dimensions seem slightly off in the 3D, and the kitchen dimensions are changed from 11' x 7'8\" to 15' x 7'8\" in the 3D model, this is a significant error."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Most major furniture (beds, sofas, tables, kitchen/bathroom fixtures) are present and in the correct rooms. Scaling is generally reasonable. Orientation is logical."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Structural elements are clearly distinguishable. The geometry is readable. Lighting is good, not obscuring details. Consistent material usage. Clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Dimensions of the kitchen shown on the 3D model (15' x 7'8\") do not match the 2D plan (11' x 7'8\"). This is a significant proportional and dimensional change."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion is good with clear transformation and good geometric fidelity, though there is a significant discrepancy in the kitchen's dimensions.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan14.webp"
+}

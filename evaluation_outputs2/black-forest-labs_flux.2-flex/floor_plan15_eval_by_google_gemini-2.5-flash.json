@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "Living & Dining combined area is represented as two rooms in the 3D model due to a wall addition, altering room adjacency. Overall footprint maintained. Several interior walls are misaligned or shifted. Door swing directions are often reversed or missing. Window placements are generally correct, but sizes vary. Scale appears inconsistent, particularly with the balcony and certain room depths."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 4,
+            "completeness": 4,
+            "hallucination_control": 3,
+            "ui_cleanliness": 1,
+            "presentation_context": 3
+        },
+        "notes": "No roof fragments visible, but the cutaway in 3D is not a true plan-cut, it's an isometric view with top removed. A short wall has been added separating the living and dining area in the 3D render, which is a hallucination. There are no UI/annotations but floor texture and wall material have some slight noise/imperfection that reduces point. Model is floating and mostly isolated, but the background is not a pure dark neutral; it's a dark gradient with soft lighting that impacts the model's perception rather than being truly isolated."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present, but their placement often differs significantly from the 2D plan. The kitchen and bathroom fixtures are present. Bedroom 1 and M.Bedroom furniture are in incorrect positions. Balcony furniture is different. Living and Dining furniture differs."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 3,
+            "camera_composition": 4
+        },
+        "notes": "The geometry uses simplified forms, but some surfaces, especially walls, have slight textures or noise which is not solid flat colors. Lighting is ambient but there's a slight directional component creating some shadows. Minor color variations are present. The camera is an isometric view, but the specific rotation isn't a perfect 45-degree rotated plan view. Framing is good with all rooms visible and centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated short wall separating Living and Dining area, not present in 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple interior walls (e.g., M.Bedroom's northern wall, Toilets' walls, Utility's wall) are misaligned or shifted compared to the 2D plan, altering room shapes.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Significant discrepancies in furniture placement across multiple rooms (M.Bedroom, Bedroom-1, Living & Dining).",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several door swing directions do not match the 2D plan, or are simplified to just openings without swing indication.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Walls and floors exhibit slight textures/noise instead of pure flat solid colors.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Inconsistent dimensional scaling, affecting relative room depths and balcony sizes.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 56,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render struggles with geometric precision, exhibiting multiple wall misalignments and incorrect furniture placements, leading to a FAIL verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan15.webp"
+}

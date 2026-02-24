@@ -1,0 +1,66 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls clearly have height and thickness, interior volume is evident, and the viewing angle is isometric. The roof is removed to show the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5), floors are separate (3), interior volume is very clear (4), and 3D wall corners are mostly good (3). Viewing angle is correct and shows interior from an elevated perspective, minimal distortion (5+3+2 = 10). Roof is removed cleanly (5), interior spaces fully visible (3), but there's a slight geometry issue near the main entrance/stairs cut-off (0/2)."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "All rooms are present, adjacencies are mostly correct, and proportions are somewhat maintained. The kitchen island/bar area from the 2D is somewhat simplified. Some interior partitions are missing or simplified. The main entrance area's wall geometry is inconsistent. Doors and windows are missing from several locations, especially the front entrance and internal doors."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture like bed, sofa, kitchen counter/island, and bathroom fixtures (toilet) are present (4). Kitchen elements are present (2), bathroom fixtures are present (2). Furniture is mostly placed in correct rooms (3) and scale is reasonable (2). Orientation is logical. The missing chair in the kitchen/living area is a minor point."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "All structural elements are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible, good lighting (6). Aesthetic coherence is good with consistent materials and no major artifacts, and a clean background (2+2+2 = 6)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Simplified or missing internal partition between the kitchen/living area and the bathroom/stairs area. The wall extending from the bathroom to the stairs is significantly different."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The main entrance wall geometry is not faithful to the 2D plan; the L-shaped wall is replaced by a straight one, and the entrance door is missing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Missing a door between the bedroom and an adjacent room (likely a bathroom/closet based on 2D) and between the bathroom and the corridor."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Missing exterior windows on the left wall of the kitchen/living area from the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "Minor",
+            "description": "A chair/stool depicted on the 2D floor plan in the kitchen/living area is missing in the 3D render."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "The 3D render successfully transforms the 2D floor plan with good fundamental 3D conversion and visual clarity, though it has some geometric inaccuracies, particularly in internal partition walls and door/window placements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan6.jpg"
+}

@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is an angled cutaway/isometric interior model with extruded walls, visible wall thickness, floor surfaces, and open-top ceiling removal."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and interior volume; proper angled view; clean cutaway. Minor simplification at some wall junctions and openings."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall room count and adjacency largely match (central living/dining, kitchen to left, bedrooms and baths to right). Some proportional/layout deviations in room widths and a few partitions/openings appear simplified or slightly shifted compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture present (sofas, dining table, beds), kitchen and bathroom fixtures included. A few items appear generic and not perfectly aligned to the 2D furniture symbols."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Good readability of walls/floors/openings; lighting is neutral and does not obscure layout. Minor ambiguity in some door/window detailing due to simplified modeling."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Some room proportions/partition placements appear slightly distorted or simplified relative to the 2D plan, especially around smaller rooms/corridor segments."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window placement and/or counts appear approximated; some openings do not clearly match the exact 2D locations/sizes."
+        }
+    ],
+    "total_score": 86,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout fidelity, with minor-to-moderate deviations in exact proportions and some door/window specifics.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan5.jpg"
+}

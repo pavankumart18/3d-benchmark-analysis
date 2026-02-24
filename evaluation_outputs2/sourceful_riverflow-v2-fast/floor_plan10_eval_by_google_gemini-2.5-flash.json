@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "Almost all rooms are present, but their sizing and relative proportions are significantly off in places. For example, the Activity room is much smaller than indicated, altering adjacency and footprint. The overall footprint shape is also distorted. Wall positions have noticeable inaccuracies, particularly around the kitchen/pantry and the master suite's WIR/Ensuite. Many door and window sizes/placements are incorrect in the 3D model."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The 3D model maintains the cutaway view and adequately controls hallucinations of new rooms. However, some structural completeness issues were noted (e.g. laundry fixtures missing 'WM/TD' area). The model failed critically on UI/annotation cleanliness due to text present in rooms and on appliances. The presentation context is good but slightly loses points for some shadows."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present, such as beds, sofas, and dining tables. Kitchen and bathroom fixtures are also present. However, furniture placement has several inaccuracies. For example, the Master Suite bed is rotated incorrectly, and the Study's desk is missing in the 3D model. The 'Theatre' room appears to have a bed instead of theatre furniture, and the 'Activity' room is missing one bed from the plan. The Laundry's washer/dryer are missing. The Pantry's 'Fridge/Freezer Recess' has a full fridge/freezer model that does not match the plan's visual. There are also several minor furniture pieces missing throughout, such as the entry bench and some beds/desks in Bed 3/4."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 7
+        },
+        "notes": "The model uses low-poly forms and generally flat shaded surfaces, but there are some visible smooth shading artifacts, particularly on furniture. The surfaces also seem to have some basic textures/materials rather than being solid flat colors (e.g., wood textures on furniture, reflective surfaces on appliances). Lighting is soft and ambient, but shadows are more pronounced than 'minimal'. The camera composition is good, correctly displaying an isometric view at 45 degrees, centered, and appropriately zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on appliances (e.g., stove, washing machine) and in rooms (e.g., 'KITCHEN').",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Study's desk and chairs are missing. Laundry's washer/dryer missing. Master Ensuite toilet is missing. Bedroom 3 desk recess missing desk. Bedroom 4 desk recess missing desk. Entry bench missing. Minor furniture in Alfresco missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Activity room is significantly undersized compared to plan. Kitchen/Pantry wall alignment issues leading to overall footprint distortion. Master Suite and WIR/Ensuite area proportions are off.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Furniture appears to have basic textures/materials (wood grain on cabinets, shininess on appliances) instead of solid flat colors. Some smooth shading present.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors and windows are misplaced or have incorrect proportions relative to the plan. E.g., door to activity, door to Bed 3, sliding door to Alfresco is much too narrow. Window in Bed 2 is missing, window in Activity is missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Master Suite bed rotation incorrect. Theatre room contains a bed instead of theatre seating. Pantry fridge doesn't match recess indication.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 64,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render provides a generally recognizable layout but suffers from significant geometric and proportional inaccuracies in room sizes and wall placements. Critical failure due to text overlays and numerous inaccuracies in furniture mapping, door/window placement, and some deviations from the strict aesthetic guidelines.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan10.png"
+}

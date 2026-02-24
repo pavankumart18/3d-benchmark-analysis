@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway rendering with consistent geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent volume and perspective; minor clipping on one exterior wall edge."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Major layout blocks match well (Living, Kitchen, Garage), but the utility/bath/hall cluster is simplified and slightly compressed compared to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Furniture is logically placed and scaled, though some bathroom fixtures are represented by generic blocks."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very clean lighting and material consistency. No UI text contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Inner door to garage is missing or replaced by a wall."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Medium",
+            "description": "Hallway configuration between bedrooms 2, 3, and 4 is simplified, losing specific closet geometry."
+        }
+    ],
+    "total_score": 87,
+    "verdict": "GOOD",
+    "summary": "A highly successful 3D transformation that maintains excellent spatial awareness and structural logic despite minor interior wall simplifications.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan9.png"
+}

@@ -1,0 +1,82 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is mostly preserved, but the overall footprint of the generated 3D model is slightly compressed on the vertical axis compared to the horizontal, affecting proportions. Wall geometry shows some inconsistencies, particularly the kitchen's outer wall not aligning with the front door wall, and the southern wall of the master bedroom is misaligned. All doors are present and correctly placed with good swing direction. Windows are present but some are missing in the exterior walls, for example, the western-most room for the dining area. Scale is mostly consistent but the aspect ratio distortion is noticeable."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is perfect, showing all interior walls with no roof fragments. Completeness and hallucination control are excellent, no missing or extra structural elements. UI/Annotation cleanliness fails as there are dimensions present on the original 2D plan, but not in the 3D render. The UI/Annotation cleanliness is related to the 3D render, not the 2D plan. Thus, the render obtains full points here in UI/Annotation cleanliness. Presentation context is excellent with a dark neutral background, floating model and no ground plane. Previous error regarding UI/Annotation cleanliness was based on 2D data, which is wrong; looking solely at the 3D render, there is no UI/Annotation."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables) are present and kitchen/bathroom fixtures are indicated. Furniture placement is mostly accurate to the 2D plan, but an additional small square table is present in the western-most dining area that is not in the original plan. Scale of furniture is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is aligned with low-poly, flat-shaded forms and no textures. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. Camera composition showcases a true isometric projection, 45-degree rotated plan view, with excellent centering and appropriate zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Kitchen's outer western wall does not align with the front door wall, creating a step in the exterior footprint not present in the 2D plan. Southern wall of the master bedroom is also misaligned.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Additional small square table present in the western-most dining area not seen in 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing windows in the western-most dining room and in the south wall of the living room, specifically two windows.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint of the 3D model is slightly compressed on the vertical axis compared to the horizontal leading to minor aspect ratio distortion.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 84,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The generated 3D render largely adheres to the 2D floor plan with excellent structural fidelity and aesthetic quality. Key points of divergence are minor wall misalignments and missing windows, and a slight aspect ratio distortion. Furniture mapping is highly accurate overall, with only one minor hallucination.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan5.jpg"
+}

@@ -9,109 +9,221 @@ import re
 from PIL import Image
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-API_KEY = "YOUR_OPENROUTER_API_KEY_HERE"
+API_KEY = ""
 
 if API_KEY == "YOUR_OPENROUTER_API_KEY_HERE":
     API_KEY = os.environ.get("OPENROUTER_API_KEY")
 
 INPUT_DIR = "input"
 GENERATED_DIR = "batch_outputs"
-EVAL_OUTPUT_DIR = "evaluation_outputs"
+EVAL_OUTPUT_DIR = "evaluation_outputs3"
 
 EVALUATOR_MODELS = [
     "google/gemini-3-flash-preview",
     "openai/gpt-5.2",
-    "google/gemini-2.5-flash",
+    # "google/gemini-2.5-flash",
 ]
 
-EVAL_PROMPT = """You are a strict architectural verification engine.
+EVAL_PROMPT = EVAL_PROMPT = """
+You are an architectural 2D-to-3D conversion verification engine.
+
+Your task is to rigorously evaluate whether a true and geometrically faithful 3D transformation has occurred.
 
 You are given:
-1. Original 2D floor plan (first image)
-2. Generated 3D isometric render (second image)
+1. Original 2D floor plan (first image) – flat architectural drawing.
+2. Generated 3D render (second image) – expected to be an isometric cutaway 3D model.
 
-Your task:
-Compare the 3D render against the 2D floor plan.
+Your evaluation must be strict, objective, and geometry-focused.
 
-You must:
-- Identify spatial inaccuracies
-- Identify missing rooms
-- Identify incorrect door placement
-- Identify incorrect window placement
-- Identify proportion distortion
-- Identify hallucinated elements
-- Evaluate aesthetic quality separately
+------------------------------------------------------------
+⚠️ STAGE 1 — MANDATORY 3D CONVERSION VERIFICATION
+------------------------------------------------------------
 
-Use the weighted rubric below. Be strict. Do not be lenient. Penalize structural deviations heavily.
+Before scoring anything, verify that a true 3D transformation occurred.
 
+Check for ALL of the following:
+
+✓ Walls have visible height (not just flat outlines)
+✓ Wall thickness is visible
+✓ Interior volume is perceptible (rooms feel like spaces, not shapes)
+✓ Viewing angle is angled (not pure top-down orthographic)
+✓ Multiple surfaces visible per wall (top + side faces)
+✓ Roof/ceiling removed or cut away to expose interior
+
+------------------------------------------------------------
+🚫 AUTOMATIC REJECTION CONDITIONS (Score = 0)
+------------------------------------------------------------
+
+Immediately reject (verdict = "REJECTED") if ANY are true:
+
+- Second image is still a 2D floor plan (even if recolored or stylized)
+- No visible wall height or thickness
+- Pure top-down orthographic view
+- More than 50% of rooms from 2D are missing
+
+If rejected:
+- total_score = 0
+- Skip all further scoring
+
+------------------------------------------------------------
 📊 WEIGHTED RUBRIC (Total = 100)
+------------------------------------------------------------
 
-🔵 1. Spatial Accuracy (40 points)
-Room placement correctness (10)
-Wall alignment accuracy (10)
-Door placement & orientation (10)
-Window placement (5)
-Room proportions preserved (5)
+------------------------------
+1️⃣ 3D CONVERSION FUNDAMENTALS (35 points)
+------------------------------
 
-🟢 2. Structural Fidelity (25 points)
-Wall thickness consistency (5)
-Door embedding correctness (5)
-Correct adjacency relationships (5)
-No missing rooms (5)
-No hallucinated rooms (5)
+1.1 Dimensional Transformation (15 pts)
+- Walls rendered with height and thickness (5)
+- Floors clearly separate plane from walls (3)
+- Interior volume clearly perceivable (4)
+- Proper 3D wall corner geometry (3)
 
-🟡 3. Furniture & Interior Mapping (10 points)
-Furniture placement accuracy (5)
-Furniture scale consistency (5)
+1.2 Viewing Angle & Projection (10 pts)
+- Angled/isometric-like view (not flat) (5)
+- Interior visible from elevated perspective (3)
+- Minimal severe perspective distortion (2)
 
-🔴 4. Aesthetic Quality (25 points)
-Isometric camera correctness (5)
-Orthographic projection accuracy (5)
-Lighting quality (5)
-Clean geometry (no distortions) (5)
-Visual clarity & composition (5)
+1.3 Cutaway Treatment (10 pts)
+- Roof/ceiling removed cleanly (5)
+- Interior spaces fully visible (3)
+- Clean geometry without broken sections (2)
 
+If section score < 20/35 → verdict = "FAIL"
+
+------------------------------
+2️⃣ GEOMETRIC ACCURACY – LAYOUT FIDELITY (30 points)
+------------------------------
+
+2.1 Room Configuration (12 pts)
+- Correct number of rooms (3)
+- Correct adjacency relationships (4)
+- Relative room proportions preserved (3)
+- Major room identities match (inferred by layout/furniture) (2)
+
+2.2 Wall Geometry (10 pts)
+- Major wall positions align with 2D plan (5)
+- Wall lengths proportional (3)
+- Internal partitions correctly placed (2)
+
+2.3 Doors & Windows (8 pts)
+- Doors present and on correct walls (4)
+- Windows present and on correct walls (2)
+- Openings proportionally sized and oriented (2)
+
+------------------------------
+3️⃣ INTERIOR ELEMENTS (15 points)
+------------------------------
+
+3.1 Furniture Placement (8 pts)
+- Major furniture present (beds, sofas, tables) (4)
+- Kitchen elements present (2)
+- Bathroom fixtures present (2)
+
+3.2 Furniture-to-Space Relationship (7 pts)
+- Furniture placed in correct rooms (3)
+- Furniture scale reasonable relative to room (2)
+- Orientation logical relative to layout (2)
+
+Furniture may be simplified geometric blocks.
+
+------------------------------
+4️⃣ VISUAL CLARITY & RENDERING QUALITY (20 points)
+------------------------------
+
+4.1 Structural Clarity (8 pts)
+- Walls, floors, openings clearly distinguishable (4)
+- Geometry readable and not visually confusing (4)
+
+4.2 Lighting & Visibility (6 pts)
+- Interior clearly visible (3)
+- Lighting does not obscure geometry (3)
+
+4.3 Aesthetic Coherence (6 pts)
+- Consistent material usage (2)
+- No major rendering artifacts or broken meshes (2)
+- Clean background / presentation (2)
+
+Text labels in the 3D image deduct full presentation points (0/2 for background if cluttered).
+
+------------------------------------------------------------
 🧪 ERROR CLASSIFICATION
-Classify errors using these codes:
-E1 = Missing Element
-E2 = Misplaced Element
-E3 = Orientation Error
-E4 = Proportion Distortion
-E5 = Hallucination
-E6 = Rendering Artifact
+------------------------------------------------------------
 
-Output MUST be strictly valid JSON matching this exact structure containing only these keys:
+Use these error codes where applicable:
+
+E0-FATAL – Not true 3D conversion
+E1-CRIT – Major geometric failure (missing room)
+E2-MAJ – Layout distortion
+E3-MIN – Door/window mismatch
+E4-FURN – Furniture issue
+E5-STYLE – Rendering/clarity issue
+E6-UI – Text/interface contamination
+
+------------------------------------------------------------
+📋 STRICT OUTPUT FORMAT (JSON ONLY)
+------------------------------------------------------------
+
+Return ONLY valid JSON.
+
 {
-  "spatial_accuracy": {
-    "score": 0,
-    "max": 40,
-    "notes": "string"
+  "is_valid_3d_conversion": true,
+  "conversion_verification": {
+    "walls_have_height": true,
+    "wall_thickness_visible": true,
+    "depth_perceivable": true,
+    "angled_view": true,
+    "roof_removed": true,
+    "notes": ""
   },
-  "structural_fidelity": {
-    "score": 0,
-    "max": 25,
-    "notes": "string"
+  "scores": {
+    "3d_conversion_fundamentals": {
+      "score": 0,
+      "max": 35,
+      "notes": ""
+    },
+    "geometric_accuracy": {
+      "score": 0,
+      "max": 30,
+      "notes": ""
+    },
+    "interior_elements": {
+      "score": 0,
+      "max": 15,
+      "notes": ""
+    },
+    "visual_clarity": {
+      "score": 0,
+      "max": 20,
+      "notes": ""
+    }
   },
-  "furniture_mapping": {
-    "score": 0,
-    "max": 10,
-    "notes": "string"
-  },
-  "aesthetic_quality": {
-    "score": 0,
-    "max": 25,
-    "notes": "string"
-  },
-  "total_score": 0,
   "detected_errors": [
     {
-      "code": "E1",
-      "description": "string"
+      "code": "",
+      "severity": "",
+      "description": ""
     }
-  ]
+  ],
+  "total_score": 0,
+  "verdict": "EXCELLENT | GOOD | PASS | FAIL | REJECTED",
+  "summary": "One concise sentence describing overall conversion quality."
 }
-"""
 
+------------------------------------------------------------
+🎯 FINAL SCORING RULES
+------------------------------------------------------------
+
+90–100 → EXCELLENT
+75–89  → GOOD
+50–74  → PASS
+30–49  → FAIL
+0–29   → REJECTED
+
+Focus on geometric correctness over artistic beauty.
+Strictly compare against the 2D floor plan.
+Be consistent and objective.
+"""
 def setup_directories():
     os.makedirs(EVAL_OUTPUT_DIR, exist_ok=True)
 

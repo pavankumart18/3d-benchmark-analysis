@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 5,
+            "windows": 1,
+            "dimensional_scaling": 2
+        },
+        "notes": "Living room and master bedroom balcony sizes are not proportionally represented. The utility room's shape is overly simplified to a rectangle, losing the L-shape indicated in the 2D plan. The exterior wall of the small balcony next to the utility room is completely missing. Many internal walls appear proportionally accurate, but several exterior walls show deviations in length and angles. Several windows are missing, particularly in the bedrooms and the master bedroom toilet. Door swings are generally well represented where doors are present. Overall footprint is maintained, but some sections are simplified."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 1,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "The roof is correctly removed, ensuring visibility of the interior. However, there are significant missing structural elements, such as the small balcony next to the utility room and one of the balconies connected to the living room. Several windows are omitted. No extra rooms or major architectural features are hallucinated. There are no text labels or measurement lines, but the 2D plan itself was not completely clean from a UI perspective, featuring dimensions and room names; the query indicates no text labels, measurement lines, or legend/scale bars visible in the *generated 3D model*, which it adheres to. While there is a dark background, shadows are cast on the floor by walls and furniture, extending beyond the model's footprint, indicating a distinct ground plane and lighting setup, which partially violates the 'model appears floating/isolated' requirement by having shadows imply a surface below it. "
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table) are present. Kitchen and bathroom fixtures are generally present in the correct rooms, though specific counts and types vary (e.g., master bathroom has two sinks in 2D but only one in 3D). Furniture placement often matches the 2D plan locations, but their scale relative to the rooms sometimes feels off, particularly in the living room where the sofas appear smaller and less numerous compared to the 2D plan. The dressing area next to the master bedroom has a simplified wardrobe, but the 2D plan implies a more complex built-in arrangement. The small office desk in Bedroom 2 is missing. The small storage unit in the entry foyer is missing."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses low-poly simplified forms and flat shaded surfaces in line with the requirements. There are no visible textures or high-resolution meshes. There is a sense of ambient lighting, but subtle shadows are present which, while not overly dramatic, do indicate more than just flat coloring, slightly deviating from 'flat shading with minimal shadows' and 'no dramatic contrasts/spotlights'. Colors are distinguishable, but the overall color palette is very muted and uniform, which sometimes makes it hard to distinguish distinct elements at a glance. The camera is not a true isometric projection; there is a slight perspective distortion, with parallel lines appearing to converge slightly, especially noticeable with the long outer walls. The rotation and centering are appropriate, but the lack of true isometric projection is a notable deviation (E3-CRIT is not strictly applicable here, as it is not a perspective view, but rather a near-isometric with slight distortion)."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Small balcony adjacent to utility room is missing; second balcony from living room is also missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Office desk in Bedroom 2 and storage unit in foyer are missing. Master toilet has 1 sink instead of 2.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Utility room geometry is overly simplified from an L-shape to a rectangle, affecting wall geometry and relative size. Balcony sizes are not proportionally represented.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing several windows in bedrooms and master toilet.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The view exhibits slight perspective projection, not true isometric projection, causing parallel lines to converge.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are present, indicating more than just flat shading, and suggest a distinct ground plane below the model, slightly violating the 'model appears floating/isolated' directive.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 55,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits fair structural mapping but suffers from significant missing elements, especially balconies and windows, along with a lack of true isometric projection and some geometric simplifications, leading to a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan17.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, visible interior volumes, and an elevated angled camera with ceiling/roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable 3D corner junctions; angled view is appropriate; cutaway is generally clean though some perimeter/exterior transitions feel simplified."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "Overall apartment layout (bedrooms, living/dining center, kitchen/utility, multiple toilets, office/maid room) matches well, but exterior spaces (deck and balconies) shown in 2D are largely absent/simplified in 3D; openings (windows/doors) are not fully faithful."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture and fixtures are present (beds, sofa set, dining table, kitchen counters, bathroom elements, office desk) and placed in the expected rooms with mostly reasonable scale/orientation."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Geometry is readable with decent lighting and separation of walls/floors, but presentation has UI overlay contamination (play icon) and openings/material cues are somewhat minimal, reducing clarity of windows/doors."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Deck and balconies present in the 2D plan are missing or heavily simplified in the 3D model, reducing layout fidelity at the perimeter."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are simplified and several window placements/opening definitions are unclear compared to the 2D plan."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "minor",
+            "description": "UI/play icon overlay present in the 3D image reduces presentation cleanliness."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway with strong interior readability and mostly correct room arrangement, but with notable perimeter/layout omissions (deck/balconies) and simplified opening details.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan20.avif"
+}

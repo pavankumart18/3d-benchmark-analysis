@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacencies are preserved. Key door placements in the hallway and main bedroom are reasonably accurate. However, the bathroom door is missing its opening/gap, and the kitchen/living area wall proportions are slightly stretched compared to the 2D template. Window placement on the bottom-most wall is misaligned with the 2D plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Successfully removed roof and shows all internal walls. Floating model on dark background is correct. Deduction for the bathroom which lacks a functional entrance (E1), and slight structural reinterpretations of the wall thicknesses."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture blocks including the L-shaped sofa, round dining table, and bedroom workstations. Scale is consistent with the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Follows the low-poly/clay-style aesthetic well with no text. However, the shading is not strictly 'flat'; there is significant soft-shadowing and ambient occlusion that leans toward a stylized 3D render rather than a strictly flat-shaded architectural diagram. Camera angle is correctly isometric."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing doorway gap for the bathroom transition."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced window on the bottom-left exterior wall compared to plan."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting contains depth-based shadows/AO rather than strictly flat shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan2.png"
+}

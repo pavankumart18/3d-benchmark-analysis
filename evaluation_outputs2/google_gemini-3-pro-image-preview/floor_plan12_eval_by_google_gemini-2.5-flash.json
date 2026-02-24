@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 0,
+            "dimensional_scaling": 6
+        },
+        "notes": "Room count matches, but 'Recess' area is misinterpreted. Adjacencies are mostly preserved. Relative room sizes are good. Overall footprint maintained. Wall positions are generally accurate, but some minor misalignments and corner inaccuracies present. Door presence is good, but swing directions are largely ignored, and some placements are off. Windows are almost entirely missing. Scaling is consistent but some proportions are off slightly."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is correctly removed with interior walls visible. Missing some structural elements like the 'Recess' area next to the stairs, which is partly translated as a wall. Hallucination of a small wall in the Activity area. Hallucinated a second balcony. UI/annotation is not present in the generated image. Presentation context is decent but the shadow extends to infinity, making it not truly floating."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (beds, sofas) are present. Kitchen and bathroom fixtures are present. However, many furniture instances are hallucinated (e.g., dining table and chairs in Activity area, additional sofa/chair in Balcony, extra furniture in Bed 4). Placement of existing furniture is often inaccurate compared to the plan, like beds being rotated or shifted significantly. Scale of some furniture (e.g., small chairs in activity) seems off."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is largely low-poly and flat shaded, however, some surfaces show subtle textures/material qualities beyond solid colors. Edges are mostly clean. Lighting is ambient but there are noticeable, somewhat dramatic shadows, indicating directional light sources more than just soft ambient. Colors are distinguishable. Camera view is mostly isometric, but the framing is a bit off-center, and the zoom levels could be better for the 'stairs DN' area."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Many furniture pieces hallucinated, such as an entire dining set in the activity room when there is none on the plan, and additional seating in the balcony.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "All windows are missing from the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated a second balcony wall structure on the bottom left where only one is indicated.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "'Recess' area next to stairs is largely misinterpreted/hallucinated as a solid wall structure in the 3D render.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions are not consistent with the plan, or are default without respecting the plan's indication.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces, especially furniture and floors, show subtle material qualities beyond solid flat colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 50,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant discrepancies in furniture mapping (hallucinations), missing windows, and misinterpretation of architectural elements, though overall layout and structural fidelity are moderately preserved.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan12.png"
+}

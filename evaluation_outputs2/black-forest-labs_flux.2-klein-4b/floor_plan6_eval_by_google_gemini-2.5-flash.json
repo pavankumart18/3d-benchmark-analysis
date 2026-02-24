@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall footprint is generally maintained, but there's a significant deviation in the shape of the Kitchen/Living area. The 'alcove' for the sofa in the 2D plan is represented differently in 3D, changing the room's geometry. The corner on the bottom-right of the kitchen/living area is angled differently. Room adjacencies are mostly preserved. Three windows are present in the 2D plan (two in the Kitchen/Living, one in the Bedroom), but only one is clearly rendered as a window in 3D (Bedroom). The holes in the Kitchen/Living walls in 3D appear to be cutout features rather than windows."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Roof is completely removed and interior walls are visible. No significant missing structural elements. There are no major hallucinations like extra rooms, but some architectural details, like the kitchen window cutouts, deviate in form. UI/Annotation Cleanliness failed completely due to the presence of text labels in the 2D plan, which was likely processed as input."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. The Kitchen/Living area has the sofa, island, and some kitchen elements. The Bedroom has the bed. The Bathroom has a toilet and sink. Placement is relatively accurate, though the scale of some items seems slightly off (e.g., bed is very large)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style tends towards low-poly, but some furniture (e.g., plants, bed cushions) show smoother shading than flat surfaces. Materials are solid colors, but there's an attempt at 'material' representation (e.g., plant leaves, wooden bed base). Lighting is soft ambient, but there are noticeable shadows on the floor and under objects. Camera is an isometric projection, well-composed, centered, and shows the entire layout."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Alcove in Kitchen/Living for sofa is reshaped, distorting the overall room geometry.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Corner angle of Kitchen/Living area (bottom-right) seems less acute in 3D than in 2D.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Two windows in the Kitchen/Living area from the 2D plan are represented as non-window wall cutouts in 3D, impacting window presence and type.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('Bedroom', 'Kitchen/Living') are present in the provided 2D 'ground truth' image, but the rubric defines this as an instant 0/5 for UI/Annotation Cleanliness if any text is present in the *generated 3D image*. As the prompt is asking to evaluate the *generated 3D render* against the *original 2D floor plan*, and the 3D render itself has no text, the original input being texted shouldn't penalize the 3D output. However, the rubric states 'ANY text = automatic 0/5' in the UI/Annotation Cleanliness section. Re-evaluating. The output 3D image has no text. Therefore, this deduction is removed for the 3D image, but if the instruction implies that the *model's input* must be text-free, then it could be applied. Assuming the rule applies only to the *output 3D render*, there are no text issues in the 3D render.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some objects (plants, bed) use smoother shading/subdivision rather than strictly flat-shaded, low-poly geometry.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Noticeable shadows under objects and on the floor indicate more than minimal shadows.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 68,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render exhibits good structural fidelity and reasonable furniture mapping, but spatial accuracy suffers from geometric distortion in the main living space and a misinterpretation of window features. It nearly passed, but minor deviations in geometry and rendering style prevented it from reaching the threshold.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan6.jpg"
+}

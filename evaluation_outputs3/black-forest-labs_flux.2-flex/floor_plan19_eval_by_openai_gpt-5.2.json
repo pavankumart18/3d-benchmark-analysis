@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric/cutaway 3D model: walls have clear height and thickness, multiple wall faces are visible, and the ceiling/roof is removed to expose interior spaces."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable wall thickness and interior volume; angled/isometric view is correct; cutaway is clean though some wall tops/edges appear slightly stylized rather than strictly architectural."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall massing and main zoning (central living/dining, adjacent kitchen, bedrooms around perimeter) generally match, but several exact partitions/opening placements and some ancillary spaces (decks/balconies/utility/baths) are not perfectly traceable to the 2D plan at this resolution."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present (sofa/living setup, dining table, multiple beds). Kitchen is modeled with counters/appliances; bathrooms exist but fixtures are simplified and not all wet areas clearly correspond one-to-one with the plan."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean presentation with good lighting and readable walls/floors; minor shadowing and stylized materials reduce strict geometric legibility of some openings; background is clean and no text/UI clutter is present."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Some room boundaries/ancillary spaces (notably balconies/decks and certain bath/utility partitions) are not perfectly faithful to the 2D plan, suggesting mild-to-moderate layout drift."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Door/window exact positions and sizes cannot be confirmed as fully matching the 2D plan; openings appear plausible but not strictly verifiable against all indicated locations."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A clearly valid 3D cutaway conversion with strong spatial readability, but with moderate fidelity gaps in exact partitioning and opening/ancillary-space alignment versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan19.webp"
+}

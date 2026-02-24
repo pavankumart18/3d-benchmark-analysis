@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model: extruded walls with thickness, visible floor plane, interior volumes, angled/isometric-like view, and roof/ceiling removed to expose rooms."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 35,
+            "max": 35,
+            "notes": "Clear wall height/thickness, readable room volumes, clean corners, proper angled viewpoint, and consistent cutaway with no major mesh breaks."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall layout reads plausibly consistent (kitchen/dining/core circulation and the angled bay/window-seat-like facade), but several details from the 2D plan are not verifiable or appear simplified (partition offsets, exact wall lengths, and opening placement/quantity)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Kitchen cabinetry/appliances and some bathroom fixtures are present; however, most other furniture is absent, limiting room-identity confirmation beyond core fixtures."
+        },
+        "visual_clarity": {
+            "score": 17,
+            "max": 20,
+            "notes": "Clean, readable model with distinct walls/floors and good visibility; neutral background and no text/UI clutter. Minor realism/surface-detail simplification but not obstructive."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Some wall/partition geometry appears simplified versus the dense 2D plan; exact proportional fidelity (lengths/offsets) cannot be fully confirmed and may deviate."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows/openings are simplified; not all opening locations and sizes from the 2D plan are clearly matched in the 3D render."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Non-kitchen/non-bath furniture largely missing, reducing confidence in matching room identities beyond core service areas."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "A clear, valid 3D cutaway conversion with strong 3D fundamentals, but only moderate plan-level fidelity due to simplified partitions and openings and limited interior detailing.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan11.png"
+}

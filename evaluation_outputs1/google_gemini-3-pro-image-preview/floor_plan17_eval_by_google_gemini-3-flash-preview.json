@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent room adjacency and wall alignment. Dimensional scaling is well-preserved. Points deducted for the removal of some interior doors and shifts in window width compared to the architectural plan."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Complies perfectly with UI and camera constraints (floating, dark background, no text). All rooms are present. Major penalty for hallucinating balcony furniture not present in the 2D source and adding decorative plants."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Clean block-style furniture mapping. Most fixtures are placed according to the plan, including kitchen counters and specific seating arrangements, though the scale of some bedroom furniture is slightly enlarged."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Strong adherence to low-poly, flat-shaded style. Camera angle and composition are correct. Deducted points for slightly more dramatic shadows than 'flat shading' allows, adding depth that borders on semi-realism."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing several interior swing doors indicated in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated outdoor seating and potted plants on the balconies that are not in the source plan."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting includes cast shadows that are slightly too sharp/pronounced for strict flat shading."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan17.jpg"
+}

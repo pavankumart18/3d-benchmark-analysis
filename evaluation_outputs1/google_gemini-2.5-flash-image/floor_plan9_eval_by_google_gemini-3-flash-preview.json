@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent room adjacency and wall alignment. Door swings are mostly accurate to the plan. Window placement follows the blueprint closely. Minor scaling discrepancy in the garage depth compared to the original plan."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model is a correct cutaway with all rooms present. However, it fails the strict constraint regarding text: there are multiple text labels (KITCHEN, BATH, HALL, UTILITY) and ceiling height markers baked into the 3D model."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture blocks (beds, sofas, kitchen island, bathroom fixtures) are correctly placed based on floor plan annotations. Proportions are consistent."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Matches low-poly, flat-shaded style with simple colors. Camera is isometric/top-down and composition is centered on a dark background. Lighting is soft and neutral as requested."
+    },
+    "total_score": 79,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "The 3D render contains persistent text labels (KITCHEN, BATH, HALL, UTILITY) and measurement indicators (8 CLG) which violates the 'STRICTLY NO text labels' constraint."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated vehicles (cars) added to the garage area were not specified fixtures in the 2D architectural shell."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan9.png"
+}

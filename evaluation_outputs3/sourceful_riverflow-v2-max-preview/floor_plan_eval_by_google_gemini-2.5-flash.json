@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met, indicating a proper transformation from 2D to 3D."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have clear height, thickness, and proper corner geometry. The floor is distinct. The viewing angle is appropriate and allows for good interior visibility, but slight distortion is present in some areas."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "The room configuration, adjacencies, and relative proportions are largely preserved. Wall positions and lengths are accurate. However, some doors/windows are missing or incorrectly represented, particularly the large window/door structure in the living room and some interior doors."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present and generally placed in correct rooms with reasonable scale. Kitchen and bathroom fixtures are also present and appropriately located."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "The structural elements are clearly distinguishable, and the geometry is readable. Lighting is good, ensuring the interior is visible. The rendering is clean with consistent material usage and no major artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "The large window structure in the living room area from the 2D plan is represented as a solid wall with small inset windows, not an expansive window/door as shown. Several interior doors are also missing or simplified."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "The wall dividing the living room and the kitchen space in the 2D plan has a distinct opening, which is not clearly represented as an opening in the 3D model."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 2D to 3D conversion is geometrically faithful with good detail and clear presentation, although some inaccuracies exist in window/door representation and a partition opening.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan.jpg"
+}

@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Layout topology is largely accurate, but the overall footprint seems slightly condensed vertically in the 3D render. Wall positions are mostly accurate, though some minor shifts are present. All doors are present on correct walls, and their swing directions generally match. Windows are mostly present and correctly placed, but some small ones on the exterior wall near the balcony and utility area are missing or misrepresented. Consistent scaling is maintained, but some overall proportionality issues slightly distort the shape."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. Completeness is good, with no missing structural elements. Hallucination control is strong, no invented architectural features. However, the UI cleanliness fails due to the presence of text labels on the 2D plan and the presentation context suffers from shadows extending beyond the model and a ground plane being implied, despite the intended floating isolation."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables) are present and generally correspond to the 2D plan. Kitchen and bathroom fixtures are also represented. Placement is mostly accurate, though some minor shifts in furniture positions are noticeable. Scale is appropriate to room sizes."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 6,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style uses simplified forms, but some surfaces appear to have slight textures or material properties beyond solid flat colors. Lighting is soft, but shadows are slightly more pronounced than specified for minimal shadows. Colors are distinguishable. Camera composition is good, with a clear isometric projection and appropriate zoom/framing. However, the use of materials beyond solid flat colors and the slightly stronger shadows deviate from the strict 'low-poly, flat-shaded, no textures' requirement."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels related to rooms and dimensions are present in the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Slight textures (e.g., wood grain on balconies/floors) are present, and subtle material properties (mild reflectivity/shininess) are noticeable on some surfaces, which deviates from 'solid flat colors only' and 'no textures'.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Minor windows are missing or poorly represented on the exterior walls around balconies/utility area.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Minor shifts in furniture placement, slightly off from the exact 2D plan locations (e.g., sofas, bed in M.Bedroom).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Shadows extend beyond the model, implying a ground plane not fully isolated from the model.",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 71,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render demonstrates strong spatial and structural accuracy, successfully translating the 2D floor plan's layout and essential elements, despite minor deviations in aesthetic quality and presentation context.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan15.webp"
+}

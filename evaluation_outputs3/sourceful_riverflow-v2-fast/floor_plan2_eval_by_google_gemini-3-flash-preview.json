@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model presents a faithful isometric cutaway. However, the image has been horizontally flipped compared to the input floor plan's orientation."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with clear geometry and clean cutaway. Slight marks off for minor perspective flattening."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "The layout is mirrored (horizontal flip). Room count and adjacencies are correct, but certain internal partitions have slight length discrepancies."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Mirroring affects furniture position. Most major items (beds, table) are present and correctly scaled."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "High quality 'clay' render style. Walls and openings are very readable. Clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The entire 3D model is rendered as a mirror image (horizontal flip) of the original 2D floor plan."
+        }
+    ],
+    "total_score": 88,
+    "verdict": "GOOD",
+    "summary": "A high-fidelity 3D conversion that accurately interprets the architectural layout, though the final render is a mirrored version of the source plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan2.png"
+}

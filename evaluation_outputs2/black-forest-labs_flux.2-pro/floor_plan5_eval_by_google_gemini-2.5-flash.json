@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 10,
+            "windows": 2,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall room count and major adjacencies preserved. However, the external footprint has a significant deviation on the bottom right and top left corners. Some internal wall proportions, particularly in the bathroom and bedroom on the right side, seem slightly off. One external doorway is converted to a window. Windows are generally present but inaccurately sized and positioned on the walls. The scaling appears consistent, but the overall aspect ratio is slightly compressed compared to the 2D plan, especially in height."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 1,
+            "presentation_context": 2
+        },
+        "notes": "Roof is completely removed and interior walls are visible. No missing rooms or structural elements. No extra rooms or architectural features added. However, there are visible lines/grid on the background, violating the 'dark neutral background' and 'model appearing isolated' criteria. The presentation context is not fully dark and floating, with floor shadows extending into a grid, which is a minor violation."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and located in the correct rooms (beds, sofas, dining table, kitchen counters). However, the bathroom fixtures are not clearly indicated or are missing for the most part. Furniture scale is generally appropriate, but finer placement details differ. For example, the kitchen island is a different shape and position, and the top-left living area furniture arrangement is significantly altered."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style uses simplified forms, but some surfaces appear slightly smoothed/subdivided, not perfectly flat. There's also some minor texture or subtle gradient on parts of the furniture and potentially floors, violating the 'solid flat colors only' rule. Lighting is soft and ambient with minimal shadows, but there is some depth/shading that leans slightly away from pure flat-shaded. The camera view is a true isometric projection with good framing, though the external floor plane is a distraction."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Some surfaces appear to have slight texture/gradient rather than pure solid flat colors. This significantly impacts the 'geometry_style' score.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "External footprint shape is significantly altered in the top-left and bottom-right corners (e.g., the top-left 'balcony' area is integrated into the main structure, and the bottom-right extension is significantly shorter/changed).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple windows are placed inaccurately or are missing; one external door on the bottom left is converted incorrectly to a window.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bathroom fixtures (sinks, toilets) are either missing or not clearly represented in the render. Kitchen island shape and position modified.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Background includes a visible grid pattern and the model's shadow extends onto it, violating the 'floating/isolated' and 'no ground plane' principles.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 70,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The model achieved a 'PASS' primarily due to good structural fidelity and mostly accurate spatial layout, though there are notable deviations in the exterior footprint, window placement, and minor violations in aesthetic style and presentation context. Furniture mapping is generally acceptable but lacks detail in some areas.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan5.jpg"
+}

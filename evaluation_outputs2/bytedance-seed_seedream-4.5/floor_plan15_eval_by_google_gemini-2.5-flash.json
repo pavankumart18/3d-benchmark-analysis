@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Room count matches, but general floor plan layout has significant deviation. The kitchen, utility, master bedroom, and two toilets on the left side of the 3D model do not match the 2D layout. The balcony on the bottom left is completely altered. Wall positions are globally misaligned, especially for the master bedroom and adjacent toilets. Doors are present and largely on correct walls, but swing directions often differ. Window count and placement are mostly consistent in the main living area, but the 3D model introduces windows in the lower left bedroom (Master Bedroom in 2D) where none exist in the 2D plan. The 3D model contains an extra 'storage' room where 'T.P. TOILET' should be, which also has a door leading outside, completely altering the layout. The 'MBEDROOM' in 2D becomes 'BEDROOM 3' with different dimensions and window placement in 3D. The 'BEDROOM-1' in 2D becomes 'BEDROOM 4', also with different layouts and window placements. The 'BEDROOM-2' in 2D becomes 'BEDROOM 2' but the dimensions do not match the 2D plan and the adjacent toilet layout is altered dramatically."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "Cutaway view is mostly compliant, roof is removed and interior walls are visible. There are significant hallucinations including completely altered room layouts, extra balconies, and extra rooms not present in the 2D plan (e.g., 'storage' instead of 'T.P. TOILET'). Text labels are present inside the render (room names, dimensions). The background is dark, and the model is isolated."
+    },
+    "furniture_mapping": {
+        "score": 3,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 1
+        },
+        "notes": "Furniture presence is partial; some major pieces like beds, sofas, and dining tables are present. Kitchen and bathroom fixtures are also present. However, their placement often does not match the 2D plan due to major layout discrepancies, and their scale is sometimes inappropriate. For example, the kitchen layout in 3D is completely different from the 2D plan, and the 'MBEDROOM' in 2D has a different bed placement and size compared to 'BEDROOM 3' in 3D. The 'BEDROOM-1' in 2D has a bed, but 'BEDROOM 4' in 3D has a sofa sleeper or daybed."
+    },
+    "aesthetic_quality": {
+        "score": 13,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry uses simplified forms and flat-shaded surfaces, but exhibits some photorealistic rendering traits such as textures on floors and walls, and detailed furniture models. Lighting is soft, but shadows are quite prominent. Camera composition is good, with a true isometric projection, 45\u00b0 rotation, centered framing, and appropriate zoom. The 'photorealistic materials' and 'textures' aspects significantly deduct points here."
+    },
+    "detected_errors": [
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated multiple room alterations (kitchen, utility, left-side bedrooms and toilets) and an entirely new 'storage' room where a toilet should be. Altered balcony on the bottom left.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels (room names, dimensions) are present inside the rendered model.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering detected. Floors have wood textures, walls have slight textures, and furniture models are highly detailed with materials, not solid flat colors. Balconies have realistic railings and glass.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls significantly misaligned and rearranged, particularly the entire left side of the floor plan (Master Bedroom, adjacent toilets, Kitchen, Utility).",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture placement often does not match the 2D plan, e.g., kitchen layout, master bedroom layout.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Swing directions for multiple doors do not match the 2D plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 45,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render is a significant departure from the 2D floor plan due to major layout discrepancies, numerous hallucinations, and critical violations regarding text overlay and photorealistic rendering, resulting in a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan15.webp"
+}

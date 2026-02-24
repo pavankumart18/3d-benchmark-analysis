@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "Excellent layout preservation. Room adjacencies and wall alignments are highly accurate. Minor deductions for the missing door lead to Bedroom-3 and slight scaling variance in the Kitchen-Utility partition."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "The model successfully removes the roof and features no text or measurements. Note: The door to Bedroom-3 is missing (E1), and the entrance lobby area is slightly oversimplified."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Consistent clean block-style furniture. Bed colors and sofa orientations match the plan well. Kitchen counter layout (L-shape) is interpreted correctly. Minor beds in Bed-1 and Bed-2 are rotated/placed differently relative to the closets."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. Low-poly, flat shading, zero photorealistic textures, and a correct isometric orthographic projection on a neutral dark background."
+    },
+    "total_score": 90,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing interior door connecting the Lobby/Living area to Bedroom-3."
+        },
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the utility room entrance compared to the narrow plan specification."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan20.avif"
+}

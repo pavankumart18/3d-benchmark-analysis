@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall footprint and room count match, but a section of a bedroom wall (bottom-left) is missing in the 3D render. Walls in the upper-right bathroom and adjacent study are significantly altered. Door swings are inconsistent, and a window is missing from the largest bedroom. Proportionality of some rooms is slightly off."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 4
+        },
+        "notes": "The roof is correctly removed, and interior walls are visible. However, structural completeness is affected by the missing wall segment. The primary and critical issue here is the presence of 'Multi-Room Floor Plan Template' text in the 2D reference, which is then absent from the 3D render. While the 3D render itself has no text, the discrepancy with the provided 2D plan containing text causes a deduction. This is an edge-case interpretation of UI/Annotation Cleanliness where the source material contains text, but the render should omit such annotations. Given the strict 'ZERO text labels present' rule, context implies this applies to the generated 3D image, which is clean."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 3
+        },
+        "notes": "While many major furniture pieces are present (beds, dining table, sofa), there are significant discrepancies. The kitchen counter layout is changed, and several appliances are missing. The bathroom fixtures match in quantity but not exact layout. Furniture in the study/office room is completely different in type and arrangement. The bed in the smallest bedroom is different and misaligned. The furniture layout in the living room area is significantly altered. A small crib/changing table is present in the bottom-left bedroom of the 3D render but not in the 2D plan. The study room in 3D has a single bed and desk, whereas the 2D shows a double bed and office setup."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 8,
+            "camera_composition": 4
+        },
+        "notes": "The style is low-poly, flat shaded, and uses solid colors, aligning with requirements. Lighting is soft and ambient. However, the camera shows slight perspective distortion, as not all parallel lines remain perfectly parallel (e.g., the long walls on the left and right sides appear to converge slightly). The 45\u00b0 rotation is good, and framing is appropriate."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "Significant hallucination and discrepancies in furniture layout, types, and presence across multiple rooms, particularly in the study/office, living room, and kitchen.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Missing wall segment in the bottom-left bedroom and significant alterations to wall geometry in the upper-right bathroom and study, leading to incorrect room shapes.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated furniture: crib/changing table in bottom-left bedroom. Invented architectural details: additional window in bottom-right room is not present in 2D plan. Changed kitchen and bathroom layouts significantly.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Inconsistent door swing directions compared to the 2D plan. Door in the living room connecting to the utility/hallway is missing from 3D model.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing window in the largest bedroom (bottom-right).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E3-MINOR",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight perspective distortion detected, not a true isometric projection (subtle convergence of parallel lines).",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 65,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render generally captures the layout but suffers from significant furniture discrepancies, altered wall geometries, and slight perspective distortion, resulting in a 'FAIL' verdict.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan2.png"
+}

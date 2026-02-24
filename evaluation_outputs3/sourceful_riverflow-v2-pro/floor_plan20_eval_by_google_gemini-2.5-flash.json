@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "The 3D transformation is generally well executed, showing visible height and thickness for walls, and a clear perception of interior volume. The viewing angle is appropriate and the roof is cleanly cut away. Minimal severe perspective distortion is present."
+        },
+        "geometric_accuracy": {
+            "score": 26,
+            "max": 30,
+            "notes": "Room configuration, adjacency, and relative proportions are largely preserved. Major wall positions align well. Doors are present and correctly placed. Windows are also present, but the number and exact placement of some windows in the 3D render, particularly in the living/dining area and Bedroom-2, differ slightly from the 2D plan."
+        },
+        "interior_elements": {
+            "score": 13,
+            "max": 15,
+            "notes": "Major furniture is present in correct rooms and reasonably scaled. Kitchen and bathroom fixtures are also present. The furniture orientation is logical."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Structural clarity is high, with walls, floors, and openings easily distinguishable. Lighting is good, not obscuring geometry. Material usage is consistent. However, the presence of text labels (LIVING & DINING, BALCONY) directly on the 3D model reduces presentation points."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some windows in the 3D render, especially in the living/dining area and Bedroom-2, do not precisely match the number or placement shown in the 2D plan."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "minor",
+            "description": "Text labels embedded within the 3D render detract from the clean presentation and architectural rendering style."
+        }
+    ],
+    "total_score": 83,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transforms the 2D floor plan into a geometrically faithful isometric cutaway model, demonstrating good accuracy in layout and interior elements, though with minor discrepancies in window placement and the inclusion of text labels.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan20.avif"
+}

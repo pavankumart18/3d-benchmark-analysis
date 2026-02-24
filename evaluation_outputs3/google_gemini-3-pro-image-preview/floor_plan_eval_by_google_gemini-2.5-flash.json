@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness, floors separate, interior volume perceived. Viewing angle is good, but some perspective distortion is present. Roof is cleanly removed, but some geometry appears slightly less clean in tighter corners."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Room configuration is largely correct, with good adjacency and proportions. Wall positions are generally accurate. However, some internal partitions, especially for closets and bathrooms, are slightly modified or simplified. Doors and windows are mostly present and on correct walls, but some door types (e.g., bi-fold for closet) are simplified or missing, and window details are not fully represented."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture is present and in correct rooms. Kitchen and bathroom fixtures are present. Furniture scale is reasonable and orientation is logical. One closet from Rachel's bedroom seems to have simplified interior, and the coat closet is missing its hanging rail."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable. Geometry is readable. Lighting is good, and the interior is clearly visible. Consistent material usage, no major rendering artifacts, and a clean background."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Some door types (e.g., closet bi-fold door) are simplified or represented as open doorways. Window details are not fully replicated."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "Some internal closet partitions are simplified compared to the 2D plan, particularly the coat closet and the closet in Rachel's bedroom."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "The coat closet is missing its hanging rail detail."
+        }
+    ],
+    "total_score": 85,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is a good and largely faithful rendition of the 2D floor plan, demonstrating clear volumetric conversion with mostly accurate geometric layout and interior elements, despite minor simplifications in some partitions and doors.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan.jpg"
+}

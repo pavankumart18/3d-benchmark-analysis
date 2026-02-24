@@ -1,0 +1,145 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology is mostly preserved, but the overall outer footprint is slightly distorted, especially the bottom-left corner and the right-side wall. Wall positions are generally good, but some internal walls have minor misalignments or incorrect lengths. Doors are mostly present and their locations are correct, but some swing directions are incorrect and overall representation is simplified. Windows are present and placed correctly, but their number doesn't match and sizes are generic. Scaling is generally consistent but some aspect ratio distortion is visible."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 3
+        },
+        "notes": "Cutaway view is excellent; roof is completely removed and all interior walls visible. Completeness is good as all structural elements are present. Hallucination control is good, no extra rooms or features. UI/Annotation cleanliness is poor as the overall image contains a title 'Multi-Room Floor Plan Template' and some text annotations on the 2D plan, but this category applies to the 3D render, which has no text. However, the first image is outside the 3D render itself, so this category is null for now. The 3D render is clean, which makes us reconsider the rule for UI/Annotation Cleanliness. We'll score based on the 3D render only. The 3D render itself has no text, so it passes. Presentation context: Dark neutral background is present, but the model is not floating/isolated; it has a noticeable ground plane with extending shadows, violating the 'no ground plane/shadows extending to infinity' rule."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Furniture presence and accuracy are fair. Major pieces like beds, sofas, dining table, kitchen counters, and bathroom fixtures are present. However, many smaller furniture pieces (eg. wardrobes, armchairs in living room, desks) are missing or simplified. Placement is generally correct but imprecise in several instances."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is excellent, meeting all low-poly, flat-shaded, clean edge, and solid color requirements. Lighting and rendering are good; soft ambient lighting and flat shading are used, but some shadows are more pronounced than 'minimal shadows'. Colors are distinguishable. Camera and composition are fair. The view is isometric, but the rotation seems unconventional (not the standard 45\u00b0 rotated plan view) and it's slightly off-center. Zoom level is appropriate."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "N/A",
+            "description": "Text labels/measurements/labels are present in the provided 2D image, which is the reference, however, not on the 3D rendition itself. This rule should apply to the 3D render output, not the input reference. This rule is then not applicable in this case.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "N/A",
+            "description": "Photorealistic rendering - The model has a somewhat realistic rendering of its materials and a noticeable ground plane, and it implies real-world light sources as it has shadows. It's not photorealistic, but it's not a block-style abstraction either.",
+            "point_deduction": 0
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing a window in the master bedroom, only one window is present in the 3D render, but two are present on the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing a window in the smaller bedroom, only one window is present in the 3D render, but two are present on the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Inconsistent window count overall. There are 5 windows in the 2D plan, but only 3 in the 3D render.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The doors are simplified and don't clearly show swing directions. This makes it hard to compare with the 2D plan, but it's a simplification choice in this case.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane and shadows extending beyond the model violate presentation context rule.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Wardrobes, armchair, and desk in the main bedroom are missing. Beds are represented, but the number of beds is inaccurate in the smaller room (two beds in the 2D plan, one in the 3D render).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "The kitchen has an L-shaped counter in the 2D plan, but a straight counter and separate island in the 3D model. Also, there are missing kitchen appliances (dishwasher, etc).",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOr",
+            "category": "furniture_mapping",
+            "description": "Many minor furniture pieces are missing, e.g. armchairs, bookshelves, small tables, etc. The beds in the smaller room are incorrect (two beds in the 2D plan, one in the 3D render).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Some shadows are a bit too deep, indicating slightly stronger directional lighting than 'soft ambient' for flat shaded surfaces.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Camera composition is not 45 degrees rotated plan view and is slightly off-center.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint shape is slightly distorted from the original, especially the bottom-left corner and the right-side wall. Relative room sizes are good but not perfect.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 69,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render accurately represents the core layout and major architectural elements, but suffers from several minor inaccuracies in window count and furniture representation. The camera composition and shadow details also slightly deviate from ideal parameters.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan2.png"
+}

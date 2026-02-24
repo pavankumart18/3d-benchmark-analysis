@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room sequence are preserved. However, there is a significant wall misalignment in the Living/Deck area where the sliding door boundary has been simplified into a single wall, losing the indented deck footprint. Toilet-4 and Toilet-3 layouts are slightly merged/simplified. Door swings are missing in several interior transitions."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the 'roof-off' cutaway view and dark neutral background. No text or measurement lines present. Penalty applied for the reinterpretation of the 'Deck' and 'Balcony' areas; the exterior boundaries are filled as interior space rather than maintaining the railing/open-air distinction."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the source, including the specific rug in the living room and the desk in the home office. Scaling is consistent with the room dimensions."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints: blocky low-poly geometry, flat shading, no textures, and an orthographic isometric perspective."
+    },
+    "total_score": 88,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Wall alignment distortion in the living area; the recessed deck area is flattened into the main room structure."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific sliding door track details and several internal door swing indicators."
+        },
+        {
+            "code": "E4",
+            "description": "Reinterpretation of balcony spaces as enclosed floor areas rather than exterior structural elements."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan20.avif"
+}

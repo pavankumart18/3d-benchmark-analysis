@@ -1,0 +1,46 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The second image is a true 3D cutaway (height, thickness, angled view, and interior volume are clearly present), but it fails mandatory content completeness: a majority of rooms/spaces from the 2D plan are not represented in the 3D model."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Scoring skipped due to automatic rejection (missing >50% of rooms/spaces from source plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Scoring skipped due to automatic rejection."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Scoring skipped due to automatic rejection."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Scoring skipped due to automatic rejection."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "More than 50% of rooms/spaces from the 2D plan are missing or not clearly represented in the 3D render (e.g., multiple bedrooms/activity areas, laundry/pantry, alfresco/verandah/portico, and several labeled ancillary spaces are not evident)."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Despite being a genuine 3D cutaway, the render is rejected because it omits a majority of the floor plan\u2019s rooms/spaces, making it not a faithful 2D-to-3D conversion.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan10.png"
+}

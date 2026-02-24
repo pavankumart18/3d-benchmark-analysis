@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 2
+        },
+        "notes": "Room count matches, but adjacency/connectivity and relative room sizes are significantly off. The overall footprint shape is mutated. Numerous wall misalignments and incorrect corner angles. Doors are mostly present but placement errors exist. Windows are largely missing or misplaced. Scaling is inconsistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The roof is removed and interior walls are generally visible (5/5). However, multiple rooms are missing (the second bedroom and bathroom near it is completely gone in the 3D render) (0/5). Hallucination of walls, rooms, and architectural features is significant (0/5). UI/Annotations are clean, no text (5/5). Presentation context lacks proper background and an isolated model (0/5)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Many major furniture pieces are missing, especially from the left-side bedroom, and the entire second bathroom/bedroom area has been removed. Kitchen and living room furniture have significantly different layouts. Placement is inconsistent."
+    },
+    "aesthetic_quality": {
+        "score": 14,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 6,
+            "camera_composition": 5
+        },
+        "notes": "Geometry uses overly smoothed forms instead of low-poly, flat-shaded surfaces. There are complex materials/textures applied. Lighting is soft but not flat, with visible shadows. Camera is an isometric projection with good framing, but a slight perspective distortion is potentially present."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire second bedroom and adjacent bathroom missing. The 2D plan shows 3 bedrooms and 2 bathrooms, the 3D render shows 2 bedrooms and 1 bathroom.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Footprint shape significantly altered; left side of the house is truncated, and the overall room layout does not match the 2D plan's adjacencies. Entire rooms have been removed and combined.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls drastically misplaced or missing, leading to incorrect room shapes and dimensions. Specifically, the entire left-middle section is incorrect.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E6-MAJ",
+            "severity": "MAJOR",
+            "category": "aesthetic_quality",
+            "description": "Use of smoothed geometry (not low-poly) and semi-realistic materials with reflections, deviating from flat-shaded, solid color specification.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Multiple specific furniture pieces (e.g., small bed, storage unit in left room, washer/dryer) are missing or in incorrect locations.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several window and door placements are incorrect or missing (e.g., window in dining area, missing windows in the remaining bedroom).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E7-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "The background is not a dark neutral background, but rather a more stylized dark grey with some environmental reflections.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E8-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Inconsistent vertical scaling; walls appear unusually tall relative to the footprint. Aspect ratio distortion apparent.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 43,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "This render fails due to critical structural and spatial inaccuracies, including missing entire rooms and a significantly altered floor plan. Aesthetic choices also deviate from specifications, with overly smoothed forms and textured materials.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan2.png"
+}

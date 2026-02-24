@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout and room placement correspond to the floor plan. However, door swing directions are inconsistent with the 2D plan, and there is a significant discrepancy in the living room wall alignment. Window placement in the living area and bedrooms deviates slightly from the source schematics."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The model correctly utilizes a cutaway view with no roof and a dark neutral background. However, a hallucinated room was added in the top-left corner (far west), which does not exist in the source 2D floor plan. All text and UI elements were successfully excluded."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is mostly accurate including the kitchen block, dining table, and bedroom sets. Minor scale distortions are present in the living room seating area compared to the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Excellent adherence to the low-poly, flat-shaded aesthetic. The isometric orthographic camera angle is precise. No textures or photorealistic elements are present."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucinated additional room in the top-left (North-West) corner not found in the 2D floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Door swing orientations in several rooms do not match the source 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Wall misalignment in the central living area compared to the rigid L-shape in the floor plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan2.png"
+}

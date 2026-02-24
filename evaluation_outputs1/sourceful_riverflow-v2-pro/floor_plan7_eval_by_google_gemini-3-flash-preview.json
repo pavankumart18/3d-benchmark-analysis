@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General wall alignment and room adjacencies are correct. However, door placement is significantly flawed; most door openings are missing or incorrectly represented as wall gaps. Window placement is mostly accurate but lacks the distinct recessed scaling shown in the plan for the living area."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "No text or UI elements are present. The model is floating on a neutral background with the roof removed as requested. Major deduction for door structural failure; the 'entrance to the house' and transitions between rooms lack clear door frame indications."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the floor plan's layout. Sofa arrangement, dining table set, and kitchen counter orientation match the 2D source very well."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the low-poly, flat-shaded style. The isometric camera angle is correct. Deduction for slightly inconsistent lighting on the internal walls of the wash area."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing explicit door swing/frame geometry in several transitions, specifically the main entrance and the bedroom's secondary access."
+        },
+        {
+            "code": "E2",
+            "description": "The stairs are rendered as a simple ramp/block instead of the detailed multi-tread configuration shown in the plan."
+        },
+        {
+            "code": "E4",
+            "description": "Minor hallucination of a bathroom fixture in the wash area which was denoted as a sink/wash space, not a double toilet/sink setup."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan7.jpg"
+}

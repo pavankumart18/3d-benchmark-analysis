@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches. Adjacencies mostly preserved, but some internal walls (e.g., between Utility and toilet/hallway) are simplified or merged. Relative room sizes are generally proportional, but some wall positions are off. Overall footprint is maintained. Wall positions show minor inaccuracies in the kitchen/utility area and lower left bedroom/toilet. Corner angles are preserved. Many doors are missing (e.g., all toilet doors, main entry, utility). Some door placements are off (e.g. Bed-3). Window presence and placement is inconsistent (some present, some missing, some placed incorrectly). Scale factor seems generally consistent but with minor distortions in some areas."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed and interior walls are fully visible. Rooms are mostly complete, but several structural elements like the dividing walls for some toilets/foyer are missing or simplified. Small courtyard/planter area near Deck is not modeled. There are no additional rooms, but some internal structures are simplified. UI/Annotation cleanliness is a critical failure; many text labels are present. Presentation context fails; model is not floating, ground plane and extended shadows are present, and background is not a dark neutral gradient."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces are present and generally in correct rooms (beds, sofas, dining table). Kitchen fixtures (counters, island) are present. Bathroom fixtures (toilet, sink, shower/tub) are present, but the accuracy and placement of some are off. For instance, the toilet in the lower left bathroom seems to be in the shower area. Placement of some furniture is slightly off relative to the plan, and scale can vary slightly, but largely acceptable."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "Geometry style is low-poly, but some surfaces show very subtle textures/gradients, not solid flat colors. There are some slight mesh artifacts near wall intersections. Lighting is ambient but with noticeable shadows, slightly exceeding 'minimal shadows'. Colors are distinguishable, but less vibrant than a true flat shaded style. Camera composition is not true isometric (slight perspective distortion is visible) and is not exactly 45\u00b0 rotated plan view. Framing is centered and all rooms are visible, but the overall presentation is not as clean as expected for isometric."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Many text labels (room names, dimensions) are present within the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Camera view shows slight perspective distortion, not a true isometric projection (parallel lines appear to converge slightly).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple internal walls are simplified or missing (foyer, utility, some toilet walls).",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Numerous doors are missing (all toilet doors, main entry, utility) and some existing doors are misplaced or have incorrect widths affecting overall room flow/accessibility.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces show slight gradients/textures instead of pure solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "A1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Model is not floating/isolated, includes a ground plane and extended shadows.",
+            "point_deduction": 5
+        },
+        {
+            "code": "A2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Placement of some bathroom fixtures (e.g. toilet in lower left) deviates from the plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet architectural verification standards due to critical errors such as text labels, perspective distortion, and significant discrepancies in wall and door accuracy, despite maintaining reasonable layout topology and furniture presence.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan19.webp"
+}

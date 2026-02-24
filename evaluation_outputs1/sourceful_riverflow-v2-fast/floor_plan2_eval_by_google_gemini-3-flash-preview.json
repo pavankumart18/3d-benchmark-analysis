@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "notes": "General layout and room adjacencies are correct. However, door swings in the 3D model are simplified to generic curves and some wall thicknesses are inconsistent. The window in the right-hand bedroom has been expanded significantly beyond the original plan."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence. No hallucinated rooms, roof is removed, no text labels or UI elements are present, and the model is floating on the required dark neutral background."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is mostly accurate (sofa, dining table, beds). The L-shaped sofa in the bottom right is simplified into a generic block and the desk in the top right bedroom is somewhat abstracted."
+    },
+    "aesthetic_quality": {
+        "score": 24,
+        "max": 25,
+        "notes": "Perfect low-poly execution with flat shading and no textures. Isometric camera angle is correct. Deduction of one point for the slightly photorealistic plant texture which deviates from the monochrome block style."
+    },
+    "total_score": 87,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The window in the far-right bedroom is oversized compared to the 2D floor plan layout."
+        },
+        {
+            "code": "E4",
+            "description": "Minor hallucination of a realistic green plant texture in a model that should be strictly monochrome/material-less."
+        },
+        {
+            "code": "E2",
+            "description": "Door representation in 3D does not accurately reflect the physical opening/hinge orientation shown in the 2D architectural symbols."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan2.png"
+}

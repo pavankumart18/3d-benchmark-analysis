@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 6,
+            "dimensional_scaling": 2
+        },
+        "notes": "Bathroom adjacent to BED-2 is shifted significantly. The utility room's shape is distorted, and the deck shape for BED-1 is incorrect. Overall footprint has slight discrepancies, especially with the protruding sections. Relative room sizes are mostly proportionate, but some rooms, like the utility, are not. There are several missing windows."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The roof is not completely removed; there are fragments of the roof visible, particularly over the decks and a part of the master (BED-1) bedroom. The generated image contains noticeable textures (wood flooring, rugs, wall patterns, tile patterns) which significantly reduces points in UI/Annotation Cleanliness. The background is dark, but there's a distinct ground plane with a shadow."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Key furniture pieces like beds, dining table, sofa are present. Kitchen and bathroom fixtures are also present. However, the exact arrangement of furniture within spaces like the living/dining area, decks, and even bedrooms differs significantly from the 2D plan. Some kitchen appliances (e.g., refrigerator location) are not accurately mapped."
+    },
+    "aesthetic_quality": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 3,
+            "camera_composition": 2
+        },
+        "notes": "This render uses textures for flooring, area rugs, and tile patterns in bathrooms, violating 'solid flat colors only' and 'no textures' rules. Some surfaces, like walls, appear flat-shaded, but the inclusion of textures for other elements results in a lower score. Lighting is predominantly ambient. The camera angle is not a perfect 45-degree rotation for a true isometric view; it appears more like a 3/4 perspective projection with slight distortion."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering features such as textures (wood, rugs, tiles, patterned walls) are present, which are strictly disallowed.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The camera view exhibits noticeable perspective distortion; it is not a true isometric projection (parallel lines converge slightly).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The presence of textures on floors, rugs, and walls violates the UI/Annotation Cleanliness standard (solid flat colors only, no textures).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Roof fragments are visible over decks and portions of bedrooms, violating the 'roof completely removed' rule for cutaway views.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The bathroom adjacent to BED-2 and the utility room have significant shape and positional discrepancies compared to the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are missing or significantly misplaced (e.g., near TOI-1, and some internal room connections). Specifically, the door swing direction for the main entrance and some internal doors are incorrect.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Three windows are missing: two near the deck off BED-2 and one near the deck off BED-1.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture arrangement mismatch in living/dining area and both decks.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 43,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant deviations in spatial accuracy, inclusion of disallowed textures, perspective distortion instead of true isometric projection, and incomplete cutaway view compliance. Many architectural elements like windows and doors have inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan14.webp"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: extruded walls with thickness, angled/isometric-like camera, and ceiling/roof removed to reveal interior volumes."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable interior volumes; cutaway is clean. Minor issues: some wall joins/corners and opening edges look simplified/softened."
+        },
+        "geometric_accuracy": {
+            "score": 21,
+            "max": 30,
+            "notes": "Overall exterior footprint and main open-plan zoning roughly match (large living area left, kitchen/right zone with counters, dining bump-out). However, several internal partitions/room separations (foyer/closets/pantry/playroom boundaries) appear simplified or partially misplaced, and door/window placements do not consistently map to the 2D plan."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Kitchen counters/island and a few built-ins are present, but most room-specific furniture/fixtures are sparse or missing (e.g., living/dining furnishings and clear bathroom fixtures), reducing ability to confirm room identities."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean presentation and good contrast; geometry is mostly readable. Some openings and partitions blend due to uniform material and simplified detailing."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Internal layout fidelity is reduced: several partitions/room separations (closet/foyer/pantry/playroom delineations) appear simplified or not fully aligned with the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "medium",
+            "description": "Doors/windows are not consistently verifiable against the 2D plan; some openings appear missing or repositioned."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "low",
+            "description": "Furniture/fixtures are minimal, limiting confirmation of room identities and functional zoning."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "low",
+            "description": "Uniform material and simplified edges reduce clarity of partitions and opening geometry."
+        }
+    ],
+    "total_score": 76,
+    "verdict": "GOOD",
+    "summary": "A genuine 3D cutaway with solid volumetric rendering, but with moderate internal-partition and opening-placement mismatches versus the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 4
+        },
+        "notes": "Room count matches, but some adjacencies are incorrect (e.g., utility room only has one door in 3D, two in 2D). Relative room sizes are generally proportional. Overall footprint is maintained. Wall positions have some deviations, particularly around the kitchen/utility area and the complex wall in the upper right. Many doors are missing. Window placement is mostly accurate, but some are missing. Scaling appears consistent overall."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 5,
+            "ui_cleanliness": 2,
+            "presentation_context": 0
+        },
+        "notes": "Roof is removed, and interior walls are visible. There are missing structural elements (e.g., some internal walls in utility/toilet areas). No extra rooms or architectural features were added. UI and annotation cleanliness is good for text, but the black navigation symbol and a red arrow from the 2D plan were integrated into the 3D model, which was unexpected. The background is dark, but there are visible ground planes and shadows extending, violating the isolated model requirement."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present (beds, sofas, dining table). Kitchen fixtures are present, but the island is significantly different. Bathroom fixtures are indicated. Placement generally matches the 2D plan, but several pieces are missing or significantly differ in style/arrangement, particularly in the living area and decks. Scale is mostly appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly simplified forms are used, and surfaces are flat shaded with solid colors. Edges are clean. There are no textures. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. The view is isometric, with a 45\u00b0 rotated plan view, centered framing, and appropriate zoom. However, the black navigation symbol and red triangle from the 2D plan are rendered as part of the 3D model, causing visual clutter and violating clean geometry."
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several internal walls in the utility room and adjacent toilets are incorrectly rendered or simplified, leading to fewer rooms or misaligned spaces compared to the detailed 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The complex wall/feature adjacent to the deck in BED-1 is simplified and does not accurately reflect the 2D plan's intricate design, including a vertical garden feature which is absent.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Utility room entirely missing an entry door, creating a discrepancy in adjacency and access.",
+            "point_deduction": 2
+        },
+        {
+            "code": "A3-MINOR",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are missing or incorrectly indicated, affecting room connectivity. For example, the door between kitchen and utility is missing, and the door to TOI-1 on the far right has incorrect swing or is missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "A4-MINOR",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "The navigation symbol and red directional arrow from the 2D architectural blueprint are mistakenly included as physical geometry within the rendered 3D model.",
+            "point_deduction": 5
+        },
+        {
+            "code": "A5-MINOR",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Significant differences in furniture arrangement and type, particularly in the Living/Dining area (e.g., sofa configuration) and the decks. The kitchen island is also different.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 61,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render largely preserves the overall footprint and room count but suffers from multiple missing doors, inconsistent wall geometry in certain areas, and the inclusion of 2D annotation symbols as 3D geometry which are critical errors for structural fidelity and aesthetic quality. The furniture mapping also shows several discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan19.webp"
+}

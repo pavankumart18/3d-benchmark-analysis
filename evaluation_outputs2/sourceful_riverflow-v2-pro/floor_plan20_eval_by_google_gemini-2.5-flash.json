@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 2
+        },
+        "notes": "Layout topology generally preserved, but Bedroom-1's balcony is rotated 90 degrees compared to the 2D plan. Wall positions are mostly accurate, but some minor misalignments exist, particularly with the exterior walls and the 'Lobby' area. Door count and placement are good, but swing directions often differ or are not clearly indicated. Windows are generally present and on correct walls, but their sizes and proportions are often inconsistent with the plan, and some are depicted as entire glass walls rather than typical windows (e.g., on the deck). Dimensional scaling shows slight inconsistencies, particularly with room sizes relative to each other, resulting in some aspect ratio distortions. Balcony 1 in Bedroom 1 is completely re-oriented and re-shaped, suggesting a lack of consistent scaling. 'Lobby' is significantly reduced in size and shape."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Cutaway view is good; roof is removed and interior walls are visible. Completeness is generally good; no major structural elements are missing. However, hallucination control fails due to the presence of text labels on the 3D render (E5-CRIT), leading to 0 points for UI/Annotation Cleanliness. This also impacts hallucination control as text is an added, non-architectural element. The rendering's background and isolation are well-executed."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces like beds, sofas, dining table, and kitchen/bathroom fixtures are present. However, their placement often deviates from the 2D plan. For example, the bed in Bedroom-1 is rotated 90 degrees and pushed against a different wall. The desk in 'Home Office / Maid's Room' is also rotated. The outdoor furniture on the deck and balconies is largely different or absent/rearranged. Some furniture pieces in the Living & Dining area have been shifted or replaced with different models."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 5,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is somewhat low-poly and uses flat-shaded surfaces, but some elements like the bedsheets show signs of smoother shading or more complex geometry. Surfaces have gradient-like appearances rather than solid flat colors. Lighting is soft ambient, but the colors, while distinguishable, sometimes show slight reflections or material effects beyond pure flat shading. Camera composition achieves a true isometric projection (checked with parallel lines) and is well-centered and appropriately zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels (LIVING & DINING, BALCONY, HOME OFFICE / MAID'S ROOM, TOILET-2) are present on the 3D render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Surfaces show slight gradients or subtle material qualities, not purely solid flat colors. Some furniture (e.g. bedsheets, sofas) show signs of smoother shading/more complex geometry.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom-1 balcony is completely reshaped and reoriented by 90 degrees compared to the 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The 'Lobby' area's size and shape are significantly reduced and altered.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window sizes and proportions are inconsistent; some 'windows' appear as full glass walls.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture placement and orientation often deviate from the 2D plan (e.g., bed in Bedroom-1, desk in Home Office, outdoor furniture).",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 66,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render successfully translates the overall layout and structural elements but fails on strict adherence to visual compliance due to text labels, leading to a critical deduction in structural fidelity. Geometric accuracy for specific elements like balconies and window proportions is also inconsistent. Furniture mapping is present but lacks precision in placement.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan20.avif"
+}

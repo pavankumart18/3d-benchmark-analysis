@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway 3D model with visible wall height/thickness, interior volume, and an angled/isometric-like view."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Clear wall height/thickness and floor plane separation; good cutaway. Some geometry appears simplified with many curved/rounded partitions, reducing fidelity to rectilinear plan corners."
+        },
+        "geometric_accuracy": {
+            "score": 10,
+            "max": 30,
+            "notes": "Major mismatch versus 2D plan: overall building footprint becomes irregular/curved instead of mostly rectangular; several internal walls/partitions do not align with the 2D plan's straight wall locations and proportions; adjacency/room boundaries appear altered."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Beds/sofa and some bathroom elements are present, but kitchen/dining elements are not clearly represented as in the 2D plan (e.g., kitchen run and dining table placement). Some furniture-to-room assignments are plausible but not clearly matching the plan."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean render with readable walls and openings; lighting generally supports visibility. Minor ambiguity due to similar wall/floor colors and simplified openings."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Overall footprint and internal partition geometry deviate strongly (curved/irregular walls) from the rectilinear 2D plan, affecting room proportions and wall alignment."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are not consistently placed or sized/oriented to match the 2D plan; some openings appear simplified or relocated."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture set is incomplete/mismatched relative to the 2D plan (notably kitchen/dining), reducing inferred room identity matching."
+        }
+    ],
+    "total_score": 63,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway was produced, but the 3D layout shows substantial footprint and partition distortions compared to the original 2D floor plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan5.jpg"
+}

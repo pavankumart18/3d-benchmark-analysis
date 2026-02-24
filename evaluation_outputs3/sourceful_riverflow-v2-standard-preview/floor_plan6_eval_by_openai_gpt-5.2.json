@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway/isometric-style render with extruded walls, visible thickness, and an exposed interior (ceiling removed)."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 28,
+            "max": 35,
+            "notes": "Clear wall height/thickness and volumetric rooms; angled view with readable top+side faces. Cutaway is clean but simplified (some openings/edges feel generic)."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "Overall room zoning matches (Kitchen/Living left, Bedroom top/right, bath/utility core, stair along right). However, perimeter window/door placement and counts do not closely match the 2D plan, and several internal partitions/openings are simplified."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Basic kitchen cabinetry present. Bedroom lacks a bed; bathroom fixtures are not modeled; living furniture is minimal/blocky and not clearly matching the plan's indicated items."
+        },
+        "visual_clarity": {
+            "score": 13,
+            "max": 20,
+            "notes": "Geometry is readable with decent lighting. Text labels are present in the 3D view (UI contamination). Some elements are low-detail, reducing clarity of openings and room functions."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Doors/windows are simplified and several appear missing or not on the same walls/positions as in the 2D plan (notably perimeter window distribution)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MAJOR",
+            "description": "Key furniture/fixtures from the plan are missing or not clearly represented (bedroom bed, bathroom fixtures, living area furniture)."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels appear in the 3D render, reducing presentation/background cleanliness."
+        }
+    ],
+    "total_score": 68,
+    "verdict": "PASS",
+    "summary": "A valid 3D cutaway conversion with correct overall room zoning, but with notable simplification/mismatch in openings and missing interior fixtures/furniture relative to the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan6.jpg"
+}

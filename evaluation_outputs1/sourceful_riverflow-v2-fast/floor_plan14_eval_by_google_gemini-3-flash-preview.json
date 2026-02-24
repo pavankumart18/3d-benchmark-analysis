@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 28,
+        "max": 40,
+        "notes": "General layout and room adjacency are correctly interpreted. However, internal wall thickness and exact alignment of the foyer/kitchen area are slightly distorted. Door swings are missing in several locations, and window placement lacks the specific structural cutouts shown in the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major violation: The model failed to omit text labels and measurement lines. It has hallucinated/distorted text overlays (e.g., 'LIVING/DINNG' and garbled measurements) directly onto the 3D floor. The floating model on a dark background is correct."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture placement is generally accurate to the plan (beds, sofas, and dining table). Scale is consistent, though the kitchen counter blocks and utility fixtures are overly simplified even for low-poly standards."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "The style correctly follows a low-poly, flat-shaded aesthetic with no realistic textures. The camera is isometric orthographic. Points deducted for the visual 'noise' created by the integrated text which ruins the clean aesthetic requirement."
+    },
+    "total_score": 63,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "STRICT VIOLATION: The render contains large, distorted text labels and measurement lines ('LIVING/DINNG', 'BED-1', etc.) on the floor surface."
+        },
+        {
+            "code": "E1",
+            "description": "Missing functional door swing indicators within the 3D model geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the kitchen/foyer threshold compared to the 2D plan dimensions."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan14.webp"
+}

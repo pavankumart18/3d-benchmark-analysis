@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 8,
+            "doors": 5,
+            "windows": 3,
+            "dimensional_scaling": 2
+        },
+        "notes": "The overall footprint and room count match, but there are issues with door accuracy and wall alignment. The bathroom next to 'BEDROOM-1' in the 2D plan is represented as two separate entities in the 3D render (toilet/sink and shower room), affecting adjacency and relative sizing. The main entrance area is also significantly altered. The balcony on the left side of the 2D plan is missing in the 3D render, although a similar outdoor space is present on the right. Some wall proportionalities are off, particularly in the living and dining areas."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The roof is removed and interior walls are visible. There are clear hallucinations, particularly the missing balcony on the left and the altered main entrance layout. The Bathroom (toilet) adjacent to M.BEDROOM has been significantly altered in form and appears connected to two toilets/showers where the plan indicates one. The right balcony in the 2D plan has been replaced by an outdoor dining area in the 3D render, which while a functional replacement, is not a direct translation of the space itself. The rendered image contains labels in the key plan/area details section which is not allowed. Although not a primary focus, the main architectural elements are somewhat complete."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present in the corresponding rooms (beds in bedrooms, sofas in living). However, the specific layout and types of furniture in the living/dining area and balconies do not fully match. The kitchen layout is simplified and the 'Utility' area's features are either missing or significantly altered. The bathrooms' fixtures are either simplified or not matching."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "The render effectively uses low-poly simplified forms with flat shading and solid colors. There are no textures evident. Lighting is ambient but cast shadows are somewhat pronounced, suggesting more than minimal shadow generation. The camera is isometric, but the framing appears slightly off with more empty space on the left than the right, and the model is not perfectly centered."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text overlays are present next to the 3D model (key plan, area details, and disclaimer at the bottom of the 2D plan image which is included in the render). This is an instant fail for UI/Annotation Cleanliness for the 3D render, even if the text belongs to the 2D plan image.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "One outdoor balcony on the left of the 2D plan is missing completely, replaced by blank external wall. The other balcony on the right is represented, but its content and style deviates significantly from the 2D plan (outdoor dining set vs. chairs).",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The bathroom adjacent to 'BEDROOM-1' in the 2D plan is split into two distinct spaces (toilet/sink and shower room) in the 3D render, altering internal adjacencies and wall geometry significantly. The main entrance area (leading to 'LIVING & DINING') is also simplified and has a different wall configuration.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several door placements are off by more than 15%, particularly in the bathroom adjacent to 'M.BEDROOM' and the one adjacent to 'BEDROOM-1'. Some doors also appear to have incorrect swing directions or are represented as open where the plan doesn't specify.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "The 'Utility' area in the kitchen is not fully represented with its fixtures. The dining area furniture and balcony furniture do not match the 2D plan's representations. The bathroom fixtures also differ in some instances.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 64,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render provides a generally recognizable layout, but suffers from several critical geometric inaccuracies, missing architectural features, and significant deviations in door placements and room configurations compared to the 2D floor plan. The presence of text overlays from the source image also incurs a critical deduction.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan15.webp"
+}

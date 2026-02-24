@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 21,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Room adjacency is mostly preserved, but the kitchen/living area is significantly altered. The bathroom and closet walls are partially accurate. Many window and door placements are incorrect or missing. The overall footprint matches but internal subdivisions are off."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 0,
+            "ui_cleanliness": 2,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is mostly compliant. There are several missing structural elements, such as the entrance door, the door to the bedroom, and the door to the bathroom. The living/kitchen area is notably expanded, which is a hallucination in terms of shape."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Some major furniture pieces like the bed, sofa, and kitchen counter are present. However, many items are missing, including dining table/chairs, the second sofa, the kitchen island, and all bathroom fixtures. The kitchen layout is completely changed."
+    },
+    "aesthetic_quality": {
+        "score": 17,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 7,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "The geometry style uses low-poly, flat-shaded forms. Lighting is soft and ambient. However, the camera angle is not a perfect 45-degree rotation and appears slightly off-center. There is a slight texture/gradient on the surfaces, particularly the walls and floor, which deviates from 'solid flat colors only'."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant distortion of Kitchen/Living area shape and size, making its layout topology and wall geometry inaccurate compared to the 2D plan.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Misplaced door to the bedroom and bathroom, along with several missing doors (main entrance, closet door).",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several windows are missing or their placement is incorrect/inconsistent with the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Hallucinated removal of walls dividing the Kitchen and Living areas, significantly altering the layout and room functions.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present on the original plan are not removed from the mental model during interpretation, leading to a misrepresentation of the 'Kitchen/Living' area as one open space in the 3D model, despite the implied wall structure in the 2D plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Slight texture/gradient on surfaces, especially walls and floor, rather than purely solid flat colors.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen layout is completely redesigned, significant number of missing furniture from other areas.",
+            "point_deduction": 4
+        }
+    ],
+    "total_score": 52,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to significant inaccuracies in spatial layout, especially the kitchen/living area, and numerous missing or misplaced openings and furniture, indicating a flawed translation from the 2D plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan6.jpg"
+}

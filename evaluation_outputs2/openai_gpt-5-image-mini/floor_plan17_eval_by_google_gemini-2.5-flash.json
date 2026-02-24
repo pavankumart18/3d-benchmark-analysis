@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 5,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 3
+        },
+        "notes": "The overall footprint is only generally maintained, diverging significantly from the original plan's irregular shape. Several rooms are missing. Adjacencies are partially preserved. Some wall positions are off by more than 5%. Missing multiple windows."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Missing several rooms (Dress, Toilets, Foyer, Utility, Ser. Rm). The balconies are rendered as extensions to the floor, representing a hallucination of architectural features. The background is not dark neutral, and there's a visible ground plane."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table, kitchen counters) are present. However, many smaller pieces and bathroom/toilet fixtures are missing. The kitchen layout is not accurate, and the number of sofas differs. Bed placement in bedrooms is somewhat off. No furniture in the 'Foyer' or 'Dress' areas (which are also missing)."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "The geometry uses low-poly forms and flat-shaded surfaces with solid colors, adhering to the style requirements. Lighting is soft and ambient. The view is isometric with good composition and zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire rooms missing: Dress, all 4 Toilets, Foyer, Utility, Ser. Rm. Balconies are simplified to floor extensions, losing their distinct function.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Hallucinated architectural features, specifically turning balconies into enclosed floor space or simple extensions, rather than distinct balcony structures.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Overall footprint shape is significantly simplified, losing the distinct 'L' and 'U' shapes around the balconies and the Service Room/Utility area. This affects multiple wall positions and room adjacencies.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Several doors are missing, particularly those leading to the numerous missing bathrooms and the service areas. Some door placements are also approximate or slightly off.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Many smaller furniture items and bathroom fixtures are missing, including the master bed's dresser, multiple toilet and basin units, and items in the utility/service room.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane is visible and extends, not matching the 'floating/isolated' requirement.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Many windows are missing from the exterior walls of various rooms, including the Living room, Bedroom 2, and Bedroom 3.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Background is not a dark neutral gray/black gradient. It is a solid dark gray with a visible ground plane.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render adheres well to aesthetic and rendering expectations but critically fails on spatial accuracy and structural completeness due to numerous missing rooms and significant layout discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan17.jpg"
+}

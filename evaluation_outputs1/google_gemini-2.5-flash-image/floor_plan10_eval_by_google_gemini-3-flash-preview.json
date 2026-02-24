@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "The overall room layout and wall alignment are well-preserved. However, some door swings are missing or incorrectly represented as simple gaps. The scaling of Bed 3 and Bed 4 relative to the hallway slightly departs from the original schematic."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "notes": "Major violation: The model failed to remove text labels and measurement lines. It essentially overlays a 3D effect onto a floor plan rather than generating a clean architectural model. The background is not a floating model effect but a texture preservation effect."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the plan. Sofas, beds, and dining sets match the intended zones. Minor deduction for lack of distinct 3D depth in some 'Robe' and 'Pantry' storage areas."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "notes": "The render is not a true isometric orthographic 3D model; it is a top-down perspective with height extrusions. It contains extensive text labels (E5) and fails the 'no-labels' constraint. Lighting is flat but the style is more '2.5D schematic' than 'low-poly 3D'."
+    },
+    "total_score": 55,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Systemic violation: Text labels, room names, and dimensions are present throughout the model."
+        },
+        {
+            "code": "E3",
+            "description": "Camera is top-down rather than isometric 45-degree angle; depth perception is limited."
+        },
+        {
+            "code": "E6",
+            "description": "The render does not utilize a dark neutral background; it retains the base floor plan canvas."
+        },
+        {
+            "code": "E2",
+            "description": "Door swing arcs are missing in several thresholds (Laundry, Theatre, Bed 2)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan10.png"
+}

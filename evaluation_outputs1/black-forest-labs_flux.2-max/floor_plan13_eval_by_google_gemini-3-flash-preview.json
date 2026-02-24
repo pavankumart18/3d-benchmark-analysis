@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but door swings are represented as solid abstract volumes rather than standard openings. Window placement on the right-hand bedrooms has been significantly altered from small standard windows to large modern floor-to-ceiling glass panels, distorting the original design intention. The kitchen island geometry is slightly altered compared to the U-shape in the plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "No text or UI elements are present. The roof is correctly removed and the model floats on a neutral background. Points deducted for the garage being separated as a floating island, which while present in the plan as a separate box, is rendered with more distance than indicated by the 2D layout."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Kitchen cabinetry, bathroom fixtures, and laundry appliances (WM) are placed accurately. However, the living/dining/bedroom areas are missing furniture blocks (beds, sofas, tables) that would normally characterize those spaces in a full interior mapping."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Style is mostly low-poly and simplified. However, the car model in the garage and the tiling in the bathroom exhibit higher detail and subtle textures/reflections, leaning slightly toward photorealism. Shadowing is also more dramatic than 'flat shading' constraints permit."
+    },
+    "total_score": 81,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing living room and bedroom furniture (sofas, dining table, beds)."
+        },
+        {
+            "code": "E2",
+            "description": "Window proportions distorted; standard windows replaced with large glazed sections in bedrooms."
+        },
+        {
+            "code": "E4",
+            "description": "Abstract solid curved blocks used to represent door swings instead of clear openings."
+        },
+        {
+            "code": "E6",
+            "description": "Lighting and car model exhibit photorealistic qualities and reflections inconsistent with strict low-poly/flat-shade constraints."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan13.jpg"
+}

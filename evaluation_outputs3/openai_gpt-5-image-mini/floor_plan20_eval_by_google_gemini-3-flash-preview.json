@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The model represents a clear isometric cutaway with consistent wall height and volume."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D transformation with consistent thickness and clear separation of planes."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "Major layout discrepancies: the kitchen/utility area is missing or replaced by an generic open room; the complex wall arrangement near the entrance is oversimplified."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Basic furniture is present and correlates to rooms, but kitchen and bathroom fixtures are missing or rendered as generic blocks."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Very high rendering quality and structural readability; clean background and lighting."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "HIGH",
+            "description": "The kitchen and utility rooms from the 2D plan are not geometrically represented in the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "The entrance lobby and Home Office/Maid's room footprint is merged into a generic square room."
+        }
+    ],
+    "total_score": 79,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D isometric render that captures the general aesthetic and bedroom layout, but fails to accurately represent the complex service and entrance areas of the original plan.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan20.avif"
+}

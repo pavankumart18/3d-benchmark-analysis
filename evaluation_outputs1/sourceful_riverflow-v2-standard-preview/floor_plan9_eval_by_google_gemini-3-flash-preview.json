@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "notes": "The 3D render represents a generic apartment that does not follow the complex L-shaped footprint of the floor plan. The 2-car garage, study, and specific patio cutouts are completely missing. Door and window placement are simplified and randomized rather than aligned with the source."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the roof is removed and there is no UI text, the structural reinterpretation is severe. The garage is missing entirely, and the internal hall layout is significantly altered."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture exists but does not correspond to the plan. The kitchen island/counter geometry is basic and misplaced, and room-specific fixtures like the master bath tub or laundry utility area are not represented."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Matches the low-poly style, dark background, and isometric camera perspective well. Lighting is soft and flat as requested."
+    },
+    "total_score": 49,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage, study, and specific utility rooms."
+        },
+        {
+            "code": "E2",
+            "description": "Floor plan footprint distorted from L-shape to a generic rectangle."
+        },
+        {
+            "code": "E4",
+            "description": "Internal wall partitions and hallway layout are hallucinated/simplified rather than following the blueprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan9.png"
+}

@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 1
+        },
+        "notes": "The 3D render misses the 'Utility' room. The main balcony is present, but the smaller, upper-left corner balcony/recess is missing entirely. Wall positions for the bathroom are altered. Window placements on the front facade are incorrect. The overall footprint maintains the general L-shape, but some external wall alignments are off. Consistent scale factor is not evident in some areas, specifically the size of the kitchen and bathroom compared to the bedroom and living/dining area. Window sizes are not proportional to wall lengths."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "The 'Utility' room is completely missing from the 3D render. The smaller, upper-left corner balcony/recess is also missing. The Balcony railing is rendered as a full wall, not a railing. The roof is removed and interior walls are fully visible. The render is free of UI elements. However, the background is not consistently dark and neutral, with some lighter areas, and the model shows a distinct ground plane with shadows that are too strong and extend unnecessarily."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present, though some are generalized (e.g., the U-shaped kitchen counter is simplified). The bathroom fixtures are mostly present but have slight placement discrepancies. The exact configuration of the living room sofas is different. The desk/chair in the bedroom and the specific configurations of the kitchen and utility room appliances are not accurately reflected. The washing machine from the utility area is moved into the kitchen."
+    },
+    "aesthetic_quality": {
+        "score": 16,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "The geometry uses low-poly simplified forms and flat-shaded surfaces, but some textures are present (e.g., floor tiles, kitchen counters, sofa fabric patterns), which should be solid flat colors. Lighting is ambient but casts noticeable shadows, which are a bit too dramatic for the specified minimal shadows. Colors are distinguishable. The camera view is isometric and generally well-composed, but the ground plane and shadows detract from the isolated presentation requirement."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Entire 'Utility' room missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "hallucination_control",
+            "description": "Portion of the plan (upper-left corner balcony/recess) is missing/hallucinated away.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom wall geometry significantly altered; overall footprint shape not perfectly maintained.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Window positions differ from the 2D plan.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Presence of textures on floor tiles, kitchen counters, and furniture.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Prominent ground plane and strong shadows where minimal was expected.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Some furniture not accurately represented (living room sofas, kitchen appliances moved, bedroom desk missing).",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing direction for the bedroom door is not preserved.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 54,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render demonstrates a foundational understanding of the floor plan but suffers from critical omissions of entire rooms/elements, significant geometric alterations, and the presence of unwanted textures and strong shadows, resulting in a failing score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan16.avif"
+}

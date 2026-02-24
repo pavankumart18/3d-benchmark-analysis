@@ -1,0 +1,40 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed successfully."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness, floor is distinct. Interior volume is clear. Viewing angle is good. Roof is cleanly removed, but some wall geometry could be cleaner (e.g., small interior walls at entrance)."
+        },
+        "geometric_accuracy": {
+            "score": 27,
+            "max": 30,
+            "notes": "Room count and adjacencies are correct. Wall positions and lengths are largely accurate. Doors are mostly accurate, but some internal doors are open in the 3D model, and the front door seems to be missing a frame. Windows are present and correctly placed."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "Most major furniture, kitchen, and bathroom fixtures are present. Placement, scale, and orientation are logical and correspond well to the 2D plan, with minor deviations expected due to simplification."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Geometry is clear and readable. Interior is well-lit. Consistent material use and clean presentation. No text labels from the 2D plan were carried over."
+        }
+    },
+    "detected_errors": [],
+    "total_score": 89,
+    "verdict": "GOOD",
+    "summary": "The 2D floor plan has been converted into a geometrically faithful and clear 3D isometric cutaway, accurately representing the layout and primary features of the original.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan4.jpg"
+}

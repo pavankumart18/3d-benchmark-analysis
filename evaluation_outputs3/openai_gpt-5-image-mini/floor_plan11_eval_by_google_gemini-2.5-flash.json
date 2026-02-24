@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls have clear height and thickness. The view is angled, showing the interior volume. The roof/ceiling is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5). Floors are distinct (3). Interior volume is perceivable (4). Proper 3D wall corner geometry (3). Angled view (5). Interior visible from elevated perspective (3). Some perspective distortion visible (2). Roof removed cleanly (5). Interior spaces are fully visible (3). Generally clean geometry (2)."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "The overall layout is recognizable but not identical. The 'WC', 'Central Hall', 'Utility Room', 'Kitchen', and 'Dining Room' are somewhat represented. 'Breakfast' and 'Alcove' are missing. Room count is off (E1-CRIT). Adjacency is loosely maintained, but several walls are missing or altered (E2-MAJ). Proportions are loosely preserved, but not accurate. Wall positions are generally correct but with significant deviations and missing sections. Several internal partitions are missing or misplaced ('Central Hall' seems to be absorbed into a larger space, 'Utility Room' layout is simplified). Doors are present but not all in correct locations or orientations. Windows are represented but their exact placement is hard to verify due to simplification."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture ('Dining Room' table and chairs, 'Kitchen' counters and appliances, 'WC' fixture, 'Utility Room' object, benches) are present (4, 2, 2). Furniture placement is mostly in correct rooms (3). Scale is reasonable (2). Orientation is logical (2)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, openings are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent simple material usage (2). No major rendering artifacts (2). Clean background (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "More than 50% of the rooms from the 2D plan are missing or significantly misrepresented, leading to a largely different floor plan. 'Alcove' and 'Breakfast' areas are missing. 'Central Hall' has its internal walls removed, significantly changing the layout."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Significant layout distortion and missing walls. The internal partitioning of the 'Central Hall' and 'Utility Room' is simplified. The wall between 'Central Hall' and 'WC' is missing. The wall between 'Central Hall' and 'Dining Room' is missing. The entire right wing of the original plan including 'Breakfast' and a connecting wall is missing."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door and window placements are approximations and not fully faithful to the 2D plan. Some doors are missing (e.g., from WC to Central Hall, from Central Hall to Utility Room) or relocated, and some walls where windows were present are now missing."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion successfully transformed the 2D plan into a 3D cutaway but exhibits significant geometric inaccuracies and missing sections compared to the original floor plan.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan11.png"
+}

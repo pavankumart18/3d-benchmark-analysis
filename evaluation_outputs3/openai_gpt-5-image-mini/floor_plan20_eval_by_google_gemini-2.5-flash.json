@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls have clear height and thickness, interior volume is visible, and the roof is removed. The view is isometric."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness. Interior volume is clear. Viewing angle is good. Roof is cleanly removed. Corner geometry is good for the most part, but some interior walls appear to merge seamlessly rather than having defined corners, especially around the living/dining area."
+        },
+        "geometric_accuracy": {
+            "score": 18,
+            "max": 30,
+            "notes": "A significant portion of the original 2D layout, including several rooms and balconies (maid's room, lobby, toilette-3, toilette-4, utility, deck, two balconies), are completely missing from the 3D model. The wall positions and overall layout are heavily simplified and do not accurately reflect the 2D plan. The rooms that are present have altered proportions and adjacency. For example, bedroom 1 and toilet 1 have no connection to the main living area in the 3D model. Many doors and windows from the 2D plan are missing or misplaced."
+        },
+        "interior_elements": {
+            "score": 8,
+            "max": 15,
+            "notes": "Major furniture items like beds, sofas, and dining sets are present. Kitchen elements are missing, bathroom fixtures are missing. Furniture placement is generally logical for the rooms that exist, but the lack of several rooms means many items are absent. Scale seems reasonable."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Structural clarity is very good, with walls, floors, and openings clearly distinguishable. Lighting is even and does not obscure geometry. The rendering is clean with consistent materials and no major artifacts. The background is simple and clean."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "description": "More than 50% of the rooms and significant areas (maid's room, numerous toilets, utility, deck, balconies) are missing from the 3D model, leading to a drastically altered and incomplete layout."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "The overall geometric layout is highly distorted; room adjacencies are incorrect, and proportions of the existing rooms are significantly different from the 2D plan. Major wall positions do not align."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Many doors are missing or misplaced, and windows are either absent or their count/placement does not match the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Kitchen elements and bathroom fixtures are almost entirely absent despite being indicated in the 2D plan through specific room labels (Kitchen, Utility, Toilets)."
+        }
+    ],
+    "total_score": 72,
+    "verdict": "PASS",
+    "summary": "The conversion successfully produced a 3D isometric representation with good visual clarity, but it suffers from critical geometric inaccuracies and omissions, with more than half of the original floor plan's rooms and areas missing or heavily distorted.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan20.avif"
+}

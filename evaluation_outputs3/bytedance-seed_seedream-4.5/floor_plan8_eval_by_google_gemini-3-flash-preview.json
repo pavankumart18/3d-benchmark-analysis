@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Successful isometric cutaway rendering with defined wall geometry."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Strong 3D structure; walls show consistent height and thickness. Good isometric projection."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Layout is largely faithful but has errors: the 'Dining Room' area in the 2D plan has been labeled and converted into a 'Living Room' extension. The central 'Pantry' is labeled 'Stairs' despite the actual stairs being rendered adjacent."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Kitchen island and sink are correctly placed. Closet doors and bathroom fixtures are represented."
+        },
+        "visual_clarity": {
+            "score": 14,
+            "max": 20,
+            "notes": "Rendering is very clean, but text labels printed directly on the floor and wall surfaces degrade the presentation score as per instructions."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E6-UI",
+            "severity": "MINOR",
+            "description": "Text labels (Playroom, Kantry, etc.) are embedded in the 3D model."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MEDIUM",
+            "description": "Central pantry identified incorrectly as stairs; Dining area geometry slightly simplified."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D isometric conversion that maintains most of the 2D plan's structural integrity despite some labeling and minor room identification errors.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls have clear height and thickness, interior spaces are distinct, and the view is from an elevated, angled perspective. The roof is removed to expose the interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have good height and thickness (5), floors are distinct (3), interior volume is clear (4), and wall corners are correct (3). Angled view is good (5), interior visible from elevated perspective (3). Some minor perspective distortion (1/2). Roof removed cleanly (5), interior fully visible (3). Some very minor broken sections, especially in recessed areas (1/2)."
+        },
+        "geometric_accuracy": {
+            "score": 25,
+            "max": 30,
+            "notes": "Most room configurations are correct, but some minor discrepancies exist (10/12). Major wall positions align well (5). Wall lengths are generally proportional (3). Internal partitions are mostly well placed, but some small wall segments from the 2D plan are missing in the 3D (1/2). Doors and windows are missing entirely (0/8)."
+        },
+        "interior_elements": {
+            "score": 7,
+            "max": 15,
+            "notes": "Most major furniture (beds, sofas, tables) is present (4). Kitchen elements are present (2). Bathroom fixtures are present (1/2 \u2013 WCs are missing). Furniture is placed in correct rooms (3). Furniture scale relative to room is reasonable (2). Orientation is logical (2)."
+        },
+        "visual_clarity": {
+            "score": 15,
+            "max": 20,
+            "notes": "Structural elements are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MAJOR",
+            "description": "No doors or windows are represented in the 3D model, which is a significant deviation from the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MINOR",
+            "description": "Some minor wall segments and recessed areas not fully replicated, such as the linen cabinet and some closet recesses."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "WCs are missing from bathrooms in the 3D render."
+        }
+    ],
+    "total_score": 77,
+    "verdict": "GOOD",
+    "summary": "The 3D transformation is largely successful, featuring good volumetric accuracy and clear visualization, though it is significantly let down by the complete absence of doors and windows, and some minor geometric inaccuracies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan10.png"
+}

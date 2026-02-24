@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "notes": "General floor area layout is recognizable, but there are significant deviations in wall alignment and room partitioning. Door openings are largely missing or inconsistently rendered compared to the 2D plan. Window placements are approximated but lacks precision in width and specific location relative to the floor plan's bay window features."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "The roof is correctly removed and the model floats on a dark background as requested. However, the central pantry area has been reinterpreted as a secondary set of stairs or a split-level landing, which is a structural hallucination. Measurement lines and text are successfully excluded."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Kitchen island and counters are roughly placed, but most specific fixtures (sink, stove, water closet, foyer fireplace/furniture) are missing or merged into the block geometry. Scale of the block furniture in the living area is inconsistent with the plan."
+    },
+    "aesthetic_quality": {
+        "score": 21,
+        "max": 25,
+        "notes": "Strong adherence to low-poly, flat-shaded style. The isometric camera angle is correct. Lighting is soft and ambient without being photorealistic. Points deducted for slight blurring/artifacting on the object edges."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing specific bathroom fixtures (W/C, sink) and fireplace block in the living room."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a staircase structure in the center of the floor where a pantry was indicated."
+        },
+        {
+            "code": "E2",
+            "description": "Misplaced door openings; the entrance from the foyer to the living area is not clearly defined."
+        },
+        {
+            "code": "E6",
+            "description": "Geometry shows some procedural noise/blurring on the wall tops instead of crisp low-poly edges."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan8.jpg"
+}

@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": false,
+    "conversion_verification": {
+        "walls_have_height": false,
+        "wall_thickness_visible": false,
+        "depth_perceivable": false,
+        "angled_view": false,
+        "roof_removed": true,
+        "notes": "The second image is a 2D floor plan, not a 3D render. There is no visible wall height, wall thickness, or perceptible interior volume. The view is top-down orthographic."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": ""
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": ""
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": ""
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": ""
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "Second image is still a 2D floor plan, not a 3D render."
+        },
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "No visible wall height or thickness."
+        },
+        {
+            "code": "E0-FATAL",
+            "severity": "CRITICAL",
+            "description": "Pure top-down orthographic view; not an angled 3D view."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "The conversion failed as the second image remains a 2D floor plan, lacking any true 3D transformation.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan8.jpg"
+}

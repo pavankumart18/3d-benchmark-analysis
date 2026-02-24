@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout distortions detected. The relationship between the kitchen, living room, and garage is fundamentally altered. Room adjacencies do not match the source 2D floor plan significantly."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Failed to remove text labels (hallucinated text on floors). While the model floats on a dark background, rooms have been structuraly reinterpreted (e.g., the garage entry and study location)."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Basic furniture present but often in the wrong rooms or in incorrect quantities (e.g., beds appearing in non-bedroom areas)."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "Good adherence to the low-poly, flat-shaded aesthetic and isometric camera angle. However, the presence of text-like smudges on the floor violates render constraints."
+    },
+    "total_score": 42,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Severe layout distortion: kitchen and dining areas are moved from the left side to central/right locations."
+        },
+        {
+            "code": "E5",
+            "description": "Model contains illegible text labels/smudges on the floor surfaces."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated structural changes to the garage and entryway compared to the 2D plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific door connections between the garage and the main hallway."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan9.png"
+}

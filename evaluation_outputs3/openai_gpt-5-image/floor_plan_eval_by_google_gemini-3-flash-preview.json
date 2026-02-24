@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The 3D model is a successful isometric cutaway. However, the plan is mirrored/flipped compared to the 2D architectural drawing."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 33,
+            "max": 35,
+            "notes": "Excellent 3D geometry, thickness, and clear cutaway volume. Minimal points lost for slightly simplified wall intersections."
+        },
+        "geometric_accuracy": {
+            "score": 14,
+            "max": 30,
+            "notes": "Severe geometric deviation: the entire layout is mirrored across the vertical axis compared to the source 2D plan. While room counts are correct, their orientation is inverse."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture sets (beds, sofa, dining, kitchen, toilet) are present and scaled well, but also follow the mirrored logic of the walls."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Extremely clean, professional rendering with consistent materials and no UI contamination."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "CRITICAL",
+            "description": "The 3D layout is a mirror image of the 2D floor plan, reversing the positions of the bedrooms and kitchen relative to the main entrance/living area."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Specific bathroom partitions and closet doors differ slightly from the original architectural plan's swing paths."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A high-quality 3D render that accurately captures the room types and elements but presents them in a mirrored configuration relative to the source 2D layout.",
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan.jpg"
+}

@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 7,
+            "windows": 4,
+            "dimensional_scaling": 3
+        },
+        "notes": "Layout topology generally preserved, but Bedroom 1's shape is slightly distorted. Wall positions are mostly accurate, but some internal walls (e.g., between Wash Area/Toilet and Living Room) are missing. Door swing directions are not indicated in the 2D plan, but the placement of doors is largely correct, with one missing. Window placement is mostly correct, but two windows are missing compared to the 2D plan. Staircase structure is not fully rendered as a cohesive unit. The exterior entrance to the house is significantly altered and enclosed."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 3,
+            "hallucination_control": 4,
+            "ui_cleanliness": 5,
+            "presentation_context": 0
+        },
+        "notes": "Roof is completely removed, and interior walls are visible. Some structural elements like the wall separating the Living Room from the wash facilities are missing. The exterior entrance has been significantly altered, creating an enclosed space not present in the 2D plan ('Hallucinated architectural feature'). No text, measurements, or legends are present. Presentation context fails as there are clear ground plane elements and shadows that extend into the model and beyond, and the background is not a dark neutral gradient."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. Kitchen fixtures are present but have a different layout. Bathroom fixtures (toilet) is present, but the 'Wash Area' fixtures are not clearly identifiable. Furniture scale seems appropriate. The bed in Bedroom 1 is rotated compared to the 2D plan. The exterior entrance area is rendered with walls and a door without corresponding furniture or clear purpose from the 2D plan."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly simplified forms and flat-shaded surfaces are largely compliant, though there's a slight bevel/rounding on edges. No textures are used, only solid colors. Lighting is soft ambient, but the shadows are a bit more pronounced than 'minimal'. Colors are distinguishable. Camera is a true isometric projection (checked with parallel lines) and offers a good view of the layout. Centered framing and appropriate zoom. Rotation seems to be approximately 45 degrees."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom 1 shape is slightly distorted, the wall connecting to the Dining area is not straight.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Wall between Wash Area/Toilet and Living Room is missing.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Exterior entrance area is significantly altered and enclosed, appearing as a hallucinated architectural feature.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Two windows are missing in the Living Room compared to the 2D plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "One door is missing that leads into the Kitchen from the external entryway.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bed in Bedroom 1 is rotated 90 degrees compared to the 2D plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Edges have slight beveling instead of being perfectly sharp.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane and shadows extend beyond the model, violating 'floating/isolated'",
+            "point_deduction": 5
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render successfully translates the 2D floor plan with good spatial accuracy and maintains an appropriate aesthetic quality, despite some structural omissions and minor furnishing discrepancies.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan7.jpg"
+}

@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 19,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 2,
+            "windows": 1,
+            "dimensional_scaling": 2
+        },
+        "notes": "Room count is generally correct, but several adjacencies are incorrect due to misaligned or missing walls, particularly around the kitchen and service areas. The overall footprint is maintained. Wall positions are frequently inaccurate, with missing walls separating rooms (e.g., between Utility and Service Room, and interior walls in Dress/Toilet). Many doors are missing or incorrectly placed/oriented. Window placements are partially incorrect and several are missing. Proportionality somewhat maintained but scaling feels off in some areas like the kitchen/utility compared to living/bedroom."
+    },
+    "structural_fidelity": {
+        "score": 5,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 3,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view shows the roof removed, but interior walls are not fully visible due to presence of text obstructing views. There are major completeness issues with missing walls and elements. Numerous text labels from the original floor plan are present (hallucinated), resulting in 0 points for UI cleanliness. Hallucination control is poor due to the rendered text labels. Presentation context is decent with a dark background and isolated model."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table) are present in the correct rooms. Kitchen and bathroom fixtures are present, though simplified. Placement of furniture within rooms is generally consistent with the 2D plan, but some scaling issues where furniture looks too small for the room (e.g., dining table)."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 5,
+            "lighting_rendering": 7,
+            "camera_composition": 3
+        },
+        "notes": "Low-poly simplified forms are used, and surfaces are flat shaded with solid colors. However, there are visible text labels from the original plan, which impacts the geometry style by adding unwanted detail. Lighting is ambient with minimal shadows. Colors are distinguishable. The camera view is a perspective projection, not a true isometric projection (parallel lines appear to converge), and the 45-degree rotation is not precise."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels from the original floor plan are present throughout the render, making it an instant fail for UI/Annotation Cleanliness. This also impacts other categories like hallucination control and geometry style.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The render is in perspective view; parallel lines (like walls) converge towards a vanishing point, clearly not a true isometric projection.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "The 'DRESS' area is partially merged with 'M. BED RM' due to a missing wall. The 'TOILET' adjacent to 'DRESS' lacks proper wall enclosure. The 'UTILITY' area is significantly misrepresented with missing walls and incorrect shape, and the inner wall between 'SERVICE ROOM' and 'UTILITY' is missing.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are missing (e.g., between Living and Dining, between Dining and Bedroom 2, main entrance door, doors to most toilets). Several doors that are present are not accurately placed or have incorrect swing directions (e.g., door to Bedroom 4).",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple windows are missing, particularly in the Bathrooms/Toilets and Balconies. Several others are misplaced.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Missing interior walls in critical areas such as the Dress/Toilet area off the Master Bedroom, and the entire Utility/Service room partition walls.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Balcony sizes and partition walls are not accurately reflected; the balcony off the Living room is narrower and shorter than the plan.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 44,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render fails to meet the accuracy requirements due to critical errors such as the presence of text labels, a perspective camera view instead of isometric, and significant structural inaccuracies including missing walls and doors.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan17.jpg"
+}

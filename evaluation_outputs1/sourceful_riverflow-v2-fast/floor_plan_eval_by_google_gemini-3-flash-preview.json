@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Significant layout distortions. The primary entrance is moved, the kitchen is flipped/mirrored relative to the sink placement, and the hallway connecting bedrooms is incorrectly partitioned. Bedroom proportions are skewed."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "notes": "Roof is removed and background is neutral. However, there are hallucinated wall segments in the center of the living area that do not exist in the 2D plan, and the balcony/closet area at the top left is missing or merged incorrectly."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Basic furniture present (dining table, sofas, bathtub), but beds are missing or rendered as mere blocks that don't match the orientation in the plan. The kitchen counter configuration is altered."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "notes": "Good adherence to low-poly, flat-shaded aesthetic. Lighting is soft and neutral. Camera view is isometric, though slightly tilted further than a standard 45-degree angle."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Kitchen and dining area layout is mirrored or flipped compared to the floor plan."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated wall partitions in the center of the apartment and near the main entrance."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific furniture elements like the beds in both Monica and Rachel's rooms."
+        },
+        {
+            "code": "E2",
+            "description": "The window in the living room is rendered as a flat wall window rather than the angled bay window shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan.jpg"
+}

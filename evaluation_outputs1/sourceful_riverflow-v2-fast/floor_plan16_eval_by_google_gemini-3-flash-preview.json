@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved, but wall thicknesses are inconsistent with the 2D plan. Door swing in the bedroom is inaccurately depicted compared to the original blueprint. Window placement on the balcony and bedroom wall is roughly correct but contains minor scaling distortions."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major violation of strict constraints: the render includes text labels and measurement lines ('KITCHEN', 'LIVING & DINING', etc.) which were explicitly forbidden. The structural shell remains intact with the roof removed."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture mapping is highly accurate to the source image, including the specific sofa arrangement, dining table, and bedroom desk. The scale is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "notes": "The model uses some light textures/gradients on the floor and bed which deviates from the 'no textures' requirement. The lighting is soft, and the isometric angle is correct."
+    },
+    "total_score": 65,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Critical failure: Render contains text labels and measurement lines from the floor plan."
+        },
+        {
+            "code": "E6",
+            "description": "Use of textures on floors and furniture instead of strictly flat low-poly colors."
+        },
+        {
+            "code": "E2",
+            "description": "Distortion in wall alignment near the utility and toilet junction."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast",
+    "input_file": "floor_plan16.avif"
+}

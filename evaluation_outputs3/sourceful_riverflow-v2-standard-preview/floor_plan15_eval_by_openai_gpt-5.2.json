@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway/isometric 3D model: extruded walls with thickness, visible floor plane, and interior volumes shown from an elevated angle."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Clear wall height/thickness and readable room volumes; good isometric angle; clean cutaway with minor simplifications at some wall junctions."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "Overall 3BHK arrangement is broadly consistent (central living/dining, bedrooms distributed around, kitchen on right), but several partitions/toilet layouts and some proportions/opening placements appear simplified or shifted versus the 2D plan."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present (beds, living seating, dining) and kitchen/bath fixtures indicated, but some rooms look under-detailed and fixture/element placement does not fully confirm every labeled room from the plan."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Readable geometry with consistent materials and clean background; lighting is adequate, though similar wall/floor tones reduce contrast for some openings and partitions."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Some internal partition geometry (notably toilet/utility segmentation and a few wall offsets) appears simplified or not perfectly aligned with the 2D plan."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door/window placements and sizes are not fully verifiable as matching the 2D plan; several openings appear generic rather than plan-exact."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Furniture helps identify bedrooms/living/dining, but not all room identities from the 2D plan are strongly confirmed by fixtures/furnishing (some areas look minimally populated)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Low material contrast between walls and floors slightly reduces structural legibility in tighter spaces."
+        }
+    ],
+    "total_score": 81,
+    "verdict": "GOOD",
+    "summary": "A valid and clear 3D cutaway conversion with strong overall layout correspondence, but with noticeable simplification/mismatch in some partitions and opening details compared to the 2D plan.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan15.webp"
+}

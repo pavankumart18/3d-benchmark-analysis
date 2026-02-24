@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "The second image is a true 3D cutaway: extruded walls with thickness, angled/isometric perspective, visible interior volume, and roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 0,
+            "max": 35,
+            "notes": "Scoring skipped due to automatic rejection (major layout/room omission vs. 2D plan)."
+        },
+        "geometric_accuracy": {
+            "score": 0,
+            "max": 30,
+            "notes": "Scoring skipped due to automatic rejection (major layout/room omission vs. 2D plan)."
+        },
+        "interior_elements": {
+            "score": 0,
+            "max": 15,
+            "notes": "Scoring skipped due to automatic rejection (major layout/room omission vs. 2D plan)."
+        },
+        "visual_clarity": {
+            "score": 0,
+            "max": 20,
+            "notes": "Scoring skipped due to automatic rejection (major layout/room omission vs. 2D plan)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "critical",
+            "description": "More than 50% of the rooms/spaces shown in the 2D plan segment (e.g., kitchen, dining room, utility room, WC/central hall) are not represented in the 3D render; the 3D appears to depict a different layout dominated by bedrooms."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "Overall room configuration and adjacencies do not match the 2D plan (major spaces and wall runs are inconsistent)."
+        }
+    ],
+    "total_score": 0,
+    "verdict": "REJECTED",
+    "summary": "Although the second image is a true 3D cutaway, it does not correspond to the provided 2D floor plan (most key rooms/layout are missing or different), triggering automatic rejection.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan11.png"
+}

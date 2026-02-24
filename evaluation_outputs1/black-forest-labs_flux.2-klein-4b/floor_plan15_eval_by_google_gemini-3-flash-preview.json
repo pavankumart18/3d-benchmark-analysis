@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 12,
+        "max": 40,
+        "notes": "Major layout deviation. The 3D render represents a significantly smaller 1-bedroom or studio configuration, whereas the floor plan is a 3-BHK unit. Internal wall alignment and room adjacencies from the original plan are largely ignored."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Missing multiple rooms (2 bedrooms, 2 toilets, utility area, and balconies). While the model is floating on a dark background and has no text labels, it fails to represent the actual structure of the provided plan."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is clean and block-style, but placement does not correspond to the layout in the floor plan (e.g., dining table and kitchen counter locations are completely changed)."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to stylistic constraints. Uses low-poly geometry, flat shading, isometric orthographic camera, and is free of textures and photorealism."
+    },
+    "total_score": 51,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing two bedrooms, two toilets, utility room, and both balconies present in the 2D plan."
+        },
+        {
+            "code": "E2",
+            "description": "Kitchen and dining areas are misplaced and distorted relative to the entrance and living room."
+        },
+        {
+            "code": "E4",
+            "description": "The generator hallucinated a generic small apartment layout instead of following the logic of the complex 3-BHK footprint."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan15.webp"
+}

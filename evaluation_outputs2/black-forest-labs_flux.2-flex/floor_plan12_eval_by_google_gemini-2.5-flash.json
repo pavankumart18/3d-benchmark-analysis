@@ -1,0 +1,110 @@
+{
+    "spatial_accuracy": {
+        "score": 10,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 2,
+            "windows": 1,
+            "dimensional_scaling": 1
+        },
+        "notes": "The overall layout topology is mostly preserved, however, the bathroom and WC are completely redesigned/misplaced. The balcony is also missing. There is significant wall misalignment and changes in room shapes. Doors and windows are missing or misplaced. The staircase is partially missing/misaligned."
+    },
+    "structural_fidelity": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 0,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The roof is not fully removed; there is a ceiling present over a significant portion of the structure. Many rooms are either missing or heavily altered (Bathroom, WC, Balcony). Multiple architectural features are hallucinated (e.g., kitchen islands, shelves, extra walls) and several walls are added. There are text labels on kitchen and bathroom counters. The model is presented on a simple background, but the cutaway view failure is critical."
+    },
+    "furniture_mapping": {
+        "score": 0,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 0,
+            "furniture_accuracy": 0
+        },
+        "notes": "Furniture presence and accuracy are significantly compromised due to major layout changes and hallucinated rooms. All bathrooms/WC fixtures, and balcony furniture are missing. Kitchen layout and fixtures are heavily altered from the 2D plan. Beds are present in bedrooms but their orientation/type aren't precise."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 4,
+            "camera_composition": 3
+        },
+        "notes": "The rendering employs low-poly, flat-shaded forms. However, some textures/materials (like wood grain on floors and cabinets) are present, and the colors are not strictly solid. Lighting is soft, but there are noticeable shadows on the walls and furniture. The camera view is isometric, but not a perfect 45-degree rotation plan view."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire Bathroom, WC, and Balcony rooms are either missing or completely remodeled/misplaced. The Activity area, marked as one room in 2D, appears to be split or significantly reconfigured in 3D, and the stairs are also different.",
+            "point_deduction": 9
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple walls are misaligned; especially the west wall of BED 4 and the entire configuration of bathrooms and WC. The north wall of Bedroom 2 and the adjacent 'Linen' cupboard area are also heavily modified.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "The roof is not completely removed; over the stairs and a significant portion of the main structure, the ceiling is present, obstructing the view of interior walls.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Significant hallucination of architectural features, including kitchen island, numerous shelves, and a complete re-imagining of the bathroom/WC areas, which are completely different from the 2D plan. Additional walls are introduced.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels ('KITCHEN', 'BATHROOM') are present on the counters inside the 3D model, resulting in an automatic 0 for UI/Annotation Cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "furniture_mapping",
+            "description": "All bathroom/WC fixtures and balcony furniture are missing due to rooms being completely absent or re-imagined. The Kitchen area has been entirely re-designed with hallucinated features and different appliance arrangements.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "The render attempts to use materials/textures (wood grain on floors, counters, cabinets; blue/white patterned beds), which are not solid flat colors. This violates the 'No textures (solid flat colors only)' rule.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors are either missing from the plan (e.g., entrance to BED 3, entrance to WC) or heavily misplaced/reoriented. Several windows are missing or altered in size/placement.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 20,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails significantly in structural fidelity, spatial accuracy, and furniture mapping, presenting a heavily redesigned and hallucinated model rather than an accurate translation of the 2D floor plan. Several critical errors, including text labels, non-solid materials, and missing/reimagined rooms, contribute to a very low score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-flex",
+    "input_file": "floor_plan12.png"
+}

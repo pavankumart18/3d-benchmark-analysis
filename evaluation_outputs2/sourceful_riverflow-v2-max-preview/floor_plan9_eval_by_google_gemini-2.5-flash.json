@@ -1,0 +1,159 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Overall layout is good, but some wall inaccuracies. The 'Nook' room is partially missing a wall, creating an open space that isn't on the plan. Covered Patio is rendered as an enclosed room attached to the Nook, which does not match. The Master Bathroom has an incorrect wall defining the toilet area, closing it off more than in the plan. The pantry (PAN.) area in kitchen is omitted. The closet in Bedroom #4 (labeled 'OUTLINE OF DORMER ABV.') is significantly different, rendered as a small niche rather than a full closet. The bathroom between bedroom 2 & 3 has a different layout for the vanity. The utility room's sink is missing and wall layout is slightly different. The closet in Bedroom #2 has a different configuration and is smaller. The door swing direction for the main entrance and the door to 'Study' is reversed. The door leading from 'Living Room' to 'Master Bedroom' swing direction is also reversed. The window count/placement in the 'Master Bedroom', 'Bedroom #3', 'Living Room', 'Dining Room', 'Study', 'Bedroom #4', 'Nook' is largely accurate, but 'Bedroom #2' has an extra window not on the plan, and the front of the '2 Car Garage' has small windows which are not present on the plan."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 4,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is compliant with the roof removed. Completeness is good, with most structural elements present, but some minor walls, like the pantry, are missing or altered. There are some minor hallucinations, such as the extra wall in the Master Bath and the enclosed nature of the Covered Patio. No text labels or measurement lines are present, which is good. The background and isolation are compliant."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present and in generally correct rooms. However, the 'Nook' and 'Living Room' furniture arrangement is completely different. The 'Nook' has a dining table, whereas the plan shows 'DW' (dishwasher) and kitchen counters. The 'Living Room' has two sofas and a coffee table, which is an interpretation, but the plan is empty. The 'Study' has a desk, but the plan shows it as empty. The 'Dining Room' furniture (table and chairs) is present and reasonably placed. In the 'Master Bedroom', the bed is present but its orientation is 90 degrees off. The 'Master Bath' has a shower and tub, but the toilet is in a different enclosure. 'Bedroom #3' and 'Bedroom #2' beds are present and oriented correctly. 'Bedroom #4' has a bed not shown in the plan, and the closet is not correctly represented. The 'Kitchen' has counter elements but misses the pantry (PAN.) and the specific 'DW' placement. The 'Utility' room is missing its indicated sink and has different cabinet arrangements. The 'Covered Patio' is rendered as an enclosed space with a table, which is not indicated on the plan."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly, flat-shaded forms with solid colors, no textures, and clean edges. Soft ambient lighting with minimal shadows. True isometric projection, 45-degree rotation, centered and appropriately zoomed."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Portion of 'Nook' wall missing, creating undeclared open space.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "'Covered Patio' rendered as fully enclosed room instead of an open patio.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Master Bathroom toilet enclosure wall inaccurate.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Pantry (PAN.) area in kitchen is omitted.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Closet in Bedroom #4 significantly altered.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bathroom between Bedroom 2 & 3 has a different vanity layout.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Utility room sink missing and wall layout slightly different.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Closet in Bedroom #2 has a different configuration and is smaller.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing direction reversed for main entrance and Study door.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing direction reversed for Living Room to Master Bedroom.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Bedroom #2 has an extra window not on the plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "2 Car Garage has extra small windows not on the plan.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Nook and Living Room furniture arrangement does not match plan.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Master Bedroom bed rotated 90 degrees.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Bedroom #4 has added bed not shown on plan.",
+            "point_deduction": 1
+        }
+    ],
+    "total_score": 81,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render mostly maintains the overall layout and structural elements but has several minor wall inaccuracies, differing door swings, and significant furniture arrangement discrepancies, especially in the Nook, Living Room, and Bedroom #4. Aesthetic and technical quality is fully compliant.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan9.png"
+}

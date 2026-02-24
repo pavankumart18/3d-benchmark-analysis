@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 4,
+            "doors": 7,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches, and adjacency is largely correct. However, some wall positions have noticeable discrepancies. Notably, the wall between the Living room and Kitchen, and the wall separating Bed RMs 2 & 3 from the main corridor. Several doors appear to have incorrect swing directions or are missing, particularly in the toilet areas. Window count and placement are mostly accurate, but some are missing. Scaling appears inconsistent in some areas, leading to slight distortion."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 1,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view is partially compliant; while the roof is removed, there are visible textures/patterns where the roof should be, and the interior walls are fully visible. The model is complete with no missing rooms or structural elements. No hallucinated rooms or features. However, the presence of room labels and dimensions on the 3D render constitutes a significant UI/annotation cleanliness violation. The presentation context is acceptable, though the background isn't a deep neutral black and there are some shadows on the ground plane."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 3
+        },
+        "notes": "Most major furniture pieces are present across the Living, Dining, and Bedrooms. Kitchen and bathroom fixtures are also mostly present. However, the placement of several items, particularly the beds in Bedroom 2 and 3, and some of the chairs in the living room, does not perfectly match the 2D plan. The scale of the furniture generally appears appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 0,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 0,
+            "lighting_rendering": 0,
+            "camera_composition": 0
+        },
+        "notes": "This section receives a score of 0 due to critical violations. The render utilizes photorealistic materials and textures (wood floors, patterned carpets, detailed furniture, textured walls), which directly contradicts the 'solid flat colors only' and 'no textures' specification. The lighting includes subtle shadows and reflections, moving away from 'soft ambient' and 'flat shading'. While the camera appears to be an isometric projection with good composition, the other critical issues lead to a zero score here."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels, room names, and dimensions are present on the 3D render.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering present with textures, patterns, and reflections/shadows.",
+            "point_deduction": 25
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Several wall positions are noticeably inaccurate (e.g., Living/Kitchen boundary, Bedroom 2/3 corridor wall, Bedroom 4 exterior wall). The wall segment defining the 'DRESS' area appears to be shorter in the 3D render compared to the 2D plan. The exterior wall of the master bedroom and an adjacent balcony section is misaligned.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple doors have incorrect swing directions or are missing/misplaced (e.g., multiple toilet doors, door to Dress area, some bedroom doors).",
+            "point_deduction": 6
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Scale and placement of beds in Bedroom 2 and 3, and some living room chairs, do not precisely match the 2D plan.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 47,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The generated 3D render fails to meet verification standards due to critical violations in aesthetic and technical quality (photorealism) and UI cleanliness (presence of text), compounded by significant spatial accuracy issues in wall and door geometry.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan17.jpg"
+}

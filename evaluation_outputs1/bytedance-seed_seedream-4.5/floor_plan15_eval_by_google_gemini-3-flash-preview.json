@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "The 3D model significantly departs from the source layout. Room proportions are distorted, particularly in the living area and kitchen. Window placement does not match the 2D plan, and the M.Bedroom balcony has been multiplied into a stacked structure."
+    },
+    "structural_fidelity": {
+        "score": 8,
+        "max": 25,
+        "notes": "Major violation: The model includes hallucinated text labels/gibberish on the floor. It also creates a multi-story balcony effect that does not exist in the single-unit plan. Although the roof is removed, the external walls are overly thick and misaligned with the plan's footprint."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "notes": "Furniture scale is inconsistent; the kitchen island and chairs are disproportionately large compared to the floor plan's kitchen/utility layout. Basic block-style furniture is present but misplaced."
+    },
+    "aesthetic_quality": {
+        "score": 12,
+        "max": 25,
+        "notes": "The style fails the 'no photorealism' constraint due to detailed kitchen textures and realistic warm interior lighting. The camera is isometric, but the lighting is too dramatic for a flat-shaded diagram."
+    },
+    "total_score": 43,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated text/gibberish labels present on the floor surface."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated exterior elements including a stacked multi-level balcony and extra windows."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion: Kitchen configuration and dining area scale do not match the blueprint."
+        },
+        {
+            "code": "E6",
+            "description": "Violation of flat shading constraint; uses warm point lights and realistic rendering materials."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan15.webp"
+}

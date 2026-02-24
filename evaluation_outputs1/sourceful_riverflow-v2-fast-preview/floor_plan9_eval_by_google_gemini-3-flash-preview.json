@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 5,
+        "max": 40,
+        "notes": "Failure to represent the complex multi-room floor plan. The 3D render represents a generic single-unit or studio layout that does not match the 4-bedroom, 2-car garage architecture provided. Door and window placements are entirely non-compliant with the blueprint."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "While the roof is removed and the model is floating on a neutral background, it is missing approximately 80% of the required rooms (Garage, Study, Bedrooms 2-4, Utility, etc.). It is a complete structural reinterpretation."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "notes": "Most fixtures from the floor plan (kitchen island, beds, baths, dining tables) are missing. Only a generic toilet/sink block is partially visible in a non-compliant location."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "The render successfully adheres to the requested low-poly, flat-shaded, isometric style on a dark background. However, the composition is centered on a much smaller model than the plan requires."
+    },
+    "total_score": 39,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing 2-car garage, Study, Dining Room, and multiple Bedrooms/Bathrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Room proportions and wall alignments do not correspond to the layout of the blueprint."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a small, consolidated cube layout instead of the expansive architectural plan provided."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan9.png"
+}

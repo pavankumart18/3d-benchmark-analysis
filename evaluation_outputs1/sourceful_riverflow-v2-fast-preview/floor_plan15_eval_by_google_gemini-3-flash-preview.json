@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Major spatial failures. The 3D model adds an extra bedroom (four total) whereas the floor plan specifies a 3 BHK. The kitchen/utility area is entirely misinterpreted as another bedroom space. Door orientations are largely missing or indicated by simple gaps that do not match the swing directions shown in the plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Poor structural fidelity. The roof is not fully removed; a large grey slab hovers over half the unit, obscuring visibility. There is a hallucinated extra room. However, it correctly utilizes a dark background and lacks text labels."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture is used as block-style, but mapping is incorrect. Because of the room hallucinations, beds are placed in areas designated as the kitchen/utility. The dining table and specific sofa arrangement from the living area are omitted or genericized."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High adherence to style. Uses low-poly geometry, flat shading, and no textures. The isometric orthographic camera angle is correct and the composition is centered."
+    },
+    "total_score": 54,
+    "detected_errors": [
+        {
+            "code": "E4",
+            "description": "Hallucination of a 4th bedroom in the space designated for the Kitchen and Utility area."
+        },
+        {
+            "code": "E3",
+            "description": "Roof not fully removed; hovering ceiling plane obscures the interior layout."
+        },
+        {
+            "code": "E2",
+            "description": "General layout distortion where room count and adjacencies do not match the 'Unit 1 (3 BHK)' specification."
+        },
+        {
+            "code": "E1",
+            "description": "Missing specific kitchen fixtures and living room furniture set-piece layout."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan15.webp"
+}

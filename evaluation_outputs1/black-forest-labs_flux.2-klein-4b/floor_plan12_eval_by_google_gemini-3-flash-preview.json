@@ -1,0 +1,48 @@
+{
+    "spatial_accuracy": {
+        "score": 18,
+        "max": 40,
+        "notes": "Significant layout distortion. Bed 3 and Bed 4 have been merged or misinterpreted, and the ensuite/WC area is missing its distinct walls. The staircase/recess area in the upper left is missing. Door swing orientations are inconsistent with the plan."
+    },
+    "structural_fidelity": {
+        "score": 12,
+        "max": 25,
+        "notes": "The model fails to include several internal walls and the staircase structure. However, the 'roof removed' and 'floating model' constraints are satisfied. No text labels or measurement lines are present."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "notes": "Furniture placement is highly hallucinated. Bed 3 and Bed 4 furniture is incorrectly merged into one space. The sofa in the Activity room is replaced with stylized blocks that don't match the plan's layout."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to the visual style: low-poly, flat shading, and an isometric perspective on a neutral background. Lighting is soft and non-dramatic as requested."
+    },
+    "total_score": 56,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing staircase/void area in the top-left quadrant of the plan."
+        },
+        {
+            "code": "E1",
+            "description": "Missing internal walls defining Bed 3, Bed 4, and the WC corridor."
+        },
+        {
+            "code": "E2",
+            "description": "Incorrect door placement and scaling for the balcony entry and bedrooms."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated furniture layout in the bedroom wing that does not match the 2D plan specifications."
+        },
+        {
+            "code": "E2",
+            "description": "Room proportions are distorted; the activity room is oversized compared to the bedroom wing."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-klein-4b",
+    "input_file": "floor_plan12.png"
+}

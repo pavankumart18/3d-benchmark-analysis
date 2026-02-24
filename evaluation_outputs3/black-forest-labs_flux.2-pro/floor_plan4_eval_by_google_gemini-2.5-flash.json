@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion checks passed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 34,
+            "max": 35,
+            "notes": "Minimal perspective distortion is present, but overall 3D conversion is excellent. Wall corners are well-defined."
+        },
+        "geometric_accuracy": {
+            "score": 28,
+            "max": 30,
+            "notes": "Door in Bedroom 2 is missing. All other walls, rooms, and openings are accurately represented."
+        },
+        "interior_elements": {
+            "score": 14,
+            "max": 15,
+            "notes": "All major furniture and fixtures are present and correctly placed. Furniture scale is reasonable. A closet in the hall is missing furniture."
+        },
+        "visual_clarity": {
+            "score": 19,
+            "max": 20,
+            "notes": "Clear, well-lit, and aesthetically pleasing with consistent materials. No text labels or artifacts."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door leading into Bedroom 2 from the main hall is missing."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MINOR",
+            "description": "Closet in the hall is empty, while it has a shelf/rod in the 2D plan."
+        }
+    ],
+    "total_score": 95,
+    "verdict": "EXCELLENT",
+    "summary": "The 2D floor plan has been converted into an excellent and geometrically faithful 3D isometric cutaway model with high accuracy and visual clarity, despite a minor missing door and a detail in the closet.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan4.jpg"
+}

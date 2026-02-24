@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is preserved. However, the laundry room and adjacent closet have been merged into a single kitchen extension. The hallway configuration near the entrance is slightly distorted, widening the passage. Window count on the right wall is higher than the floor plan indicates."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The laundry room is effectively missing/reinterpreted as part of the kitchen. Otherwise, the model adheres well to constraints: no roof, no text labels, and a clean floating presentation on a dark background."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement is highly accurate to the plan, including the kitchen island, dining set, and bathroom fixtures. Slight scale issue with the size of the kitchen appliances relative to the living area."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence to style. Perfect isometric orthographic camera angle. Clean low-poly geometry with flat colors and soft ambient light. No photorealism or textures present."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing Laundry room and associated closet; they were merged into the kitchen area."
+        },
+        {
+            "code": "E2",
+            "description": "Hallway width and entrance area geometry distorted compared to 2D dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated additional windows on the right exterior wall (three windows instead of two)."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan4.jpg"
+}

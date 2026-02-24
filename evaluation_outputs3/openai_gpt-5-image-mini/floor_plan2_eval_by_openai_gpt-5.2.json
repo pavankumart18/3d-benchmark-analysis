@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true isometric/cutaway 3D model: walls have height and thickness, multiple faces are visible, interior volumes read as rooms, and the ceiling/roof is removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 31,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable wall corners and clear room volumes; clean cutaway. Minor simplification/softness in some wall junctions and openings."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "Overall room count and major zones (two bedrooms, living/dining, kitchen, bathroom core) mostly match, but several wall/partition details and opening placements do not closely follow the 2D plan (notably the bathroom/core partitioning and entry/corridor definition)."
+        },
+        "interior_elements": {
+            "score": 11,
+            "max": 15,
+            "notes": "Bedrooms, living seating, dining set, and basic kitchen elements are present. Bathroom is incomplete vs plan (key fixtures/arrangement mismatch; toilet not clearly present)."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Readable geometry and consistent materials with good visibility. Some openings/doors are ambiguous (door panels/swings not represented), reducing structural clarity."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "description": "Core/bathroom partitioning and some wall positions do not align tightly with the 2D plan; corridor/entry definition appears simplified/shifted."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "description": "Door and opening placements are not faithfully represented (no clear door leaves/swings; some openings appear relocated or resized)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "MAJOR",
+            "description": "Bathroom fixture set/placement does not match the plan (toilet not clearly present; shower/vanity arrangement inconsistent)."
+        },
+        {
+            "code": "E5-STYLE",
+            "severity": "MINOR",
+            "description": "Simplified modeling of architectural details (frames/trim/thresholds) reduces fidelity but does not invalidate 3D conversion."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "A clearly valid 3D cutaway conversion with strong volumetric modeling, but only moderate plan fidelity due to notable bathroom/core and opening/door mismatches.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image-mini",
+    "input_file": "floor_plan2.png"
+}

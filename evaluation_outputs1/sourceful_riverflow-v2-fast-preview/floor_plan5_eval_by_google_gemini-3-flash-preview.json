@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room adjacency are remarkably accurate. However, there are minor scaling issues in the living area where the central corridor space feels slightly wider than the plan suggests, and the bottom bedroom window placement is slightly shifted."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent structural adherence. The model is correctly floating on a neutral background with no UI elements/text. All rooms from the plan are accounted for, and the roof is removed as required."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture follows the 'block-style' requirement perfectly. Bed, sofa, and dining orientations match the floor plan exactly. Note: a TV stand was added in the living room which was not in the 2D plan, but it serves the room logic well."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "The style is high-quality low-poly with flat shading. The camera is correctly isometric. One point deduction for slight wood-grain texture presence on floors/doors which technically violates a 'no textures' stricture, though it remains non-photorealistic."
+    },
+    "total_score": 91,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the central hall/living area width compared to the specific 2D dimensions."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated TV and media unit in the living room not shown in the original blueprint."
+        },
+        {
+            "code": "E6",
+            "description": "Presence of simple textures on floors and doors instead of strictly flat, solid colors."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-fast-preview",
+    "input_file": "floor_plan5.jpg"
+}

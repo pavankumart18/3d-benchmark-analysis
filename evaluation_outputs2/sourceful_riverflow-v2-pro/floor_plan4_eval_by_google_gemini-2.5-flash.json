@@ -1,0 +1,68 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 9,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "Overall layout is good. Room count matches. Adjacencies are preserved. Relative room sizes are proportional. Main footprint maintained. Wall geometry is largely accurate with one minor misalignment. All doors are present, but their swing direction is not consistent with the plan. All windows are present. Consistent scale factor and no aspect ratio distortion detected."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "Cutaway view is excellent; roof completely removed, interior walls fully visible. No missing structural elements or rooms. No extra rooms or architectural features added. Fails UI/annotation cleanliness due to the presence of text and a logo from the original plan in the 2D image, which was implicitly carried to the 3D interpretation. The 3D render itself has no UI elements. Presentation context is good, dark background, model isolated, no ground plane."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining tables) are present. Kitchen and bathroom fixtures are present. Furniture placement is mostly accurate, though some elements like the kitchen island and some living room furniture have minor positional discrepancies. Scale of furniture is appropriate."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 10,
+            "camera_composition": 5
+        },
+        "notes": "Low-poly simplified forms, flat shaded surfaces, and clean edges are observed. No textures, using solid flat colors. Soft ambient lighting with minimal shadows. Colors are distinguishable. True isometric projection, 45\u00b0 rotated plan view, centered framing, and appropriate zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Some door swing directions do not match the 2D plan, e.g., bathroom door, hall closet door.",
+            "point_deduction": 1
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen island position is slightly off. Living room furniture (sofa relative to TV stand) has minor positional discrepancies.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 86,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render provides a highly accurate translation of the 2D floor plan, excelling in structural, geometry, lighting, and camera aspects. Minor discrepancies exist in door swing directions and precise furniture placement, but these do not detract significantly from the overall fidelity.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-pro",
+    "input_file": "floor_plan4.jpg"
+}

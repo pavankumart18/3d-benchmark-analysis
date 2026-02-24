@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "The alignment and room adjacencies are largely preserved, but there is noticeable dimensional stretching on the right-hand side. Room proportions for Bed Room 2 and Bed Room 3 have been elongated compared to the original floor plan."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "notes": "Major violation of constraints: the image is not a 3D isometric render but a tilted perspective or 'skewed' 2D image. Text labels and measurement lines from the original plan were not removed, violating the strict UI/Label constraint."
+    },
+    "furniture_mapping": {
+        "score": 6,
+        "max": 10,
+        "notes": "Furniture exists but it is not clean block-style geometry; it is the 2D illustration from the source plan simply distorted into the new perspective. Scaling is inconsistent due to the wall stretching."
+    },
+    "aesthetic_quality": {
+        "score": 5,
+        "max": 25,
+        "notes": "Total failure to meet 'low-poly 3D' style. The result is a 2D-to-2D skewing effect rather than a 3D model. No flat shading or volumetric lighting is present. The camera angle is not a true orthographic isometric view."
+    },
+    "total_score": 53,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Strict violation: all text labels and measurement lines (e.g., 'LIVING 28'3\"X23'6\"') are still present."
+        },
+        {
+            "code": "E3",
+            "description": "Model is not a 3D isometric render; it is a 2D image projection with no actual wall height or depth."
+        },
+        {
+            "code": "E6",
+            "description": "Style violation: the texture and line work are identical to the 2D source instead of being converted to simplified low-poly geometry."
+        },
+        {
+            "code": "E2",
+            "description": "Layout distortion in the bedrooms on the right and stretching of the balcony areas."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-2.5-flash-image",
+    "input_file": "floor_plan17.jpg"
+}

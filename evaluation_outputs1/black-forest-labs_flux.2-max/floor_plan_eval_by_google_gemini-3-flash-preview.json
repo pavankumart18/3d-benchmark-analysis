@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "notes": "General layout and room placement are highly accurate to the source. Deductions for slight scaling inaccuracies in the bedroom widths and the omission of the distinct 'hallway' doors leading into the bedrooms which appear as open archways."
+    },
+    "structural_fidelity": {
+        "score": 25,
+        "max": 25,
+        "notes": "Excellent adherence. No roofs, no text labels, dark neutral background, and all rooms from the plan are represented without hallucinated additions."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Furniture placement is very precise, including the specific sofa arrangement and the distinctive bay window seat. Minor point deduction for the missing kitchen sink bowl detail which appears as a flat block."
+    },
+    "aesthetic_quality": {
+        "score": 18,
+        "max": 25,
+        "notes": "While the isometric camera and low-poly geometry are correct, the render utilizes dramatic cast shadows and global illumination contrary to the 'flat shading' constraint. No textures were used, which is positive."
+    },
+    "total_score": 86,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Bedroom entryway layout simplified from the plan's specific door swing and niche configuration."
+        },
+        {
+            "code": "E6",
+            "description": "Violation of flat shading constraint; model uses high-contrast directional lighting and soft shadows."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan.jpg"
+}

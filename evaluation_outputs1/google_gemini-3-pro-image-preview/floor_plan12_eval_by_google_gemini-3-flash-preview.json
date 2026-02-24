@@ -1,0 +1,44 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacency are well-preserved. However, there are significant door placement errors: the entrance to the main bathroom is missing its door swing/opening in the 3D model, and the orientation of the Bed 2 door is mirrored. Window placement in the Activity area and Bed 4 is slightly shifted compared to the plan."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. All rooms are present, no hallucinated spaces, and dimensions are scaled accurately. Roof is removed as requested and no text/labels are present. Minor deduction for the thickness of internal walls not matching the 2D plan's hierarchy (e.g., linen closet wall)."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Clean block-style furniture used. Sofa, beds, and bathroom fixtures are correctly placed. Points deducted for the hallucination of coffee tables in the Activity area and Balcony which were not specified in the 2D plan, and the missing 'Recess' shelving/cabinetry in the hallway."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Strong adherence to the low-poly, flat-shaded aesthetic. Background is dark and neutral. Lighting is soft and ambient. The camera is isometric, though slightly more top-down than a standard 45-degree angle, but still acceptable within orthographic constraints."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door opening for the main bathroom from the central hallway."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated coffee tables in the Activity room and Balcony not present on the floor plan."
+        },
+        {
+            "code": "E2",
+            "description": "Bed 2 door swing is incorrectly mirrored/misplaced compared to the 2D layout."
+        },
+        {
+            "code": "E2",
+            "description": "Main Bathroom vanity and shower orientation are swapped relative to the wall adjacency in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan12.png"
+}

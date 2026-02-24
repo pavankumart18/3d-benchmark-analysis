@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout and room adjacencies are highly accurate. However, there are minor scaling issues with the central hallway width. Door swings are mostly accurate but some transitions appear as open gaps without visible frames."
+    },
+    "structural_fidelity": {
+        "score": 18,
+        "max": 25,
+        "notes": "Model follows the floating dark background constraint and roof removal. However, it violates the 'NO text labels' rule by including illegible hallucinated text labels in the bedrooms and bathrooms."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "notes": "Excellent mapping of furniture including the kitchen L-shape, dining table with chairs, living room seating, and bed placements. Scaling is consistent with the rooms."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Perfect adherence to low-poly, flat-shaded aesthetic and isometric camera angle. Lighting is soft and non-dramatic as required."
+    },
+    "total_score": 82,
+    "detected_errors": [
+        {
+            "code": "E5",
+            "description": "Hallucinated text labels/unidentified markings present on the floors of bedrooms and bathrooms."
+        },
+        {
+            "code": "E2",
+            "description": "Minor dimensional distortion in the central corridor and bathroom wall alignments compared to 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan.jpg"
+}

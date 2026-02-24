@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "All mandatory 3D conversion criteria are met."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Minimal perspective distortion is present, but otherwise strong 3D fundamentals. Clean cutaway."
+        },
+        "geometric_accuracy": {
+            "score": 20,
+            "max": 30,
+            "notes": "The 'Living Room' and 'Bedroom 1' from the 2D plan are swapped in the 3D model. Adjacency of 'Bedroom 1' and 'Dining' is incorrect due to this swap. The wall defining the 'Entrance to the House' is significantly shortened, and the exterior outline near the stairs does not match. There are also windows added where there were none in the 2D plan."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Furniture is well-placed and scaled in the provided rooms, but the swap of 'Bedroom 1' and 'Living Room' leads to furniture in incorrect rooms relative to the original plan's identities."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Text labels are present in the 3D image, deducting points for background/presentation. Otherwise, clear and well-lit."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "The 'Living Room' and 'Bedroom 1' areas are swapped, leading to major layout distortion."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "Major",
+            "description": "Wall defining 'Entrance to the House' is significantly shorter in 3D."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "Minor",
+            "description": "Windows are added in the 3D model where none were indicated in the 2D floor plan for the 'Dining' and 'Living Room' (originally bedroom) areas."
+        },
+        {
+            "code": "E6-UI",
+            "severity": "Minor",
+            "description": "Text labels are present in the 3D render."
+        }
+    ],
+    "total_score": 78,
+    "verdict": "GOOD",
+    "summary": "The 3D conversion is geometrically sound with good rendering, however, there are significant deviations in room identification and layout relative to the original 2D floor plan, specifically the swapping of two major rooms.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan7.jpg"
+}

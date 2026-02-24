@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General floor plan layout and room adjacency are well-preserved. However, the laundry room and adjacent closets in the bottom left have been merged into a single vague utility space. Window and door placements are mostly accurate, though the entry door is incorrectly rendered as a double-door swing."
+    },
+    "structural_fidelity": {
+        "score": 20,
+        "max": 25,
+        "notes": "The model is a correct cutaway with the roof removed. No text or UI elements are present. However, there is some structural reinterpretation in the utility area (laundry/closet) and the main entrance hallway walls show slight alignment distortions compared to the 2D blueprint."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Excellent block-style furniture mapping. Kitchen counters, living room sofa set, and bedroom layouts match the 2D symbols accurately. Scaling is consistent throughout."
+    },
+    "aesthetic_quality": {
+        "score": 25,
+        "max": 25,
+        "notes": "Perfect adherence to style constraints. The model is low-poly, flat-shaded, utilizes simple colors without textures, and is presented in a correct isometric orthographic view on a neutral dark background."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "The entry door shows a double-swing arc hallucination not present in the 2D plan."
+        },
+        {
+            "code": "E4",
+            "description": "Structural reinterpretation of the laundry and closet area into a singular undefined room."
+        },
+        {
+            "code": "E2",
+            "description": "Minor wall alignment distortion in the hallway/laundry junction."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan4.jpg"
+}

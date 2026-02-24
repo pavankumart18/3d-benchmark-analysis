@@ -1,0 +1,56 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true 3D cutaway: walls have height/thickness, multiple faces are visible, interior volume reads as rooms, and the view is angled with the ceiling/roof removed."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Strong 3D extrusion with readable corners and clear floor/wall separation; minor simplification in some junctions and opening detailing."
+        },
+        "geometric_accuracy": {
+            "score": 16,
+            "max": 30,
+            "notes": "Overall apartment massing and the 3-bedroom + central living/dining concept matches, and balconies appear on the right; however several plan spaces are missing or merged (deck not represented, kitchen/utility not clearly modeled, toilet count reduced vs plan) and some internal partitions do not align cleanly with the 2D arrangement."
+        },
+        "interior_elements": {
+            "score": 9,
+            "max": 15,
+            "notes": "Bedrooms and living/dining furniture are present and plausibly scaled; bathrooms are simplified and fewer; kitchen fixtures/counters are largely absent or not identifiable relative to the 2D plan."
+        },
+        "visual_clarity": {
+            "score": 16,
+            "max": 20,
+            "notes": "Clean cutaway presentation with good readability; openings/windows are visible but not fully verifiable against the 2D; lighting is adequate and no obvious broken meshes."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "high",
+            "description": "Major spaces from the 2D plan are missing or not clearly represented in 3D (deck; kitchen/utility not clearly modeled; toilet count reduced compared with plan)."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "medium",
+            "description": "Internal partition layout and adjacency relationships appear simplified/shifted relative to the 2D plan (service core and bathroom cluster do not match well)."
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "low",
+            "description": "Door/window placement and sizing cannot be confirmed to match the 2D plan; several openings appear generic rather than plan-faithful."
+        }
+    ],
+    "total_score": 71,
+    "verdict": "PASS",
+    "summary": "This is a genuine 3D cutaway conversion, but it simplifies the plan significantly and omits/merges several key rooms and service spaces, reducing layout fidelity.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan20.avif"
+}

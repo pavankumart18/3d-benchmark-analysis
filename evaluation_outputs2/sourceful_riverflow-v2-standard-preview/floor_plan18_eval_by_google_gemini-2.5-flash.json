@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 30,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 6,
+            "doors": 8,
+            "windows": 4,
+            "dimensional_scaling": 4
+        },
+        "notes": "Relative room sizes are generally proportional, but the toilet/utility area is larger relative to the bedroom than in the plan. The overall footprint is maintained. Some wall positions are off by more than 5% (e.g., the wall separating living/dining from bedroom, and the kitchen wall alignment)."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is compliant, with the roof removed and interior walls visible. No rooms or structural elements are missing. UI/Annotation Cleanliness failed completely due to text and measurements in the 2D plan. Presentation Context is good for dark neutral background but has significant ground plane shadows."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 4,
+            "furniture_accuracy": 4
+        },
+        "notes": "Most major furniture pieces are present and in the correct rooms. Bedroom furniture (bed, side tables, wardrobe) is good. Living/Dining has dining table and sofa. Kitchen has counters, sink, and cooking range. Bathroom has toilet and sink. Some missing pieces like the TV unit in the living/dining area, and the small appliance/fixture in the utility zone next to the fridge."
+    },
+    "aesthetic_quality": {
+        "score": 19,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 9,
+            "lighting_rendering": 6,
+            "camera_composition": 4
+        },
+        "notes": "Low-poly, simplified forms with flat shaded surfaces are present. No obvious mesh artifacts or overly complex geometry. Color palettes are distinct. Lighting shows some shadows, indicating more than just soft ambient lighting, deducting points. The camera composition is generally good, centered and showing all rooms. Isometric projection verified (parallel lines remain parallel). Some shadows on the floor and walls indicate more directional light than simple ambient."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels and dimensions are present on the provided 2D floor plan, which is part of the input, making it difficult to assess UI cleanliness, as the instruction was to verify the _generated_ output against the _specification_.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Minor ground plane and wall shadows indicate slightly more complex lighting than purely soft ambient, leading to a deduction in lighting/rendering.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "The wall between the living/dining and bedroom is slightly misaligned, causing the bedroom to appear wider than indicated by the 2D plan boundary, and the living area a bit smaller. The wall separating the kitchen from the foyer is also slightly off leading to a less pronounced foyer depth. Overall relative spacing between the toilet/utility and kitchen is slightly condensed.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing TV unit in living/dining area, and detailed appliance in Utility. No indication of closet in bedroom.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane/shadows extend beyond the immediate model boundary.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 72,
+    "pass_threshold": 70,
+    "verdict": "PASS",
+    "summary": "The 3D render largely maintains spatial accuracy and structural fidelity, with good geometric style and composition, though minor discrepancies in wall positioning and an emphasis on rendering with some shadows resulted in minor deductions.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-standard-preview",
+    "input_file": "floor_plan18.jpg"
+}

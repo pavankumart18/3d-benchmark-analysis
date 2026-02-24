@@ -1,0 +1,103 @@
+{
+    "spatial_accuracy": {
+        "score": 15,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 5,
+            "windows": 2,
+            "dimensional_scaling": 2
+        },
+        "notes": "Room count is consistent, but overall layout has significant proportional and adjacency issues. The left bedroom is severely compressed, compromising relative sizes. The 'L' shaped living area in the 2D plan is entirely missing its corner in 3D. The bathroom is significantly scaled down. Missing walls in the living room area. Overall footprint is distorted."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 2,
+            "completeness": 3,
+            "hallucination_control": 3,
+            "ui_cleanliness": 0,
+            "presentation_context": 2
+        },
+        "notes": "The cutaway view shows fragments of a ceiling/roof along the edges. The UI/Annotation cleanliness is a critical failure due to the prominent text 'Multi-Room Floor Plan Template' on the original image, which is then rendered on the 3D model, causing a complete loss of points for this subcategory. While structurally mostly complete, the living area corner is missing."
+    },
+    "furniture_mapping": {
+        "score": 4,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 2,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present, but their placement often deviates from the plan. Notably, the beds in the left bedroom are completely different, the study desk is oriented differently, and the living room TV unit is missing. Kitchen counters and appliances are partially represented but lack detail and accuracy compared to the 2D. The `L` shaped couch of the 2D is split into two separate elements in the 3D, and the `L` shaped element in the 3D refers to the dining bench which is not `L` shaped in 2D."
+    },
+    "aesthetic_quality": {
+        "score": 13,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 2,
+            "lighting_rendering": 6,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is not low-poly and flat shaded; there's noticeable smoothing and subdivision, along with very basic textures/materials (not solid flat colors), indicating too much realism. Shadows are present and contribute to more realistic lighting than simple ambient. Camera is good, but rendering style deviates too much from specification."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text 'Multi-Room Floor Plan Template' from the original image is rendered on the 3D model, resulting in automatic 0/5 for UI/Annotation Cleanliness.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Living area's 'L' shaped structure in 2D is not preserved in 3D. A significant corner wall is missing.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Left bedroom is severely compressed, affecting relative room sizes and proportionality.",
+            "point_deduction": 4
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Geometry exhibits advanced shading/subdivision and basic texturing/materials beyond simple flat colors and low-poly forms.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Missing a window from the bathroom, and a window from the right bedroom.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Furniture type and placement discrepancies, e.g., different beds, missing TV stand, split living room couch, changed dining bench.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Roof/ceiling fragments visible around the perimeter of the model.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 42,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to critical errors in UI cleanliness and geometry style. Significant deviations in spatial accuracy, particularly room proportions and missing structural elements, also contribute to a low score. While some elements are recognizable, the model does not adhere to the strict architectural translation requirements.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan2.png"
+}

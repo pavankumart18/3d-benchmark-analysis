@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 22,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 4,
+            "wall_geometry": 2,
+            "doors": 6,
+            "windows": 5,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology suffers from missing Utility room and a heavily modified Foyer area. Wall geometry has several significant deviations, particularly around the kitchen/foyer and toilet entrance. Doors are mostly present but several are misplaced or have incorrect swing. Windows are correctly placed and sized. Dimensional scaling seems generally consistent, but the overall footprint is slightly simplified."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is good. However, there are significant completeness issues (missing balcony railing on one side, missing Utility room, missing closet in bedroom, missing closet near Foyer, bathroom wall not extending fully) and substantial hallucination (re-imagined Foyer/Kitchen entry, modified bathroom layout and features, re-imagined Utility area). UI/Annotation cleanliness is perfect (no text). Presentation context is mostly good, though it's on a hard grey background, not a gradient."
+    },
+    "furniture_mapping": {
+        "score": 2,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 1,
+            "furniture_accuracy": 1
+        },
+        "notes": "Many major furniture pieces are missing: bedroom closet, both closets in living area/foyer, specific dining chairs, kitchen appliances (fridge, washing machine, stove). Kitchen and bathroom fixtures are present but significantly rearranged/simplified compared to the plan's indication."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 10,
+            "lighting_rendering": 8,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is excellent, low-poly, flat shaded, clean edges, and solid colors. Lighting is mostly soft ambient, but there are some visible soft shadows which are not strictly 'minimal' as requested. Camera composition is a true isometric projection with appropriate framing and zoom."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire 'Utility' room/area is either missing or heavily subsumed/modified into the bathroom/kitchen entry, losing its distinct identity and associated fixtures.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Multiple wall misalignments: Foyer/Kitchen entrance significantly altered, bathroom outer wall moved, living area's south-eastern corner wall modified.",
+            "point_deduction": 8
+        },
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Missing bedroom built-in closet. Missing two storage closets/cupboards indicated in the living/foyer area. Balcony railing only partial.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "Significant hallucination and re-interpretation of the Foyer/Kitchen entry area and the Utility room's integration into the bathroom/kitchen space; the original Utility room no longer exists as a distinct space.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Toilet door swing reversed/different from plan. Main entrance door replaced with a step, not a door.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E6-MIN",
+            "severity": "MINOR",
+            "category": "aesthetic_quality",
+            "description": "Shadows are visible under furniture and walls which implies a directional light source, deviating from 'minimal shadows' and 'soft ambient lighting' with no dramatic contrasts.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 57,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to accurately translate the 2D floor plan due to significant spatial and structural deviations, particularly regarding room topology and wall geometry, and extensive reinterpretation of the Foyer and Utility areas. While aesthetic quality is high, the model's fidelity to the source is poor.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan18.jpg"
+}

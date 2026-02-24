@@ -1,0 +1,51 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Second image is a true cutaway/isometric 3D model with extruded walls (height + thickness), visible room volumes, and an elevated angled viewpoint exposing interiors."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Clear wall height/thickness, readable floor-vs-wall separation, and clean cutaway. Perspective is stable with minimal distortion; some edges/openings are simplified."
+        },
+        "geometric_accuracy": {
+            "score": 24,
+            "max": 30,
+            "notes": "Overall layout matches: large living zone with adjacent dining, kitchen/utility at lower-left, bedroom cluster to right, master suite with dress/toilets at top, and balconies in corresponding locations. Minor proportional/partition simplifications and not all openings are verifiable."
+        },
+        "interior_elements": {
+            "score": 12,
+            "max": 15,
+            "notes": "Major furniture present in living/dining and bedrooms; kitchen counters present; bathrooms include basic fixtures. Some rooms/fixtures appear simplified compared to the detailed 2D plan."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Clean presentation with good separation of walls/floors and adequate lighting; interiors are readable. Minor ambiguity in doors/windows and some small partition edges."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Doors/windows are not all clearly represented or verifiable on the exact walls compared to the 2D plan (some openings appear simplified/omitted)."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Furniture and bathroom/kitchen elements are simplified; some fine-grain room identity cues from the 2D plan are reduced."
+        }
+    ],
+    "total_score": 84,
+    "verdict": "GOOD",
+    "summary": "A true 3D cutaway conversion with strong overall layout fidelity, with minor simplifications in openings and interior detailing.",
+    "evaluator_model": "openai/gpt-5.2",
+    "evaluated_model": "black-forest-labs_flux.2-pro",
+    "input_file": "floor_plan17.jpg"
+}

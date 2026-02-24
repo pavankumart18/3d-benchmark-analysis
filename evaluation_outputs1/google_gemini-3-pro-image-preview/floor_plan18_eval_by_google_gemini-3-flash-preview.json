@@ -1,0 +1,40 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General floor plan layout is preserved. However, there are significant Door/Window discrepancies: the door to the balcony is missing its swing/opening logic, the kitchen entrance lacks the specific wall niche shown in the 2D plan, and several internal door frames are rendered as open gaps without door leaves."
+    },
+    "structural_fidelity": {
+        "score": 23,
+        "max": 25,
+        "notes": "Model is correctly floating on a dark neutral background with no text labels. All rooms are present. Minor deduction for the reinterpretation of the utility area which has lost its specific 'wide' proportion and wall thickness."
+    },
+    "furniture_mapping": {
+        "score": 7,
+        "max": 10,
+        "notes": "Furniture is well-placed and follows the block style. Points deducted for the dining area: the 2D plan shows a small 2-chair table while the 3D render hallucinations a much larger 6-chair dining set that crowds the living space."
+    },
+    "aesthetic_quality": {
+        "score": 22,
+        "max": 25,
+        "notes": "High adherence to style. Clean, low-poly geometry with flat colors. The camera is isometric and correctly angled. Slight deduction for shadows being a bit more defined than a strict 'flat shading' requirement, but overall very compliant."
+    },
+    "total_score": 84,
+    "detected_errors": [
+        {
+            "code": "E1",
+            "description": "Missing door panels/leaves in internal transitions; balcony access door logic is unclear."
+        },
+        {
+            "code": "E4",
+            "description": "Hallucinated a 6-chair dining table where a 2-chair setup was specified."
+        },
+        {
+            "code": "E2",
+            "description": "Scaling of the dining area is distorted relative to the available walking space shown in the 2D plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "google_gemini-3-pro-image-preview",
+    "input_file": "floor_plan18.jpg"
+}

@@ -1,0 +1,61 @@
+{
+    "is_valid_3d_conversion": true,
+    "conversion_verification": {
+        "walls_have_height": true,
+        "wall_thickness_visible": true,
+        "depth_perceivable": true,
+        "angled_view": true,
+        "roof_removed": true,
+        "notes": "Walls have clear height and thickness. The view is isometric, showing multiple surfaces and a perceptible interior."
+    },
+    "scores": {
+        "3d_conversion_fundamentals": {
+            "score": 30,
+            "max": 35,
+            "notes": "Walls have height and thickness (5). Floors are clear (3). Interior volume is perceivable (4). Proper 3D wall corner geometry is present (3). Angled view (5), interior visible from elevated perspective (3). Minimal perspective distortion (2). Roof removed cleanly (5), interior visible (3). Clean geometry (2)."
+        },
+        "geometric_accuracy": {
+            "score": 22,
+            "max": 30,
+            "notes": "The number of rooms and their adjacencies are mostly correct, but the deck areas are not clearly defined as rooms in the 3D model (10/12). Major wall positions align well (5). Wall lengths appear proportional (3). Internal partitions are mostly correct (2). Doors are present but some are missing or incorrectly represented (2/4). Windows are present but some placements are off; sizing and orientation are reasonable (2/2)."
+        },
+        "interior_elements": {
+            "score": 10,
+            "max": 15,
+            "notes": "Major furniture is present, including beds, sofas, and dining table (4). Kitchen elements are present (2). Bathroom fixtures are present (2). Furniture is placed in correct rooms (3), but the scale of some furniture (e.g., dining table) appears slightly off relative to the space (1/2). Orientation is mostly logical (2)."
+        },
+        "visual_clarity": {
+            "score": 18,
+            "max": 20,
+            "notes": "Walls, floors, and openings are clearly distinguishable (4). Geometry is readable (4). Interior is clearly visible (3). Lighting does not obscure geometry (3). Consistent material usage (2). No major rendering artifacts (2). Clean background/presentation (2)."
+        }
+    },
+    "detected_errors": [
+        {
+            "code": "E3-MIN",
+            "severity": "minor",
+            "description": "Some doors are missing or not clearly defined compared to the 2D plan."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "major",
+            "description": "The 'deck' areas from the 2D plan are not clearly represented as distinct areas in the 3D model, causing some distortion in the overall layout interpretation."
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "minor",
+            "description": "Some windows in the 3D render are not in the exact positions as shown in the 2D plan."
+        },
+        {
+            "code": "E4-FURN",
+            "severity": "minor",
+            "description": "Scale of some furniture, particularly the dining table, seems slightly small for the room. The overall furniture representation is very generic blocks."
+        }
+    ],
+    "total_score": 80,
+    "verdict": "GOOD",
+    "summary": "The 3D model provides a good isometric conversion of the 2D floor plan, accurately representing most major architectural elements and interior layouts, with minor discrepancies in door detailing and the interpretation of deck areas.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan19.webp"
+}

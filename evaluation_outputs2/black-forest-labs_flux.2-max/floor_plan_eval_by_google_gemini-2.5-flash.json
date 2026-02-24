@@ -1,0 +1,89 @@
+{
+    "spatial_accuracy": {
+        "score": 34,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 8,
+            "doors": 10,
+            "windows": 5,
+            "dimensional_scaling": 3
+        },
+        "notes": "Room count matches. Adjacencies preserved. The overall footprint shape is maintained. Wall positions are generally accurate, although some minor discrepancies in wall thickness and exact alignment are present, particularly the wall between Monica's bedroom and the bathroom, which appears too thin. Corner angles are preserved. All doors and windows are present and on correct walls. Door swing directions are mostly implied correctly by the openings, though not explicitly rendered. Dimensional scaling is consistent across the model, but a slight compression on one axis is noticeable."
+    },
+    "structural_fidelity": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 5,
+            "hallucination_control": 5,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The roof is completely removed, and all interior walls are visible. No missing structural elements. No extra rooms or architectural features are hallucinated. However, the model includes a ground plane with shadows that extend significantly, violating presentation context rules. Also, while not text, some symbols for plants are present in the top-left and top-right corners of the apartment. There is also a small white artifact on the left side of the image background, indicating a not fully neutral background."
+    },
+    "furniture_mapping": {
+        "score": 9,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 5,
+            "furniture_accuracy": 4
+        },
+        "notes": "All major furniture pieces (beds, sofas, dining table) are present. Kitchen and bathroom fixtures are indicated. Furniture placement largely matches the 2D plan, with minor discrepancies. For example, the dining chairs are positioned differently, and the specific kitchen counter layout isn't an exact match. Scale of furniture seems appropriate overall."
+    },
+    "aesthetic_quality": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 6,
+            "lighting_rendering": 1,
+            "camera_composition": 3
+        },
+        "notes": "The geometry uses low-poly simplified forms and flat-shaded surfaces with clean edges. However, there are clear textures/materials applied, not just solid flat colors (e.g., wood grain on kitchen cabinets, patterned rug, possibly some very subtle normal mapping on walls), which violates the 'no textures' rule. Lighting is not soft ambient; there are distinct shadows from a directional light source, creating dramatic contrast in places. The camera offers an isometric projection and a 45\u00b0 rotated plan view, with decent framing, but the model is not fully isolated due to the extended ground plane."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Slight proportional distortion, model appears slightly squashed on one axis.",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Ground plane with extended shadows visible and not isolated.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Texture/materials are used on surfaces, not solid flat colors.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "aesthetic_quality",
+            "description": "Lighting is dramatic with harsh shadows, not soft ambient.",
+            "point_deduction": 7
+        },
+        {
+            "code": "E5-MIN",
+            "severity": "MINOR",
+            "category": "structural_fidelity",
+            "description": "Small decorative plants and a rug are present, which are not architectural features and also are not purely solid colors.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 68,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The model achieved good spatial and structural accuracy, but failed due to significant deviations in aesthetic and technical quality, particularly the use of textures, non-ambient lighting, and the presence of a ground plane with extended shadows.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "black-forest-labs_flux.2-max",
+    "input_file": "floor_plan.jpg"
+}

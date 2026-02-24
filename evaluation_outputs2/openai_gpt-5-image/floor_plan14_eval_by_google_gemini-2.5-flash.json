@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 7,
+            "wall_geometry": 4,
+            "doors": 5,
+            "windows": 4,
+            "dimensional_scaling": 5
+        },
+        "notes": "Layout topology is generally correct, but several rooms are missing or severely altered. BED-2 adjacent C.TOI room is completely missing. Utility and its adjacent deck section are missing. Foyer, Living/Dining, and Kitchen are combined into one space. Wall geometry has several significant inaccuracies, particularly in the kitchen/utility area and the bedroom-2 side. Door presence is good, but placement and swing are not always accurate. Windows are mostly present and correctly placed. Dimensional scaling appears consistent."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 0,
+            "hallucination_control": 0,
+            "ui_cleanliness": 0,
+            "presentation_context": 5
+        },
+        "notes": "The cutaway view is correctly rendered with the roof removed. However, completeness is severely lacking, with multiple rooms and structural elements (like the C.TOI and Utility rooms, stairs, and balconies) completely missing. Hallucination control is poor due to the combination of rooms and removal of others. UI elements (text, measurements) are absent, which is good. Presentation context is mostly correct with a dark background and isolated model."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Major furniture pieces (beds, sofas, dining table) are present. Kitchen and bathroom fixtures are also present but are not entirely accurate in number or placement. Living/Dining area furniture is reasonably placed, but the dining table's location is shifted. Bathroom fixtures are present. Beds are in correct rooms. Kitchen layout is incorrect."
+    },
+    "aesthetic_quality": {
+        "score": 20,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 8,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "Geometry style is low-poly and flat-shaded with clean edges and solid colors, meeting specifications. Lighting is soft and ambient with minimal shadows. Colors are distinguishable. Camera uses a true isometric projection with a 45\u00b0 rotated plan view, centered framing, and appropriate zoom level."
+    },
+    "detected_errors": [
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'C.TOI' (adjacent to BED-2) is missing and replaced by an extended closet/storage in the render.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E1-CRIT",
+            "severity": "CRITICAL",
+            "category": "spatial_accuracy",
+            "description": "Entire room 'UTILITY' and its adjacent 'DECK' are missing.",
+            "point_deduction": 3
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "structural_fidelity",
+            "description": "The 'FOYER', 'LIVING/DINING', and 'KITCHEN' areas are combined into one large open-plan space in the render, deviating significantly from the floor plan's distinct room separation.",
+            "point_deduction": 15
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant wall geometry discrepancies around the Kitchen and Utility areas, including missing walls and altered room shapes.",
+            "point_deduction": 6
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing direction and exact placement are incorrect for several doors, e.g., door to BED-1, and doors to TOI-1/TOI-2.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E3-MIN",
+            "severity": "MINOR",
+            "category": "furniture_mapping",
+            "description": "Kitchen counter/sink layout does not match the 2D plan, and the dining table is rotated and slightly shifted.",
+            "point_deduction": 3
+        }
+    ],
+    "total_score": 60,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails due to major structural deviations, including missing rooms and combining distinct living spaces, although the aesthetic and camera quality are good.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "openai_gpt-5-image",
+    "input_file": "floor_plan14.webp"
+}

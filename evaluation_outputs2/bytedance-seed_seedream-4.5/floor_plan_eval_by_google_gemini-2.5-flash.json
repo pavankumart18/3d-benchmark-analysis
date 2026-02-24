@@ -1,0 +1,96 @@
+{
+    "spatial_accuracy": {
+        "score": 25,
+        "max": 40,
+        "subscores": {
+            "layout_topology": 8,
+            "wall_geometry": 5,
+            "doors": 6,
+            "windows": 3,
+            "dimensional_scaling": 3
+        },
+        "notes": "Overall layout is good, but some significant inaccuracies exist. Room count matches (6 main rooms, 2 closets, 3 bathrooms). Adjacency is mostly preserved with a few issues. Relative room sizes are acceptable for major rooms, but the bathroom next to Rachel's bedroom and the closet room next to the kitchen are significantly distorted. The overall footprint shape is maintained. Wall positions have some deviations, particularly the entire left side of the apartment (Rachel's Bedroom and bathroom wall) is shifted inwards relative to the plan. One internal wall element near the kitchen is missing in the 3D render. Door swings are not consistently followed or are simplified. Window sizes and exact positions are off in several instances."
+    },
+    "structural_fidelity": {
+        "score": 10,
+        "max": 25,
+        "subscores": {
+            "cutaway_view": 5,
+            "completeness": 3,
+            "hallucination_control": 2,
+            "ui_cleanliness": 0,
+            "presentation_context": 0
+        },
+        "notes": "The cutaway view is mostly compliant, with the roof removed and interior walls visible. There is some missing structural completeness regarding a small internal wall segment near the kitchen/closet area. Hallucination control is poor, with an added feature for 'CHANDLER & JOEY'S APARTMENT' and other text. UI/Annotation Cleanliness is a critical failure, as multiple text labels and external information are present. Presentation context fails due to the external annotations/text and the background not being completely neutral due to text."
+    },
+    "furniture_mapping": {
+        "score": 5,
+        "max": 10,
+        "subscores": {
+            "furniture_presence": 3,
+            "furniture_accuracy": 2
+        },
+        "notes": "Most major furniture pieces are present in the correct rooms, such as beds, sofas, dining table, and most kitchen and bathroom fixtures. However, there are significant discrepancies in placement and scale. For instance, the furniture in Rachel's bedroom is reversed relative to the plan. The kitchen counter layout is altered, and a full-size refrigerator is added next to the front door, which is not on the plan. The bathroom fixture layouts are simplified and don't match the plan precisely. The TV unit in the living room is missing, and the coffee table is different. The dining table is in the correct place but the chairs are laid out differently. The couch in the living room is not matching the placement and orientation of the 2D plan. The sofa and armchair in Monica's bedroom are missing."
+    },
+    "aesthetic_quality": {
+        "score": 15,
+        "max": 25,
+        "subscores": {
+            "geometry_style": 3,
+            "lighting_rendering": 7,
+            "camera_composition": 5
+        },
+        "notes": "The geometry style is not low-poly or flat-shaded as specified. Surfaces clearly show smooth shading/subdivision, and specific materials/textures are used for floors, walls, and furniture (wood, tiles, fabric). This deviates significantly from the flat-shaded, no-texture requirement. Lighting has shadows and appears somewhat soft but definitely not 'minimal shadows'. Colors are distinguishable. The camera is not a true isometric projection (perspective distortion is visible, parallel lines appear to converge slightly). The view is from a 45-degree rotated plan viewpoint, centered, and all rooms are visible. The colors used are a significant deviation from the expectation of solid flat colors."
+    },
+    "detected_errors": [
+        {
+            "code": "E5-CRIT",
+            "severity": "CRITICAL",
+            "category": "structural_fidelity",
+            "description": "Text labels present ('CHANDLER & JOEY'S APARTMENT', 'MONICA'S BEDROOM', 'RACHEL'S BEDROOM', 'COAT', 'CLOSET', 'DEJIT') within the render.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E6-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Photorealistic rendering/materials used (wood, fabric, tiles, reflections, soft shadows, smooth surfaces) instead of low-poly, flat-shaded, solid colors.",
+            "point_deduction": 10
+        },
+        {
+            "code": "E3-CRIT",
+            "severity": "CRITICAL",
+            "category": "aesthetic_quality",
+            "description": "Not a true isometric view; perspective distortion is visible (e.g., parallel lines converging).",
+            "point_deduction": 2
+        },
+        {
+            "code": "E2-MAJ",
+            "severity": "MAJOR",
+            "category": "spatial_accuracy",
+            "description": "Significant wall misalignments, especially the entire left side of the apartment (Rachel's Bedroom and adjacent bathroom wall) is shifted inwards. Missing small wall section near kitchen/closet.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E4-MAJ",
+            "severity": "MAJOR",
+            "category": "furniture_mapping",
+            "description": "Hallucinated full-size refrigerator next to the front door, not present on the plan. Furniture in Rachel's bedroom is reversed and overall furniture placement differs significantly from plan.",
+            "point_deduction": 5
+        },
+        {
+            "code": "E2-MIN",
+            "severity": "MINOR",
+            "category": "spatial_accuracy",
+            "description": "Door swing directions not consistently matched; door and window sizes/proportions sometimes off.",
+            "point_deduction": 2
+        }
+    ],
+    "total_score": 55,
+    "pass_threshold": 70,
+    "verdict": "FAIL",
+    "summary": "The 3D render fails to meet the architectural verification standards due to numerous critical errors, especially regarding aesthetic style and annotation. Significant deviations in spatial accuracy and furniture mapping contribute to a low overall score.",
+    "evaluator_model": "google/gemini-2.5-flash",
+    "evaluated_model": "bytedance-seed_seedream-4.5",
+    "input_file": "floor_plan.jpg"
+}

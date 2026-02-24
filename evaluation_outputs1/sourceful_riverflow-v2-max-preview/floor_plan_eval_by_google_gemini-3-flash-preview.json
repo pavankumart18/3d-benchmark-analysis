@@ -1,0 +1,36 @@
+{
+    "spatial_accuracy": {
+        "score": 32,
+        "max": 40,
+        "notes": "General layout is mostly preserved, but wall thicknesses are inconsistent. Door placement in the hallway area and the transition to the terrace/closet area is slightly distorted. Windows in the living area are present but the proportions of the large bay window are slightly simplified."
+    },
+    "structural_fidelity": {
+        "score": 22,
+        "max": 25,
+        "notes": "Excellent adherence to structural constraints. Roof is removed, all rooms are present, and there are no text labels or UI overlays. Model is correctly floating on a dark neutral background."
+    },
+    "furniture_mapping": {
+        "score": 8,
+        "max": 10,
+        "notes": "Furniture placement matches the schematic well (sofas, beds, dining table). Some kitchen fixtures are simplified and the scale of the living room rug/table area is slightly off compared to the blueprint."
+    },
+    "aesthetic_quality": {
+        "score": 23,
+        "max": 25,
+        "notes": "Strong adherence to low-poly, non-photorealistic aesthetic. Flat shading is utilized effectively. The isometric camera angle is correct."
+    },
+    "total_score": 85,
+    "detected_errors": [
+        {
+            "code": "E2",
+            "description": "Minor layout distortion in the hallway and entrance area; spatial scaling of walls is slightly thicker than blueprint indicates."
+        },
+        {
+            "code": "E4",
+            "description": "Slight reinterpretation of the terrace/closet area into a single structural block rather than the distinct recessed exterior space shown in the plan."
+        }
+    ],
+    "evaluator_model": "google/gemini-3-flash-preview",
+    "evaluated_model": "sourceful_riverflow-v2-max-preview",
+    "input_file": "floor_plan.jpg"
+}
