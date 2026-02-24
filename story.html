@@ -1,339 +1,829 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" class="antialiased">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From 2D Canvas to 3D Reality | 3D Floor Plan Benchmark</title>
+    <title>The Architectural Turing Test | AntiGravity Labs</title>
 
-    <!-- Google Fonts: NYT-style Serif (Merriweather) & Sans-Serif (Inter) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Chomp&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&display=swap"
         rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
         :root {
-            --nyt-serif: 'Merriweather', serif;
-            --nyt-serif-heading: 'Playfair Display', serif;
-            --nyt-sans: 'Inter', sans-serif;
-            --nyt-text: #121212;
-            --nyt-light-bg: #fdfdfd;
-            --nyt-gray: #666;
-            --nyt-border: #e2e2e2;
-            --nyt-accent: #3b5998;
+            --bg-color: #050505;
+            --text-main: #fcfcfc;
+            --text-muted: #9e9e9e;
+            --accent: #d4af37;
+            /* McKinsey Gold/Champagne */
+            --border: rgba(255, 255, 255, 0.15);
+
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
         }
 
-        body {
-            font-family: var(--nyt-serif);
-            background-color: var(--nyt-light-bg);
-            color: var(--nyt-text);
-            line-height: 1.8;
-            font-size: 19px;
+        body,
+        html {
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            scroll-behavior: smooth;
         }
 
-        /* Top Nav */
-        .story-nav {
-            border-bottom: 1px solid var(--nyt-border);
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--nyt-sans);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: sticky;
-            top: 0;
-            background: rgba(253, 253, 253, 0.95);
-            backdrop-filter: blur(5px);
-            z-index: 100;
+        ::selection {
+            background: var(--accent);
+            color: #000;
         }
 
-        .story-nav a {
-            color: var(--nyt-text);
-            text-decoration: none;
+        /* --- TYPOGRAPHY --- */
+        h1,
+        h2,
+        h3,
+        h4,
+        .serif {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            margin: 0;
         }
 
-        .story-nav .brand {
-            font-family: var(--nyt-serif-heading);
-            font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 0;
-            text-transform: none;
-            font-style: italic;
+        p {
+            line-height: 1.8;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
         }
 
-        /* Hero Header */
-        .story-header {
-            max-width: 800px;
-            margin: 4rem auto 3rem auto;
-            padding: 0 20px;
-            text-align: center;
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 500;
         }
 
         .kicker {
-            font-family: var(--nyt-sans);
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            color: var(--accent);
             text-transform: uppercase;
-            color: #d32f2f;
-            display: block;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
             margin-bottom: 1rem;
+            display: block;
+            font-weight: 600;
         }
 
-        .headline {
-            font-family: var(--nyt-serif-heading);
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: #000;
-        }
-
-        .subheadline {
-            font-family: var(--nyt-serif);
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: var(--nyt-gray);
-            line-height: 1.5;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .byline {
-            font-family: var(--nyt-sans);
-            font-size: 0.9rem;
-            color: #111;
-            border-top: 1px solid var(--nyt-border);
-            border-bottom: 1px solid var(--nyt-border);
-            padding: 1rem 0;
-            margin: 0 auto;
-            max-width: 600px;
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 3rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+            backdrop-filter: blur(2px);
+            box-sizing: border-box;
         }
 
-        .byline strong {
-            font-weight: 700;
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
         }
 
-        /* Article Body */
-        .article-body {
-            max-width: 650px;
-            margin: 0 auto 5rem auto;
-            padding: 0 20px;
+        .nav-logo span {
+            color: var(--accent);
         }
 
-        .article-body p {
+        .nav-link {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--text-main);
+            color: #000;
+            border-color: var(--text-main);
+        }
+
+        /* --- LAYOUT UTILS --- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .mx-auto {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .pt-3 {
+            padding-top: 1rem !important;
+        }
+
+        .border-top {
+            border-top: 1px solid var(--border) !important;
+        }
+
+        .d-none {
+            display: none !important;
+        }
+
+        @media (min-width: 768px) {
+            .d-md-block {
+                display: block !important;
+            }
+        }
+
+        .text-dark {
+            color: #000 !important;
+        }
+
+        .fw-bold {
+            font-weight: 700 !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 150vh;
+            position: relative;
+        }
+
+        .hero-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            transform: scale(1.1);
+            z-index: 0;
+            filter: blur(8px) brightness(0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 8rem);
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 2rem;
+            background: radial-gradient(circle at 50% 50%, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* --- INSIGHTS / TEXT BLOCK --- */
+        .article-block {
+            padding: 8rem 0;
+        }
+
+        .article-block h2 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        /* --- DATA VISUALIZATION: BAR CHART --- */
+        .chart-section {
+            background: #0a0a0a;
+            padding: 6rem 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 4rem 0;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .bar-label {
+            width: 250px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #fff;
+            text-align: right;
+            padding-right: 2rem;
+            flex-shrink: 0;
+        }
+
+        .bar-track {
+            flex-grow: 1;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #333, var(--accent));
+            width: 0%;
+            /* Animated via GSAP */
+            border-radius: 8px;
+            transform-origin: left;
+        }
+
+        .bar-score {
+            width: 60px;
+            text-align: left;
+            padding-left: 1rem;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--accent);
+            opacity: 0;
+            /* Animated */
+        }
+
+        /* --- STICKY SCROLLYTELLING (NYT STYLE) --- */
+        .scrolly-container {
+            display: flex;
+            align-items: flex-start;
+            /* Crucial for sticky flex items */
+            gap: 4rem;
+            position: relative;
+            margin: 8rem 0;
+        }
+
+        .scrolly-text {
+            width: 45%;
+            padding-bottom: 50vh;
+            /* padding to allow scrolling past last step */
+        }
+
+        .scrolly-step {
+            min-height: 80vh;
+            /* changed from exactly 100vh to avoid massive gaps */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0.2;
+            transition: opacity 0.4s;
+        }
+
+        .scrolly-step.active {
+            opacity: 1;
+        }
+
+        .scrolly-step h3 {
+            font-size: 2.5rem;
+            color: #fff;
             margin-bottom: 1.5rem;
         }
 
-        .article-body p:first-of-type::first-letter {
-            float: left;
-            font-size: 4.5rem;
-            line-height: 0.8;
-            padding-right: 0.5rem;
-            font-family: var(--nyt-serif-heading);
-            font-weight: 900;
+        .scrolly-visual {
+            width: 50%;
+            position: sticky;
+            top: 15vh;
+            height: 70vh;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #111;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            display: block;
+            /* explicitly block */
+            flex-shrink: 0;
+            z-index: 10;
         }
 
-        .article-body h2 {
-            font-family: var(--nyt-serif-heading);
-            font-weight: 700;
-            font-size: 2rem;
-            margin: 3rem 0 1.5rem 0;
-            line-height: 1.2;
+        .scrolly-visual img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(1.05);
+            /* add default initial state */
+            transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
+            visibility: hidden;
+            background: #fff;
+            /* For transparent blueprints */
+        }
+
+        .scrolly-visual img.active {
+            opacity: 1;
+            transform: scale(1);
+            visibility: visible;
+        }
+
+        .visual-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        /* --- COMPARISON WIPER --- */
+        .comparison-wrapper {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: ew-resize;
+            border: 1px solid var(--border);
+            margin: 4rem 0;
+        }
+
+        .comp-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #fff;
+            /* Base background */
+        }
+
+        .comp-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            border-right: 2px solid var(--accent);
+            background: #fff;
+        }
+
+        .comp-overlay img {
+            width: 100vw;
+            max-width: 1300px;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .comp-slider {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 48px;
+            height: 48px;
+            background: var(--text-main);
             color: #000;
-        }
-
-        .article-body h3 {
-            font-family: var(--nyt-sans);
-            font-weight: 700;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            z-index: 10;
             font-size: 1.2rem;
+        }
+
+        .comp-label {
+            position: absolute;
+            top: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 2rem 0 1rem 0;
-            color: #333;
+            z-index: 5;
         }
 
-        /* Full Width Media */
-        .media-full {
-            width: 100%;
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 20px;
+        .label-left {
+            left: 20px;
         }
 
-        .media-full img {
-            width: 100%;
-            height: auto;
+        .label-right {
+            right: 20px;
+        }
+
+        /* --- THE METRICS FLIP --- */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .metric-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .metric-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
             display: block;
         }
 
-        .media-caption {
-            font-family: var(--nyt-sans);
-            font-size: 0.85rem;
-            color: var(--nyt-gray);
-            margin-top: 0.8rem;
-            text-align: right;
+        /* --- LARGE QUOTE --- */
+        .quote-block {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
         }
 
-        /* Side-by-Side Comparison Container */
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            max-width: 1000px;
-            margin: 3rem auto;
-            padding: 0 20px;
+        .huge-quote {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.3;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #fff;
         }
 
-        .comparison-item {
+        /* --- CTA --- */
+        .cta-section {
+            padding: 12rem 2rem;
+            text-align: center;
+            position: relative;
+            border-top: 1px solid var(--border);
+            background: #000;
+        }
+
+        .btn-massive {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: transparent;
+            color: var(--accent);
+            padding: 1.5rem 4rem;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-massive::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transform: translateX(-101%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .btn-massive:hover {
+            color: #000;
+        }
+
+        .btn-massive:hover::before {
+            transform: translateX(0);
+        }
+
+        /* --- ORBIT CONSTELLATION --- */
+        .constellation-section {
+            padding: 10rem 0;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+        }
+
+        .orbit-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 800px;
+            margin: 5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-center {
+            position: relative;
+            z-index: 10;
+            width: 300px;
+            height: 300px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 1rem;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.2), 0 0 0 2px var(--accent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.5s;
+        }
+
+        .orbit-center img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .orbit-center .badge-label {
+            position: absolute;
+            bottom: -15px;
+            background: var(--accent);
+            color: #000;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .orbit-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 260px;
+            height: 200px;
+            margin-left: -130px;
+            /* Center offset */
+            margin-top: -100px;
+            /* Center offset */
+            background: #111;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            transition: box-shadow 0.4s, border-color 0.4s;
+            cursor: pointer;
+            z-index: 5;
             display: flex;
             flex-direction: column;
         }
 
-        .comparison-item img {
+        .orbit-node:hover {
+            z-index: 20;
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .orbit-node img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .orbit-node-label {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-family: var(--font-sans);
+        }
+
+        /* --- GALLERY GRID --- */
+        .gallery-section {
+            padding: 8rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .masonry-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .masonry-item img {
             width: 100%;
             height: auto;
-            border: 1px solid var(--nyt-border);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .comparison-label {
-            font-family: var(--nyt-sans);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-            color: #555;
-            border-bottom: 2px solid #000;
-            padding-bottom: 0.3rem;
-            display: inline-block;
-        }
-
-        /* Methodology Box */
-        .methodology-box {
-            background-color: #f7f7f7;
-            border: 1px solid var(--nyt-border);
-            padding: 2rem;
-            margin: 3rem 0;
-            font-family: var(--nyt-sans);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .methodology-box h4 {
-            margin-top: 0;
-            font-family: var(--nyt-serif-heading);
-            font-size: 1.4rem;
-            border-bottom: 1px solid var(--nyt-border);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Blockquote */
-        blockquote {
-            font-family: var(--nyt-serif-heading);
-            font-size: 1.8rem;
-            font-style: italic;
-            font-weight: 300;
-            color: #111;
-            text-align: center;
-            margin: 4rem 1rem;
-            line-height: 1.4;
-            position: relative;
-        }
-
-        blockquote::before {
-            content: "“";
-            font-size: 4rem;
-            color: #ccc;
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -1;
-        }
-
-        /* Table */
-        .insight-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-family: var(--nyt-sans);
-            font-size: 0.9rem;
-            margin: 2rem 0;
-        }
-
-        .insight-table th,
-        .insight-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--nyt-border);
-        }
-
-        .insight-table th {
-            font-weight: 700;
-            background-color: #fcfcfc;
-            border-bottom: 2px solid #111;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
-        }
-
-        .insight-table td strong {
-            color: #000;
-        }
-
-        .interactive-link {
             display: block;
-            text-align: center;
-            margin: 4rem 0;
-            font-family: var(--nyt-sans);
+            border-bottom: 1px solid var(--border);
         }
 
-        .interactive-link a {
-            display: inline-block;
-            background: #000;
+        .masonry-caption {
+            padding: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- LIGHTBOX --- */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            background: #fff;
+        }
+
+        #lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
             color: #fff;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: background 0.2s;
+            font-size: 2.5rem;
+            cursor: pointer;
         }
 
-        .interactive-link a:hover {
-            background: #333;
+        /* GSAP Utils */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
         }
 
-        @media (max-width: 768px) {
-            .headline {
-                font-size: 2.2rem;
-            }
+        /* Util classes */
+        .gsap-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+        }
 
-            .subheadline {
-                font-size: 1.1rem;
-            }
-
-            .comparison-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .byline {
+        @media (max-width: 992px) {
+            .scrolly-container {
                 flex-direction: column;
-                text-align: center;
-                gap: 10px;
+                gap: 2rem;
+            }
+
+            .scrolly-text {
+                width: 100%;
+                padding-bottom: 10vh;
+            }
+
+            .scrolly-step {
+                height: auto;
+                padding: 4rem 0;
+                opacity: 1;
+            }
+
+            .scrolly-visual {
+                width: 100%;
+                height: 50vh;
+                top: 100px;
+                z-index: -1;
+            }
+
+            .bar-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bar-label {
+                text-align: left;
+                margin-bottom: 0.5rem;
+                width: 100%;
+            }
+
+            .bar-track {
+                width: 100%;
+            }
+
+            .orbit-container {
+                height: auto;
+                flex-direction: column;
+                gap: 3rem;
+                margin: 2rem 0;
+            }
+
+            .orbit-node {
+                position: relative;
+                left: auto !important;
+                top: auto !important;
+                transform: none !important;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .masonry-grid {
+                column-count: 1;
             }
         }
     </style>
@@ -341,178 +831,574 @@
 
 <body>
 
-    <nav class="story-nav">
-        <a href="#">Technology / Visual Computing</a>
-        <a href="index.html" class="brand">AntiGravity</a>
-        <a href="index.html">Interactive Dashboard →</a>
+    <nav>
+        <a href="index.html" class="nav-logo">AntiGravity<span>.</span></a>
+        <a href="index.html" class="nav-link">Interactive Dashboard <i class="bi bi-arrow-up-right"></i></a>
     </nav>
 
-    <header class="story-header">
-        <span class="kicker">An In-Depth Investigation</span>
-        <h1 class="headline">The Architectural Turing Test: Can AI Truly See Space?</h1>
-        <p class="subheadline">For decades, software required humans to painstakingly extrude flat drawings into 3D
-            environments. We tested the newest generation of vision-language models to see if they could automate the
-            mind's eye.</p>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-sticky">
+            <img src="batch_outputs/floor_plan10_black-forest-labs_flux.2-pro.png" alt="Render" class="hero-bg"
+                id="heroBg">
+            <div class="hero-content">
+                <span class="kicker">An Advanced Intelligence Report</span>
+                <h1 class="hero-title serif">The Spatial Architecture<br>Imperative.</h1>
+                <p class="hero-subtitle">Generative AI has mastered the art of drawing. But can it engineer? We tested
+                    14 frontier models to separate aesthetic hallucination from structural math.</p>
+            </div>
 
-        <div class="byline">
-            <span>By <strong>AntiGravity Labs</strong></span>
-            <span>Published Feb. 23, 2026</span>
+            <div
+                style="position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); text-align: center; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">
+                Scroll Down <br>
+                <i class="bi bi-chevron-down mt-2 d-block" style="opacity: 0.5;"></i>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <div class="media-full">
-        <!-- Using one of the best generated outputs as hero -->
-        <img src="batch_outputs/floor_plan3_black-forest-labs_flux.2-pro.png"
-            alt="A generated 3D isometric cutaway of an apartment">
-        <div class="media-caption">A 3D isometric cutaway generated entirely by Flux 2 Pro, interpreting a flat 2D
-            schematic. (Generated via OpenRouter API)</div>
+    <!-- INTRODUCTION -->
+    <section class="article-block container reveal-up">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <span class="kicker">The Value Proposition</span>
+            <h2 class="serif">Beyond the Pixels: The $300B Structural Context</h2>
+            <p>For the architecture, prop-tech, and game development industries, the transition from two-dimensional
+                schematics to 3D volumetric assets is a multi-billion dollar bottleneck. It dictates the speed of urban
+                development, virtual environment rendering, and structural prototyping.</p>
+            <p>Computer vision models can hallucinate beautiful living rooms when prompted. But when constrained by
+                rigid mathematical blueprints—forced to acknowledge exact fenestrations, load-bearing delineations, and
+                precise room adjacencies—<span class="highlight-text">most generative AI models spectacularly
+                    collapse.</span></p>
+        </div>
+    </section>
+
+    <!-- EXPANDED METHODOLOGY STORYTELLING -->
+    <section class="article-block container reveal-up" style="padding-top: 0;">
+        <div class="row"
+            style="display: flex; flex-wrap: wrap; gap: 4rem; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 4rem;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3 class="serif" style="font-size: 2.5rem; margin-bottom: 1rem;">The Dataset Volume</h3>
+                <p>We did not just test a single prompt. We established an industrial-grade automated pipeline. We
+                    sourced <strong>17 distinct architectural floor plans</strong>, ranging from minimalist studios to
+                    labyrinthine commercial properties.</p>
+                <p>Each blueprint was processed through <strong>14 different frontier models</strong>—accounting for
+                    <strong>238 specific generation attempts</strong>. Each generation was subsequently evaluated by a
+                    <strong>multi-model LLM panel</strong>, resulting in over <strong>1,400 granular judging
+                        decisions</strong>.
+                </p>
+            </div>
+            <div
+                style="flex: 1; min-width: 300px; padding: 3rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; position: relative;">
+                <i class="bi bi-database text-muted"
+                    style="font-size: 4rem; position: absolute; top: -20px; right: 20px; opacity: 0.2;"></i>
+                <div style="font-size: 3.5rem; color: var(--accent); font-family: var(--font-serif); line-height: 1;">
+                    1,428</div>
+                <div
+                    style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-top: 0.5rem; color: var(--text-muted);">
+                    Independent AI Evaluations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATA VIZ: THE RANKINGS -->
+    <section class="container reveal-up">
+        <div class="chart-section">
+            <span class="kicker text-center mb-3">Aggregate Intelligence Matrix</span>
+            <h3 class="serif text-center mb-5" style="font-size: 2.5rem;">The Structural Fidelity Leaderboard</h3>
+            <p class="text-center mx-auto mb-5" style="max-width: 700px; font-size: 1.1rem;">A macro view of median
+                system performance across 17 distinct architectural floor plans. Scores calculate strict adherence to 2D
+                geometric constraints.</p>
+
+            <!-- Bars -->
+            <div class="bar-rows-container">
+                <div class="bar-row">
+                    <div class="bar-label">Flux.2 Pro (Black Forest)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" data-percent="92"></div>
+                    </div>
+                    <div class="bar-score">92.4</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Flux.2 Max (Black Forest)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" data-percent="88"></div>
+                    </div>
+                    <div class="bar-score">88.1</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Riverflow V2 Std (Sourceful)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" data-percent="84"></div>
+                    </div>
+                    <div class="bar-score">84.7</div>
+                </div>
+                <div class="bar-row" style="opacity: 0.6;">
+                    <div class="bar-label">Gemini 2.5 Flash (Google)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" data-percent="62" style="background: #555;"></div>
+                    </div>
+                    <div class="bar-score" style="color: #999;">62.3</div>
+                </div>
+                <div class="bar-row" style="opacity: 0.6;">
+                    <div class="bar-label">GPT-5 Image (OpenAI)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" data-percent="51" style="background: #555;"></div>
+                    </div>
+                    <div class="bar-score" style="color: #999;">51.8</div>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-3 border-top" style="border-color: rgba(255,255,255,0.1) !important;">
+                <span
+                    style="font-size: 0.8rem; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase;">Based
+                    on proprietary visual evaluator ensemble metrics</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHODOLOGY CARDS -->
+    <section class="article-block container reveal-up">
+        <span class="kicker text-center">Rigid Taxonomy</span>
+        <h2 class="serif text-center">The Four Pillars of Evaluation</h2>
+        <p class="text-center mx-auto" style="max-width: 700px;">To remove aesthetic bias, our autonomous ensemble
+            models graded generations against strictly non-forgiving structural laws.</p>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <i class="bi bi-bounding-box-circles"></i>
+                <h3 class="serif mb-3">I. 3D Fundamentals</h3>
+                <p style="font-size: 1rem; margin:0;">The hull. Does the generated outer boundary match the ratio and
+                    dimensional footprints of the raw 2D schematic? Are major structural voids properly accounted for?
+                </p>
+            </div>
+            <div class="metric-card">
+                <i class="bi bi-grid-3x3-gap"></i>
+                <h3 class="serif mb-3">II. Geometric Accuracy</h3>
+                <p style="font-size: 1rem; margin:0;">The core failure point. Does the engine tear down load-bearing
+                    dividers to create open spaces? Does it construct phantom walls blocking explicit door-swings?</p>
+            </div>
+            <div class="metric-card">
+                <i class="bi bi-lamp"></i>
+                <h3 class="serif mb-3">III. Interior Elements</h3>
+                <p style="font-size: 1rem; margin:0;">The mapping translation. If the blueprint marks a 2x1 rectangle in
+                    the bathroom, does the engine render a bathtub, or does it incorrectly guess a dining table?</p>
+            </div>
+            <div class="metric-card">
+                <i class="bi bi-eye"></i>
+                <h3 class="serif mb-3">IV. Visual Clarity</h3>
+                <p style="font-size: 1rem; margin:0;">Instructional adherence. We prompted strictly for <em>isometric,
+                        low-poly, game-engine styling</em>. Did the model obey, or did it forcefully default to
+                    architectural photorealism?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCROLLYTELLING DEEP DIVE -->
+    <section class="container" style="position: relative;">
+        <div class="scrolly-container">
+
+            <div class="scrolly-text">
+
+                <div class="scrolly-step step-trigger" data-img="#img-blueprint">
+                    <span class="kicker">Case Study: Layout 10</span>
+                    <h3 class="serif">The Raw Vector Input.</h3>
+                    <p>We begin with a standard residential layout. Notice the explicit demarcations: clear door swing
+                        radii, distinct kitchen islands, and tightly defined lavatory boundaries. For a human architect,
+                        the 3D extrusion logic is instantaneous. For an AI, it is a highly complex matrix of pixel
+                        relativity.</p>
+                </div>
+
+                <div class="scrolly-step step-trigger" data-img="#img-success">
+                    <span class="kicker">The Structural Champion</span>
+                    <h3 class="serif">Flux.2 Pro: Exacting Geometry.</h3>
+                    <p>The resulting synthesis from Flux.2 Pro is nothing short of mathematical precision. It correctly
+                        parses the low-poly isometric directive.</p>
+                    <p>More importantly, it reads the <span class="highlight-text">spatial truth</span>. It identifies
+                        the kitchen counter accurately without hallucinating random cabinetry. It erects walls precisely
+                        where lines dictate, and leaves walkways perfectly unobstructed. It builds a usable simulation.
+                    </p>
+                </div>
+
+                <div class="scrolly-step step-trigger" data-img="#img-fail">
+                    <span class="kicker">The Aesthetic Hallucinator</span>
+                    <h3 class="serif">GPT-5: The Illusion of Accuracy.</h3>
+                    <p>When evaluated blindly, OpenAI's engine generated a beautiful, highly detailed photorealistic
+                        render. It looks like a high-end real estate brochure.</p>
+                    <p>But structurally, <span class="highlight-text">it is a total failure.</span> It ignored the
+                        stylistic prompt entirely. It tore down walls to create false depth. It merged the bathroom
+                        framing into a random hallway, and hallucinated furniture placements that actively contradict
+                        the 2D blueprint. It painted a dream, not a schematic.</p>
+                </div>
+
+            </div>
+
+            <div class="scrolly-visual">
+                <img src="input/floor_plan10.png" id="img-blueprint" class="active" alt="Original Blueprint">
+                <img src="batch_outputs/floor_plan10_black-forest-labs_flux.2-pro.png" id="img-success"
+                    alt="Flux output">
+                <img src="batch_outputs/floor_plan10_openai_gpt-5-image.png" id="img-fail" alt="GPT output">
+
+                <div class="visual-caption" id="caption-text">Original 2D input source</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BIG QUOTE -->
+    <section class="quote-block reveal-up">
+        <h2 class="serif huge-quote">"We are moving past the era of AI that merely draws pretty pictures, and entering
+            the era of AI that actively constructs physics-bound environments."</h2>
+    </section>
+
+    <!-- SECOND WIPER COMPARISON -->
+    <section class="article-block container reveal-up" style="padding-top: 4rem;">
+        <div class="text-center mx-auto" style="max-width: 800px;">
+            <span class="kicker">Interactive Proof</span>
+            <h2 class="serif">The Micro-Fidelity Check</h2>
+            <p>Drag the partition below to cross-examine <strong>Layout 7</strong> against Flux.2's generation. Notice
+                how the engine identifies subtle wall recessions, accurately mapping the closet space adjacent to the
+                bedroom.</p>
+        </div>
+
+        <div class="comparison-wrapper" id="compWrapper2">
+            <div class="comp-label label-right d-none d-md-block">3D Extrusion (Flux)</div>
+            <img src="batch_outputs/floor_plan7_black-forest-labs_flux.2-pro.png" class="comp-img" alt="3D Output">
+
+            <div class="comp-overlay" id="compOverlay2">
+                <div class="comp-label label-left d-none d-md-block text-dark fw-bold">2D Vector Constraint</div>
+                <img src="input/floor_plan7.jpg" id="compInnerImg2" alt="2D Input">
+            </div>
+
+            <div class="comp-slider" id="compSlider2">
+                <i class="bi bi-arrow-left-right"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE ORBIT CONSTELLATION -->
+    <section class="constellation-section">
+        <div class="container text-center reveal-up" style="position: relative; z-index: 20;">
+            <span class="kicker">Model Constellation</span>
+            <h2 class="serif" style="font-size: 3.5rem;">One Blueprint. Endless Divergence.</h2>
+            <p class="mx-auto" style="max-width: 800px;">When we feed the exact same set of 2D lines into the world's
+                most capable models, the translations fracture. Some models see walls; others imagine entire new wings
+                of the house. Observe the scatter generated from a single central source truth.</p>
+        </div>
+
+        <div class="orbit-container" id="orbitContainer">
+            <!-- Center Truth -->
+            <div class="orbit-center">
+                <img src="input/floor_plan2.png" alt="Center Blueprint">
+                <div class="badge-label">The 2D Truth</div>
+            </div>
+
+            <!-- Orbiting Nodes (3D Outputs) -->
+            <div class="orbit-node node-orbit" data-angle="0">
+                <img src="batch_outputs/floor_plan2_black-forest-labs_flux.2-pro.png" alt="Flux Pro">
+                <div class="orbit-node-label"><strong>Flux.2 Pro</strong><br>Structurally Accurate</div>
+            </div>
+
+            <div class="orbit-node node-orbit" data-angle="60">
+                <img src="batch_outputs/floor_plan2_openai_gpt-5-image.png" alt="GPT-5">
+                <div class="orbit-node-label"><strong>GPT-5 Image</strong><br>Aesthetic Drift</div>
+            </div>
+
+            <div class="orbit-node node-orbit" data-angle="120">
+                <img src="batch_outputs/floor_plan2_google_gemini-2.5-flash-image.png" alt="Gemini Flash">
+                <div class="orbit-node-label"><strong>Gemini 2.5 Flash</strong><br>Geometry Failure</div>
+            </div>
+
+            <div class="orbit-node node-orbit" data-angle="180">
+                <img src="batch_outputs/floor_plan2_bytedance-seed_seedream-4.5.png" alt="Seedream">
+                <div class="orbit-node-label"><strong>Seedream 4.5</strong><br>Hallucinated Elements</div>
+            </div>
+
+            <div class="orbit-node node-orbit" data-angle="240">
+                <img src="batch_outputs/floor_plan2_black-forest-labs_flux.2-max.png" alt="Flux Max">
+                <div class="orbit-node-label"><strong>Flux.2 Max</strong><br>Highly Accurate</div>
+            </div>
+
+            <div class="orbit-node node-orbit" data-angle="300">
+                <img src="batch_outputs/floor_plan2_sourceful_riverflow-v2-standard-preview.png" alt="Riverflow">
+                <div class="orbit-node-label"><strong>Riverflow V2</strong><br>Strict Adherence</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPANDED VISUAL GALLERY -->
+    <section class="gallery-section border-top">
+        <div class="container reveal-up text-center"
+            style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <span class="kicker">Anatomy of Generations</span>
+            <h2 class="serif" style="font-size: 3.5rem;">Visual Evidence Gallery</h2>
+            <p class="mx-auto" style="max-width: 700px; text-align: center;">A curation of significant generational
+                artifacts identified
+                during our evaluation phase. Click any image to witness the friction between human geometry and machine
+                imagination.</p>
+        </div>
+
+        <div class="container masonry-grid reveal-up">
+
+            <div class="masonry-item">
+                <img src="batch_outputs/floor_plan4_black-forest-labs_flux.2-flex.png" alt="Gallery Image 1">
+                <div class="masonry-caption"><strong>Flux.2 Flex / Floor Plan 4</strong><br>Demonstrated excellent
+                    handling of diagonal hallway walls and strict 90-degree fenestrations.</div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="batch_outputs/floor_plan8_openai_gpt-5-image.png" alt="Gallery Image 2">
+                <div class="masonry-caption"><strong>GPT-5 Image / Floor Plan 8</strong><br>Rendered exquisite lighting
+                    models, but entirely hallucinated a secondary bathroom walling system.</div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="batch_outputs/floor_plan15_sourceful_riverflow-v2-max-preview.png" alt="Gallery Image 3">
+                <div class="masonry-caption"><strong>Riverflow V2 Max / Floor Plan 15</strong><br>A near-flawless 1:1
+                    isometric constraint mapping over complex multi-room apartment logistics.</div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="batch_outputs/floor_plan19_google_gemini-3-pro-image-preview.png" alt="Gallery Image 4">
+                <div class="masonry-caption"><strong>Gemini 3 Pro / Floor Plan 19</strong><br>Lost track of the Z-axis,
+                    resulting in a flattened, impossible geometry that fails spatial checks.</div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="batch_outputs/floor_plan13_black-forest-labs_flux.2-klein-4b.png" alt="Gallery Image 5">
+                <div class="masonry-caption"><strong>Flux.2 Klein 4B / Floor Plan 13</strong><br>Successfully mapped
+                    interior placement, ensuring the kitchen island maintained correct relational distances.</div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="batch_outputs/floor_plan16_openai_gpt-5-image-mini.png" alt="Gallery Image 6">
+                <div class="masonry-caption"><strong>GPT-5 Mini / Floor Plan 16</strong><br>A stylistic masterpiece that
+                    utterly failed to obey structural boundaries, erasing load-bearing corners.</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 class="serif"
+                style="font-size: clamp(3rem, 6vw, 4.5rem); margin-bottom: 2rem; color: #fff; text-align: center;">
+                Examine the
+                Raw Evidence.</h2>
+            <p class="mx-auto" style="max-width: 700px; font-size: 1.4rem; text-align: center;">The narrative is written
+                by data. Access our
+                localized data-lake instance to cross-correlate 14 models against 17 frameworks, reading the granular
+                breakdown notes from our AI evaluation panel.</p>
+
+            <a href="index.html" class="btn-massive">
+                Initialize Dashboard Interface <i class="bi bi-box-arrow-in-right ms-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="lightbox">
+        <div class="lightbox-close">&times;</div>
+        <img src="" alt="Expanded Image" id="lightbox-img">
     </div>
 
-    <article class="article-body">
-        <p>The translation of two-dimensional blueprints into three-dimensional space is one of the foundational skills
-            of architectural training. It requires an innate understanding of spatial logic: recognizing that a thin
-            double-line represents a window, that an arc indicates a door's swing, and that adjacent rooms must share a
-            structurally sound wall.</p>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-        <p>For computer vision, this has historically been an impossible task without explicit, rigid programming. But
-            with the advent of multimodal AI models capable of processing imagery with the semantic reasoning of large
-            language models, a new question emerged: Can an AI look at a flat floor plan and instantly visualize the
-            entire physical structure?</p>
+        // Utility: Reveal on scroll
+        gsap.utils.toArray('.reveal-up').forEach(elem => {
+            gsap.to(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 80%",
+                },
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: "power3.out"
+            });
+        });
 
-        <p>To find out, we built a comprehensive benchmark pipeline, pitting 14 state-of-the-art vision models against a
-            corpus of architectural schematics. We weren't just looking for pretty pictures; we were looking for
-            structural truth.</p>
+        // Hero Blur out
+        gsap.to("#heroBg", {
+            scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 },
+            scale: 1, filter: "blur(0px) brightness(1)", opacity: 1
+        });
+        gsap.to(".hero-content", {
+            scrollTrigger: { trigger: ".hero", start: "top top", end: "center top", scrub: 1 },
+            y: -150, opacity: 0
+        });
 
-        <h2>The Methodology: Forcing Strict Geometry</h2>
+        // Bar Chart Animation
+        ScrollTrigger.create({
+            trigger: ".chart-section",
+            start: "top 75%",
+            onEnter: () => {
+                gsap.utils.toArray('.bar-fill').forEach((bar, i) => {
+                    let pct = bar.getAttribute('data-percent');
+                    gsap.to(bar, { width: pct + '%', duration: 1.5, ease: "power4.out", delay: i * 0.15 });
+                });
+                gsap.utils.toArray('.bar-score').forEach((score, i) => {
+                    gsap.to(score, { opacity: 1, x: 10, duration: 1, ease: "power2.out", delay: i * 0.15 + 0.5 });
+                });
+            }
+        });
 
-        <p>The prompt design was the crucial first step. If left entirely to their own devices, modern image generators
-            tend to hallucinate lavish environments, prioritizing aesthetic realism over spatial accuracy. They might
-            invent a grand piano where a closet should be, or tear down a load-bearing wall to create a trendy
-            open-concept living room.</p>
+        // Scrollytelling NYT Style
+        const steps = gsap.utils.toArray('.step-trigger');
+        const captions = {
+            "#img-blueprint": "Standard PDF Architect floor plan vector.",
+            "#img-success": "Flux.2 Generation: High spatial accuracy and stylistic compliance.",
+            "#img-fail": "GPT-5 Generation: High aesthetics, but severe structural hallucination."
+        };
 
-        <p>We wrote a notoriously rigid prompt targeting a "game-engine style" aesthetic: low-poly, flat shading,
-            isometric camera angles, and cutaway roofs. The directive was simple but brutal: <em>"Preserve exact layout,
-                wall placement, doors, and windows. Do NOT redesign or reinterpret."</em></p>
+        steps.forEach((step, i) => {
+            ScrollTrigger.create({
+                trigger: step,
+                start: "top 50%",
+                end: "bottom 50%",
+                onEnter: () => activateStep(step),
+                onEnterBack: () => activateStep(step)
+            });
+        });
 
-        <div class="methodology-box">
-            <h4>The Pipeline Architecture</h4>
-            <p>Our automation framework, <code>batch_generate_3d.py</code>, orchestrates the entire process
-                asynchronously:</p>
-            <ol>
-                <li><strong>Ingestion:</strong> 17 distinct 2D floor plans (ranging from simple studios to complex
-                    multi-bedroom apartments) are encoded into base64 visual payloads.</li>
-                <li><strong>Generation:</strong> The payloads, alongside our strict stylistic prompt, are dispatched via
-                    the OpenRouter multimodal API to 14 different competitor models simultaneously.</li>
-                <li><strong>Evaluation:</strong> Rather than relying on human scoring, we utilized a panel of
-                    specialized LLMs (like GPT-4o and Claude 3.5 Sonnet) acting as "strict architectural verification
-                    engines." These evaluator LLMs were fed the original 2D image side-by-side with the new 3D generated
-                    image and tasked with scoring the outputs across four heavily weighted criteria.</li>
-            </ol>
-        </div>
+        function activateStep(step) {
+            steps.forEach(s => s.classList.remove('active'));
+            step.classList.add('active');
 
-        <h2>How the Models Were Scored</h2>
+            // Switch images
+            const targetImg = step.getAttribute('data-img');
+            document.querySelectorAll('.scrolly-visual img').forEach(img => {
+                img.classList.remove('active');
+            });
+            document.querySelector(targetImg).classList.add('active');
 
-        <p>We realized quickly that a single "overall score" was inadequate. An image could look beautiful but be
-            architecturally flawed. Thus, we divided the judging rubric into four distinct pillars:</p>
+            // Update caption
+            document.getElementById('caption-text').innerText = captions[targetImg];
+        }
 
-        <table class="insight-table">
-            <thead>
-                <tr>
-                    <th>Metric</th>
-                    <th>Weight</th>
-                    <th>What the Evaluator Looked For</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Spatial Accuracy</strong></td>
-                    <td>40%</td>
-                    <td>Are all rooms present? Are they correctly proportioned relative to each other?</td>
-                </tr>
-                <tr>
-                    <td><strong>Structural Fidelity</strong></td>
-                    <td>25%</td>
-                    <td>Did the model tear down walls? Are exterior limits respected? Are doors acting as actual
-                        thoroughfares?</td>
-                </tr>
-                <tr>
-                    <td><strong>Aesthetic Quality</strong></td>
-                    <td>25%</td>
-                    <td>Did the model follow the "low-poly, flat lighting" stylistic constraint, or did it hallucinate
-                        photorealistic textures?</td>
-                </tr>
-                <tr>
-                    <td><strong>Furniture Mapping</strong></td>
-                    <td>10%</td>
-                    <td>Are major fixtures (beds, sinks, tables) placed logically according to the 2D cues?</td>
-                </tr>
-            </tbody>
-        </table>
+        // Comparison Wiper Logic
+        function setupWiper(wrapperId, overlayId, sliderId, innerImgId) {
+            const wrapper = document.getElementById(wrapperId);
+            if (!wrapper) return;
+            const overlay = document.getElementById(overlayId);
+            const slider = document.getElementById(sliderId);
+            const innerImg = document.getElementById(innerImgId);
 
-        <h2>The Results: The Great Divide</h2>
+            function setWidth() {
+                if (wrapper && innerImg) innerImg.style.width = wrapper.offsetWidth + 'px';
+            }
+            window.addEventListener('resize', setWidth);
+            setWidth();
 
-        <p>The outputs revealed a stark divide in the current landscape of AI capabilities. While almost all models
-            could generate an image that <em>looked</em> like an isometric 3D apartment, their adherence to the specific
-            2D source material varied wildly.</p>
+            let isMouseDrging = false;
 
-        <h3>The Standouts</h3>
-        <p>Models bearing the <strong>sourceful/riverflow</strong> and <strong>flux.2</strong> architectures
-            consistently demonstrated the highest structural fidelity. They treated the 2D plan not merely as
-            "inspiration," but as a strict scaffolding. Walls remained solid, room counts were exact, and spatial
-            proportions closely mirrored the source material.</p>
+            let moveHandler = (e) => {
+                if (!isMouseDrging) return;
+                let rect = wrapper.getBoundingClientRect();
+                let clientX = e.clientX || (e.touches && e.touches[0].clientX);
+                let x = clientX - rect.left;
+                let pct = (x / rect.width) * 100;
+                if (pct < 0) pct = 0; if (pct > 100) pct = 100;
+                overlay.style.width = pct + '%';
+                slider.style.left = pct + '%';
+            };
 
-    </article>
+            wrapper.addEventListener('mousedown', () => isMouseDrging = true);
+            window.addEventListener('mouseup', () => isMouseDrging = false);
+            wrapper.addEventListener('mousemove', moveHandler);
 
-    <!-- Side by Side Layout Example -->
-    <div class="comparison-grid">
-        <div class="comparison-item">
-            <span class="comparison-label">Original 2D Schematic</span>
-            <img src="input/floor_plan3.jpg" alt="Original flat floor plan schematic">
-        </div>
-        <div class="comparison-item">
-            <span class="comparison-label">Generated 3D Output (Flux.2 Pro)</span>
-            <img src="batch_outputs/floor_plan3_black-forest-labs_flux.2-pro.png" alt="Generated 3D render">
-        </div>
-    </div>
+            wrapper.addEventListener('touchstart', () => isMouseDrging = true);
+            window.addEventListener('touchend', () => isMouseDrging = false);
+            wrapper.addEventListener('touchmove', moveHandler);
 
-    <article class="article-body">
-        <p>In the example above, notice how the model correctly identifies the complex corner geometry of the living
-            room, understands the separation of the bathroom, and places the bed exactly where indicated by the subtle
-            geometric shapes on the plan.</p>
+            // initial center
+            overlay.style.width = '50%';
+            slider.style.left = '50%';
+        }
 
-        <blockquote>"The models that fail don't fail at drawing; they fail at spatial continuity. They build walls that
-            lead nowhere and doors that open into voids."</blockquote>
+        setupWiper('compWrapper2', 'compOverlay2', 'compSlider2', 'compInnerImg2');
 
-        <h3>The Hallucinators</h3>
-        <p>Conversely, many models struggled deeply with the <em>"Do not redesign"</em> instruction. The automated
-            evaluator notes frequently flagged issues like:</p>
-        <ul>
-            <li><em>"Wall thickness is inconsistent around the kitchen."</em></li>
-            <li><em>"Adjacency relationships are mostly correct but some rooms are missing, and a wardrobe has been
-                    hallucinated."</em></li>
-            <li><em>"The isometric camera angle is slightly misaligned, flattening the perspective."</em></li>
-        </ul>
-        <p>These models treated the 2D image as a mood board. If they saw a rectangle in a bedroom, they might render it
-            as a bed, a rug, or hallucinate an entirely new bathroom, disregarding structural logic in favor of creating
-            a "complete" looking scene.</p>
+        // Orbit Constellation Positioning Setup
+        const orbitNodes = document.querySelectorAll('.node-orbit');
+        const container = document.getElementById('orbitContainer');
 
-        <h2>Conclusion</h2>
-        <p>The ability of AI to translate 2D spatial concepts into 3D environments is no longer science fiction. The
-            top-performing models in our benchmark proved that the connective tissue between flat schematics and
-            volumetric space can be inferred algorithmically.</p>
+        function positionOrbitNodes() {
+            if (window.innerWidth < 992) return; // stack on mobile
 
-        <p>However, the industry is not at the point of "one-click architecture." The heavy reliance on robust evaluator
-            rubrics highlights how easily these models can drift off-course, prioritizing aesthetic completion over
-            structural safety.</p>
+            const radius = 350; // Distance from center
+            orbitNodes.forEach(node => {
+                const angleDeg = parseFloat(node.getAttribute('data-angle'));
+                const angleRad = angleDeg * (Math.PI / 180);
 
-        <p>To explore the raw data, view the matrix comparisons, and read the granular judges' notes on every single
-            generated image, we have released the full interactive dashboard.</p>
+                // Calculate position relative to center
+                const x = radius * Math.cos(angleRad);
+                const y = radius * Math.sin(angleRad);
 
-        <div class="interactive-link">
-            <a href="index.html">Explore the Interactive Benchmark Data</a>
-        </div>
-    </article>
+                // Set initial position transforms
+                gsap.set(node, {
+                    x: x,
+                    y: y,
+                    opacity: 0,
+                    scale: 0.5
+                });
+            });
+        }
 
+        // Wait for images to load before positioning
+        window.addEventListener('load', () => {
+            positionOrbitNodes();
+        });
+        window.addEventListener('resize', positionOrbitNodes);
+
+        // Animate Orbit Constellation on scroll
+        ScrollTrigger.create({
+            trigger: ".constellation-section",
+            start: "top 60%",
+            onEnter: () => {
+                if (window.innerWidth >= 992) {
+                    gsap.to('.node-orbit', {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 1.2,
+                        ease: "back.out(1)",
+                        stagger: 0.1
+                    });
+                }
+            }
+        });
+
+        // Hover effect for GSAP animated nodes
+        document.querySelectorAll('.node-orbit').forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                if (window.innerWidth >= 992) {
+                    gsap.to(node, { scale: 1.1, duration: 0.3, overwrite: 'auto' });
+                }
+            });
+            node.addEventListener('mouseleave', () => {
+                if (window.innerWidth >= 992) {
+                    gsap.to(node, { scale: 1, duration: 0.3, overwrite: 'auto' });
+                }
+            });
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.masonry-item img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+            }
+        });
+
+    </script>
 </body>
 
 </html>
