@@ -106,7 +106,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const attachSummaryClick = (sel, field) => {
             sel.on("click", (e, d) => {
                 e.stopPropagation(); // prevent row click from firing also
-                openModelModal(d.model);
+                if (['fundamentals', 'geometry', 'interior', 'clarity'].includes(field)) {
+                    const metricKeys = {
+                        'fundamentals': '3d_conversion_fundamentals',
+                        'geometry': 'geometric_accuracy',
+                        'interior': 'interior_elements',
+                        'clarity': 'visual_clarity'
+                    };
+                    openModelModal(d.model, null, metricKeys[field]);
+                } else {
+                    openModelModal(d.model);
+                }
             }).style("cursor", "pointer");
         };
 
@@ -422,15 +432,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // ------------- 5. MODAL LOGIC -------------
     const detailModal = new bootstrap.Modal(document.getElementById('detailModal'));
 
-    function openModal(prompt, model) {
+    function openModal(prompt, model, specificEvaluator = null) {
         document.getElementById("modal-subtitle").innerText = `Prompt: ${prompt}`;
         const inputImg = "input/" + prompt;
         const body = d3.select("#modal-body-content");
         body.html(""); // clear
 
         if (model) {
-            document.getElementById("detailModalLabel").innerText = `Details: ${model}`;
+            document.getElementById("detailModalLabel").innerText = specificEvaluator ? `Details: ${shortName(model)} (Judge: ${shortName(specificEvaluator)})` : `Details: ${shortName(model)}`;
             let evals = rawData.filter(d => d.input_file === prompt && d.evaluated_model === model);
+            if (specificEvaluator) evals = evals.filter(d => d.evaluator_model === specificEvaluator);
             if (!evals.length) return;
 
             const genImg = "batch_outputs/" + evals[0].generated_file;
@@ -655,15 +666,32 @@ document.addEventListener("DOMContentLoaded", () => {
         detailModal.show();
     }
 
-    function openModelModal(model, evaluator = null) {
-        document.getElementById("detailModalLabel").innerText = `Model Performance: ${shortName(model)}`;
+    function openModelModal(model, evaluator = null, specificMetric = null) {
+        const metricNamesMap = {
+            '3d_conversion_fundamentals': '3D Fundamentals',
+            'geometric_accuracy': 'Geometric Accuracy',
+            'interior_elements': 'Interior Elements',
+            'visual_clarity': 'Visual Clarity'
+        };
+
+        let headerText = `Model Performance: ${shortName(model)}`;
+        if (specificMetric) headerText = `${metricNamesMap[specificMetric]} for ${shortName(model)}`;
+
+        document.getElementById("detailModalLabel").innerText = headerText;
         document.getElementById("modal-subtitle").innerText = evaluator ? `Filtered by Evaluator: ${shortName(evaluator)}` : `Aggregate over all Evaluators`;
         const body = d3.select("#modal-body-content");
         body.html("");
 
+        let alertHtml = "";
+        if (specificMetric) {
+            alertHtml = `<i class="bi bi-bullseye me-2"></i> <strong>Only showing scores and AI notes for ${metricNamesMap[specificMetric]}.</strong> Click any image to open the full resolution comparison.`;
+        } else {
+            alertHtml = `<i class="bi bi-stack me-2"></i> <strong>Performance breakdown of ${shortName(model)} across all evaluated floor plans.</strong> Click any image to open the full resolution comparison.`;
+        }
+
         let html = `
             <div class="alert py-2 mb-4 shadow-sm border" style="font-size: 0.9rem; background-color: #d1ecf1; border-color: #bee5eb; color: #0c5460;">
-                <i class="bi bi-stack me-2"></i> <strong>Performance breakdown of ${shortName(model)} across all evaluated floor plans.</strong> Click any image to open the full resolution comparison.
+                ${alertHtml}
             </div>
             <div class="row g-3">
         `;
@@ -677,7 +705,15 @@ document.addEventListener("DOMContentLoaded", () => {
             return { prompt: p, avg: avg, evals: fpEvals };
         }).filter(fpa => fpa.evals.length > 0);
 
-        fpAverages.sort((a, b) => b.avg - a.avg);
+        // Sort descending by relevant metric or total average
+        fpAverages.sort((a, b) => {
+            if (specificMetric) {
+                let mAvgA = d3.mean(a.evals, d => d.scores?.[specificMetric]?.score || 0);
+                let mAvgB = d3.mean(b.evals, d => d.scores?.[specificMetric]?.score || 0);
+                return mAvgB - mAvgA;
+            }
+            return b.avg - a.avg;
+        });
 
         fpAverages.forEach((fpa, idx) => {
             let p = fpa.prompt;
@@ -699,14 +735,44 @@ document.addEventListener("DOMContentLoaded", () => {
             let avgAes = d3.mean(fpEvals, d => d.scores?.['visual_clarity']?.score || 0);
 
             let badgeColor = getBadgeColor(avgTotal, 100);
+            let badgeText = avgTotal.toFixed(1);
             let badgeTextColor = badgeColor === '#ffc107' ? '#000' : '#fff';
+
+            let metricSection = "";
+            let buttonText = "View Detailed Breakdowns";
+            if (specificMetric) {
+                let mAvg = d3.mean(fpEvals, d => d.scores?.[specificMetric]?.score || 0);
+                let mMax = specificMetric === '3d_conversion_fundamentals' ? 35 : specificMetric === 'geometric_accuracy' ? 30 : specificMetric === 'interior_elements' ? 15 : 20;
+                badgeColor = getBadgeColor(mAvg, mMax);
+                badgeTextColor = badgeColor === '#ffc107' ? '#000' : '#fff';
+                badgeText = mAvg.toFixed(1) + '/' + mMax;
+                buttonText = "View All Scores";
+
+                let mainEval = fpEvals[0];
+                let note = mainEval && mainEval.scores && mainEval.scores[specificMetric] ? mainEval.scores[specificMetric].notes : "N/A";
+                metricSection = `
+                    <div class="text-start small mt-auto pt-2 border-top">
+                        <div class="fw-bold mb-1"><i class="bi bi-chat-right-quote-fill text-secondary me-1"></i> Evaluator Notes:</div>
+                        <div class="text-muted fst-italic" style="font-size: 0.8rem; line-height: 1.4;">"${note}"</div>
+                    </div>
+                `;
+            } else {
+                metricSection = `
+                    <div class="text-start small mt-auto">
+                        <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Fund (35):</span> <strong class="text-dark">${avgSp.toFixed(1)}</strong></div>
+                        <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Geom (30):</span> <strong class="text-dark">${avgStr.toFixed(1)}</strong></div>
+                        <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Int (15):</span> <strong class="text-dark">${avgFur.toFixed(1)}</strong></div>
+                        <div class="mb-1 d-flex justify-content-between"><span>Clar (20):</span> <strong class="text-dark">${avgAes.toFixed(1)}</strong></div>
+                    </div>
+                `;
+            }
 
             html += `
                 <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch">
                     <div class="card shadow-sm w-100 border-0 shadow">
                         <div class="card-header bg-white d-flex justify-content-between align-items-center border-bottom pb-2 pt-3" style="cursor: pointer;" onclick="window.openModal('${p}', '${model}')">
                             <strong class="fs-6 text-dark text-truncate" style="max-width: 80%;"><i class="bi bi-file-earmark-image me-2 text-primary"></i>${shortName(p)}</strong>
-                            <span class="badge shadow-sm" style="background-color: ${badgeColor}; color: ${badgeTextColor}; font-size: 0.9rem;">${avgTotal.toFixed(1)}</span>
+                            <span class="badge shadow-sm" style="background-color: ${badgeColor}; color: ${badgeTextColor}; font-size: 0.9rem;">${badgeText}</span>
                         </div>
                         <div class="card-body text-center d-flex flex-column pt-3 px-3">
                             <div class="d-flex justify-content-center mb-3">
@@ -718,13 +784,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                             </div>
                             
-                            <div class="text-start small mt-auto">
-                                <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Fund (35):</span> <strong class="text-dark">${avgSp.toFixed(1)}</strong></div>
-                                <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Geom (30):</span> <strong class="text-dark">${avgStr.toFixed(1)}</strong></div>
-                                <div class="mb-1 d-flex justify-content-between border-bottom pb-1"><span>Int (15):</span> <strong class="text-dark">${avgFur.toFixed(1)}</strong></div>
-                                <div class="mb-1 d-flex justify-content-between"><span>Clar (20):</span> <strong class="text-dark">${avgAes.toFixed(1)}</strong></div>
-                            </div>
-                            <button class="btn btn-sm btn-outline-primary mt-3 border" onclick="window.openModal('${p}', '${model}')">View Detailed Breakdowns</button>
+                            ${metricSection}
+                            <button class="btn btn-sm btn-outline-primary mt-3 border" onclick="window.openModal('${p}', '${model}')">${buttonText}</button>
                         </div>
                     </div>
                 </div>
@@ -779,7 +840,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .enter()
             .append("tr")
             .attr("style", "cursor:pointer;")
-            .on("click", (e, d) => openModal(d.input_file, d.evaluated_model));
+            .on("click", (e, d) => openModal(d.input_file, d.evaluated_model, d.evaluator_model));
 
         rows.append("td").html(d => shortName(d.input_file)).attr("class", "fw-bold");
         rows.append("td").html(d => shortName(d.evaluated_model));
